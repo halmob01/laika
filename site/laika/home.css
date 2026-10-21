@@ -119,15 +119,16 @@ button{font:inherit;color:inherit}
 
 .archivio-corpo{grid-column:4/13;display:grid;gap:48px}
 .archivio-intro{font-size:1.12rem;max-width:62ch}
-.registro{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-left:1px solid var(--line)}
+.registro{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:48px 0;border-left:1px solid var(--line)}
+.primo{grid-column:span 2}
 .voce-registro{display:grid;gap:10px;align-content:start;padding:0 24px 32px;border-right:1px solid var(--line)}
-.numero{font-family:var(--display);font-size:clamp(96px,9vw,150px);line-height:.8;color:var(--paper);padding:28px 0 22px;margin:0 -24px 6px;padding-left:24px;background:var(--red);clip-path:polygon(0 0,100% 0,100% 72%,0 100%)}
+.numero{font-family:var(--display);font-size:clamp(80px,7.5vw,128px);line-height:.8;color:var(--paper);padding:28px 0 22px;margin:0 -24px 6px;padding-left:24px;background:var(--red);clip-path:polygon(0 0,100% 0,100% 72%,0 100%)}
 .periodo{color:var(--mute)}
 .voce-registro h3{font-size:1.45rem;line-height:1.15}
 .timbro{justify-self:start;margin-top:10px;color:var(--red);border:1.5px solid var(--red);padding:.2rem .5rem;text-transform:uppercase;transform:rotate(-2deg)}
 .chiusa .numero{color:var(--paper);background:var(--concrete)}
 .chiusa h3,.chiusa>p:not(.periodo){color:var(--mute)}
-.chiusa .timbro{color:var(--ink);border-color:var(--ink)}
+.chiusa .timbro{color:var(--ink);border-color:var(--ink);font-size:.82em}
 
 .procedura{background:var(--paper2)}
 .articoli{grid-column:4/13;display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid var(--line)}
@@ -141,6 +142,9 @@ button{font:inherit;color:inherit}
 .piede a{color:var(--ink);font-weight:700}
 
 /* Tablet e telefono: il panorama si allarga e si centra sull'azione di ciascuna data */
+@media (max-width:1240px){
+ .registro{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 @media (max-width:980px){
  /* Telefono e tablet: il piano rosso diventa un blocco con il taglio in diagonale sotto il titolo. */
  .hero-testa{display:block;min-height:0;padding-bottom:0}
@@ -165,7 +169,8 @@ button{font:inherit;color:inherit}
  .protocollo-testata{display:none}
  .hero-lato{grid-template-columns:1fr}
  .hero-lato .denominazione{grid-row:auto}
- .registro{grid-template-columns:1fr;border-left:0}
+ .registro{grid-template-columns:1fr;border-left:0;row-gap:0}
+ .primo{grid-column:auto}
  .voce-registro{border-right:0;padding:0 0 36px}
  .numero{margin:0 0 6px;padding-left:16px}
  .articoli{grid-template-columns:1fr;border-left:0}

@@ -1,6 +1,6 @@
 # Handoff P1 — collegamento del prodotto al motore
 
-Data: 20 ottobre 2026. Fase limitata a P1 di [INCARICHI-LAIKA](INCARICHI-LAIKA.md), secondo [PIANO-LAIKA](PIANO-LAIKA.md).
+Data: 20 ottobre 2026. Fase limitata a P1 di [INCARICHI-LAIKA](../INCARICHI-LAIKA.md), secondo [PIANO-LAIKA](../PIANO-LAIKA.md).
 
 ## Fase / PR / base SHA / commit verificato
 
@@ -21,7 +21,7 @@ La visita alla home legge i progressi attraverso la ricostruzione del ledger del
 - `src/core/schema.js`, `src/shell/app.js`: `context` opzionale (`documented`, `simulation`, `source`, `assessment`) e cartiglio testuale con data/luogo facoltativi. Nessun effetto su punteggi, transizioni o ledger.
 - `src/storage/index.js`: `readProgress(game, storage)`, riuso di `load`/`restore` e replay, senza scritture o parser duplicati.
 - `site/laika/`: home, tema e lettura dello stato; nessun asset storico nel core.
-- `games/laika/`: sorgenti, indice, banche domande vuote, sedi degli asset, provenienza editoriale e manifest generato. Vedere [istruzioni authoring](../games/laika/README.md).
+- `games/laika/`: sorgenti, indice, banche domande vuote, sedi degli asset, provenienza editoriale e manifest generato. Vedere [istruzioni authoring](../../games/laika/README.md).
 - `scripts/build-laika.js`, `package.json`: `npm run build:laika`, assemblaggio deterministico e validazione del kit prima della scrittura. ID globali dei quesiti e degli episodi univoci; riferimenti risolti; note riservate `editorial` escluse ricorsivamente; provenienza runtime preservata.
 - `tests/p1.test.js`, `tests/browser-p1.cjs`, bootstrap dei test browser: regressioni mirate e ingresso del player aggiornato.
 
@@ -58,9 +58,9 @@ Preview locale riproducibile: `npm run serve`, poi `http://localhost:4173/`; pla
 
 Screenshot del codice consegnato (home Chromium, player WebKit dopo la correzione finale):
 
-- [Home 390×844, primo accesso](evidence/p1/p1-home-mobile.png).
-- [Home 1440×900, con prova riprendibile](evidence/p1/p1-home-desktop.png).
-- [Player tecnico 390×844, posa finale](evidence/p1/p1-player-mobile.png).
+- [Home 390×844, primo accesso](../evidence/p1/p1-home-mobile.png).
+- [Home 1440×900, con prova riprendibile](../evidence/p1/p1-home-desktop.png).
+- [Player tecnico 390×844, posa finale](../evidence/p1/p1-player-mobile.png).
 
 La regressione preesistente usa anche 320/1280 px, il contratto browser 360 px. Nessuna nuova animazione in P1; non si dichiara una prova artistica P2/P3. Non sono stati prodotti video di figure o scene nuove, perché qui non ne sono state implementate.
 

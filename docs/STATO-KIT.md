@@ -1,5 +1,7 @@
 # Stato del kit — aggiornamento P1, 20 ottobre 2026
 
+> **21 ottobre 2026, sera.** Il percorso ha un piano generale in sette atti: [PIANO-ATTI-LAIKA](PIANO-ATTI-LAIKA.md). Le fasi in [PIANO-LAIKA](PIANO-LAIKA.md) §4 sono riallineate: la prossima unità da costruire è I.1 (ex A0.1). Documenti superati in [archivio](archivio/README.md).
+
 > **21 ottobre 2026, separazione.** Build del hero reso generico: `scripts/build-home.js [site/<progetto>]` legge `site/<progetto>/hero.config.json` (scene, tema, uscita); un test impedisce di riscrivere nomi di scene o temi nel suo codice. Tema predefinito della bottega (`componiScene`, `npm run scena`) da `laika` a `neutro`. Documentati i livelli in `docs/CREARE-UN-GIOCO.md` («Dove sta ogni cosa», «Una home per un nuovo progetto») e la regola di separazione in `AGENTS.md`.
 
 > **21 ottobre 2026, hero costruttivista.** Terza revisione dell'utente: illustrazioni confermate senza modifiche; impaginazione in chiave costruttivista-editoriale. Titolo a fasce sfalsate (nera, contorno, rossa), piano rosso in diagonale con la denominazione in verticale lungo il bordo, occhiello d'edizione, disco rosso nel cielo che cambia posto a ogni data, linee di costruzione; data attiva come blocco rosso; circolare su fasce alternate; numeri dei fascicoli in blocchi tagliati. Contratto P1 e id invariati.
@@ -20,11 +22,11 @@ Verifiche locali: 77/77 test Node; suite browser Chromium completa, con il nuovo
 
 Aggiornamento 21/10/2026: rimosso `browser-original-studies` (instabile, ridondante con `laika-originals.test.js`). Suite Chromium locale completa: exit 0. La home approvata (commit 8d54a78, ce9410e, 69d8a91) era rimasta fuori da `main` perché la PR #19 era stata unita alla revisione precedente; portata in `main` con una nuova PR.
 
-P1 collega home e player (`play.html`), routing legacy, presentazione opzionale, contesto degli episodi e riepilogo dei progressi senza scritture. Aggiunti build deterministico e scheletro LAIKA interno con due atti tecnici: nessun contenuto storico finito. **55/55 test Node e suite locali Chromium/WebKit superati**; limiti, commit, review e immagini in [HANDOFF-P1](HANDOFF-P1.md). Nessun deploy o merge della PR P1.
+P1 collega home e player (`play.html`), routing legacy, presentazione opzionale, contesto degli episodi e riepilogo dei progressi senza scritture. Aggiunti build deterministico e scheletro LAIKA interno con due atti tecnici: nessun contenuto storico finito. **55/55 test Node e suite locali Chromium/WebKit superati**; limiti, commit, review e immagini in [HANDOFF-P1](archivio/HANDOFF-P1.md). Nessun deploy o merge della PR P1.
 
 ## Baseline precedente P0 — 19 ottobre 2026
 
-Base verificata: `main` a **eb6ab8326045add19606e85c1f707ecba6407afa**, dopo i merge #1–#6. Evidenze, comandi e limiti in [P0-BASELINE](P0-BASELINE.md); storico nel [REPORT-TEST](REPORT-TEST.md).
+Base verificata: `main` a **eb6ab8326045add19606e85c1f707ecba6407afa**, dopo i merge #1–#6. Evidenze, comandi e limiti in [P0-BASELINE](archivio/P0-BASELINE.md); storico nel [REPORT-TEST](REPORT-TEST.md).
 
 ## Implementato alla baseline P0
 

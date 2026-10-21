@@ -2,11 +2,11 @@
 
 > **Aggiornamento 20 ottobre 2026.** I disegni utilizzabili nelle scene sono ora registrati in [bottega/catalogo.json](../bottega/catalogo.json) con stato, epoca d'uso e fonte; questo inventario resta il registro di provenienza dei materiali originali e dei prototipi. I prototipi elencati qui non sono stati modificati.
 
-Baseline: `eb6ab8326045add19606e85c1f707ecba6407afa`, 19 ottobre 2026, dopo i merge #4, #5 e #6. Inventario di authoring, non approvazione artistica o storica. Le quattro tavole WebP sono state aperte e osservate in P0; gli SVG e i cataloghi sono stati esaminati nel sorgente. Nessuna nuova sessione browser locale riuscita: evidenze CI e limiti in [P0-BASELINE](P0-BASELINE.md).
+Baseline: `eb6ab8326045add19606e85c1f707ecba6407afa`, 19 ottobre 2026, dopo i merge #4, #5 e #6. Inventario di authoring, non approvazione artistica o storica. Le quattro tavole WebP sono state aperte e osservate in P0; gli SVG e i cataloghi sono stati esaminati nel sorgente. Nessuna nuova sessione browser locale riuscita: evidenze CI e limiti in [P0-BASELINE](archivio/P0-BASELINE.md).
 
 ## Provenienza e licenze comuni
 
-I prototipi e il primo kit provengono dai materiali forniti dall'utente; la galleria Atto 0 include completamenti dell'assistente descritti in [LAIKA-ASSET-DIRECTION](LAIKA-ASSET-DIRECTION.md). Non è presente una licenza generale degli asset nel repository: la provenienza non prova un diritto di ridistribuzione. Registrare autore/licenza prima della pubblicazione. I percorsi qui sotto sono riferimenti ai sorgenti originali, che vanno conservati; le versioni di produzione nasceranno in `games/laika/assets/` durante P2. In P0 nessun file grafico è stato modificato.
+I prototipi e il primo kit provengono dai materiali forniti dall'utente; la galleria Atto 0 include completamenti dell'assistente descritti in [LAIKA-ASSET-DIRECTION](archivio/LAIKA-ASSET-DIRECTION.md). Non è presente una licenza generale degli asset nel repository: la provenienza non prova un diritto di ridistribuzione. Registrare autore/licenza prima della pubblicazione. I percorsi qui sotto sono riferimenti ai sorgenti originali, che vanno conservati; le versioni di produzione nasceranno in `games/laika/assets/` durante P2. In P0 nessun file grafico è stato modificato.
 
 ## Tavole e prototipi
 

@@ -46,3 +46,7 @@ Questa cartella è un archivio di lavoro, non un insieme di asset caricati dal p
 ## Atlante di aneddoti e frasi — 20 ottobre 2026
 
 [Originale integrale e indice di lettura](atlanti/README.md): 140 schede narrative e 17 frasi, fornite dall'utente con la PR #12. Conservato senza modifiche e registrato nel manifest; [uso nelle scene e verifiche necessarie](../../docs/ANEDDOTI-SCENE-LAIKA.md). Le note bibliografiche interne sono piste da riscontrare, non opere appena acquisite o citazioni già certificate. Nessun caricamento nel player.
+
+## Integrazione dell'atlante — 21 ottobre 2026
+
+[48 nuove schede](atlanti/LAIKA_NUOVI_ANEDDOTI_48.md) (N001–N048), fornite dall'utente: utopie prima del 1917, riti e vita nuova degli anni Venti, anni Trenta. Stesse regole d'uso dell'atlante.

@@ -97,7 +97,7 @@ Approvata dall'utente in tre revisioni (PR #19). Regole da conservare nelle modi
 6. **Procedura**: spiegazione dell'esperienza didattica con tono da comunicato amministrativo.
 7. **Pausa movimento**, `prefers-reduced-motion`, attenzione a desktop e telefono.
 
-Le interazioni del prototipo sono dimostrazioni di branding: **non** sostituiscono il gioco né costituiscono il pacchetto storico definitivo. Il riferimento per i capitoli resta [`docs/PROGETTO.md`](PROGETTO.md).
+Le interazioni del prototipo sono dimostrazioni di branding: **non** sostituiscono il gioco né costituiscono il pacchetto storico definitivo. Il riferimento per i capitoli resta [`docs/PROGETTO.md`](archivio/PROGETTO.md).
 
 ## 6. Motion design
 
@@ -177,4 +177,4 @@ Conservare `prefers-reduced-motion`, pausa e possibilità di raggiungere diretta
 
 Sono state preservate tre fonti indipendenti: il [primo kit da 20 simboli](../prototypes/laika-kit/kit-forme-laika.html) per architetture, mezzi e segni, la [home v2](../prototypes/laika-home/index-v2.html) per la direzione stilistica dei **cinque omini più organici** e la [nuova galleria dell'Atto 0](../prototypes/laika-kit/index.html) per terra, mir, fabbrica, risorse e crisi. Le figure geometriche del primo kit restano un confronto, non lo standard estetico definitivo.
 
-Vincoli non cambiati: silhouette umane piene, curve meno regolari, geometria essenziale, palette controllata. Prima di finalizzare la grafica occorre correggere gli snodi visibili nell'animazione e testare le composizioni in mobile. La galleria ha un contratto tecnico separato dai contenuti didattici; per provenienza, limiti storici e criteri di merge leggere [LAIKA-ASSET-DIRECTION.md](LAIKA-ASSET-DIRECTION.md).
+Vincoli non cambiati: silhouette umane piene, curve meno regolari, geometria essenziale, palette controllata. Prima di finalizzare la grafica occorre correggere gli snodi visibili nell'animazione e testare le composizioni in mobile. La galleria ha un contratto tecnico separato dai contenuti didattici; per provenienza, limiti storici e criteri di merge leggere [LAIKA-ASSET-DIRECTION.md](archivio/LAIKA-ASSET-DIRECTION.md).

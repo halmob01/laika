@@ -14,7 +14,7 @@
 5. **Lunghezza e profondità:** prodotto significativamente più lungo e complesso dei giochi precedenti, adatto a una classe con livello alto. Stima iniziale di lavoro: 8 atti più epilogo, circa 35 episodi; durata 8–12 ore da validare, non un vincolo.
 6. **Separazione rigorosa:** contenuti storici, regole generali, verifiche, asset grafici e animazioni devono essere disaccoppiati. Il motore deve essere riutilizzabile, ad esempio, per un corso sul fascismo.
 7. **Animazioni funzionali:** le illustrazioni devono essere realmente animate e mostrare fenomeni storici (folle, condizioni materiali, passaggio del potere, alleanze, industrializzazione, propaganda). Vietate animazioni ornamentali usate come surrogato delle conseguenze.
-8. **Riferimento visuale attuale:** LAIKA: carta `#f3ebdb`, seconda carta `#e9e0cf`, rosso `#cc2a25`, nero `#1c1c1b`, azzurro `#93abb7`; leggere [BRAND-DESIGN](BRAND-DESIGN.md) e il [piano recente](PIANO-LAIKA.md). Il riferimento Canva del 18 ottobre (bordeaux/giallo) resta storia della proposta iniziale, superata dalla direzione successiva, non una seconda palette da mescolare.
+8. **Riferimento visuale attuale:** LAIKA: carta `#f3ebdb`, seconda carta `#e9e0cf`, rosso `#cc2a25`, nero `#1c1c1b`, azzurro `#93abb7`; leggere [BRAND-DESIGN](../BRAND-DESIGN.md) e il [piano recente](../PIANO-LAIKA.md). Il riferimento Canva del 18 ottobre (bordeaux/giallo) resta storia della proposta iniziale, superata dalla direzione successiva, non una seconda palette da mescolare.
 9. **Verifiche:** integrare la skill allegata 'verifiche-didattiche' nel lavoro sugli esercizi e nella QA didattica. Prove formative distinte dalla valutazione sommativa; scala finale 0–100; niente voto politico sul contenuto delle scelte.
 10. **Vincolo storico:** distinguere eventi documentati da simulazioni e ipotesi controfattuali; le simulazioni non alterano la linea dei fatti accaduti; le misure del gioco non sono statistiche storiche.
 
@@ -26,7 +26,7 @@ L'Atto 0 amplia la cornice evocata negli appunti (servitù abolita nel 1861, rif
 
 **Passaggi da sottoporre a verifica storica prima della stesura definitiva:** suffragio e poteri della Duma; distinzione tra bolscevichi e menscevichi; date del calendario giuliano/gregoriano del 1917; collocazione temporale di Brest-Litovsk; ruoli politici di Kerenskij e Kornilov; dinamica dell'Assemblea costituente; data e condizioni dell'esilio di Trotsky; natura delle riforme agrarie e dei mir; descrizione comparata di gulag e campi nazisti; numeri sulle vittime e sulle produzioni industriali; cronologia dei diritti, dell'educazione e dell'arte sovietica. Le correzioni devono essere esplicitate come revisione, non introdotte di nascosto nella fonte.
 
-L'archivio è disponibile agli agenti anche per frasi, aneddoti e dettagli precisi, da localizzare e contestualizzare. Sheila Fitzpatrick è un riferimento da aggiungere e considerare se conosciuto, distinguendo conoscenza pregressa e testi consultati secondo [FONTI-LAIKA](FONTI-LAIKA.md).
+L'archivio è disponibile agli agenti anche per frasi, aneddoti e dettagli precisi, da localizzare e contestualizzare. Sheila Fitzpatrick è un riferimento da aggiungere e considerare se conosciuto, distinguendo conoscenza pregressa e testi consultati secondo [FONTI-LAIKA](../FONTI-LAIKA.md).
 
 ## 3. Obiettivi didattici
 
@@ -118,7 +118,7 @@ Risoluzione: confronto con i fatti, restituzione delle conseguenze simulate, ese
 
 ## 9. Identità visiva e animazioni
 
-**Riferimento visuale attuale:** LAIKA: carta `#f3ebdb`, seconda carta `#e9e0cf`, rosso `#cc2a25`, nero `#1c1c1b`, azzurro `#93abb7`; leggere [BRAND-DESIGN](BRAND-DESIGN.md) e il [piano recente](PIANO-LAIKA.md). Il riferimento Canva del 18 ottobre (bordeaux/giallo) resta storia della proposta iniziale, superata dalla direzione successiva, non una seconda palette da mescolare. Font e licenze da completare nell’[inventario](ASSET-MANIFEST.md).
+**Riferimento visuale attuale:** LAIKA: carta `#f3ebdb`, seconda carta `#e9e0cf`, rosso `#cc2a25`, nero `#1c1c1b`, azzurro `#93abb7`; leggere [BRAND-DESIGN](../BRAND-DESIGN.md) e il [piano recente](../PIANO-LAIKA.md). Il riferimento Canva del 18 ottobre (bordeaux/giallo) resta storia della proposta iniziale, superata dalla direzione successiva, non una seconda palette da mescolare. Font e licenze da completare nell’[inventario](../ASSET-MANIFEST.md).
 
 **Ogni illustrazione animata** deve dichiarare:
 - fenomeno storico da rendere visibile;

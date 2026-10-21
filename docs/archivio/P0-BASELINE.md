@@ -1,6 +1,6 @@
 # LAIKA — Consegna P0: baseline, inventari e fonti
 
-19 ottobre 2026. Incarico: P0 di [INCARICHI-LAIKA](INCARICHI-LAIKA.md). **P0 documentale consegnato con i limiti sotto; nessuna implementazione P1.**
+19 ottobre 2026. Incarico: P0 di [INCARICHI-LAIKA](../INCARICHI-LAIKA.md). **P0 documentale consegnato con i limiti sotto; nessuna implementazione P1.**
 
 ## Base e metodo
 
@@ -52,8 +52,8 @@ Il test registra, non impone queste soglie: non certifica 60 fps. Gli intervalli
 
 ## Deliverable e handoff
 
-- [ASSET-MANIFEST](ASSET-MANIFEST.md): tavole, prototipi, tutti i 20 simboli del primo kit e i 14 dell'Atto 0, composizioni, figure, font e materiali mancanti, con periodo/uso/decisione/provenienza e dubbi.
-- [FONTI-LAIKA](FONTI-LAIKA.md) e [matrice](FONTI-MATRICE-LAIKA.md): priorità degli appunti, uso concreto, Fitzpatrick, 24 controlli localizzati e scheda di prelievo. Nessuna rettifica storica conclusa o citazione libraria inventata.
+- [ASSET-MANIFEST](../ASSET-MANIFEST.md): tavole, prototipi, tutti i 20 simboli del primo kit e i 14 dell'Atto 0, composizioni, figure, font e materiali mancanti, con periodo/uso/decisione/provenienza e dubbi.
+- [FONTI-LAIKA](../FONTI-LAIKA.md) e [matrice](../FONTI-MATRICE-LAIKA.md): priorità degli appunti, uso concreto, Fitzpatrick, 24 controlli localizzati e scheda di prelievo. Nessuna rettifica storica conclusa o citazione libraria inventata.
 - Stato, report, motion, progetto, brand e direzione asset riallineati; piano/brief/incarichi/indici collegati alla baseline. Conservato lo storico delle verifiche precedenti.
 
 **Preview e prove visive:** nessuna nuova preview pubblicata o video locale. Cataloghi e motion lab si aprono dalla repo con `npm run serve`. Gli artifact della run CI conservano immagini/video della base, non nuove prove artistiche P0: non sono stati scaricati e giudicati come approvazione visiva in questa sessione.
@@ -62,4 +62,4 @@ Il test registra, non impone queste soglie: non certifica 60 fps. Gli intervalli
 
 **Non verificato:** telefono reale/Safari, screen reader, studenti, tempi didattici, nuova home, rig/scene di produzione e verifica storica puntuale. Nessun deploy o merge eseguito.
 
-**Prossimo incarico:** P1 di [INCARICHI-LAIKA](INCARICHI-LAIKA.md), dalla base aggiornata dopo la review/integrazione di P0: routing, presentation/context, API riepilogo progressi, build deterministico e scheletro LAIKA. Fonti/font aperti non bloccano la scaffolding tecnica, ma non vanno mascherati con contenuti/marchio dichiarati definitivi. Nessun avvio automatico di P2–P7.
+**Prossimo incarico:** P1 di [INCARICHI-LAIKA](../INCARICHI-LAIKA.md), dalla base aggiornata dopo la review/integrazione di P0: routing, presentation/context, API riepilogo progressi, build deterministico e scheletro LAIKA. Fonti/font aperti non bloccano la scaffolding tecnica, ma non vanno mascherati con contenuti/marchio dichiarati definitivi. Nessun avvio automatico di P2–P7.
