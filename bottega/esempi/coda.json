@@ -1,0 +1,25 @@
+{
+  "id": "esempio-coda",
+  "etichetta": "Una coda di persone davanti a una stazione; la fila avanza di un posto.",
+  "ruvido": true,
+  "elementi": [
+    { "id": "stazione", "simbolo": "ambiente-stazione", "x": 700, "y": 430, "scala": 1.8 },
+    { "id": "terra", "simbolo": "suolo", "x": 480, "y": 430, "scala": 1.9 }
+  ],
+  "figure": [
+    { "gruppo": "fila", "formazione": { "tipo": "coda", "n": 7, "x": 640, "y": 470, "passo": 62, "scala": 1.5, "varianti": ["cappotto", "scialle", "nessuna", "borsa", "cappello", "donna", "bambino"] } }
+  ],
+  "sequenze": [
+    {
+      "id": "si-forma",
+      "didascalia": "Le persone arrivano una dopo l'altra e formano la coda.",
+      "passi": [ { "azione": "queue", "chi": "fila", "da": "sinistra", "distanza": 260, "a": 0, "sfalsa": 450 } ]
+    },
+    {
+      "id": "avanza",
+      "didascalia": "La coda avanza di un posto.",
+      "passi": [ { "azione": "advance", "chi": "fila", "passo": 62, "a": 0, "sfalsa": 160 } ]
+    }
+  ],
+  "ingresso": "si-forma"
+}

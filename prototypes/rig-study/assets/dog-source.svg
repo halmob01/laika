@@ -1,0 +1,283 @@
+<svg id="dogSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 265" width="100%" height="100%">
+          <defs>
+            <!-- Filtro per simulare il tratto a pastello/carboncino dell'originale -->
+            <filter id="rough-paper-edge" x="-10%" y="-10%" width="120%" height="120%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.16" numOctaves="3" seed="11" result="noise" />
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.4" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+          </defs>
+
+          <!-- Sfondo crema -->
+          <rect id="svgBgRect" width="250" height="265" fill="#F5EFE2" data-part="Sfondo (#F5EFE2)" />
+
+          <!-- Ombra dinamica sul terreno -->
+          <ellipse id="groundShadow" cx="112" cy="214" rx="76" ry="5" fill="#E5DEC9" opacity="0.7" />
+
+          <!-- Gruppo Principale con Filtro Pastello -->
+          <g id="dogFilterGroup" filter="url(#rough-paper-edge)">
+            
+            <!-- RADICE SCHELETRO (Gestisce il rimbalzo verticale della camminata) -->
+            <g id="rig-root">
+
+              <!-- ============================================================ -->
+              <!-- A. ZAMPE IN SECONDO PIANO (Dietro il busto)                  -->
+              <!-- ============================================================ -->
+
+              <!-- 1. ZAMPA POSTERIORE INTERNA (Destra) - Perno d'anca: (75, 148) -->
+              <!-- Il bulbo superiore arriva fino a Y=134 (14px dentro il busto!) -->
+              <g id="joint-leg-br" data-part="Zampa Post. Interna (Perno 75,148)">
+                <path class="vector-back-leg" fill="#171614" d="
+                  M 63,148
+                  C 63,134 87,134 87,148
+                  L 83,164
+                  L 73,179
+                  L 78,196
+                  C 80,198 83,196 86,198
+                  C 92,202 89,209 82,211
+                  C 75,213 71,208 73,204
+                  L 62,182
+                  L 65,156
+                  Z" />
+                <!-- Tratto bianco del pelo solidale con la zampa posteriore interna -->
+                <path class="vector-strokes" d="M 70,174 L 72,177" stroke="#F5EFE2" stroke-width="1.5" stroke-linecap="round" fill="none" />
+              </g>
+
+              <!-- 2. ZAMPA ANTERIORE ALZATA (Destra) - Perno spalla: (148, 145) -->
+              <!-- Il bulbo superiore arriva fino a Y=130 (15px dentro il petto!) -->
+              <g id="joint-leg-fr" data-part="Zampa Ant. Alzata (Perno 148,145)">
+                <path class="vector-back-leg" fill="#171614" d="
+                  M 136,145
+                  C 136,130 160,130 160,145
+                  L 178,186
+                  C 180,188 183,186 186,186
+                  C 194,186 196,195 190,199
+                  C 185,203 175,204 172,198
+                  L 146,152
+                  Z" />
+                <!-- Tratti bianchi del pelo solidali con la zampa anteriore alzata -->
+                <path class="vector-strokes" d="
+                  M 164,164 L 167,168
+                  M 171,177 L 173.5,180
+                " stroke="#F5EFE2" stroke-width="1.5" stroke-linecap="round" fill="none" />
+              </g>
+
+              <!-- ============================================================ -->
+              <!-- B. CODA A 3 CIOCCHE - Perno sacro: (52, 129)                 -->
+              <!-- La radice entra nel bacino fino a X=66 per non staccarsi mai -->
+              <!-- ============================================================ -->
+              <g id="joint-tail" data-part="Coda a 3 Ciocche (Perno 52,129)">
+                <g fill="#171614">
+                  <!-- Innesto sferico profondo dentro la groppa -->
+                  <circle class="vector-part" cx="53" cy="130" r="10" />
+                  <!-- Ciocca alta destra -->
+                  <path class="vector-part" d="
+                    M 58,129
+                    C 40,120 26,99 26,77
+                    C 26,71 17,71 17,79
+                    C 18,104 31,126 53,138
+                    Z" />
+                  <!-- Ciocca centrale -->
+                  <path class="vector-part" d="
+                    M 55,133
+                    C 34,125 20,106 18,86
+                    C 17,81 12,83 13,89
+                    C 16,111 29,129 52,139
+                    Z" />
+                  <!-- Ciocca bassa sinistra -->
+                  <path class="vector-part" d="
+                    M 53,136
+                    C 30,132 14,117 11,99
+                    C 10,94 16,93 18,98
+                    C 22,113 35,126 55,132
+                    Z" />
+                </g>
+                <!-- Tratti bianchi del pelo sulla coda -->
+                <path class="vector-strokes" d="
+                  M 21,90 L 22,95
+                  M 16,102 L 18.5,106
+                " stroke="#F5EFE2" stroke-width="1.5" stroke-linecap="round" fill="none" />
+              </g>
+
+              <!-- ============================================================ -->
+              <!-- C. TORSO CENTRALE (Fisso rispetto a rig-root)                -->
+              <!-- ============================================================ -->
+              <g id="body-torso" data-part="Torso Centrale">
+                <path class="vector-part" fill="#171614" d="
+                  M 48,125
+                  C 54,117 64,115 76,112
+                  C 98,107 120,101 139,98
+                  C 155,96 168,108 167,131
+                  C 165,145 161,156 151,161
+                  C 125,163 96,164 72,163
+                  C 54,163 42,158 40,145
+                  C 38,135 41,130 48,125
+                  Z" />
+                <!-- Tratti bianchi del pelo sul torso -->
+                <path class="vector-strokes" d="
+                  M 118,106 L 123,104.5
+                  M 94,112 L 100,111
+                  M 81,119 L 87.5,117.5
+                  M 91,122 L 93,121
+                  M 103,131 L 109.5,127.5
+                  M 114,125 L 118,123
+                  M 130,126 L 132.5,125
+                  M 92,135 L 95,134
+                  M 64,142 L 68,137.5
+                  M 49,138 L 51,141
+                  M 61,150 L 66.5,145
+                  M 84,152 L 92,151.5
+                  M 96,151 L 101,150.5
+                  M 116,150 L 122,150
+                  M 134,149 L 138.5,148.5
+                  M 154,132 L 153.5,138.5
+                  M 71,161 L 76,161
+                " stroke="#F5EFE2" stroke-width="1.5" stroke-linecap="round" fill="none" />
+              </g>
+
+              <!-- ============================================================ -->
+              <!-- D. ZAMPE IN PRIMO PIANO (Lato sinistro visibile)             -->
+              <!-- ============================================================ -->
+
+              <!-- 3. ZAMPA POSTERIORE ESTERNA (Sinistra) - Perno anca: (56, 148) -->
+              <!-- Il bulbo d'anca risale fino a Y=130 dentro il bacino -->
+              <g id="joint-leg-bl" data-part="Zampa Post. Esterna (Perno 56,148)">
+                <path class="vector-part" fill="#171614" d="
+                  M 42,148
+                  C 42,130 74,130 74,152
+                  C 74,164 58,178 42,188
+                  L 36,199
+                  C 41,200 44,205 40,209
+                  C 35,213 22,211 23,203
+                  C 24,197 32,182 43,164
+                  C 42,158 42,153 42,148
+                  Z" />
+                <!-- Tratti bianchi del pelo sulla zampa posteriore sinistra -->
+                <path class="vector-strokes" d="
+                  M 33,184 L 35,179.5
+                  M 31,191 L 33.5,189.5
+                " stroke="#F5EFE2" stroke-width="1.5" stroke-linecap="round" fill="none" />
+              </g>
+
+              <!-- 4. ZAMPA ANTERIORE VERTICALE (Sinistra) - Perno spalla: (144, 148) -->
+              <!-- Il bulbo di spalla risale fino a Y=132 dentro il torace -->
+              <g id="joint-leg-fl" data-part="Zampa Ant. Portante (Perno 144,148)">
+                <path class="vector-part" fill="#171614" d="
+                  M 133,148
+                  C 133,132 157,132 157,148
+                  L 154,159
+                  L 141,196
+                  C 146,197 149,201 146,205
+                  C 142,209 128,209 128,202
+                  L 135,159
+                  Z" />
+                <!-- Tratti bianchi del pelo sulla zampa anteriore sinistra -->
+                <path class="vector-strokes" d="
+                  M 138,174 L 141,174
+                  M 134,185 L 137,185
+                " stroke="#F5EFE2" stroke-width="1.5" stroke-linecap="round" fill="none" />
+              </g>
+
+              <!-- ============================================================ -->
+              <!-- E. COLLO, TESTA, COLLARE ROSSO E ORECCHIO                    -->
+              <!-- Perno alla base del collo: (154, 114)                        -->
+              <!-- La base arrotondata scende fino a Y=136 dentro le spalle!    -->
+              <!-- ============================================================ -->
+              <g id="joint-neck" data-part="Collo, Testa e Collare (Perno 154,114)">
+                
+                <!-- ORECCHIO (Figlio del collo/testa!) - Perno cranico: (165, 60) -->
+                <!-- La radice dell'orecchio scende fino a Y=74 dentro la testa -->
+                <g id="joint-ear" data-part="Orecchio Mobile (Perno 165,60)">
+                  <path class="vector-part" fill="#171614" d="
+                    M 155,66
+                    C 150,51 155,31 168,20
+                    C 172,17 176,19 175,25
+                    C 174,38 175,51 173,66
+                    C 173,74 157,74 155,66
+                    Z" />
+                  <!-- Tratti bianchi dentro l'orecchio -->
+                  <path class="vector-strokes" d="
+                    M 164,41 L 164.5,45
+                    M 159,52 L 161.5,53.5
+                  " stroke="#F5EFE2" stroke-width="1.5" stroke-linecap="round" fill="none" />
+                </g>
+
+                <!-- CRANIO, MUSO E COLLO CON BULBO TORACICO PROFONDO -->
+                <path class="vector-part" fill="#171614" d="
+                  M 135,106
+                  C 142,90 149,73 157,59
+                  C 162,54 168,54 173,57
+                  C 186,58 195,63 200,72
+                  C 207,77 216,80 221,83
+                  C 224,85 223,90 219,92
+                  C 216,94 214,98 206,99
+                  C 197,100 188,97 181,98
+                  C 176,106 171,118 167,130
+                  C 162,140 132,136 135,106
+                  Z" />
+
+                <!-- COLLARE ROSSO (Solidale con il collo così non si stacca mai) -->
+                <path class="vector-collar" data-part="Collare Rosso (#EA2615)" fill="#EA2615" d="
+                  M 136,92
+                  L 180,118
+                  C 183,120 183,125 180,127
+                  L 175,131
+                  L 132,105
+                  L 132,96
+                  Z" />
+
+                <!-- Punto luce sul collare -->
+                <circle class="vector-dot" cx="137.2" cy="99" r="1.4" fill="#F5EFE2" />
+
+                <!-- Occhio (con supporto battito di ciglia) -->
+                <path id="dogEye" class="vector-strokes" d="M 182,74.5 Q 185,72.8 188,74.5" stroke="#F5EFE2" stroke-width="1.5" stroke-linecap="round" fill="none" />
+
+                <!-- Dettagli muso e pelo sul collo -->
+                <path class="vector-strokes" d="
+                  M 207,92.5 L 210,92.5
+                  M 214,90.5 L 216,89.8
+                  M 156,77 L 157.5,80
+                  M 168,94 L 166.5,99
+                  M 171,102 L 169.5,104
+                " stroke="#F5EFE2" stroke-width="1.4" stroke-linecap="round" fill="none" />
+              </g>
+
+            </g>
+          </g>
+
+          <!-- ========================================================================= -->
+          <!-- OVERLAY TECNICO ISPEZIONE PERNI E OSSA (Visibile con "Mostra Perni")      -->
+          <!-- ========================================================================= -->
+          <g id="rigDebugOverlay" class="hidden" pointer-events="none">
+            <!-- Linee scheletro principali -->
+            <g stroke="#22d3ee" stroke-width="1.4" stroke-dasharray="3 2" opacity="0.85">
+              <line x1="52" y1="129" x2="154" y2="114" />
+              <line x1="52" y1="129" x2="22" y2="82" />
+              <line x1="56" y1="148" x2="32" y2="203" />
+              <line x1="75" y1="148" x2="80" y2="205" />
+              <line x1="144" y1="148" x2="137" y2="203" />
+              <line x1="148" y1="145" x2="184" y2="195" />
+              <line x1="154" y1="114" x2="165" y2="60" />
+              <line x1="165" y1="60" x2="168" y2="22" />
+            </g>
+            <!-- Cerchi delle zone di sovrapposizione (Joint Caps) -->
+            <g fill="none" stroke="#facc15" stroke-width="1" stroke-dasharray="2 2" opacity="0.75">
+              <circle cx="52" cy="129" r="10" />
+              <circle cx="56" cy="148" r="14" />
+              <circle cx="75" cy="148" r="12" />
+              <circle cx="144" cy="148" r="12" />
+              <circle cx="148" cy="145" r="12" />
+              <circle cx="154" cy="114" r="16" />
+              <circle cx="165" cy="60" r="9" />
+            </g>
+            <!-- Perni di rotazione esatti (cx, cy) -->
+            <g fill="#06b6d4" stroke="#ffffff" stroke-width="1.2">
+              <circle cx="52" cy="129" r="3.2" />
+              <circle cx="56" cy="148" r="3.2" />
+              <circle cx="75" cy="148" r="3.2" />
+              <circle cx="144" cy="148" r="3.2" />
+              <circle cx="148" cy="145" r="3.2" />
+              <circle cx="154" cy="114" r="3.5" />
+              <circle cx="165" cy="60" r="3.0" />
+            </g>
+          </g>
+        </svg>

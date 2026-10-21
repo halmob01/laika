@@ -1,0 +1,2 @@
+:root{--ink:#22211f;--paper:#f5efdf;--accent:#ae3028;--highlight:#54717d}.episode-context{font-weight:bold;border-left:3px solid var(--accent);padding-left:.75rem}
+#notice:not(:empty){color:var(--paper)}

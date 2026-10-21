@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LAIKA · Studio di movimento</title><link rel="stylesheet" href="./style.css"></head>
+<body><main><header><a href="../../index.html">LAIKA / STUDI VISIVI</a><span>01 — MOVIMENTO COLLETTIVO</span></header>
+<section class="intro"><p class="eyebrow">Studio di animazione · 16 secondi</p><h1>La piazza<br>prende forma.</h1><p>Da poche presenze a un movimento collettivo. Una prova di regia, ritmo e composizione.</p></section>
+<section class="screen" aria-label="Sequenza illustrata"><div id="stage"></div><p id="caption" aria-live="polite"></p></section>
+<div class="controls" role="group" aria-label="Controlli animazione"><button id="play">Riproduci</button><button id="pause" aria-pressed="false">Pausa</button><button id="skip">Vai alla composizione finale</button><label class="motion-option"><input id="reduce" type="checkbox"> Movimento ridotto</label></div>
+<label class="timeline">Esplora la sequenza <span id="time">0 / 16 s</span><input id="scrub" aria-label="Posizione nella sequenza" type="range" min="0" max="16000" step="100" value="0"></label>
+<nav class="beats" aria-label="Momenti della sequenza"><button data-time="0">01 / Presenze</button><button data-time="4000">02 / Afflusso</button><button data-time="8000">03 / Incontro</button><button data-time="12000">04 / Bandiere</button><button data-time="16000">05 / Piazza</button></nav>
+<p class="note" id="restore-note" role="status"></p>
+<details><summary>Come leggere questo studio</summary><p>È una prova espressiva, non la ricostruzione di un evento storico. Le forme sono estratte dagli SVG del prototipo LAIKA: il disegno definitivo resta in lavorazione. Riferimenti prioritari: le tavole illustrative caricate nel progetto.</p><p>Lo stesso motore gestisce passi, spostamenti, cambi d’inquadratura e rivelazione dell’architettura. Nessuna libreria di animazione aggiuntiva. Al ricaricamento viene mostrata la composizione finale; puoi sempre rivedere la sequenza.</p></details>
+<footer>STUDIO APERTO / DA VALUTARE VISIVAMENTE</footer></main><script type="module" src="./app.js"></script></body></html>

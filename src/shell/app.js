@@ -1,0 +1,89 @@
+import {validateRegistry,applyPresentation} from './registry.js';
+import {contextLabel} from '../core/schema.js';
+import {validatePack} from '../validation/game-pack.js';
+import {newSession,currentScene,transition,recap} from '../runner/index.js';
+import {save,load,restore,exportSave,storageKey} from '../storage/index.js';
+import {createStage} from '../visual/stage.js';
+import {el,button,renderInteraction} from '../interactions/index.js';
+const $=id=>document.getElementById(id);
+let game,state,stageId=null,blocked=false,storage=null;
+try{storage=window.localStorage;}catch{}
+const media=matchMedia('(prefers-reduced-motion: reduce)');
+const stage=createStage($('stage'),{reducedMotion:media.matches,onCaption:message=>{$('caption').textContent=message;},onStatus:value=>{$('pause').textContent=value==='paused'?'Riprendi':'Pausa';$('pause').setAttribute('aria-pressed',String(value==='paused'));$('pause').disabled=value==='finished';}});
+media.addEventListener('change',e=>stage.setReducedMotion(e.matches));
+function notice(message){$('notice').textContent=message;}
+function persist(){if(blocked){notice('Il backup incompatibile è conservato. Questa sessione non viene salvata: esportala oppure scegli Ricomincia.');return;}const r=save(game,state,storage);if(!r.ok)notice(r.error);}
+function download(value,name){const url=URL.createObjectURL(new Blob([value],{type:'application/json'}));const a=el('a',undefined,{href:url,download:name});a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+function journal(){
+  $('journal').replaceChildren();if(!state.journal.length)return;
+  const details=el('details'),summary=el('summary','Perché la situazione è cambiata · diario della simulazione');details.append(summary);
+  for(const entry of state.journal){const p=el('div',undefined,{class:'journal-entry'});p.append(el('strong',game.acts.find(a=>a.id===entry.actId).episodes.find(e=>e.id===entry.episodeId).title));
+    if(entry.feedback)p.append(el('p',entry.feedback));
+    for(const c of entry.changes)p.append(el('p',c.label+': '+c.before+' → '+c.after+' · causa: '+c.cause));
+    for(const e of entry.events)p.append(el('p',(e.type==='delayed'?'Conseguenza differita: ':e.type==='discarded'?'Effetto chiuso senza applicazione: ':e.type==='expired'?'Effetto scaduto: ':'Nuovo quadro: ')+e.text));details.append(p);}
+  $('journal').append(details);
+}
+function render({motion=false,intro=false,sceneMotion=false,cue=null}={}) {
+  $('workspace').hidden=state.complete;$('summary').hidden=!state.complete;journal();
+  if(state.complete){stage.skip();const summary=recap(game,state);$('summary').replaceChildren(el('p','Percorso completato',{class:'eyebrow'}),el('h1','Le scelte e ciò che hai imparato',{id:'summary-title',tabindex:'-1'}));
+    for(const a of summary.acts){const article=el('article');article.append(el('h2',game.acts.find(x=>x.id===a.actId).title),el('p',a.reconciliation));$('summary').append(article);}
+    if(summary.assessment.count)$('summary').append(el('h2','Prova formativa: '+summary.assessment.score+' / 100'),el('p','Il risultato riguarda le risposte di comprensione, non le tue scelte nella simulazione.'));
+    return;
+  }
+  const act=game.acts[state.actIndex],s=state.currentAct,e=currentScene(game,state),descriptor=game.stages.find(x=>x.id===e.stageId);
+  $('caption').textContent=e.visualExplanation||'Scena della simulazione.';
+  if(descriptor){if(stageId!==descriptor.id){stage.mount(descriptor,s,{intro:intro&&!e.motionId});stageId=descriptor.id;if((intro||sceneMotion)&&e.motionId)stage.sequence(e.motionId);}else stage.update(s,{animate:motion,sequence:cue||(sceneMotion?e.motionId:undefined)});}
+  else {stage.destroy();stageId=null;}
+  $('replay').disabled=!descriptor;$('skip').disabled=!descriptor;if(!descriptor)$('pause').disabled=true;
+  const hasMetrics=[...(act.metrics||[]),...(act.resources||[])].some(d=>!d.hidden);
+  $('stage').parentElement.hidden=!descriptor&&!hasMetrics;
+  $('workspace').classList.toggle('text-only',!descriptor&&!hasMetrics);
+  for(const node of [$('stage'),$('caption'),$('replay').parentElement])node.hidden=!descriptor;
+  
+  $('metrics').hidden=![...(act.metrics||[]),...(act.resources||[])].some(d=>!d.hidden);
+  $('metrics').replaceChildren(el('p','Indicatori di simulazione · non sono voti',{class:'eyebrow'}));
+  for(const [group,definitions] of [['metrics',act.metrics],['resources',act.resources]])for(const d of definitions||[]){if(d.hidden)continue;
+    const row=el('div',undefined,{class:'metric'}),title=el('span'),meter=el('div',undefined,{class:'meter'}),fill=el('i');
+    title.append(el('span',d.label),el('b',String(s[group][d.id])));fill.style.width=(100*(s[group][d.id]-d.min)/(d.max-d.min))+'%';meter.append(fill);row.append(title,meter);$('metrics').append(row);}
+  const panel=$('panel');panel.replaceChildren(el('p',act.title+' · '+(act.episodes.indexOf(e)+1)+' / '+act.episodes.length,{class:'eyebrow'}),el('h1',e.title,{id:'scene-title',tabindex:'-1'}),el('p',e.text,{class:'lead'}));
+  if(e.context)panel.insertBefore(el('p',contextLabel(e.context),{class:'episode-context'}),panel.querySelector('h1'));
+  if(s.phase==='outcome'){
+    const outcome=el('div',undefined,{class:'outcome',role:'status'});outcome.append(el('p',s.last.feedback));
+    for(const c of s.last.changes)outcome.append(el('p',c.label+': '+c.before+' → '+c.after));panel.append(outcome);
+  }else {const host=el('div',undefined,{id:'interaction'});panel.append(host);renderInteraction(e.type,{host,episode:e,act,state:s,seed:state.seed,dispatch});}
+  if(s.phase==='outcome'||e.type==='narrative')panel.append(button('Continua',()=>dispatch({type:'advance'}),{class:'primary','data-action':'advance'}));
+}
+function dispatch(action){
+  try{const before=currentScene(game,state);const cue=action.type==='select'?before.choices?.find(c=>c.id===action.choiceId)?.motionId:action.type==='allocate'?before.resultMotionId:null;const result=transition(game,state,action);state=result.nextState;notice('');persist();render({motion:true,sceneMotion:action.type==='advance',cue});
+    if(result.events.length)$('caption').textContent=result.events.map(e=>e.text).join(' ');
+    if(action.type==='view_role')$('panel').querySelector('[data-role="'+action.roleId+'"]')?.focus();
+    else if(action.type==='inspect_source')$('panel').querySelector('[data-source="'+action.sourceId+'"]')?.focus();
+    else ($(state.complete?'summary-title':'scene-title'))?.focus({preventScroll:true});
+  }catch(error){notice(error.message);}
+}
+$('replay').onclick=()=>{stage.replay();};$('skip').onclick=()=>{stage.skip();};
+$('pause').onclick=()=>{if(stage.paused){stage.resume();}else{stage.pause();}};
+document.addEventListener('visibilitychange',()=>{if(document.hidden){stage.pause();}});
+$('export').onclick=()=>download(exportSave(game,state),game.id+'-progresso.json');
+$('raw').onclick=()=>{try{download(storage.getItem(storageKey(game)),game.id+'-backup-originale.json');}catch{notice('Backup locale non accessibile.');}};
+$('restart').onclick=()=>{if(!confirm('Ricominciare? Esporta prima il progresso se vuoi conservarlo.'))return;blocked=false;$('raw').hidden=true;state=newSession(game,crypto.randomUUID());stageId=null;notice('');persist();render({intro:true});$('scene-title')?.focus({preventScroll:true});};
+$('import').onchange=async e=>{const file=e.target.files[0];if(!file)return;
+  if(file.size>2_000_000){notice('Backup troppo grande.');return;}
+  const result=restore(game,await file.text());if(!result.ok){notice(result.error);return;}
+  if(!confirm('Sostituire il progresso corrente con questo backup verificato?'))return;
+  state=result.state;blocked=false;$('raw').hidden=true;stageId=null;notice('Backup ripristinato.');persist();render();($(state.complete?'summary-title':'scene-title'))?.focus({preventScroll:true});e.target.value='';};
+async function start(){
+  const config=validateRegistry(await (await fetch('./config.json')).json());const selected=new URLSearchParams(location.search).get('game')||config.defaultGame;
+  const item=config.games.find(g=>g.id===selected);if(!item)throw new Error('Gioco non configurato');
+  applyPresentation(item,document);
+  game=validatePack(await (await fetch(item.manifest)).json());
+  document.title=game.title;$('game-title').textContent=game.title;
+  for(const [key,value] of Object.entries(game.theme||{}))if(['ink','paper','accent','highlight'].includes(key)&&/^#[0-9a-f]{6}$/i.test(value))document.documentElement.style.setProperty('--'+key,value);
+  for(const g of config.games){const a=el('a',g.label,{href:'?game='+encodeURIComponent(g.id)});if(g.id===selected)a.setAttribute('aria-current','page');$('packs').append(a);}
+  const result=load(game,storage);blocked=!result.ok;
+  state=result.ok&&result.state?result.state:newSession(game,crypto.randomUUID());
+  if(blocked){notice(result.error+' Il backup originale resta conservato; questa prova non lo sovrascrive.');$('raw').hidden=false;}
+  else if(result.state)notice('Progresso ripreso. Nel diario trovi le decisioni che spiegano la situazione attuale.');
+  render({intro:!result.state});if(!blocked)persist();
+}
+start().catch(error=>{notice('Impossibile aprire il laboratorio: '+error.message);$('tools').hidden=true;});

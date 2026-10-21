@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit luoghi monumentali (bottega)</title>
+<style>
+  body { margin: 0; font-family: monospace; background: #dcdcd8; color: #161614; }
+  h1 { font-size: 14px; margin: 12px 16px; }
+  #griglia { display: grid; grid-template-columns: repeat(auto-fill, minmax(520px, 1fr)); gap: 12px; padding: 0 16px 16px; }
+  figure { margin: 0; border: 1px solid #b4b6b3; background: #f6f1e3; }
+  figcaption { font-size: 12px; padding: 4px 8px; border-top: 1px solid #b4b6b3; }
+  svg { display: block; width: 100%; height: 280px; }
+</style>
+</head>
+<body>
+<h1>Kit luoghi monumentali: anteprima</h1>
+<div id="griglia"></div>
+<script>
+// Kit per la bottega: luoghi di grande scala, pensati per figure minuscole.
+// Rispetta bottega/CONTRATTO-KIT.md. Tutti i pezzi poggiano su GROUND_Y e sono centrati in x = 0.
+// Stile: disegno a inchiostro con tratto leggermente irregolare che sborda agli angoli,
+// campiture di cemento fuori registro, grana a pastello (motivo "grana"), tratteggi d'ombra.
+// Il tremolio e' calcolato con un generatore deterministico: stessa chiamata, stesso markup.
+// Coerenza storica (vedi anche il campo epoca nel catalogo):
+// - palazzo: archetipo di palazzo imperiale barocco di San Pietroburgo (modello: Palazzo d'Inverno,
+//   1754-1762); facciata semplificata, non un rilievo.
+// - colonna: archetipo di colonna commemorativa con angelo (modello: Colonna di Alessandro, 1834).
+// - fabbrica: grande stabilimento metalmeccanico di fine Ottocento (modello generico: officine di
+//   Pietroburgo); capannoni a shed, corpo a piu' piani, ciminiere in mattoni, serbatoio dell'acqua.
+// - ponte: archetipo di ponte ad archi in ferro su pile di granito (modello: Ponte Litejnyj, 1879).
+// - riva: argine in granito delle rive della Neva (XVIII-XIX secolo), archetipo generico.
+// - pianura, isbe, chiesa, tenuta, betulle: campagna russa dell'Ottocento, archetipi generici.
+// - folla: massa di sagome minuscole per le folle lontane (segni, non personaggi: le figure in
+//   primo piano restano quelle articolate della bottega). Abiti generici di inizio Novecento,
+//   nessuna bandiera o insegna.
+// - foschia: elemento atmosferico senza epoca.
+// Colori del tema "studi" della bottega (servono al confronto al pixel); nelle scene della home
+// gli stessi token prendono i grigi del tema "laika-grigio".
+const C = {
+  bg: '#f6f1e3', p2: '#ece5d3', ink: '#161614', red: '#e02a1b', sand: '#decba8',
+  cLight: '#c9d6df', cMid: '#8ea8b8', cDark: '#4f6b7c', sky: '#b8cbd8', tree: '#97b0c0'
+};
+const GROUND_Y = 400;
+const LUOGHI = [
+  { id: 'palazzo', label: 'Palazzo imperiale' },
+  { id: 'colonna', label: 'Colonna commemorativa' },
+  { id: 'fabbrica', label: 'Grande fabbrica' },
+  { id: 'ponte', label: 'Ponte ad archi in ferro' },
+  { id: 'riva', label: 'Riva in granito' },
+  { id: 'pianura', label: 'Pianura arata' },
+  { id: 'tenuta', label: 'Casa padronale' },
+  { id: 'chiesa', label: 'Chiesa di villaggio' },
+  { id: 'isbe', label: 'Fila di isbe' },
+  { id: 'betulle', label: 'Betulle d\'inverno' },
+  { id: 'folla', label: 'Folla lontana' }
+];
+const ARIA = [
+  { id: 'foschia', label: 'Foschia' }
+];
+const f1 = n => (Math.round(n * 10) / 10).toString();
+const arco = (x, w, top, base) => `M ${f1(x - w / 2)} ${base} L ${f1(x - w / 2)} ${f1(top + w / 2)} A ${f1(w / 2)} ${f1(w / 2)} 0 0 1 ${f1(x + w / 2)} ${f1(top + w / 2)} L ${f1(x + w / 2)} ${base} Z`;
+// Generatore pseudo-casuale deterministico (mulberry32).
+function rng(seed) {
+  let a = seed >>> 0;
+  return function () {
+    a = (a + 0x6D2B79F5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+// --- Strumenti del tratto ---------------------------------------------------------------
+// Spezzata a mano libera: ogni segmento e' suddiviso ogni `passo` unita' e spostato di poco
+// in perpendicolare. Restituisce comandi di tracciato (M ... L ...).
+function linea(pts, r, amp = 0.8, passo = 22) {
+  let d = '';
+  for (let i = 0; i < pts.length - 1; i++) {
+    const [x1, y1] = pts[i], [x2, y2] = pts[i + 1];
+    const L = Math.hypot(x2 - x1, y2 - y1) || 1, n = Math.max(1, Math.round(L / passo));
+    const nx = -(y2 - y1) / L, ny = (x2 - x1) / L;
+    for (let k = i === 0 ? 0 : 1; k <= n; k++) {
+      const t = k / n, j = (r() - 0.5) * 2 * amp * (k === 0 || k === n ? 0.5 : 1);
+      d += (d ? ' L ' : 'M ') + f1(x1 + (x2 - x1) * t + nx * j) + ' ' + f1(y1 + (y2 - y1) * t + ny * j);
+    }
+  }
+  return d;
+}
+// Segmento che sborda leggermente alle estremita', come una riga tirata a mano.
+function riga(x1, y1, x2, y2, r, amp = 0.8, sborda = 3) {
+  const L = Math.hypot(x2 - x1, y2 - y1) || 1, ux = (x2 - x1) / L, uy = (y2 - y1) / L;
+  const a = sborda * r(), b = sborda * r();
+  return linea([[x1 - ux * a, y1 - uy * a], [x2 + ux * b, y2 + uy * b]], r, amp);
+}
+// Contorno di un rettangolo: quattro righe separate che si incrociano agli angoli.
+function bordo(x, y, w, h, r, amp = 0.8, sborda = 3) {
+  return [riga(x, y, x + w, y, r, amp, sborda), riga(x + w, y, x + w, y + h, r, amp, sborda),
+    riga(x + w, y + h, x, y + h, r, amp, sborda), riga(x, y + h, x, y, r, amp, sborda)].join(' ');
+}
+// Campitura fuori registro: il colore e' spostato di poco rispetto al contorno.
+function macchia(x, y, w, h, r, sp = 1.6) {
+  const j = () => (r() - 0.5) * 2 * sp;
+  return `M ${f1(x + sp + j())} ${f1(y - sp * 0.6 + j())} L ${f1(x + w + sp + j())} ${f1(y - sp * 0.6 + j())} L ${f1(x + w + sp + j())} ${f1(y + h + j())} L ${f1(x + sp + j())} ${f1(y + h + j())} Z`;
+}
+// Poligono qualsiasi fuori registro.
+function macchiaP(pts, r, sp = 1.6) {
+  return 'M ' + pts.map(([x, y]) => f1(x + sp + (r() - 0.5) * 2 * sp) + ' ' + f1(y - sp * 0.6 + (r() - 0.5) * 2 * sp)).join(' L ') + ' Z';
+}
+// Tratteggio diagonale (dal basso a sinistra verso l'alto a destra) dentro un rettangolo.
+function tratteggio(x, y, w, h, r, passo = 5, amp = 0.5) {
+  let d = '';
+  for (let c = x - h; c < x + w; c += passo) {
+    let x1 = c, y1 = y + h, x2 = c + h, y2 = y;
+    if (x1 < x) { y1 -= x - x1; x1 = x; }
+    if (x2 > x + w) { y2 += x2 - (x + w); x2 = x + w; }
+    if (x2 - x1 < 1) continue;
+    d += ' ' + linea([[x1, y1], [x2, y2]], r, amp, 40);
+  }
+  return d.trim();
+}
+// Punti di un arco ellittico (per archi di ponti e cupole), da campionare con linea().
+function puntiArco(cx, cy, rx, ry, a0, a1, n = 18) {
+  const p = [];
+  for (let i = 0; i <= n; i++) { const a = a0 + (a1 - a0) * i / n; p.push([cx + Math.cos(a) * rx, cy + Math.sin(a) * ry]); }
+  return p;
+}
+const inchiostro = (d, w = 1.4, op = 1) => `<path d="${d}" fill="none" stroke="${C.ink}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"${op < 1 ? ` opacity="${op}"` : ''}/>`;
+const tinta = (d, fill, op = 1) => `<path d="${d}" fill="${fill}"${op < 1 ? ` opacity="${op}"` : ''}/>`;
+const grana = (d, op = 1) => `<path d="${d}" fill="url(#grana)"${op < 1 ? ` opacity="${op}"` : ''}/>`;
+
+// Motivo di grana a pastello: puntini d'inchiostro, piccoli tratti chiari che "rompono" la
+// campitura e qualche segno verticale di cassero.
+function getDefs() {
+  const r = rng(5);
+  let punti = '', chiari = '', segni = '';
+  for (let i = 0; i < 14; i++) { const x = r() * 46 + 1, y = r() * 46 + 1, q = 0.5 + r() * 0.7; punti += `M ${f1(x - q)} ${f1(y)} L ${f1(x + q)} ${f1(y + 0.3)} `; }
+  for (let i = 0; i < 10; i++) { const x = r() * 44 + 2, y = r() * 44 + 2, q = 1.5 + r() * 2.5; chiari += `M ${f1(x)} ${f1(y)} L ${f1(x + q)} ${f1(y - q * 0.4)} `; }
+  for (let i = 0; i < 3; i++) { const x = r() * 44 + 2, y = r() * 30 + 2; segni += `M ${f1(x)} ${f1(y)} L ${f1(x + 0.3)} ${f1(y + 8 + r() * 6)} `; }
+  return `<pattern id="grana" width="48" height="48" patternUnits="userSpaceOnUse">` +
+    `<path d="${punti.trim()}" fill="none" stroke="${C.ink}" stroke-width="1.1" stroke-linecap="round" opacity="0.32"/>` +
+    `<path d="${chiari.trim()}" fill="none" stroke="${C.bg}" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>` +
+    `<path d="${segni.trim()}" fill="none" stroke="${C.cDark}" stroke-width="0.7" opacity="0.35"/>` +
+    `</pattern>`;
+}
+
+// Sagoma minuscola per la folla lontana: piedi in (x, y), altezza h. tipo 0 uomo, 1 donna, 2 uomo con berretto.
+function sagoma(x, y, h, tipo) {
+  const hr = h * 0.11, hy = y - h + hr, P = (a, b) => f1(x + a * h) + ' ' + f1(y - b * h);
+  let d = `M ${f1(x - hr)} ${f1(hy)} A ${f1(hr)} ${f1(hr)} 0 1 0 ${f1(x + hr)} ${f1(hy)} A ${f1(hr)} ${f1(hr)} 0 1 0 ${f1(x - hr)} ${f1(hy)} Z `;
+  if (tipo === 1) d += `M ${P(-0.12, 0.78)} L ${P(0.12, 0.78)} L ${P(0.2, 0)} L ${P(-0.2, 0)} Z `;
+  else d += `M ${P(-0.15, 0.78)} L ${P(0.15, 0.78)} L ${P(0.12, 0)} L ${P(0, 0.3)} L ${P(-0.12, 0)} Z `;
+  if (tipo === 2) d += `M ${P(-0.13, 0.99)} L ${P(0.13, 0.99)} L ${P(0.13, 0.94)} L ${P(-0.13, 0.94)} Z `;
+  return d;
+}
+
+function drawLuogo(id, ox = 0, oy = 0) {
+  let s = '';
+  if (id === 'palazzo') {
+    const r = rng(101);
+    const X0 = -650, W = 1300, corpi = [[-650, 140], [-125, 250], [510, 140]];
+    // Volumi: corpo lungo e tre avancorpi piu' alti, con grana.
+    s += tinta(macchia(X0, 212, W, 176, r, 2), C.cLight);
+    let av = '';
+    for (const [x, w] of corpi) av += macchia(x, 196, w, 192, r, 2) + ' ';
+    s += tinta(av.trim(), C.p2);
+    s += grana(macchia(X0, 196, W, 192, r, 0), 0.9);
+    // Ombra sotto il cornicione e sotto il marcapiano.
+    s += inchiostro(tratteggio(X0, 214, W, 6, r, 4, 0.3), 0.6, 0.55);
+    s += inchiostro(tratteggio(X0, 302, W, 5, r, 4, 0.3), 0.6, 0.45);
+    // Finestre: piano nobile alto, piano terra piu' basso; al centro i tre portali.
+    let fin = '', timp = '', col = '';
+    for (let x = X0 + 14; x < X0 + W - 14; x += 26) {
+      const cx = x + 13;
+      fin += macchia(cx - 4.5, 232, 9, 40, r, 0.35) + ' ';
+      timp += riga(cx - 7, 226, cx + 7, 226, r, 0.4, 1) + ' ';
+      if (Math.abs(cx) > 64) fin += macchia(cx - 4.5, 320, 9, 34, r, 0.35) + ' ';
+      col += riga(x, 218, x, 298, r, 0.6, 1.5) + ' ' + riga(x, 306, x, 386, r, 0.6, 1.5) + ' ';
+    }
+    s += tinta(fin.trim(), C.cDark);
+    s += inchiostro(col.trim(), 0.9, 0.75);
+    s += inchiostro(timp.trim(), 0.9);
+    s += `<path id="portali" d="${[-44, 0, 44].map(x => arco(x, 26, 334, 388)).join(' ')}" fill="${C.ink}"/>`;
+    // Cornici orizzontali e contorni dei volumi.
+    let cor = riga(X0, 212, X0 + W, 212, r, 0.9, 6) + ' ' + riga(X0, 216, X0 + W, 216, r, 0.7, 4) + ' ' +
+      riga(X0, 300, X0 + W, 300, r, 0.8, 5) + ' ' + riga(X0, 388, X0 + W, 388, r, 0.8, 6);
+    for (const [x, w] of corpi) cor += ' ' + bordo(x, 196, w, 192, r, 0.9, 4) + ' ' + riga(x - 3, 200, x + w + 3, 200, r, 0.6, 2);
+    s += inchiostro(cor, 1.6);
+    // Balaustra con statue e vasi sul tetto.
+    let bal = riga(X0, 204, X0 + W, 204, r, 0.6, 2), stat = '';
+    for (let x = X0 + 10; x < X0 + W; x += 48) {
+      const y = corpi.some(([a, w]) => x >= a && x <= a + w) ? 196 : 212;
+      stat += riga(x, y, x, y - 11, r, 0.4, 0) + ' ';
+      stat += `M ${f1(x - 1.8)} ${f1(y - 13)} L ${f1(x + 1.8)} ${f1(y - 13)} L ${f1(x + 1.4)} ${f1(y - 16.5)} L ${f1(x - 1.4)} ${f1(y - 16.5)} Z `;
+    }
+    s += inchiostro(bal, 0.9, 0.8);
+    s += `<path d="${stat.trim()}" fill="none" stroke="${C.ink}" stroke-width="1.6" stroke-linecap="round"/>`;
+    // Zoccolo.
+    s += tinta(macchia(-662, 386, 1324, 14, r, 1.5), C.cMid);
+    s += inchiostro(bordo(-662, 386, 1324, 14, r, 0.7, 5), 1.3);
+  } else if (id === 'colonna') {
+    const r = rng(202);
+    s += tinta(macchia(-34, 384, 68, 16, r), C.cDark) + inchiostro(bordo(-34, 384, 68, 16, r, 0.5, 3), 1.3);
+    s += tinta(macchia(-24, 328, 48, 56, r), C.cMid) + grana(macchia(-24, 328, 48, 56, r, 0));
+    s += inchiostro(bordo(-24, 328, 48, 56, r, 0.5, 3), 1.4);
+    s += inchiostro(tratteggio(6, 331, 17, 52, r, 3.5, 0.3), 0.6, 0.7);
+    s += inchiostro(riga(-27, 324, 27, 324, r, 0.4, 2) + ' ' + riga(-27, 330, 27, 330, r, 0.4, 2), 1.3);
+    // Fusto rastremato: campitura, due contorni, ombra a righe verticali sul lato destro.
+    s += tinta(macchiaP([[-10, 324], [-8, 86], [8, 86], [10, 324]], r, 1), C.cLight);
+    s += inchiostro(riga(-10, 324, -8, 86, r, 0.7, 1) + ' ' + riga(10, 324, 8, 86, r, 0.7, 1), 1.4);
+    s += inchiostro(riga(4, 320, 3.4, 92, r, 0.5, 0) + ' ' + riga(6.8, 320, 6, 92, r, 0.5, 0), 0.7, 0.7);
+    s += tinta(macchia(-15, 76, 30, 10, r, 0.8), C.cDark) + inchiostro(bordo(-15, 76, 30, 10, r, 0.4, 2), 1.2);
+    s += tinta(macchia(-9, 66, 18, 10, r, 0.6), C.cMid) + inchiostro(bordo(-9, 66, 18, 10, r, 0.3, 1.5), 1);
+    s += `<g id="angelo" data-pivot="0 66"><path d="M -5 66 L -3 44 L 3 44 L 5 66 Z" fill="${C.ink}"/>`;
+    s += `<path d="M -3 48 L -16 34 L -6 46 Z M 3 48 L 14 30 L 6 46 Z" fill="${C.ink}"/>`;
+    s += `<circle cx="0" cy="40" r="3.5" fill="${C.ink}"/>`;
+    s += `<path d="M 6 20 L 6 52 M 1 28 L 11 28" fill="none" stroke="${C.ink}" stroke-width="2" stroke-linecap="round"/></g>`;
+  } else if (id === 'fabbrica') {
+    const r = rng(303);
+    // Corpo a piu' piani (sinistra).
+    s += tinta(macchia(-700, 150, 220, 238, r, 2), C.cDark) + grana(macchia(-700, 150, 220, 238, r, 0));
+    let fin = '';
+    for (const y of [176, 240, 304]) for (let x = -682; x < -500; x += 30) fin += arco(x + 12, 14, y, y + 40) + ' ';
+    s += tinta(fin.trim(), C.cMid, 0.9);
+    s += inchiostro(bordo(-700, 150, 220, 238, r, 0.8, 4) + ' ' + riga(-706, 146, -474, 146, r, 0.6, 2), 1.6);
+    // Serbatoio dell'acqua sul tetto del corpo a piani.
+    s += inchiostro(riga(-640, 150, -632, 104, r, 0.4, 0) + ' ' + riga(-590, 150, -598, 104, r, 0.4, 0) + ' ' + riga(-636, 128, -594, 128, r, 0.4, 1), 1.1);
+    s += tinta(macchia(-646, 78, 60, 28, r, 1), C.cMid) + inchiostro(bordo(-646, 78, 60, 28, r, 0.5, 2), 1.3);
+    s += inchiostro(linea([[-650, 78], [-616, 66], [-582, 78]], r, 0.4), 1.3);
+    // Capannone lungo con tetti a shed.
+    s += tinta(macchia(-480, 262, 1180, 126, r, 2), C.cMid) + grana(macchia(-480, 262, 1180, 126, r, 0), 0.9);
+    let shed = '', vetri = '', shedT = '';
+    for (let x = -480; x < 700; x += 59) {
+      shed += macchiaP([[x, 262], [x, 222], [x + 59, 262]], r, 1) + ' ';
+      vetri += macchia(x + 1, 224, 4, 38, r, 0.4) + ' ';
+      shedT += linea([[x, 262], [x, 222], [x + 59, 262]], r, 0.5, 30) + ' ';
+    }
+    s += tinta(shed.trim(), C.cDark);
+    s += tinta(vetri.trim(), C.cLight);
+    s += inchiostro(shedT.trim(), 1.2);
+    let fi = '', luci = '', k = 0;
+    for (let x = -462; x < 690; x += 32) {
+      const a = arco(x + 8, 15, 288, 350);
+      if (k === 7 || k === 19 || k === 28) luci += a + ' '; else fi += a + ' ';
+      k++;
+    }
+    s += tinta(fi.trim(), C.cDark);
+    s += `<path id="luci" d="${luci.trim()}" fill="${C.sand}"/>`;
+    s += inchiostro(bordo(-480, 262, 1180, 126, r, 0.8, 4) + ' ' + riga(-480, 360, 700, 360, r, 0.6, 2), 1.5);
+    // Ciminiere in mattoni: alte, rastremate, con anelli e ombra.
+    const camini = [[-560, 18, 150], [-420, 46, 262], [-170, 30, 262], [110, 54, 262], [360, 10, 262], [585, 62, 262]];
+    for (const [x, top, base] of camini) {
+      const wb = 14, wt = 8;
+      s += tinta(macchiaP([[x - wb, base], [x - wt, top], [x + wt, top], [x + wb, base]], r, 1), C.cDark);
+      s += grana(macchiaP([[x - wb, base], [x - wt, top], [x + wt, top], [x + wb, base]], r, 0));
+      let c = riga(x - wb, base, x - wt, top, r, 0.6, 2) + ' ' + riga(x + wb, base, x + wt, top, r, 0.6, 2);
+      c += ' ' + bordo(x - wt - 3, top - 7, 2 * wt + 6, 7, r, 0.4, 1.5);
+      for (const q of [0.12, 0.42]) { const y = top + (base - top) * q, w = wt + (wb - wt) * q; c += ' ' + riga(x - w, y, x + w, y, r, 0.3, 0.5); }
+      s += inchiostro(c, 1.4);
+      s += inchiostro(tratteggio(x + 2, top + 4, wt - 2, base - top - 8, r, 6, 0.3), 0.6, 0.6);
+    }
+    // Muro di cinta e cancello.
+    s += tinta(macchia(-712, 372, 812, 28, r, 1.5), C.cDark) + tinta(macchia(172, 372, 540, 28, r, 1.5), C.cDark);
+    s += inchiostro(bordo(-712, 372, 812, 28, r, 0.6, 3) + ' ' + bordo(172, 372, 540, 28, r, 0.6, 3), 1.3);
+    s += `<path d="M 102 340 L 112 340 L 112 400 L 102 400 Z M 162 340 L 172 340 L 172 400 L 162 400 Z" fill="${C.ink}"/>`;
+    s += `<path id="cancello" d="M 112 350 L 162 350 M 112 364 L 162 364 M 122 350 L 122 400 M 132 350 L 132 400 M 142 350 L 142 400 M 152 350 L 152 400" fill="none" stroke="${C.ink}" stroke-width="1.8"/>`;
+  } else if (id === 'ponte') {
+    const r = rng(404);
+    const X0 = -860, X1 = 860, pile = [];
+    for (let k = 0; k <= 7; k++) pile.push(X0 + k * (X1 - X0) / 7);
+    // Arcate in ferro: due archi concentrici, montanti verticali e traliccio a zig-zag.
+    let archi = '', mont = '', trav = '';
+    for (let k = 0; k < 7; k++) {
+      const a = pile[k] + 18, b = pile[k + 1] - 18, cx = (a + b) / 2, rx = (b - a) / 2;
+      const est = puntiArco(cx, 384, rx, 60, Math.PI, 2 * Math.PI), int = puntiArco(cx, 384, rx - 6, 44, Math.PI, 2 * Math.PI);
+      archi += linea(est, r, 0.6, 26) + ' ' + linea(int, r, 0.6, 26) + ' ';
+      for (let i = 1; i < est.length - 1; i++) {
+        const [x, y] = est[i];
+        mont += riga(x, y, x, 324, r, 0.3, 0) + ' ';
+        trav += linea([[x, y], int[i + 1] ?? int[i]], r, 0.2, 40) + ' ';
+      }
+    }
+    s += inchiostro(archi.trim(), 1.6);
+    s += inchiostro(mont.trim(), 0.8, 0.85);
+    s += inchiostro(trav.trim(), 0.7, 0.7);
+    // Pile di granito.
+    let pg = '', pb = '', pt = '';
+    for (const x of pile) {
+      const w = x === X0 || x === X1 ? 44 : 36;
+      pg += macchia(x - w / 2, 322, w, 78, r, 1.2) + ' ';
+      pb += bordo(x - w / 2, 322, w, 78, r, 0.6, 2.5) + ' ' + riga(x - w / 2, 344, x + w / 2, 344, r, 0.3, 0) + ' ';
+      pt += tratteggio(x + 2, 346, w / 2 - 3, 52, r, 4, 0.3) + ' ';
+    }
+    s += tinta(pg.trim(), C.cMid) + grana(pg.trim());
+    s += inchiostro(pb.trim(), 1.3);
+    s += inchiostro(pt.trim(), 0.6, 0.6);
+    // Impalcato, parapetto a colonnine, lampioni.
+    s += tinta(macchia(X0 - 20, 312, X1 - X0 + 40, 11, r, 1), C.cDark);
+    s += inchiostro(riga(X0 - 20, 312, X1 + 20, 312, r, 0.6, 4) + ' ' + riga(X0 - 20, 323, X1 + 20, 323, r, 0.6, 4), 1.5);
+    let par = riga(X0 - 20, 300, X1 + 20, 300, r, 0.5, 2);
+    for (let x = X0 - 16; x < X1 + 18; x += 9) par += ` M ${f1(x)} 300 L ${f1(x + (r() - 0.5) * 0.6)} 312`;
+    s += inchiostro(par, 0.8, 0.85);
+    let lamp = '';
+    for (const x of pile) {
+      lamp += riga(x, 312, x, 268, r, 0.3, 0) + ' ' + riga(x - 7, 274, x + 7, 274, r, 0.2, 0) + ' ';
+      lamp += `M ${f1(x - 8.5)} 274 L ${f1(x - 5.5)} 274 L ${f1(x - 5.5)} 266 L ${f1(x - 8.5)} 266 Z M ${f1(x + 5.5)} 274 L ${f1(x + 8.5)} 274 L ${f1(x + 8.5)} 266 L ${f1(x + 5.5)} 266 Z `;
+    }
+    s += `<path d="${lamp.trim()}" fill="${C.ink}" stroke="${C.ink}" stroke-width="1.3" stroke-linecap="round"/>`;
+  } else if (id === 'riva') {
+    const r = rng(505);
+    s += tinta(macchia(-880, 352, 1760, 48, r, 1.5), C.cMid) + grana(macchia(-880, 352, 1760, 48, r, 0));
+    let giunti = riga(-880, 376, 880, 376, r, 0.5, 0);
+    for (let x = -860; x < 880; x += 44 + r() * 20) giunti += ' ' + riga(x, 352, x, 376, r, 0.3, 0) + ' ' + riga(x + 22, 376, x + 22, 400, r, 0.3, 0);
+    s += inchiostro(giunti, 0.7, 0.6);
+    s += tinta(macchia(-884, 342, 1768, 10, r, 1), C.cDark);
+    s += inchiostro(riga(-884, 342, 884, 342, r, 0.6, 5) + ' ' + riga(-884, 352, 884, 352, r, 0.6, 5) + ' ' + riga(-884, 400, 884, 400, r, 0.6, 5), 1.4);
+  } else if (id === 'pianura') {
+    const r = rng(606);
+    let chiare = '', scure = '', solchi = '';
+    for (let i = 0; i < 16; i++) {
+      const b0 = -800 + i * 100, b1 = b0 + 100, t0 = -400 + i * 50, t1 = t0 + 50;
+      const d = macchiaP([[b0, 400], [t0, 300], [t1, 300], [b1, 400]], r, 1.5) + ' ';
+      if (i % 2) chiare += d; else scure += d;
+      for (const q of [0.25, 0.5, 0.75]) solchi += linea([[b0 + q * 100, 400], [t0 + q * 50, 300]], r, 1, 26) + ' ';
+    }
+    s += tinta(scure.trim(), C.sand, 0.55);
+    s += tinta(chiare.trim(), C.p2);
+    s += grana(macchiaP([[-800, 400], [-400, 300], [400, 300], [800, 400]], r, 0), 0.8);
+    s += inchiostro(solchi.trim(), 0.7, 0.32);
+    s += inchiostro(riga(-800, 300, 800, 300, r, 0.5, 0), 1.2, 0.7);
+  } else if (id === 'tenuta') {
+    const r = rng(707);
+    for (const x of [-124, 48]) s += tinta(macchia(x, 352, 76, 48, r, 1.2), C.cLight);
+    s += tinta(macchia(-52, 322, 104, 78, r, 1.2), C.p2) + grana(macchia(-124, 322, 248, 78, r, 0), 0.7);
+    s += tinta(macchiaP([[-56, 324], [0, 302], [56, 324]], r, 1), C.cLight);
+    s += tinta(`M -14 304 L -14 290 A 14 13 0 0 1 14 290 L 14 304 Z`, C.cMid);
+    let fin = '';
+    for (const x of [-110, -90, -70, 58, 78, 98]) fin += macchia(x, 364, 8, 16, r, 0.5) + ' ';
+    s += tinta(fin.trim(), C.cDark);
+    let c = bordo(-124, 352, 76, 48, r, 0.5, 2) + ' ' + bordo(48, 352, 76, 48, r, 0.5, 2) + ' ' + bordo(-52, 322, 104, 78, r, 0.5, 2.5);
+    c += ' ' + linea([[-58, 324], [0, 301], [58, 324]], r, 0.4, 20) + ' ' + linea(puntiArco(0, 292, 14, 13, Math.PI, 2 * Math.PI, 8), r, 0.3);
+    for (let x = -40; x <= 40; x += 16) c += ' ' + riga(x, 328, x, 400, r, 0.4, 1);
+    s += inchiostro(c, 1.2);
+    s += inchiostro(riga(-134, 400, 134, 400, r, 0.5, 4), 1.3);
+  } else if (id === 'chiesa') {
+    const r = rng(808);
+    s += tinta(macchia(-44, 334, 76, 66, r, 1.2), C.cLight) + grana(macchia(-44, 334, 76, 66, r, 0));
+    s += tinta(macchia(32, 296, 22, 104, r, 1.2), C.cLight);
+    s += tinta(macchiaP([[-50, 336], [-6, 308], [38, 336]], r, 1), C.cMid);
+    s += tinta(macchia(-14, 282, 16, 30, r, 0.8), C.cLight);
+    s += `<path d="M -6 252 C 8 262 10 272 4 282 L -16 282 C -22 272 -20 262 -6 252 Z" fill="${C.ink}"/>`;
+    s += `<path d="M 29 298 L 43 254 L 57 298 Z" fill="${C.ink}"/>`;
+    let c = bordo(-44, 334, 76, 66, r, 0.5, 2) + ' ' + bordo(32, 296, 22, 104, r, 0.5, 2) + ' ' + bordo(-14, 282, 16, 30, r, 0.4, 1.5);
+    c += ' ' + linea([[-52, 337], [-6, 307], [40, 337]], r, 0.4, 20);
+    c += ' M -6 230 L -6 252 M -12 238 L 0 238 M 43 236 L 43 254 M 38 243 L 48 243';
+    s += inchiostro(c, 1.3);
+    s += inchiostro(tratteggio(16, 338, 15, 60, r, 4, 0.3), 0.6, 0.6);
+    s += `<path d="${arco(-6, 12, 356, 400)} M 36 306 L 42 306 L 42 318 L 36 318 Z M 44 306 L 50 306 L 50 318 L 44 318 Z" fill="${C.ink}"/>`;
+  } else if (id === 'isbe') {
+    const r = rng(909);
+    let corpi = '', tetti = '', cont = '', trat = '', fin = '';
+    for (let i = 0; i < 6; i++) {
+      const x = -200 + i * 70 + (i % 2) * 8, w = 40 + (i % 3) * 6, h = 22 + (i % 2) * 4, y = 400 - h;
+      corpi += macchia(x, y, w, h, r, 1) + ' ';
+      tetti += macchiaP([[x - 5, y], [x + w / 2, y - 19], [x + w + 5, y]], r, 1) + ' ';
+      cont += bordo(x, y, w, h, r, 0.4, 1.5) + ' ' + linea([[x - 6, y + 0.5], [x + w / 2, y - 19], [x + w + 6, y + 0.5]], r, 0.4, 16) + ' ';
+      for (let k = 1; k < 4; k++) cont += riga(x, y + k * h / 4, x + w, y + k * h / 4, r, 0.3, 0.5) + ' ';
+      trat += tratteggio(x + w / 2, y - 16, w / 2 + 3, 15, r, 3.5, 0.2) + ' ';
+      fin += macchia(x + w / 2 - 4, y + 7, 8, 7, r, 0.4) + ' ';
+    }
+    s += tinta(corpi.trim(), C.cMid) + grana(corpi.trim());
+    s += tinta(tetti.trim(), C.cLight);
+    s += tinta(fin.trim(), C.sand);
+    s += inchiostro(trat.trim(), 0.6, 0.7);
+    s += inchiostro(cont.trim(), 1.1);
+  } else if (id === 'betulle') {
+    const r = rng(11);
+    let tronchi = '', segni = '', rami = '', cont = '';
+    for (let i = 0; i < 7; i++) {
+      const x = -150 + i * 50 + r() * 16, h = 130 + r() * 90, top = 400 - h, w = 3.5 + r() * 1.5;
+      tronchi += macchia(x - w / 2, top, w, h, r, 0.3) + ' ';
+      cont += riga(x - w / 2, 400, x - w / 2, top, r, 0.4, 0) + ' ' + riga(x + w / 2, 400, x + w / 2, top + 6, r, 0.4, 0) + ' ';
+      for (let j = 0; j < 7; j++) { const y = top + 12 + r() * (h - 20), q = w * (0.5 + r() * 0.5); segni += `M ${f1(x - w / 2)} ${f1(y)} L ${f1(x - w / 2 + q)} ${f1(y)} L ${f1(x - w / 2 + q)} ${f1(y + 1.8)} L ${f1(x - w / 2)} ${f1(y + 1.8)} Z `; }
+      for (let j = 0; j < 8; j++) {
+        const y = top + 4 + j * (h * 0.055), dir = j % 2 ? 1 : -1, l = 14 + r() * 24;
+        rami += linea([[x, y + 14], [x + dir * l * 0.6, y], [x + dir * l, y - l * 0.6]], r, 0.5, 12) + ' ';
+      }
+    }
+    s += inchiostro(rami.trim(), 0.8, 0.7);
+    s += tinta(tronchi.trim(), C.bg);
+    s += inchiostro(cont.trim(), 0.8);
+    s += tinta(segni.trim(), C.ink);
+  } else if (id === 'folla') {
+    const r = rng(1212);
+    let dietro = '', davanti = '';
+    for (let k = 3; k >= 0; k--) {
+      const y0 = 400 - k * 5, h0 = 24 * (1 - k * 0.07);
+      for (let x = -320 + r() * 4; x < 320; x += 8 + r() * 4) {
+        const t = r() < 0.4 ? 1 : (r() < 0.3 ? 2 : 0), d = sagoma(x, y0 + (r() - 0.5) * 2, h0 * (0.9 + r() * 0.18), t);
+        if (k >= 2) dietro += d; else davanti += d;
+      }
+    }
+    s += `<path d="${dietro.trim()}" fill="${C.cDark}"/>`;
+    s += `<path d="${davanti.trim()}" fill="${C.ink}"/>`;
+  }
+  return `<g transform="translate(${ox} ${oy})">${s}</g>`;
+}
+
+// Atmosfera di grande scala: bande orizzontali da porre davanti ai piani lontani.
+function drawAria(id, ox = 0, oy = 0) {
+  let s = '';
+  if (id === 'foschia') {
+    s += `<g id="velo">`;
+    // Bande piu' larghe del riquadro di scena (1600): i bordi restano fuori campo.
+    s += `<rect x="-1100" y="318" width="2200" height="52" fill="${C.cLight}" opacity="0.3"/>`;
+    s += `<rect x="-1100" y="352" width="2200" height="30" fill="${C.cLight}" opacity="0.35"/>`;
+    s += `<rect x="-1100" y="376" width="2200" height="24" fill="${C.cLight}" opacity="0.45"/>`;
+    s += `</g>`;
+  }
+  return `<g transform="translate(${ox} ${oy})">${s}</g>`;
+}
+// AVVIO
+(function () {
+  const griglia = document.getElementById('griglia');
+  const defs = `<defs>${getDefs()}</defs>`;
+  const aggiungi = (label, markup) => {
+    const fig = document.createElement('figure');
+    fig.innerHTML = `<svg viewBox="-900 0 1800 420">${defs}${markup}</svg><figcaption>${label}</figcaption>`;
+    griglia.appendChild(fig);
+  };
+  LUOGHI.forEach(v => aggiungi(v.label, drawLuogo(v.id)));
+  ARIA.forEach(v => aggiungi(v.label, drawAria(v.id)));
+})();
+</script>
+</body>
+</html>

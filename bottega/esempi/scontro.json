@@ -1,0 +1,123 @@
+{
+  "id": "esempio-scontro",
+  "etichetta": "Manifestanti e soldati si fronteggiano in una strada; poi i soldati arretrano e la bandiera cambia.",
+  "ruvido": true,
+  "elementi": [
+    {
+      "id": "fondo",
+      "simbolo": "brut-piazza-ventosa",
+      "x": 480,
+      "y": 420,
+      "scala": 2.1
+    },
+    {
+      "id": "terra",
+      "simbolo": "suolo",
+      "x": 480,
+      "y": 420,
+      "scala": 1.9
+    },
+    {
+      "id": "insegna-vecchia",
+      "simbolo": "oggetto-cartello-vuoto",
+      "x": 480,
+      "y": 420,
+      "scala": 1.3
+    },
+    {
+      "id": "insegna-nuova",
+      "simbolo": "oggetto-bandiera",
+      "x": 480,
+      "y": 420,
+      "scala": 1.3
+    }
+  ],
+  "figure": [
+    {
+      "gruppo": "popolo",
+      "formazione": {
+        "tipo": "fila",
+        "n": 4,
+        "x": 300,
+        "y": 470,
+        "passo": 52,
+        "scala": 1.5,
+        "pose": [
+          "porta_bandiera",
+          "sbarra",
+          "in_piedi",
+          "lancia"
+        ],
+        "varianti": [
+          "nessuna",
+          "cappello",
+          "donna",
+          "cappotto"
+        ]
+      }
+    },
+    {
+      "gruppo": "soldati",
+      "flip": true,
+      "ruolo": "esercito",
+      "formazione": {
+        "tipo": "fila",
+        "n": 4,
+        "x": 680,
+        "y": 470,
+        "passo": 52,
+        "scala": 1.5,
+        "pose": [
+          "usa_fucile",
+          "in_piedi",
+          "usa_fucile",
+          "in_piedi"
+        ],
+        "varianti": [
+          "cappotto"
+        ]
+      }
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "fronte",
+      "didascalia": "I due gruppi avanzano l'uno verso l'altro e si fermano a distanza.",
+      "passi": [
+        {
+          "azione": "confront",
+          "chi": [
+            "popolo",
+            "soldati"
+          ],
+          "distanza": 220,
+          "a": 0,
+          "sfalsa": 140
+        }
+      ]
+    },
+    {
+      "id": "cambio",
+      "didascalia": "I soldati arretrano; il cartello vuoto è sostituito da una bandiera.",
+      "passi": [
+        {
+          "azione": "retreat",
+          "chi": [
+            "soldati",
+            "popolo"
+          ],
+          "distanza": 120,
+          "a": 0,
+          "sfalsa": 120
+        },
+        {
+          "azione": "replace",
+          "esce": "insegna-vecchia",
+          "entra": "insegna-nuova",
+          "a": 1800
+        }
+      ]
+    }
+  ],
+  "ingresso": "fronte"
+}

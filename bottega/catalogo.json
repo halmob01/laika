@@ -1,0 +1,805 @@
+{
+ "nota": "Registro unico della bottega. Ogni voce: id usabile nelle scene (\"simbolo\"), famiglia, stato, epoca d'uso, fonte. Stati: pronto (validato e identico alla fonte), bozza (utilizzabile ma da rivedere), da-fare (richiesto, non ancora disegnato), archivio (riferimento storico, non usare nelle scene). Il test bottega verifica che ogni simbolo generato sia qui e che ogni voce \"pronto\" esista.",
+ "licenza": "Disegni derivati dagli studi forniti dall'autore del progetto (PR #12). Autore e licenza di ridistribuzione da confermare prima della pubblicazione.",
+ "temi": "bottega/temi.json",
+ "esempi": [
+  "bottega/esempi/corteo.json",
+  "bottega/esempi/assemblea.json",
+  "bottega/esempi/lavoro.json",
+  "bottega/esempi/coda.json",
+  "bottega/esempi/scontro.json",
+  "bottega/esempi/raduno.json",
+  "bottega/esempi/dispersione.json",
+  "bottega/esempi/inverno.json"
+ ],
+ "figure": {
+  "stato": "pronto",
+  "generatore": "bottega/figura/figura.js",
+  "dati": "bottega/figura/pose.js",
+  "fonte": "prototypes/laika-studi-originali/studio personaggi.html#buildOminoSVG",
+  "descrizione": "Figura articolata con 14 giunture, 24 pose/azioni, 13 varianti, 3 corpi, 4 ruoli. Oggetti in mano agganciati a prese.",
+  "giunture": [
+   "root",
+   "head",
+   "arm-far",
+   "forearm-far",
+   "hand-far",
+   "leg-far",
+   "shin-far",
+   "leg-near",
+   "shin-near",
+   "arm-near",
+   "forearm-near",
+   "wrist-near",
+   "hand-near",
+   "grip-near"
+  ],
+  "epoca": "Silhouette generica XX secolo. Abiti e copricapi sono archetipi: verificare per scena (es. clero, fedora)."
+ },
+ "formazioni": {
+  "stato": "pronto",
+  "modulo": "bottega/formazioni.js",
+  "tipi": [
+   "statica",
+   "marcia",
+   "carica",
+   "barricata",
+   "discorso",
+   "scontro",
+   "fila",
+   "righe",
+   "gruppo",
+   "coda"
+  ]
+ },
+ "azioni": {
+  "stato": "pronto",
+  "modulo": "bottega/movimenti.js",
+  "tipi": [
+   "walk",
+   "march",
+   "gather",
+   "disperse",
+   "speak",
+   "listen",
+   "raise",
+   "lower",
+   "pose",
+   "work",
+   "repeat",
+   "queue",
+   "advance",
+   "confront",
+   "retreat",
+   "wave",
+   "transfer",
+   "replace",
+   "reveal",
+   "transform",
+   "camera"
+  ]
+ },
+ "voci": [
+  {
+   "id": "brut-cemento-vista",
+   "famiglia": "architettura-brutalista",
+   "nome": "Cemento a vista",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (architettura brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/estetiche brutaliste 1.html#cemento_vista"
+  },
+  {
+   "id": "brut-finestre-modulari",
+   "famiglia": "architettura-brutalista",
+   "nome": "Finestre modulari",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (architettura brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/estetiche brutaliste 1.html#finestre_modulari"
+  },
+  {
+   "id": "brut-griglie",
+   "famiglia": "architettura-brutalista",
+   "nome": "Griglie",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (architettura brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/estetiche brutaliste 1.html#griglie"
+  },
+  {
+   "id": "brut-bucature-profonde",
+   "famiglia": "architettura-brutalista",
+   "nome": "Bucature profonde",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (architettura brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/estetiche brutaliste 1.html#bucature_profonde"
+  },
+  {
+   "id": "brut-aggetti",
+   "famiglia": "architettura-brutalista",
+   "nome": "Aggetti",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (architettura brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/estetiche brutaliste 1.html#aggetti"
+  },
+  {
+   "id": "brut-pareti-scanalate",
+   "famiglia": "architettura-brutalista",
+   "nome": "Pareti scanalate",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (architettura brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/estetiche brutaliste 1.html#pareti_scanalate"
+  },
+  {
+   "id": "brut-pannelli-prefabbricati",
+   "famiglia": "architettura-brutalista",
+   "nome": "Pannelli prefabbricati",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (architettura brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/estetiche brutaliste 1.html#pannelli_prefabbricati"
+  },
+  {
+   "id": "brut-pilotis",
+   "famiglia": "architettura-brutalista",
+   "nome": "Pilotis",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (architettura brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/estetiche brutaliste 1.html#pilotis"
+  },
+  {
+   "id": "brut-passerelle",
+   "famiglia": "architettura-brutalista",
+   "nome": "Passerelle",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (architettura brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/estetiche brutaliste 1.html#passerelle"
+  },
+  {
+   "id": "brut-scale-esterne",
+   "famiglia": "architettura-brutalista",
+   "nome": "Scale esterne",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (architettura brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/estetiche brutaliste 1.html#scale_esterne"
+  },
+  {
+   "id": "brut-rampe",
+   "famiglia": "architettura-brutalista",
+   "nome": "Rampe",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (architettura brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/estetiche brutaliste 1.html#rampe"
+  },
+  {
+   "id": "brut-torri-scala",
+   "famiglia": "architettura-brutalista",
+   "nome": "Torri scala",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (architettura brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/estetiche brutaliste 1.html#torri_scala"
+  },
+  {
+   "id": "brut-blocchi-sovrapposti",
+   "famiglia": "architettura-brutalista",
+   "nome": "Blocchi sovrapposti",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (architettura brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/estetiche brutaliste 1.html#blocchi_sovrapposti"
+  },
+  {
+   "id": "brut-ingresso-monumentale",
+   "famiglia": "architettura-brutalista",
+   "nome": "Ingresso monumentale",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (architettura brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/estetiche brutaliste 1.html#ingresso_monumentale"
+  },
+  {
+   "id": "brut-cortile",
+   "famiglia": "architettura-brutalista",
+   "nome": "Cortile",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (architettura brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/estetiche brutaliste 1.html#cortile"
+  },
+  {
+   "id": "brut-pensilina",
+   "famiglia": "architettura-brutalista",
+   "nome": "Pensilina",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (architettura brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/estetiche brutaliste 1.html#pensilina"
+  },
+  {
+   "id": "brut-segnaletica",
+   "famiglia": "architettura-brutalista",
+   "nome": "Segnaletica",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (architettura brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/estetiche brutaliste 1.html#segnaletica"
+  },
+  {
+   "id": "brut-elementi-modulari",
+   "famiglia": "architettura-brutalista",
+   "nome": "Elementi modulari",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (architettura brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/estetiche brutaliste 1.html#elementi_modulari"
+  },
+  {
+   "id": "brut-piazza-ventosa",
+   "famiglia": "architettura-brutalista",
+   "nome": "Piazza ventosa",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (architettura brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/estetiche brutaliste 1.html#piazza_ventosa"
+  },
+  {
+   "id": "brut-cortile-residenziale",
+   "famiglia": "architettura-brutalista",
+   "nome": "Cortile residenziale",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (architettura brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/estetiche brutaliste 1.html#cortile_residenziale"
+  },
+  {
+   "id": "brut-scalinata-monumentale",
+   "famiglia": "architettura-brutalista",
+   "nome": "Scalinata monumentale",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (architettura brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/estetiche brutaliste 1.html#scalinata_monumentale"
+  },
+  {
+   "id": "palazzo-torre-residenziale",
+   "famiglia": "palazzi-brutalisti",
+   "nome": "Torre residenziale",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (edilizia sovietica e brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/Estetiche brutaliste 2.html#torre_residenziale"
+  },
+  {
+   "id": "palazzo-torre-residenziale-var",
+   "famiglia": "palazzi-brutalisti",
+   "nome": "Torre resid. (Variante)",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (edilizia sovietica e brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/Estetiche brutaliste 2.html#torre_residenziale_var"
+  },
+  {
+   "id": "palazzo-blocco-abitativo",
+   "famiglia": "palazzi-brutalisti",
+   "nome": "Blocco abitativo",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (edilizia sovietica e brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/Estetiche brutaliste 2.html#blocco_abitativo"
+  },
+  {
+   "id": "palazzo-blocco-abitativo-var",
+   "famiglia": "palazzi-brutalisti",
+   "nome": "Blocco abit. (Variante)",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (edilizia sovietica e brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/Estetiche brutaliste 2.html#blocco_abitativo_var"
+  },
+  {
+   "id": "palazzo-palazzo-amministrativo",
+   "famiglia": "palazzi-brutalisti",
+   "nome": "Palazzo amministrativo",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (edilizia sovietica e brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/Estetiche brutaliste 2.html#palazzo_amministrativo"
+  },
+  {
+   "id": "palazzo-palazzo-amministrativo-var",
+   "famiglia": "palazzi-brutalisti",
+   "nome": "Palazzo amm. (Variante)",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (edilizia sovietica e brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/Estetiche brutaliste 2.html#palazzo_amministrativo_var"
+  },
+  {
+   "id": "palazzo-centro-civico",
+   "famiglia": "palazzi-brutalisti",
+   "nome": "Centro civico",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (edilizia sovietica e brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/Estetiche brutaliste 2.html#centro_civico"
+  },
+  {
+   "id": "palazzo-centro-civico-var",
+   "famiglia": "palazzi-brutalisti",
+   "nome": "Centro civico (Variante)",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (edilizia sovietica e brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/Estetiche brutaliste 2.html#centro_civico_var"
+  },
+  {
+   "id": "palazzo-complesso-gradoni",
+   "famiglia": "palazzi-brutalisti",
+   "nome": "Complesso a gradoni",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (edilizia sovietica e brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/Estetiche brutaliste 2.html#complesso_gradoni"
+  },
+  {
+   "id": "palazzo-complesso-gradoni-var",
+   "famiglia": "palazzi-brutalisti",
+   "nome": "Gradoni (Variante)",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (edilizia sovietica e brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/Estetiche brutaliste 2.html#complesso_gradoni_var"
+  },
+  {
+   "id": "palazzo-edificio-pilotis",
+   "famiglia": "palazzi-brutalisti",
+   "nome": "Edificio con pilotis",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (edilizia sovietica e brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/Estetiche brutaliste 2.html#edificio_pilotis"
+  },
+  {
+   "id": "palazzo-edificio-pilotis-var",
+   "famiglia": "palazzi-brutalisti",
+   "nome": "Pilotis (Variante)",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (edilizia sovietica e brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/Estetiche brutaliste 2.html#edificio_pilotis_var"
+  },
+  {
+   "id": "palazzo-casa-cultura",
+   "famiglia": "palazzi-brutalisti",
+   "nome": "Casa della Cultura",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (edilizia sovietica e brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/Estetiche brutaliste 2.html#casa_cultura"
+  },
+  {
+   "id": "palazzo-casa-cultura-var1",
+   "famiglia": "palazzi-brutalisti",
+   "nome": "Casa Cultura (Variante 1)",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (edilizia sovietica e brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/Estetiche brutaliste 2.html#casa_cultura_var1"
+  },
+  {
+   "id": "palazzo-casa-cultura-var2",
+   "famiglia": "palazzi-brutalisti",
+   "nome": "Casa Cultura (Variante 2)",
+   "stato": "pronto",
+   "epoca": "Secondo Novecento (edilizia sovietica e brutalista, anni 1950–1980): non usare prima del 1945",
+   "fonte": "prototypes/laika-studi-originali/Estetiche brutaliste 2.html#casa_cultura_var2"
+  },
+  {
+   "id": "ambiente-piazza",
+   "famiglia": "ambienti",
+   "nome": "Piazza",
+   "stato": "pronto",
+   "epoca": "Generico XX secolo: verificare forma degli edifici per luogo e anno",
+   "fonte": "prototypes/laika-studi-originali/studio personaggi.html#piazza"
+  },
+  {
+   "id": "ambiente-fabbrica",
+   "famiglia": "ambienti",
+   "nome": "Fabbrica",
+   "stato": "pronto",
+   "epoca": "Generico XX secolo: verificare forma degli edifici per luogo e anno",
+   "fonte": "prototypes/laika-studi-originali/studio personaggi.html#fabbrica"
+  },
+  {
+   "id": "ambiente-stazione",
+   "famiglia": "ambienti",
+   "nome": "Stazione",
+   "stato": "pronto",
+   "epoca": "Generico XX secolo: verificare forma degli edifici per luogo e anno",
+   "fonte": "prototypes/laika-studi-originali/studio personaggi.html#stazione"
+  },
+  {
+   "id": "ambiente-rurale",
+   "famiglia": "ambienti",
+   "nome": "Casa rurale",
+   "stato": "pronto",
+   "epoca": "Generico XX secolo: verificare forma degli edifici per luogo e anno",
+   "fonte": "prototypes/laika-studi-originali/studio personaggi.html#rurale"
+  },
+  {
+   "id": "mezzo-treno",
+   "famiglia": "mezzi",
+   "nome": "Treno",
+   "stato": "pronto",
+   "epoca": "Da verificare per anno: tram e treno dalla fine dell'Ottocento, camion e carro armato dal 1916 circa",
+   "fonte": "prototypes/laika-studi-originali/studio personaggi.html#treno",
+   "note": "Il triangolo rosso sul treno è decorativo: verificare prima di usarlo come simbolo politico."
+  },
+  {
+   "id": "mezzo-tram",
+   "famiglia": "mezzi",
+   "nome": "Tram",
+   "stato": "pronto",
+   "epoca": "Da verificare per anno: tram e treno dalla fine dell'Ottocento, camion e carro armato dal 1916 circa",
+   "fonte": "prototypes/laika-studi-originali/studio personaggi.html#tram"
+  },
+  {
+   "id": "mezzo-camion",
+   "famiglia": "mezzi",
+   "nome": "Camion",
+   "stato": "pronto",
+   "epoca": "Da verificare per anno: tram e treno dalla fine dell'Ottocento, camion e carro armato dal 1916 circa",
+   "fonte": "prototypes/laika-studi-originali/studio personaggi.html#camion"
+  },
+  {
+   "id": "mezzo-tank",
+   "famiglia": "mezzi",
+   "nome": "Carro armato",
+   "stato": "pronto",
+   "epoca": "Dal 1916 (prima guerra mondiale); sagoma generica, non un modello identificato",
+   "fonte": "prototypes/laika-studi-originali/studio personaggi.html#tank"
+  },
+  {
+   "id": "infra-tralicci",
+   "famiglia": "infrastrutture",
+   "nome": "Tralicci e fili",
+   "stato": "pronto",
+   "epoca": "Elettrificazione: dal primo Novecento nelle città, più tardi nelle campagne",
+   "fonte": "prototypes/laika-studi-originali/studio personaggi.html#infra"
+  },
+  {
+   "id": "suolo",
+   "famiglia": "ambienti",
+   "nome": "Linea di terra",
+   "stato": "pronto",
+   "epoca": "Generico XX secolo: verificare forma degli edifici per luogo e anno",
+   "fonte": "prototypes/laika-studi-originali/studio personaggi.html#suolo"
+  },
+  {
+   "id": "oggetto-bandiera",
+   "famiglia": "oggetti",
+   "nome": "Bandiera rossa",
+   "stato": "pronto",
+   "epoca": "Generico XX secolo: il cartello \"ХЛЕБ\" è legato alle crisi alimentari russe (es. 1917)",
+   "fonte": "prototypes/laika-studi-originali/studio personaggi.html#bandiera"
+  },
+  {
+   "id": "oggetto-cartello-vuoto",
+   "famiglia": "oggetti",
+   "nome": "Cartello vuoto",
+   "stato": "pronto",
+   "epoca": "Generico XX secolo: il cartello \"ХЛЕБ\" è legato alle crisi alimentari russe (es. 1917)",
+   "fonte": "prototypes/laika-studi-originali/studio personaggi.html#cartello_vuoto"
+  },
+  {
+   "id": "oggetto-cartello-pane",
+   "famiglia": "oggetti",
+   "nome": "Cartello ХЛЕБ",
+   "stato": "pronto",
+   "epoca": "Generico XX secolo: il cartello \"ХЛЕБ\" è legato alle crisi alimentari russe (es. 1917)",
+   "fonte": "prototypes/laika-studi-originali/studio personaggi.html#cartello_pane"
+  },
+  {
+   "id": "oggetto-fucile",
+   "famiglia": "oggetti",
+   "nome": "Fucile",
+   "stato": "pronto",
+   "epoca": "Generico XX secolo: il cartello \"ХЛЕБ\" è legato alle crisi alimentari russe (es. 1917)",
+   "fonte": "prototypes/laika-studi-originali/studio personaggi.html#fucile"
+  },
+  {
+   "id": "oggetto-bastone",
+   "famiglia": "oggetti",
+   "nome": "Bastone",
+   "stato": "pronto",
+   "epoca": "Generico XX secolo: il cartello \"ХЛЕБ\" è legato alle crisi alimentari russe (es. 1917)",
+   "fonte": "prototypes/laika-studi-originali/studio personaggi.html#bastone"
+  },
+  {
+   "id": "oggetto-martello",
+   "famiglia": "oggetti",
+   "nome": "Martello",
+   "stato": "pronto",
+   "epoca": "Generico XX secolo: il cartello \"ХЛЕБ\" è legato alle crisi alimentari russe (es. 1917)",
+   "fonte": "prototypes/laika-studi-originali/studio personaggi.html#martello"
+  },
+  {
+   "id": "oggetto-megafono",
+   "famiglia": "oggetti",
+   "nome": "Megafono",
+   "stato": "pronto",
+   "epoca": "Generico XX secolo: il cartello \"ХЛЕБ\" è legato alle crisi alimentari russe (es. 1917)",
+   "fonte": "prototypes/laika-studi-originali/studio personaggi.html#megafono"
+  },
+  {
+   "id": "oggetto-cassa",
+   "famiglia": "oggetti",
+   "nome": "Cassa",
+   "stato": "pronto",
+   "epoca": "Generico XX secolo: il cartello \"ХЛЕБ\" è legato alle crisi alimentari russe (es. 1917)",
+   "fonte": "prototypes/laika-studi-originali/studio personaggi.html#cassa"
+  },
+  {
+   "id": "oggetto-barricata",
+   "famiglia": "oggetti",
+   "nome": "Barricata",
+   "stato": "pronto",
+   "epoca": "Generico XX secolo: il cartello \"ХЛЕБ\" è legato alle crisi alimentari russe (es. 1917)",
+   "fonte": "prototypes/laika-studi-originali/studio personaggi.html#barricata"
+  },
+  {
+   "id": "oggetto-tamburo",
+   "famiglia": "oggetti",
+   "nome": "Tamburo",
+   "stato": "pronto",
+   "epoca": "Generico XX secolo: il cartello \"ХЛЕБ\" è legato alle crisi alimentari russe (es. 1917)",
+   "fonte": "prototypes/laika-studi-originali/studio personaggi.html#tamburo"
+  },
+  {
+   "id": "oggetto-giornale",
+   "famiglia": "oggetti",
+   "nome": "Giornale",
+   "stato": "pronto",
+   "epoca": "Generico XX secolo: il cartello \"ХЛЕБ\" è legato alle crisi alimentari russe (es. 1917)",
+   "fonte": "prototypes/laika-studi-originali/studio personaggi.html#giornale"
+  },
+  {
+   "id": "oggetto-volantini",
+   "famiglia": "oggetti",
+   "nome": "Volantini & Sassi",
+   "stato": "pronto",
+   "epoca": "Generico XX secolo: il cartello \"ХЛЕБ\" è legato alle crisi alimentari russe (es. 1917)",
+   "fonte": "prototypes/laika-studi-originali/studio personaggi.html#volantini"
+  },
+  {
+   "id": "infra-lampione",
+   "famiglia": "infrastrutture",
+   "nome": "Lampione a gas",
+   "stato": "pronto",
+   "epoca": "Archetipo generico di primo Novecento (Europa orientale, 1900-1917): illuminazione a gas nelle vie cittadine, l'elettrico solo in alcuni quartieri",
+   "fonte": "prototypes/kit-infrastrutture-atmosfera/kit-infrastrutture-atmosfera.html#lampione",
+   "note": "Parti animabili: luce (sfarfallio), alone, lanterna."
+  },
+  {
+   "id": "infra-binari",
+   "famiglia": "infrastrutture",
+   "nome": "Binari",
+   "stato": "pronto",
+   "epoca": "Archetipo generico di primo Novecento (Europa orientale, 1900-1917): ferrovia a scartamento russo, dal 1851 la linea Pietroburgo-Mosca",
+   "fonte": "prototypes/kit-infrastrutture-atmosfera/kit-infrastrutture-atmosfera.html#binari"
+  },
+  {
+   "id": "infra-ciminiera",
+   "famiglia": "infrastrutture",
+   "nome": "Ciminiera",
+   "stato": "pronto",
+   "epoca": "Archetipo generico di primo Novecento (Europa orientale, 1900-1917): ciminiera industriale in mattoni, le bande rosse sono decorative",
+   "fonte": "prototypes/kit-infrastrutture-atmosfera/kit-infrastrutture-atmosfera.html#ciminiera",
+   "note": "Abbinabile ad atmo-fumo in cima."
+  },
+  {
+   "id": "infra-filo-spinato",
+   "famiglia": "infrastrutture",
+   "nome": "Filo spinato",
+   "stato": "pronto",
+   "epoca": "Archetipo generico di primo Novecento (Europa orientale, 1900-1917): difese del fronte dal 1914; non usare per scene precedenti la Grande Guerra",
+   "fonte": "prototypes/kit-infrastrutture-atmosfera/kit-infrastrutture-atmosfera.html#filo_spinato"
+  },
+  {
+   "id": "atmo-fumo",
+   "famiglia": "atmosfera",
+   "nome": "Fumo",
+   "stato": "pronto",
+   "epoca": "Archetipo generico di primo Novecento (Europa orientale, 1900-1917): fumo di ciminiere, locomotive e incendi",
+   "fonte": "prototypes/kit-infrastrutture-atmosfera/kit-infrastrutture-atmosfera.html#fumo",
+   "note": "Rifatto il 20 ottobre 2026: pennacchio piegato dal vento verso destra, senza contorni. La bocca del camino è a 91,5 unità a sinistra e 2 sopra il punto di posa (a scala 1): per un camino in (cx, cy) posare il fumo in (cx + 91,5 × scala, cy + 2 × scala); con flip il vento va a sinistra. Parti animabili: sbuffo-1 ... sbuffo-7."
+  },
+  {
+   "id": "atmo-neve",
+   "famiglia": "atmosfera",
+   "nome": "Neve",
+   "stato": "pronto",
+   "epoca": "Archetipo generico di primo Novecento (Europa orientale, 1900-1917): inverno russo; riquadro di 200 x 150 con base sulla linea di terra",
+   "fonte": "prototypes/kit-infrastrutture-atmosfera/kit-infrastrutture-atmosfera.html#neve",
+   "note": "Parte animabile: fiocchi (caduta in ciclo)."
+  },
+  {
+   "id": "atmo-pioggia",
+   "famiglia": "atmosfera",
+   "nome": "Pioggia",
+   "stato": "pronto",
+   "epoca": "Archetipo generico di primo Novecento (Europa orientale, 1900-1917): riquadro di 200 x 150 con base sulla linea di terra",
+   "fonte": "prototypes/kit-infrastrutture-atmosfera/kit-infrastrutture-atmosfera.html#pioggia",
+   "note": "Parte animabile: gocce (caduta in ciclo)."
+  },
+  {
+   "id": "luogo-palazzo",
+   "famiglia": "luoghi",
+   "nome": "Palazzo imperiale",
+   "stato": "pronto",
+   "epoca": "Dal 1762 (San Pietroburgo): archetipo di palazzo imperiale barocco modellato sul Palazzo d'Inverno; facciata semplificata, non un rilievo. Adatto a scene dal 1762 in poi.",
+   "fonte": "prototypes/kit-luoghi-monumentali/kit-luoghi-monumentali.html#palazzo",
+   "note": "Larghezza 1200 a scala 1, per figure minuscole (scala 0,3-0,5). Parte con id: portali."
+  },
+  {
+   "id": "luogo-colonna",
+   "famiglia": "luoghi",
+   "nome": "Colonna commemorativa",
+   "stato": "pronto",
+   "epoca": "Dal 1834 (San Pietroburgo): archetipo modellato sulla Colonna di Alessandro, Piazza del Palazzo.",
+   "fonte": "prototypes/kit-luoghi-monumentali/kit-luoghi-monumentali.html#colonna",
+   "note": "Alta 370 a scala 1. Da porre davanti a luogo-palazzo per la Piazza del Palazzo. Parte con id: angelo."
+  },
+  {
+   "id": "luogo-fabbrica",
+   "famiglia": "luoghi",
+   "nome": "Grande fabbrica",
+   "stato": "pronto",
+   "epoca": "Fine Ottocento - primo Novecento (Pietroburgo e grandi centri industriali dell'impero): stabilimento metalmeccanico generico con capannoni a shed, centrale e ciminiere in mattoni; non un edificio identificato.",
+   "fonte": "prototypes/kit-luoghi-monumentali/kit-luoghi-monumentali.html#fabbrica",
+   "note": "Larghezza 1300 a scala 1. Bocche dei camini (x, y rispetto al punto di posa, scala 1): (-590,-380) (-505,-348) (-210,-340) (70,-368) (330,-322) (540,-354). Parti con id: luci, cancello."
+  },
+  {
+   "id": "luogo-pianura",
+   "famiglia": "luoghi",
+   "nome": "Pianura arata",
+   "stato": "pronto",
+   "epoca": "Generico, campagna russa dell'Ottocento e del primo Novecento: campi a strisce in prospettiva.",
+   "fonte": "prototypes/kit-luoghi-monumentali/kit-luoghi-monumentali.html#pianura",
+   "note": "Orizzonte a 100 unità sopra il punto di posa (scala 1), larghezza 1600: con scala 2,3 copre il primo piano di una scena 1600 x 700."
+  },
+  {
+   "id": "luogo-tenuta",
+   "famiglia": "luoghi",
+   "nome": "Casa padronale",
+   "stato": "pronto",
+   "epoca": "Ottocento (Russia europea): archetipo di casa padronale neoclassica con portico e cupola; adatta alla tenuta di un proprietario nobile prima e dopo il 1861.",
+   "fonte": "prototypes/kit-luoghi-monumentali/kit-luoghi-monumentali.html#tenuta",
+   "note": "Da usare lontana, sulla linea dell'orizzonte."
+  },
+  {
+   "id": "luogo-chiesa",
+   "famiglia": "luoghi",
+   "nome": "Chiesa di villaggio",
+   "stato": "pronto",
+   "epoca": "Ottocento - primo Novecento (Russia europea): chiesa ortodossa di villaggio con cupola a bulbo e campanile a tenda; archetipo generico.",
+   "fonte": "prototypes/kit-luoghi-monumentali/kit-luoghi-monumentali.html#chiesa",
+   "note": "Da usare lontana, sulla linea dell'orizzonte."
+  },
+  {
+   "id": "luogo-isbe",
+   "famiglia": "luoghi",
+   "nome": "Fila di isbe",
+   "stato": "pronto",
+   "epoca": "Ottocento - primo Novecento (Russia europea): case contadine in legno, archetipo generico.",
+   "fonte": "prototypes/kit-luoghi-monumentali/kit-luoghi-monumentali.html#isbe",
+   "note": "Sei case in fila, da usare lontane; finestre in sabbia (luce accesa)."
+  },
+  {
+   "id": "luogo-betulle",
+   "famiglia": "luoghi",
+   "nome": "Betulle d'inverno",
+   "stato": "pronto",
+   "epoca": "Senza epoca (paesaggio della Russia europea): betulle spoglie.",
+   "fonte": "prototypes/kit-luoghi-monumentali/kit-luoghi-monumentali.html#betulle",
+   "note": "Sette alberi deterministici, larghezza circa 330."
+  },
+  {
+   "id": "luogo-ponte",
+   "famiglia": "luoghi",
+   "nome": "Ponte ad archi in ferro",
+   "stato": "pronto",
+   "epoca": "Dal 1879 (San Pietroburgo): archetipo modellato sul Ponte Litejnyj, archi in ferro su pile di granito.",
+   "fonte": "prototypes/kit-luoghi-monumentali/kit-luoghi-monumentali.html#ponte",
+   "note": "Lungo 1770 a scala 1, la base delle pile e' sulla linea di terra (acqua o ghiaccio); il piano stradale e' 88 sopra la terra: le figure camminano li'. Lampioni su ogni pila."
+  },
+  {
+   "id": "luogo-riva",
+   "famiglia": "luoghi",
+   "nome": "Riva in granito",
+   "stato": "pronto",
+   "epoca": "XVIII-XIX secolo (San Pietroburgo): argine in granito delle rive della Neva, archetipo generico.",
+   "fonte": "prototypes/kit-luoghi-monumentali/kit-luoghi-monumentali.html#riva",
+   "note": "Lunga 1770 a scala 1. Da porre davanti a edifici lontani per chiudere l'altra sponda."
+  },
+  {
+   "id": "luogo-folla",
+   "famiglia": "luoghi",
+   "nome": "Folla lontana",
+   "stato": "pronto",
+   "epoca": "Abiti generici di inizio Novecento; nessuna bandiera o insegna.",
+   "fonte": "prototypes/kit-luoghi-monumentali/kit-luoghi-monumentali.html#folla",
+   "note": "Massa di circa 250 sagome minuscole (segni, non personaggi) in quattro file, larga 650 e alta 24 a scala 1: a scala 0.55-0.6 ha l'altezza delle figure articolate a scala 0.2. Si muove come elemento (transfer con arco 0). Le figure in primo piano restano quelle articolate."
+  },
+  {
+   "id": "atmo-foschia",
+   "famiglia": "atmosfera",
+   "nome": "Foschia",
+   "stato": "pronto",
+   "epoca": "Senza epoca: bande di foschia orizzontali.",
+   "fonte": "prototypes/kit-luoghi-monumentali/kit-luoghi-monumentali.html#foschia",
+   "note": "Larghezza 1600, alta 82 a scala 1, base sul punto di posa. Si mette dopo i piani lontani e prima delle figure per dare profondità. Parte con id: velo."
+  }
+ ],
+ "da_fare": [
+  {
+   "famiglia": "ambienti",
+   "priorita": "alta",
+   "voci": [
+    "strada urbana",
+    "appartamento",
+    "ufficio",
+    "caserma"
+   ],
+   "gia_presenti": [
+    "ambiente-piazza",
+    "ambiente-fabbrica",
+    "ambiente-rurale",
+    "ambiente-stazione"
+   ]
+  },
+  {
+   "famiglia": "mezzi",
+   "priorita": "media",
+   "voci": [
+    "automobile",
+    "nave",
+    "aereo"
+   ],
+   "gia_presenti": [
+    "mezzo-treno",
+    "mezzo-tram",
+    "mezzo-camion",
+    "mezzo-tank"
+   ]
+  },
+  {
+   "famiglia": "tecnologia del secolo",
+   "priorita": "media",
+   "voci": [
+    "catena di montaggio",
+    "macchina fotografica",
+    "cinepresa",
+    "satellite",
+    "razzo",
+    "computer"
+   ],
+   "note": "Un razzo esiste nel vecchio kit (prototypes/laika-kit/kit-forme-laika.html, env-cosmodromo): va ridisegnato nello stile degli studi."
+  },
+  {
+   "famiglia": "elementi atmosferici",
+   "priorita": "media",
+   "voci": [
+    "polvere",
+    "esplosioni stilizzate",
+    "luci"
+   ],
+   "note": "Nella foto l'ultima voce era coperta (\"...geometriche\"): da confermare."
+  },
+  {
+   "famiglia": "comunicazione e oggetti",
+   "priorita": "da confermare",
+   "voci": [
+    "macchina da scrivere",
+    "televisore"
+   ],
+   "note": "Nella foto era visibile solo la fine della riga: completare l'elenco."
+  }
+ ],
+ "archivio": [
+  {
+   "percorso": "prototypes/laika-kit/kit-forme-laika.html",
+   "contenuto": "20 simboli del primo kit (stile geometrico precedente)"
+  },
+  {
+   "percorso": "prototypes/laika-kit/atto0-study.json",
+   "contenuto": "14 simboli dello studio Atto 0, già nel formato del motore, stile precedente"
+  },
+  {
+   "percorso": "prototypes/laika-kit/figure/",
+   "contenuto": "5 sagome organiche statiche (home v2): possibile pelle alternativa per la figura"
+  },
+  {
+   "percorso": "prototypes/rig-study/assets/",
+   "contenuto": "cane LAIKA con rig (marca, non scena storica)"
+  },
+  {
+   "percorso": "games/motion-study/assets/",
+   "contenuto": "tre figure dello studio di movimento precedente"
+  }
+ ]
+}

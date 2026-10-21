@@ -1,0 +1,31 @@
+{
+  "id": "esempio-inverno",
+  "etichetta": "Inverno in un quartiere operaio: le ciminiere fumano, due operai attraversano i binari sotto la neve.",
+  "ruvido": true,
+  "elementi": [
+    { "id": "fabbrica", "simbolo": "ambiente-fabbrica", "x": 250, "y": 430, "scala": 1.6 },
+    { "id": "ciminiera", "simbolo": "infra-ciminiera", "x": 640, "y": 430, "scala": 2.1 },
+    { "id": "lampione", "simbolo": "infra-lampione", "x": 780, "y": 430, "scala": 2 },
+    { "id": "binari", "simbolo": "infra-binari", "x": 480, "y": 430, "scala": 2.6 },
+    { "id": "terra", "simbolo": "suolo", "x": 480, "y": 430, "scala": 1.9 },
+    { "id": "fumo", "simbolo": "atmo-fumo", "x": 750, "y": 152, "scala": 1.2 },
+    { "id": "neve", "simbolo": "atmo-neve", "x": 300, "y": 470, "scala": 2.4 },
+    { "id": "neve-dx", "simbolo": "atmo-neve", "x": 720, "y": 470, "scala": 2.4 }
+  ],
+  "figure": [
+    { "id": "operaio", "x": 330, "y": 470, "scala": 1.6, "variante": "cappello", "posa": "in_piedi" },
+    { "id": "operaia", "x": 470, "y": 470, "scala": 1.6, "variante": "scialle", "posa": "in_piedi" }
+  ],
+  "sequenze": [
+    {
+      "id": "alba",
+      "didascalia": "Il fumo sale dalla ciminiera mentre due operai attraversano i binari verso il turno.",
+      "passi": [
+        { "azione": "reveal", "chi": "fumo", "modo": "sale", "a": 0, "durata": 1800 },
+        { "azione": "walk", "chi": "operaio", "da": "sinistra", "a": 400 },
+        { "azione": "walk", "chi": "operaia", "da": "sinistra", "a": 900 }
+      ]
+    }
+  ],
+  "ingresso": "alba"
+}

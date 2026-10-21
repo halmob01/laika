@@ -1,0 +1,29 @@
+{
+  "defaultGame": "biblioteca",
+  "games": [
+    {
+      "id": "biblioteca",
+      "label": "Una biblioteca per tutti",
+      "manifest": "./games/biblioteca/game.json"
+    },
+    {
+      "id": "quartiere",
+      "label": "Uno spazio in comune",
+      "manifest": "./games/quartiere/game.json"
+    },
+    {
+      "id": "messaggio",
+      "label": "Prima di inoltrare",
+      "manifest": "./games/messaggio/game.json"
+    },
+    {
+      "id": "laika",
+      "label": "LAIKA — prova tecnica interna",
+      "manifest": "./games/laika/game.json",
+      "presentation": {
+        "stylesheet": "./site/laika/theme.css",
+        "homeHref": "./"
+      }
+    }
+  ]
+}

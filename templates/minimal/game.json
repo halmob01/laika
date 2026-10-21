@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "1.0.0",
+  "id": "nuovo-gioco",
+  "title": "Nuovo gioco",
+  "exposureFlags": [],
+  "stages": [],
+  "acts": [
+    {
+      "id": "inizio",
+      "title": "Primo atto",
+      "actors": [
+        {
+          "id": "learner"
+        }
+      ],
+      "roles": [
+        {
+          "id": "reader",
+          "label": "Lettore",
+          "actorId": "learner",
+          "mandate": "Valutare le informazioni disponibili prima di agire."
+        }
+      ],
+      "metrics": [],
+      "resources": [],
+      "relations": [],
+      "flags": [
+        "checked"
+      ],
+      "episodes": [
+        {
+          "id": "intro",
+          "type": "narrative",
+          "title": "Da dove partiamo",
+          "text": "Sostituisci questo testo con il contesto del tuo gioco.",
+          "roleId": "reader"
+        },
+        {
+          "id": "decisione",
+          "type": "choice",
+          "title": "Una prima decisione",
+          "text": "Sostituisci le alternative e descrivi le conseguenze.",
+          "roleId": "reader",
+          "choices": [
+            {
+              "id": "prima",
+              "label": "Prima alternativa",
+              "feedback": "Descrivi la prima conseguenza.",
+              "effects": []
+            },
+            {
+              "id": "seconda",
+              "label": "Seconda alternativa",
+              "feedback": "Descrivi la seconda conseguenza.",
+              "effects": []
+            }
+          ]
+        }
+      ],
+      "reconciliation": "Scenario fittizio: le scelte restano nel diario; il nuovo atto riparte dai dati dichiarati."
+    }
+  ]
+}

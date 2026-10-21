@@ -1,0 +1,59 @@
+{
+  "id": "esempio-dispersione",
+  "etichetta": "Un gruppo raccolto davanti a una casa rurale si disperde nel villaggio.",
+  "ruvido": true,
+  "elementi": [
+    {
+      "id": "casa",
+      "simbolo": "ambiente-rurale",
+      "x": 480,
+      "y": 430,
+      "scala": 1.8
+    },
+    {
+      "id": "terra",
+      "simbolo": "suolo",
+      "x": 480,
+      "y": 430,
+      "scala": 1.9
+    }
+  ],
+  "figure": [
+    {
+      "gruppo": "villaggio",
+      "formazione": {
+        "tipo": "righe",
+        "n": 9,
+        "righe": 2,
+        "x": 480,
+        "y": 470,
+        "passo": 95,
+        "scala": 1.3,
+        "varianti": [
+          "scialle",
+          "nessuna",
+          "cappello_largo",
+          "donna",
+          "bambino",
+          "cappotto"
+        ]
+      }
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "si-disperdono",
+      "didascalia": "Le persone erano raccolte e si allontanano verso le case.",
+      "passi": [
+        {
+          "azione": "disperse",
+          "chi": "villaggio",
+          "fattore": 0.25,
+          "a": 0,
+          "sfalsa": 90
+        }
+      ]
+    }
+  ],
+  "ingresso": "si-disperdono"
+}

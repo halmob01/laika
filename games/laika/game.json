@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "id": "laika",
+  "contentVersion": "p1-internal-1",
+  "title": "LAIKA — prova tecnica interna",
+  "exposureFlags": [],
+  "symbols": [],
+  "stages": [],
+  "acts": [
+    {
+      "id": "atto-0",
+      "title": "Atto 0 — struttura interna",
+      "actors": [
+        {
+          "id": "learner"
+        }
+      ],
+      "roles": [
+        {
+          "id": "reader",
+          "label": "Lettore",
+          "actorId": "learner",
+          "mandate": "Valutare le informazioni disponibili prima di agire."
+        }
+      ],
+      "metrics": [],
+      "resources": [],
+      "relations": [],
+      "flags": [],
+      "reconciliation": "Solo verifica tecnica del passaggio tra atti; nessun confronto storico implementato.",
+      "episodes": [
+        {
+          "id": "atto-0-prova",
+          "type": "narrative",
+          "title": "Prova tecnica — contenuto non didattico",
+          "text": "Questo scheletro verifica caricamento, progressione e salvataggio. Non contiene una lezione né rappresenta un atto storico completato.",
+          "roleId": "reader",
+          "context": {
+            "kind": "simulation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "atto-1",
+      "title": "Atto I — struttura interna",
+      "actors": [
+        {
+          "id": "learner"
+        }
+      ],
+      "roles": [
+        {
+          "id": "reader",
+          "label": "Lettore",
+          "actorId": "learner",
+          "mandate": "Valutare le informazioni disponibili prima di agire."
+        }
+      ],
+      "metrics": [],
+      "resources": [],
+      "relations": [],
+      "flags": [],
+      "reconciliation": "Solo verifica tecnica del passaggio tra atti; nessun confronto storico implementato.",
+      "episodes": [
+        {
+          "id": "atto-1-prova",
+          "type": "narrative",
+          "title": "Prova tecnica — contenuto non didattico",
+          "text": "Questo scheletro verifica caricamento, progressione e salvataggio. Non contiene una lezione né rappresenta un atto storico completato.",
+          "roleId": "reader",
+          "context": {
+            "kind": "simulation"
+          }
+        }
+      ]
+    }
+  ]
+}

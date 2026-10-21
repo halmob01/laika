@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bottega — galleria</title>
+<style>
+  :root { --paper:#f3ebdb; --paper2:#e9e0cf; --ink:#1c1c1b; --red:#cc2a25; --blue:#93abb7; --mute:#59564f; --line:#bdb6a7; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.45 system-ui, sans-serif; }
+  header { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: baseline; padding: 18px 20px 10px; border-bottom: 2px solid var(--ink); }
+  h1 { margin: 0; font: 800 22px/1 ui-monospace, monospace; letter-spacing: .08em; }
+  header p { margin: 0; color: var(--mute); font-size: 14px; }
+  nav { display: flex; gap: 6px; padding: 10px 20px; flex-wrap: wrap; border-bottom: 1px solid var(--line); }
+  nav button, .ctl button, select { font: 600 14px ui-monospace, monospace; min-height: 40px; padding: 6px 12px; border: 2px solid var(--ink); background: var(--paper); color: var(--ink); cursor: pointer; }
+  nav button[aria-selected="true"] { background: var(--ink); color: var(--paper); }
+  main { padding: 16px 20px 40px; max-width: 1280px; margin: 0 auto; }
+  .ctl { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin: 10px 0; }
+  .ctl label { font-size: 14px; display: flex; gap: 6px; align-items: center; }
+  .stage { width: 100%; aspect-ratio: 16 / 9; background: var(--paper2); border: 2px solid var(--ink); }
+  .stage svg { width: 100%; height: 100%; display: block; }
+  #caption { min-height: 1.5em; font-weight: 600; }
+  input[type=range] { width: min(420px, 100%); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+  .card { border: 1px solid var(--line); background: #fffaf0; padding: 6px; }
+  .card .thumb { aspect-ratio: 4 / 3; }
+  .card .thumb svg { width: 100%; height: 100%; display: block; }
+  .card b { display: block; font: 600 12px ui-monospace, monospace; word-break: break-all; }
+  .card small { color: var(--mute); font-size: 12px; display: block; }
+  .stato { font: 700 11px ui-monospace, monospace; text-transform: uppercase; color: var(--red); }
+  h2 { font: 700 16px ui-monospace, monospace; letter-spacing: .06em; text-transform: uppercase; border-bottom: 1px solid var(--line); padding-bottom: 4px; margin-top: 28px; }
+  .todo li { margin: 4px 0; }
+  .err { color: var(--red); font-weight: 700; white-space: pre-wrap; }
+  [hidden] { display: none !important; }
+  @media (max-width: 600px) { header, nav, main { padding-left: 12px; padding-right: 12px; } .grid { grid-template-columns: repeat(2, 1fr); } }
+</style>
+</head>
+<body>
+<header>
+  <h1>BOTTEGA</h1>
+  <p>Disegni, figure e movimenti riutilizzabili, resi dal motore reale. Servire la repo con <code>npm run serve</code>.</p>
+</header>
+<nav role="tablist">
+  <button role="tab" data-tab="scene" aria-selected="true">Scene di esempio</button>
+  <button role="tab" data-tab="figure" aria-selected="false">Figure e pose</button>
+  <button role="tab" data-tab="catalogo" aria-selected="false">Catalogo</button>
+  <button role="tab" data-tab="prova" aria-selected="false">Prova una scena</button>
+</nav>
+<main>
+  <p class="err" id="errore" hidden></p>
+  <section id="tab-scene">
+    <div class="ctl">
+      <label>Scena <select id="scena"></select></label>
+      <label>Sequenza <select id="sequenza"></select></label>
+      <label>Tema <select id="tema"></select></label>
+      <label><input type="checkbox" id="ruvido" checked> Tratto ruvido</label>
+    </div>
+    <div class="stage" id="stage"></div>
+    <p id="caption" aria-live="polite"></p>
+    <div class="ctl">
+      <button id="play">Riproduci</button><button id="pause">Pausa</button><button id="skip">Fine</button>
+      <input type="range" id="seek" min="0" max="1000" value="0" aria-label="Posizione nella sequenza">
+      <span id="tempo">0 ms</span>
+    </div>
+  </section>
+  <section id="tab-figure" hidden>
+    <div class="ctl">
+      <label>Variante <select id="variante"></select></label>
+      <label>Ruolo <select id="ruolo"></select></label>
+    </div>
+    <div class="grid" id="pose"></div>
+  </section>
+  <section id="tab-catalogo" hidden>
+    <div id="catalogo"></div>
+  </section>
+  <section id="tab-prova" hidden>
+    <p>Incolla una scheda scena (JSON) e premi Componi. Gli errori indicano il passo da correggere.</p>
+    <textarea id="json" rows="14" style="width:100%;font:13px ui-monospace,monospace"></textarea>
+    <div class="ctl"><button id="componi">Componi</button></div>
+    <div class="stage" id="stage-prova"></div>
+  </section>
+</main>
+<script type="module">
+import {composePack} from '../src/visual/compose.js';
+import {createStage,validateStage} from '../src/visual/stage.js';
+import {compilaScene} from './scena.js';
+import {figura} from './figura/figura.js';
+import {POSE,VARIANTI,RUOLI} from './figura/pose.js';
+const $ = id => document.getElementById(id);
+const get = async p => { const r = await fetch(p); if (!r.ok) throw new Error('Impossibile leggere ' + p); return r.json(); };
+const mostraErrore = e => { $('errore').hidden = false; $('errore').textContent = e.message; console.error(e); };
+try {
+  const [studi, temi, catalogo] = await Promise.all([get('./generati/studi.json'), get('./temi.json'), get('./catalogo.json')]);
+  const esempi = await Promise.all(catalogo.esempi.map(p => get('../' + p)));
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  for (const t of Object.keys(temi.temi)) $('tema').append(new Option(t, t, t === 'laika', t === 'laika'));
+  for (const s of esempi) $('scena').append(new Option(s.id.replace('esempio-', ''), s.id));
+
+  function pacchetto(scene, palette, ruvido) {
+    const s = scene.map(x => ruvido ? x : { ...x, ruvido: false });
+    const p = compilaScene(s, { libreria: studi, palette });
+    const g = composePack(p); for (const st of g.stages) validateStage(st, {}); return g;
+  }
+  // Scene
+  const stage = createStage($('stage'), { reducedMotion: reduced, onCaption: t => $('caption').textContent = t,
+    onProgress: (t, end) => { $('seek').value = end ? Math.round(t / end * 1000) : 0; $('tempo').textContent = Math.round(t) + ' / ' + Math.round(end) + ' ms'; } });
+  let attuale = null;
+  function caricaScena(autoplay = true) {
+    const scena = esempi.find(s => s.id === $('scena').value);
+    const g = pacchetto([scena], temi.temi[$('tema').value], $('ruvido').checked);
+    attuale = g.stages[0];
+    const prima = $('sequenza').value;
+    $('sequenza').replaceChildren(...attuale.sequences.map(q => new Option(q.id, q.id)));
+    if (attuale.sequences.some(q => q.id === prima)) $('sequenza').value = prima;
+    stage.mount(attuale, {});
+    if (autoplay) stage.sequence($('sequenza').value); else stage.skip();
+  }
+  $('scena').onchange = () => { $('sequenza').value = ''; caricaScena(); };
+  $('sequenza').onchange = () => stage.sequence($('sequenza').value);
+  $('tema').onchange = () => caricaScena(false);
+  $('ruvido').onchange = () => stage.setTexturesEnabled($('ruvido').checked);
+  $('play').onclick = () => stage.sequence($('sequenza').value);
+  $('pause').onclick = () => stage.paused ? stage.resume() : stage.pause();
+  $('skip').onclick = () => stage.skip();
+  $('seek').oninput = () => { const seq = attuale.sequences.find(q => q.id === $('sequenza').value); const end = Math.max(...seq.tracks.map(t => t.at + t.duration * (t.iterations ?? 1))); if (!stage.active && !stage.paused) { stage.sequence(seq.id); } stage.seek($('seek').value / 1000 * end); };
+  caricaScena();
+  // Figure
+  for (const v of Object.keys(VARIANTI)) $('variante').append(new Option(VARIANTI[v].label, v));
+  for (const r of Object.keys(RUOLI)) $('ruolo').append(new Option(RUOLI[r].label, r));
+  function mini(host, symbols, components, viewBox, palette) {
+    const g = composePack({ palette, patterns: studi.patterns, symbols, stages: [{ id: 'm', label: 'anteprima', duration: 0, viewBox, layers: [], components }] });
+    createStage(host, { reducedMotion: true }).mount(g.stages[0], {});
+  }
+  function figure() {
+    const palette = temi.temi[$('tema').value];
+    $('pose').replaceChildren();
+    for (const [nome, p] of Object.entries(POSE)) {
+      const card = document.createElement('div'); card.className = 'card';
+      const thumb = document.createElement('div'); thumb.className = 'thumb';
+      const f = figura({ id: 'f', x: 0, y: 0, variant: $('variante').value, role: $('ruolo').value, pose: nome });
+      mini(thumb, f.symbols, f.components, [-75, -125, 150, 145], palette);
+      card.append(thumb); card.insertAdjacentHTML('beforeend', '<b>' + nome + '</b><small>' + p.label + (p.prop ? ' · ' + p.prop : '') + '</small>');
+      $('pose').append(card);
+    }
+  }
+  $('variante').onchange = figure; $('ruolo').onchange = figure;
+  // Catalogo
+  function catalogoView() {
+    const palette = temi.temi[$('tema').value], box = $('catalogo'); box.replaceChildren();
+    const famiglie = [...new Set(catalogo.voci.map(v => v.famiglia))];
+    for (const fam of famiglie) {
+      box.insertAdjacentHTML('beforeend', '<h2>' + fam + '</h2>');
+      const grid = document.createElement('div'); grid.className = 'grid'; box.append(grid);
+      for (const v of catalogo.voci.filter(x => x.famiglia === fam)) {
+        const s = studi.symbols.find(x => x.id === v.id), [w, h] = s.meta.size;
+        const card = document.createElement('div'); card.className = 'card';
+        const thumb = document.createElement('div'); thumb.className = 'thumb';
+        const pad = Math.max(w, h) * 0.08 + 6, cy = s.meta.anchor === 'centro' ? -h / 2 : -h;
+        mini(thumb, [s], [{ id: 'x', symbol: s.id }], [-w / 2 - pad, cy - pad, w + pad * 2, h + pad * 2], palette);
+        card.append(thumb); card.insertAdjacentHTML('beforeend', '<span class="stato">' + v.stato + '</span><b>' + v.id + '</b><small>' + v.nome + '</small>');
+        grid.append(card);
+      }
+    }
+    box.insertAdjacentHTML('beforeend', '<h2>Da realizzare</h2><ul class="todo">' + catalogo.da_fare.map(d => '<li><b>' + d.famiglia + '</b> (' + d.priorita + '): ' + d.voci.join(', ') + (d.note ? ' — <small>' + d.note + '</small>' : '') + '</li>').join('') + '</ul>');
+  }
+  // Prova
+  $('json').value = JSON.stringify(esempi[0], null, 2);
+  const prova = createStage($('stage-prova'), { reducedMotion: reduced });
+  $('componi').onclick = () => {
+    try { $('errore').hidden = true; const g = pacchetto([JSON.parse($('json').value)], temi.temi[$('tema').value], true); prova.mount(g.stages[0], {}, { intro: true }); }
+    catch (e) { mostraErrore(e); }
+  };
+  // Schede
+  const fatte = new Set();
+  for (const b of document.querySelectorAll('[role=tab]')) b.onclick = () => {
+    for (const x of document.querySelectorAll('[role=tab]')) { x.setAttribute('aria-selected', String(x === b)); $('tab-' + x.dataset.tab).hidden = x !== b; }
+    if (b.dataset.tab === 'figure' && !fatte.has('figure')) { figure(); fatte.add('figure'); }
+    if (b.dataset.tab === 'catalogo' && !fatte.has('catalogo')) { catalogoView(); fatte.add('catalogo'); }
+  };
+  window.__galleria = { pronto: true };
+} catch (e) { mostraErrore(e); window.__galleria = { errore: e.message }; }
+</script>
+</body>
+</html>

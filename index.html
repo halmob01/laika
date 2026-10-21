@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LAIKA — Come cambia un mondo?</title>
+<meta name="description" content="Direzione Centrale per la Pianificazione, l'Attuazione e la Rettifica dei Processi Rivoluzionari. Un percorso sulla Rivoluzione russa fatto di scelte, fonti e conseguenze.">
+<script>if(new URLSearchParams(location.search).has('game'))location.replace('./play.html'+location.search+location.hash);</script>
+<link rel="icon" href="data:,">
+<link rel="preload" href="./site/laika/fonts/propaganda.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./site/laika/fonts/roboto-condensed-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="./site/laika/home.css">
+</head>
+<body>
+<a class="salta" href="#contenuto">Vai al contenuto</a>
+
+<header class="testata">
+ <a class="marchio" href="./" aria-label="LAIKA, pagina iniziale"><svg class="wm" viewBox="0 0 5860 1465" fill="currentColor" aria-hidden="true" focusable="false"><path transform="translate(-115 1464) scale(1 -1)" d="M440 325H1090V0H440H115V325V1464H440V325ZM1337 1463H1662H1987H2127L2312 1277V1138V812V487V-1H1987V487H1662V-1H1337V487V812V1138V1463ZM1987 1138H1662V812H1987V1138ZM2557 1464H2882H3207H3347H3532V1278V1139H3207V325H3532V0H3207H2882H2557V325H2882V1139H2557V1464ZM4103 1464V813H4428V1464H4568H4753V1278V813H4568L4753 628V488V0H4428V488H4103V0H3778V1464H4103ZM5000 1463H5325H5650H5790L5975 1277V1138V812V487V-1H5650V487H5325V-1H5000V487V812V1138V1463ZM5650 1138H5325V812H5650V1138Z"/></svg></a>
+ <p class="protocollo-testata">Sezione storica · Prot. n. 1861/1917</p>
+ <nav aria-label="Sezioni">
+  <a href="#fascicoli">Il percorso</a>
+  <a href="#procedura">Come funziona</a>
+ </nav>
+</header>
+
+<main id="contenuto">
+ <section class="hero" id="hero" data-epoca="1861" aria-labelledby="titolo">
+  <div class="hero-testa">
+   <div class="piano" aria-hidden="true"></div>
+   <p class="occhiello"><span>Edizione didattica</span> <span>N.&nbsp;1</span> <span>1861&thinsp;–&thinsp;1917</span></p>
+   <h1 id="titolo" class="titolo"><span class="fascia fascia-nera">Come</span> <span class="fascia fascia-vuota">cambia</span> <span class="fascia fascia-rossa">un mondo?</span></h1>
+   <p class="denominazione">Direzione Centrale per la Pianificazione, l'Attuazione e la Rettifica dei Processi Rivoluzionari</p>
+   <div class="hero-lato">
+    <p class="sommario">Un percorso sulla Rivoluzione russa: tre generazioni, due rivoluzioni, una lunga serie di scelte.</p>
+    <div class="azioni">
+     <a id="inizia" class="cta" href="./play.html?game=laika">Inizia il percorso</a>
+     <a id="resume" class="cta" href="./play.html?game=laika" hidden>Riprendi il percorso</a>
+     <a class="secondaria" href="#fascicoli">Consulta l'archivio</a>
+    </div>
+    <p id="progress" class="pratica" role="status">Protocollo in corso di verifica.</p>
+   </div>
+  </div>
+
+  <div class="campo">
+   <span class="sole" aria-hidden="true"></span>
+   <p id="anno" class="anno" aria-hidden="true"><span class="anno-cifra">1861</span></p>
+   <svg class="costruzione" viewBox="0 0 1600 700" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M -40 640 L 1640 40 M -40 700 L 1640 100 M 1180 0 L 1180 700 M 0 152 L 1600 152" fill="none" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke"/></svg>
+   <div id="scena" class="scena" role="img" aria-label="1861. Una pianura arata fino all'orizzonte; lontano la casa padronale, la chiesa e le isbe del villaggio.">
+    <noscript><p class="senza-js">La scena animata richiede JavaScript. Il resto della pagina si legge anche senza.</p></noscript>
+   </div>
+  </div>
+
+  <div class="linea-tempo">
+   <div class="verbale">
+    <p class="luogo-riga"><span>Tavola di situazione</span> <span id="luogo">Campagne della Russia europea</span></p>
+    <p id="didascalia" class="didascalia">19 febbraio 1861: un manifesto di Alessandro II abolisce la servitù della gleba.</p>
+    <p class="comandi">
+     <button type="button" id="pausa" class="comando" aria-pressed="false">Ferma il movimento</button>
+     <button type="button" id="rivedi" class="comando">Rivedi</button>
+    </p>
+   </div>
+   <div class="date" role="group" aria-label="Scegli l'anno da mostrare">
+    <button type="button" class="data" data-epoca="1861" data-scena="hero-1861" data-luogo="Campagne della Russia europea" aria-pressed="true"><span class="cifra">1861</span><span class="voce">La terra</span></button>
+    <button type="button" class="data" data-epoca="1905" data-scena="hero-1905" data-luogo="San Pietroburgo, Piazza del Palazzo" aria-pressed="false"><span class="cifra">1905</span><span class="voce">La piazza</span></button>
+    <button type="button" class="data" data-epoca="1917" data-scena="hero-1917" data-luogo="Pietrogrado, un ponte sulla Neva" aria-pressed="false"><span class="cifra">1917</span><span class="voce">Il pane</span></button>
+   </div>
+  </div>
+ </section>
+
+ <section class="premessa" aria-labelledby="premessa-titolo">
+  <div class="etichetta">
+   <h2 id="premessa-titolo">Premessa</h2>
+   <p>Da leggere prima di aprire i fascicoli</p>
+  </div>
+  <div class="premessa-testo">
+   <p class="attacco">Nel 1861 la Russia è un impero di contadini. Cinquantasei anni dopo lo zar abdica, e nel giro di otto mesi il potere passa ai bolscevichi, un partito che all'inizio del 1917 era una minoranza.</p>
+   <p>In mezzo c'è una riforma che libera i servi ma fa pagare loro la terra. Ci sono fabbriche enormi cresciute in pochi anni, una guerra persa contro il Giappone, una domenica in cui la truppa spara su un corteo disarmato, e poi la guerra mondiale, che dura molto più a lungo di quanto quasi tutti si aspettassero.</p>
+   <p>Questo percorso racconta quegli anni dall'interno. In ogni fascicolo ci si trova in un luogo preciso, accanto a persone con interessi diversi, e si deve decidere qualcosa: come dividere la terra, se scioperare, che cosa chiedere allo zar. Poi si guarda che cosa accadde davvero e perché. Il confronto non serve a dare un voto alle scelte, ma a capire quali strade erano aperte e quali erano già chiuse.</p>
+  </div>
+ </section>
+
+ <section class="manifesto" aria-label="Circolare n. 1">
+  <p class="manifesto-frase"><span><span class="banda">Il piano <span class="grave">è</span></span> <span class="banda">stato approvato.</span></span> <span><span class="banda banda-rossa">La storia non <span class="grave">è</span></span> <span class="banda banda-rossa">stata informata.</span></span></p>
+  <p class="manifesto-nota">Circolare n.&nbsp;1 · da affiggere in ogni ufficio</p>
+ </section>
+
+ <section id="fascicoli" class="archivio" aria-labelledby="fascicoli-titolo">
+  <div class="etichetta">
+   <h2 id="fascicoli-titolo">Fascicoli</h2>
+   <p>Si aprono in ordine di protocollo</p>
+  </div>
+  <div class="archivio-corpo">
+   <p class="archivio-intro">Il percorso è diviso in atti. Ogni atto copre un periodo e si compone di quattro unità; si comincia dall'Atto 0 e si prosegue in ordine, perché ogni periodo eredita i problemi di quello precedente.</p>
+   <ol class="registro">
+    <li class="voce-registro">
+     <span class="numero" aria-hidden="true">0</span>
+     <p class="periodo">Atto 0 · dal 1861</p>
+     <h3>La terra e lo zar</h3>
+     <p>L'abolizione della servitù, il riscatto della terra, la comunità di villaggio, le prime grandi fabbriche.</p>
+     <span class="timbro">In istruttoria</span>
+    </li>
+    <li class="voce-registro">
+     <span class="numero" aria-hidden="true">I</span>
+     <p class="periodo">Atto I · 1904–1907</p>
+     <h3>L'impero in crisi</h3>
+     <p>La guerra con il Giappone, la domenica di sangue, gli scioperi e i primi soviet, il Manifesto di ottobre e una Duma con poteri limitati.</p>
+     <span class="timbro">In istruttoria</span>
+    </li>
+    <li class="voce-registro chiusa">
+     <span class="numero" aria-hidden="true">II</span>
+     <p class="periodo">Atto II · 1917</p>
+     <h3>Due rivoluzioni in un anno</h3>
+     <p>Febbraio e ottobre: la caduta dello zar, il governo provvisorio accanto ai soviet, la presa del potere dei bolscevichi.</p>
+     <span class="timbro">Non ancora declassificato</span>
+    </li>
+   </ol>
+  </div>
+ </section>
+
+ <section id="procedura" class="procedura" aria-labelledby="procedura-titolo">
+  <div class="etichetta">
+   <h2 id="procedura-titolo">Il potere <span class="grave">è</span> una procedura</h2>
+   <p>Regolamento d'uso, approvato all'unanimità</p>
+  </div>
+  <ol class="articoli">
+   <li><p class="art">Art. 1</p><h3>Si osserva</h3><p>Ogni unità comincia da un quadro: un luogo, le persone che ci vivono, quello che possono e non possono fare. Lo si legge prima di scegliere.</p></li>
+   <li><p class="art">Art. 2</p><h3>Si decide</h3><p>Si distribuiscono risorse, si sceglie una linea, si parla per conto di qualcuno. Il modello registra le conseguenze, anche quelle che arrivano più tardi.</p></li>
+   <li><p class="art">Art. 3</p><h3>Si confronta</h3><p>Alla fine dell'unità la simulazione viene messa accanto a quello che accadde, con le fonti che lo documentano.</p></li>
+   <li><p class="art">Art. 4</p><h3>Si distingue</h3><p>Ogni pagina dice se si sta leggendo un fatto documentato, una fonte o una simulazione. Le scelte cambiano la simulazione, non la storia.</p></li>
+  </ol>
+ </section>
+</main>
+
+<footer class="piede">
+ <p>I fascicoli sono in preparazione: il pulsante apre una versione di prova, e i progressi restano in questo browser.</p>
+ <a href="./play.html">Esplora i laboratori dimostrativi</a>
+</footer>
+<script type="module" src="./site/laika/home.js"></script>
+</body>
+</html>

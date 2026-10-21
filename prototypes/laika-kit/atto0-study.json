@@ -1,0 +1,1499 @@
+{
+  "schemaVersion": 1,
+  "id": "laika-atto0-art-study",
+  "title": "LAIKA — Forme per Atto 0 e crisi 1905–1917",
+  "status": "visual-reference-not-game",
+  "symbols": [
+    {
+      "id": "env-appezzamenti",
+      "meta": "Campi, divisione della terra e confine mobile",
+      "group": "territorio",
+      "layers": [
+        {
+          "id": "hill",
+          "tag": "path",
+          "attrs": {
+            "d": "M-180,0 C-120,-34 -30,-38 55,-24 C115,-14 155,-20 180,0 Z",
+            "fill": "#93abb7"
+          }
+        },
+        {
+          "id": "peasant-plots",
+          "tag": "path",
+          "attrs": {
+            "d": "M-170,0 C-115,-16 -55,-18 -10,-6 L-18,0 C-60,-10 -115,-9 -170,0 Z M-155,-8 C-105,-22 -55,-23 -12,-12 L-18,-9 C-58,-18 -105,-17 -155,-5 Z",
+            "fill": "#1c1c1b"
+          }
+        },
+        {
+          "id": "owner-plots",
+          "tag": "path",
+          "attrs": {
+            "d": "M8,-6 C65,-20 125,-18 172,0 L158,0 C115,-12 62,-13 2,0 Z M12,-14 C68,-26 122,-24 162,-8 L154,-5 C115,-18 65,-19 6,-10 Z",
+            "fill": "#cc2a25"
+          }
+        },
+        {
+          "id": "border-post",
+          "tag": "g",
+          "pose": {}
+        },
+        {
+          "id": "marker",
+          "tag": "path",
+          "attrs": {
+            "d": "M-6,0 L-5,-46 C-5,-50 5,-50 5,-46 L6,0 Z M-18,0 V-28 H-14 V0 Z M14,0 V-28 H18 V0 Z M-22,-18 H22 V-14 H-22 Z",
+            "fill": "#1c1c1b"
+          },
+          "parent": "border-post"
+        },
+        {
+          "id": "crest",
+          "tag": "rect",
+          "attrs": {
+            "x": -3.5,
+            "y": -42,
+            "width": 7,
+            "height": 10,
+            "fill": "#cc2a25"
+          },
+          "parent": "border-post"
+        }
+      ]
+    },
+    {
+      "id": "char-proprietario",
+      "meta": "Possidente terriero, cappotto e bastone",
+      "group": "personaggi",
+      "layers": [
+        {
+          "id": "legs",
+          "tag": "path",
+          "attrs": {
+            "d": "M-5,0 L-5.5,-10 H-1 L-1,0 C-1,1.8 -5,1.8 -5,0 Z M1,0 L1,-10 H5.5 L5,0 C5,1.8 1,1.8 1,0 Z",
+            "fill": "#1c1c1b"
+          }
+        },
+        {
+          "id": "torso",
+          "tag": "g",
+          "pose": {
+            "translateY": -9,
+            "rotate": -3
+          }
+        },
+        {
+          "id": "coat",
+          "tag": "path",
+          "attrs": {
+            "d": "M-10.5,1 C-11.5,-9 -10.5,-22 -7.5,-29 C-4,-32.5 4,-32.5 7.5,-29 C10.5,-22 11.5,-9 10.5,1 C5,2.5 -5,2.5 -10.5,1 Z",
+            "fill": "#1c1c1b"
+          },
+          "parent": "torso"
+        },
+        {
+          "id": "head",
+          "tag": "path",
+          "attrs": {
+            "d": "M-4.5,-30 C-5,-35 -3,-38.5 0.5,-38.5 C4,-38.5 5.5,-35 5,-30 Z M-6.5,-36.5 H7.5 V-34.5 H-6.5 Z M-4.5,-46.5 C-2,-47.5 3,-47.5 5.5,-46.5 L5,-36 H-4 Z",
+            "fill": "#1c1c1b"
+          },
+          "parent": "torso"
+        },
+        {
+          "id": "arm",
+          "tag": "path",
+          "attrs": {
+            "d": "M-7,-27 C-12,-23 -14,-17 -10,-11 L-7,-13 C-9.5,-17 -8.5,-21 -5.5,-24 Z",
+            "fill": "#1c1c1b"
+          },
+          "parent": "torso"
+        },
+        {
+          "id": "arm-cane",
+          "tag": "g",
+          "pose": {
+            "translateX": 6.5,
+            "translateY": -25,
+            "rotate": -25
+          },
+          "parent": "torso"
+        },
+        {
+          "id": "arm-cane-body",
+          "tag": "path",
+          "attrs": {
+            "d": "M-2.8,-2 C0,-3.2 3,-1.5 3.2,1.5 C3.6,6.5 3.8,12 3.2,16 C2.8,18.2 -1,18 -1.5,15.8 C-2.2,11.5 -2.6,5 -2.8,-2 Z",
+            "fill": "#1c1c1b"
+          },
+          "parent": "arm-cane"
+        },
+        {
+          "id": "cane",
+          "tag": "path",
+          "attrs": {
+            "d": "M1,14 L11,32 L9,33 L-1,15 Z M-1,13 C1,11 4,12 4,15 Z",
+            "fill": "#cc2a25"
+          },
+          "parent": "arm-cane"
+        }
+      ]
+    },
+    {
+      "id": "char-funzionario",
+      "meta": "Funzionario imperiale, cappotto e registro",
+      "group": "personaggi",
+      "layers": [
+        {
+          "id": "leg-left",
+          "tag": "g",
+          "pose": {
+            "translateX": -2.5,
+            "translateY": -13,
+            "rotate": 5
+          }
+        },
+        {
+          "id": "leg-left-body",
+          "tag": "path",
+          "attrs": {
+            "d": "M-2.8,-1 C0,-2 2.5,-1 2.2,2 L1,13 C0.8,14.8 -3,14.8 -3,12.8 Z",
+            "fill": "#1c1c1b"
+          },
+          "parent": "leg-left"
+        },
+        {
+          "id": "leg-right",
+          "tag": "g",
+          "pose": {
+            "translateX": 2.5,
+            "translateY": -13,
+            "rotate": -6
+          }
+        },
+        {
+          "id": "leg-right-body",
+          "tag": "path",
+          "attrs": {
+            "d": "M-2.2,-1 C0.5,-2 2.8,-1 2.8,2 L3.8,12.8 C3.8,14.8 0,14.8 -0.4,13 Z",
+            "fill": "#1c1c1b"
+          },
+          "parent": "leg-right"
+        },
+        {
+          "id": "torso",
+          "tag": "g",
+          "pose": {
+            "translateY": -12
+          }
+        },
+        {
+          "id": "coat",
+          "tag": "path",
+          "attrs": {
+            "d": "M-8,3 C-7,-7 -6.5,-18 -5.5,-26 C-3,-28.5 3.5,-28.5 6,-26 C7,-18 7.8,-7 8.8,3 C3.5,4.2 -3.5,4.2 -8,3 Z",
+            "fill": "#1c1c1b"
+          },
+          "parent": "torso"
+        },
+        {
+          "id": "head",
+          "tag": "path",
+          "attrs": {
+            "d": "M-3.5,-34.5 C-1.5,-37.5 4,-37.8 7.8,-35.5 C6.8,-34 5.5,-33.5 5,-32.8 C5.4,-29.8 3.4,-27.2 0.5,-27.2 C-2.4,-27.2 -4.4,-29.6 -4.2,-32.6 C-5,-33 -4.4,-34 -3.5,-34.5 Z",
+            "fill": "#1c1c1b"
+          },
+          "parent": "torso"
+        },
+        {
+          "id": "arm-doc",
+          "tag": "g",
+          "pose": {
+            "translateX": 5,
+            "translateY": -24,
+            "rotate": -68
+          },
+          "parent": "torso"
+        },
+        {
+          "id": "arm-body",
+          "tag": "path",
+          "attrs": {
+            "d": "M-2.5,-2 C0.2,-3 2.8,-1.5 3,1.5 C3.4,7 3.6,12.5 3.2,17 C2.8,19 -0.8,19 -1.2,16.8 C-1.8,12 -2.2,5.5 -2.5,-2 Z",
+            "fill": "#1c1c1b"
+          },
+          "parent": "arm-doc"
+        },
+        {
+          "id": "ledger",
+          "tag": "path",
+          "attrs": {
+            "d": "M-4,14 L6,12 L8,24 L-2,26 Z",
+            "fill": "#cc2a25"
+          },
+          "parent": "arm-doc"
+        }
+      ]
+    },
+    {
+      "id": "char-famiglia-contadina",
+      "meta": "Nucleo familiare contadino, tre sagome piene",
+      "group": "personaggi",
+      "layers": [
+        {
+          "id": "dad-legs",
+          "tag": "path",
+          "attrs": {
+            "d": "M-26,0 L-24,-17 H-20 L-21.5,0 C-21.5,1.8 -26,1.8 -26,0 Z M-19,0 L-19.5,-17 H-15.5 L-14,0 C-14,1.8 -18.5,1.8 -19,0 Z",
+            "fill": "#1c1c1b"
+          }
+        },
+        {
+          "id": "dad-torso",
+          "tag": "g",
+          "pose": {
+            "translateX": -20,
+            "translateY": -16,
+            "rotate": 24
+          }
+        },
+        {
+          "id": "dad-body",
+          "tag": "path",
+          "attrs": {
+            "d": "M-5.5,1 C-7,-6 -7.5,-15 -5.2,-21 C-2.8,-23.8 3.2,-23.8 5.8,-20.5 C7.2,-15 6,-6 4.6,1 C2.5,2.8 -3,2.8 -5.5,1 Z M1,-31.2 C4,-31.2 5.8,-28.8 5.4,-25.8 C5,-22.8 2.8,-21.2 0,-21.4 C-2.8,-21.6 -4.5,-24 -4.2,-27 C-3.8,-29.6 -1.8,-31.2 1,-31.2 Z",
+            "fill": "#1c1c1b"
+          },
+          "parent": "dad-torso"
+        },
+        {
+          "id": "dad-arm",
+          "tag": "g",
+          "pose": {
+            "translateX": 3,
+            "translateY": -19,
+            "rotate": 16
+          },
+          "parent": "dad-torso"
+        },
+        {
+          "id": "dad-arm-body",
+          "tag": "path",
+          "attrs": {
+            "d": "M-2.4,-2 C0,-3 2.6,-1.5 2.8,1.5 C3.2,7 3.4,12.5 3,17 C2.6,19 -0.8,19 -1.2,16.8 C-1.8,12 -2.2,5.5 -2.4,-2 Z",
+            "fill": "#1c1c1b"
+          },
+          "parent": "dad-arm"
+        },
+        {
+          "id": "mom",
+          "tag": "path",
+          "attrs": {
+            "d": "M-3,0 L-3,-4 H5 L5,0 Z M-7.5,-3.5 C-6.5,-13 -5.2,-25 -4,-34 C-2,-36.5 3,-36.5 5,-34 C6.2,-25 7.5,-13 8.5,-3.5 C3.5,-2 -3.5,-2 -7.5,-3.5 Z M-5.5,-35.5 C-4.5,-40.8 0,-44 4,-43 C6.8,-42.2 8,-39 7,-35.8 C6,-33 2.8,-32 -1,-32.8 C-3.2,-33.2 -4.8,-34.2 -5.5,-35.5 Z",
+            "fill": "#cc2a25"
+          }
+        },
+        {
+          "id": "child",
+          "tag": "g",
+          "pose": {
+            "translateX": 16
+          }
+        },
+        {
+          "id": "child-body",
+          "tag": "path",
+          "attrs": {
+            "d": "M0,-28.5 C2.2,-28.5 3.6,-26.8 3.4,-24.5 C3.2,-22.2 1.6,-21 -0.4,-21.2 C-2.4,-21.4 -3.6,-23.2 -3.4,-25.5 C-3.2,-27.4 -1.8,-28.5 0,-28.5 Z M-3.5,-20.5 C-1.5,-21.2 1.5,-21.2 3.2,-20.2 C4.5,-16 4.2,-10 3.8,-6.5 L4.8,0 H1.8 L0.8,-6 H-0.8 L-1.8,0 H-4.8 L-3.8,-6.5 C-4.2,-11 -4.2,-16 -3.5,-20.5 Z M-3,-19 L-9,-13 L-7.5,-11 L-2,-16 Z",
+            "fill": "#1c1c1b"
+          },
+          "parent": "child"
+        }
+      ]
+    },
+    {
+      "id": "env-assemblea-mir",
+      "meta": "Assemblea di villaggio: isba, anziani e starosta",
+      "group": "istituzioni",
+      "layers": [
+        {
+          "id": "hut",
+          "tag": "path",
+          "attrs": {
+            "d": "M-95,0 V-56 H95 V0 Z",
+            "fill": "#93abb7"
+          }
+        },
+        {
+          "id": "roof",
+          "tag": "path",
+          "attrs": {
+            "d": "M-112,-54 L0,-96 L112,-54 Z M-78,-56 H-72 V0 H-78 Z M72,-56 H78 V0 H72 Z",
+            "fill": "#1c1c1b"
+          }
+        },
+        {
+          "id": "window",
+          "tag": "rect",
+          "attrs": {
+            "x": -22,
+            "y": -44,
+            "width": 44,
+            "height": 20,
+            "fill": "#f3ebdb"
+          }
+        },
+        {
+          "id": "circle-left",
+          "tag": "path",
+          "attrs": {
+            "d": "M-62,-38 C-59,-38 -57.5,-35.8 -58,-33 C-58.5,-30.5 -61,-29 -63.5,-29.5 C-65.8,-30 -67,-32.2 -66.5,-35 C-66,-37.2 -64,-38 -62,-38 Z M-67,-28.5 C-64,-29.5 -59,-29 -57,-27 L-52,-18 L-54,-16 L-58,-22 V0 H-67 Z M-38,-40 C-35,-40 -33.5,-37.8 -34,-35 C-34.5,-32.5 -37,-31 -39.5,-31.5 C-41.8,-32 -43,-34.2 -42.5,-37 C-42,-39.2 -40,-40 -38,-40 Z M-43,-30.5 C-40,-31.5 -35,-31 -33,-29 L-27,-19 L-29,-17 L-34,-23 V0 H-43 Z",
+            "fill": "#1c1c1b"
+          }
+        },
+        {
+          "id": "circle-right",
+          "tag": "path",
+          "attrs": {
+            "d": "M38,-40 C41,-40 42.5,-37.8 42,-35 C41.5,-32.5 39,-31 36.5,-31.5 C34.2,-32 33,-34.2 33.5,-37 C34,-39.2 36,-40 38,-40 Z M33,-29 C35,-31 40,-31.5 43,-30.5 V0 H34 V-23 L29,-17 L27,-19 Z M62,-38 C65,-38 66.5,-35.8 66,-33 C65.5,-30.5 63,-29 60.5,-29.5 C58.2,-30 57,-32.2 57.5,-35 C58,-37.2 60,-38 62,-38 Z M57,-27 C59,-29 64,-29.5 67,-28.5 V0 H58 V-22 L54,-16 L52,-18 Z",
+            "fill": "#1c1c1b"
+          }
+        },
+        {
+          "id": "elder",
+          "tag": "path",
+          "attrs": {
+            "d": "M0,-44 C3,-44 4.8,-41.5 4.5,-38.5 C4.2,-35.5 2,-34 -0.8,-34.2 C-3.5,-34.5 -5,-37 -4.6,-40 C-4.2,-42.5 -2.2,-44 0,-44 Z M-6.5,0 C-6,-11 -5.5,-24 -4.5,-33 C-2,-35 2.5,-35 5,-33 C6,-24 6.5,-11 7,0 Z",
+            "fill": "#cc2a25"
+          }
+        },
+        {
+          "id": "elder-arm",
+          "tag": "g",
+          "pose": {
+            "translateX": 4.5,
+            "translateY": -31,
+            "rotate": -115
+          }
+        },
+        {
+          "id": "elder-arm-body",
+          "tag": "path",
+          "attrs": {
+            "d": "M-2.2,-1.5 C0,-2.5 2.5,-1 2.6,1.5 C3,6.5 3.2,12 2.6,16 C2.2,18 -1,18 -1.4,15.8 C-2,11.5 -2.2,5.5 -2.2,-1.5 Z",
+            "fill": "#cc2a25"
+          },
+          "parent": "elder-arm"
+        }
+      ]
+    },
+    {
+      "id": "env-fabbrica-800",
+      "meta": "Fabbrica ottocentesca con ciminiere, arcate e fumo",
+      "group": "architetture",
+      "layers": [
+        {
+          "id": "smoke",
+          "tag": "g",
+          "pose": {
+            "translateX": -68,
+            "translateY": -162
+          }
+        },
+        {
+          "id": "smoke-body",
+          "tag": "path",
+          "attrs": {
+            "d": "M0,0 C18,-22 58,-38 108,-44 C135,-47 152,-32 142,-16 C128,-2 78,-4 38,-2 C18,-1 6,2 0,0 Z M34,14 C52,-4 88,-16 128,-20 C148,-22 158,-10 148,2 C132,12 88,10 54,12 Z",
+            "fill": "#93abb7"
+          },
+          "parent": "smoke"
+        },
+        {
+          "id": "chimneys",
+          "tag": "path",
+          "attrs": {
+            "d": "M-78,0 L-73,-162 H-59 L-54,0 Z M-44,0 L-39,-146 H-25 L-20,0 Z M-76,-162 H-56 V-156 H-76 Z M-42,-146 H-22 V-140 H-42 Z",
+            "fill": "#1c1c1b"
+          }
+        },
+        {
+          "id": "chimney-bands",
+          "tag": "path",
+          "attrs": {
+            "d": "M-74,-148 H-58 V-142 H-74 Z M-40,-132 H-24 V-126 H-40 Z",
+            "fill": "#cc2a25"
+          }
+        },
+        {
+          "id": "walls",
+          "tag": "path",
+          "attrs": {
+            "d": "M-135,0 V-78 L-85,-106 L-35,-78 V-98 L25,-126 L85,-98 V-72 H135 V0 Z",
+            "fill": "#93abb7"
+          }
+        },
+        {
+          "id": "roof",
+          "tag": "path",
+          "attrs": {
+            "d": "M135,0 V-72 L148,-64 V0 Z M-138,-76 L-85,-108 L-35,-80 V-98 L25,-128 L88,-98 V-92 L25,-121 L-35,-92 V-73 L-85,-101 L-135,-71 Z",
+            "fill": "#1c1c1b"
+          }
+        },
+        {
+          "id": "arches",
+          "tag": "path",
+          "attrs": {
+            "d": "M-118,-36 V-62 C-118,-70 -104,-70 -104,-62 V-36 Z M-92,-36 V-62 C-92,-70 -78,-70 -78,-62 V-36 Z M-66,-36 V-62 C-66,-70 -52,-70 -52,-62 V-36 Z M-12,-42 V-76 C-12,-86 6,-86 6,-76 V-42 Z M20,-42 V-76 C20,-86 38,-86 38,-76 V-42 Z M52,-42 V-76 C52,-86 70,-86 70,-76 V-42 Z",
+            "fill": "#f3ebdb"
+          }
+        },
+        {
+          "id": "gate",
+          "tag": "path",
+          "attrs": {
+            "d": "M10,0 V-32 C10,-40 36,-40 36,-32 V0 Z M92,-52 H118 V-32 H92 Z",
+            "fill": "#1c1c1b"
+          }
+        }
+      ]
+    },
+    {
+      "id": "char-operaio-800",
+      "meta": "Operaio ottocentesco, silhouette a curve morbide e martello",
+      "group": "personaggi",
+      "layers": [
+        {
+          "id": "leg-left",
+          "tag": "g",
+          "pose": {
+            "translateX": -2,
+            "translateY": -18,
+            "rotate": 14
+          }
+        },
+        {
+          "id": "leg-left-body",
+          "tag": "path",
+          "attrs": {
+            "d": "M-3,-2 C0,-3 3,-1.5 2.8,2 C2,7.5 0.5,13.5 -0.8,18 C-1.5,20.2 -5.2,19.5 -4.6,17 C-3.8,12 -3.4,5 -3,-2 Z",
+            "fill": "#1c1c1b"
+          },
+          "parent": "leg-left"
+        },
+        {
+          "id": "leg-right",
+          "tag": "g",
+          "pose": {
+            "translateX": 2,
+            "translateY": -18,
+            "rotate": -14
+          }
+        },
+        {
+          "id": "leg-right-body",
+          "tag": "path",
+          "attrs": {
+            "d": "M-2.5,-2 C0.5,-3 3.2,-1 3.2,2 C3.8,7.5 4.8,13.5 5.4,17.8 C5.8,20 2,20.5 1.2,18.2 C-0.2,13.5 -1.8,5.5 -2.5,-2 Z",
+            "fill": "#1c1c1b"
+          },
+          "parent": "leg-right"
+        },
+        {
+          "id": "torso",
+          "tag": "g",
+          "pose": {
+            "translateY": -17,
+            "rotate": 6
+          }
+        },
+        {
+          "id": "torso-body",
+          "tag": "path",
+          "attrs": {
+            "d": "M-5.5,2 C-6.8,-5 -7.5,-16 -5.5,-22 C-3,-24.5 3.5,-24.5 6,-22 C7.5,-16 6.5,-5 5.2,2 C2.5,3.2 -2.5,3.2 -5.5,2 Z",
+            "fill": "#1c1c1b"
+          },
+          "parent": "torso"
+        },
+        {
+          "id": "head",
+          "tag": "path",
+          "attrs": {
+            "d": "M0.5,-32.5 C3.6,-32.5 5.6,-30 5.2,-26.8 C4.8,-23.8 2.5,-22 -0.4,-22.2 C-3.2,-22.5 -5,-24.8 -4.6,-28 C-4.2,-30.8 -2.2,-32.5 0.5,-32.5 Z",
+            "fill": "#1c1c1b"
+          },
+          "parent": "torso"
+        },
+        {
+          "id": "arm-left",
+          "tag": "g",
+          "pose": {
+            "translateX": -4.5,
+            "translateY": -20,
+            "rotate": 26
+          },
+          "parent": "torso"
+        },
+        {
+          "id": "arm-left-body",
+          "tag": "path",
+          "attrs": {
+            "d": "M-2.4,-2 C0,-3 2.5,-1.5 2.5,1.5 C2.2,6.8 1.5,12.5 0.8,16.5 C0.4,18.8 -3,18.4 -2.8,16 C-2.6,11.5 -2.5,5 -2.4,-2 Z",
+            "fill": "#1c1c1b"
+          },
+          "parent": "arm-left"
+        },
+        {
+          "id": "arm-right",
+          "tag": "g",
+          "pose": {
+            "translateX": 4.5,
+            "translateY": -20,
+            "rotate": -115
+          },
+          "parent": "torso"
+        },
+        {
+          "id": "arm-right-body",
+          "tag": "path",
+          "attrs": {
+            "d": "M-2.4,-2 C0.2,-3 2.8,-1.5 2.8,1.5 C3.2,7 3.6,12.8 3.2,17 C2.8,19.2 -0.8,19 -1.2,16.8 C-1.8,12 -2.2,5.5 -2.4,-2 Z",
+            "fill": "#1c1c1b"
+          },
+          "parent": "arm-right"
+        },
+        {
+          "id": "hammer",
+          "tag": "path",
+          "attrs": {
+            "d": "M0,15 L2,28 L-0.5,28 L-2.5,15 Z M-6,26 H7 V31 H-6 Z",
+            "fill": "#cc2a25"
+          },
+          "parent": "arm-right"
+        }
+      ]
+    },
+    {
+      "id": "res-documento",
+      "meta": "Documento di emancipazione: pittogramma, non facsimile",
+      "group": "risorse",
+      "layers": [
+        {
+          "id": "shadow",
+          "tag": "rect",
+          "attrs": {
+            "x": -20,
+            "y": -54,
+            "width": 44,
+            "height": 54,
+            "fill": "#1c1c1b"
+          }
+        },
+        {
+          "id": "sheet",
+          "tag": "rect",
+          "attrs": {
+            "x": -24,
+            "y": -58,
+            "width": 44,
+            "height": 54,
+            "fill": "#f3ebdb"
+          }
+        },
+        {
+          "id": "border",
+          "tag": "path",
+          "attrs": {
+            "d": "M-25,-59 H21 V-3 H-25 V-59 M-22,-56 V-6 H18 V-56 Z",
+            "fill": "#1c1c1b"
+          }
+        },
+        {
+          "id": "lines",
+          "tag": "path",
+          "attrs": {
+            "d": "M-16,-48 H12 V-44 H-16 Z M-16,-38 H12 V-35 H-16 Z M-16,-30 H12 V-27 H-16 Z M-16,-22 H4 V-19 H-16 Z",
+            "fill": "#1c1c1b"
+          }
+        },
+        {
+          "id": "seal",
+          "tag": "circle",
+          "attrs": {
+            "cx": 8,
+            "cy": -24,
+            "r": 6.5,
+            "fill": "#cc2a25"
+          }
+        },
+        {
+          "id": "ribbons",
+          "tag": "path",
+          "attrs": {
+            "d": "M4,-16 L1,-5 L5,-7 L8,-4 L7,-15 Z",
+            "fill": "#cc2a25"
+          }
+        }
+      ]
+    },
+    {
+      "id": "res-monete",
+      "meta": "Monete simboliche per riscatti, tasse e obblighi",
+      "group": "risorse",
+      "layers": [
+        {
+          "id": "stack-left",
+          "tag": "path",
+          "attrs": {
+            "d": "M-28,-6 H-4 V-2 H-28 Z M-28,-13 H-4 V-9 H-28 Z M-28,-20 H-4 V-16 H-28 Z M-28,-27 H-4 V-23 H-28 Z M-26,-34 H-2 V-30 H-26 Z",
+            "fill": "#1c1c1b"
+          }
+        },
+        {
+          "id": "stack-right",
+          "tag": "path",
+          "attrs": {
+            "d": "M0,-6 H24 V-2 H0 Z M0,-13 H24 V-9 H0 Z M2,-20 H26 V-16 H2 Z",
+            "fill": "#93abb7"
+          }
+        },
+        {
+          "id": "coin",
+          "tag": "circle",
+          "attrs": {
+            "cx": 12,
+            "cy": -31,
+            "r": 9,
+            "fill": "#cc2a25"
+          }
+        },
+        {
+          "id": "coin-symbol",
+          "tag": "path",
+          "attrs": {
+            "d": "M10,-36 H14 V-26 H10 Z M7,-33 H17 V-29 H7 Z",
+            "fill": "#f3ebdb"
+          }
+        }
+      ]
+    },
+    {
+      "id": "res-grano",
+      "meta": "Covone e sacco di raccolto",
+      "group": "risorse",
+      "layers": [
+        {
+          "id": "sheaf",
+          "tag": "path",
+          "attrs": {
+            "d": "M-22,0 C-18,-14 -14,-24 -16,-44 C-8,-48 4,-48 12,-44 C10,-24 14,-14 18,0 Z",
+            "fill": "#93abb7"
+          }
+        },
+        {
+          "id": "stalks",
+          "tag": "path",
+          "attrs": {
+            "d": "M-18,0 L-10,-22 L-14,-44 L-11,-45 L-6,-22 L-14,0 Z M-2,0 V-46 H1 V0 Z M14,0 L6,-22 L11,-45 L14,-44 L10,-22 L18,0 Z",
+            "fill": "#1c1c1b"
+          }
+        },
+        {
+          "id": "tie",
+          "tag": "path",
+          "attrs": {
+            "d": "M-13,-24 H10 V-18 H-13 Z",
+            "fill": "#cc2a25"
+          }
+        },
+        {
+          "id": "sack",
+          "tag": "path",
+          "attrs": {
+            "d": "M4,0 C2,-10 6,-22 14,-24 L12,-30 H22 L20,-24 C28,-22 32,-10 30,0 Z",
+            "fill": "#1c1c1b"
+          }
+        },
+        {
+          "id": "sack-fill",
+          "tag": "path",
+          "attrs": {
+            "d": "M7,-3 C6,-10 9,-19 15,-21 H19 C25,-19 28,-10 27,-3 Z",
+            "fill": "#f3ebdb"
+          }
+        }
+      ]
+    },
+    {
+      "id": "res-attrezzi",
+      "meta": "Attrezzi rurali: ruota, falce e vanga",
+      "group": "risorse",
+      "layers": [
+        {
+          "id": "wheel",
+          "tag": "circle",
+          "attrs": {
+            "cx": 10,
+            "cy": -18,
+            "r": 16,
+            "fill": "#1c1c1b"
+          }
+        },
+        {
+          "id": "wheel-hole",
+          "tag": "circle",
+          "attrs": {
+            "cx": 10,
+            "cy": -18,
+            "r": 11,
+            "fill": "#f3ebdb"
+          }
+        },
+        {
+          "id": "spokes",
+          "tag": "path",
+          "attrs": {
+            "d": "M8,-34 H12 V-2 H8 Z M-6,-20 H26 V-16 H-6 Z",
+            "fill": "#1c1c1b"
+          }
+        },
+        {
+          "id": "handles",
+          "tag": "path",
+          "attrs": {
+            "d": "M-24,0 L8,-48 L11,-46 L-20,0 Z M12,0 L-18,-44 L-15,-46 L16,0 Z",
+            "fill": "#1c1c1b"
+          }
+        },
+        {
+          "id": "sickle",
+          "tag": "path",
+          "attrs": {
+            "d": "M8,-47 C22,-48 30,-36 22,-24 C18,-32 14,-40 6,-44 Z",
+            "fill": "#cc2a25"
+          }
+        },
+        {
+          "id": "spade",
+          "tag": "path",
+          "attrs": {
+            "d": "M-24,-42 L-12,-48 L-8,-36 L-18,-32 Z",
+            "fill": "#93abb7"
+          }
+        }
+      ]
+    },
+    {
+      "id": "char-soldato-zarista",
+      "meta": "Soldato zarista di scena: uniforme generica, dettaglio da verificare per il 1905 e il 1917",
+      "group": "personaggi",
+      "layers": [
+        {
+          "id": "boots",
+          "tag": "path",
+          "attrs": {
+            "d": "M-5,0 L-4,-12 H0 L-1,0 C-1,1.8 -5,1.8 -5,0 Z M1,0 L1,-12 H5 L6,0 C6,1.8 1.5,1.8 1,0 Z",
+            "fill": "#1c1c1b"
+          }
+        },
+        {
+          "id": "torso",
+          "tag": "g",
+          "pose": {
+            "translateY": -11,
+            "rotate": 2
+          }
+        },
+        {
+          "id": "greatcoat",
+          "tag": "path",
+          "attrs": {
+            "d": "M-8,3 C-7,-8 -6.2,-19 -5,-27 C-2.5,-29.5 3,-29.5 5.5,-27 C6.8,-19 7.8,-8 8.8,3 C3.5,4 -3.5,4 -8,3 Z",
+            "fill": "#1c1c1b"
+          },
+          "parent": "torso"
+        },
+        {
+          "id": "head",
+          "tag": "path",
+          "attrs": {
+            "d": "M-3.5,-34 C-3.8,-38.5 -1,-41 2,-40.5 C4.8,-40 6,-37 5.2,-33.5 C4.5,-30.5 2.2,-29 0,-29.4 C-2.2,-29.8 -3.4,-31.5 -3.5,-34 Z",
+            "fill": "#1c1c1b"
+          },
+          "parent": "torso"
+        },
+        {
+          "id": "cap",
+          "tag": "path",
+          "attrs": {
+            "d": "M-6,-40 Q0,-46 6,-40 L7,-37 L-6,-37 Z",
+            "fill": "#1c1c1b"
+          },
+          "parent": "torso"
+        },
+        {
+          "id": "arm-rifle",
+          "tag": "g",
+          "pose": {
+            "translateX": 5,
+            "translateY": -25,
+            "rotate": -8
+          },
+          "parent": "torso"
+        },
+        {
+          "id": "arm-body",
+          "tag": "path",
+          "attrs": {
+            "d": "M-2,-2 Q0,-4 2,-1 L3,18 Q2,20 -1,18 Z",
+            "fill": "#1c1c1b"
+          },
+          "parent": "arm-rifle"
+        },
+        {
+          "id": "rifle",
+          "tag": "path",
+          "attrs": {
+            "d": "M3,17 L4,-53 H6 L5,19 Z M3,-16 H8 V-12 H3 Z",
+            "fill": "#1c1c1b"
+          },
+          "parent": "arm-rifle"
+        },
+        {
+          "id": "bayonet",
+          "tag": "path",
+          "attrs": {
+            "d": "M4,-53 L6,-64 L7,-53 Z",
+            "fill": "#93abb7"
+          },
+          "parent": "arm-rifle"
+        }
+      ]
+    },
+    {
+      "id": "env-coda-pane",
+      "meta": "Strada e panificio: coda civile, contesto schematico",
+      "group": "architetture",
+      "layers": [
+        {
+          "id": "facade",
+          "tag": "path",
+          "attrs": {
+            "d": "M-160,0 V-105 H58 V0 Z",
+            "fill": "#93abb7"
+          }
+        },
+        {
+          "id": "roof",
+          "tag": "path",
+          "attrs": {
+            "d": "M-165,-105 H64 V-99 H-165 Z",
+            "fill": "#1c1c1b"
+          }
+        },
+        {
+          "id": "door",
+          "tag": "rect",
+          "attrs": {
+            "x": -85,
+            "y": -67,
+            "width": 38,
+            "height": 67,
+            "fill": "#1c1c1b"
+          }
+        },
+        {
+          "id": "window",
+          "tag": "rect",
+          "attrs": {
+            "x": -133,
+            "y": -73,
+            "width": 28,
+            "height": 30,
+            "fill": "#f3ebdb"
+          }
+        },
+        {
+          "id": "window2",
+          "tag": "rect",
+          "attrs": {
+            "x": -20,
+            "y": -73,
+            "width": 28,
+            "height": 30,
+            "fill": "#f3ebdb"
+          }
+        },
+        {
+          "id": "sign",
+          "tag": "path",
+          "attrs": {
+            "d": "M-96,-91 H-38 V-78 H-96 Z",
+            "fill": "#f3ebdb"
+          }
+        },
+        {
+          "id": "street",
+          "tag": "path",
+          "attrs": {
+            "d": "M-180,0 H180 V7 H-180 Z",
+            "fill": "#1c1c1b"
+          }
+        },
+        {
+          "id": "loaf",
+          "tag": "path",
+          "attrs": {
+            "d": "M70,-9 C72,-20 99,-20 102,-9 Z",
+            "fill": "#cc2a25"
+          }
+        }
+      ]
+    },
+    {
+      "id": "char-persona-coda",
+      "meta": "Civile in attesa, spalle curve, braccia raccolte",
+      "group": "personaggi",
+      "layers": [
+        {
+          "id": "legs",
+          "tag": "path",
+          "attrs": {
+            "d": "M-5,0 Q-6,-8 -5,-16 H-1 Q-1,-8 -2,0 Z M1,0 Q0,-8 1,-16 H5 Q6,-8 5,0 Z",
+            "fill": "#1c1c1b"
+          }
+        },
+        {
+          "id": "torso",
+          "tag": "path",
+          "attrs": {
+            "d": "M-6,-16 Q-10,-24 -6,-34 Q-1,-37 5,-34 Q9,-27 6,-16 Z",
+            "fill": "#1c1c1b"
+          }
+        },
+        {
+          "id": "head",
+          "tag": "path",
+          "attrs": {
+            "d": "M-3,-38 C-5,-42 -3,-47 1,-47 C5,-47 6,-43 5,-39 C4,-36 0,-35 -3,-38 Z",
+            "fill": "#1c1c1b"
+          }
+        },
+        {
+          "id": "arm",
+          "tag": "path",
+          "attrs": {
+            "d": "M-6,-31 Q-12,-26 -8,-17 L-5,-20 Q-8,-25 -3,-28 Z M5,-31 Q11,-25 7,-17 L4,-20 Q7,-25 2,-28 Z",
+            "fill": "#1c1c1b"
+          }
+        }
+      ]
+    }
+  ],
+  "stages": [
+    {
+      "id": "scena-terra",
+      "label": "1861 — Terra, confini e rapporti sociali",
+      "duration": 850,
+      "desc": "L'emancipazione modifica lo status giuridico, ma terra e obblighi restano questioni aperte.",
+      "layers": [
+        {
+          "id": "paper",
+          "tag": "rect",
+          "attrs": {
+            "x": 0,
+            "y": 0,
+            "width": 640,
+            "height": 360,
+            "fill": "#e9e0cf"
+          }
+        },
+        {
+          "id": "ground",
+          "tag": "rect",
+          "attrs": {
+            "x": 0,
+            "y": 313,
+            "width": 640,
+            "height": 47,
+            "fill": "#1c1c1b"
+          }
+        },
+        {
+          "id": "horizon",
+          "tag": "path",
+          "attrs": {
+            "d": "M0,310 Q160,300 320,311 T640,305 V313 H0 Z",
+            "fill": "#f3ebdb"
+          }
+        }
+      ],
+      "components": [
+        {
+          "id": "campo",
+          "symbol": "env-appezzamenti",
+          "pose": {
+            "translateX": 323,
+            "translateY": 314,
+            "scale": 1.5
+          }
+        },
+        {
+          "id": "famiglia",
+          "symbol": "char-famiglia-contadina",
+          "pose": {
+            "translateX": 130,
+            "translateY": 307,
+            "scale": 1.6
+          }
+        },
+        {
+          "id": "proprietario",
+          "symbol": "char-proprietario",
+          "pose": {
+            "translateX": 489,
+            "translateY": 306,
+            "scale": 1.55
+          }
+        },
+        {
+          "id": "funzionario",
+          "symbol": "char-funzionario",
+          "pose": {
+            "translateX": 548,
+            "translateY": 307,
+            "scale": 1.35
+          }
+        },
+        {
+          "id": "decreto",
+          "symbol": "res-documento",
+          "pose": {
+            "translateX": 550,
+            "translateY": 221,
+            "scale": 0.65
+          }
+        }
+      ],
+      "sequences": [
+        {
+          "id": "ingresso",
+          "caption": "L'emancipazione modifica lo status giuridico, ma terra e obblighi restano questioni aperte.",
+          "presets": [
+            {
+              "type": "arrive",
+              "layer": "campo",
+              "attribute": "translateX",
+              "distance": 90,
+              "duration": 1250,
+              "at": 0
+            },
+            {
+              "type": "reveal",
+              "layer": "famiglia",
+              "duration": 800,
+              "at": 300
+            },
+            {
+              "type": "reveal",
+              "layer": "proprietario",
+              "duration": 800,
+              "at": 550
+            },
+            {
+              "type": "reveal",
+              "layer": "funzionario",
+              "duration": 800,
+              "at": 800
+            },
+            {
+              "type": "reveal",
+              "layer": "decreto",
+              "duration": 800,
+              "at": 1050
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scena-mir",
+      "label": "Comunità del mir — assemblea e risorse",
+      "duration": 850,
+      "desc": "Il mir è una forma di organizzazione rurale: composizione, poteri e pratiche variano nel tempo.",
+      "layers": [
+        {
+          "id": "paper",
+          "tag": "rect",
+          "attrs": {
+            "x": 0,
+            "y": 0,
+            "width": 640,
+            "height": 360,
+            "fill": "#e9e0cf"
+          }
+        },
+        {
+          "id": "ground",
+          "tag": "rect",
+          "attrs": {
+            "x": 0,
+            "y": 313,
+            "width": 640,
+            "height": 47,
+            "fill": "#1c1c1b"
+          }
+        },
+        {
+          "id": "horizon",
+          "tag": "path",
+          "attrs": {
+            "d": "M0,310 Q160,300 320,311 T640,305 V313 H0 Z",
+            "fill": "#f3ebdb"
+          }
+        }
+      ],
+      "components": [
+        {
+          "id": "assemblea",
+          "symbol": "env-assemblea-mir",
+          "pose": {
+            "translateX": 325,
+            "translateY": 306,
+            "scale": 1.9
+          }
+        },
+        {
+          "id": "famiglia",
+          "symbol": "char-famiglia-contadina",
+          "pose": {
+            "translateX": 105,
+            "translateY": 307,
+            "scale": 1.3
+          }
+        },
+        {
+          "id": "grano",
+          "symbol": "res-grano",
+          "pose": {
+            "translateX": 468,
+            "translateY": 314,
+            "scale": 1
+          }
+        },
+        {
+          "id": "monete",
+          "symbol": "res-monete",
+          "pose": {
+            "translateX": 540,
+            "translateY": 311,
+            "scale": 1
+          }
+        },
+        {
+          "id": "documento",
+          "symbol": "res-documento",
+          "pose": {
+            "translateX": 569,
+            "translateY": 225,
+            "scale": 0.72
+          }
+        }
+      ],
+      "sequences": [
+        {
+          "id": "ingresso",
+          "caption": "Il mir è una forma di organizzazione rurale: composizione, poteri e pratiche variano nel tempo.",
+          "presets": [
+            {
+              "type": "arrive",
+              "layer": "assemblea",
+              "attribute": "translateY",
+              "distance": 70,
+              "duration": 1100,
+              "at": 0
+            },
+            {
+              "type": "reveal",
+              "layer": "famiglia",
+              "duration": 700,
+              "at": 300
+            },
+            {
+              "type": "reveal",
+              "layer": "grano",
+              "duration": 700,
+              "at": 650
+            },
+            {
+              "type": "reveal",
+              "layer": "monete",
+              "duration": 700,
+              "at": 900
+            },
+            {
+              "type": "reveal",
+              "layer": "documento",
+              "duration": 800,
+              "at": 1100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scena-fabbrica800",
+      "label": "Industrializzazione — fabbrica e lavoro",
+      "duration": 850,
+      "desc": "Dalle campagne alle fabbriche: mutano lavoro, mobilità e dipendenze materiali.",
+      "layers": [
+        {
+          "id": "paper",
+          "tag": "rect",
+          "attrs": {
+            "x": 0,
+            "y": 0,
+            "width": 640,
+            "height": 360,
+            "fill": "#e9e0cf"
+          }
+        },
+        {
+          "id": "ground",
+          "tag": "rect",
+          "attrs": {
+            "x": 0,
+            "y": 313,
+            "width": 640,
+            "height": 47,
+            "fill": "#1c1c1b"
+          }
+        },
+        {
+          "id": "horizon",
+          "tag": "path",
+          "attrs": {
+            "d": "M0,310 Q160,300 320,311 T640,305 V313 H0 Z",
+            "fill": "#f3ebdb"
+          }
+        }
+      ],
+      "components": [
+        {
+          "id": "fabbrica",
+          "symbol": "env-fabbrica-800",
+          "pose": {
+            "translateX": 328,
+            "translateY": 307,
+            "scale": 1.45
+          }
+        },
+        {
+          "id": "operaio-a",
+          "symbol": "char-operaio-800",
+          "pose": {
+            "translateX": 98,
+            "translateY": 312,
+            "scale": 1.5
+          }
+        },
+        {
+          "id": "operaio-b",
+          "symbol": "char-operaio-800",
+          "pose": {
+            "translateX": 163,
+            "translateY": 312,
+            "scale": 1.25
+          }
+        },
+        {
+          "id": "attrezzi",
+          "symbol": "res-attrezzi",
+          "pose": {
+            "translateX": 531,
+            "translateY": 311,
+            "scale": 1.05
+          }
+        }
+      ],
+      "sequences": [
+        {
+          "id": "ingresso",
+          "caption": "Dalle campagne alle fabbriche: mutano lavoro, mobilità e dipendenze materiali.",
+          "presets": [
+            {
+              "type": "reveal",
+              "layer": "fabbrica",
+              "duration": 850,
+              "at": 0
+            },
+            {
+              "type": "arrive",
+              "layer": "operaio-a",
+              "attribute": "translateX",
+              "distance": -75,
+              "duration": 1000,
+              "at": 300
+            },
+            {
+              "type": "arrive",
+              "layer": "operaio-b",
+              "attribute": "translateX",
+              "distance": -75,
+              "duration": 1100,
+              "at": 550
+            },
+            {
+              "type": "reveal",
+              "layer": "attrezzi",
+              "duration": 700,
+              "at": 900
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scena-pane",
+      "label": "Crisi degli approvvigionamenti — coda e soldati",
+      "duration": 850,
+      "desc": "Le code per il pane sono un quadro utile per il 1917; non vanno confuse con la Domenica di sangue del 1905.",
+      "layers": [
+        {
+          "id": "paper",
+          "tag": "rect",
+          "attrs": {
+            "x": 0,
+            "y": 0,
+            "width": 640,
+            "height": 360,
+            "fill": "#e9e0cf"
+          }
+        },
+        {
+          "id": "ground",
+          "tag": "rect",
+          "attrs": {
+            "x": 0,
+            "y": 313,
+            "width": 640,
+            "height": 47,
+            "fill": "#1c1c1b"
+          }
+        },
+        {
+          "id": "horizon",
+          "tag": "path",
+          "attrs": {
+            "d": "M0,310 Q160,300 320,311 T640,305 V313 H0 Z",
+            "fill": "#f3ebdb"
+          }
+        }
+      ],
+      "components": [
+        {
+          "id": "forno",
+          "symbol": "env-coda-pane",
+          "pose": {
+            "translateX": 173,
+            "translateY": 309,
+            "scale": 1.65
+          }
+        },
+        {
+          "id": "coda-a",
+          "symbol": "char-persona-coda",
+          "pose": {
+            "translateX": 342,
+            "translateY": 313,
+            "scale": 1.5
+          }
+        },
+        {
+          "id": "coda-b",
+          "symbol": "char-persona-coda",
+          "pose": {
+            "translateX": 378,
+            "translateY": 313,
+            "scale": 1.42
+          }
+        },
+        {
+          "id": "coda-c",
+          "symbol": "char-persona-coda",
+          "pose": {
+            "translateX": 414,
+            "translateY": 313,
+            "scale": 1.34
+          }
+        },
+        {
+          "id": "coda-d",
+          "symbol": "char-persona-coda",
+          "pose": {
+            "translateX": 450,
+            "translateY": 313,
+            "scale": 1.28
+          }
+        },
+        {
+          "id": "soldato",
+          "symbol": "char-soldato-zarista",
+          "pose": {
+            "translateX": 561,
+            "translateY": 312,
+            "scale": 1.55
+          }
+        }
+      ],
+      "sequences": [
+        {
+          "id": "ingresso",
+          "caption": "Le code per il pane sono un quadro utile per il 1917; non vanno confuse con la Domenica di sangue del 1905.",
+          "presets": [
+            {
+              "type": "arrive",
+              "layer": "forno",
+              "attribute": "translateX",
+              "distance": -60,
+              "duration": 800,
+              "at": 0
+            },
+            {
+              "type": "reveal",
+              "layer": "coda-a",
+              "duration": 750,
+              "at": 250
+            },
+            {
+              "type": "reveal",
+              "layer": "coda-b",
+              "duration": 750,
+              "at": 450
+            },
+            {
+              "type": "reveal",
+              "layer": "coda-c",
+              "duration": 750,
+              "at": 650
+            },
+            {
+              "type": "reveal",
+              "layer": "coda-d",
+              "duration": 750,
+              "at": 850
+            },
+            {
+              "type": "reveal",
+              "layer": "soldato",
+              "duration": 800,
+              "at": 1250
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

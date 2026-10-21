@@ -1,0 +1,21 @@
+{
+  "name": "learning-game-kit",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "test": "npm run validate && node --test tests/*.test.js tests/legacy/*.test.cjs",
+    "test:browser": "node tests/browser.cjs",
+    "serve": "python3 -m http.server 4173",
+    "validate": "node scripts/validate-games.js",
+    "create:game": "node scripts/create-game.js",
+    "build:laika": "node scripts/build-laika.js",
+    "bottega:importa": "node bottega/strumenti/importa-studi.js",
+    "bottega:verifica": "node bottega/strumenti/importa-studi.js --check",
+    "scena": "node bottega/strumenti/componi.js",
+    "build:home": "node scripts/build-home.js"
+  },
+  "devDependencies": {
+    "playwright": "1.58.2"
+  }
+}

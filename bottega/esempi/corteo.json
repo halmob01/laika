@@ -1,0 +1,29 @@
+{
+  "id": "esempio-corteo",
+  "etichetta": "Un corteo con due bandiere attraversa una piazza davanti a palazzi in cemento.",
+  "ruvido": true,
+  "elementi": [
+    { "id": "palazzo-sx", "simbolo": "palazzo-palazzo-amministrativo", "x": 250, "y": 430, "scala": 1.6 },
+    { "id": "palazzo-dx", "simbolo": "palazzo-torre-residenziale", "x": 760, "y": 430, "scala": 1.5 },
+    { "id": "terra", "simbolo": "suolo", "x": 480, "y": 430, "scala": 1.9 }
+  ],
+  "figure": [
+    { "gruppo": "corteo", "formazione": { "tipo": "marcia", "x": 470, "y": 470, "scala": 1.5 } }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "Il corteo entra da sinistra e si ferma al centro della piazza; le bandiere sventolano.",
+      "passi": [
+        { "azione": "march", "chi": "corteo", "da": "sinistra", "a": 0, "sfalsa": 120 },
+        { "azione": "wave", "chi": "corteo", "a": 6200, "cicli": 4 },
+        { "azione": "camera", "a": 0, "durata": 9000, "inquadrature": [[0, 160, 560, 315], [160, 140, 600, 338], [0, 0, 960, 540]] }
+      ],
+      "battute": [
+        { "a": 0, "testo": "Il corteo si muove compatto." },
+        { "a": 6200, "testo": "Arrivati in piazza, alzano le bandiere." }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

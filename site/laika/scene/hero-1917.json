@@ -1,0 +1,267 @@
+{
+  "id": "hero-1917",
+  "etichetta": "Febbraio 1917. Sull'altra riva le fabbriche di Pietrogrado, con le ciminiere che fumano. Davanti, un lungo ponte di ferro sul fiume gelato. Sul ponte passa un corteo minuscolo di operaie; una porta il cartello del pane. In fondo al ponte, alcune guardie.",
+  "viewBox": [
+    0,
+    0,
+    1600,
+    700
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    700
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "elementi": [
+    {
+      "id": "fumo-1",
+      "simbolo": "atmo-fumo",
+      "x": 517.3,
+      "y": 155.7,
+      "scala": 1.25
+    },
+    {
+      "id": "fumo-2",
+      "simbolo": "atmo-fumo",
+      "x": 805.9,
+      "y": 164.5,
+      "scala": 1.25
+    },
+    {
+      "id": "fumo-3",
+      "simbolo": "atmo-fumo",
+      "x": 1013.1,
+      "y": 182.3,
+      "scala": 1.25
+    },
+    {
+      "id": "fumo-4",
+      "simbolo": "atmo-fumo",
+      "x": 1198.1,
+      "y": 149.7,
+      "scala": 1.25
+    },
+    {
+      "id": "fumo-5",
+      "simbolo": "atmo-fumo",
+      "x": 1364.6,
+      "y": 188.2,
+      "scala": 1.25
+    },
+    {
+      "id": "fabbrica",
+      "simbolo": "luogo-fabbrica",
+      "x": 800,
+      "y": 440,
+      "scala": 0.74
+    },
+    {
+      "id": "foschia",
+      "simbolo": "atmo-foschia",
+      "x": 800,
+      "y": 448,
+      "scala": 1
+    },
+    {
+      "id": "riva",
+      "simbolo": "luogo-riva",
+      "x": 800,
+      "y": 458,
+      "scala": 0.72
+    },
+    {
+      "id": "ponte",
+      "simbolo": "luogo-ponte",
+      "x": 800,
+      "y": 612,
+      "scala": 1
+    },
+    {
+      "id": "folla",
+      "simbolo": "luogo-folla",
+      "x": 330,
+      "y": 524,
+      "scala": 0.56
+    },
+    {
+      "id": "folla-b",
+      "simbolo": "luogo-folla",
+      "x": -20,
+      "y": 524,
+      "scala": 0.56
+    }
+  ],
+  "figure": [
+    {
+      "gruppo": "operaie",
+      "formazione": {
+        "tipo": "fila",
+        "n": 18,
+        "passo": 14,
+        "x": 660,
+        "y": 524,
+        "scala": 0.19,
+        "varianti": [
+          "scialle",
+          "donna",
+          "borsa",
+          "vestito",
+          "scialle",
+          "cappotto",
+          "donna",
+          "scialle",
+          "borsa"
+        ],
+        "ruoli": [
+          "popolo",
+          "popolo",
+          "popolo",
+          "popolo",
+          "popolo",
+          "popolo",
+          "popolo",
+          "popolo",
+          "popolo",
+          "popolo",
+          "popolo",
+          "popolo",
+          "popolo",
+          "protagonista",
+          "popolo",
+          "popolo",
+          "popolo",
+          "popolo"
+        ],
+        "pose": [
+          "in_piedi",
+          "in_piedi",
+          "in_piedi",
+          "braccia_alzate",
+          "in_piedi",
+          "in_piedi",
+          "in_piedi",
+          "in_piedi",
+          "in_piedi",
+          "in_piedi",
+          "braccia_alzate",
+          "in_piedi",
+          "in_piedi",
+          "in_piedi",
+          "in_piedi",
+          "in_piedi",
+          "in_piedi",
+          "braccia_alzate"
+        ]
+      }
+    },
+    {
+      "id": "cartello",
+      "x": 800,
+      "y": 524,
+      "scala": 0.2,
+      "variante": "scialle",
+      "posa": "tiene_cartello"
+    },
+    {
+      "gruppo": "guardie",
+      "formazione": {
+        "tipo": "fila",
+        "n": 4,
+        "passo": 13,
+        "x": 1330,
+        "y": 524,
+        "scala": 0.19,
+        "varianti": [
+          "cappotto"
+        ],
+        "ruoli": [
+          "esercito"
+        ],
+        "flip": true
+      }
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "23 febbraio 1917, Pietrogrado: è la Giornata internazionale della donna. Le operaie tessili scioperano per il pane; in tre giorni lo sciopero diventa generale.",
+      "passi": [
+        {
+          "azione": "camera",
+          "inquadrature": [
+            [
+              500,
+              380,
+              640,
+              280
+            ],
+            [
+              0,
+              0,
+              1600,
+              700
+            ]
+          ],
+          "tempi": [
+            0,
+            1
+          ],
+          "a": 0,
+          "durata": 5600
+        },
+        {
+          "azione": "reveal",
+          "chi": [
+            "fumo-1",
+            "fumo-2",
+            "fumo-3",
+            "fumo-4",
+            "fumo-5"
+          ],
+          "modo": "sale",
+          "a": 0,
+          "durata": 2600,
+          "sfalsa": 260
+        },
+        {
+          "azione": "walk",
+          "chi": [
+            "operaie",
+            "cartello"
+          ],
+          "da": "sinistra",
+          "distanza": 340,
+          "a": 600,
+          "durata": 4200,
+          "sfalsa": 0
+        },
+        {
+          "azione": "transfer",
+          "chi": "folla",
+          "da": [
+            -10,
+            524
+          ],
+          "arco": 0,
+          "a": 600,
+          "durata": 4200
+        },
+        {
+          "azione": "transfer",
+          "chi": "folla-b",
+          "da": [
+            -360,
+            524
+          ],
+          "arco": 0,
+          "a": 600,
+          "durata": 4200
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

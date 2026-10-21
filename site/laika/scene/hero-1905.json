@@ -1,0 +1,234 @@
+{
+  "id": "hero-1905",
+  "etichetta": "Gennaio 1905. La facciata del palazzo imperiale occupa tutto l'orizzonte; davanti, la colonna altissima. Sulla piazza innevata un corteo minuscolo di operai avanza da sinistra, una fila di soldati gli sbarra la strada.",
+  "viewBox": [
+    0,
+    0,
+    1600,
+    700
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    700
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "elementi": [
+    {
+      "id": "palazzo",
+      "simbolo": "luogo-palazzo",
+      "x": 800,
+      "y": 522,
+      "scala": 1.18
+    },
+    {
+      "id": "foschia",
+      "simbolo": "atmo-foschia",
+      "x": 800,
+      "y": 538,
+      "scala": 1
+    },
+    {
+      "id": "colonna",
+      "simbolo": "luogo-colonna",
+      "x": 560,
+      "y": 652,
+      "scala": 1.3
+    },
+    {
+      "id": "folla-3",
+      "simbolo": "luogo-folla",
+      "x": 150,
+      "y": 650,
+      "scala": 0.46
+    },
+    {
+      "id": "folla-2",
+      "simbolo": "luogo-folla",
+      "x": 60,
+      "y": 662,
+      "scala": 0.54
+    },
+    {
+      "id": "folla-1",
+      "simbolo": "luogo-folla",
+      "x": 170,
+      "y": 676,
+      "scala": 0.62
+    }
+  ],
+  "figure": [
+    {
+      "gruppo": "corteo",
+      "formazione": {
+        "tipo": "righe",
+        "n": 20,
+        "righe": 3,
+        "passo": 12,
+        "profondita": 9,
+        "x": 352,
+        "y": 680,
+        "scala": 0.22,
+        "varianti": [
+          "cappotto",
+          "scialle",
+          "cappello",
+          "donna",
+          "cappotto",
+          "cappello_largo",
+          "scialle",
+          "cappotto",
+          "bambino",
+          "cappello",
+          "scialle",
+          "cappotto",
+          "bastone"
+        ],
+        "ruoli": [
+          "popolo",
+          "popolo",
+          "popolo",
+          "popolo",
+          "popolo",
+          "popolo",
+          "popolo",
+          "popolo",
+          "popolo",
+          "popolo",
+          "popolo",
+          "popolo",
+          "popolo",
+          "popolo",
+          "popolo",
+          "protagonista",
+          "popolo",
+          "popolo",
+          "popolo",
+          "popolo"
+        ]
+      }
+    },
+    {
+      "id": "prete",
+      "x": 432,
+      "y": 684,
+      "scala": 0.24,
+      "variante": "clero",
+      "posa": "in_piedi"
+    },
+    {
+      "gruppo": "truppa",
+      "formazione": {
+        "tipo": "fila",
+        "n": 10,
+        "passo": 13,
+        "x": 1080,
+        "y": 634,
+        "scala": 0.21,
+        "varianti": [
+          "cappotto"
+        ],
+        "ruoli": [
+          "esercito"
+        ],
+        "pose": [
+          "usa_fucile"
+        ],
+        "flip": true
+      }
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "9 gennaio 1905, San Pietroburgo: migliaia di operai portano allo zar una petizione. Sono disarmati, li guida un prete, Georgij Gapon. La truppa apre il fuoco.",
+      "passi": [
+        {
+          "azione": "camera",
+          "inquadrature": [
+            [
+              120,
+              440,
+              560,
+              245
+            ],
+            [
+              0,
+              0,
+              1600,
+              700
+            ]
+          ],
+          "tempi": [
+            0,
+            1
+          ],
+          "a": 0,
+          "durata": 5400
+        },
+        {
+          "azione": "walk",
+          "chi": "corteo",
+          "da": "sinistra",
+          "distanza": 200,
+          "a": 400,
+          "durata": 3600,
+          "sfalsa": 0
+        },
+        {
+          "azione": "walk",
+          "chi": "prete",
+          "da": "sinistra",
+          "distanza": 200,
+          "a": 400,
+          "durata": 3600,
+          "sfalsa": 0
+        },
+        {
+          "azione": "transfer",
+          "chi": "folla-1",
+          "da": [
+            -30,
+            676
+          ],
+          "arco": 0,
+          "a": 400,
+          "durata": 3600
+        },
+        {
+          "azione": "transfer",
+          "chi": "folla-2",
+          "da": [
+            -140,
+            662
+          ],
+          "arco": 0,
+          "a": 400,
+          "durata": 3600
+        },
+        {
+          "azione": "transfer",
+          "chi": "folla-3",
+          "da": [
+            -50,
+            650
+          ],
+          "arco": 0,
+          "a": 400,
+          "durata": 3600
+        },
+        {
+          "azione": "raise",
+          "chi": "truppa",
+          "da": "in_piedi",
+          "a": 5600,
+          "durata": 700,
+          "sfalsa": 50
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

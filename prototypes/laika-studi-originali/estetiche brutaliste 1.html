@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LAIKA — Studio Grafico: Estetiche Brutaliste (Fase A)</title>
+  <style>
+    :root {
+      --bg: #F6F1E3;
+      --ink: #161614;
+      --red: #E02A1B;
+      --blue-light: #C6D5DF;
+      --blue-mid: #8DA9BC;
+      --blue-dark: #4A687A;
+      --panel: #EFE8D5;
+      --border: #C8BEA6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Courier New", Courier, monospace;
+      background: var(--bg);
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+    header {
+      background: var(--ink);
+      color: var(--bg);
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 3px solid var(--red);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      font-size: 16px;
+    }
+    .brand span.red { color: var(--red); }
+    .mode-tabs {
+      display: flex;
+      gap: 8px;
+    }
+    .tab-btn {
+      background: #2b2b28;
+      color: var(--bg);
+      border: 1px solid #555;
+      padding: 7px 14px;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: bold;
+      font-size: 12px;
+      border-radius: 3px;
+      transition: 0.15s;
+    }
+    .tab-btn.active {
+      background: var(--red);
+      border-color: var(--red);
+      color: #fff;
+    }
+    .main-layout {
+      display: grid;
+      grid-template-columns: 350px 1fr 310px;
+      flex: 1;
+      overflow: hidden;
+    }
+    .sidebar {
+      background: var(--panel);
+      border-right: 1px solid var(--border);
+      padding: 12px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .sidebar-right {
+      background: var(--panel);
+      border-left: 1px solid var(--border);
+      padding: 12px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .section-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 10px;
+      border-radius: 3px;
+    }
+    .section-title {
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--ink);
+      padding: 4px 8px;
+      margin: -10px -10px 8px -10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .section-title span.badge {
+      background: var(--red);
+      padding: 1px 5px;
+      font-size: 10px;
+      border-radius: 2px;
+    }
+    .grid-btns {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 5px;
+    }
+    button.opt-btn {
+      background: #fff;
+      border: 1px solid var(--border);
+      padding: 6px 7px;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: left;
+      border-radius: 2px;
+      transition: 0.1s;
+      color: var(--ink);
+    }
+    button.opt-btn:hover {
+      border-color: var(--ink);
+      background: #faf6eb;
+    }
+    button.opt-btn.active {
+      background: var(--ink);
+      color: var(--bg);
+      border-color: var(--ink);
+    }
+    .canvas-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      overflow: auto;
+      background: radial-gradient(circle, #fbf8f0 0%, #e7dec8 100%);
+    }
+    #svg-container {
+      background: var(--bg);
+      border: 2px solid var(--ink);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.14);
+      max-width: 100%;
+      max-height: 84vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #svg-container svg {
+      display: block;
+      max-width: 100%;
+      max-height: 82vh;
+    }
+    textarea#svg-code {
+      width: 100%;
+      height: 150px;
+      font-family: monospace;
+      font-size: 10px;
+      background: #161614;
+      color: #f6f1e3;
+      border: 1px solid var(--border);
+      padding: 6px;
+      resize: vertical;
+    }
+    .action-btn {
+      width: 100%;
+      padding: 9px;
+      background: var(--red);
+      color: #fff;
+      border: none;
+      font-family: inherit;
+      font-weight: bold;
+      font-size: 11.5px;
+      cursor: pointer;
+      border-radius: 3px;
+      margin-top: 5px;
+    }
+    .action-btn.secondary { background: var(--ink); }
+    .action-btn.blue { background: var(--blue-dark); }
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      font-weight: bold;
+      margin: 5px 0;
+      cursor: pointer;
+    }
+    #png-preview {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <span>STUDIO GRAFICO — <span class="red">ESTETICHE BRUTALISTE</span> (FASE A)</span>
+  </div>
+  <div class="mode-tabs">
+    <button class="tab-btn active" id="tab-single" onclick="setViewMode('single')">1. ISPEZIONA SINGOLO MODULO (21 ASSET)</button>
+    <button class="tab-btn" id="tab-poster" onclick="setViewMode('poster')">2. TAVOLA INTEGRALE BRUTALISTA (4 RIGHE)</button>
+  </div>
+</header>
+
+<div class="main-layout">
+  <div class="sidebar">
+    <!-- RIGA 1: FACCIATE -->
+    <div class="section-box">
+      <div class="section-title">Riga 1 — Facciate (7 Asset) <span class="badge">F1</span></div>
+      <div class="grid-btns" id="btns-facciate"></div>
+    </div>
+
+    <!-- RIGA 2: VOLUMI -->
+    <div class="section-box">
+      <div class="section-title">Riga 2 — Volumi (6 Asset) <span class="badge">F2</span></div>
+      <div class="grid-btns" id="btns-volumi"></div>
+    </div>
+
+    <!-- RIGA 3: DETTAGLI -->
+    <div class="section-box">
+      <div class="section-title">Riga 3 — Dettagli (5 Asset) <span class="badge">F3</span></div>
+      <div class="grid-btns" id="btns-dettagli"></div>
+    </div>
+
+    <!-- RIGA 4: ATMOSFERE -->
+    <div class="section-box">
+      <div class="section-title">Riga 4 — Atmosfere (3 Scene) <span class="badge">F4</span></div>
+      <div class="grid-btns" id="btns-atmosfere"></div>
+    </div>
+
+    <!-- OPZIONI VISIVE E ANIMAZIONE -->
+    <div class="section-box">
+      <div class="section-title">Scala, Texture & Animazione</div>
+      <label class="checkbox-row">
+        <input type="checkbox" id="chk-people" checked onchange="renderAll()" />
+        👥 Mostra Omini e Cane in Scala
+      </label>
+      <label class="checkbox-row">
+        <input type="checkbox" id="chk-texture" checked onchange="renderAll()" />
+        🧱 Texture Casseri & Macchie Cemento
+      </label>
+      <label class="checkbox-row">
+        <input type="checkbox" id="chk-rough" checked onchange="renderAll()" />
+        🖍️ Tratto Inchiostro Ruvido (Filtro SVG)
+      </label>
+      <label class="checkbox-row">
+        <input type="checkbox" id="chk-anim" onchange="toggleAnim(this.checked)" />
+        🌬️ Anima Passanti, Bandiere e Vento
+      </label>
+    </div>
+  </div>
+
+  <!-- AREA CENTRALE -->
+  <div class="canvas-area">
+    <div id="svg-container"></div>
+  </div>
+
+  <!-- SIDEBAR DESTRA: EXPORT -->
+  <div class="sidebar-right">
+    <div class="section-box">
+      <div class="section-title">Anteprima PNG Generata</div>
+      <img id="png-preview" alt="Anteprima PNG" />
+      <button class="action-btn" onclick="downloadPNG()">⬇ SCARICA PNG AD ALTA RISOLUZIONE</button>
+    </div>
+
+    <div class="section-box">
+      <div class="section-title">Codice SVG Vettoriale Puro</div>
+      <textarea id="svg-code" readonly></textarea>
+      <button class="action-btn secondary" onclick="copySVG()">📋 COPIA CODICE SVG</button>
+      <button class="action-btn blue" onclick="downloadSVG()">⬇ SCARICA FILE .SVG</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const C = {
+  bg: '#F6F1E3',
+  ink: '#161614',
+  red: '#E02A1B',
+  cLight: '#C9D6DF', // Faccia cemento illuminata
+  cMid: '#8EA8B8',   // Faccia cemento in mezz'ombra
+  cDark: '#4F6B7C',  // Faccia cemento in ombra profonda / intradossi
+  sky: '#B8CBD8'
+};
+
+const ASSETS = {
+  facciate: [
+    { id: 'cemento_vista',         label: 'Cemento a vista' },
+    { id: 'finestre_modulari',     label: 'Finestre modulari' },
+    { id: 'griglie',               label: 'Griglie' },
+    { id: 'bucature_profonde',     label: 'Bucature profonde' },
+    { id: 'aggetti',               label: 'Aggetti' },
+    { id: 'pareti_scanalate',      label: 'Pareti scanalate' },
+    { id: 'pannelli_prefabbricati',label: 'Pannelli prefabbricati' }
+  ],
+  volumi: [
+    { id: 'pilotis',               label: 'Pilotis' },
+    { id: 'passerelle',            label: 'Passerelle' },
+    { id: 'scale_esterne',         label: 'Scale esterne' },
+    { id: 'rampe',                 label: 'Rampe' },
+    { id: 'torri_scala',           label: 'Torri scala' },
+    { id: 'blocchi_sovrapposti',   label: 'Blocchi sovrapposti' }
+  ],
+  dettagli: [
+    { id: 'ingresso_monumentale',  label: 'Ingresso monumentale' },
+    { id: 'cortile',               label: 'Cortile' },
+    { id: 'pensilina',             label: 'Pensilina' },
+    { id: 'segnaletica',           label: 'Segnaletica' },
+    { id: 'elementi_modulari',     label: 'Elementi modulari' }
+  ],
+  atmosfere: [
+    { id: 'piazza_ventosa',        label: 'Piazza ventosa', wide: true },
+    { id: 'cortile_residenziale',  label: 'Cortile residenziale', wide: true },
+    { id: 'scalinata_monumentale', label: 'Scalinata monumentale', wide: true }
+  ]
+};
+
+const state = {
+  viewMode: 'single', // 'single' | 'poster'
+  activeAsset: 'cemento_vista',
+  anim: false,
+  tick: 0
+};
+
+function initUI() {
+  ['facciate', 'volumi', 'dettagli', 'atmosfere'].forEach(group => {
+    const container = document.getElementById(`btns-${group}`);
+    ASSETS[group].forEach(item => {
+      const btn = document.createElement('button');
+      btn.className = 'opt-btn' + (item.id === state.activeAsset ? ' active' : '');
+      btn.dataset.id = item.id;
+      btn.textContent = item.label;
+      btn.onclick = () => {
+        state.activeAsset = item.id;
+        if (state.viewMode !== 'single') setViewMode('single');
+        syncUI();
+        renderAll();
+      };
+      container.appendChild(btn);
+    });
+  });
+}
+
+function setViewMode(m) {
+  state.viewMode = m;
+  document.getElementById('tab-single').classList.toggle('active', m === 'single');
+  document.getElementById('tab-poster').classList.toggle('active', m === 'poster');
+  renderAll();
+}
+
+function syncUI() {
+  document.querySelectorAll('.opt-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.id === state.activeAsset);
+  });
+}
+
+function toggleAnim(on) {
+  state.anim = on;
+  renderAll();
+}
+
+// === DEFINIZIONI SVG E TEXTURE CEMENTO BRUTALISTA ===
+function getDefs(withTexture) {
+  return `
+    <defs>
+      <filter id="brutal-ink" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.16" numOctaves="2" seed="11" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="1.15" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <pattern id="concrete-speckle" width="60" height="60" patternUnits="userSpaceOnUse">
+        ${withTexture ? `
+          <circle cx="12" cy="14" r="0.9" fill="${C.ink}" opacity="0.35"/>
+          <circle cx="42" cy="11" r="0.8" fill="${C.ink}" opacity="0.3"/>
+          <circle cx="28" cy="36" r="1.1" fill="${C.ink}" opacity="0.25"/>
+          <circle cx="49" cy="46" r="0.8" fill="${C.ink}" opacity="0.35"/>
+          <circle cx="16" cy="51" r="0.7" fill="${C.ink}" opacity="0.3"/>
+          <path d="M 6,26 L 6,34 M 36,18 L 36,28 M 52,28 L 52,39" stroke="${C.cDark}" stroke-width="0.6" opacity="0.4"/>
+        ` : ''}
+      </pattern>
+    </defs>
+  `;
+}
+
+// === HELPER: BLOCCO 3D ASSONOMETRICO IN CEMENTO ===
+function drawBox3D(x, y, w, h, dx = 16, dy = -10, topVisible = true, rightVisible = true) {
+  let s = `<g stroke="${C.ink}" stroke-width="1.3" stroke-linejoin="round">`;
+  // Faccia frontale
+  s += `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${C.cLight}"/>`;
+  s += `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="url(#concrete-speckle)" stroke="none"/>`;
+  // Faccia superiore o inferiore (intradosso)
+  if (topVisible && dy < 0) {
+    s += `<polygon points="${x},${y} ${x + dx},${y + dy} ${x + w + dx},${y + dy} ${x + w},${y}" fill="${C.bg}" opacity="0.85"/>`;
+    s += `<polygon points="${x},${y} ${x + dx},${y + dy} ${x + w + dx},${y + dy} ${x + w},${y}" fill="${C.cLight}" opacity="0.65"/>`;
+  } else if (!topVisible && dy > 0) {
+    s += `<polygon points="${x},${y + h} ${x + dx},${y + h + dy} ${x + w + dx},${y + h + dy} ${x + w},${y + h}" fill="${C.cDark}"/>`;
+  }
+  // Faccia laterale destra
+  if (rightVisible && dx !== 0) {
+    s += `<polygon points="${x + w},${y} ${x + w + dx},${y + dy} ${x + w + dx},${y + h + dy} ${x + w},${y + h}" fill="${C.cMid}"/>`;
+  }
+  s += `</g>`;
+  return s;
+}
+
+// === HELPER: MINI OMINO E CANE IN SCALA ===
+function drawScalePerson(x, y, opts = {}) {
+  const scale = opts.scale || 1;
+  const color = opts.red ? C.red : C.ink;
+  const isWoman = opts.woman || false;
+  const isChild = opts.child || false;
+  const walk = opts.walk || false;
+  const phase = opts.phase || 0;
+  const s = state.anim ? Math.sin(state.tick + phase) * 5 : (walk ? 4 : 0);
+  const sc = isChild ? scale * 0.68 : scale;
+
+  return `
+    <g transform="translate(${x + (state.anim && walk ? Math.sin(state.tick * 0.5 + phase) * 3 : 0)}, ${y}) scale(${sc})">
+      <!-- Testa -->
+      <circle cx="0" cy="-23" r="2.8" fill="${color}"/>
+      <!-- Busto / Cappotto / Gonna -->
+      ${isWoman
+        ? `<polygon points="-2.2,-19.5 2.2,-19.5 4.8,-7 -4.8,-7" fill="${color}"/>`
+        : `<polygon points="-2.4,-19.5 2.4,-19.5 2.8,-9 -2.8,-9" fill="${color}"/>`
+      }
+      <!-- Braccia -->
+      <line x1="-2" y1="-18" x2="${-4.2 - s * 0.3}" y2="-10" stroke="${color}" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="2" y1="-18" x2="${4.2 + s * 0.3}" y2="-10" stroke="${color}" stroke-width="1.8" stroke-linecap="round"/>
+      <!-- Gambe -->
+      <line x1="-1.3" y1="-9" x2="${-2.5 - s * 0.45}" y2="0" stroke="${color}" stroke-width="2" stroke-linecap="round"/>
+      <line x1="1.3" y1="-9" x2="${2.5 + s * 0.45}" y2="0" stroke="${color}" stroke-width="2" stroke-linecap="round"/>
+    </g>
+  `;
+}
+
+function drawScaleDog(x, y, scale = 1) {
+  const wag = state.anim ? Math.sin(state.tick * 2) * 10 : 0;
+  return `
+    <g transform="translate(${x}, ${y}) scale(${scale})">
+      <path d="M -8,-6 L 4,-6 L 7,-11 L 9,-14 L 10,-11 L 13,-9 L 12,-7 L 8,-7 L 6,-4 L 8,0 L 6,0 L 4,-4 L -5,-4 L -7,0 L -9,0 L -7,-5 Z" fill="${C.ink}"/>
+      <path d="M -8,-6 Q -12,${-9 + wag * 0.2} -11,${-12 + wag * 0.2}" fill="none" stroke="${C.ink}" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="5" y1="-7.5" x2="8" y2="-5.5" stroke="${C.red}" stroke-width="2" stroke-linecap="round"/>
+    </g>
+  `;
+}
+
+// === HELPER: ALBERO INVERNALE SPOGLIO BRUTALISTA ===
+function drawBareTree(x, y, scale = 1) {
+  return `
+    <g transform="translate(${x}, ${y}) scale(${scale})" stroke="${C.ink}" stroke-linecap="round" fill="none">
+      <path d="M 0,0 L 0,-28 M 0,-18 L -14,-36 M 0,-22 L 13,-39 M -7,-27 L -18,-31 M 6,-30 L 17,-33 M 0,-28 L -4,-45 M 0,-28 L 5,-44 M -10,-32 L -9,-43 M 9,-34 L 8,-45" stroke-width="1.4"/>
+    </g>
+  `;
+}
+
+// === DISEGNATORE DEI 21 MODULI BRUTALISTI ===
+function drawBrutalistAsset(id, ox = 0, oy = 0, showPeople = true) {
+  let g = `<g transform="translate(${ox}, ${oy})">`;
+
+  switch (id) {
+    // ================= RIGA 1: FACCIATE =================
+    case 'cemento_vista':
+      g += `<line x1="8" y1="150" x2="182" y2="150" stroke="${C.ink}" stroke-width="1.5"/>`;
+      g += drawBox3D(20, 34, 130, 116, 10, -6, true, true);
+      // Giunti dei casseri e fori dei tiranti
+      g += `<g stroke="${C.ink}" stroke-width="1" opacity="0.75">
+        <line x1="63" y1="34" x2="63" y2="150"/>
+        <line x1="106" y1="34" x2="106" y2="150"/>
+        <line x1="20" y1="72" x2="150" y2="72"/>
+        <line x1="20" y1="111" x2="150" y2="111"/>
+      </g>`;
+      for (let r = 0; r < 3; r++) {
+        for (let c = 0; c < 3; c++) {
+          const bx = 28 + c * 43, by = 42 + r * 38;
+          g += `<circle cx="${bx}" cy="${by}" r="1.2" fill="${C.ink}"/>`;
+          g += `<circle cx="${bx + 26}" cy="${by}" r="1.2" fill="${C.ink}"/>`;
+          g += `<circle cx="${bx}" cy="${by + 22}" r="1.2" fill="${C.ink}"/>`;
+          g += `<circle cx="${bx + 26}" cy="${by + 22}" r="1.2" fill="${C.ink}"/>`;
+        }
+      }
+      if (showPeople) g += drawScalePerson(162, 150, { walk: true });
+      break;
+
+    case 'finestre_modulari':
+      g += `<line x1="8" y1="150" x2="188" y2="150" stroke="${C.ink}" stroke-width="1.5"/>`;
+      g += drawBox3D(18, 32, 142, 118, 10, -6, true, true);
+      for (let r = 0; r < 3; r++) {
+        for (let c = 0; c < 4; c++) {
+          const wx = 26 + c * 33, wy = 40 + r * 36;
+          // Imbotte strombato profondo
+          g += `
+            <g stroke="${C.ink}" stroke-width="1.1">
+              <rect x="${wx}" y="${wy}" width="26" height="28" fill="${C.cDark}"/>
+              <polygon points="${wx},${wy} ${wx + 5},${wy + 5} ${wx + 26},${wy + 5} ${wx + 26},${wy}" fill="${C.ink}"/>
+              <polygon points="${wx},${wy} ${wx + 5},${wy + 5} ${wx + 5},${wy + 28} ${wx},${wy + 28}" fill="${C.cMid}"/>
+              <rect x="${wx + 5}" y="${wy + 5}" width="16" height="18" fill="${C.cMid}"/>
+              <line x1="${wx + 8}" y1="${wy + 19}" x2="${wx + 18}" y2="${wy + 9}" stroke="${C.bg}" stroke-width="1.2"/>
+            </g>
+          `;
+        }
+      }
+      if (showPeople) g += drawScalePerson(172, 150, { walk: true, phase: 1 });
+      break;
+
+    case 'griglie':
+      g += `<line x1="8" y1="150" x2="182" y2="150" stroke="${C.ink}" stroke-width="1.5"/>`;
+      g += drawBox3D(20, 32, 132, 118, 8, -5, true, true);
+      for (let r = 0; r < 7; r++) {
+        for (let c = 0; c < 8; c++) {
+          const gx = 25 + c * 15.5, gy = 37 + r * 15.5;
+          g += `<rect x="${gx}" y="${gy}" width="11.5" height="11.5" fill="${C.ink}"/>`;
+          g += `<rect x="${gx + 2.5}" y="${gy + 2.5}" width="6.5" height="6.5" fill="${C.cMid}"/>`;
+        }
+      }
+      if (showPeople) g += drawScalePerson(164, 150, { walk: true });
+      break;
+
+    case 'bucature_profonde':
+      g += `<line x1="8" y1="150" x2="182" y2="150" stroke="${C.ink}" stroke-width="1.5"/>`;
+      // 3 setti profondi con feritoie verticali in ombra nera
+      [22, 64, 106].forEach((sx) => {
+        g += drawBox3D(sx, 34, 34, 116, 12, -7, true, true);
+        g += `<rect x="${sx + 11}" y="44" width="12" height="96" fill="${C.ink}"/>`;
+        g += `<polygon points="${sx + 11},44 ${sx + 16},48 ${sx + 16},140 ${sx + 11},140" fill="${C.cDark}"/>`;
+      });
+      if (showPeople) g += drawScalePerson(156, 150, { walk: false });
+      break;
+
+    case 'aggetti':
+      g += `<line x1="8" y1="150" x2="195" y2="150" stroke="${C.ink}" stroke-width="1.5"/>`;
+      // Nucleo verticale
+      g += drawBox3D(24, 42, 65, 108, 14, -8, true, true);
+      // Sbalzo superiore sinistro
+      g += `
+        <g stroke="${C.ink}" stroke-width="1.3" stroke-linejoin="round">
+          <polygon points="20,66 104,26 104,52 20,92" fill="${C.cLight}"/>
+          <polygon points="104,26 134,38 134,64 104,52" fill="${C.cMid}"/>
+          <polygon points="20,92 104,52 134,64 50,104" fill="${C.ink}"/>
+        </g>
+      `;
+      // Grande sbalzo inferiore destro con omino rosso in cima
+      g += `
+        <g stroke="${C.ink}" stroke-width="1.3" stroke-linejoin="round">
+          <polygon points="42,112 152,66 152,92 42,138" fill="${C.cLight}"/>
+          <polygon points="152,66 184,78 184,104 152,92" fill="${C.cMid}"/>
+          <polygon points="42,138 152,92 184,104 74,150" fill="${C.cDark}"/>
+        </g>
+      `;
+      if (showPeople) {
+        g += drawScalePerson(162, 70, { red: true, scale: 0.92 });
+        g += drawScalePerson(146, 73, { scale: 0.75 });
+      }
+      break;
+
+    case 'pareti_scanalate':
+      g += `<line x1="8" y1="150" x2="182" y2="150" stroke="${C.ink}" stroke-width="1.5"/>`;
+      g += drawBox3D(22, 34, 136, 116, 8, -5, true, true);
+      for (let i = 0; i < 13; i++) {
+        const rx = 26 + i * 10.2;
+        g += `<rect x="${rx}" y="34" width="5" height="116" fill="${C.cDark}" stroke="${C.ink}" stroke-width="0.9"/>`;
+      }
+      if (showPeople) g += drawScalePerson(82, 150, { walk: false });
+      break;
+
+    case 'pannelli_prefabbricati':
+      g += `<line x1="8" y1="150" x2="186" y2="150" stroke="${C.ink}" stroke-width="1.5"/>`;
+      g += drawBox3D(20, 34, 146, 116, 10, -6, true, true);
+      // Giunti spessi a T e zoccolo basso sporgente
+      g += `
+        <g stroke="${C.ink}" stroke-width="2.2">
+          <line x1="56" y1="34" x2="56" y2="150"/>
+          <line x1="98" y1="34" x2="98" y2="150"/>
+          <line x1="134" y1="34" x2="134" y2="150"/>
+          <line x1="56" y1="88" x2="166" y2="74"/>
+        </g>
+      `;
+      g += drawBox3D(14, 134, 38, 16, 6, -4, true, true);
+      if (showPeople) g += drawScalePerson(112, 150, { walk: false });
+      break;
+
+    // ================= RIGA 2: VOLUMI =================
+    case 'pilotis':
+      g += `<line x1="6" y1="150" x2="210" y2="150" stroke="${C.ink}" stroke-width="1.5"/>`;
+      // Pilastri posteriori in ombra
+      [42, 86, 132, 172].forEach(px => {
+        g += `<rect x="${px}" y="92" width="12" height="58" fill="${C.ink}"/>`;
+      });
+      // Pilastri anteriori in cemento
+      [22, 64, 110, 154].forEach(px => {
+        g += drawBox3D(px, 94, 14, 56, 8, -4, false, true);
+      });
+      // Intradosso scuro sotto la piastra
+      g += `<polygon points="16,96 184,84 202,94 34,106" fill="${C.ink}"/>`;
+      // Volume superiore sospeso con giunti dei casseri
+      g += `
+        <g stroke="${C.ink}" stroke-width="1.3" stroke-linejoin="round">
+          <polygon points="16,42 184,26 184,86 16,96" fill="${C.cLight}"/>
+          <polygon points="184,26 202,36 202,94 184,86" fill="${C.cMid}"/>
+          <line x1="16" y1="68" x2="184" y2="55"/>
+          <line x1="58" y1="38" x2="58" y2="93"/>
+          <line x1="102" y1="34" x2="102" y2="91"/>
+          <line x1="144" y1="30" x2="144" y2="88"/>
+        </g>
+      `;
+      if (showPeople) {
+        g += drawScalePerson(50, 150, { scale: 0.85 });
+        g += drawScalePerson(92, 150, { walk: true, scale: 0.9 });
+        g += drawScalePerson(126, 150, { woman: true, scale: 0.85 });
+        g += drawScalePerson(138, 150, { scale: 0.88 });
+      }
+      break;
+
+    case 'passerelle':
+      g += `<line x1="6" y1="150" x2="210" y2="150" stroke="${C.ink}" stroke-width="1.5"/>`;
+      // Torre sinistra
+      g += drawBox3D(14, 34, 28, 116, 10, -5, true, true);
+      // Ponte sospeso con ringhiera e omino rosso
+      g += `
+        <g stroke="${C.ink}" stroke-width="1.2">
+          <line x1="42" y1="64" x2="154" y2="64"/>
+          <line x1="42" y1="70" x2="154" y2="70"/>
+          <line x1="65" y1="64" x2="65" y2="78"/>
+          <line x1="92" y1="64" x2="92" y2="78"/>
+          <line x1="122" y1="64" x2="122" y2="78"/>
+        </g>
+      `;
+      if (showPeople) g += drawScalePerson(115, 78, { red: true, walk: true });
+      g += drawBox3D(42, 78, 114, 14, 8, 5, false, false);
+      // Torre destra
+      g += drawBox3D(152, 28, 36, 122, 12, -6, true, true);
+      if (showPeople) {
+        g += drawScalePerson(58, 150, { walk: true });
+        g += drawScalePerson(98, 150, { woman: true });
+        g += drawScalePerson(112, 150, {});
+      }
+      break;
+
+    case 'scale_esterne':
+      g += `<line x1="6" y1="150" x2="210" y2="150" stroke="${C.ink}" stroke-width="1.5"/>`;
+      // Pilastri verticali di sostegno
+      g += drawBox3D(44, 30, 18, 120, 10, -5, true, true);
+      g += drawBox3D(118, 28, 20, 122, 12, -6, true, true);
+      // Rampe incrociate a forbice in calcestruzzo
+      g += `
+        <g stroke="${C.ink}" stroke-width="1.3" stroke-linejoin="round">
+          <!-- Rampa 1 che sale da destra a sinistra -->
+          <polygon points="154,150 26,96 26,76 154,132" fill="${C.cLight}"/>
+          <polygon points="26,96 42,102 170,150 154,150" fill="${C.cDark}"/>
+          <!-- Rampa 2 che sale da sinistra a destra -->
+          <polygon points="26,92 162,42 162,62 26,112" fill="${C.cMid}"/>
+          <!-- Rampa 3 alta -->
+          <polygon points="150,82 28,32 28,50 150,100" fill="${C.cLight}"/>
+        </g>
+      `;
+      if (showPeople) {
+        g += drawScalePerson(38, 84, { scale: 0.78 });
+        g += drawScalePerson(146, 80, { scale: 0.78 });
+        g += drawScalePerson(20, 150, {});
+        g += drawScalePerson(86, 150, { walk: true });
+        g += drawScalePerson(180, 150, {});
+      }
+      break;
+
+    case 'rampe':
+      g += `<line x1="6" y1="150" x2="210" y2="150" stroke="${C.ink}" stroke-width="1.5"/>`;
+      // Rampa inferiore
+      g += `
+        <g stroke="${C.ink}" stroke-width="1.3" stroke-linejoin="round">
+          <polygon points="14,108 164,132 164,150 14,128" fill="${C.cLight}"/>
+          <line x1="14" y1="100" x2="164" y2="124"/>
+          <!-- Rampa superiore -->
+          <polygon points="14,88 158,48 158,72 14,112" fill="${C.cLight}"/>
+          <polygon points="14,112 158,72 172,78 28,118" fill="${C.cDark}"/>
+          <line x1="14" y1="80" x2="158" y2="40"/>
+        </g>
+      `;
+      // Pilastro di testa a destra
+      g += drawBox3D(156, 32, 30, 118, 14, -6, true, true);
+      if (showPeople) {
+        g += drawScalePerson(64, 74, { walk: true, scale: 0.82 });
+        g += drawScalePerson(126, 56, { walk: true, scale: 0.82 });
+        g += drawScalePerson(120, 124, { walk: true, scale: 0.85 });
+        g += drawScalePerson(198, 150, {});
+      }
+      break;
+
+    case 'torri_scala':
+      g += `<line x1="6" y1="150" x2="200" y2="150" stroke="${C.ink}" stroke-width="1.5"/>`;
+      // Balconi sporgenti a sinistra e destra
+      [54, 86, 116].forEach(by => {
+        g += drawBox3D(42, by, 28, 10, 6, 4, false, false);
+        g += drawBox3D(118, by - 4, 24, 10, 8, -4, true, true);
+      });
+      // Torre monolitica centrale con piccole finestre quadrate
+      g += drawBox3D(68, 22, 52, 128, 18, -8, true, true);
+      [46, 78, 110].forEach(wy => {
+        g += `<rect x="88" y="${wy}" width="8" height="10" fill="${C.ink}"/>`;
+      });
+      if (showPeople) {
+        g += drawScalePerson(50, 150, {});
+        g += drawScalePerson(112, 150, { walk: true });
+        g += drawScalePerson(156, 150, {});
+      }
+      break;
+
+    case 'blocchi_sovrapposti':
+      g += `<line x1="6" y1="150" x2="215" y2="150" stroke="${C.ink}" stroke-width="1.5"/>`;
+      // Blocchi di base
+      g += drawBox3D(42, 102, 46, 48, 14, -6, false, true);
+      g += drawBox3D(116, 106, 42, 44, 14, -6, false, true);
+      // Mega-blocco centrale a sbalzo
+      g += drawBox3D(18, 56, 145, 48, 26, -12, true, true);
+      g += `<rect x="68" y="68" width="12" height="16" fill="${C.ink}"/>`;
+      // Blocco superiore arretrato
+      g += drawBox3D(88, 28, 92, 34, 18, -8, true, true);
+      if (showPeople) {
+        g += drawScalePerson(184, 30, { red: true, scale: 0.85 });
+        g += drawScalePerson(24, 150, {});
+        g += drawScalePerson(176, 150, { walk: true });
+      }
+      break;
+
+    // ================= RIGA 3: DETTAGLI =================
+    case 'ingresso_monumentale':
+      g += `<line x1="6" y1="150" x2="225" y2="150" stroke="${C.ink}" stroke-width="1.5"/>`;
+      g += drawBox3D(22, 36, 176, 102, 10, -5, true, true);
+      // Strombatura profonda dell'ingresso
+      g += `
+        <g stroke="${C.ink}" stroke-width="1.2" stroke-linejoin="round">
+          <polygon points="62,56 158,56 142,74 78,74" fill="${C.cDark}"/>
+          <polygon points="62,56 78,74 78,136 62,138" fill="${C.cMid}"/>
+          <polygon points="158,56 142,74 142,136 158,138" fill="${C.cDark}"/>
+          <rect x="78" y="74" width="64" height="62" fill="${C.ink}"/>
+          <!-- Vetrate interne -->
+          <rect x="84" y="80" width="14" height="54" fill="${C.cMid}"/>
+          <rect x="102" y="80" width="16" height="54" fill="${C.cLight}"/>
+          <rect x="122" y="80" width="14" height="54" fill="${C.cMid}"/>
+          <!-- Gradinata -->
+          <rect x="52" y="138" width="116" height="4" fill="${C.bg}"/>
+          <rect x="44" y="142" width="132" height="4" fill="${C.cLight}"/>
+          <rect x="36" y="146" width="148" height="4" fill="${C.bg}"/>
+        </g>
+      `;
+      if (showPeople) {
+        g += drawScalePerson(20, 150, { walk: true });
+        g += drawScalePerson(34, 150, {});
+        g += drawScalePerson(122, 142, { red: true, scale: 0.85 });
+        g += drawScalePerson(176, 150, { walk: true });
+        g += drawScalePerson(192, 150, { woman: true });
+      }
+      break;
+
+    case 'cortile':
+      g += `<line x1="6" y1="150" x2="220" y2="150" stroke="${C.ink}" stroke-width="1.5"/>`;
+      // Parete di fondo con finestre
+      g += `<rect x="54" y="54" width="112" height="78" fill="${C.cLight}" stroke="${C.ink}" stroke-width="1.2"/>`;
+      for (let r = 0; r < 2; r++) {
+        for (let c = 0; c < 5; c++) {
+          g += `<rect x="${64 + c * 19}" y="${66 + r * 24}" width="8" height="14" fill="${C.ink}"/>`;
+        }
+      }
+      // Pareti laterali in scorcio prospettico
+      g += `<polygon points="18,32 54,54 54,132 18,150" fill="${C.cMid}" stroke="${C.ink}" stroke-width="1.3"/>`;
+      g += `<polygon points="202,32 166,54 166,132 202,150" fill="${C.cLight}" stroke="${C.ink}" stroke-width="1.3"/>`;
+      // Albero spoglio e seduta in cemento al centro
+      g += drawBareTree(124, 130, 1.25);
+      g += drawBox3D(64, 130, 92, 14, 6, -3, true, true);
+      if (showPeople) {
+        g += drawScalePerson(38, 146, {});
+        g += drawScalePerson(146, 132, { red: true, scale: 0.78 });
+        g += drawScalePerson(176, 144, { walk: true });
+      }
+      break;
+
+    case 'pensilina':
+      g += `<line x1="6" y1="150" x2="220" y2="150" stroke="${C.ink}" stroke-width="1.5"/>`;
+      // Pilastro centrale sagomato a V e sottile tirante sinistro
+      g += `<line x1="64" y1="88" x2="64" y2="150" stroke="${C.ink}" stroke-width="2.5"/>`;
+      g += `<polygon points="104,82 138,76 128,150 112,150" fill="${C.cMid}" stroke="${C.ink}" stroke-width="1.3"/>`;
+      // Grande tettoia a sbalzo inclinata
+      g += `
+        <g stroke="${C.ink}" stroke-width="1.3" stroke-linejoin="round">
+          <polygon points="18,82 146,38 204,56 76,94" fill="${C.cLight}"/>
+          <polygon points="18,82 146,38 146,48 18,90" fill="${C.cLight}"/>
+          <polygon points="146,38 204,56 204,64 146,48" fill="${C.cMid}"/>
+          <polygon points="18,90 146,48 204,64 76,98" fill="${C.cDark}"/>
+        </g>
+      `;
+      // Panchine sotto la pensilina
+      g += `<rect x="78" y="138" width="28" height="4" fill="${C.cLight}" stroke="${C.ink}"/>`;
+      g += `<rect x="148" y="138" width="32" height="4" fill="${C.cLight}" stroke="${C.ink}"/>`;
+      if (showPeople) {
+        g += drawScalePerson(28, 150, {});
+        g += drawScalePerson(54, 150, { red: true, woman: true });
+        g += drawScalePerson(92, 150, {});
+        g += drawScalePerson(138, 150, { walk: true });
+        g += drawScalePerson(186, 150, {});
+      }
+      break;
+
+    case 'segnaletica':
+      g += `<line x1="6" y1="150" x2="225" y2="150" stroke="${C.ink}" stroke-width="1.5"/>`;
+      // 3 Monoliti segnaletici brutalisti con supergrafica rossa
+      g += drawBox3D(18, 62, 54, 88, 10, -5, true, true);
+      g += `<path d="M 28,102 L 58,102 M 46,90 L 60,102 L 46,114" fill="none" stroke="${C.red}" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>`;
+
+      g += drawBox3D(106, 54, 38, 96, 10, -5, true, true);
+      g += `<text x="125" y="114" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="38" fill="${C.red}">A</text>`;
+
+      g += drawBox3D(172, 34, 32, 116, 10, -5, true, true);
+      g += `<text x="188" y="76" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="26" fill="${C.red}">3</text>`;
+      g += `<line x1="178" y1="84" x2="198" y2="84" stroke="${C.ink}" stroke-width="2"/>`;
+      g += `<text x="188" y="106" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="22" fill="${C.red}">2</text>`;
+
+      if (showPeople) {
+        g += drawScalePerson(92, 150, { walk: true });
+        g += drawScalePerson(158, 150, { woman: true });
+      }
+      break;
+
+    case 'elementi_modulari':
+      g += `<line x1="6" y1="150" x2="220" y2="150" stroke="${C.ink}" stroke-width="1.5"/>`;
+      // Panchina monolitica in cemento
+      g += drawBox3D(16, 126, 48, 10, 12, -6, true, true);
+      g += drawBox3D(20, 136, 10, 14, 6, -3, false, true);
+      g += drawBox3D(50, 136, 10, 14, 6, -3, false, true);
+      // 2 Fioriere brutaliste con piante
+      g += `<path d="M 98,112 L 90,82 M 98,112 L 98,78 M 98,112 L 108,84 M 94,96 L 84,92 M 102,96 L 112,90" stroke="${C.ink}" stroke-width="2.5" stroke-linecap="round"/>`;
+      g += drawBox3D(80, 112, 34, 38, 10, -5, true, true);
+      g += `<path d="M 146,118 L 140,102 L 146,108 L 150,98 L 154,108 L 160,102 L 154,118 Z" fill="${C.ink}"/>`;
+      g += drawBox3D(132, 116, 32, 34, 10, -5, true, true);
+      // Lampione a globo
+      g += `<line x1="194" y1="62" x2="194" y2="128" stroke="${C.ink}" stroke-width="3"/>`;
+      g += drawBox3D(188, 128, 12, 22, 4, -2, true, true);
+      g += `<circle cx="194" cy="52" r="10" fill="${C.bg}" stroke="${C.ink}" stroke-width="2.2"/>`;
+      g += `<path d="M 185,55 Q 194,61 203,55" fill="none" stroke="${C.ink}" stroke-width="1.8"/>`;
+      break;
+
+    // ================= RIGA 4: ATMOSFERE (SCENE GRANDI) =================
+    case 'piazza_ventosa':
+      // Nuvole diagonali spinte dal vento
+      const cloudShift = state.anim ? Math.sin(state.tick * 0.4) * 8 : 0;
+      g += `
+        <g fill="${C.sky}" opacity="0.65" transform="translate(${cloudShift}, 0)">
+          <path d="M 18,95 Q 85,55 155,32 Q 175,38 140,56 Q 75,85 24,106 Z"/>
+          <path d="M 95,105 Q 155,68 215,45 Q 230,52 190,74 Q 135,98 102,112 Z"/>
+          <path d="M 275,92 Q 335,58 385,36 Q 395,46 355,68 Q 305,92 282,102 Z"/>
+        </g>
+      `;
+      // Monumento / Torri brutaliste gemelle sullo sfondo
+      g += drawBox3D(216, 18, 18, 98, 10, -5, true, true);
+      g += drawBox3D(242, 24, 18, 92, 10, -5, true, true);
+      g += `<rect x="234" y="42" width="8" height="74" fill="${C.ink}"/>`;
+      // Edifici bassi a sinistra
+      g += drawBox3D(12, 86, 36, 46, 10, -5, true, true);
+      g += drawBox3D(52, 96, 42, 36, 8, -4, true, true);
+      // Scalinata orizzontale ampia
+      for (let s = 0; s < 7; s++) {
+        const sy = 116 + s * 6.5;
+        g += `<line x1="12" y1="${sy}" x2="398" y2="${sy}" stroke="${C.cDark}" stroke-width="1.3"/>`;
+      }
+      // 3 Lampioni a globo in prospettiva
+      [
+        { x: 122, y: 145, h: 72, r: 8.5 },
+        { x: 152, y: 136, h: 52, r: 6.5 },
+        { x: 174, y: 128, h: 36, r: 5.0 }
+      ].forEach(l => {
+        g += `<line x1="${l.x}" y1="${l.y}" x2="${l.x}" y2="${l.y - l.h}" stroke="${C.ink}" stroke-width="2.2"/>`;
+        g += `<circle cx="${l.x}" cy="${l.y - l.h - l.r}" r="${l.r}" fill="${C.bg}" stroke="${C.ink}" stroke-width="2"/>`;
+      });
+      // Bandiera rossa che sventola a destra
+      const fw = state.anim ? Math.sin(state.tick * 2) * 4 : 0;
+      g += `
+        <line x1="348" y1="68" x2="348" y2="128" stroke="${C.ink}" stroke-width="2"/>
+        <path d="M 348,70 C 358,${68 + fw} 366,${74 - fw} 374,${72 + fw} L 372,${90 + fw} C 362,${88 - fw} 356,${92 + fw} 348,86 Z" fill="${C.red}"/>
+      `;
+      if (showPeople) {
+        g += drawScalePerson(64, 156, { woman: true, walk: true, scale: 1.25 });
+        g += drawScalePerson(218, 156, { woman: true, scale: 1.2 });
+        g += drawScalePerson(284, 144, { walk: true, scale: 0.9 });
+        g += drawScalePerson(348, 148, { red: true, woman: true, scale: 1.05 });
+        g += drawScalePerson(364, 148, { walk: true, scale: 1.05 });
+      }
+      break;
+
+    case 'cortile_residenziale':
+      // Cielo nuvoloso morbido
+      g += `<path d="M 40,52 Q 120,22 240,38 Q 310,25 360,48 L 360,95 L 40,95 Z" fill="${C.sky}" opacity="0.5"/>`;
+      // Blocchi residenziali in secondo piano
+      g += drawBox3D(72, 42, 76, 84, 12, -5, true, true);
+      g += drawBox3D(168, 46, 68, 80, 12, -5, true, true);
+      for (let r = 0; r < 4; r++) {
+        for (let c = 0; c < 3; c++) {
+          g += `<rect x="${82 + c * 22}" y="${52 + r * 16}" width="10" height="8" fill="${C.ink}"/>`;
+          g += `<rect x="${178 + c * 19}" y="${56 + r * 16}" width="8" height="8" fill="${C.ink}"/>`;
+        }
+      }
+      // Edifici con balconi aggettanti a sinistra e destra
+      g += `<polygon points="12,28 64,48 64,132 12,144" fill="${C.cMid}" stroke="${C.ink}" stroke-width="1.3"/>`;
+      g += `<polygon points="396,20 318,44 318,134 396,148" fill="${C.cLight}" stroke="${C.ink}" stroke-width="1.3"/>`;
+      [48, 72, 96].forEach(by => {
+        g += `<rect x="310" y="${by}" width="26" height="8" fill="${C.cMid}" stroke="${C.ink}" stroke-width="1"/>`;
+      });
+      // Muretti e vasche in cemento in primo piano
+      g += drawBox3D(12, 134, 96, 16, 8, -4, true, true);
+      g += drawBox3D(284, 134, 108, 16, 8, -4, true, true);
+      // Alberi spogli
+      g += drawBareTree(44, 134, 1.05);
+      g += drawBareTree(146, 128, 0.9);
+      g += drawBareTree(336, 134, 1.15);
+      if (showPeople) {
+        g += drawScalePerson(142, 152, { child: true, walk: true, scale: 1.15 });
+        g += drawScaleDog(180, 152, 1.15);
+        g += drawScalePerson(206, 140, { red: true, woman: true, scale: 0.98 });
+        g += drawScalePerson(238, 138, { walk: true, scale: 0.9 });
+        g += drawScalePerson(368, 148, { woman: true, scale: 1.05 });
+      }
+      break;
+
+    case 'scalinata_monumentale':
+      // Edificio pubblico a colonnato in cima alla scalinata
+      g += drawBox3D(146, 22, 168, 54, 12, -5, true, true);
+      for (let i = 0; i < 10; i++) {
+        g += `<rect x="${156 + i * 15}" y="34" width="6" height="38" fill="${C.cDark}"/>`;
+      }
+      // Muri di contenimento laterali a gradoni che scendono
+      g += `<polygon points="12,48 92,68 92,118 12,150" fill="${C.cMid}" stroke="${C.ink}" stroke-width="1.3"/>`;
+      g += `<polygon points="396,18 312,56 312,102 396,150" fill="${C.cLight}" stroke="${C.ink}" stroke-width="1.3"/>`;
+      // Grande scalinata centrale (16 gradini in prospettiva)
+      for (let s = 0; s < 15; s++) {
+        const yStep = 74 + s * 5.2;
+        const xL = 96 - s * 4.2;
+        const xR = 308 + s * 4.2;
+        g += `<rect x="${xL}" y="${yStep}" width="${xR - xL}" height="5.2" fill="${s % 2 === 0 ? C.cLight : C.bg}" stroke="${C.ink}" stroke-width="0.9"/>`;
+      }
+      if (showPeople) {
+        g += drawScalePerson(48, 150, { woman: true, scale: 1.05 });
+        g += drawScalePerson(164, 136, { walk: true, scale: 0.95 });
+        g += drawScalePerson(176, 136, { red: true, woman: true, scale: 0.95 });
+        g += drawScalePerson(194, 114, { scale: 0.85 });
+        g += drawScalePerson(232, 124, { scale: 0.88 });
+        g += drawScalePerson(252, 74, { red: true, scale: 0.72 });
+        g += drawScalePerson(356, 148, { walk: true, scale: 1.05 });
+      }
+      break;
+  }
+
+  g += `</g>`;
+  return g;
+}
+
+// === GENERATORE TAVOLA INTEGRALE BRUTALISTA (COME IMAGE_4.PNG) ===
+function buildFullBrutalistPosterSVG(showPeople, withTexture, useRough) {
+  const W = 1480, H = 1060;
+  let svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="100%" height="100%">`;
+  svg += getDefs(withTexture);
+  svg += `<rect width="${W}" height="${H}" fill="${C.bg}"/>`;
+  const filterAttr = useRough ? `filter="url(#brutal-ink)"` : '';
+
+  // HEADER STUDIO GRAFICO — ESTETICHE BRUTALISTE + PALETTE + SCALA PERSONAGGI
+  svg += `
+    <g transform="translate(30, 44)">
+      <text x="0" y="0" font-family="monospace" font-size="30" font-weight="900" letter-spacing="2" fill="${C.ink}">STUDIO GRAFICO — <tspan fill="${C.red}">ESTETICHE BRUTALISTE</tspan></text>
+      <line x1="0" y1="12" x2="940" y2="12" stroke="${C.red}" stroke-width="2"/>
+      <text x="0" y="32" font-family="monospace" font-size="14" font-weight="bold" letter-spacing="2" fill="${C.cDark}">ELEMENTI RIUTILIZZABILI PER UN KIT SVG STORICO</text>
+    </g>
+    <!-- PALETTE 3 BOLLINI -->
+    <g transform="translate(1060, 26)">
+      <text x="38" y="0" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="${C.ink}">PALETTE</text>
+      <circle cx="0" cy="22" r="13" fill="${C.ink}"/>
+      <circle cx="38" cy="22" r="13" fill="${C.cMid}"/>
+      <circle cx="76" cy="22" r="13" fill="${C.red}"/>
+    </g>
+    <!-- SCALA PERSONAGGI + CANE -->
+    <g transform="translate(1220, 62)" ${filterAttr}>
+      ${drawScalePerson(0, 0, { walk: true, scale: 1.15 })}
+      ${drawScalePerson(34, 0, { scale: 1.35 })}
+      ${drawScalePerson(62, 0, { child: true, scale: 1.2 })}
+      ${drawScalePerson(88, 0, { woman: true, scale: 1.25 })}
+      ${drawScalePerson(118, 0, { woman: true, scale: 1.25 })}
+      ${drawScalePerson(148, 0, { red: true, woman: true, scale: 1.3 })}
+      ${drawScaleDog(182, 0, 1.3)}
+      <text x="90" y="18" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="${C.ink}">SCALA PERSONAGGI</text>
+    </g>
+  `;
+
+  function drawRowBoxTitle(x, y, label) {
+    const w = label.length * 14 + 26;
+    return `
+      <g transform="translate(${x}, ${y})">
+        <rect x="0" y="0" width="${w}" height="30" fill="${C.bg}" stroke="${C.ink}" stroke-width="2.2"/>
+        <text x="${w / 2}" y="21" text-anchor="middle" font-family="monospace" font-size="18" font-weight="900" letter-spacing="2" fill="${C.ink}">${label}</text>
+      </g>
+    `;
+  }
+
+  // RIGA 1: FACCIATE (7 colonne)
+  svg += drawRowBoxTitle(26, 96, 'FACCIATE');
+  svg += `<g ${filterAttr}>`;
+  ASSETS.facciate.forEach((item, idx) => {
+    const x = 18 + idx * 206;
+    const y = 136;
+    svg += `<text x="${x + 92}" y="${y + 18}" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="${C.ink}">${item.label.toUpperCase()}</text>`;
+    svg += drawBrutalistAsset(item.id, x, y + 6, showPeople);
+  });
+  svg += `</g>`;
+
+  // RIGA 2: VOLUMI (6 colonne)
+  svg += drawRowBoxTitle(26, 318, 'VOLUMI');
+  svg += `<g ${filterAttr}>`;
+  ASSETS.volumi.forEach((item, idx) => {
+    const x = 18 + idx * 240;
+    const y = 358;
+    svg += `<text x="${x + 105}" y="${y + 18}" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="${C.ink}">${item.label.toUpperCase()}</text>`;
+    svg += drawBrutalistAsset(item.id, x, y + 6, showPeople);
+  });
+  svg += `</g>`;
+
+  // RIGA 3: DETTAGLI (5 colonne)
+  svg += drawRowBoxTitle(26, 542, 'DETTAGLI');
+  svg += `<g ${filterAttr}>`;
+  ASSETS.dettagli.forEach((item, idx) => {
+    const x = 22 + idx * 288;
+    const y = 582;
+    svg += `<text x="${x + 112}" y="${y + 18}" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="${C.ink}">${item.label.toUpperCase()}</text>`;
+    svg += drawBrutalistAsset(item.id, x, y + 6, showPeople);
+  });
+  svg += `</g>`;
+
+  // RIGA 4: ATMOSFERE (3 grandi scene panoramiche)
+  svg += drawRowBoxTitle(26, 766, 'ATMOSFERE');
+  svg += `<g ${filterAttr}>`;
+  ASSETS.atmosfere.forEach((item, idx) => {
+    const x = 22 + idx * 482;
+    const y = 806;
+    svg += `<text x="${x + 95}" y="${y + 18}" font-family="monospace" font-size="11.5" font-weight="bold" fill="${C.ink}">${item.label.toUpperCase()}</text>`;
+    svg += drawBrutalistAsset(item.id, x, y + 12, showPeople);
+  });
+  svg += `</g></svg>`;
+  return svg;
+}
+
+// === RENDER PRINCIPALE ===
+function renderAll() {
+  const showPeople = document.getElementById('chk-people').checked;
+  const withTexture = document.getElementById('chk-texture').checked;
+  const useRough = document.getElementById('chk-rough').checked;
+  const filterAttr = useRough ? `filter="url(#brutal-ink)"` : '';
+
+  let svgString = '';
+
+  if (state.viewMode === 'poster') {
+    svgString = buildFullBrutalistPosterSVG(showPeople, withTexture, useRough);
+  } else {
+    const isWide = ['piazza_ventosa', 'cortile_residenziale', 'scalinata_monumentale'].includes(state.activeAsset);
+    const W = isWide ? 440 : 245;
+    const H = 205;
+    const allItems = [...ASSETS.facciate, ...ASSETS.volumi, ...ASSETS.dettagli, ...ASSETS.atmosfere];
+    const currentObj = allItems.find(a => a.id === state.activeAsset) || ASSETS.facciate[0];
+
+    svgString = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="100%" height="100%">`;
+    svgString += getDefs(withTexture);
+    svgString += `<rect width="${W}" height="${H}" fill="${C.bg}"/>`;
+    svgString += `<text x="18" y="24" font-family="monospace" font-size="11" font-weight="900" letter-spacing="1.5" fill="${C.ink}">${currentObj.label.toUpperCase()}</text>`;
+    svgString += `<g ${filterAttr}>`;
+    svgString += drawBrutalistAsset(state.activeAsset, 12, 22, showPeople);
+    svgString += `</g></svg>`;
+  }
+
+  document.getElementById('svg-container').innerHTML = svgString;
+  document.getElementById('svg-code').value = svgString;
+  updatePNGPreview(svgString);
+}
+
+// === ANTEPRIMA PNG ===
+let pngTimer = null;
+function updatePNGPreview(svgString) {
+  if (pngTimer) clearTimeout(pngTimer);
+  pngTimer = setTimeout(() => {
+    const img = new Image();
+    const blob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      if (state.viewMode === 'poster') {
+        canvas.width = 1600;
+        canvas.height = 1146;
+      } else {
+        const isWide = ['piazza_ventosa', 'cortile_residenziale', 'scalinata_monumentale'].includes(state.activeAsset);
+        canvas.width = isWide ? 1100 : 750;
+        canvas.height = 620;
+      }
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      document.getElementById('png-preview').src = canvas.toDataURL('image/png');
+      URL.revokeObjectURL(url);
+    };
+    img.src = url;
+  }, 60);
+}
+
+function copySVG() {
+  const el = document.getElementById('svg-code');
+  el.select();
+  navigator.clipboard.writeText(el.value);
+}
+
+function downloadSVG() {
+  const svgString = document.getElementById('svg-code').value;
+  const blob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `brutalismo_${state.viewMode === 'poster' ? 'tavola_completa' : state.activeAsset}.svg`;
+  a.click();
+}
+
+function downloadPNG() {
+  const src = document.getElementById('png-preview').src;
+  if (!src) return;
+  const a = document.createElement('a');
+  a.href = src;
+  a.download = `brutalismo_${state.viewMode === 'poster' ? 'tavola_completa' : state.activeAsset}.png`;
+  a.click();
+}
+
+function animLoop() {
+  if (state.anim) {
+    state.tick += 0.12;
+    renderAll();
+  }
+  requestAnimationFrame(animLoop);
+}
+
+initUI();
+renderAll();
+requestAnimationFrame(animLoop);
+</script>
+</body>
+</html>

@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LAIKA — Kit Omini Studio Completo (Fasi 1–4)</title>
+  <style>
+    :root {
+      --bg: #F6F1E3;
+      --ink: #161614;
+      --red: #E02A1B;
+      --blue: #6B92A4;
+      --sand: #DECBA8;
+      --panel: #EFE8D5;
+      --border: #C8BEA6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Courier New", Courier, monospace;
+      background: var(--bg);
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+    header {
+      background: var(--ink);
+      color: var(--bg);
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 3px solid var(--red);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      font-size: 18px;
+    }
+    .brand span.red { color: var(--red); }
+    .mode-tabs {
+      display: flex;
+      gap: 8px;
+    }
+    .tab-btn {
+      background: #2b2b28;
+      color: var(--bg);
+      border: 1px solid #555;
+      padding: 7px 14px;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: bold;
+      font-size: 12px;
+      border-radius: 4px;
+      transition: 0.15s;
+    }
+    .tab-btn.active {
+      background: var(--red);
+      border-color: var(--red);
+      color: #fff;
+    }
+    .main-layout {
+      display: grid;
+      grid-template-columns: 350px 1fr 310px;
+      flex: 1;
+      overflow: hidden;
+    }
+    .sidebar {
+      background: var(--panel);
+      border-right: 1px solid var(--border);
+      padding: 12px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .sidebar-right {
+      background: var(--panel);
+      border-left: 1px solid var(--border);
+      padding: 12px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .section-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 10px;
+      border-radius: 4px;
+    }
+    .section-title {
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--ink);
+      padding: 4px 8px;
+      margin: -10px -10px 8px -10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .section-title span.badge {
+      background: var(--red);
+      padding: 1px 5px;
+      font-size: 10px;
+      border-radius: 2px;
+    }
+    .grid-btns {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 5px;
+    }
+    .grid-btns.cols-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    button.opt-btn {
+      background: #fff;
+      border: 1px solid var(--border);
+      padding: 6px 6px;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: left;
+      border-radius: 3px;
+      transition: 0.1s;
+      color: var(--ink);
+    }
+    button.opt-btn:hover {
+      border-color: var(--ink);
+      background: #faf6eb;
+    }
+    button.opt-btn.active {
+      background: var(--ink);
+      color: var(--bg);
+      border-color: var(--ink);
+    }
+    button.opt-btn.red-active.active {
+      background: var(--red);
+      border-color: var(--red);
+      color: #fff;
+    }
+    .canvas-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      overflow: auto;
+      position: relative;
+      background: radial-gradient(circle, #fbf8f0 0%, #eae2ce 100%);
+    }
+    #svg-container {
+      background: var(--bg);
+      border: 2px solid var(--ink);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      max-width: 100%;
+      max-height: 82vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #svg-container svg {
+      display: block;
+      max-width: 100%;
+      max-height: 80vh;
+    }
+    textarea#svg-code {
+      width: 100%;
+      height: 150px;
+      font-family: monospace;
+      font-size: 10px;
+      background: #161614;
+      color: #f6f1e3;
+      border: 1px solid var(--border);
+      padding: 6px;
+      resize: vertical;
+    }
+    .action-btn {
+      width: 100%;
+      padding: 9px;
+      background: var(--red);
+      color: #fff;
+      border: none;
+      font-family: inherit;
+      font-weight: bold;
+      font-size: 12px;
+      cursor: pointer;
+      border-radius: 3px;
+      margin-top: 4px;
+    }
+    .action-btn.secondary {
+      background: var(--ink);
+    }
+    .action-btn.blue {
+      background: var(--blue);
+    }
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: bold;
+      margin: 4px 0;
+      cursor: pointer;
+    }
+    #png-preview {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      margin-top: 4px;
+    }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <span>LAIKA <span class="red">★</span> KIT OMINI STUDIO</span>
+    <span style="font-size:11px; font-weight:normal; opacity:0.85;">[FASI 1 + 2 + 3 + 4 INTEGRATE]</span>
+  </div>
+  <div class="mode-tabs">
+    <button class="tab-btn active" onclick="setStudioMode('single')" id="tab-single">1. OMINO / AZIONI (Fasi 1–3)</button>
+    <button class="tab-btn" onclick="setStudioMode('crowd')" id="tab-crowd">2. FOLLE & AMBIENTI (Fase 4)</button>
+    <button class="tab-btn" onclick="setStudioMode('poster')" id="tab-poster">3. TAVOLA INTEGRALE (5 Righe)</button>
+  </div>
+</header>
+
+<div class="main-layout">
+  <!-- COLONNA SINISTRA: CONTROLLI FASI 1, 2, 3, 4 -->
+  <div class="sidebar">
+
+    <!-- PANNELLO MODALITÀ 1: PERSONAGGIO SINGOLO (FASI 1, 2, 3) -->
+    <div id="controls-single">
+      <!-- FASE 1: RUOLO & SCALA -->
+      <div class="section-box">
+        <div class="section-title">Fase 1 — Ruolo & Scala <span class="badge">F1</span></div>
+        <div class="grid-btns" id="role-btns">
+          <button class="opt-btn active" onclick="setState('role','popolo')">⬛ Popolo (Nero)</button>
+          <button class="opt-btn" onclick="setState('role','protagonista')">🟥 Protagonista</button>
+          <button class="opt-btn" onclick="setState('role','esercito')">🟦 Esercito/Polizia</button>
+          <button class="opt-btn" onclick="setState('role','partigiano')">🚩 Partigiano (Fascia)</button>
+        </div>
+        <div class="grid-btns cols-3" style="margin-top:6px;" id="body-btns">
+          <button class="opt-btn active" onclick="setState('body','uomo')">Uomo</button>
+          <button class="opt-btn" onclick="setState('body','donna')">Donna</button>
+          <button class="opt-btn" onclick="setState('body','bambino')">Bambino</button>
+        </div>
+      </div>
+
+      <!-- FASE 1: 12 FIGURE BASE -->
+      <div class="section-box" style="margin-top:10px;">
+        <div class="section-title">Fase 1 — 12 Figure Base <span class="badge">Riga 1</span></div>
+        <div class="grid-btns cols-3" id="pose-btns"></div>
+      </div>
+
+      <!-- FASE 2: 13 VARIANTI E GUARDAROBA -->
+      <div class="section-box" style="margin-top:10px;">
+        <div class="section-title">Fase 2 — 13 Varianti & Abiti <span class="badge">Riga 2</span></div>
+        <div class="grid-btns cols-3" id="variant-btns"></div>
+      </div>
+
+      <!-- FASE 3: 11 AZIONI SPECIFICHE -->
+      <div class="section-box" style="margin-top:10px;">
+        <div class="section-title">Fase 3 — 11 Azioni Specifiche <span class="badge">Riga 3</span></div>
+        <div class="grid-btns" id="action-btns"></div>
+      </div>
+
+      <!-- FASE 3: OGGETTI / PROPS ISOLATI -->
+      <div class="section-box" style="margin-top:10px;">
+        <div class="section-title">Fase 3 — 12 Oggetti / Props <span class="badge">Riga 4</span></div>
+        <div class="grid-btns cols-3" id="prop-btns"></div>
+      </div>
+    </div>
+
+    <!-- PANNELLO MODALITÀ 2: FOLLE, AMBIENTI & TRASPORTI (FASE 4) -->
+    <div id="controls-crowd" class="hidden">
+      <div class="section-box">
+        <div class="section-title">Fase 4 — 6 Composizioni di Folla <span class="badge">Riga 5</span></div>
+        <div class="grid-btns" id="crowd-btns">
+          <button class="opt-btn active" onclick="setCrowd('statica')">👥 Folla Statica</button>
+          <button class="opt-btn" onclick="setCrowd('marcia')">🚩 Folla in Marcia</button>
+          <button class="opt-btn" onclick="setCrowd('carica')">⚡ Carica</button>
+          <button class="opt-btn" onclick="setCrowd('barricata')">🧱 Barricata</button>
+          <button class="opt-btn" onclick="setCrowd('discorso')">📣 Discorso (Tribuna)</button>
+          <button class="opt-btn" onclick="setCrowd('scontro')">💥 Scontro (Popolo/Polizia)</button>
+        </div>
+      </div>
+
+      <div class="section-box" style="margin-top:10px;">
+        <div class="section-title">Fase 4 — Ambienti (Sfondo) <span class="badge">Tabella</span></div>
+        <div class="grid-btns" id="env-btns">
+          <button class="opt-btn active" onclick="setEnv('none')">Nessuno sfondo</button>
+          <button class="opt-btn" onclick="setEnv('piazza')">🏛️ Piazza / Strada</button>
+          <button class="opt-btn" onclick="setEnv('fabbrica')">🏭 Fabbrica</button>
+          <button class="opt-btn" onclick="setEnv('stazione')">🚉 Stazione</button>
+          <button class="opt-btn" onclick="setEnv('rurale')">🏠 Casa Rurale / Caserma</button>
+        </div>
+      </div>
+
+      <div class="section-box" style="margin-top:10px;">
+        <div class="section-title">Fase 4 — Trasporti & Infrastrutture <span class="badge">Tabella</span></div>
+        <div class="grid-btns" id="veh-btns">
+          <button class="opt-btn active" onclick="setVeh('none')">Nessun mezzo</button>
+          <button class="opt-btn" onclick="setVeh('treno')">🚂 Treno</button>
+          <button class="opt-btn" onclick="setVeh('tram')">🚋 Tram</button>
+          <button class="opt-btn" onclick="setVeh('camion')">🚚 Camion</button>
+          <button class="opt-btn" onclick="setVeh('tank')">🛡️ Carro Armato</button>
+        </div>
+        <label class="checkbox-row" style="margin-top:8px;">
+          <input type="checkbox" id="chk-infra" onchange="toggleInfra(this.checked)" />
+          ⚡ Mostra Tralicci e Fili Elettrici
+        </label>
+      </div>
+    </div>
+
+    <!-- CONTROLLI ANIMAZIONE & RIG (SEMPRE VISIBILI) -->
+    <div class="section-box">
+      <div class="section-title">Animazione & Ispezione Vettoriale</div>
+      <div class="grid-btns" id="anim-btns">
+        <button class="opt-btn active" onclick="setAnim('none')">⏹️ Statica</button>
+        <button class="opt-btn" onclick="setAnim('walk')">🚶 Marcia / Cammina</button>
+        <button class="opt-btn" onclick="setAnim('wave')">🚩 Sventola / Agita</button>
+        <button class="opt-btn" onclick="setAnim('action')">🔨 Azione / Sparo</button>
+      </div>
+      <label class="checkbox-row" style="margin-top:8px;">
+        <input type="checkbox" id="chk-rough" checked onchange="renderAll()" />
+        🖍️ Filtro Bordo Pastello Laika (SVG)
+      </label>
+      <label class="checkbox-row">
+        <input type="checkbox" id="chk-rig" onchange="renderAll()" />
+        🎯 Mostra Perni Anti-Distacco (Rig)
+      </label>
+    </div>
+
+  </div>
+
+  <!-- AREA CENTRALE: STAGE SVG -->
+  <div class="canvas-area">
+    <div id="svg-container"></div>
+  </div>
+
+  <!-- COLONNA DESTRA: ESPORTAZIONE SVG & ANTEPRIMA PNG -->
+  <div class="sidebar-right">
+    <div class="section-box">
+      <div class="section-title">Anteprima PNG in Tempo Reale</div>
+      <img id="png-preview" alt="Anteprima PNG" />
+      <button class="action-btn" onclick="downloadPNG()">⬇ SCARICA PNG AD ALTA RISOLUZIONE</button>
+    </div>
+
+    <div class="section-box">
+      <div class="section-title">Codice SVG Vettoriale Puro</div>
+      <textarea id="svg-code" readonly></textarea>
+      <button class="action-btn secondary" onclick="copySVG()">📋 COPIA CODICE SVG</button>
+      <button class="action-btn blue" onclick="downloadSVG()">⬇ SCARICA FILE .SVG</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// === PALETTE UFFICIALE LAIKA ===
+const PALETTE = {
+  bg: '#F6F1E3',
+  ink: '#161614',
+  red: '#E02A1B',
+  blue: '#6B92A4',
+  sand: '#DECBA8'
+};
+
+// === STATO DELLO STUDIO ===
+const state = {
+  mode: 'single',      // 'single' | 'crowd' | 'poster'
+  role: 'popolo',      // 'popolo' | 'protagonista' | 'esercito' | 'partigiano'
+  body: 'uomo',        // 'uomo' | 'donna' | 'bambino'
+  pose: 'in_piedi',    // 12 pose base + 11 azioni specifiche
+  variant: 'nessuna',  // 13 varianti
+  propOnly: null,      // se selezionato mostra o equipa il prop della riga 4
+  crowdType: 'statica',// 'statica' | 'marcia' | 'carica' | 'barricata' | 'discorso' | 'scontro'
+  env: 'none',         // 'none' | 'piazza' | 'fabbrica' | 'stazione' | 'rurale'
+  veh: 'none',         // 'none' | 'treno' | 'tram' | 'camion' | 'tank'
+  infra: false,
+  anim: 'none',
+  tick: 0
+};
+
+// === RIGA 1: 12 FIGURE BASE ===
+const POSES = {
+  in_piedi:       { label: 'In piedi',        shL: 22, elL: 5,  shR: -22, elR: -5,  hipL: 10, knL: 0,  hipR: -10, knR: 0,  lean: 0,  yOff: 0 },
+  cammina_1:      { label: 'Cammina 1',       shL: 35, elL: 15, shR: -30, elR: 20,  hipL: 26, knL: -8, hipR: -24, knR: 18, lean: 5,  yOff: 0 },
+  cammina_2:      { label: 'Cammina 2',       shL: -28,elL: 15, shR: 32,  elR: 10,  hipL: -22,knL: 15, hipR: 25,  knR: -5, lean: 5,  yOff: 0, bodyHint:'donna' },
+  corre:          { label: 'Corre',           shL: 55, elL: 45, shR: -55, elR: 50,  hipL: 48, knL: -35,hipR: -45, knR: 45, lean: 18, yOff: 2 },
+  braccia_alzate: { label: 'Braccia alzate',  shL: 145,elL: 15, shR: -145,elR: -15, hipL: 12, knL: 0,  hipR: -12, knR: 0,  lean: 0,  yOff: 0 },
+  gira:           { label: 'Gira',            shL: 48, elL: 10, shR: -35, elR: -10, hipL: 28, knL: 10, hipR: -18, knR: 25, lean: -4, yOff: 0, bodyHint:'donna' },
+  indica:         { label: 'Indica',          shL: 25, elL: 5,  shR: -82, elR: 0,   hipL: 12, knL: 0,  hipR: -10, knR: 0,  lean: 2,  yOff: 0 },
+  saluta:         { label: 'Saluta',          shL: 22, elL: 5,  shR: -135,elR: -15, hipL: 10, knL: 0,  hipR: -10, knR: 0,  lean: 0,  yOff: 0 },
+  parla:          { label: 'Parla (gesto)',   shL: 20, elL: 10, shR: -45, elR: -55, hipL: 8,  knL: 0,  hipR: -8,  knR: 0,  lean: 0,  yOff: 0, bodyHint:'donna' },
+  mani_fianchi:   { label: 'Mani fianchi',    shL: 42, elL: -65,shR: -42, elR: 65,  hipL: 14, knL: 0,  hipR: -14, knR: 0,  lean: 0,  yOff: 0 },
+  seduto:         { label: 'Seduto',          shL: -15,elL: -45,shR: -25, elR: -50, hipL: -85,knL: 85, hipR: -80, knR: 80, lean: 4,  yOff: 18, stool: true },
+  inginocchiato:  { label: 'Inginocchiato',   shL: -10,elL: -40,shR: -25, elR: -55, hipL: -75,knL: 90, hipR: 25,  knR: 95, lean: 12, yOff: 22 },
+  a_terra:        { label: 'A terra',         shL: 15, elL: -25,shR: -110,elR: 40,  hipL: 8,  knL: 0,  hipR: -12, knR: 10, lean: -84,yOff: 44 }
+};
+
+// === RIGA 2: 13 VARIANTI ===
+const VARIANTS = {
+  nessuna:        { label: 'Base (Uomo)',    body: 'uomo',    hat: null,      coat: null,      acc: null },
+  donna:          { label: 'Donna',          body: 'donna',   hat: 'chignon', coat: 'gonna',   acc: null },
+  bambino:        { label: 'Bambino',        body: 'bambino', hat: null,      coat: null,      acc: null },
+  cappello:       { label: 'Cappello',       body: 'uomo',    hat: 'fedora',  coat: null,      acc: null },
+  cappello_largo: { label: 'Cappello largo', body: 'uomo',    hat: 'largo',   coat: null,      acc: 'bastone' },
+  cappotto:       { label: 'Cappotto',       body: 'uomo',    hat: 'fedora',  coat: 'cappotto',acc: null },
+  vestito:        { label: 'Vestito',        body: 'donna',   hat: 'chignon', coat: 'vestito', acc: null },
+  scialle:        { label: 'Scialle',        body: 'donna',   hat: 'chignon', coat: 'scialle', acc: null },
+  zaino:          { label: 'Zaino',          body: 'uomo',    hat: null,      coat: null,      acc: 'zaino' },
+  borsa:          { label: 'Borsa',          body: 'donna',   hat: 'chignon', coat: 'gonna',   acc: 'borsa' },
+  bastone:        { label: 'Bastone',        body: 'uomo',    hat: 'berretto',coat: 'cappotto',acc: 'bastone' },
+  mantello:       { label: 'Mantello',       body: 'uomo',    hat: 'fedora',  coat: 'mantello',acc: null },
+  clero:          { label: 'Clero',          body: 'uomo',    hat: 'saturno', coat: 'clero',   acc: null }
+};
+
+// === RIGA 3: 11 AZIONI SPECIFICHE ===
+const ACTIONS = {
+  porta_bandiera: { label: '🚩 Porta Bandiera', shL: 28,  elL: -10, shR: -65, elR: -25, hipL: 20, knL: 0,  hipR: -18, knR: 8,  lean: 6,  actionProp: 'bandiera' },
+  manifesta:      { label: '✊ Manifesta',      shL: 148, elL: 15,  shR: -148,elR: -15, hipL: 12, knL: 0,  hipR: -12, knR: 0,  lean: 0,  actionProp: null },
+  lancia:         { label: '🧱 Lancia sasso',   shL: 45,  elL: 15,  shR: -115,elR: -10, hipL: 28, knL: -5, hipR: -28, knR: 18, lean: 14, actionProp: 'lancia_sasso' },
+  sbarra:         { label: '🦯 Sbarra bastone', shL: 25,  elL: -20, shR: -55, elR: -15, hipL: 18, knL: 0,  hipR: -18, knR: 5,  lean: 5,  actionProp: 'bastone_lungo' },
+  tiene_cartello: { label: '🪧 Tiene Cartello', shL: 145, elL: 20,  shR: -145,elR: -20, hipL: 12, knL: 0,  hipR: -12, knR: 0,  lean: 0,  actionProp: 'cartello' },
+  usa_fucile:     { label: '🔫 Usa Fucile',     shL: -45, elL: -35, shR: -72, elR: -15, hipL: 16, knL: 0,  hipR: -16, knR: 5,  lean: 6,  actionProp: 'fucile' },
+  spara:          { label: '💥 Spara',          shL: -50, elL: -35, shR: -78, elR: -10, hipL: 24, knL: 5,  hipR: -24, knR: 12, lean: 12, actionProp: 'spara' },
+  con_megafono:   { label: '📣 Con Megafono',   shL: 20,  elL: 10,  shR: -75, elR: -35, hipL: 14, knL: 0,  hipR: -14, knR: 0,  lean: 2,  actionProp: 'megafono' },
+  costruisce:     { label: '🧱 Costruisce',     shL: -35, elL: -20, shR: 30,  elR: 15,  hipL: 18, knL: 5,  hipR: -18, knR: 5,  lean: 15, actionProp: 'costruisce' },
+  lavora:         { label: '🔨 Lavora martello',shL: 20,  elL: 15,  shR: -95, elR: -25, hipL: 18, knL: 5,  hipR: -16, knR: 5,  lean: 10, actionProp: 'martello' },
+  legge:          { label: '📰 Legge giornale', shL: -45, elL: -30, shR: -55, elR: -35, hipL: 10, knL: 0,  hipR: -10, knR: 0,  lean: 4,  actionProp: 'giornale' }
+};
+
+// === RIGA 4: 12 OGGETTI / PROPS ===
+const PROPS_LIST = [
+  { id: 'bandiera',        label: 'Bandiera rossa' },
+  { id: 'cartello_vuoto',  label: 'Cartello vuoto' },
+  { id: 'cartello_pane',   label: 'Cartello ХЛЕБ' },
+  { id: 'fucile',          label: 'Fucile' },
+  { id: 'bastone',         label: 'Bastone' },
+  { id: 'martello',        label: 'Martello' },
+  { id: 'megafono',        label: 'Megafono' },
+  { id: 'cassa',           label: 'Cassa' },
+  { id: 'barricata',       label: 'Barricata' },
+  { id: 'tamburo',         label: 'Tamburo' },
+  { id: 'giornale',        label: 'Giornale' },
+  { id: 'volantini',       label: 'Volantini & Sassi' }
+];
+
+// === POPOLA PULSANTI UI ===
+function initUI() {
+  const poseBox = document.getElementById('pose-btns');
+  Object.keys(POSES).forEach(k => {
+    const b = document.createElement('button');
+    b.className = 'opt-btn' + (k === state.pose ? ' active' : '');
+    b.dataset.pose = k;
+    b.textContent = POSES[k].label;
+    b.onclick = () => {
+      state.propOnly = null;
+      state.pose = k;
+      if (POSES[k].bodyHint) state.body = POSES[k].bodyHint;
+      syncButtons();
+      renderAll();
+    };
+    poseBox.appendChild(b);
+  });
+
+  const varBox = document.getElementById('variant-btns');
+  Object.keys(VARIANTS).forEach(k => {
+    const b = document.createElement('button');
+    b.className = 'opt-btn' + (k === state.variant ? ' active' : '');
+    b.dataset.variant = k;
+    b.textContent = VARIANTS[k].label;
+    b.onclick = () => {
+      state.propOnly = null;
+      state.variant = k;
+      state.body = VARIANTS[k].body;
+      syncButtons();
+      renderAll();
+    };
+    varBox.appendChild(b);
+  });
+
+  const actBox = document.getElementById('action-btns');
+  Object.keys(ACTIONS).forEach(k => {
+    const b = document.createElement('button');
+    b.className = 'opt-btn red-active';
+    b.dataset.pose = k;
+    b.textContent = ACTIONS[k].label;
+    b.onclick = () => {
+      state.propOnly = null;
+      state.pose = k;
+      syncButtons();
+      renderAll();
+    };
+    actBox.appendChild(b);
+  });
+
+  const propBox = document.getElementById('prop-btns');
+  PROPS_LIST.forEach(p => {
+    const b = document.createElement('button');
+    b.className = 'opt-btn';
+    b.dataset.prop = p.id;
+    b.textContent = p.label;
+    b.onclick = () => {
+      state.propOnly = p.id;
+      syncButtons();
+      renderAll();
+    };
+    propBox.appendChild(b);
+  });
+}
+
+function setStudioMode(m) {
+  state.mode = m;
+  document.getElementById('tab-single').classList.toggle('active', m === 'single');
+  document.getElementById('tab-crowd').classList.toggle('active', m === 'crowd');
+  document.getElementById('tab-poster').classList.toggle('active', m === 'poster');
+  document.getElementById('controls-single').classList.toggle('hidden', m !== 'single');
+  document.getElementById('controls-crowd').classList.toggle('hidden', m !== 'crowd');
+  renderAll();
+}
+
+function setState(key, val) {
+  state.propOnly = null;
+  state[key] = val;
+  syncButtons();
+  renderAll();
+}
+
+function setCrowd(c) {
+  state.crowdType = c;
+  document.querySelectorAll('#crowd-btns .opt-btn').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('onclick').includes(`'${c}'`));
+  });
+  renderAll();
+}
+
+function setEnv(e) {
+  state.env = e;
+  document.querySelectorAll('#env-btns .opt-btn').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('onclick').includes(`'${e}'`));
+  });
+  renderAll();
+}
+
+function setVeh(v) {
+  state.veh = v;
+  document.querySelectorAll('#veh-btns .opt-btn').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('onclick').includes(`'${v}'`));
+  });
+  renderAll();
+}
+
+function toggleInfra(checked) {
+  state.infra = checked;
+  renderAll();
+}
+
+function setAnim(a) {
+  state.anim = a;
+  document.querySelectorAll('#anim-btns .opt-btn').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('onclick').includes(`'${a}'`));
+  });
+  renderAll();
+}
+
+function syncButtons() {
+  document.querySelectorAll('#pose-btns .opt-btn, #action-btns .opt-btn').forEach(b => {
+    b.classList.toggle('active', !state.propOnly && b.dataset.pose === state.pose);
+  });
+  document.querySelectorAll('#variant-btns .opt-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.variant === state.variant);
+  });
+  document.querySelectorAll('#prop-btns .opt-btn').forEach(b => {
+    b.classList.toggle('active', state.propOnly === b.dataset.prop);
+  });
+}
+
+// === FUNZIONE DISEGNO PROP ISOLATO O EQUIPAGGIATO (FASE 3) ===
+function drawStandaloneProp(propId, x = 0, y = 0, scale = 1, wave = 0) {
+  let g = `<g transform="translate(${x},${y}) scale(${scale})">`;
+  switch (propId) {
+    case 'bandiera':
+      g += `
+        <line x1="-22" y1="-35" x2="-22" y2="35" stroke="${PALETTE.ink}" stroke-width="3.2" stroke-linecap="round"/>
+        <path d="M -22,-34 C -4,${-32 + wave} 14,${-38 - wave} 30,${-39 + wave} L 28,${-6 + wave} C 12,${-10 - wave} -4,${-7 + wave} -22,-9 Z" fill="${PALETTE.red}"/>
+      `;
+      break;
+    case 'cartello_vuoto':
+      g += `
+        <line x1="0" y1="-5" x2="0" y2="32" stroke="${PALETTE.ink}" stroke-width="3" stroke-linecap="round"/>
+        <rect x="-24" y="-32" width="48" height="28" rx="1.5" fill="${PALETTE.bg}" stroke="${PALETTE.ink}" stroke-width="2.6" transform="rotate(-3)"/>
+      `;
+      break;
+    case 'cartello_pane':
+      g += `
+        <line x1="0" y1="-5" x2="0" y2="32" stroke="${PALETTE.ink}" stroke-width="3" stroke-linecap="round"/>
+        <g transform="rotate(-4)">
+          <rect x="-28" y="-33" width="56" height="30" rx="1.5" fill="${PALETTE.bg}" stroke="${PALETTE.ink}" stroke-width="2.6"/>
+          <text x="0" y="-13" text-anchor="middle" font-family="monospace" font-weight="900" font-size="14" fill="${PALETTE.ink}">ХЛЕБ</text>
+        </g>
+      `;
+      break;
+    case 'fucile':
+      g += `
+        <g transform="rotate(-38)">
+          <path d="M -34,3 L -14,3 L -10,-1 L 34,-1 L 34,2 L -8,3 L -14,8 L -34,9 Z" fill="${PALETTE.ink}"/>
+          <line x1="28" y1="-3" x2="39" y2="-3" stroke="${PALETTE.ink}" stroke-width="1.6"/>
+        </g>
+      `;
+      break;
+    case 'bastone':
+      g += `<line x1="-22" y1="26" x2="22" y2="-26" stroke="${PALETTE.ink}" stroke-width="3.4" stroke-linecap="round"/>`;
+      break;
+    case 'martello':
+      g += `
+        <line x1="-8" y1="-15" x2="12" y2="26" stroke="${PALETTE.ink}" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M -18,-10 L 4,-22 L 8,-15 L -14,-3 Z" fill="${PALETTE.ink}"/>
+      `;
+      break;
+    case 'megafono':
+      g += `
+        <line x1="-12" y1="4" x2="-12" y2="24" stroke="${PALETTE.ink}" stroke-width="3.2" stroke-linecap="round"/>
+        <path d="M -20,2 L 18,-14 L 18,16 L -20,6 Z" fill="${PALETTE.red}"/>
+      `;
+      break;
+    case 'cassa':
+      g += `
+        <rect x="-22" y="-22" width="44" height="44" fill="${PALETTE.blue}" rx="2"/>
+        <rect x="-18" y="-18" width="36" height="36" fill="none" stroke="${PALETTE.bg}" stroke-width="2"/>
+        <line x1="-18" y1="-18" x2="18" y2="18" stroke="${PALETTE.bg}" stroke-width="2"/>
+        <line x1="18" y1="-18" x2="-18" y2="18" stroke="${PALETTE.bg}" stroke-width="2"/>
+      `;
+      break;
+    case 'barricata':
+      g += `
+        <g fill="${PALETTE.blue}" stroke="${PALETTE.bg}" stroke-width="1.4">
+          <rect x="-38" y="8" width="24" height="14"/>
+          <rect x="-14" y="8" width="26" height="14"/>
+          <rect x="12" y="8" width="26" height="14"/>
+          <rect x="-28" y="-6" width="26" height="14"/>
+          <rect x="-2" y="-6" width="28" height="14"/>
+          <rect x="-16" y="-20" width="26" height="14"/>
+        </g>
+      `;
+      break;
+    case 'tamburo':
+      g += `
+        <ellipse cx="0" cy="-14" rx="18" ry="5" fill="${PALETTE.bg}" stroke="${PALETTE.ink}" stroke-width="2.5"/>
+        <path d="M -18,-14 L -16,14 C -16,18 16,18 16,14 L 18,-14 Z" fill="${PALETTE.sand}" stroke="${PALETTE.ink}" stroke-width="2.5"/>
+        <polyline points="-17,-10 -8,15 0,-10 8,15 17,-10" fill="none" stroke="${PALETTE.ink}" stroke-width="2"/>
+        <line x1="-14" y1="-24" x2="2" y2="-14" stroke="${PALETTE.ink}" stroke-width="2.2" stroke-linecap="round"/>
+        <line x1="14" y1="-24" x2="-2" y2="-14" stroke="${PALETTE.ink}" stroke-width="2.2" stroke-linecap="round"/>
+      `;
+      break;
+    case 'giornale':
+      g += `
+        <rect x="-22" y="-22" width="44" height="44" fill="${PALETTE.bg}" stroke="${PALETTE.ink}" stroke-width="2.5" transform="rotate(-3)"/>
+        <rect x="-16" y="-15" width="13" height="11" fill="none" stroke="${PALETTE.ink}" stroke-width="2"/>
+        <line x1="2" y1="-15" x2="15" y2="-15" stroke="${PALETTE.ink}" stroke-width="2"/>
+        <line x1="2" y1="-9" x2="15" y2="-9" stroke="${PALETTE.ink}" stroke-width="2"/>
+        <line x1="-16" y1="3" x2="15" y2="3" stroke="${PALETTE.ink}" stroke-width="2"/>
+        <line x1="-16" y1="9" x2="15" y2="9" stroke="${PALETTE.ink}" stroke-width="2"/>
+        <line x1="-16" y1="15" x2="15" y2="15" stroke="${PALETTE.ink}" stroke-width="2"/>
+      `;
+      break;
+    case 'volantini':
+      g += `
+        <rect x="-26" y="-18" width="6" height="4" fill="${PALETTE.red}" transform="rotate(20 -26 -18)"/>
+        <rect x="-10" y="-24" width="6" height="4" fill="${PALETTE.red}" transform="rotate(-15 -10 -24)"/>
+        <rect x="-18" y="-4" width="6" height="4" fill="${PALETTE.red}" transform="rotate(40 -18 -4)"/>
+        <rect x="10" y="-16" width="12" height="6" rx="1" fill="${PALETTE.ink}" transform="rotate(-25 10 -16)"/>
+        <rect x="18" y="4" width="12" height="6" rx="1" fill="${PALETTE.ink}" transform="rotate(-18 18 4)"/>
+        <line x1="-2" y1="-10" x2="6" y2="-14" stroke="${PALETTE.red}" stroke-width="2.2" stroke-linecap="round"/>
+      `;
+      break;
+  }
+  g += `</g>`;
+  return g;
+}
+
+// === MOTORE SCHELETRICO OMINO (FASI 1 + 2 + 3 CON GIUNTURE SFERICHE ANTI-DISTACCO) ===
+function buildOminoSVG(opts = {}) {
+  const role = opts.role || 'popolo';
+  const body = opts.body || 'uomo';
+  const poseKey = opts.pose || 'in_piedi';
+  const varKey = opts.variant || 'nessuna';
+  const x = opts.x || 0;
+  const y = opts.y || 0;
+  const scaleOverride = opts.scale || 1;
+  const showRig = opts.showRig || false;
+  const animType = opts.anim || 'none';
+  const tick = opts.tick || 0;
+
+  const basePose = POSES[poseKey] || ACTIONS[poseKey] || POSES.in_piedi;
+  const varCfg = VARIANTS[varKey] || VARIANTS.nessuna;
+
+  const effectiveBody = opts.body || varCfg.body || basePose.bodyHint || 'uomo';
+  const bodyScale = effectiveBody === 'bambino' ? 0.72 : (effectiveBody === 'donna' ? 0.94 : 1.0);
+  const totalScale = bodyScale * scaleOverride;
+
+  let color = PALETTE.ink;
+  if (role === 'protagonista') color = PALETTE.red;
+  if (role === 'esercito') color = PALETTE.blue;
+
+  // Calcolo oscillazione animata
+  const s = Math.sin(tick);
+  const c = Math.cos(tick);
+  let shL = basePose.shL, elL = basePose.elL, shR = basePose.shR, elR = basePose.elR;
+  let hipL = basePose.hipL, knL = basePose.knL, hipR = basePose.hipR, knR = basePose.knR;
+  let lean = basePose.lean || 0;
+  let yOff = basePose.yOff || 0;
+
+  if (animType === 'walk') {
+    shL += s * 28;
+    shR -= s * 28;
+    hipL -= s * 26;
+    hipR += s * 26;
+    knL = Math.max(0, c * 22);
+    knR = Math.max(0, -c * 22);
+    yOff += Math.abs(s) * 2.5;
+  } else if (animType === 'wave') {
+    shR += s * 16;
+    elR += c * 12;
+    shL -= s * 8;
+  } else if (animType === 'action') {
+    shR += s * 22;
+    elR += s * 18;
+    lean += s * 4;
+  }
+
+  const hat = opts.hat !== undefined ? opts.hat : varCfg.hat;
+  const coat = opts.coat !== undefined ? opts.coat : varCfg.coat;
+  const acc = opts.acc !== undefined ? opts.acc : varCfg.acc;
+  const actionProp = opts.actionProp !== undefined ? opts.actionProp : (basePose.actionProp || null);
+
+  // Funzione arto con calotta circolare (mai staccato!)
+  function limbPath(w1, w2, len) {
+    const r1 = w1 / 2, r2 = w2 / 2;
+    return `M ${-r1},0 A ${r1},${r1} 0 1,1 ${r1},0 L ${r2},${len} A ${r2},${r2} 0 1,1 ${-r2},${len} Z`;
+  }
+
+  let svg = `<g transform="translate(${x}, ${y + yOff}) scale(${totalScale}) rotate(${lean})">`;
+
+  // Sgabello se seduto
+  if (basePose.stool) {
+    svg += `<path d="M -14,18 L 6,18 M -10,18 L -10,42 M 2,18 L 2,42" stroke="${PALETTE.ink}" stroke-width="3.2" stroke-linecap="round"/>`;
+  }
+
+  // Barricata di sfondo per azione "costruisce" o "lavora"
+  if (actionProp === 'costruisce') {
+    svg += `
+      <g fill="${PALETTE.blue}" stroke="${PALETTE.bg}" stroke-width="1.2">
+        <rect x="-54" y="24" width="20" height="11"/><rect x="-34" y="24" width="20" height="11"/>
+        <rect x="-46" y="13" width="22" height="11"/>
+        <rect x="16" y="24" width="22" height="11"/><rect x="38" y="24" width="20" height="11"/>
+        <rect x="20" y="12" width="32" height="11" transform="rotate(-12 20 12)"/>
+      </g>
+    `;
+  } else if (actionProp === 'martello') {
+    svg += `
+      <g fill="${PALETTE.blue}" stroke="${PALETTE.bg}" stroke-width="1.2">
+        <rect x="14" y="24" width="20" height="11"/><rect x="34" y="24" width="18" height="11"/>
+        <rect x="18" y="13" width="22" height="11"/><rect x="22" y="2" width="16" height="11"/>
+      </g>
+    `;
+  }
+
+  // BRACCIO POSTERIORE (SINISTRO)
+  svg += `
+    <g transform="translate(-5, -24) rotate(${shL})">
+      <path d="${limbPath(7.5, 6.2, 16)}" fill="${color}"/>
+      <g transform="translate(0, 16) rotate(${elL})">
+        <path d="${limbPath(6.2, 5.0, 15)}" fill="${color}"/>
+        ${actionProp === 'costruisce' ? `<rect x="-12" y="8" width="22" height="6" fill="${PALETTE.sand}" stroke="${PALETTE.ink}" stroke-width="1.8" transform="rotate(28)"/>` : ''}
+      </g>
+    </g>
+  `;
+
+  // GAMBA POSTERIORE (SINISTRA)
+  svg += `
+    <g transform="translate(-4.5, 2) rotate(${hipL})">
+      <path d="${limbPath(9.2, 7.2, 19)}" fill="${color}"/>
+      <g transform="translate(0, 19) rotate(${knL})">
+        <path d="${limbPath(7.2, 5.6, 19)}" fill="${color}"/>
+      </g>
+    </g>
+  `;
+
+  // GAMBA ANTERIORE (DESTRA)
+  svg += `
+    <g transform="translate(4.5, 2) rotate(${hipR})">
+      <path d="${limbPath(9.2, 7.2, 19)}" fill="${color}"/>
+      <g transform="translate(0, 19) rotate(${knR})">
+        <path d="${limbPath(7.2, 5.6, 19)}" fill="${color}"/>
+      </g>
+    </g>
+  `;
+
+  // ZAINO (Dietro il busto)
+  if (acc === 'zaino') {
+    svg += `<path d="M -13,-24 C -19,-24 -20,-4 -13,-3 Z" fill="${color}"/>`;
+  }
+
+  // BUSTO E ABITI (Fase 1 + Fase 2)
+  if (coat === 'mantello') {
+    svg += `
+      <path d="M -7,-27 C -18,-10 -24,16 -20,24 L 20,24 C 24,16 18,-10 7,-27 Z" fill="${color}"/>
+      <path d="M -5,-18 L -9,18 M 4,-18 L 8,18" stroke="${PALETTE.bg}" stroke-width="1.5" stroke-linecap="round"/>
+    `;
+  } else if (coat === 'clero') {
+    svg += `
+      <path d="M -7,-27 L -14,32 L 14,32 L 7,-27 Z" fill="${color}"/>
+      <path d="M 0,-18 L 0,-9 M -3.5,-15 L 3.5,-15" stroke="${PALETTE.bg}" stroke-width="1.6" stroke-linecap="round"/>
+    `;
+  } else if (coat === 'cappotto') {
+    svg += `<path d="M -7.5,-27 L -14,20 L 14,20 L 7.5,-27 Z" fill="${color}"/>`;
+  } else if (coat === 'scialle') {
+    svg += `
+      <path d="M -7,-27 L -14,18 L 14,18 L 7,-27 Z" fill="${color}"/>
+      <path d="M -8,-24 L 0,-8 L 8,-24 M -10,-15 L 0,-4 L 10,-15" fill="none" stroke="${PALETTE.bg}" stroke-width="1.5" stroke-linecap="round"/>
+    `;
+  } else if (effectiveBody === 'donna' || coat === 'gonna' || coat === 'vestito') {
+    svg += `<path d="M -6.5,-27 L -14,15 L 14,15 L 6.5,-27 Z" fill="${color}"/>`;
+  } else {
+    svg += `<path d="M -7,-27 C -9,-14 -9,4 -8,6 L 8,6 C 9,4 9,-14 7,-27 Z" fill="${color}"/>`;
+  }
+
+  if (acc === 'zaino') {
+    svg += `<path d="M -5,-25 L -5,-6" stroke="${PALETTE.bg}" stroke-width="1.5" stroke-linecap="round"/>`;
+  }
+
+  // TESTA FLOTTANTE + COPRICAPO (Fase 1 + Fase 2)
+  svg += `<g transform="translate(0, -40)">`;
+  svg += `<circle cx="0" cy="0" r="8.5" fill="${color}"/>`;
+  if (effectiveBody === 'donna' || hat === 'chignon') {
+    svg += `<circle cx="-8.5" cy="-2" r="3.8" fill="${color}"/>`;
+  }
+  if (hat === 'fedora') {
+    svg += `<ellipse cx="0" cy="-6.5" rx="13" ry="2.6" fill="${color}"/><path d="M -7,-6.5 L -5,-14 L 5,-14 L 7,-6.5 Z" fill="${color}"/>`;
+  } else if (hat === 'largo') {
+    svg += `<ellipse cx="0" cy="-6" rx="16.5" ry="3" fill="${color}"/><path d="M -8,-6 C -8,-14 8,-14 8,-6 Z" fill="${color}"/>`;
+  } else if (hat === 'saturno') {
+    svg += `<ellipse cx="0" cy="-6.5" rx="14" ry="2.4" fill="${color}"/><path d="M -6.5,-6.5 C -6.5,-13 6.5,-13 6.5,-6.5 Z" fill="${color}"/>`;
+  } else if (hat === 'berretto') {
+    svg += `<path d="M -8,-5 C -8,-12 6,-12 11,-5 Z" fill="${color}"/>`;
+  }
+  svg += `</g>`;
+
+  // BRACCIO ANTERIORE (DESTRO) + FASCIA PARTIGIANO + ACCESSORI / PROPS FASE 3
+  svg += `
+    <g transform="translate(5, -24) rotate(${shR})">
+      <path d="${limbPath(7.5, 6.2, 16)}" fill="${color}"/>
+      ${role === 'partigiano' ? `<rect x="-4.1" y="5" width="8.2" height="4.5" fill="${PALETTE.red}"/>` : ''}
+      <g transform="translate(0, 16) rotate(${elR})">
+        <path d="${limbPath(6.2, 5.0, 15)}" fill="${color}"/>
+        ${acc === 'bastone' ? `<line x1="0" y1="13" x2="8" y2="42" stroke="${PALETTE.ink}" stroke-width="2.8" stroke-linecap="round" transform="rotate(${-shR - elR})"/>` : ''}
+        ${acc === 'borsa' ? `<g transform="translate(0,14) rotate(${-shR - elR})"><path d="M -6,4 L 6,4 L 8,18 L -8,18 Z" fill="${color}"/><path d="M -4,4 C -4,-3 4,-3 4,4" fill="none" stroke="${color}" stroke-width="2"/></g>` : ''}
+        ${actionProp === 'bandiera' ? `
+          <g transform="translate(0, 14) rotate(${-shR - elR})">
+            <line x1="-14" y1="22" x2="10" y2="-36" stroke="${PALETTE.ink}" stroke-width="2.8" stroke-linecap="round"/>
+            <path d="M 10,-36 C 24,-38 36,-44 48,-46 L 46,-14 C 32,-18 18,-18 2,-18 Z" fill="${PALETTE.red}"/>
+          </g>
+        ` : ''}
+        ${actionProp === 'bastone_lungo' ? `
+          <g transform="translate(0, 14) rotate(${-shR - elR})">
+            <line x1="-22" y1="22" x2="32" y2="-28" stroke="${PALETTE.ink}" stroke-width="3" stroke-linecap="round"/>
+          </g>
+        ` : ''}
+        ${actionProp === 'fucile' || actionProp === 'spara' ? `
+          <g transform="translate(0, 12) rotate(${-shR - elR - 14})">
+            <path d="M -22,4 L -6,4 L -2,0 L 38,0 L 38,3 L -2,4 L -8,9 L -22,10 Z" fill="${PALETTE.ink}"/>
+            ${actionProp === 'spara' ? `
+              <path d="M 42,1 L 56,-4 M 43,2 L 59,2 M 42,3 L 55,8" stroke="${PALETTE.red}" stroke-width="2.4" stroke-linecap="round"/>
+            ` : ''}
+          </g>
+        ` : ''}
+        ${actionProp === 'megafono' ? `
+          <g transform="translate(0, 14) rotate(${-shR - elR})">
+            <path d="M -2,-4 L 28,-18 L 28,8 L -2,0 Z" fill="${PALETTE.red}"/>
+            <path d="M 33,-14 L 40,-18 M 34,-4 L 42,-4 M 33,5 L 40,9" stroke="${PALETTE.ink}" stroke-width="2" stroke-linecap="round"/>
+          </g>
+        ` : ''}
+        ${actionProp === 'martello' ? `
+          <g transform="translate(0, 14) rotate(${-shR - elR})">
+            <line x1="-4" y1="6" x2="10" y2="-16" stroke="${PALETTE.ink}" stroke-width="3" stroke-linecap="round"/>
+            <path d="M 3,-21 L 19,-11 L 15,-6 L -1,-16 Z" fill="${PALETTE.ink}"/>
+          </g>
+        ` : ''}
+        ${actionProp === 'giornale' ? `
+          <g transform="translate(0, 12) rotate(${-shR - elR})">
+            <path d="M 0,-18 L 16,-24 L 16,6 L 0,12 L -14,8 L -14,-20 Z" fill="${PALETTE.bg}" stroke="${PALETTE.ink}" stroke-width="2.2"/>
+            <line x1="0" y1="-18" x2="0" y2="12" stroke="${PALETTE.ink}" stroke-width="2"/>
+            <line x1="4" y1="-15" x2="12" y2="-18" stroke="${PALETTE.ink}" stroke-width="1.6"/>
+            <line x1="4" y1="-9" x2="12" y2="-12" stroke="${PALETTE.ink}" stroke-width="1.6"/>
+            <line x1="4" y1="-3" x2="12" y2="-6" stroke="${PALETTE.ink}" stroke-width="1.6"/>
+          </g>
+        ` : ''}
+      </g>
+    </g>
+  `;
+
+  // CARTELLO SOPRA LE DUE MANI ALZATE (Fase 3)
+  if (actionProp === 'cartello') {
+    svg += `
+      <g transform="translate(0, -68) rotate(-4)">
+        <line x1="-11" y1="12" x2="-11" y2="24" stroke="${PALETTE.ink}" stroke-width="2.6"/>
+        <line x1="11" y1="12" x2="11" y2="24" stroke="${PALETTE.ink}" stroke-width="2.6"/>
+        <rect x="-26" y="-18" width="52" height="30" rx="1.5" fill="${PALETTE.bg}" stroke="${PALETTE.ink}" stroke-width="2.5"/>
+        <text x="0" y="2" text-anchor="middle" font-family="monospace" font-weight="900" font-size="12" fill="${PALETTE.ink}">ХЛЕБ</text>
+      </g>
+    `;
+  }
+
+  // SASSO / MATTONE LANCIATO IN ARIA (Fase 3)
+  if (actionProp === 'lancia_sasso') {
+    svg += `
+      <line x1="22" y1="-38" x2="36" y2="-46" stroke="${PALETTE.ink}" stroke-width="2.5" stroke-linecap="round"/>
+      <rect x="44" y="-55" width="9" height="4.5" rx="1.5" fill="${PALETTE.red}" transform="rotate(-25 44 -55)"/>
+    `;
+  }
+
+  // PERNI DI ISPEZIONE RIG
+  if (showRig) {
+    svg += `
+      <g fill="#00E5FF" stroke="#161614" stroke-width="1">
+        <circle cx="-5" cy="-24" r="2.5"/><circle cx="5" cy="-24" r="2.5"/>
+        <circle cx="-4.5" cy="2" r="2.5"/><circle cx="4.5" cy="2" r="2.5"/>
+        <circle cx="0" cy="-40" r="2.5"/>
+      </g>
+    `;
+  }
+
+  svg += `</g>`;
+  return svg;
+}
+
+// === FASE 4: AMBIENTI, TRASPORTI, INFRASTRUTTURE E COMPOSIZIONI DI FOLLA ===
+function drawEnvironmentSVG(env, veh, infra, width = 560, height = 300) {
+  let out = '';
+
+  // Linea del suolo
+  out += `<line x1="20" y1="242" x2="${width - 20}" y2="242" stroke="${PALETTE.blue}" stroke-width="1.5" opacity="0.6"/>`;
+
+  // AMBIENTI (Dalla tabella delle priorità)
+  if (env === 'piazza') {
+    out += `
+      <g fill="${PALETTE.sand}" opacity="0.55">
+        <rect x="35" y="95" width="95" height="147"/>
+        <polygon points="30,95 82,62 135,95"/>
+        <rect x="145" y="115" width="120" height="127"/>
+        <rect x="410" y="88" width="110" height="154"/>
+      </g>
+    `;
+  } else if (env === 'fabbrica') {
+    out += `
+      <g fill="${PALETTE.sand}" opacity="0.65">
+        <polygon points="40,242 40,145 95,115 95,145 150,115 150,145 205,115 205,242"/>
+        <rect x="225" y="65" width="18" height="177"/>
+        <rect x="260" y="82" width="16" height="160"/>
+        <path d="M 234,60 Q 265,42 310,48" fill="none" stroke="${PALETTE.blue}" stroke-width="8" stroke-linecap="round" opacity="0.5"/>
+      </g>
+    `;
+  } else if (env === 'stazione') {
+    out += `
+      <g fill="${PALETTE.sand}" opacity="0.6">
+        <rect x="40" y="120" width="210" height="122"/>
+        <path d="M 30,120 Q 145,75 260,120 Z"/>
+        <circle cx="145" cy="108" r="12" fill="${PALETTE.bg}" stroke="${PALETTE.ink}" stroke-width="2"/>
+      </g>
+    `;
+  } else if (env === 'rurale') {
+    out += `
+      <g fill="${PALETTE.sand}" opacity="0.6">
+        <rect x="55" y="150" width="115" height="92"/>
+        <polygon points="45,150 112,105 180,150"/>
+        <rect x="380" y="135" width="130" height="107"/>
+      </g>
+    `;
+  }
+
+  // INFRASTRUTTURE: Tralicci e fili elettrici
+  if (infra) {
+    out += `
+      <g stroke="${PALETTE.ink}" stroke-width="1.6" fill="none" opacity="0.45">
+        <path d="M 70,242 L 82,70 L 94,242 M 74,110 L 90,110 M 70,150 L 94,150 M 66,90 L 98,90"/>
+        <path d="M 460,242 L 472,70 L 484,242 M 464,110 L 480,110 M 460,150 L 484,150 M 456,90 L 488,90"/>
+        <path d="M 20,85 Q 275,118 540,85"/>
+        <path d="M 20,96 Q 275,129 540,96"/>
+      </g>
+    `;
+  }
+
+  // TRASPORTI: Treno, Tram, Camion, Carro Armato
+  if (veh === 'treno') {
+    out += `
+      <g transform="translate(330, 152)" fill="${PALETTE.ink}" opacity="0.88">
+        <rect x="0" y="25" width="135" height="48" rx="3"/>
+        <rect x="95" y="5" width="40" height="35"/>
+        <rect x="18" y="0" width="14" height="30"/>
+        <circle cx="25" cy="78" r="11"/><circle cx="65" cy="78" r="11"/><circle cx="108" cy="78" r="11"/>
+        <polygon points="25,-5 38,-18 55,-14" fill="${PALETTE.red}"/>
+      </g>
+    `;
+  } else if (veh === 'tram') {
+    out += `
+      <g transform="translate(340, 148)" opacity="0.9">
+        <rect x="0" y="20" width="140" height="56" rx="6" fill="${PALETTE.blue}"/>
+        <rect x="12" y="30" width="24" height="20" fill="${PALETTE.bg}"/>
+        <rect x="44" y="30" width="24" height="20" fill="${PALETTE.bg}"/>
+        <rect x="76" y="30" width="24" height="20" fill="${PALETTE.bg}"/>
+        <rect x="108" y="30" width="20" height="20" fill="${PALETTE.bg}"/>
+        <path d="M 55,20 L 70,2 L 85,20" fill="none" stroke="${PALETTE.ink}" stroke-width="2.2"/>
+        <circle cx="30" cy="82" r="9" fill="${PALETTE.ink}"/><circle cx="110" cy="82" r="9" fill="${PALETTE.ink}"/>
+      </g>
+    `;
+  } else if (veh === 'camion') {
+    out += `
+      <g transform="translate(355, 165)" fill="${PALETTE.ink}" opacity="0.88">
+        <rect x="0" y="10" width="90" height="46"/>
+        <path d="M 90,24 L 122,24 L 128,40 L 128,56 L 90,56 Z"/>
+        <circle cx="24" cy="64" r="11"/><circle cx="106" cy="64" r="11"/>
+      </g>
+    `;
+  } else if (veh === 'tank') {
+    out += `
+      <g transform="translate(345, 172)" fill="${PALETTE.blue}">
+        <rect x="0" y="34" width="135" height="28" rx="12" stroke="${PALETTE.ink}" stroke-width="2.5"/>
+        <polygon points="22,34 38,12 96,12 110,34" stroke="${PALETTE.ink}" stroke-width="2.5"/>
+        <line x1="15" y1="22" x2="-32" y2="16" stroke="${PALETTE.ink}" stroke-width="5" stroke-linecap="round"/>
+      </g>
+    `;
+  }
+
+  return out;
+}
+
+// === GENERAZIONE DELLE 6 COMPOSIZIONI DI FOLLA (RIGA 5) ===
+function buildCrowdCompositionSVG(type, cx = 280, cy = 200, scale = 1, showRig = false, anim = 'none', tick = 0) {
+  let g = `<g transform="translate(${cx}, ${cy}) scale(${scale})">`;
+
+  if (type === 'statica') {
+    // Seconda fila
+    [-95, -62, -28, 8, 42, 76, 105].forEach((dx, i) => {
+      g += buildOminoSVG({ x: dx, y: -14, scale: 0.78, pose: 'in_piedi', body: i % 3 === 1 ? 'donna' : 'uomo', showRig, anim, tick: tick + i });
+    });
+    // Prima fila
+    [-110, -78, -45, -12, 22, 56, 90].forEach((dx, i) => {
+      g += buildOminoSVG({ x: dx, y: 0, scale: 0.88, pose: i === 3 ? 'mani_fianchi' : 'in_piedi', variant: i === 1 ? 'cappello' : (i === 4 ? 'donna' : 'nessuna'), showRig, anim, tick: tick + i });
+    });
+  } else if (type === 'marcia') {
+    [-115, -80, -45, -10, 25, 60, 95].forEach((dx, i) => {
+      const p = (i === 1 || i === 4) ? 'porta_bandiera' : (i % 2 === 0 ? 'cammina_1' : 'sbarra');
+      g += buildOminoSVG({ x: dx, y: (i % 2) * -6, scale: 0.86, pose: p, role: i === 4 ? 'partigiano' : 'popolo', showRig, anim: anim === 'none' ? 'none' : 'walk', tick: tick + i * 0.7 });
+    });
+  } else if (type === 'carica') {
+    [-95, -55, -15, 25, 68, 108].forEach((dx, i) => {
+      const p = i % 2 === 0 ? 'corre' : 'sbarra';
+      g += buildOminoSVG({ x: dx, y: (i % 2) * -5, scale: 0.88, pose: p, body: i === 5 ? 'donna' : 'uomo', showRig, anim: anim === 'none' ? 'none' : 'walk', tick: tick + i * 0.8 });
+    });
+  } else if (type === 'barricata') {
+    // Omini dietro la barricata con bandiere e braccia alzate
+    [-90, -52, -15, 22, 60, 95].forEach((dx, i) => {
+      const p = (i === 1 || i === 4) ? 'porta_bandiera' : (i % 2 === 0 ? 'braccia_alzate' : 'sbarra');
+      g += buildOminoSVG({ x: dx, y: -16, scale: 0.85, pose: p, showRig, anim, tick: tick + i });
+    });
+    // Muro di blocchi azzurri in primo piano
+    g += `
+      <g fill="${PALETTE.blue}" stroke="${PALETTE.bg}" stroke-width="1.6" transform="translate(10, 8)">
+        <rect x="-90" y="10" width="34" height="16"/><rect x="-56" y="10" width="34" height="16"/><rect x="-22" y="10" width="34" height="16"/><rect x="12" y="10" width="34" height="16"/><rect x="46" y="10" width="34" height="16"/>
+        <rect x="-74" y="-6" width="34" height="16"/><rect x="-40" y="-6" width="34" height="16"/><rect x="-6" y="-6" width="34" height="16"/><rect x="28" y="-6" width="34" height="16"/>
+        <rect x="-56" y="-22" width="34" height="16"/><rect x="-22" y="-22" width="34" height="16"/><rect x="12" y="-22" width="34" height="16"/>
+      </g>
+    `;
+  } else if (type === 'discorso') {
+    // Tribuna / Podio azzurro
+    g += `<rect x="-36" y="-12" width="72" height="42" fill="${PALETTE.blue}" stroke="${PALETTE.ink}" stroke-width="2"/>`;
+    // Oratore sul podio
+    g += buildOminoSVG({ x: 0, y: -50, scale: 0.88, pose: 'indica', showRig, anim, tick });
+    // Folla ai lati
+    [-115, -88, -60, 60, 88, 115].forEach((dx, i) => {
+      g += buildOminoSVG({ x: dx, y: 0, scale: 0.85, pose: i % 2 === 0 ? 'braccia_alzate' : 'in_piedi', showRig, anim, tick: tick + i });
+    });
+  } else if (type === 'scontro') {
+    // Sinistra: Popolo con bandiera rossa, bastoni e lancio sassi
+    [-135, -105, -75, -42].forEach((dx, i) => {
+      const p = i === 1 ? 'porta_bandiera' : (i === 3 ? 'lancia' : 'sbarra');
+      g += buildOminoSVG({ x: dx, y: (i % 2) * -4, scale: 0.85, pose: p, role: 'popolo', showRig, anim, tick: tick + i });
+    });
+    // Destra: Esercito/Polizia (in azzurro e nero)
+    [45, 75, 105, 132].forEach((dx, i) => {
+      g += buildOminoSVG({ x: dx, y: (i % 2) * -4, scale: 0.85, pose: i % 2 === 0 ? 'sbarra' : 'braccia_alzate', role: i % 2 === 0 ? 'esercito' : 'popolo', showRig, anim, tick: tick + i });
+    });
+  }
+
+  g += `</g>`;
+  return g;
+}
+
+// === GENERATORE TAVOLA INTEGRALE 5 RIGHE (COME IMAGE_3.PNG) ===
+function buildFullPosterSVG(useRough, showRig, anim, tick) {
+  const W = 1350, H = 940;
+  let svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="100%" height="100%">`;
+  svg += getDefsSVG();
+  svg += `<rect width="${W}" height="${H}" fill="${PALETTE.bg}"/>`;
+  const filterAttr = useRough ? `filter="url(#laika-rough)"` : '';
+
+  // INTESTAZIONE LAIKA KIT OMINI
+  svg += `
+    <g transform="translate(32, 42)">
+      <text x="0" y="0" font-family="monospace" font-size="38" font-weight="900" letter-spacing="6" fill="${PALETTE.ink}">LAIKA</text>
+      <text x="0" y="28" font-family="monospace" font-size="22" font-weight="900" letter-spacing="5" fill="${PALETTE.red}">KIT OMINI</text>
+      <polygon points="186,-12 190,-2 201,-2 192,4 195,15 186,8 177,15 180,4 171,-2 182,-2" fill="${PALETTE.red}"/>
+      <text x="260" y="-8" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="2" fill="${PALETTE.ink}">PERSONAGGI BASE RIUTILIZZABILI</text>
+      <text x="260" y="8" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="2" fill="${PALETTE.ink}">PER SCENE E ANIMAZIONI</text>
+      <line x1="260" y1="18" x2="420" y2="18" stroke="${PALETTE.blue}" stroke-width="1.8"/>
+    </g>
+    <g transform="translate(1110, 22)">
+      <rect x="0" y="0" width="32" height="32" fill="${PALETTE.ink}"/>
+      <rect x="44" y="0" width="32" height="32" fill="${PALETTE.red}"/>
+      <rect x="88" y="0" width="32" height="32" fill="${PALETTE.blue}"/>
+      <rect x="132" y="0" width="32" height="32" fill="${PALETTE.sand}"/>
+      <text x="82" y="50" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="2" fill="${PALETTE.ink}">PALETTE LAIKA</text>
+    </g>
+  `;
+
+  function sectionHeader(x, y, title, lineW) {
+    return `
+      <line x1="${x}" y1="${y}" x2="${x + lineW}" y2="${y}" stroke="${PALETTE.blue}" stroke-width="1.4"/>
+      <rect x="${x}" y="${y}" width="${title.length * 9.5 + 18}" height="22" fill="${PALETTE.bg}" stroke="${PALETTE.blue}" stroke-width="1.4"/>
+      <text x="${x + 9}" y="${y + 15}" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1.5" fill="${PALETTE.ink}">${title}</text>
+    `;
+  }
+
+  // RIGA 1: FIGURE BASE
+  svg += sectionHeader(28, 92, 'FIGURE BASE', 1290);
+  svg += `<g ${filterAttr}>`;
+  const row1Keys = Object.keys(POSES);
+  row1Keys.forEach((k, idx) => {
+    const px = 68 + idx * 96;
+    const py = 178;
+    svg += buildOminoSVG({ x: px, y: py, scale: 0.78, pose: k, showRig, anim, tick: tick + idx * 0.4 });
+    svg += `<text x="${px}" y="228" text-anchor="middle" font-family="monospace" font-size="8.5" font-weight="bold" fill="${PALETTE.ink}">${POSES[k].label.toUpperCase()}</text>`;
+  });
+  svg += `</g>`;
+
+  // RIGA 2: VARIANTI + COLORI / RUOLI
+  svg += sectionHeader(28, 250, 'VARIANTI', 920);
+  svg += sectionHeader(970, 250, 'COLORI / RUOLI', 348);
+  svg += `<g ${filterAttr}>`;
+  const varKeys = Object.keys(VARIANTS);
+  varKeys.forEach((k, idx) => {
+    const px = 62 + idx * 69;
+    const py = 342;
+    svg += buildOminoSVG({ x: px, y: py, scale: 0.78, pose: 'in_piedi', variant: k, showRig, anim, tick });
+    svg += `<text x="${px}" y="392" text-anchor="middle" font-family="monospace" font-size="8" font-weight="bold" fill="${PALETTE.ink}">${VARIANTS[k].label.toUpperCase()}</text>`;
+  });
+  const rolesList = [
+    { r: 'popolo', l: 'POPOLO' },
+    { r: 'protagonista', l: 'PROTAGONISTA' },
+    { r: 'esercito', l: 'ESERCITO/POLIZIA' },
+    { r: 'partigiano', l: 'PARTIGIANO' }
+  ];
+  rolesList.forEach((item, idx) => {
+    const px = 1015 + idx * 84;
+    const py = 342;
+    svg += buildOminoSVG({ x: px, y: py, scale: 0.78, pose: 'in_piedi', role: item.r, showRig, anim, tick });
+    svg += `<text x="${px}" y="392" text-anchor="middle" font-family="monospace" font-size="8" font-weight="bold" fill="${PALETTE.ink}">${item.l}</text>`;
+  });
+  svg += `</g>`;
+
+  // RIGA 3: AZIONI SPECIFICHE
+  svg += sectionHeader(28, 415, 'AZIONI SPECIFICHE', 1290);
+  svg += `<g ${filterAttr}>`;
+  const actKeys = Object.keys(ACTIONS);
+  actKeys.forEach((k, idx) => {
+    const px = 68 + idx * 116;
+    const py = 508;
+    svg += buildOminoSVG({ x: px, y: py, scale: 0.78, pose: k, showRig, anim, tick: tick + idx * 0.5 });
+    const cleanLbl = ACTIONS[k].label.replace(/^[^\s]+\s/, '').toUpperCase();
+    svg += `<text x="${px}" y="558" text-anchor="middle" font-family="monospace" font-size="8.5" font-weight="bold" fill="${PALETTE.ink}">${cleanLbl}</text>`;
+  });
+  svg += `</g>`;
+
+  // RIGA 4: OGGETTI / PROPS
+  svg += sectionHeader(28, 580, 'OGGETTI / PROPS', 1290);
+  svg += `<g ${filterAttr}>`;
+  PROPS_LIST.forEach((p, idx) => {
+    const px = 72 + idx * 108;
+    const py = 648;
+    svg += drawStandaloneProp(p.id, px, py, 0.85, Math.sin(tick + idx) * 2);
+    svg += `<text x="${px}" y="702" text-anchor="middle" font-family="monospace" font-size="8.5" font-weight="bold" fill="${PALETTE.ink}">${p.label.toUpperCase()}</text>`;
+  });
+  svg += `</g>`;
+
+  // RIGA 5: COMPOSIZIONI DI FOLLA + SCALA
+  svg += sectionHeader(28, 725, 'COMPOSIZIONI DI FOLLA', 1060);
+  svg += sectionHeader(1110, 725, 'SCALA', 208);
+  svg += `<g ${filterAttr}>`;
+  const crowds = [
+    { id: 'statica', l: 'FOLLA STATICA', x: 105 },
+    { id: 'marcia',  l: 'FOLLA IN MARCIA', x: 275 },
+    { id: 'carica',  l: 'CARICA', x: 445 },
+    { id: 'barricata', l: 'BARRICATA', x: 615 },
+    { id: 'discorso', l: 'DISCORSO', x: 795 },
+    { id: 'scontro', l: 'SCONTRO', x: 985 }
+  ];
+  crowds.forEach((c) => {
+    svg += buildCrowdCompositionSVG(c.id, c.x, 835, 0.52, showRig, anim, tick);
+    svg += `<text x="${c.x}" y="885" text-anchor="middle" font-family="monospace" font-size="8.5" font-weight="bold" fill="${PALETTE.ink}">${c.l}</text>`;
+  });
+
+  // SEZIONE SCALA (Piccolo, Medio, Grande)
+  svg += buildOminoSVG({ x: 1145, y: 845, scale: 0.48, pose: 'in_piedi', body: 'bambino', showRig });
+  svg += `<text x="1145" y="885" text-anchor="middle" font-family="monospace" font-size="8" font-weight="bold" fill="${PALETTE.ink}">PICCOLO</text>`;
+  svg += buildOminoSVG({ x: 1205, y: 836, scale: 0.74, pose: 'in_piedi', body: 'donna', showRig });
+  svg += `<text x="1205" y="885" text-anchor="middle" font-family="monospace" font-size="8" font-weight="bold" fill="${PALETTE.ink}">MEDIO</text>`;
+  svg += buildOminoSVG({ x: 1272, y: 822, scale: 1.02, pose: 'in_piedi', body: 'uomo', showRig });
+  svg += `<text x="1272" y="885" text-anchor="middle" font-family="monospace" font-size="8" font-weight="bold" fill="${PALETTE.ink}">GRANDE</text>`;
+  svg += `</g></svg>`;
+  return svg;
+}
+
+function getDefsSVG() {
+  return `
+    <defs>
+      <filter id="laika-rough" x="-12%" y="-12%" width="124%" height="124%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.14" numOctaves="3" seed="7" result="noise"/>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+    </defs>
+  `;
+}
+
+// === RENDER PRINCIPALE ===
+function renderAll() {
+  const useRough = document.getElementById('chk-rough').checked;
+  const showRig = document.getElementById('chk-rig').checked;
+  const filterAttr = useRough ? `filter="url(#laika-rough)"` : '';
+
+  let svgString = '';
+
+  if (state.mode === 'poster') {
+    svgString = buildFullPosterSVG(useRough, showRig, state.anim, state.tick);
+  } else if (state.mode === 'crowd') {
+    svgString = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" width="100%" height="100%">`;
+    svgString += getDefsSVG();
+    svgString += `<rect width="560" height="300" fill="${PALETTE.bg}"/>`;
+    svgString += `<g ${filterAttr}>`;
+    svgString += drawEnvironmentSVG(state.env, state.veh, state.infra, 560, 300);
+    svgString += buildCrowdCompositionSVG(state.crowdType, 260, 208, 1.05, showRig, state.anim, state.tick);
+    svgString += `</g></svg>`;
+  } else {
+    svgString = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 260" width="100%" height="100%">`;
+    svgString += getDefsSVG();
+    svgString += `<rect width="260" height="260" fill="${PALETTE.bg}"/>`;
+    svgString += `<line x1="30" y1="208" x2="230" y2="208" stroke="${PALETTE.blue}" stroke-width="1.5" opacity="0.5"/>`;
+    svgString += `<g ${filterAttr}>`;
+    if (state.propOnly) {
+      svgString += drawStandaloneProp(state.propOnly, 130, 130, 1.9, Math.sin(state.tick) * 2.5);
+    } else {
+      svgString += buildOminoSVG({
+        x: 130,
+        y: 168,
+        scale: 1.75,
+        role: state.role,
+        body: state.body,
+        pose: state.pose,
+        variant: state.variant,
+        showRig,
+        anim: state.anim,
+        tick: state.tick
+      });
+    }
+    svgString += `</g></svg>`;
+  }
+
+  document.getElementById('svg-container').innerHTML = svgString;
+  document.getElementById('svg-code').value = svgString;
+  updatePNGPreview(svgString);
+}
+
+// === GENERAZIONE ANTEPRIMA PNG TRAMITE CANVAS ===
+let pngTimeout = null;
+function updatePNGPreview(svgString) {
+  if (pngTimeout) clearTimeout(pngTimeout);
+  pngTimeout = setTimeout(() => {
+    const img = new Image();
+    const blob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = state.mode === 'poster' ? 1600 : 800;
+      canvas.height = state.mode === 'poster' ? 1114 : (state.mode === 'crowd' ? 430 : 800);
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      document.getElementById('png-preview').src = canvas.toDataURL('image/png');
+      URL.revokeObjectURL(url);
+    };
+    img.src = url;
+  }, 60);
+}
+
+function copySVG() {
+  const el = document.getElementById('svg-code');
+  el.select();
+  navigator.clipboard.writeText(el.value);
+}
+
+function downloadSVG() {
+  const svgString = document.getElementById('svg-code').value;
+  const blob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `laika_${state.mode}.svg`;
+  a.click();
+}
+
+function downloadPNG() {
+  const src = document.getElementById('png-preview').src;
+  if (!src) return;
+  const a = document.createElement('a');
+  a.href = src;
+  a.download = `laika_${state.mode}.png`;
+  a.click();
+}
+
+// === LOOP ANIMAZIONE ===
+function animLoop() {
+  if (state.anim !== 'none') {
+    state.tick += 0.12;
+    renderAll();
+  }
+  requestAnimationFrame(animLoop);
+}
+
+initUI();
+renderAll();
+requestAnimationFrame(animLoop);
+</script>
+</body>
+</html>

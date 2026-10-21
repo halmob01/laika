@@ -1,0 +1,25 @@
+{
+  "id": "esempio-assemblea",
+  "etichetta": "Un oratore parla da un podio; la folla ascolta e poi alza le braccia.",
+  "ruvido": true,
+  "elementi": [
+    { "id": "fondo", "simbolo": "palazzo-casa-cultura", "x": 480, "y": 420, "scala": 1.5 },
+    { "id": "terra", "simbolo": "suolo", "x": 480, "y": 420, "scala": 1.9 }
+  ],
+  "figure": [
+    { "gruppo": "comizio", "formazione": { "tipo": "discorso", "x": 480, "y": 470, "scala": 1.6 } }
+  ],
+  "gruppi": { "oratore": ["comizio-1"], "folla": ["comizio-2", "comizio-3", "comizio-4", "comizio-5", "comizio-6", "comizio-7"] },
+  "sequenze": [
+    {
+      "id": "discorso",
+      "didascalia": "L'oratore parla, la folla ascolta; alla fine le braccia si alzano.",
+      "passi": [
+        { "azione": "speak", "chi": "oratore", "a": 0, "cicli": 4 },
+        { "azione": "listen", "chi": "folla", "a": 300, "sfalsa": 180 },
+        { "azione": "raise", "chi": ["comizio-2", "comizio-4", "comizio-6"], "da": "in_piedi", "a": 4800, "sfalsa": 200 }
+      ]
+    }
+  ],
+  "ingresso": "discorso"
+}

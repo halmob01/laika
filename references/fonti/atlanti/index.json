@@ -1,0 +1,1578 @@
+{
+  "source": "references/fonti/atlanti/LAIKA_ATLANTE_ANEDDOTI_E_FRASI_COMPLETO.md",
+  "source_git_blob_sha": "0871c8c288f9365a80c8a474800b54f540a14fab",
+  "source_sha256": "889333b51aea30dbf662f2b49fbac2224a38f06f972aeff191ddde33a42418fc",
+  "purpose": "Editorial finding aid; source claims transcribed, not independently verified; never imported by runtime",
+  "entries": [
+    {
+      "id": "C01",
+      "title": "Un papa ubriaco benedice con le pipe",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "I. Pietro I: il potere come festa obbligatoria",
+      "line": 34,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `Dutch pipes instead of a cross` / `Drunken Synod`. Per approfondire: Ernest A. Zitser, *The Transfigured Kingdom*."
+    },
+    {
+      "id": "C02",
+      "title": "La quaresima con una carrozza tirata da maiali e orsi",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "I. Pietro I: il potere come festa obbligatoria",
+      "line": 42,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `goats, pigs and bears`."
+    },
+    {
+      "id": "C03",
+      "title": "Settantadue persone di bassa statura raccolte per un matrimonio",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "I. Pietro I: il potere come festa obbligatoria",
+      "line": 50,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `seventy-two dwarfs`."
+    },
+    {
+      "id": "C04",
+      "title": "Giganti vestiti da neonati, persone esibite come oggetti",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "I. Pietro I: il potere come festa obbligatoria",
+      "line": 58,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `French giant` / `jumping out of pies`. I dettagli delle esibizioni sono raccontati dall'autore; verificare singole testimonianze se illustrati letteralmente."
+    },
+    {
+      "id": "C05",
+      "title": "Il sacerdote deve sbrigarsi: stanno per iniziare i fuochi d'artificio",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "I. Pietro I: il potere come festa obbligatoria",
+      "line": 66,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `ordered the priest to shorten the service`."
+    },
+    {
+      "id": "C06",
+      "title": "Menshikov colpito perché balla con la spada",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "I. Pietro I: il potere come festa obbligatoria",
+      "line": 74,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `dancing while wearing his sword`.\n\n## II. Anna Ivanovna: il divertimento come umiliazione"
+    },
+    {
+      "id": "C07",
+      "title": "Un principe deve covare uova come una gallina",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "II. Anna Ivanovna: il divertimento come umiliazione",
+      "line": 84,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `chicken` / `Prince Kvassky`."
+    },
+    {
+      "id": "C08",
+      "title": "La notte di nozze sul letto di ghiaccio",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "II. Anna Ivanovna: il divertimento come umiliazione",
+      "line": 92,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `ice palace` / `ice cannon`; confronto: Saint Petersburg Encyclopaedia, voce *Ice House* (`https://encspb.ru/object/2804016285?lc=en`)."
+    },
+    {
+      "id": "C09",
+      "title": "L'elefante porta gli sposi in gabbia",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "II. Anna Ivanovna: il divertimento come umiliazione",
+      "line": 100,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `elephant with a cage on its back`. Questa è una sotto-scena autonoma di C08, non un secondo evento."
+    },
+    {
+      "id": "C10",
+      "title": "La lavanderia dell'imperatrice e quella della buffona",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "II. Anna Ivanovna: il divertimento come umiliazione",
+      "line": 108,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `Legless Mama` e `laundry`.\n\n## III. Elisabetta: abiti, corpi e splendore fragile"
+    },
+    {
+      "id": "C11",
+      "title": "L'imperatrice obbliga gli uomini a mettersi la gonna",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "III. Elisabetta: abiti, corpi e splendore fragile",
+      "line": 118,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `Metamorphoses` / `hoop skirts` (memorie di Caterina riferite)."
+    },
+    {
+      "id": "C12",
+      "title": "Quindicimila vestiti, ma pochi mobili",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "III. Elisabetta: abiti, corpi e splendore fragile",
+      "line": 126,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `15,000 dresses` / `so little furniture`."
+    },
+    {
+      "id": "C13",
+      "title": "Un palazzo affonda e muoiono i servitori",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "III. Elisabetta: abiti, corpi e splendore fragile",
+      "line": 134,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `started to sink` / `sixteen servants`."
+    },
+    {
+      "id": "C14",
+      "title": "Quattromila vestiti bruciano; diciassette dame dormono in uno sgabuzzino",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "III. Elisabetta: abiti, corpi e splendore fragile",
+      "line": 142,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `seventeen maids-of-honour` / `4,000 dresses`."
+    },
+    {
+      "id": "C15",
+      "title": "Due di notte: l'imperatrice vuole cenare",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "III. Elisabetta: abiti, corpi e splendore fragile",
+      "line": 150,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `playing cards till 2 a.m.`."
+    },
+    {
+      "id": "C16",
+      "title": "Cinquecento cavalli trasportano i bagagli del generale",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "III. Elisabetta: abiti, corpi e splendore fragile",
+      "line": 158,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `500 horses to bear his luxuries`."
+    },
+    {
+      "id": "C17",
+      "title": "L'imperatrice veste di gioielli il proprio attore preferito",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "III. Elisabetta: abiti, corpi e splendore fragile",
+      "line": 166,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `Nikita Beketov` / `covered in her jewels`.\n\n## IV. Caterina II e Potëmkin: la magnificenza come politica"
+    },
+    {
+      "id": "C18",
+      "title": "Un elefante di gioielli nasconde un teatro",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "IV. Caterina II e Potëmkin: la magnificenza come politica",
+      "line": 176,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `bejewelled elephant` / `one overture if she stayed`."
+    },
+    {
+      "id": "C19",
+      "title": "Un reggimento di «Amazzoni» per accogliere l'imperatrice",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "IV. Caterina II e Potëmkin: la magnificenza come politica",
+      "line": 184,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `regiment of Amazon cavalry`."
+    },
+    {
+      "id": "C20",
+      "title": "I «villaggi Potëmkin» che forse non erano finti",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "IV. Caterina II e Potëmkin: la magnificenza come politica",
+      "line": 192,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `Potemkin Villages` / `painting façades`."
+    },
+    {
+      "id": "C21",
+      "title": "Diamanti serviti come dessert",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "IV. Caterina II e Potëmkin: la magnificenza come politica",
+      "line": 200,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** pista aperta; cercare in memorie dei presenti alle feste di Potëmkin e nelle biografie dedicate.\n\n## V. Paolo, Alessandro e Nicola I: rango, divise e controllo"
+    },
+    {
+      "id": "C22",
+      "title": "Mentre Caterina sta morendo, il figlio ordina di cambiarsi uniforme",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "V. Paolo, Alessandro e Nicola I: rango, divise e controllo",
+      "line": 210,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `nothing better to do than make his sons put on uniforms`."
+    },
+    {
+      "id": "C23",
+      "title": "Una donna con una divisa francese? Lasciate stare la statua nuda",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "V. Paolo, Alessandro e Nicola I: rango, divise e controllo",
+      "line": 218,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `nude statue with a blanket`."
+    },
+    {
+      "id": "C24",
+      "title": "Correre su per le fontane come addestramento dei principini",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "V. Paolo, Alessandro e Nicola I: rango, divise e controllo",
+      "line": 226,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `race up the astonishingly beautiful cascade of fountains`."
+    },
+    {
+      "id": "C25",
+      "title": "La maggiore età è un giuramento all'autocrazia",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "V. Paolo, Alessandro e Nicola I: rango, divise e controllo",
+      "line": 234,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `sixteenth birthdays`."
+    },
+    {
+      "id": "C26",
+      "title": "La guardia nera della corte è una parte dell'arredamento imperiale",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "V. Paolo, Alessandro e Nicola I: rango, divise e controllo",
+      "line": 242,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `Nubians` / `twenty to eight`. Non trasformare persone storiche in puri oggetti decorativi nella rappresentazione.\n\n## VI. Alessandro II e Alessandro III: ricchezza e scandali"
+    },
+    {
+      "id": "C27",
+      "title": "Un granduca ruba i diamanti da un'icona di famiglia per l'amante americana",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "VI. Alessandro II e Alessandro III: ricchezza e scandali",
+      "line": 252,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `diamonds from Sanny’s icon` / `The American` (diario di Konstantin e carte dell'indagine riportati)."
+    },
+    {
+      "id": "C28",
+      "title": "La statua a grandezza naturale dell'amante, a Taškent",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "VI. Alessandro II e Alessandro III: ricchezza e scandali",
+      "line": 260,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `nude life-sized statue of Fanny` (episodio collegato a C27)."
+    },
+    {
+      "id": "C29",
+      "title": "Dopo la sconfitta, un generale indossa tre zar sul petto",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "VI. Alessandro II e Alessandro III: ricchezza e scandali",
+      "line": 268,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `portraits set in diamonds of three tsars`."
+    },
+    {
+      "id": "C30",
+      "title": "L'imperatore spezza gli attizzatoi per divertire la famiglia",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "VI. Alessandro II e Alessandro III: ricchezza e scandali",
+      "line": 276,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `party-trick was to bend pokers`."
+    },
+    {
+      "id": "C31",
+      "title": "Lo zar rifà il bilancio della parentela imperiale",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "VI. Alessandro II e Alessandro III: ricchezza e scandali",
+      "line": 284,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `250,000 roubles` / `dowry of a million`."
+    },
+    {
+      "id": "C32",
+      "title": "Il capo della Marina preferisce i piaceri al mare",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "VI. Alessandro II e Alessandro III: ricchezza e scandali",
+      "line": 292,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `indifferent not only to the Navy`.\n\n## VII. Nicola II: l’impero alla vigilia della fine"
+    },
+    {
+      "id": "C33",
+      "title": "La sposa è prigioniera dei diamanti",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "VII. Nicola II: l’impero alla vigilia della fine",
+      "line": 302,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `Rivière necklace of 475 carats` e descrizione del matrimonio."
+    },
+    {
+      "id": "C34",
+      "title": "La tazza della festa provoca una strage",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "VII. Nicola II: l’impero alla vigilia della fine",
+      "line": 310,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `an enamel mug` / `Khodynka Field`."
+    },
+    {
+      "id": "C35",
+      "title": "Il ballo continua mentre portano via i morti",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "VII. Nicola II: l’impero alla vigilia della fine",
+      "line": 318,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `they were still carrying out bodies` / `French ambassador`."
+    },
+    {
+      "id": "C36",
+      "title": "La ballerina «indossa le nostre corazzate»",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "VII. Nicola II: l’impero alla vigilia della fine",
+      "line": 326,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `You’re wearing our battleships!`. Si tratta di un grido riferito da fonti narrative, non di una trascrizione stenografica."
+    },
+    {
+      "id": "C37",
+      "title": "Lo zar si traveste da suo antenato mentre gli operai scioperano",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "VII. Nicola II: l’impero alla vigilia della fine",
+      "line": 334,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `while we danced` / `Tsar Alexei`. Album fotografico del ballo conservato e pubblicato da istituzioni museali."
+    },
+    {
+      "id": "C38",
+      "title": "Gioielli cuciti negli abiti quando il trono non esiste più",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "VII. Nicola II: l’impero alla vigilia della fine",
+      "line": 342,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, cercare `medicines` / `jewels`; distinguere il fatto della cucitura dalle leggende successive sul loro ruolo durante la fucilazione.\n\n## VIII. Quando la corte incontra il 1917"
+    },
+    {
+      "id": "C39",
+      "title": "Più diamanti proprio mentre manca il pane",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "VIII. Quando la corte incontra il 1917",
+      "line": 352,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Lev Trotsky, *Storia della rivoluzione russa*, ricerca `gioielliere Fabergé` / `inverno 1915-1916`. **Controllo futuro:** verificare le memorie di Vyrubova e il testo dell'annuncio di Fabergé."
+    },
+    {
+      "id": "C40",
+      "title": "Il quartier generale di Lenin nella casa di una ballerina imperiale",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "VIII. Quando la corte incontra il 1917",
+      "line": 360,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Trotsky, *Storia della rivoluzione russa*, ricerca `palazzo della Ksesinskaja` / `divisione di riserva delle autoblinde`."
+    },
+    {
+      "id": "C41",
+      "title": "«Lenin dorme nel boudoir della ballerina»: una storia falsa ma istruttiva",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "VIII. Quando la corte incontra il 1917",
+      "line": 368,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Trotsky, ricerca `boudoir della ballerina`. **Uso:** metterla in un finto trafiletto di giornale accompagnato dalla confutazione, mai come descrizione vera della dimora di Lenin."
+    },
+    {
+      "id": "C42",
+      "title": "Il capo dell'esercito parla di appalti gestiti da una ballerina",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "VIII. Quando la corte incontra il 1917",
+      "line": 376,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Trotsky, ricerca `faccende dell’artiglieria della ballerina`."
+    },
+    {
+      "id": "C43",
+      "title": "Una granduchessa suggerisce di «eliminare» l'imperatrice",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "VIII. Quando la corte incontra il 1917",
+      "line": 384,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Trotsky, ricerca `granduchessa Maria Pavlovna` / `eliminare`. **Nota:** parole riportate da un avversario dei Romanov, con una testimonianza politica indiretta."
+    },
+    {
+      "id": "C44",
+      "title": "Lo zar al ballo: «Non conosco nessuno»",
+      "kind": "narrative_candidate",
+      "part": "PARTE I — IL MONDO PRIMA DELLA RIVOLUZIONE",
+      "section": "VIII. Quando la corte incontra il 1917",
+      "line": 392,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Montefiore, *The Romanovs*, cercare `I don’t know anyone here`.\n\n---"
+    },
+    {
+      "id": "R01",
+      "title": "La processione alla conquista dello zar",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE I — DALLA CRISI DELLO ZARISMO ALL’OTTOBRE",
+      "line": 408,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Victor Serge, *Year One of the Russian Revolution*; cercare **`Treat them like rebels`**."
+    },
+    {
+      "id": "R02",
+      "title": "Un soldato non può salire sul tram",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE I — DALLA CRISI DELLO ZARISMO ALL’OTTOBRE",
+      "line": 422,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** China Miéville, *Ottobre*; cercare **`Non potevano mangiare nei ristoranti`**."
+    },
+    {
+      "id": "R03",
+      "title": "La sala della nascita del governo puzza di avanzi",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE I — DALLA CRISI DELLO ZARISMO ALL’OTTOBRE",
+      "line": 436,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** China Miéville, *Ottobre*; cercare **`di cicche di sigarette, di bottiglie`**."
+    },
+    {
+      "id": "R04",
+      "title": "Il governo scritto con calligrafia illeggibile",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE I — DALLA CRISI DELLO ZARISMO ALL’OTTOBRE",
+      "line": 448,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** China Miéville, *Ottobre*; cercare **`una calligrafia illeggibile`**."
+    },
+    {
+      "id": "R05",
+      "title": "Le statue costruite per essere abbattute",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE I — DALLA CRISI DELLO ZARISMO ALL’OTTOBRE",
+      "line": 462,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** China Miéville, *Ottobre*; cercare **`innalzate al solo scopo di tirarle giù`**."
+    },
+    {
+      "id": "R06",
+      "title": "Il Vecchio Ordine viene sepolto con un elefante",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE I — DALLA CRISI DELLO ZARISMO ALL’OTTOBRE",
+      "line": 476,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** China Miéville, *Ottobre*; cercare **`un cammello e un elefante`**."
+    },
+    {
+      "id": "R07",
+      "title": "Il monastero fa una piccola rivoluzione",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE I — DALLA CRISI DELLO ZARISMO ALL’OTTOBRE",
+      "line": 490,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** China Miéville, *Ottobre*; cercare **`una piccola rivoluzione`**."
+    },
+    {
+      "id": "R08",
+      "title": "Lo zar si tocca i baffi e risale in treno",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE I — DALLA CRISI DELLO ZARISMO ALL’OTTOBRE",
+      "line": 504,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** China Miéville, *Ottobre*; cercare **`si toccò con le dita i baffi`**."
+    },
+    {
+      "id": "R09",
+      "title": "Un ministro mimo viene scambiato per un comico",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE I — DALLA CRISI DELLO ZARISMO ALL’OTTOBRE",
+      "line": 518,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** China Miéville, *Ottobre*; cercare **`Arricciò i baffi di un kaiser immaginario`**."
+    },
+    {
+      "id": "R10",
+      "title": "Il generale dà la mano e i soldati cercano dove mettere il fucile",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE I — DALLA CRISI DELLO ZARISMO ALL’OTTOBRE",
+      "line": 532,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** China Miéville, *Ottobre*; cercare **`armeggiarono con i loro fucili`**."
+    },
+    {
+      "id": "R11",
+      "title": "L'anarchico vestito da cowboy",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE I — DALLA CRISI DELLO ZARISMO ALL’OTTOBRE",
+      "line": 546,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** China Miéville, *Ottobre*; cercare **`un cowboy gotico`**."
+    },
+    {
+      "id": "R12",
+      "title": "L'ex villa di un ufficiale diventa un giardino per bambini",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE I — DALLA CRISI DELLO ZARISMO ALL’OTTOBRE",
+      "line": 560,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** China Miéville, *Ottobre*; cercare **`strutture a disposizione dei bambini`**."
+    },
+    {
+      "id": "R13",
+      "title": "Lenin senza la sua barba",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE I — DALLA CRISI DELLO ZARISMO ALL’OTTOBRE",
+      "line": 574,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** China Miéville, *Ottobre*; cercare **`un cappello improbabile`**."
+    },
+    {
+      "id": "R14",
+      "title": "Il ricercato legge soddisfatto che lo cercano",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE I — DALLA CRISI DELLO ZARISMO ALL’OTTOBRE",
+      "line": 586,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** China Miéville, *Ottobre*; cercare **`Bisogna essere rapidi, Kerenskij`**."
+    },
+    {
+      "id": "R15",
+      "title": "Il treno e la rivoluzione si fermano davanti al diario",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE I — DALLA CRISI DELLO ZARISMO ALL’OTTOBRE",
+      "line": 600,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** China Miéville, *Ottobre*; cercare **`nervosamente scribacchiando sul suo diario`**."
+    },
+    {
+      "id": "R16",
+      "title": "Il cinema italiano pochi giorni prima dei cannoni",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE I — DALLA CRISI DELLO ZARISMO ALL’OTTOBRE",
+      "line": 612,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** John Reed, *I dieci giorni che sconvolsero il mondo*; cercare **`film italiano`**."
+    },
+    {
+      "id": "R17",
+      "title": "La tessera rivoluzionaria non vale niente",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE I — DALLA CRISI DELLO ZARISMO ALL’OTTOBRE",
+      "line": 626,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** John Reed, *I dieci giorni che sconvolsero il mondo*; cercare **`passaporti americani`**."
+    },
+    {
+      "id": "R18",
+      "title": "Il generale è ancora «vostra eccellenza»",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE I — DALLA CRISI DELLO ZARISMO ALL’OTTOBRE",
+      "line": 640,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** John Reed, *I dieci giorni che sconvolsero il mondo*; cercare **`vostra eccellenza`**."
+    },
+    {
+      "id": "R19",
+      "title": "Il Congresso vota mentre sparano",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE I — DALLA CRISI DELLO ZARISMO ALL’OTTOBRE",
+      "line": 654,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** John Reed, *I dieci giorni che sconvolsero il mondo*; cercare **`colpi attutiti del cannone`**."
+    },
+    {
+      "id": "R20",
+      "title": "Una rivoluzione raccontata con cinque lampadine",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE I — DALLA CRISI DELLO ZARISMO ALL’OTTOBRE",
+      "line": 668,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** John Reed, *I dieci giorni che sconvolsero il mondo*; cercare **`Circo Moderno`**."
+    },
+    {
+      "id": "R88",
+      "title": "La rivoluzione comincia nel giorno che nessuno aveva previsto",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE I — DALLA CRISI DELLO ZARISMO ALL’OTTOBRE",
+      "line": 680,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Lev Trotsky, *Storia della rivoluzione russa*; cercare **`inaugurare la rivoluzione`**."
+    },
+    {
+      "id": "R89",
+      "title": "Lenin decide l’insurrezione con una parrucca e un panino",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE I — DALLA CRISI DELLO ZARISMO ALL’OTTOBRE",
+      "line": 692,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Lev Trotsky, *Storia della rivoluzione russa*; cercare **`panini e salsicce`**."
+    },
+    {
+      "id": "R90",
+      "title": "La fuga del governo sotto la bandiera americana",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE I — DALLA CRISI DELLO ZARISMO ALL’OTTOBRE",
+      "line": 704,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Lev Trotsky, *Storia della rivoluzione russa*; cercare **`bandiera americana`**."
+    },
+    {
+      "id": "R91",
+      "title": "Il ministro prova a morire eroicamente con un ombrello",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE I — DALLA CRISI DELLO ZARISMO ALL’OTTOBRE",
+      "line": 716,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Lev Trotsky, *Storia della rivoluzione russa*; cercare **`agitando l’ombrello`**."
+    },
+    {
+      "id": "R92",
+      "title": "Due ufficiali combattono a duello dentro il palazzo assediato",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE I — DALLA CRISI DELLO ZARISMO ALL’OTTOBRE",
+      "line": 728,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Lev Trotsky, *Storia della rivoluzione russa*; cercare **`ufficiali ubriachi che si battono`**.\n\n\n---\n\n## FASE II — RIVOLUZIONE, GUERRA CIVILE E PRIMI ANNI SOVIETICI"
+    },
+    {
+      "id": "R21",
+      "title": "Il grande orologio di bronzo in spalla",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE II — RIVOLUZIONE, GUERRA CIVILE E PRIMI ANNI SOVIETICI",
+      "line": 745,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** John Reed, *I dieci giorni che sconvolsero il mondo*; cercare **`piume di struzzo`**."
+    },
+    {
+      "id": "R22",
+      "title": "Il popolo fa l'inventario delle saponette",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE II — RIVOLUZIONE, GUERRA CIVILE E PRIMI ANNI SOVIETICI",
+      "line": 759,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** John Reed, *I dieci giorni che sconvolsero il mondo*; cercare **`sapone`**."
+    },
+    {
+      "id": "R23",
+      "title": "Un usciere conserva la vecchia etichetta",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE II — RIVOLUZIONE, GUERRA CIVILE E PRIMI ANNI SOVIETICI",
+      "line": 771,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** John Reed, *I dieci giorni che sconvolsero il mondo*; cercare **`Non si può entrare`**."
+    },
+    {
+      "id": "R24",
+      "title": "Il vino scorre dalle grate",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE II — RIVOLUZIONE, GUERRA CIVILE E PRIMI ANNI SOVIETICI",
+      "line": 783,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Victor Serge, *Year One of the Russian Revolution*; cercare **`ventilating shafts`**."
+    },
+    {
+      "id": "R25",
+      "title": "Una bottiglia è una questione politica",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE II — RIVOLUZIONE, GUERRA CIVILE E PRIMI ANNI SOVIETICI",
+      "line": 797,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Victor Serge, *Year One of the Russian Revolution*; cercare **`Vodka is as much a political force`**."
+    },
+    {
+      "id": "R26",
+      "title": "Un tribunale completo di un solo uomo",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE II — RIVOLUZIONE, GUERRA CIVILE E PRIMI ANNI SOVIETICI",
+      "line": 809,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Victor Serge, *Year One of the Russian Revolution*; cercare **`one very overworked party member`**."
+    },
+    {
+      "id": "R27",
+      "title": "Il pubblico vota la sentenza",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE II — RIVOLUZIONE, GUERRA CIVILE E PRIMI ANNI SOVIETICI",
+      "line": 821,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Victor Serge, *Year One of the Russian Revolution*; cercare **`verdict was taken by vote`**."
+    },
+    {
+      "id": "R28",
+      "title": "Un ministero con dodici ragazzi e un impiegato",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE II — RIVOLUZIONE, GUERRA CIVILE E PRIMI ANNI SOVIETICI",
+      "line": 833,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Victor Serge, *Year One of the Russian Revolution*; cercare **`twelve office boys and one functionary`**."
+    },
+    {
+      "id": "R29",
+      "title": "I padroni delle fabbriche nazionalizzate devono continuare a dirigerle",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE II — RIVOLUZIONE, GUERRA CIVILE E PRIMI ANNI SOVIETICI",
+      "line": 845,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Victor Serge, *Year One of the Russian Revolution*; cercare **`leased gratis to their former owners`**."
+    },
+    {
+      "id": "R30",
+      "title": "Il petrolio fa cinque volte il prezzo passando per i soviet",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE II — RIVOLUZIONE, GUERRA CIVILE E PRIMI ANNI SOVIETICI",
+      "line": 857,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Victor Serge, *Year One of the Russian Revolution*; cercare **`its price had increased fivefold`**."
+    },
+    {
+      "id": "R31",
+      "title": "Una stazione ferroviaria misura la vita con l'orologio",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE II — RIVOLUZIONE, GUERRA CIVILE E PRIMI ANNI SOVIETICI",
+      "line": 869,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Victor Serge, *Year One of the Russian Revolution*; cercare **`I am still alive`**."
+    },
+    {
+      "id": "R32",
+      "title": "Un operaio grida che la guerra è finita",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE II — RIVOLUZIONE, GUERRA CIVILE E PRIMI ANNI SOVIETICI",
+      "line": 883,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** John Reed, *I dieci giorni che sconvolsero il mondo*; cercare **`La guerra è finita`**."
+    },
+    {
+      "id": "R33",
+      "title": "Nomi di bambino come titoli di manifesto",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE II — RIVOLUZIONE, GUERRA CIVILE E PRIMI ANNI SOVIETICI",
+      "line": 897,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`Barrikada`**."
+    },
+    {
+      "id": "R34",
+      "title": "Chi sarebbe questo «Karlo-Mars»?",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE II — RIVOLUZIONE, GUERRA CIVILE E PRIMI ANNI SOVIETICI",
+      "line": 909,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`Karlo-Mars`**."
+    },
+    {
+      "id": "R35",
+      "title": "Un grande regista scambia la polizia con i grandi magazzini",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE II — RIVOLUZIONE, GUERRA CIVILE E PRIMI ANNI SOVIETICI",
+      "line": 923,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`Stanislavskij`**."
+    },
+    {
+      "id": "R36",
+      "title": "Il vicino denuncia il vicino per ottenere la stanza",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE II — RIVOLUZIONE, GUERRA CIVILE E PRIMI ANNI SOVIETICI",
+      "line": 935,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`liberare un po’ di spazio vitale`**."
+    },
+    {
+      "id": "R37",
+      "title": "Il rivolo d'urina durante la visita straniera",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE II — RIVOLUZIONE, GUERRA CIVILE E PRIMI ANNI SOVIETICI",
+      "line": 947,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`rivolo di urina`**."
+    },
+    {
+      "id": "R38",
+      "title": "Il rivoluzionario vuole essere trasferito: troppa burocrazia",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE II — RIVOLUZIONE, GUERRA CIVILE E PRIMI ANNI SOVIETICI",
+      "line": 959,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Moshe Lewin, *The Soviet Century*; cercare **`Ksenofontov`**."
+    },
+    {
+      "id": "R39",
+      "title": "Il padre è un problema da scrivere sul modulo",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE II — RIVOLUZIONE, GUERRA CIVILE E PRIMI ANNI SOVIETICI",
+      "line": 971,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`I figli dei preti pubblicavano annunci`**."
+    },
+    {
+      "id": "R40",
+      "title": "Un profeta della rivoluzione teme il proprio apparato",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE II — RIVOLUZIONE, GUERRA CIVILE E PRIMI ANNI SOVIETICI",
+      "line": 983,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`chi dirige chi`**."
+    },
+    {
+      "id": "R82",
+      "title": "Il figlio di un prete compra spazio nella nuova società rinnegando suo padre",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE II — RIVOLUZIONE, GUERRA CIVILE E PRIMI ANNI SOVIETICI",
+      "line": 997,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`proclamando il “rinnegamento”`**."
+    },
+    {
+      "id": "R83",
+      "title": "La moglie di un kulak dice di essere stata la sua bracciante",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE II — RIVOLUZIONE, GUERRA CIVILE E PRIMI ANNI SOVIETICI",
+      "line": 1009,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`altro che una bracciante`**.\n\n\n---\n\n## FASE III — STALIN, GUERRA E MEMORIA DEL TERRORE"
+    },
+    {
+      "id": "R41",
+      "title": "Il regime teme il matrimonio collettivo e le teste rasate",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE III — STALIN, GUERRA E MEMORIA DEL TERRORE",
+      "line": 1026,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`matrimonio comunitario`**."
+    },
+    {
+      "id": "R42",
+      "title": "Le contadine inseguono i collettivizzatori cantando",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE III — STALIN, GUERRA E MEMORIA DEL TERRORE",
+      "line": 1038,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`cantando inni`**."
+    },
+    {
+      "id": "R43",
+      "title": "La fattoria «Gigante» è troppo grande per funzionare",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE III — STALIN, GUERRA E MEMORIA DEL TERRORE",
+      "line": 1050,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`Gigante`**."
+    },
+    {
+      "id": "R44",
+      "title": "Quindici polli non bastano allo stomaco del capo",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE III — STALIN, GUERRA E MEMORIA DEL TERRORE",
+      "line": 1062,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Simon Sebag Montefiore, *Stalin: The Court of the Red Tsar*; cercare **`only been allocated 15 chickens`**."
+    },
+    {
+      "id": "R45",
+      "title": "Stalin manda limoni coltivati in giardino",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE III — STALIN, GUERRA E MEMORIA DEL TERRORE",
+      "line": 1074,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Simon Sebag Montefiore, *Stalin: The Court of the Red Tsar*; cercare **`I’m sending you some lemons`**."
+    },
+    {
+      "id": "R46",
+      "title": "Un tenore perde la voce e il capo gli promette una medaglia",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE III — STALIN, GUERRA E MEMORIA DEL TERRORE",
+      "line": 1088,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Simon Sebag Montefiore, *Stalin: The Court of the Red Tsar*; cercare **`Kozlovsky suddenly lost his voice`**."
+    },
+    {
+      "id": "R47",
+      "title": "Nel palazzo di Kirov c'è uno dei dieci frigoriferi americani",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE III — STALIN, GUERRA E MEMORIA DEL TERRORE",
+      "line": 1100,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Simon Sebag Montefiore, *Stalin: The Court of the Red Tsar*; cercare **`only ten were imported`**."
+    },
+    {
+      "id": "R48",
+      "title": "Il primo televisore sembra un oggetto alieno",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE III — STALIN, GUERRA E MEMORIA DEL TERRORE",
+      "line": 1112,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Simon Sebag Montefiore, *Stalin: The Court of the Red Tsar*; cercare **`forty-five degrees`**."
+    },
+    {
+      "id": "R49",
+      "title": "Stalin prende la metropolitana: panico nel Politburo",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE III — STALIN, GUERRA E MEMORIA DEL TERRORE",
+      "line": 1124,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Simon Sebag Montefiore, *Stalin: The Court of the Red Tsar*; cercare **`Kaganovich had brought ten tickets`**."
+    },
+    {
+      "id": "R50",
+      "title": "I padroni rivoluzionari ballano in coppia",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE III — STALIN, GUERRA E MEMORIA DEL TERRORE",
+      "line": 1136,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Simon Sebag Montefiore, *Stalin: The Court of the Red Tsar*; cercare **`Postyshev, one of the Ukrainian bosses`**."
+    },
+    {
+      "id": "R51",
+      "title": "Stalin premia i «cacatori»",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE III — STALIN, GUERRA E MEMORIA DEL TERRORE",
+      "line": 1148,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Simon Sebag Montefiore, *Stalin: The Court of the Red Tsar*; cercare **`Shitters get the Order of Lenin`**."
+    },
+    {
+      "id": "R52",
+      "title": "Per conoscere la guerra abissina il capo chiede una telefonata impossibile",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE III — STALIN, GUERRA E MEMORIA DEL TERRORE",
+      "line": 1162,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Simon Sebag Montefiore, *Stalin: The Court of the Red Tsar*; cercare **`Ras Kasa on the phone`**."
+    },
+    {
+      "id": "R53",
+      "title": "L'arte deve descrivere quello che non esiste ancora",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE III — STALIN, GUERRA E MEMORIA DEL TERRORE",
+      "line": 1174,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Simon Sebag Montefiore, *Stalin: The Court of the Red Tsar*; cercare **`This is, and will be, Socialist Realism`**."
+    },
+    {
+      "id": "R54",
+      "title": "Un ordine di arresti arriva già con i numeri",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE III — STALIN, GUERRA E MEMORIA DEL TERRORE",
+      "line": 1186,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Simon Sebag Montefiore, *Stalin: The Court of the Red Tsar*; cercare **`quotas for two categories`**."
+    },
+    {
+      "id": "R55",
+      "title": "Il gulag diventa un impero industriale",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE III — STALIN, GUERRA E MEMORIA DEL TERRORE",
+      "line": 1198,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Moshe Lewin, *The Soviet Century*; cercare **`industrial empire`**."
+    },
+    {
+      "id": "R56",
+      "title": "Ventiquattro portate davanti ai dirigenti nazisti",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE III — STALIN, GUERRA E MEMORIA DEL TERRORE",
+      "line": 1210,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Simon Sebag Montefiore, *Stalin: The Court of the Red Tsar*; cercare **`twenty-four courses`**."
+    },
+    {
+      "id": "R57",
+      "title": "Il direttore vende gelati e champagne sovietico",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE III — STALIN, GUERRA E MEMORIA DEL TERRORE",
+      "line": 1222,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`gelati e würstel`**."
+    },
+    {
+      "id": "R58",
+      "title": "Un profumo sopravvive alla sua promotrice politica",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE III — STALIN, GUERRA E MEMORIA DEL TERRORE",
+      "line": 1234,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`Krasnaja Moskva`**."
+    },
+    {
+      "id": "R59",
+      "title": "Il treno del capo si traveste da bosco",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE III — STALIN, GUERRA E MEMORIA DEL TERRORE",
+      "line": 1246,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Simon Sebag Montefiore, *Stalin: The Court of the Red Tsar*; cercare **`camouflaged with birch branches`**."
+    },
+    {
+      "id": "R60",
+      "title": "L'inno nazionale viene scelto con un concorso",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE III — STALIN, GUERRA E MEMORIA DEL TERRORE",
+      "line": 1258,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Simon Sebag Montefiore, *Stalin: The Court of the Red Tsar*; cercare **`fifty-four composers`**."
+    },
+    {
+      "id": "R61",
+      "title": "Lo Stato governato dalla tavola da pranzo",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE III — STALIN, GUERRA E MEMORIA DEL TERRORE",
+      "line": 1270,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Simon Sebag Montefiore, *Stalin: The Court of the Red Tsar*; cercare **`governed from the dining table`**."
+    },
+    {
+      "id": "R62",
+      "title": "Le immagini di propaganda diventano una prova contro i contadini",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE III — STALIN, GUERRA E MEMORIA DEL TERRORE",
+      "line": 1284,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Simon Sebag Montefiore, *Stalin: The Court of the Red Tsar*; cercare **`plenty shown in his propaganda movies`**."
+    },
+    {
+      "id": "R63",
+      "title": "Il capo della scorta ruba perfino tre tori",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE III — STALIN, GUERRA E MEMORIA DEL TERRORE",
+      "line": 1296,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Simon Sebag Montefiore, *Stalin: The Court of the Red Tsar*; cercare **`three bulls and two horses`**."
+    },
+    {
+      "id": "R64",
+      "title": "Un cinese invita a pranzo su un treno e i sovietici rifiutano",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE III — STALIN, GUERRA E MEMORIA DEL TERRORE",
+      "line": 1308,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Simon Sebag Montefiore, *Stalin: The Court of the Red Tsar*; cercare **`Chinese meal on the train`**."
+    },
+    {
+      "id": "R65",
+      "title": "L'orologio del dittatore si ferma sul tappeto",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE III — STALIN, GUERRA E MEMORIA DEL TERRORE",
+      "line": 1320,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Simon Sebag Montefiore, *Stalin: The Court of the Red Tsar*; cercare **`it had stopped at 6.30`**."
+    },
+    {
+      "id": "R93",
+      "title": "«Può descriverlo?» tra le donne in coda al carcere",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE III — STALIN, GUERRA E MEMORIA DEL TERRORE",
+      "line": 1332,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Paolo Nori, *Vi avverto che vivo per l’ultima volta*; cercare **`Ma lei questo lo può descrivere?`**."
+    },
+    {
+      "id": "R94",
+      "title": "Si parla del tè per nascondere una poesia",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE III — STALIN, GUERRA E MEMORIA DEL TERRORE",
+      "line": 1344,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Paolo Nori, *Vi avverto che vivo per l’ultima volta*; cercare **`Volete del tè?`**."
+    },
+    {
+      "id": "R95",
+      "title": "Liberato di notte, chiede di dormire in prigione: l'ultimo tram è passato",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE III — STALIN, GUERRA E MEMORIA DEL TERRORE",
+      "line": 1356,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Paolo Nori, *Vi avverto che vivo per l’ultima volta*; cercare **`Non è mica un albergo`**."
+    },
+    {
+      "id": "R96",
+      "title": "Un libretto di corteccia di betulla contro l'oblio",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE III — STALIN, GUERRA E MEMORIA DEL TERRORE",
+      "line": 1368,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Paolo Nori, *Vi avverto che vivo per l’ultima volta*; cercare **`libretto di corteccia di betulla`**.\n\n\n---\n\n## FASE IV — L’URSS DEL DOPOGUERRA, FINO ALLA DISSOLUZIONE"
+    },
+    {
+      "id": "R66",
+      "title": "I funerali soffocano i vivi",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE IV — L’URSS DEL DOPOGUERRA, FINO ALLA DISSOLUZIONE",
+      "line": 1385,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`calca`**."
+    },
+    {
+      "id": "R67",
+      "title": "Il segretario generale diventa un personaggio di fiabe",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE IV — L’URSS DEL DOPOGUERRA, FINO ALLA DISSOLUZIONE",
+      "line": 1397,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`volare come un uccello`**."
+    },
+    {
+      "id": "R68",
+      "title": "Gli sputi e la vodka sui ritratti ufficiali",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE IV — L’URSS DEL DOPOGUERRA, FINO ALLA DISSOLUZIONE",
+      "line": 1409,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`ricoprirli di sputi`**."
+    },
+    {
+      "id": "R69",
+      "title": "La scarpa contro la tribuna dell'ONU",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE IV — L’URSS DEL DOPOGUERRA, FINO ALLA DISSOLUZIONE",
+      "line": 1421,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`una scarpa percuotendola`**."
+    },
+    {
+      "id": "R70",
+      "title": "Il jazzista esce dal Gulag senza denti e torna a suonare",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE IV — L’URSS DEL DOPOGUERRA, FINO ALLA DISSOLUZIONE",
+      "line": 1433,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`perso i denti`**."
+    },
+    {
+      "id": "R71",
+      "title": "La mamma disubbidisce al bambino e scompare",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE IV — L’URSS DEL DOPOGUERRA, FINO ALLA DISSOLUZIONE",
+      "line": 1445,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`rassicurante telegramma`**."
+    },
+    {
+      "id": "R72",
+      "title": "Una gioventù si chiama Alec e Mike",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE IV — L’URSS DEL DOPOGUERRA, FINO ALLA DISSOLUZIONE",
+      "line": 1457,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`Alec e Mike`**."
+    },
+    {
+      "id": "R73",
+      "title": "Suonare la chitarra con il linguaggio del Gulag",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE IV — L’URSS DEL DOPOGUERRA, FINO ALLA DISSOLUZIONE",
+      "line": 1469,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`gergo del GUL`**."
+    },
+    {
+      "id": "R74",
+      "title": "Una donna lavoratrice ha bisogno di una nonna",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE IV — L’URSS DEL DOPOGUERRA, FINO ALLA DISSOLUZIONE",
+      "line": 1481,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`babuška`**."
+    },
+    {
+      "id": "R75",
+      "title": "La commissione incaricata di tagliare la burocrazia deve trattare con la burocrazia",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE IV — L’URSS DEL DOPOGUERRA, FINO ALLA DISSOLUZIONE",
+      "line": 1493,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Moshe Lewin, *The Soviet Century*; cercare **`Anti-Waste Commission`**."
+    },
+    {
+      "id": "R76",
+      "title": "Il pezzo di ricambio che non esiste ufficialmente",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE IV — L’URSS DEL DOPOGUERRA, FINO ALLA DISSOLUZIONE",
+      "line": 1505,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Moshe Lewin, *The Soviet Century*; cercare **`second economy`**."
+    },
+    {
+      "id": "R77",
+      "title": "Sulla Luna nessuno vive: neanche lì?",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE IV — L’URSS DEL DOPOGUERRA, FINO ALLA DISSOLUZIONE",
+      "line": 1517,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`neanche lì`**."
+    },
+    {
+      "id": "R78",
+      "title": "Alla fine la televisione racconta il passato proibito",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE IV — L’URSS DEL DOPOGUERRA, FINO ALLA DISSOLUZIONE",
+      "line": 1531,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`televis`**."
+    },
+    {
+      "id": "R79",
+      "title": "L'uomo che fondò il regime sopravvive alla sua fine",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE IV — L’URSS DEL DOPOGUERRA, FINO ALLA DISSOLUZIONE",
+      "line": 1543,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`Kaganovič`**."
+    },
+    {
+      "id": "R80",
+      "title": "Un referendum per salvare un'Unione che poi scompare",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE IV — L’URSS DEL DOPOGUERRA, FINO ALLA DISSOLUZIONE",
+      "line": 1555,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`referendum`**."
+    },
+    {
+      "id": "R81",
+      "title": "La casa dell'ultimo zar viene demolita da chi diventerà il primo presidente russo",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE IV — L’URSS DEL DOPOGUERRA, FINO ALLA DISSOLUZIONE",
+      "line": 1567,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`demolizione di Casa Ipat’ev`**."
+    },
+    {
+      "id": "R84",
+      "title": "La statua del fondatore della polizia segreta cade, ma ne sorge una copia",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE IV — L’URSS DEL DOPOGUERRA, FINO ALLA DISSOLUZIONE",
+      "line": 1579,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`sua copia identica`**."
+    },
+    {
+      "id": "R85",
+      "title": "Il carrista si nasconde la faccia mentre il leader parla dal suo carro",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE IV — L’URSS DEL DOPOGUERRA, FINO ALLA DISSOLUZIONE",
+      "line": 1591,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`macchinista del tank nasconde il viso`**."
+    },
+    {
+      "id": "R86",
+      "title": "Il nuovo riformatore comincia proibendo la vodka",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE IV — L’URSS DEL DOPOGUERRA, FINO ALLA DISSOLUZIONE",
+      "line": 1603,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`giro di vite sulla vodka`**."
+    },
+    {
+      "id": "R87",
+      "title": "Una città vota per tornare a chiamarsi con il suo antico nome",
+      "kind": "narrative_candidate",
+      "part": "PARTE II — RIVOLUZIONE E URSS",
+      "section": "FASE IV — L’URSS DEL DOPOGUERRA, FINO ALLA DISSOLUZIONE",
+      "line": 1615,
+      "status": "da_verificare",
+      "source_note": "**Riferimento:** Sheila Fitzpatrick, *Breve storia dell’Unione Sovietica*; cercare **`Leningrado che, con un referendum`**.\n\n\n---\n\n---"
+    },
+    {
+      "id": "F01",
+      "title": "«Nulla è vietato […] potrebbe succedere quasi qualunque cosa»",
+      "kind": "quotation_candidate",
+      "part": "PARTE III — FRASI DA CONSERVARE INDIPENDENTEMENTE DALLE SCENE",
+      "section": null,
+      "line": 1637,
+      "status": "da_verificare",
+      "source_note": "*Riscontro:* cercare `Nulla è vietato`."
+    },
+    {
+      "id": "F02",
+      "title": "«Qui non si accettano mance»",
+      "kind": "quotation_candidate",
+      "part": "PARTE III — FRASI DA CONSERVARE INDIPENDENTEMENTE DALLE SCENE",
+      "section": null,
+      "line": 1641,
+      "status": "da_verificare",
+      "source_note": "*Riscontro:* cercare `Qui non si accettano mance`."
+    },
+    {
+      "id": "F03",
+      "title": "«Il Vecchio Ordine»",
+      "kind": "quotation_candidate",
+      "part": "PARTE III — FRASI DA CONSERVARE INDIPENDENTEMENTE DALLE SCENE",
+      "section": null,
+      "line": 1645,
+      "status": "da_verificare",
+      "source_note": "*Riscontro:* cercare `Il Vecchio Ordine`."
+    },
+    {
+      "id": "F04",
+      "title": "«Morte a tutti i capitalisti»",
+      "kind": "quotation_candidate",
+      "part": "PARTE III — FRASI DA CONSERVARE INDIPENDENTEMENTE DALLE SCENE",
+      "section": null,
+      "line": 1649,
+      "status": "da_verificare",
+      "source_note": "*Riscontro:* cercare `Morte a tutti i capitalisti`."
+    },
+    {
+      "id": "F05",
+      "title": "«Bisogna essere rapidi, Kerenskij»",
+      "kind": "quotation_candidate",
+      "part": "PARTE III — FRASI DA CONSERVARE INDIPENDENTEMENTE DALLE SCENE",
+      "section": null,
+      "line": 1653,
+      "status": "da_verificare",
+      "source_note": "*Riscontro:* cercare `Bisogna essere rapidi, Kerenskij`."
+    },
+    {
+      "id": "F06",
+      "title": "«Il soldato vuol sapere perché e per chi sta lottando»",
+      "kind": "quotation_candidate",
+      "part": "PARTE III — FRASI DA CONSERVARE INDIPENDENTEMENTE DALLE SCENE",
+      "section": null,
+      "line": 1657,
+      "status": "da_verificare",
+      "source_note": "*Riscontro:* cercare `Il soldato vuol sapere`."
+    },
+    {
+      "id": "F07",
+      "title": "«Compagni! Non prendete nulla! Proprietà del popolo!»",
+      "kind": "quotation_candidate",
+      "part": "PARTE III — FRASI DA CONSERVARE INDIPENDENTEMENTE DALLE SCENE",
+      "section": null,
+      "line": 1661,
+      "status": "da_verificare",
+      "source_note": "*Riscontro:* cercare `Compagni! Non prendete nulla!`."
+    },
+    {
+      "id": "F08",
+      "title": "«La guerra è finita!»",
+      "kind": "quotation_candidate",
+      "part": "PARTE III — FRASI DA CONSERVARE INDIPENDENTEMENTE DALLE SCENE",
+      "section": null,
+      "line": 1665,
+      "status": "da_verificare",
+      "source_note": "*Riscontro:* cercare `La guerra è finita!`."
+    },
+    {
+      "id": "F09",
+      "title": "«Vodka is as much a political force as the word»",
+      "kind": "quotation_candidate",
+      "part": "PARTE III — FRASI DA CONSERVARE INDIPENDENTEMENTE DALLE SCENE",
+      "section": null,
+      "line": 1669,
+      "status": "da_verificare",
+      "source_note": "*Riscontro:* cercare `Vodka is as much a political force`."
+    },
+    {
+      "id": "F10",
+      "title": "«I am still alive»",
+      "kind": "quotation_candidate",
+      "part": "PARTE III — FRASI DA CONSERVARE INDIPENDENTEMENTE DALLE SCENE",
+      "section": null,
+      "line": 1673,
+      "status": "da_verificare",
+      "source_note": "*Riscontro:* cercare `I am still alive`."
+    },
+    {
+      "id": "F11",
+      "title": "«Chi era quel Karlo-Mars?»",
+      "kind": "quotation_candidate",
+      "part": "PARTE III — FRASI DA CONSERVARE INDIPENDENTEMENTE DALLE SCENE",
+      "section": null,
+      "line": 1677,
+      "status": "da_verificare",
+      "source_note": "*Riscontro:* cercare `Chi era quel Karlo-Mars?`."
+    },
+    {
+      "id": "F12",
+      "title": "«Chi dirige chi?»",
+      "kind": "quotation_candidate",
+      "part": "PARTE III — FRASI DA CONSERVARE INDIPENDENTEMENTE DALLE SCENE",
+      "section": null,
+      "line": 1681,
+      "status": "da_verificare",
+      "source_note": "*Riscontro:* cercare `chi dirige chi`."
+    },
+    {
+      "id": "F13",
+      "title": "«I’m sending you some lemons»",
+      "kind": "quotation_candidate",
+      "part": "PARTE III — FRASI DA CONSERVARE INDIPENDENTEMENTE DALLE SCENE",
+      "section": null,
+      "line": 1685,
+      "status": "da_verificare",
+      "source_note": "*Riscontro:* cercare `I’m sending you some lemons`."
+    },
+    {
+      "id": "F14",
+      "title": "«Shitters get the Order of Lenin!»",
+      "kind": "quotation_candidate",
+      "part": "PARTE III — FRASI DA CONSERVARE INDIPENDENTEMENTE DALLE SCENE",
+      "section": null,
+      "line": 1689,
+      "status": "da_verificare",
+      "source_note": "*Riscontro:* cercare `Shitters get the Order of Lenin`."
+    },
+    {
+      "id": "F15",
+      "title": "«governed from the dining table»",
+      "kind": "quotation_candidate",
+      "part": "PARTE III — FRASI DA CONSERVARE INDIPENDENTEMENTE DALLE SCENE",
+      "section": null,
+      "line": 1693,
+      "status": "da_verificare",
+      "source_note": "*Riscontro:* cercare `governed from the dining table`."
+    },
+    {
+      "id": "F16",
+      "title": "«L’aborto vi priverà della felicità»",
+      "kind": "quotation_candidate",
+      "part": "PARTE III — FRASI DA CONSERVARE INDIPENDENTEMENTE DALLE SCENE",
+      "section": null,
+      "line": 1697,
+      "status": "da_verificare",
+      "source_note": "*Riscontro:* cercare `L’aborto vi priverà della felicità`."
+    },
+    {
+      "id": "F17",
+      "title": "«Dunque non ce n’è neanche lì?»",
+      "kind": "quotation_candidate",
+      "part": "PARTE III — FRASI DA CONSERVARE INDIPENDENTEMENTE DALLE SCENE",
+      "section": null,
+      "line": 1701,
+      "status": "da_verificare",
+      "source_note": "*Riscontro:* cercare `Dunque non ce n’è neanche lì`.\n\n---\n\n\n\n---"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "title": "Esempio minimale — passato prossimo",
+  "questions": [
+    {
+      "id": "q01",
+      "type": "choice",
+      "prompt": "Ieri Maria ___ il quaderno in classe. Quale forma completa la frase?",
+      "objective": "Selezionare una forma al passato prossimo",
+      "source": "Esempio didattico non tratto da appunti",
+      "options": [
+        {"id": "a", "text": "ha lasciato"},
+        {"id": "b", "text": "è lasciata"},
+        {"id": "c", "text": "ha lasciata"}
+      ],
+      "answer": "a",
+      "rationale": "Il verbo lasciare in questa frase usa avere e il participio lasciato."
+    },
+    {
+      "id": "q02",
+      "type": "choice",
+      "prompt": "Il tutor chiede un resoconto: quale frase racconta un'attività conclusa ieri?",
+      "objective": "Riconoscere un fatto concluso nel passato",
+      "source": "Esempio didattico non tratto da appunti",
+      "options": [
+        {"id": "a", "text": "Domani lavoro"},
+        {"id": "b", "text": "Ieri ho lavorato"},
+        {"id": "c", "text": "Oggi sto lavorando"}
+      ],
+      "answer": "b",
+      "rationale": "Ieri ho lavorato indica un'azione conclusa nel passato."
+    },
+    {
+      "id": "q03",
+      "type": "choice",
+      "prompt": "Quale frase descrive correttamente un'azione conclusa di Luca?",
+      "objective": "Usare essere con andare",
+      "source": "Esempio didattico non tratto da appunti",
+      "options": [
+        {"id": "a", "text": "Luca ha andato"},
+        {"id": "b", "text": "Luca è andata"},
+        {"id": "c", "text": "Luca è andato"}
+      ],
+      "answer": "c",
+      "rationale": "Andare forma il passato prossimo con essere e il participio concorda con Luca."
+    }
+  ]
+}

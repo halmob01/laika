@@ -1,0 +1,40 @@
+name: Kit regression and browser
+on:
+  push:
+    branches: [main, kit-reusable-engine, kit-consolidation, motion-editorial]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, webkit]
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python3 scripts/build-motion-preview.py
+      - run: python3 scripts/build-motion-preview.py --rig
+      - run: npm test
+      - run: npm install --ignore-scripts --no-audit --no-fund
+      - run: npx playwright install --with-deps ${{ matrix.browser }}
+      - run: npm run test:browser
+        env:
+          KIT_BROWSER: ${{ matrix.browser }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: kit-browser-previews-${{ matrix.browser }}
+          path: |
+            .artifacts/*.png
+            .artifacts/*.json
+            .artifacts/video/*.webm
+            dist/motion-study.html
+            dist/rig-study.html
+          if-no-files-found: error
+          include-hidden-files: true

@@ -1,0 +1,356 @@
+{
+  "id": "laika-dog",
+  "presentationAttributesOnly": true,
+  "omit": [
+    "svgBgRect",
+    "groundShadow",
+    "rigDebugOverlay"
+  ],
+  "pivots": {
+    "joint-tail": [
+      52,
+      129
+    ],
+    "joint-neck": [
+      154,
+      114
+    ],
+    "joint-ear": [
+      165,
+      60
+    ],
+    "joint-leg-fr": [
+      148,
+      145
+    ],
+    "joint-leg-fl": [
+      144,
+      148
+    ],
+    "joint-leg-br": [
+      75,
+      148
+    ],
+    "joint-leg-bl": [
+      56,
+      148
+    ]
+  },
+  "filterBounds": {
+    "rough-paper-edge": [
+      -25,
+      -27,
+      300,
+      319
+    ]
+  },
+  "rig": {
+    "joints": {
+      "joint-tail": [
+        -28,
+        28
+      ],
+      "joint-neck": [
+        -18,
+        18
+      ],
+      "joint-ear": [
+        -22,
+        22
+      ],
+      "joint-leg-fr": [
+        -35,
+        37
+      ],
+      "joint-leg-fl": [
+        -32,
+        28
+      ],
+      "joint-leg-br": [
+        -32,
+        28
+      ],
+      "joint-leg-bl": [
+        -37,
+        32
+      ]
+    },
+    "poses": {
+      "rest": {
+        "joint-tail": 0,
+        "joint-neck": 0,
+        "joint-ear": 0,
+        "joint-leg-fr": 0,
+        "joint-leg-fl": 0,
+        "joint-leg-br": 0,
+        "joint-leg-bl": 0
+      },
+      "attention": {
+        "joint-tail": 12,
+        "joint-neck": -12,
+        "joint-ear": 16,
+        "joint-leg-fr": 0,
+        "joint-leg-fl": 0,
+        "joint-leg-br": 0,
+        "joint-leg-bl": 0
+      },
+      "step-0": {
+        "joint-tail": 0.0,
+        "joint-neck": -2.1574,
+        "joint-ear": -5.4696,
+        "joint-leg-fr": 8.0,
+        "joint-leg-fl": -3.0,
+        "joint-leg-br": -8.8413,
+        "joint-leg-bl": -1.1587
+      },
+      "step-1": {
+        "joint-tail": 8.4853,
+        "joint-neck": 1.2669,
+        "joint-ear": -1.3842,
+        "joint-leg-fr": 13.7403,
+        "joint-leg-fl": -8.7403,
+        "joint-leg-br": -13.6838,
+        "joint-leg-bl": 3.6838
+      },
+      "step-2": {
+        "joint-tail": 12.0,
+        "joint-neck": 3.9491,
+        "joint-ear": 3.512,
+        "joint-leg-fr": 18.6066,
+        "joint-leg-fl": -13.6066,
+        "joint-leg-br": -16.8997,
+        "joint-leg-bl": 6.8997
+      },
+      "step-3": {
+        "joint-tail": 8.4853,
+        "joint-neck": 4.318,
+        "joint-ear": 6.3509,
+        "joint-leg-fr": 21.8582,
+        "joint-leg-fl": -16.8582,
+        "joint-leg-br": -17.9996,
+        "joint-leg-bl": 7.9996
+      },
+      "step-4": {
+        "joint-tail": 0.0,
+        "joint-neck": 2.1574,
+        "joint-ear": 5.4696,
+        "joint-leg-fr": 23.0,
+        "joint-leg-fl": -18.0,
+        "joint-leg-br": -16.8159,
+        "joint-leg-bl": 6.8159
+      },
+      "step-5": {
+        "joint-tail": -8.4853,
+        "joint-neck": -1.2669,
+        "joint-ear": 1.3842,
+        "joint-leg-fr": 21.8582,
+        "joint-leg-fl": -16.8582,
+        "joint-leg-br": -13.5289,
+        "joint-leg-bl": 3.5289
+      },
+      "step-6": {
+        "joint-tail": -12.0,
+        "joint-neck": -3.9491,
+        "joint-ear": -3.512,
+        "joint-leg-fr": 18.6066,
+        "joint-leg-fl": -13.6066,
+        "joint-leg-br": -8.6389,
+        "joint-leg-bl": -1.3611
+      },
+      "step-7": {
+        "joint-tail": -8.4853,
+        "joint-neck": -4.318,
+        "joint-ear": -6.3509,
+        "joint-leg-fr": 13.7403,
+        "joint-leg-fl": -8.7403,
+        "joint-leg-br": -2.8905,
+        "joint-leg-bl": -7.1095
+      },
+      "step-8": {
+        "joint-tail": -0.0,
+        "joint-neck": -2.1574,
+        "joint-ear": -5.4696,
+        "joint-leg-fr": 8.0,
+        "joint-leg-fl": -3.0,
+        "joint-leg-br": 2.8413,
+        "joint-leg-bl": -12.8413
+      },
+      "step-9": {
+        "joint-tail": 8.4853,
+        "joint-neck": 1.2669,
+        "joint-ear": -1.3842,
+        "joint-leg-fr": 2.2597,
+        "joint-leg-fl": 2.7403,
+        "joint-leg-br": 7.6838,
+        "joint-leg-bl": -17.6838
+      },
+      "step-10": {
+        "joint-tail": 12.0,
+        "joint-neck": 3.9491,
+        "joint-ear": 3.512,
+        "joint-leg-fr": -2.6066,
+        "joint-leg-fl": 7.6066,
+        "joint-leg-br": 10.8997,
+        "joint-leg-bl": -20.8997
+      },
+      "step-11": {
+        "joint-tail": 8.4853,
+        "joint-neck": 4.318,
+        "joint-ear": 6.3509,
+        "joint-leg-fr": -5.8582,
+        "joint-leg-fl": 10.8582,
+        "joint-leg-br": 11.9996,
+        "joint-leg-bl": -21.9996
+      },
+      "step-12": {
+        "joint-tail": 0.0,
+        "joint-neck": 2.1574,
+        "joint-ear": 5.4696,
+        "joint-leg-fr": -7.0,
+        "joint-leg-fl": 12.0,
+        "joint-leg-br": 10.8159,
+        "joint-leg-bl": -20.8159
+      },
+      "step-13": {
+        "joint-tail": -8.4853,
+        "joint-neck": -1.2669,
+        "joint-ear": 1.3842,
+        "joint-leg-fr": -5.8582,
+        "joint-leg-fl": 10.8582,
+        "joint-leg-br": 7.5289,
+        "joint-leg-bl": -17.5289
+      },
+      "step-14": {
+        "joint-tail": -12.0,
+        "joint-neck": -3.9491,
+        "joint-ear": -3.512,
+        "joint-leg-fr": -2.6066,
+        "joint-leg-fl": 7.6066,
+        "joint-leg-br": 2.6389,
+        "joint-leg-bl": -12.6389
+      },
+      "step-15": {
+        "joint-tail": -8.4853,
+        "joint-neck": -4.318,
+        "joint-ear": -6.3509,
+        "joint-leg-fr": 2.2597,
+        "joint-leg-fl": 2.7403,
+        "joint-leg-br": -3.1095,
+        "joint-leg-bl": -6.8905
+      },
+      "step-16": {
+        "joint-tail": -0.0,
+        "joint-neck": -2.1574,
+        "joint-ear": -5.4696,
+        "joint-leg-fr": 8.0,
+        "joint-leg-fl": -3.0,
+        "joint-leg-br": -8.8413,
+        "joint-leg-bl": -1.1587
+      }
+    },
+    "motions": {
+      "walk": {
+        "duration": 2200,
+        "frames": [
+          {
+            "offset": 0,
+            "pose": "rest"
+          },
+          {
+            "offset": 0.12,
+            "pose": "step-0"
+          },
+          {
+            "offset": 0.1675,
+            "pose": "step-1"
+          },
+          {
+            "offset": 0.215,
+            "pose": "step-2"
+          },
+          {
+            "offset": 0.2625,
+            "pose": "step-3"
+          },
+          {
+            "offset": 0.31,
+            "pose": "step-4"
+          },
+          {
+            "offset": 0.3575,
+            "pose": "step-5"
+          },
+          {
+            "offset": 0.405,
+            "pose": "step-6"
+          },
+          {
+            "offset": 0.4525,
+            "pose": "step-7"
+          },
+          {
+            "offset": 0.5,
+            "pose": "step-8"
+          },
+          {
+            "offset": 0.5475,
+            "pose": "step-9"
+          },
+          {
+            "offset": 0.595,
+            "pose": "step-10"
+          },
+          {
+            "offset": 0.6425,
+            "pose": "step-11"
+          },
+          {
+            "offset": 0.69,
+            "pose": "step-12"
+          },
+          {
+            "offset": 0.7375,
+            "pose": "step-13"
+          },
+          {
+            "offset": 0.785,
+            "pose": "step-14"
+          },
+          {
+            "offset": 0.8325,
+            "pose": "step-15"
+          },
+          {
+            "offset": 0.88,
+            "pose": "step-16"
+          },
+          {
+            "offset": 1,
+            "pose": "rest"
+          }
+        ]
+      },
+      "attention": {
+        "duration": 2200,
+        "frames": [
+          {
+            "offset": 0,
+            "pose": "rest"
+          },
+          {
+            "offset": 0.3,
+            "pose": "attention"
+          },
+          {
+            "offset": 0.65,
+            "pose": "attention"
+          },
+          {
+            "offset": 1,
+            "pose": "rest"
+          }
+        ]
+      }
+    }
+  }
+}

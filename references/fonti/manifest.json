@@ -1,0 +1,52 @@
+{
+  "uploaded_at": "2026-10-19",
+  "files": [
+    {
+      "id": 1,
+      "path": "references/fonti/appunti/la-rivoluzione-russa.docx",
+      "original_name": "1-La-Rivoluzione-Russa.docx",
+      "bytes": 31347,
+      "sha256": "82231b5f36918c66e5c483061e3d619882814f45abf86c4191b3db75726a14d9",
+      "git_blob_sha": "39050a8bce8eae9230be88b7d14a0bd0d72d7694"
+    },
+    {
+      "id": 4,
+      "path": "references/fonti/appunti/dalla-modernita-alla-contemporaneita.docx",
+      "original_name": "4-Dalla-modernità-alla-contemporaneità.docx",
+      "bytes": 227916,
+      "sha256": "ec22f4c1940d56ebd3bd504e369537168239899f2a0abafdd1627e0cc202d33a",
+      "git_blob_sha": "25c13b1e7353375e2334373eb50585c4e3f18444"
+    },
+    {
+      "id": 7,
+      "path": "references/fonti/schede/mieville-ottobre-scheda-hoepli.pdf",
+      "original_name": "2-Ottobre.-Storia-Della-Rivoluzione-Russa-Mieville-China-Libro-Nutrimenti-012017-HOEPLI.it.pdf",
+      "bytes": 141913,
+      "sha256": "3ab0d67177cc3872818061f4e52efcd63bfe5ee35c49ce862ce9b69c202744ab",
+      "git_blob_sha": "61d0e157a91c52ecc085895d4a53da8b3573f907"
+    },
+    {
+      "id": 10,
+      "path": "references/fonti/trascrizioni/all-watched-over-by-machines-of-loving-grace.txt",
+      "original_name": "1-All_Watched_Over_by_Machines_of_Loving_Grace_complete_clean_transcript.txt",
+      "bytes": 126303,
+      "sha256": "566c8de2992ba9c97bfb3def330fdd706a4ac61f212143f6785da169ac1a1bd3",
+      "git_blob_sha": "3cb59b9eefca8d942a2ffc859cd281d4cf7aec6d"
+    },
+    {
+      "id": 15,
+      "path": "references/fonti/atlanti/LAIKA_ATLANTE_ANEDDOTI_E_FRASI_COMPLETO.md",
+      "original_name": "LAIKA_ATLANTE_ANEDDOTI_E_FRASI_COMPLETO.md",
+      "bytes": 153661,
+      "sha256": "889333b51aea30dbf662f2b49fbac2224a38f06f972aeff191ddde33a42418fc",
+      "git_blob_sha": "0871c8c288f9365a80c8a474800b54f540a14fab",
+      "acquired_at": "2026-10-20",
+      "origin": {
+        "pull_request": 12,
+        "commit": "2ce2cb13db8f859986490b2139ec430bec71237e",
+        "path": "prototypes/LAIKA_ATLANTE_ANEDDOTI_E_FRASI_COMPLETO.md"
+      },
+      "status": "editorial_unverified"
+    }
+  ]
+}

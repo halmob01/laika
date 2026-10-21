@@ -1,0 +1,22 @@
+const assert=require('node:assert/strict'),path=require('node:path'),fs=require('node:fs');
+module.exports=async function(browser,root,artifacts){
+ const context=await browser.newContext({viewport:{width:390,height:844},recordVideo:{dir:path.join(artifacts,'video'),size:{width:390,height:844}}});
+ const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('http://127.0.0.1:4173/prototypes/rig-study/');await page.locator('#stage svg').waitFor();
+ const transforms=()=>page.locator('#stage [data-layer]').evaluateAll(ns=>ns.map(n=>{const m=n.getCTM();return [m.a,m.b,m.c,m.d,m.e,m.f].map(x=>Math.round(x*1e8)/1e8);}));
+ const neutral=await transforms();await page.locator('#walk').click();await page.waitForTimeout(350);await page.locator('#pause').click();const paused=await transforms();assert.notDeepEqual(paused,neutral);await page.waitForTimeout(100);assert.deepEqual(await transforms(),paused);
+ await page.locator('#texture').uncheck();assert.equal(await page.locator('#stage [filter]').count(),0);assert.deepEqual(await transforms(),paused);await page.locator('#texture').check();
+ await page.locator('#debug').check();await page.waitForFunction(()=>document.querySelectorAll('#debug-overlay circle').length===7);
+ await page.screenshot({path:path.join(artifacts,'rig-mobile-debug.png'),fullPage:true});
+ await page.locator('#debug').uncheck();await page.locator('#skip').click();assert.deepEqual(await transforms(),neutral);
+ await page.locator('#gesture').click();await page.waitForTimeout(450);await page.screenshot({path:path.join(artifacts,'rig-gesture.png'),fullPage:true});
+ await page.locator('#reduce').check();assert.deepEqual(await transforms(),neutral);await page.locator('#replay').click();assert.equal(await page.locator('#stage').getAttribute('data-motion'),'finished');
+ await page.locator('#reduce').uncheck();await page.locator('#count').selectOption('24');assert.equal(await page.locator('#stage filter').count(),1);
+ await page.locator('#walk').click();const pacing=await page.evaluate(()=>new Promise(resolve=>{let last;const deltas=[];function frame(t){if(last!==undefined)deltas.push(t-last);last=t;if(deltas.length<60)requestAnimationFrame(frame);else resolve(deltas);}requestAnimationFrame(frame);}));
+ fs.writeFileSync(path.join(artifacts,'rig-performance.json'),JSON.stringify({browser:process.env.KIT_BROWSER||'chromium',instances:24,texture:true,frameIntervalsMs:pacing,scope:'CI, not a phone benchmark'},null,2));
+ assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),true);
+ await page.locator('#count').selectOption('1');await page.locator('summary').click();await page.locator('#joint').selectOption('joint-neck');await page.locator('#angle').evaluate(n=>{n.value='18';n.dispatchEvent(new Event('input',{bubbles:true}));});assert.equal(await page.locator('#stage').getAttribute('data-motion'),'finished');
+ await page.reload();await page.locator('#stage svg').waitFor();assert.deepEqual(await transforms(),neutral);await page.setViewportSize({width:1280,height:900});await page.screenshot({path:path.join(artifacts,'rig-desktop.png'),fullPage:true});
+ assert.deepEqual(errors,[]);await context.close();
+ const standalone=await browser.newPage();await standalone.goto('http://127.0.0.1:4173/dist/rig-study.html');await standalone.locator('#stage svg').waitFor();await standalone.locator('#gesture').click();await standalone.locator('#skip').click();await standalone.close();
+};

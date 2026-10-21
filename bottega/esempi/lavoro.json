@@ -1,0 +1,26 @@
+{
+  "id": "esempio-lavoro",
+  "etichetta": "Due operai lavorano mentre alle loro spalle sorge un nuovo edificio.",
+  "ruvido": true,
+  "elementi": [
+    { "id": "fabbrica", "simbolo": "ambiente-fabbrica", "x": 300, "y": 430, "scala": 1.7 },
+    { "id": "nuovo", "simbolo": "palazzo-edificio-pilotis", "x": 720, "y": 430, "scala": 1.1 },
+    { "id": "terra", "simbolo": "suolo", "x": 480, "y": 430, "scala": 1.9 }
+  ],
+  "figure": [
+    { "id": "fabbro", "x": 420, "y": 470, "scala": 1.7, "variante": "nessuna", "posa": "lavora" },
+    { "id": "muratore", "x": 600, "y": 470, "scala": 1.7, "variante": "zaino", "posa": "costruisce" }
+  ],
+  "sequenze": [
+    {
+      "id": "cantiere",
+      "didascalia": "Il lavoro si ripete; l'edificio nuovo compare sullo sfondo.",
+      "passi": [
+        { "azione": "work", "chi": "fabbro", "a": 0, "cicli": 6 },
+        { "azione": "repeat", "chi": "muratore", "parti": { "arm-far": -20, "root": 6 }, "a": 200, "cicli": 5 },
+        { "azione": "reveal", "chi": "nuovo", "modo": "cresce", "a": 1500, "durata": 2200 }
+      ]
+    }
+  ],
+  "ingresso": "cantiere"
+}

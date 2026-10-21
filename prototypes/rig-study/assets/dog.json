@@ -1,0 +1,647 @@
+{
+  "id": "laika-dog",
+  "layers": [
+    {
+      "id": "dogfiltergroup",
+      "tag": "g",
+      "attrs": {},
+      "texture": {
+        "type": "rough",
+        "scale": 2.4,
+        "frequency": 0.16,
+        "octaves": 3,
+        "seed": 11,
+        "bounds": [
+          -25,
+          -27,
+          300,
+          319
+        ]
+      }
+    },
+    {
+      "id": "rig-root",
+      "tag": "g",
+      "attrs": {},
+      "parent": "dogfiltergroup"
+    },
+    {
+      "id": "joint-leg-br",
+      "tag": "g",
+      "attrs": {},
+      "parent": "rig-root",
+      "origin": [
+        75.0,
+        148.0
+      ]
+    },
+    {
+      "id": "shape-4",
+      "tag": "path",
+      "attrs": {
+        "fill": "#171614",
+        "d": "                   M 63,148                   C 63,134 87,134 87,148                   L 83,164                   L 73,179                   L 78,196                   C 80,198 83,196 86,198                   C 92,202 89,209 82,211                   C 75,213 71,208 73,204                   L 62,182                   L 65,156                   Z"
+      },
+      "parent": "joint-leg-br"
+    },
+    {
+      "id": "shape-5",
+      "tag": "path",
+      "attrs": {
+        "d": "M 70,174 L 72,177",
+        "stroke": "#F5EFE2",
+        "stroke-width": 1.5,
+        "stroke-linecap": "round",
+        "fill": "none"
+      },
+      "parent": "joint-leg-br"
+    },
+    {
+      "id": "joint-leg-fr",
+      "tag": "g",
+      "attrs": {},
+      "parent": "rig-root",
+      "origin": [
+        148.0,
+        145.0
+      ]
+    },
+    {
+      "id": "shape-7",
+      "tag": "path",
+      "attrs": {
+        "fill": "#171614",
+        "d": "                   M 136,145                   C 136,130 160,130 160,145                   L 178,186                   C 180,188 183,186 186,186                   C 194,186 196,195 190,199                   C 185,203 175,204 172,198                   L 146,152                   Z"
+      },
+      "parent": "joint-leg-fr"
+    },
+    {
+      "id": "shape-8",
+      "tag": "path",
+      "attrs": {
+        "d": "                   M 164,164 L 167,168                   M 171,177 L 173.5,180                 ",
+        "stroke": "#F5EFE2",
+        "stroke-width": 1.5,
+        "stroke-linecap": "round",
+        "fill": "none"
+      },
+      "parent": "joint-leg-fr"
+    },
+    {
+      "id": "joint-tail",
+      "tag": "g",
+      "attrs": {},
+      "parent": "rig-root",
+      "origin": [
+        52.0,
+        129.0
+      ]
+    },
+    {
+      "id": "shape-10",
+      "tag": "g",
+      "attrs": {
+        "fill": "#171614"
+      },
+      "parent": "joint-tail"
+    },
+    {
+      "id": "shape-11",
+      "tag": "circle",
+      "attrs": {
+        "cx": 53.0,
+        "cy": 130.0,
+        "r": 10.0
+      },
+      "parent": "shape-10"
+    },
+    {
+      "id": "shape-12",
+      "tag": "path",
+      "attrs": {
+        "d": "                     M 58,129                     C 40,120 26,99 26,77                     C 26,71 17,71 17,79                     C 18,104 31,126 53,138                     Z"
+      },
+      "parent": "shape-10"
+    },
+    {
+      "id": "shape-13",
+      "tag": "path",
+      "attrs": {
+        "d": "                     M 55,133                     C 34,125 20,106 18,86                     C 17,81 12,83 13,89                     C 16,111 29,129 52,139                     Z"
+      },
+      "parent": "shape-10"
+    },
+    {
+      "id": "shape-14",
+      "tag": "path",
+      "attrs": {
+        "d": "                     M 53,136                     C 30,132 14,117 11,99                     C 10,94 16,93 18,98                     C 22,113 35,126 55,132                     Z"
+      },
+      "parent": "shape-10"
+    },
+    {
+      "id": "shape-15",
+      "tag": "path",
+      "attrs": {
+        "d": "                   M 21,90 L 22,95                   M 16,102 L 18.5,106                 ",
+        "stroke": "#F5EFE2",
+        "stroke-width": 1.5,
+        "stroke-linecap": "round",
+        "fill": "none"
+      },
+      "parent": "joint-tail"
+    },
+    {
+      "id": "body-torso",
+      "tag": "g",
+      "attrs": {},
+      "parent": "rig-root"
+    },
+    {
+      "id": "shape-17",
+      "tag": "path",
+      "attrs": {
+        "fill": "#171614",
+        "d": "                   M 48,125                   C 54,117 64,115 76,112                   C 98,107 120,101 139,98                   C 155,96 168,108 167,131                   C 165,145 161,156 151,161                   C 125,163 96,164 72,163                   C 54,163 42,158 40,145                   C 38,135 41,130 48,125                   Z"
+      },
+      "parent": "body-torso"
+    },
+    {
+      "id": "shape-18",
+      "tag": "path",
+      "attrs": {
+        "d": "                   M 118,106 L 123,104.5                   M 94,112 L 100,111                   M 81,119 L 87.5,117.5                   M 91,122 L 93,121                   M 103,131 L 109.5,127.5                   M 114,125 L 118,123                   M 130,126 L 132.5,125                   M 92,135 L 95,134                   M 64,142 L 68,137.5                   M 49,138 L 51,141                   M 61,150 L 66.5,145                   M 84,152 L 92,151.5                   M 96,151 L 101,150.5                   M 116,150 L 122,150                   M 134,149 L 138.5,148.5                   M 154,132 L 153.5,138.5                   M 71,161 L 76,161                 ",
+        "stroke": "#F5EFE2",
+        "stroke-width": 1.5,
+        "stroke-linecap": "round",
+        "fill": "none"
+      },
+      "parent": "body-torso"
+    },
+    {
+      "id": "joint-leg-bl",
+      "tag": "g",
+      "attrs": {},
+      "parent": "rig-root",
+      "origin": [
+        56.0,
+        148.0
+      ]
+    },
+    {
+      "id": "shape-20",
+      "tag": "path",
+      "attrs": {
+        "fill": "#171614",
+        "d": "                   M 42,148                   C 42,130 74,130 74,152                   C 74,164 58,178 42,188                   L 36,199                   C 41,200 44,205 40,209                   C 35,213 22,211 23,203                   C 24,197 32,182 43,164                   C 42,158 42,153 42,148                   Z"
+      },
+      "parent": "joint-leg-bl"
+    },
+    {
+      "id": "shape-21",
+      "tag": "path",
+      "attrs": {
+        "d": "                   M 33,184 L 35,179.5                   M 31,191 L 33.5,189.5                 ",
+        "stroke": "#F5EFE2",
+        "stroke-width": 1.5,
+        "stroke-linecap": "round",
+        "fill": "none"
+      },
+      "parent": "joint-leg-bl"
+    },
+    {
+      "id": "joint-leg-fl",
+      "tag": "g",
+      "attrs": {},
+      "parent": "rig-root",
+      "origin": [
+        144.0,
+        148.0
+      ]
+    },
+    {
+      "id": "shape-23",
+      "tag": "path",
+      "attrs": {
+        "fill": "#171614",
+        "d": "                   M 133,148                   C 133,132 157,132 157,148                   L 154,159                   L 141,196                   C 146,197 149,201 146,205                   C 142,209 128,209 128,202                   L 135,159                   Z"
+      },
+      "parent": "joint-leg-fl"
+    },
+    {
+      "id": "shape-24",
+      "tag": "path",
+      "attrs": {
+        "d": "                   M 138,174 L 141,174                   M 134,185 L 137,185                 ",
+        "stroke": "#F5EFE2",
+        "stroke-width": 1.5,
+        "stroke-linecap": "round",
+        "fill": "none"
+      },
+      "parent": "joint-leg-fl"
+    },
+    {
+      "id": "joint-neck",
+      "tag": "g",
+      "attrs": {},
+      "parent": "rig-root",
+      "origin": [
+        154.0,
+        114.0
+      ]
+    },
+    {
+      "id": "joint-ear",
+      "tag": "g",
+      "attrs": {},
+      "parent": "joint-neck",
+      "origin": [
+        165.0,
+        60.0
+      ]
+    },
+    {
+      "id": "shape-27",
+      "tag": "path",
+      "attrs": {
+        "fill": "#171614",
+        "d": "                     M 155,66                     C 150,51 155,31 168,20                     C 172,17 176,19 175,25                     C 174,38 175,51 173,66                     C 173,74 157,74 155,66                     Z"
+      },
+      "parent": "joint-ear"
+    },
+    {
+      "id": "shape-28",
+      "tag": "path",
+      "attrs": {
+        "d": "                     M 164,41 L 164.5,45                     M 159,52 L 161.5,53.5                   ",
+        "stroke": "#F5EFE2",
+        "stroke-width": 1.5,
+        "stroke-linecap": "round",
+        "fill": "none"
+      },
+      "parent": "joint-ear"
+    },
+    {
+      "id": "shape-29",
+      "tag": "path",
+      "attrs": {
+        "fill": "#171614",
+        "d": "                   M 135,106                   C 142,90 149,73 157,59                   C 162,54 168,54 173,57                   C 186,58 195,63 200,72                   C 207,77 216,80 221,83                   C 224,85 223,90 219,92                   C 216,94 214,98 206,99                   C 197,100 188,97 181,98                   C 176,106 171,118 167,130                   C 162,140 132,136 135,106                   Z"
+      },
+      "parent": "joint-neck"
+    },
+    {
+      "id": "shape-30",
+      "tag": "path",
+      "attrs": {
+        "fill": "#EA2615",
+        "d": "                   M 136,92                   L 180,118                   C 183,120 183,125 180,127                   L 175,131                   L 132,105                   L 132,96                   Z"
+      },
+      "parent": "joint-neck"
+    },
+    {
+      "id": "shape-31",
+      "tag": "circle",
+      "attrs": {
+        "cx": 137.2,
+        "cy": 99.0,
+        "r": 1.4,
+        "fill": "#F5EFE2"
+      },
+      "parent": "joint-neck"
+    },
+    {
+      "id": "dogeye",
+      "tag": "path",
+      "attrs": {
+        "d": "M 182,74.5 Q 185,72.8 188,74.5",
+        "stroke": "#F5EFE2",
+        "stroke-width": 1.5,
+        "stroke-linecap": "round",
+        "fill": "none"
+      },
+      "parent": "joint-neck"
+    },
+    {
+      "id": "shape-33",
+      "tag": "path",
+      "attrs": {
+        "d": "                   M 207,92.5 L 210,92.5                   M 214,90.5 L 216,89.8                   M 156,77 L 157.5,80                   M 168,94 L 166.5,99                   M 171,102 L 169.5,104                 ",
+        "stroke": "#F5EFE2",
+        "stroke-width": 1.4,
+        "stroke-linecap": "round",
+        "fill": "none"
+      },
+      "parent": "joint-neck"
+    }
+  ],
+  "rig": {
+    "joints": {
+      "joint-tail": [
+        -28,
+        28
+      ],
+      "joint-neck": [
+        -18,
+        18
+      ],
+      "joint-ear": [
+        -22,
+        22
+      ],
+      "joint-leg-fr": [
+        -35,
+        37
+      ],
+      "joint-leg-fl": [
+        -32,
+        28
+      ],
+      "joint-leg-br": [
+        -32,
+        28
+      ],
+      "joint-leg-bl": [
+        -37,
+        32
+      ]
+    },
+    "poses": {
+      "rest": {
+        "joint-tail": 0,
+        "joint-neck": 0,
+        "joint-ear": 0,
+        "joint-leg-fr": 0,
+        "joint-leg-fl": 0,
+        "joint-leg-br": 0,
+        "joint-leg-bl": 0
+      },
+      "attention": {
+        "joint-tail": 12,
+        "joint-neck": -12,
+        "joint-ear": 16,
+        "joint-leg-fr": 0,
+        "joint-leg-fl": 0,
+        "joint-leg-br": 0,
+        "joint-leg-bl": 0
+      },
+      "step-0": {
+        "joint-tail": 0.0,
+        "joint-neck": -2.1574,
+        "joint-ear": -5.4696,
+        "joint-leg-fr": 8.0,
+        "joint-leg-fl": -3.0,
+        "joint-leg-br": -8.8413,
+        "joint-leg-bl": -1.1587
+      },
+      "step-1": {
+        "joint-tail": 8.4853,
+        "joint-neck": 1.2669,
+        "joint-ear": -1.3842,
+        "joint-leg-fr": 13.7403,
+        "joint-leg-fl": -8.7403,
+        "joint-leg-br": -13.6838,
+        "joint-leg-bl": 3.6838
+      },
+      "step-2": {
+        "joint-tail": 12.0,
+        "joint-neck": 3.9491,
+        "joint-ear": 3.512,
+        "joint-leg-fr": 18.6066,
+        "joint-leg-fl": -13.6066,
+        "joint-leg-br": -16.8997,
+        "joint-leg-bl": 6.8997
+      },
+      "step-3": {
+        "joint-tail": 8.4853,
+        "joint-neck": 4.318,
+        "joint-ear": 6.3509,
+        "joint-leg-fr": 21.8582,
+        "joint-leg-fl": -16.8582,
+        "joint-leg-br": -17.9996,
+        "joint-leg-bl": 7.9996
+      },
+      "step-4": {
+        "joint-tail": 0.0,
+        "joint-neck": 2.1574,
+        "joint-ear": 5.4696,
+        "joint-leg-fr": 23.0,
+        "joint-leg-fl": -18.0,
+        "joint-leg-br": -16.8159,
+        "joint-leg-bl": 6.8159
+      },
+      "step-5": {
+        "joint-tail": -8.4853,
+        "joint-neck": -1.2669,
+        "joint-ear": 1.3842,
+        "joint-leg-fr": 21.8582,
+        "joint-leg-fl": -16.8582,
+        "joint-leg-br": -13.5289,
+        "joint-leg-bl": 3.5289
+      },
+      "step-6": {
+        "joint-tail": -12.0,
+        "joint-neck": -3.9491,
+        "joint-ear": -3.512,
+        "joint-leg-fr": 18.6066,
+        "joint-leg-fl": -13.6066,
+        "joint-leg-br": -8.6389,
+        "joint-leg-bl": -1.3611
+      },
+      "step-7": {
+        "joint-tail": -8.4853,
+        "joint-neck": -4.318,
+        "joint-ear": -6.3509,
+        "joint-leg-fr": 13.7403,
+        "joint-leg-fl": -8.7403,
+        "joint-leg-br": -2.8905,
+        "joint-leg-bl": -7.1095
+      },
+      "step-8": {
+        "joint-tail": -0.0,
+        "joint-neck": -2.1574,
+        "joint-ear": -5.4696,
+        "joint-leg-fr": 8.0,
+        "joint-leg-fl": -3.0,
+        "joint-leg-br": 2.8413,
+        "joint-leg-bl": -12.8413
+      },
+      "step-9": {
+        "joint-tail": 8.4853,
+        "joint-neck": 1.2669,
+        "joint-ear": -1.3842,
+        "joint-leg-fr": 2.2597,
+        "joint-leg-fl": 2.7403,
+        "joint-leg-br": 7.6838,
+        "joint-leg-bl": -17.6838
+      },
+      "step-10": {
+        "joint-tail": 12.0,
+        "joint-neck": 3.9491,
+        "joint-ear": 3.512,
+        "joint-leg-fr": -2.6066,
+        "joint-leg-fl": 7.6066,
+        "joint-leg-br": 10.8997,
+        "joint-leg-bl": -20.8997
+      },
+      "step-11": {
+        "joint-tail": 8.4853,
+        "joint-neck": 4.318,
+        "joint-ear": 6.3509,
+        "joint-leg-fr": -5.8582,
+        "joint-leg-fl": 10.8582,
+        "joint-leg-br": 11.9996,
+        "joint-leg-bl": -21.9996
+      },
+      "step-12": {
+        "joint-tail": 0.0,
+        "joint-neck": 2.1574,
+        "joint-ear": 5.4696,
+        "joint-leg-fr": -7.0,
+        "joint-leg-fl": 12.0,
+        "joint-leg-br": 10.8159,
+        "joint-leg-bl": -20.8159
+      },
+      "step-13": {
+        "joint-tail": -8.4853,
+        "joint-neck": -1.2669,
+        "joint-ear": 1.3842,
+        "joint-leg-fr": -5.8582,
+        "joint-leg-fl": 10.8582,
+        "joint-leg-br": 7.5289,
+        "joint-leg-bl": -17.5289
+      },
+      "step-14": {
+        "joint-tail": -12.0,
+        "joint-neck": -3.9491,
+        "joint-ear": -3.512,
+        "joint-leg-fr": -2.6066,
+        "joint-leg-fl": 7.6066,
+        "joint-leg-br": 2.6389,
+        "joint-leg-bl": -12.6389
+      },
+      "step-15": {
+        "joint-tail": -8.4853,
+        "joint-neck": -4.318,
+        "joint-ear": -6.3509,
+        "joint-leg-fr": 2.2597,
+        "joint-leg-fl": 2.7403,
+        "joint-leg-br": -3.1095,
+        "joint-leg-bl": -6.8905
+      },
+      "step-16": {
+        "joint-tail": -0.0,
+        "joint-neck": -2.1574,
+        "joint-ear": -5.4696,
+        "joint-leg-fr": 8.0,
+        "joint-leg-fl": -3.0,
+        "joint-leg-br": -8.8413,
+        "joint-leg-bl": -1.1587
+      }
+    },
+    "motions": {
+      "walk": {
+        "duration": 2200,
+        "frames": [
+          {
+            "offset": 0,
+            "pose": "rest"
+          },
+          {
+            "offset": 0.12,
+            "pose": "step-0"
+          },
+          {
+            "offset": 0.1675,
+            "pose": "step-1"
+          },
+          {
+            "offset": 0.215,
+            "pose": "step-2"
+          },
+          {
+            "offset": 0.2625,
+            "pose": "step-3"
+          },
+          {
+            "offset": 0.31,
+            "pose": "step-4"
+          },
+          {
+            "offset": 0.3575,
+            "pose": "step-5"
+          },
+          {
+            "offset": 0.405,
+            "pose": "step-6"
+          },
+          {
+            "offset": 0.4525,
+            "pose": "step-7"
+          },
+          {
+            "offset": 0.5,
+            "pose": "step-8"
+          },
+          {
+            "offset": 0.5475,
+            "pose": "step-9"
+          },
+          {
+            "offset": 0.595,
+            "pose": "step-10"
+          },
+          {
+            "offset": 0.6425,
+            "pose": "step-11"
+          },
+          {
+            "offset": 0.69,
+            "pose": "step-12"
+          },
+          {
+            "offset": 0.7375,
+            "pose": "step-13"
+          },
+          {
+            "offset": 0.785,
+            "pose": "step-14"
+          },
+          {
+            "offset": 0.8325,
+            "pose": "step-15"
+          },
+          {
+            "offset": 0.88,
+            "pose": "step-16"
+          },
+          {
+            "offset": 1,
+            "pose": "rest"
+          }
+        ]
+      },
+      "attention": {
+        "duration": 2200,
+        "frames": [
+          {
+            "offset": 0,
+            "pose": "rest"
+          },
+          {
+            "offset": 0.3,
+            "pose": "attention"
+          },
+          {
+            "offset": 0.65,
+            "pose": "attention"
+          },
+          {
+            "offset": 1,
+            "pose": "rest"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,242 @@
+{
+  "id": "hero-1861",
+  "etichetta": "1861. Una pianura arata fino all'orizzonte, sotto un cielo enorme. Lontano la chiesa, le isbe del villaggio e la casa padronale. Contadini minuscoli zappano; una famiglia attraversa i campi.",
+  "viewBox": [
+    0,
+    0,
+    1600,
+    700
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    700
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "elementi": [
+    {
+      "id": "campi",
+      "simbolo": "luogo-pianura",
+      "x": 800,
+      "y": 700,
+      "scala": 2.3
+    },
+    {
+      "id": "chiesa",
+      "simbolo": "luogo-chiesa",
+      "x": 300,
+      "y": 472,
+      "scala": 0.7
+    },
+    {
+      "id": "isbe",
+      "simbolo": "luogo-isbe",
+      "x": 520,
+      "y": 472,
+      "scala": 0.55
+    },
+    {
+      "id": "tenuta",
+      "simbolo": "luogo-tenuta",
+      "x": 1130,
+      "y": 472,
+      "scala": 0.7
+    },
+    {
+      "id": "foschia",
+      "simbolo": "atmo-foschia",
+      "x": 800,
+      "y": 484,
+      "scala": 1
+    },
+    {
+      "id": "betulle",
+      "simbolo": "luogo-betulle",
+      "x": 1440,
+      "y": 478,
+      "scala": 1.05
+    }
+  ],
+  "figure": [
+    {
+      "id": "lavoro-1",
+      "x": 250,
+      "y": 528,
+      "scala": 0.17,
+      "variante": "cappello",
+      "posa": "zappa"
+    },
+    {
+      "id": "lavoro-2",
+      "x": 420,
+      "y": 566,
+      "scala": 0.2,
+      "variante": "scialle",
+      "posa": "zappa",
+      "flip": true
+    },
+    {
+      "id": "lavoro-3",
+      "x": 610,
+      "y": 512,
+      "scala": 0.15,
+      "variante": "nessuna",
+      "posa": "zappa"
+    },
+    {
+      "id": "lavoro-4",
+      "x": 760,
+      "y": 600,
+      "scala": 0.23,
+      "variante": "donna",
+      "posa": "zappa"
+    },
+    {
+      "id": "lavoro-5",
+      "x": 905,
+      "y": 540,
+      "scala": 0.18,
+      "variante": "cappello_largo",
+      "posa": "zappa",
+      "flip": true
+    },
+    {
+      "id": "lavoro-6",
+      "x": 1040,
+      "y": 508,
+      "scala": 0.15,
+      "variante": "cappello",
+      "posa": "zappa"
+    },
+    {
+      "id": "lavoro-7",
+      "x": 330,
+      "y": 640,
+      "scala": 0.27,
+      "variante": "scialle",
+      "posa": "zappa"
+    },
+    {
+      "id": "lavoro-8",
+      "x": 1180,
+      "y": 585,
+      "scala": 0.21,
+      "variante": "nessuna",
+      "posa": "zappa",
+      "flip": true
+    },
+    {
+      "id": "lavoro-9",
+      "x": 560,
+      "y": 650,
+      "scala": 0.28,
+      "variante": "donna",
+      "posa": "zappa"
+    },
+    {
+      "id": "lavoro-10",
+      "x": 1330,
+      "y": 530,
+      "scala": 0.17,
+      "variante": "cappello_largo",
+      "posa": "zappa"
+    },
+    {
+      "id": "padre",
+      "x": 1250,
+      "y": 668,
+      "scala": 0.32,
+      "variante": "cappello",
+      "posa": "in_piedi",
+      "flip": true
+    },
+    {
+      "id": "madre",
+      "x": 1272,
+      "y": 668,
+      "scala": 0.3,
+      "variante": "scialle",
+      "posa": "in_piedi",
+      "flip": true
+    },
+    {
+      "id": "figlio",
+      "x": 1292,
+      "y": 669,
+      "scala": 0.3,
+      "variante": "bambino",
+      "ruolo": "protagonista",
+      "posa": "in_piedi",
+      "flip": true
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "19 febbraio 1861: un manifesto di Alessandro II abolisce la servitù della gleba. I contadini diventano liberi, ma la terra che lavorano dovranno riscattarla a rate.",
+      "passi": [
+        {
+          "azione": "camera",
+          "inquadrature": [
+            [
+              160,
+              380,
+              720,
+              315
+            ],
+            [
+              0,
+              0,
+              1600,
+              700
+            ]
+          ],
+          "tempi": [
+            0,
+            1
+          ],
+          "a": 0,
+          "durata": 5600
+        },
+        {
+          "azione": "repeat",
+          "chi": [
+            "lavoro-1",
+            "lavoro-2",
+            "lavoro-3",
+            "lavoro-4",
+            "lavoro-5",
+            "lavoro-6",
+            "lavoro-7",
+            "lavoro-8",
+            "lavoro-9",
+            "lavoro-10"
+          ],
+          "parti": {
+            "arm-near": -22,
+            "arm-far": -22
+          },
+          "a": 300,
+          "durata": 1100,
+          "cicli": 4
+        },
+        {
+          "azione": "walk",
+          "chi": [
+            "padre",
+            "madre",
+            "figlio"
+          ],
+          "da": "destra",
+          "distanza": 300,
+          "a": 1800,
+          "sfalsa": 260,
+          "durata": 4200
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

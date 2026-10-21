@@ -1,0 +1,468 @@
+{
+  "acquired_at": "2026-10-20",
+  "purpose": "Authoring inventory only; not a runtime registry or production certification",
+  "files": [
+    {
+      "original_name": "Estetiche brutaliste 2.html",
+      "path": "prototypes/laika-studi-originali/Estetiche brutaliste 2.html",
+      "bytes": 46712,
+      "sha256": "d63927ce9cf21e3f983148445382fdfad534df03fadf4aeb95b3792276ca3b07",
+      "git_blob_sha": "462c16fa6a9d4378ef84b9c5596c64cc5e679d8c",
+      "origin": {
+        "pull_request": 12,
+        "commit": "2ce2cb13db8f859986490b2139ec430bec71237e",
+        "path": "prototypes/Estetiche brutaliste 2.html"
+      },
+      "status": "experimental_unverified",
+      "catalogue": [
+        {
+          "group": "r1",
+          "id": "torre_residenziale",
+          "label": "Torre residenziale"
+        },
+        {
+          "group": "r1",
+          "id": "torre_residenziale_var",
+          "label": "Torre resid. (Variante)"
+        },
+        {
+          "group": "r1",
+          "id": "blocco_abitativo",
+          "label": "Blocco abitativo"
+        },
+        {
+          "group": "r1",
+          "id": "blocco_abitativo_var",
+          "label": "Blocco abit. (Variante)"
+        },
+        {
+          "group": "r2",
+          "id": "palazzo_amministrativo",
+          "label": "Palazzo amministrativo"
+        },
+        {
+          "group": "r2",
+          "id": "palazzo_amministrativo_var",
+          "label": "Palazzo amm. (Variante)"
+        },
+        {
+          "group": "r2",
+          "id": "centro_civico",
+          "label": "Centro civico"
+        },
+        {
+          "group": "r2",
+          "id": "centro_civico_var",
+          "label": "Centro civico (Variante)"
+        },
+        {
+          "group": "r3",
+          "id": "complesso_gradoni",
+          "label": "Complesso a gradoni"
+        },
+        {
+          "group": "r3",
+          "id": "complesso_gradoni_var",
+          "label": "Gradoni (Variante)"
+        },
+        {
+          "group": "r3",
+          "id": "edificio_pilotis",
+          "label": "Edificio con pilotis"
+        },
+        {
+          "group": "r3",
+          "id": "edificio_pilotis_var",
+          "label": "Pilotis (Variante)"
+        },
+        {
+          "group": "r4",
+          "id": "casa_cultura",
+          "label": "Casa della Cultura"
+        },
+        {
+          "group": "r4",
+          "id": "casa_cultura_var1",
+          "label": "Casa Cultura (Variante 1)"
+        },
+        {
+          "group": "r4",
+          "id": "casa_cultura_var2",
+          "label": "Casa Cultura (Variante 2)"
+        }
+      ]
+    },
+    {
+      "original_name": "estetiche brutaliste 1.html",
+      "path": "prototypes/laika-studi-originali/estetiche brutaliste 1.html",
+      "bytes": 47585,
+      "sha256": "e679d4dfcd573cfb99b1eacbc990bb0b15da8553ccaf8086110f390ea16bed1a",
+      "git_blob_sha": "41e898b985e80869bc41f841f19b745135ba1158",
+      "origin": {
+        "pull_request": 12,
+        "commit": "2ce2cb13db8f859986490b2139ec430bec71237e",
+        "path": "prototypes/estetiche brutaliste 1.html"
+      },
+      "status": "experimental_unverified",
+      "catalogue": [
+        {
+          "group": "facciate",
+          "id": "cemento_vista",
+          "label": "Cemento a vista"
+        },
+        {
+          "group": "facciate",
+          "id": "finestre_modulari",
+          "label": "Finestre modulari"
+        },
+        {
+          "group": "facciate",
+          "id": "griglie",
+          "label": "Griglie"
+        },
+        {
+          "group": "facciate",
+          "id": "bucature_profonde",
+          "label": "Bucature profonde"
+        },
+        {
+          "group": "facciate",
+          "id": "aggetti",
+          "label": "Aggetti"
+        },
+        {
+          "group": "facciate",
+          "id": "pareti_scanalate",
+          "label": "Pareti scanalate"
+        },
+        {
+          "group": "facciate",
+          "id": "pannelli_prefabbricati",
+          "label": "Pannelli prefabbricati"
+        },
+        {
+          "group": "volumi",
+          "id": "pilotis",
+          "label": "Pilotis"
+        },
+        {
+          "group": "volumi",
+          "id": "passerelle",
+          "label": "Passerelle"
+        },
+        {
+          "group": "volumi",
+          "id": "scale_esterne",
+          "label": "Scale esterne"
+        },
+        {
+          "group": "volumi",
+          "id": "rampe",
+          "label": "Rampe"
+        },
+        {
+          "group": "volumi",
+          "id": "torri_scala",
+          "label": "Torri scala"
+        },
+        {
+          "group": "volumi",
+          "id": "blocchi_sovrapposti",
+          "label": "Blocchi sovrapposti"
+        },
+        {
+          "group": "dettagli",
+          "id": "ingresso_monumentale",
+          "label": "Ingresso monumentale"
+        },
+        {
+          "group": "dettagli",
+          "id": "cortile",
+          "label": "Cortile"
+        },
+        {
+          "group": "dettagli",
+          "id": "pensilina",
+          "label": "Pensilina"
+        },
+        {
+          "group": "dettagli",
+          "id": "segnaletica",
+          "label": "Segnaletica"
+        },
+        {
+          "group": "dettagli",
+          "id": "elementi_modulari",
+          "label": "Elementi modulari"
+        },
+        {
+          "group": "atmosfere",
+          "id": "piazza_ventosa",
+          "label": "Piazza ventosa"
+        },
+        {
+          "group": "atmosfere",
+          "id": "cortile_residenziale",
+          "label": "Cortile residenziale"
+        },
+        {
+          "group": "atmosfere",
+          "id": "scalinata_monumentale",
+          "label": "Scalinata monumentale"
+        }
+      ]
+    },
+    {
+      "original_name": "studio personaggi.html",
+      "path": "prototypes/laika-studi-originali/studio personaggi.html",
+      "bytes": 58784,
+      "sha256": "0c1f867521d124e8f047ce6e15f8f11e0b582392eb5097608bea6da2b0776cfa",
+      "git_blob_sha": "e5a3a89b403cfcccf3657ea24f4bf2ce42141bec",
+      "origin": {
+        "pull_request": 12,
+        "commit": "2ce2cb13db8f859986490b2139ec430bec71237e",
+        "path": "prototypes/studio personaggi.html"
+      },
+      "status": "experimental_unverified",
+      "catalogue": {
+        "poses": [
+          {
+            "id": "in_piedi",
+            "label": "In piedi"
+          },
+          {
+            "id": "cammina_1",
+            "label": "Cammina 1"
+          },
+          {
+            "id": "cammina_2",
+            "label": "Cammina 2"
+          },
+          {
+            "id": "corre",
+            "label": "Corre"
+          },
+          {
+            "id": "braccia_alzate",
+            "label": "Braccia alzate"
+          },
+          {
+            "id": "gira",
+            "label": "Gira"
+          },
+          {
+            "id": "indica",
+            "label": "Indica"
+          },
+          {
+            "id": "saluta",
+            "label": "Saluta"
+          },
+          {
+            "id": "parla",
+            "label": "Parla (gesto)"
+          },
+          {
+            "id": "mani_fianchi",
+            "label": "Mani fianchi"
+          },
+          {
+            "id": "seduto",
+            "label": "Seduto"
+          },
+          {
+            "id": "inginocchiato",
+            "label": "Inginocchiato"
+          },
+          {
+            "id": "a_terra",
+            "label": "A terra"
+          }
+        ],
+        "variants": [
+          {
+            "id": "nessuna",
+            "label": "Base (Uomo)"
+          },
+          {
+            "id": "donna",
+            "label": "Donna"
+          },
+          {
+            "id": "bambino",
+            "label": "Bambino"
+          },
+          {
+            "id": "cappello",
+            "label": "Cappello"
+          },
+          {
+            "id": "cappello_largo",
+            "label": "Cappello largo"
+          },
+          {
+            "id": "cappotto",
+            "label": "Cappotto"
+          },
+          {
+            "id": "vestito",
+            "label": "Vestito"
+          },
+          {
+            "id": "scialle",
+            "label": "Scialle"
+          },
+          {
+            "id": "zaino",
+            "label": "Zaino"
+          },
+          {
+            "id": "borsa",
+            "label": "Borsa"
+          },
+          {
+            "id": "bastone",
+            "label": "Bastone"
+          },
+          {
+            "id": "mantello",
+            "label": "Mantello"
+          },
+          {
+            "id": "clero",
+            "label": "Clero"
+          }
+        ],
+        "actions": [
+          {
+            "id": "porta_bandiera",
+            "label": "🚩 Porta Bandiera"
+          },
+          {
+            "id": "manifesta",
+            "label": "✊ Manifesta"
+          },
+          {
+            "id": "lancia",
+            "label": "🧱 Lancia sasso"
+          },
+          {
+            "id": "sbarra",
+            "label": "🦯 Sbarra bastone"
+          },
+          {
+            "id": "tiene_cartello",
+            "label": "🪧 Tiene Cartello"
+          },
+          {
+            "id": "usa_fucile",
+            "label": "🔫 Usa Fucile"
+          },
+          {
+            "id": "spara",
+            "label": "💥 Spara"
+          },
+          {
+            "id": "con_megafono",
+            "label": "📣 Con Megafono"
+          },
+          {
+            "id": "costruisce",
+            "label": "🧱 Costruisce"
+          },
+          {
+            "id": "lavora",
+            "label": "🔨 Lavora martello"
+          },
+          {
+            "id": "legge",
+            "label": "📰 Legge giornale"
+          }
+        ],
+        "props": [
+          {
+            "id": "bandiera",
+            "label": "Bandiera rossa"
+          },
+          {
+            "id": "cartello_vuoto",
+            "label": "Cartello vuoto"
+          },
+          {
+            "id": "cartello_pane",
+            "label": "Cartello ХЛЕБ"
+          },
+          {
+            "id": "fucile",
+            "label": "Fucile"
+          },
+          {
+            "id": "bastone",
+            "label": "Bastone"
+          },
+          {
+            "id": "martello",
+            "label": "Martello"
+          },
+          {
+            "id": "megafono",
+            "label": "Megafono"
+          },
+          {
+            "id": "cassa",
+            "label": "Cassa"
+          },
+          {
+            "id": "barricata",
+            "label": "Barricata"
+          },
+          {
+            "id": "tamburo",
+            "label": "Tamburo"
+          },
+          {
+            "id": "giornale",
+            "label": "Giornale"
+          },
+          {
+            "id": "volantini",
+            "label": "Volantini & Sassi"
+          }
+        ],
+        "roles": [
+          "popolo",
+          "protagonista",
+          "esercito",
+          "partigiano"
+        ],
+        "bodies": [
+          "uomo",
+          "donna",
+          "bambino"
+        ],
+        "crowds": [
+          "statica",
+          "marcia",
+          "carica",
+          "barricata",
+          "discorso",
+          "scontro"
+        ],
+        "environments": [
+          "none",
+          "piazza",
+          "fabbrica",
+          "stazione",
+          "rurale"
+        ],
+        "vehicles": [
+          "none",
+          "treno",
+          "tram",
+          "camion",
+          "tank"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,2061 @@
+{
+  "schemaVersion": 1,
+  "id": "quartiere",
+  "contentVersion": "1.0.0",
+  "title": "Uno spazio in comune",
+  "exposureFlags": [
+    "context",
+    "compared"
+  ],
+  "theme": {
+    "ink": "#222733",
+    "paper": "#f6f3eb",
+    "accent": "#644569",
+    "highlight": "#e7c866"
+  },
+  "stages": [
+    {
+      "id": "room",
+      "label": "Persone, materiali e servizio: una scena animata della simulazione",
+      "duration": 900,
+      "layers": [
+        {
+          "id": "backdrop",
+          "tag": "g",
+          "attrs": {}
+        },
+        {
+          "id": "sky",
+          "tag": "rect",
+          "attrs": {
+            "x": 0,
+            "y": 0,
+            "width": 640,
+            "height": 360,
+            "fill": "#e9e0ee"
+          },
+          "parent": "backdrop"
+        },
+        {
+          "id": "sun",
+          "tag": "circle",
+          "attrs": {
+            "cx": 555,
+            "cy": 52,
+            "r": 30,
+            "fill": "#e7c866"
+          },
+          "parent": "backdrop"
+        },
+        {
+          "id": "window-0",
+          "tag": "rect",
+          "attrs": {
+            "x": 45,
+            "y": 38,
+            "width": 100,
+            "height": 118,
+            "fill": "#f9fbf5"
+          },
+          "parent": "backdrop"
+        },
+        {
+          "id": "window-1",
+          "tag": "rect",
+          "attrs": {
+            "x": 195,
+            "y": 38,
+            "width": 100,
+            "height": 118,
+            "fill": "#f9fbf5"
+          },
+          "parent": "backdrop"
+        },
+        {
+          "id": "window-2",
+          "tag": "rect",
+          "attrs": {
+            "x": 345,
+            "y": 38,
+            "width": 100,
+            "height": 118,
+            "fill": "#f9fbf5"
+          },
+          "parent": "backdrop"
+        },
+        {
+          "id": "window-3",
+          "tag": "rect",
+          "attrs": {
+            "x": 495,
+            "y": 38,
+            "width": 100,
+            "height": 118,
+            "fill": "#f9fbf5"
+          },
+          "parent": "backdrop"
+        },
+        {
+          "id": "ground",
+          "tag": "rect",
+          "attrs": {
+            "x": 0,
+            "y": 286,
+            "width": 640,
+            "height": 74,
+            "fill": "#d7cdbd"
+          }
+        },
+        {
+          "id": "floorline",
+          "tag": "line",
+          "attrs": {
+            "x1": 0,
+            "y1": 286,
+            "x2": 640,
+            "y2": 286,
+            "stroke": "#222733",
+            "stroke-width": 2
+          }
+        },
+        {
+          "id": "building",
+          "tag": "g",
+          "attrs": {}
+        },
+        {
+          "id": "room",
+          "tag": "rect",
+          "attrs": {
+            "x": 28,
+            "y": 75,
+            "width": 584,
+            "height": 212,
+            "fill": "#faf7ed",
+            "stroke": "#222733",
+            "stroke-width": 2
+          },
+          "parent": "building"
+        },
+        {
+          "id": "lintel",
+          "tag": "rect",
+          "attrs": {
+            "x": 28,
+            "y": 75,
+            "width": 584,
+            "height": 11,
+            "fill": "#644569"
+          },
+          "parent": "building"
+        },
+        {
+          "id": "title",
+          "tag": "text",
+          "attrs": {
+            "x": 50,
+            "y": 110,
+            "fill": "#644569",
+            "font-size": 14
+          },
+          "text": "QUARTIERE / UNO SPAZIO DA APRIRE",
+          "parent": "building"
+        },
+        {
+          "id": "shelves",
+          "tag": "g",
+          "attrs": {},
+          "parent": "building"
+        },
+        {
+          "id": "shelf-back",
+          "tag": "rect",
+          "attrs": {
+            "x": 52,
+            "y": 130,
+            "width": 230,
+            "height": 128,
+            "fill": "#e4dccd"
+          },
+          "parent": "shelves"
+        },
+        {
+          "id": "shelf-0",
+          "tag": "line",
+          "attrs": {
+            "x1": 52,
+            "y1": 189,
+            "x2": 282,
+            "y2": 189,
+            "stroke": "#222733",
+            "stroke-width": 4
+          },
+          "parent": "shelves"
+        },
+        {
+          "id": "book-0",
+          "tag": "g",
+          "attrs": {},
+          "parent": "shelves"
+        },
+        {
+          "id": "book-0-body",
+          "tag": "rect",
+          "attrs": {
+            "x": 63,
+            "y": 144,
+            "width": 14,
+            "height": 40,
+            "fill": "#644569",
+            "rx": 1
+          },
+          "parent": "book-0"
+        },
+        {
+          "id": "book-0-mark",
+          "tag": "line",
+          "attrs": {
+            "x1": 67,
+            "y1": 154,
+            "x2": 73,
+            "y2": 154,
+            "stroke": "#faf7ed",
+            "stroke-width": 1
+          },
+          "parent": "book-0"
+        },
+        {
+          "id": "book-1",
+          "tag": "g",
+          "attrs": {},
+          "parent": "shelves"
+        },
+        {
+          "id": "book-1-body",
+          "tag": "rect",
+          "attrs": {
+            "x": 86,
+            "y": 144,
+            "width": 14,
+            "height": 36,
+            "fill": "#cb7555",
+            "rx": 1
+          },
+          "parent": "book-1"
+        },
+        {
+          "id": "book-1-mark",
+          "tag": "line",
+          "attrs": {
+            "x1": 90,
+            "y1": 154,
+            "x2": 96,
+            "y2": 154,
+            "stroke": "#faf7ed",
+            "stroke-width": 1
+          },
+          "parent": "book-1"
+        },
+        {
+          "id": "book-2",
+          "tag": "g",
+          "attrs": {},
+          "parent": "shelves"
+        },
+        {
+          "id": "book-2-body",
+          "tag": "rect",
+          "attrs": {
+            "x": 109,
+            "y": 144,
+            "width": 14,
+            "height": 32,
+            "fill": "#e7c866",
+            "rx": 1
+          },
+          "parent": "book-2"
+        },
+        {
+          "id": "book-2-mark",
+          "tag": "line",
+          "attrs": {
+            "x1": 113,
+            "y1": 154,
+            "x2": 119,
+            "y2": 154,
+            "stroke": "#faf7ed",
+            "stroke-width": 1
+          },
+          "parent": "book-2"
+        },
+        {
+          "id": "book-3",
+          "tag": "g",
+          "attrs": {},
+          "parent": "shelves"
+        },
+        {
+          "id": "book-3-body",
+          "tag": "rect",
+          "attrs": {
+            "x": 132,
+            "y": 144,
+            "width": 14,
+            "height": 40,
+            "fill": "#644569",
+            "rx": 1
+          },
+          "parent": "book-3"
+        },
+        {
+          "id": "book-3-mark",
+          "tag": "line",
+          "attrs": {
+            "x1": 136,
+            "y1": 154,
+            "x2": 142,
+            "y2": 154,
+            "stroke": "#faf7ed",
+            "stroke-width": 1
+          },
+          "parent": "book-3"
+        },
+        {
+          "id": "book-4",
+          "tag": "g",
+          "attrs": {},
+          "parent": "shelves"
+        },
+        {
+          "id": "book-4-body",
+          "tag": "rect",
+          "attrs": {
+            "x": 155,
+            "y": 144,
+            "width": 14,
+            "height": 36,
+            "fill": "#cb7555",
+            "rx": 1
+          },
+          "parent": "book-4"
+        },
+        {
+          "id": "book-4-mark",
+          "tag": "line",
+          "attrs": {
+            "x1": 159,
+            "y1": 154,
+            "x2": 165,
+            "y2": 154,
+            "stroke": "#faf7ed",
+            "stroke-width": 1
+          },
+          "parent": "book-4"
+        },
+        {
+          "id": "book-5",
+          "tag": "g",
+          "attrs": {},
+          "parent": "shelves"
+        },
+        {
+          "id": "book-5-body",
+          "tag": "rect",
+          "attrs": {
+            "x": 178,
+            "y": 144,
+            "width": 14,
+            "height": 32,
+            "fill": "#e7c866",
+            "rx": 1
+          },
+          "parent": "book-5"
+        },
+        {
+          "id": "book-5-mark",
+          "tag": "line",
+          "attrs": {
+            "x1": 182,
+            "y1": 154,
+            "x2": 188,
+            "y2": 154,
+            "stroke": "#faf7ed",
+            "stroke-width": 1
+          },
+          "parent": "book-5"
+        },
+        {
+          "id": "book-6",
+          "tag": "g",
+          "attrs": {},
+          "parent": "shelves"
+        },
+        {
+          "id": "book-6-body",
+          "tag": "rect",
+          "attrs": {
+            "x": 201,
+            "y": 144,
+            "width": 14,
+            "height": 40,
+            "fill": "#644569",
+            "rx": 1
+          },
+          "parent": "book-6"
+        },
+        {
+          "id": "book-6-mark",
+          "tag": "line",
+          "attrs": {
+            "x1": 205,
+            "y1": 154,
+            "x2": 211,
+            "y2": 154,
+            "stroke": "#faf7ed",
+            "stroke-width": 1
+          },
+          "parent": "book-6"
+        },
+        {
+          "id": "book-7",
+          "tag": "g",
+          "attrs": {},
+          "parent": "shelves"
+        },
+        {
+          "id": "book-7-body",
+          "tag": "rect",
+          "attrs": {
+            "x": 224,
+            "y": 144,
+            "width": 14,
+            "height": 36,
+            "fill": "#cb7555",
+            "rx": 1
+          },
+          "parent": "book-7"
+        },
+        {
+          "id": "book-7-mark",
+          "tag": "line",
+          "attrs": {
+            "x1": 228,
+            "y1": 154,
+            "x2": 234,
+            "y2": 154,
+            "stroke": "#faf7ed",
+            "stroke-width": 1
+          },
+          "parent": "book-7"
+        },
+        {
+          "id": "book-8",
+          "tag": "g",
+          "attrs": {},
+          "parent": "shelves"
+        },
+        {
+          "id": "book-8-body",
+          "tag": "rect",
+          "attrs": {
+            "x": 247,
+            "y": 144,
+            "width": 14,
+            "height": 32,
+            "fill": "#e7c866",
+            "rx": 1
+          },
+          "parent": "book-8"
+        },
+        {
+          "id": "book-8-mark",
+          "tag": "line",
+          "attrs": {
+            "x1": 251,
+            "y1": 154,
+            "x2": 257,
+            "y2": 154,
+            "stroke": "#faf7ed",
+            "stroke-width": 1
+          },
+          "parent": "book-8"
+        },
+        {
+          "id": "shelf-1",
+          "tag": "line",
+          "attrs": {
+            "x1": 52,
+            "y1": 252,
+            "x2": 282,
+            "y2": 252,
+            "stroke": "#222733",
+            "stroke-width": 4
+          },
+          "parent": "shelves"
+        },
+        {
+          "id": "book-9",
+          "tag": "g",
+          "attrs": {},
+          "parent": "shelves"
+        },
+        {
+          "id": "book-9-body",
+          "tag": "rect",
+          "attrs": {
+            "x": 63,
+            "y": 207,
+            "width": 14,
+            "height": 40,
+            "fill": "#644569",
+            "rx": 1
+          },
+          "parent": "book-9"
+        },
+        {
+          "id": "book-9-mark",
+          "tag": "line",
+          "attrs": {
+            "x1": 67,
+            "y1": 217,
+            "x2": 73,
+            "y2": 217,
+            "stroke": "#faf7ed",
+            "stroke-width": 1
+          },
+          "parent": "book-9"
+        },
+        {
+          "id": "book-10",
+          "tag": "g",
+          "attrs": {},
+          "parent": "shelves"
+        },
+        {
+          "id": "book-10-body",
+          "tag": "rect",
+          "attrs": {
+            "x": 86,
+            "y": 207,
+            "width": 14,
+            "height": 36,
+            "fill": "#cb7555",
+            "rx": 1
+          },
+          "parent": "book-10"
+        },
+        {
+          "id": "book-10-mark",
+          "tag": "line",
+          "attrs": {
+            "x1": 90,
+            "y1": 217,
+            "x2": 96,
+            "y2": 217,
+            "stroke": "#faf7ed",
+            "stroke-width": 1
+          },
+          "parent": "book-10"
+        },
+        {
+          "id": "book-11",
+          "tag": "g",
+          "attrs": {},
+          "parent": "shelves"
+        },
+        {
+          "id": "book-11-body",
+          "tag": "rect",
+          "attrs": {
+            "x": 109,
+            "y": 207,
+            "width": 14,
+            "height": 32,
+            "fill": "#e7c866",
+            "rx": 1
+          },
+          "parent": "book-11"
+        },
+        {
+          "id": "book-11-mark",
+          "tag": "line",
+          "attrs": {
+            "x1": 113,
+            "y1": 217,
+            "x2": 119,
+            "y2": 217,
+            "stroke": "#faf7ed",
+            "stroke-width": 1
+          },
+          "parent": "book-11"
+        },
+        {
+          "id": "book-12",
+          "tag": "g",
+          "attrs": {},
+          "parent": "shelves"
+        },
+        {
+          "id": "book-12-body",
+          "tag": "rect",
+          "attrs": {
+            "x": 132,
+            "y": 207,
+            "width": 14,
+            "height": 40,
+            "fill": "#644569",
+            "rx": 1
+          },
+          "parent": "book-12"
+        },
+        {
+          "id": "book-12-mark",
+          "tag": "line",
+          "attrs": {
+            "x1": 136,
+            "y1": 217,
+            "x2": 142,
+            "y2": 217,
+            "stroke": "#faf7ed",
+            "stroke-width": 1
+          },
+          "parent": "book-12"
+        },
+        {
+          "id": "book-13",
+          "tag": "g",
+          "attrs": {},
+          "parent": "shelves"
+        },
+        {
+          "id": "book-13-body",
+          "tag": "rect",
+          "attrs": {
+            "x": 155,
+            "y": 207,
+            "width": 14,
+            "height": 36,
+            "fill": "#cb7555",
+            "rx": 1
+          },
+          "parent": "book-13"
+        },
+        {
+          "id": "book-13-mark",
+          "tag": "line",
+          "attrs": {
+            "x1": 159,
+            "y1": 217,
+            "x2": 165,
+            "y2": 217,
+            "stroke": "#faf7ed",
+            "stroke-width": 1
+          },
+          "parent": "book-13"
+        },
+        {
+          "id": "book-14",
+          "tag": "g",
+          "attrs": {},
+          "parent": "shelves"
+        },
+        {
+          "id": "book-14-body",
+          "tag": "rect",
+          "attrs": {
+            "x": 178,
+            "y": 207,
+            "width": 14,
+            "height": 32,
+            "fill": "#e7c866",
+            "rx": 1
+          },
+          "parent": "book-14"
+        },
+        {
+          "id": "book-14-mark",
+          "tag": "line",
+          "attrs": {
+            "x1": 182,
+            "y1": 217,
+            "x2": 188,
+            "y2": 217,
+            "stroke": "#faf7ed",
+            "stroke-width": 1
+          },
+          "parent": "book-14"
+        },
+        {
+          "id": "book-15",
+          "tag": "g",
+          "attrs": {},
+          "parent": "shelves"
+        },
+        {
+          "id": "book-15-body",
+          "tag": "rect",
+          "attrs": {
+            "x": 201,
+            "y": 207,
+            "width": 14,
+            "height": 40,
+            "fill": "#644569",
+            "rx": 1
+          },
+          "parent": "book-15"
+        },
+        {
+          "id": "book-15-mark",
+          "tag": "line",
+          "attrs": {
+            "x1": 205,
+            "y1": 217,
+            "x2": 211,
+            "y2": 217,
+            "stroke": "#faf7ed",
+            "stroke-width": 1
+          },
+          "parent": "book-15"
+        },
+        {
+          "id": "book-16",
+          "tag": "g",
+          "attrs": {},
+          "parent": "shelves"
+        },
+        {
+          "id": "book-16-body",
+          "tag": "rect",
+          "attrs": {
+            "x": 224,
+            "y": 207,
+            "width": 14,
+            "height": 36,
+            "fill": "#cb7555",
+            "rx": 1
+          },
+          "parent": "book-16"
+        },
+        {
+          "id": "book-16-mark",
+          "tag": "line",
+          "attrs": {
+            "x1": 228,
+            "y1": 217,
+            "x2": 234,
+            "y2": 217,
+            "stroke": "#faf7ed",
+            "stroke-width": 1
+          },
+          "parent": "book-16"
+        },
+        {
+          "id": "book-17",
+          "tag": "g",
+          "attrs": {},
+          "parent": "shelves"
+        },
+        {
+          "id": "book-17-body",
+          "tag": "rect",
+          "attrs": {
+            "x": 247,
+            "y": 207,
+            "width": 14,
+            "height": 32,
+            "fill": "#e7c866",
+            "rx": 1
+          },
+          "parent": "book-17"
+        },
+        {
+          "id": "book-17-mark",
+          "tag": "line",
+          "attrs": {
+            "x1": 251,
+            "y1": 217,
+            "x2": 257,
+            "y2": 217,
+            "stroke": "#faf7ed",
+            "stroke-width": 1
+          },
+          "parent": "book-17"
+        },
+        {
+          "id": "desk",
+          "tag": "g",
+          "attrs": {},
+          "parent": "building"
+        },
+        {
+          "id": "desktop",
+          "tag": "rect",
+          "attrs": {
+            "x": 350,
+            "y": 223,
+            "width": 172,
+            "height": 12,
+            "fill": "#644569",
+            "rx": 2
+          },
+          "parent": "desk"
+        },
+        {
+          "id": "deskleg-0",
+          "tag": "rect",
+          "attrs": {
+            "x": 365,
+            "y": 235,
+            "width": 7,
+            "height": 52,
+            "fill": "#222733"
+          },
+          "parent": "desk"
+        },
+        {
+          "id": "deskleg-1",
+          "tag": "rect",
+          "attrs": {
+            "x": 506,
+            "y": 235,
+            "width": 7,
+            "height": 52,
+            "fill": "#222733"
+          },
+          "parent": "desk"
+        },
+        {
+          "id": "screen",
+          "tag": "rect",
+          "attrs": {
+            "x": 430,
+            "y": 180,
+            "width": 52,
+            "height": 36,
+            "fill": "#222733",
+            "rx": 4
+          },
+          "parent": "desk"
+        },
+        {
+          "id": "screenlight",
+          "tag": "rect",
+          "attrs": {
+            "x": 435,
+            "y": 185,
+            "width": 42,
+            "height": 25,
+            "fill": "#d4dfb9"
+          },
+          "parent": "desk"
+        },
+        {
+          "id": "screenstand",
+          "tag": "line",
+          "attrs": {
+            "x1": 456,
+            "y1": 216,
+            "x2": 456,
+            "y2": 223,
+            "stroke": "#222733",
+            "stroke-width": 4
+          },
+          "parent": "desk"
+        },
+        {
+          "id": "door",
+          "tag": "g",
+          "attrs": {},
+          "parent": "building"
+        },
+        {
+          "id": "doorpanel",
+          "tag": "rect",
+          "attrs": {
+            "x": 551,
+            "y": 140,
+            "width": 45,
+            "height": 147,
+            "fill": "#644569",
+            "rx": 3
+          },
+          "parent": "door"
+        },
+        {
+          "id": "doorlight",
+          "tag": "rect",
+          "attrs": {
+            "x": 558,
+            "y": 150,
+            "width": 31,
+            "height": 58,
+            "fill": "#d4dfb9"
+          },
+          "parent": "door"
+        },
+        {
+          "id": "handle",
+          "tag": "circle",
+          "attrs": {
+            "cx": 560,
+            "cy": 230,
+            "r": 3,
+            "fill": "#e7c866"
+          },
+          "parent": "door"
+        },
+        {
+          "id": "staff",
+          "tag": "g",
+          "attrs": {}
+        },
+        {
+          "id": "staff-head",
+          "tag": "circle",
+          "attrs": {
+            "cx": 394,
+            "cy": 166,
+            "r": 10,
+            "fill": "#d8a787"
+          },
+          "parent": "staff"
+        },
+        {
+          "id": "staff-body",
+          "tag": "rect",
+          "attrs": {
+            "x": 383,
+            "y": 179,
+            "width": 22,
+            "height": 30,
+            "fill": "#644569",
+            "rx": 5
+          },
+          "parent": "staff"
+        },
+        {
+          "id": "staff-leg1",
+          "tag": "line",
+          "attrs": {
+            "x1": 388,
+            "y1": 209,
+            "x2": 385,
+            "y2": 231,
+            "stroke": "#222733",
+            "stroke-width": 5
+          },
+          "parent": "staff"
+        },
+        {
+          "id": "staff-leg2",
+          "tag": "line",
+          "attrs": {
+            "x1": 400,
+            "y1": 209,
+            "x2": 403,
+            "y2": 231,
+            "stroke": "#222733",
+            "stroke-width": 5
+          },
+          "parent": "staff"
+        },
+        {
+          "id": "staff-arm",
+          "tag": "line",
+          "attrs": {
+            "x1": 404,
+            "y1": 187,
+            "x2": 418,
+            "y2": 198,
+            "stroke": "#644569",
+            "stroke-width": 6
+          },
+          "parent": "staff"
+        },
+        {
+          "id": "visitor",
+          "tag": "g",
+          "attrs": {}
+        },
+        {
+          "id": "visitor-head",
+          "tag": "circle",
+          "attrs": {
+            "cx": 315,
+            "cy": 216,
+            "r": 10,
+            "fill": "#d8a787"
+          },
+          "parent": "visitor"
+        },
+        {
+          "id": "visitor-body",
+          "tag": "rect",
+          "attrs": {
+            "x": 304,
+            "y": 229,
+            "width": 22,
+            "height": 30,
+            "fill": "#cb7555",
+            "rx": 5
+          },
+          "parent": "visitor"
+        },
+        {
+          "id": "visitor-leg1",
+          "tag": "line",
+          "attrs": {
+            "x1": 309,
+            "y1": 259,
+            "x2": 306,
+            "y2": 281,
+            "stroke": "#222733",
+            "stroke-width": 5
+          },
+          "parent": "visitor"
+        },
+        {
+          "id": "visitor-leg2",
+          "tag": "line",
+          "attrs": {
+            "x1": 321,
+            "y1": 259,
+            "x2": 324,
+            "y2": 281,
+            "stroke": "#222733",
+            "stroke-width": 5
+          },
+          "parent": "visitor"
+        },
+        {
+          "id": "visitor-arm",
+          "tag": "line",
+          "attrs": {
+            "x1": 325,
+            "y1": 237,
+            "x2": 339,
+            "y2": 248,
+            "stroke": "#cb7555",
+            "stroke-width": 6
+          },
+          "parent": "visitor"
+        },
+        {
+          "id": "helper",
+          "tag": "g",
+          "attrs": {}
+        },
+        {
+          "id": "helper-head",
+          "tag": "circle",
+          "attrs": {
+            "cx": 145,
+            "cy": 223,
+            "r": 10,
+            "fill": "#d8a787"
+          },
+          "parent": "helper"
+        },
+        {
+          "id": "helper-body",
+          "tag": "rect",
+          "attrs": {
+            "x": 134,
+            "y": 236,
+            "width": 22,
+            "height": 30,
+            "fill": "#516c91",
+            "rx": 5
+          },
+          "parent": "helper"
+        },
+        {
+          "id": "helper-leg1",
+          "tag": "line",
+          "attrs": {
+            "x1": 139,
+            "y1": 266,
+            "x2": 136,
+            "y2": 288,
+            "stroke": "#222733",
+            "stroke-width": 5
+          },
+          "parent": "helper"
+        },
+        {
+          "id": "helper-leg2",
+          "tag": "line",
+          "attrs": {
+            "x1": 151,
+            "y1": 266,
+            "x2": 154,
+            "y2": 288,
+            "stroke": "#222733",
+            "stroke-width": 5
+          },
+          "parent": "helper"
+        },
+        {
+          "id": "helper-arm",
+          "tag": "line",
+          "attrs": {
+            "x1": 155,
+            "y1": 244,
+            "x2": 169,
+            "y2": 255,
+            "stroke": "#516c91",
+            "stroke-width": 6
+          },
+          "parent": "helper"
+        },
+        {
+          "id": "parcel",
+          "tag": "g",
+          "attrs": {}
+        },
+        {
+          "id": "parcelbody",
+          "tag": "rect",
+          "attrs": {
+            "x": 165,
+            "y": 235,
+            "width": 25,
+            "height": 18,
+            "fill": "#e7c866",
+            "stroke": "#222733"
+          },
+          "parent": "parcel"
+        },
+        {
+          "id": "parcelline",
+          "tag": "line",
+          "attrs": {
+            "x1": 177,
+            "y1": 235,
+            "x2": 177,
+            "y2": 253,
+            "stroke": "#222733",
+            "stroke-width": 2
+          },
+          "parent": "parcel"
+        },
+        {
+          "id": "stock-track",
+          "tag": "rect",
+          "attrs": {
+            "x": 53,
+            "y": 316,
+            "width": 180,
+            "height": 5,
+            "fill": "#b7ad9f"
+          }
+        },
+        {
+          "id": "stock",
+          "tag": "rect",
+          "attrs": {
+            "x": 53,
+            "y": 316,
+            "width": 36,
+            "height": 5,
+            "fill": "#644569"
+          }
+        },
+        {
+          "id": "stocklabel",
+          "tag": "text",
+          "attrs": {
+            "x": 53,
+            "y": 343,
+            "font-size": 11,
+            "fill": "#222733"
+          },
+          "text": "MATERIALI PRONTI"
+        },
+        {
+          "id": "access-path",
+          "tag": "line",
+          "attrs": {
+            "x1": 290,
+            "y1": 320,
+            "x2": 590,
+            "y2": 320,
+            "stroke": "#b7ad9f",
+            "stroke-width": 3
+          }
+        },
+        {
+          "id": "reader",
+          "tag": "circle",
+          "attrs": {
+            "cx": 350,
+            "cy": 320,
+            "r": 6,
+            "fill": "#644569"
+          }
+        },
+        {
+          "id": "accesslabel",
+          "tag": "text",
+          "attrs": {
+            "x": 290,
+            "y": 343,
+            "font-size": 11,
+            "fill": "#222733"
+          },
+          "text": "ACCESSO AL SERVIZIO"
+        }
+      ],
+      "bindings": [
+        {
+          "layer": "stock",
+          "attribute": "width",
+          "kind": "metric",
+          "id": "ready",
+          "scale": 1.8
+        },
+        {
+          "layer": "reader",
+          "attribute": "cx",
+          "kind": "metric",
+          "id": "access",
+          "scale": 2.5,
+          "offset": 290
+        }
+      ],
+      "introSequence": "opening",
+      "sequences": [
+        {
+          "id": "opening",
+          "caption": "Prima si prepara lo spazio, poi arrivano le persone: aprire un servizio richiede entrambe le cose.",
+          "tracks": [
+            {
+              "layer": "building",
+              "attribute": "translateY",
+              "from": 35,
+              "to": 0,
+              "at": 0,
+              "duration": 800,
+              "ease": "out"
+            },
+            {
+              "layer": "building",
+              "attribute": "opacity",
+              "from": 0,
+              "to": 1,
+              "at": 0,
+              "duration": 650,
+              "ease": "smooth"
+            },
+            {
+              "layer": "book-0",
+              "attribute": "translateY",
+              "from": -35,
+              "to": 0,
+              "at": 300,
+              "duration": 650,
+              "ease": "out"
+            },
+            {
+              "layer": "book-1",
+              "attribute": "translateY",
+              "from": -35,
+              "to": 0,
+              "at": 345,
+              "duration": 650,
+              "ease": "out"
+            },
+            {
+              "layer": "book-2",
+              "attribute": "translateY",
+              "from": -35,
+              "to": 0,
+              "at": 390,
+              "duration": 650,
+              "ease": "out"
+            },
+            {
+              "layer": "book-3",
+              "attribute": "translateY",
+              "from": -35,
+              "to": 0,
+              "at": 435,
+              "duration": 650,
+              "ease": "out"
+            },
+            {
+              "layer": "book-4",
+              "attribute": "translateY",
+              "from": -35,
+              "to": 0,
+              "at": 480,
+              "duration": 650,
+              "ease": "out"
+            },
+            {
+              "layer": "book-5",
+              "attribute": "translateY",
+              "from": -35,
+              "to": 0,
+              "at": 525,
+              "duration": 650,
+              "ease": "out"
+            },
+            {
+              "layer": "book-6",
+              "attribute": "translateY",
+              "from": -35,
+              "to": 0,
+              "at": 570,
+              "duration": 650,
+              "ease": "out"
+            },
+            {
+              "layer": "book-7",
+              "attribute": "translateY",
+              "from": -35,
+              "to": 0,
+              "at": 615,
+              "duration": 650,
+              "ease": "out"
+            },
+            {
+              "layer": "book-8",
+              "attribute": "translateY",
+              "from": -35,
+              "to": 0,
+              "at": 660,
+              "duration": 650,
+              "ease": "out"
+            },
+            {
+              "layer": "book-9",
+              "attribute": "translateY",
+              "from": -35,
+              "to": 0,
+              "at": 705,
+              "duration": 650,
+              "ease": "out"
+            },
+            {
+              "layer": "book-10",
+              "attribute": "translateY",
+              "from": -35,
+              "to": 0,
+              "at": 750,
+              "duration": 650,
+              "ease": "out"
+            },
+            {
+              "layer": "book-11",
+              "attribute": "translateY",
+              "from": -35,
+              "to": 0,
+              "at": 795,
+              "duration": 650,
+              "ease": "out"
+            },
+            {
+              "layer": "book-12",
+              "attribute": "translateY",
+              "from": -35,
+              "to": 0,
+              "at": 840,
+              "duration": 650,
+              "ease": "out"
+            },
+            {
+              "layer": "book-13",
+              "attribute": "translateY",
+              "from": -35,
+              "to": 0,
+              "at": 885,
+              "duration": 650,
+              "ease": "out"
+            },
+            {
+              "layer": "book-14",
+              "attribute": "translateY",
+              "from": -35,
+              "to": 0,
+              "at": 930,
+              "duration": 650,
+              "ease": "out"
+            },
+            {
+              "layer": "book-15",
+              "attribute": "translateY",
+              "from": -35,
+              "to": 0,
+              "at": 975,
+              "duration": 650,
+              "ease": "out"
+            },
+            {
+              "layer": "book-16",
+              "attribute": "translateY",
+              "from": -35,
+              "to": 0,
+              "at": 1020,
+              "duration": 650,
+              "ease": "out"
+            },
+            {
+              "layer": "book-17",
+              "attribute": "translateY",
+              "from": -35,
+              "to": 0,
+              "at": 1065,
+              "duration": 650,
+              "ease": "out"
+            },
+            {
+              "layer": "staff",
+              "attribute": "translateY",
+              "from": 25,
+              "to": 0,
+              "at": 650,
+              "duration": 650,
+              "ease": "smooth"
+            },
+            {
+              "layer": "staff",
+              "attribute": "opacity",
+              "from": 0,
+              "to": 1,
+              "at": 650,
+              "duration": 500,
+              "ease": "smooth"
+            },
+            {
+              "layer": "visitor",
+              "attribute": "translateX",
+              "from": -90,
+              "to": 0,
+              "at": 1200,
+              "duration": 1400,
+              "ease": "smooth"
+            },
+            {
+              "layer": "helper",
+              "attribute": "translateX",
+              "from": -100,
+              "to": 0,
+              "at": 1000,
+              "duration": 1400,
+              "ease": "smooth"
+            },
+            {
+              "layer": "parcel",
+              "attribute": "opacity",
+              "from": 0,
+              "to": 1,
+              "at": 1900,
+              "duration": 450,
+              "ease": "smooth"
+            },
+            {
+              "layer": "sun",
+              "attribute": "translateY",
+              "from": 18,
+              "to": 0,
+              "at": 0,
+              "duration": 2000,
+              "ease": "smooth"
+            }
+          ]
+        },
+        {
+          "id": "prepare",
+          "caption": "Preparare i materiali richiede lavoro: il trasferimento rende visibile ciò che viene organizzato.",
+          "tracks": [
+            {
+              "layer": "helper",
+              "attribute": "translateX",
+              "from": 0,
+              "to": 25,
+              "at": 0,
+              "duration": 650,
+              "ease": "smooth"
+            },
+            {
+              "layer": "parcel",
+              "attribute": "translateY",
+              "from": 0,
+              "to": -70,
+              "at": 550,
+              "duration": 800,
+              "ease": "smooth"
+            },
+            {
+              "layer": "parcel",
+              "attribute": "translateX",
+              "from": 0,
+              "to": 55,
+              "at": 550,
+              "duration": 800,
+              "ease": "smooth"
+            },
+            {
+              "layer": "parcel",
+              "attribute": "opacity",
+              "from": 1,
+              "to": 0,
+              "at": 1150,
+              "duration": 250,
+              "ease": "smooth"
+            },
+            {
+              "layer": "helper",
+              "attribute": "translateX",
+              "from": 25,
+              "to": 0,
+              "at": 1450,
+              "duration": 650,
+              "ease": "smooth"
+            },
+            {
+              "layer": "parcel",
+              "attribute": "translateY",
+              "from": -70,
+              "to": 0,
+              "at": 1750,
+              "duration": 100,
+              "ease": "smooth"
+            },
+            {
+              "layer": "parcel",
+              "attribute": "translateX",
+              "from": 55,
+              "to": 0,
+              "at": 1750,
+              "duration": 100,
+              "ease": "smooth"
+            },
+            {
+              "layer": "parcel",
+              "attribute": "opacity",
+              "from": 0,
+              "to": 1,
+              "at": 2100,
+              "duration": 400,
+              "ease": "smooth"
+            }
+          ]
+        },
+        {
+          "id": "welcome",
+          "caption": "Aprire l’accesso permette alle persone di raggiungere chi gestisce il servizio.",
+          "tracks": [
+            {
+              "layer": "visitor",
+              "attribute": "translateX",
+              "from": -95,
+              "to": 0,
+              "at": 0,
+              "duration": 1500,
+              "ease": "smooth"
+            },
+            {
+              "layer": "door",
+              "attribute": "opacity",
+              "from": 0.35,
+              "to": 1,
+              "at": 0,
+              "duration": 700,
+              "ease": "smooth"
+            },
+            {
+              "layer": "staff",
+              "attribute": "translateX",
+              "from": 0,
+              "to": 18,
+              "at": 500,
+              "duration": 700,
+              "ease": "smooth"
+            },
+            {
+              "layer": "staff",
+              "attribute": "translateX",
+              "from": 18,
+              "to": 0,
+              "at": 1600,
+              "duration": 600,
+              "ease": "smooth"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "caption": "Le persone si incontrano: i punti di vista sullo stesso servizio restano diversi.",
+          "tracks": [
+            {
+              "layer": "helper",
+              "attribute": "translateX",
+              "from": 0,
+              "to": 105,
+              "at": 0,
+              "duration": 1100,
+              "ease": "smooth"
+            },
+            {
+              "layer": "visitor",
+              "attribute": "translateX",
+              "from": 0,
+              "to": -25,
+              "at": 200,
+              "duration": 900,
+              "ease": "smooth"
+            },
+            {
+              "layer": "helper",
+              "attribute": "translateX",
+              "from": 105,
+              "to": 0,
+              "at": 1700,
+              "duration": 1000,
+              "ease": "smooth"
+            },
+            {
+              "layer": "visitor",
+              "attribute": "translateX",
+              "from": -25,
+              "to": 0,
+              "at": 1700,
+              "duration": 1000,
+              "ease": "smooth"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "acts": [
+    {
+      "id": "opening",
+      "title": "01 · Aprire un servizio",
+      "actors": [
+        {
+          "id": "staff"
+        },
+        {
+          "id": "users"
+        }
+      ],
+      "roles": [
+        {
+          "id": "organizer",
+          "label": "Organizzatori",
+          "actorId": "staff",
+          "mandate": "Organizzare materiali e lavoro con risorse limitate."
+        },
+        {
+          "id": "visitor",
+          "label": "Residenti",
+          "actorId": "users",
+          "mandate": "Accedere al servizio e rendere visibili le difficoltà di chi lo usa."
+        }
+      ],
+      "metrics": [
+        {
+          "id": "ready",
+          "label": "Materiali pronti",
+          "start": 35,
+          "min": 0,
+          "max": 100
+        },
+        {
+          "id": "access",
+          "label": "Accesso al servizio",
+          "start": 10,
+          "min": 0,
+          "max": 100
+        }
+      ],
+      "resources": [],
+      "relations": [
+        {
+          "id": "cooperation",
+          "label": "Collaborazione",
+          "start": 0,
+          "min": -100,
+          "max": 100,
+          "from": "staff",
+          "to": "users"
+        }
+      ],
+      "flags": [
+        "prepared"
+      ],
+      "episodes": [
+        {
+          "id": "intro",
+          "type": "narrative",
+          "title": "Le porte stanno per aprire",
+          "text": "La sala di quartiere dispone di nuovi materiali, ma prepararli richiede tempo. Aprire subito aiuta chi aspetta; organizzare prima il lavoro può migliorare il servizio nei giorni successivi.",
+          "roleId": "organizer",
+          "exposes": [
+            "context"
+          ],
+          "visualExplanation": "La scena mostra persone e materiali. I due indicatori in basso descrivono la simulazione: non sono dati reali né voti.",
+          "stageId": "room",
+          "motionId": "opening"
+        },
+        {
+          "id": "plan",
+          "type": "choice",
+          "title": "Prima aprire o prima organizzare?",
+          "text": "Non puoi ottenere subito tutti i vantaggi. Scegli una priorità e osserva anche gli effetti che arriveranno più tardi.",
+          "roleId": "organizer",
+          "choices": [
+            {
+              "id": "prepare",
+              "label": "Organizzare prima i materiali",
+              "feedback": "La preparazione aumenta. L’apertura è più lenta, ma nel prossimo episodio il lavoro svolto faciliterà l’accesso.",
+              "effects": [
+                {
+                  "kind": "metric",
+                  "id": "ready",
+                  "delta": 15
+                },
+                {
+                  "kind": "metric",
+                  "id": "access",
+                  "delta": -5
+                },
+                {
+                  "kind": "flag",
+                  "id": "prepared",
+                  "value": true
+                }
+              ],
+              "delayed": [
+                {
+                  "id": "preparation-benefit",
+                  "episodeId": "allocation",
+                  "expiresAfterTurns": 2,
+                  "onExit": "discard",
+                  "explanation": "Il lavoro di preparazione precedente rende ora più rapido il servizio.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "access",
+                      "delta": 20
+                    }
+                  ]
+                }
+              ],
+              "motionId": "prepare"
+            },
+            {
+              "id": "open",
+              "label": "Aprire subito il servizio",
+              "feedback": "Più persone possono entrare immediatamente; una parte dei materiali resta da preparare.",
+              "effects": [
+                {
+                  "kind": "metric",
+                  "id": "access",
+                  "delta": 20
+                },
+                {
+                  "kind": "metric",
+                  "id": "ready",
+                  "delta": -5
+                }
+              ],
+              "motionId": "welcome"
+            }
+          ],
+          "stageId": "room",
+          "branches": [
+            {
+              "when": {
+                "op": "flag",
+                "id": "prepared",
+                "value": true
+              },
+              "to": "bridge"
+            }
+          ],
+          "next": "allocation",
+          "motionId": "prepare",
+          "visualExplanation": "La scena mostra persone e materiali. I due indicatori in basso descrivono la simulazione: non sono dati reali né voti."
+        },
+        {
+          "id": "bridge",
+          "type": "narrative",
+          "title": "Il piano deve diventare un turno",
+          "text": "Hai preparato il lavoro. Adesso occorre distribuire il tempo fra accoglienza e organizzazione.",
+          "roleId": "organizer",
+          "stageId": "room",
+          "next": "allocation",
+          "motionId": "opening",
+          "visualExplanation": "La scena mostra persone e materiali. I due indicatori in basso descrivono la simulazione: non sono dati reali né voti."
+        },
+        {
+          "id": "allocation",
+          "type": "resource_allocation",
+          "title": "Quattro ore di lavoro",
+          "text": "Distribuisci tutte le quattro ore tra la preparazione e l’accoglienza. Ogni ora migliora una parte diversa del servizio.",
+          "roleId": "organizer",
+          "budget": 4,
+          "buckets": [
+            {
+              "id": "preparation",
+              "label": "Ore di preparazione",
+              "max": 4,
+              "perUnit": [
+                {
+                  "kind": "metric",
+                  "id": "ready",
+                  "delta": 5
+                }
+              ]
+            },
+            {
+              "id": "welcome",
+              "label": "Ore di accoglienza",
+              "max": 4,
+              "perUnit": [
+                {
+                  "kind": "metric",
+                  "id": "access",
+                  "delta": 5
+                }
+              ]
+            }
+          ],
+          "feedback": "Le ore distribuite hanno migliorato il servizio in modo diverso. Nessuna delle due quantità rappresenta un voto.",
+          "stageId": "room",
+          "motionId": "prepare",
+          "visualExplanation": "La scena mostra persone e materiali. I due indicatori in basso descrivono la simulazione: non sono dati reali né voti.",
+          "resultMotionId": "prepare"
+        },
+        {
+          "id": "crisis",
+          "type": "role_crisis",
+          "title": "Due esigenze, una decisione",
+          "text": "Residenti e organizzatori guardano la stessa situazione da prospettive diverse. Cambiare punto di vista non fa passare il tempo.",
+          "roleId": "organizer",
+          "roles": [
+            "organizer",
+            "visitor"
+          ],
+          "choices": [
+            {
+              "id": "coordinate",
+              "label": "Concordare un turno comune",
+              "feedback": "Le persone lavorano insieme: aumenta la preparazione e migliora il rapporto tra i gruppi.",
+              "effects": [
+                {
+                  "kind": "metric",
+                  "id": "ready",
+                  "delta": 5
+                },
+                {
+                  "kind": "relation",
+                  "id": "cooperation",
+                  "delta": 10
+                }
+              ],
+              "motionId": "compare"
+            },
+            {
+              "id": "access-first",
+              "label": "Riservare un orario agli utenti",
+              "feedback": "L’accesso migliora, ma parte del lavoro viene rinviata.",
+              "effects": [
+                {
+                  "kind": "metric",
+                  "id": "access",
+                  "delta": 10
+                },
+                {
+                  "kind": "metric",
+                  "id": "ready",
+                  "delta": -5
+                }
+              ],
+              "roles": [
+                "visitor"
+              ],
+              "motionId": "welcome"
+            },
+            {
+              "id": "planned",
+              "label": "Usare il piano già preparato",
+              "feedback": "Il lavoro precedente permette di rendere più agevole il servizio.",
+              "effects": [
+                {
+                  "kind": "metric",
+                  "id": "access",
+                  "delta": 10
+                }
+              ],
+              "when": {
+                "op": "flag",
+                "id": "prepared",
+                "value": true
+              },
+              "motionId": "welcome"
+            }
+          ],
+          "stageId": "room",
+          "motionId": "compare",
+          "visualExplanation": "La scena mostra persone e materiali. I due indicatori in basso descrivono la simulazione: non sono dati reali né voti."
+        },
+        {
+          "id": "sources",
+          "type": "source_comparison",
+          "title": "Due documenti, due domande",
+          "text": "Apri e confronta entrambi i documenti. Leggerli e svolgere il confronto sono due attività distinte.",
+          "roleId": "visitor",
+          "exposes": [
+            "compared"
+          ],
+          "sources": [
+            {
+              "id": "log",
+              "title": "Registro delle attività",
+              "text": "Sono stati preparati venti materiali. Otto persone hanno utilizzato il servizio.",
+              "provenance": "Documento fittizio scritto per questa demo: registro di una giornata."
+            },
+            {
+              "id": "voice",
+              "title": "Una testimonianza",
+              "text": "Ho trovato il materiale che cercavo, ma ho aspettato a lungo perché c’era una sola persona all’accoglienza.",
+              "provenance": "Testimonianza fittizia scritta per questa demo: punto di vista di un utente."
+            }
+          ],
+          "choices": [
+            {
+              "id": "combine",
+              "label": "Usarli insieme per ricostruire attività ed esperienza",
+              "feedback": "Il registro descrive quantità; la testimonianza aggiunge un’esperienza. Sono prospettive complementari, con limiti diversi.",
+              "effects": [],
+              "motionId": "compare"
+            },
+            {
+              "id": "replace",
+              "label": "Usare soltanto il registro delle attività",
+              "feedback": "Il registro è utile, ma da solo non descrive attese, difficoltà e qualità dell’esperienza. Confrontarlo con la testimonianza aggiunge informazioni.",
+              "effects": [],
+              "motionId": "compare"
+            }
+          ],
+          "stageId": "room",
+          "motionId": "compare",
+          "visualExplanation": "La scena mostra persone e materiali. I due indicatori in basso descrivono la simulazione: non sono dati reali né voti."
+        },
+        {
+          "id": "check",
+          "type": "assessment",
+          "title": "Che cosa puoi concludere?",
+          "text": "Questa prova riguarda il confronto dei documenti. Non valuta quale priorità hai scelto nella simulazione.",
+          "roleId": "visitor",
+          "question": {
+            "id": "evidence",
+            "prompt": "Quale conclusione è sostenuta dai due documenti?",
+            "options": [
+              {
+                "id": "both",
+                "label": "Il servizio è stato usato, ma un utente ha atteso a lungo."
+              },
+              {
+                "id": "all",
+                "label": "La preparazione dei materiali ha causato l’attesa all’ingresso."
+              },
+              {
+                "id": "only",
+                "label": "Il servizio ha accolto gli utenti con tempi di attesa simili."
+              }
+            ],
+            "correctId": "both",
+            "rationale": "Il registro documenta otto utenti; la testimonianza descrive una lunga attesa e una sola persona all’accoglienza. Non misura le attese degli altri utenti e non attribuisce il ritardo alla preparazione dei materiali.",
+            "objectives": [
+              "Distinguere le informazioni offerte da fonti diverse"
+            ],
+            "source": "I due documenti fittizi del precedente episodio",
+            "requiredExposureFlags": [
+              "compared"
+            ]
+          },
+          "stageId": "room",
+          "motionId": "welcome",
+          "visualExplanation": "La scena mostra persone e materiali. I due indicatori in basso descrivono la simulazione: non sono dati reali né voti."
+        }
+      ],
+      "reconciliation": "Questo era un modello fittizio: indicatori e quantità sono convenzioni didattiche. Il prossimo atto parte da un nuovo quadro dichiarato, non prolunga automaticamente le tue ipotesi."
+    },
+    {
+      "id": "review",
+      "title": "02 · Un nuovo quadro",
+      "actors": [
+        {
+          "id": "staff"
+        },
+        {
+          "id": "users"
+        }
+      ],
+      "roles": [
+        {
+          "id": "organizer",
+          "label": "Organizzatori",
+          "actorId": "staff",
+          "mandate": "Organizzare materiali e lavoro con risorse limitate."
+        },
+        {
+          "id": "visitor",
+          "label": "Residenti",
+          "actorId": "users",
+          "mandate": "Accedere al servizio e rendere visibili le difficoltà di chi lo usa."
+        }
+      ],
+      "metrics": [
+        {
+          "id": "ready",
+          "label": "Materiali pronti",
+          "start": 20,
+          "min": 0,
+          "max": 100
+        },
+        {
+          "id": "access",
+          "label": "Accesso al servizio",
+          "start": 20,
+          "min": 0,
+          "max": 100
+        }
+      ],
+      "resources": [],
+      "relations": [
+        {
+          "id": "cooperation",
+          "label": "Collaborazione",
+          "start": 0,
+          "min": -100,
+          "max": 100,
+          "from": "staff",
+          "to": "users"
+        }
+      ],
+      "flags": [
+        "prepared"
+      ],
+      "episodes": [
+        {
+          "id": "new-frame",
+          "type": "narrative",
+          "title": "Ripartire dai dati disponibili",
+          "text": "Nel nuovo quadro della sala di quartiere, gli indicatori ripartono dai valori iniziali. Le tue decisioni precedenti restano nel diario, ma non diventano fatti del nuovo scenario.",
+          "roleId": "visitor",
+          "stageId": "room",
+          "motionId": "opening",
+          "visualExplanation": "La scena mostra persone e materiali. I due indicatori in basso descrivono la simulazione: non sono dati reali né voti."
+        }
+      ],
+      "reconciliation": "Hai distinto scelte, conseguenze simulate e informazioni disponibili. Per un caso reale servirebbero dati e fonti verificati, oltre a un modello più ricco."
+    }
+  ]
+}

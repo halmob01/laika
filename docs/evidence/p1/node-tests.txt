@@ -1,0 +1,75 @@
+
+> learning-game-kit@0.1.0 test
+> npm run validate && node --test tests/*.test.js tests/legacy/*.test.cjs
+
+
+> learning-game-kit@0.1.0 validate
+> node scripts/validate-games.js
+
+OK biblioteca 2 atti 1 scenografie
+OK quartiere 2 atti 1 scenografie
+OK messaggio 3 atti 2 scenografie
+OK laika 2 atti 0 scenografie
+✔ composition scopes symbols, preserves input and resolves rest poses (15.975991ms)
+✔ presets cannot bypass SVG restrictions, collisions or timing limits (14.037444ms)
+✔ new pack command registers a playable pack and refuses overwrite/path traversal (31.141698ms)
+✔ different branches converge before cross-act assessments, without numeric metrics (10.199119ms)
+✔ articulated crowd compiles deterministically, keeps art in pack, obeys channel budget (79.012085ms)
+✔ keyframes and finite cycles sample absolute time, including waits and final boundaries (0.518393ms)
+✔ choreography refuses malformed keys, unbounded loops, clip recursion and invalid targets (73.332667ms)
+✔ SVG import preserves original geometry and rejects executable or unhandled markup (377.597401ms)
+✔ biblioteca: same public contract completes and restores at every boundary (82.565461ms)
+✔ quartiere: same public contract completes and restores at every boundary (77.884133ms)
+✔ messaggio: same public contract completes and restores at every boundary (35.731351ms)
+✔ laika: same public contract completes and restores at every boundary (2.130279ms)
+✔ delayed entry exactly once; perspective is not a simulation turn; act resets (3.699792ms)
+✔ false delayed conditions expire or are discarded; turn triggers do not run on views (5.071963ms)
+✔ turn-delayed effects replay once and retry a false condition within the window (2.322593ms)
+✔ invalid actions cannot bypass roles, sources, allocation or assessment (6.770326ms)
+✔ clamped deltas are actual changes and no zero-resource game over (1.250652ms)
+✔ malformed data and unreachable assessment prerequisites fail before play (7.092601ms)
+✔ save namespaces, version incompatibility, corrupted commands and storage failures are explicit (6.990611ms)
+✔ assessment score independent from simulation; stable option positions vary by seed (2.059045ms)
+✔ shared modules have no content imports or domain branching; legacy isolated (3.676052ms)
+✔ LAIKA Atto 0: 14 simboli e quattro studi storici (2.988805ms)
+✔ LAIKA Atto 0: scene composabili e valide nel motore reale (7.315539ms)
+✔ LAIKA Atto 0: ogni simbolo è istanziabile e validabile da solo (2.519362ms)
+✔ LAIKA Atto 0: metrica dimostrativa e scene non si spacciano per un gioco (0.504864ms)
+✔ LAIKA: le cinque figure organiche sono conservate come SVG standalone (2.834401ms)
+✔ LAIKA: i due prototipi originali sono conservati (2.672703ms)
+✔ le due storie utilizzano il medesimo schema, senza regole medievali (7.713606ms)
+✔ le card narrative non consentono scelte (1.039953ms)
+✔ non si possono saltare decisioni non risolte (1.881943ms)
+✔ il turno applica effetti della scelta + costo dell’assedio, senza mutare lo stato originale (1.001276ms)
+✔ l’esito può essere mostrato una sola volta e non consente una seconda scelta (0.436333ms)
+✔ il riepilogo non tratta le barre come punteggi (5.268564ms)
+✔ la storia di Achille si conclude senza dipendere da Troia o dal feudo (0.545334ms)
+✔ un salvataggio in fase di decisione o di conseguenza si ripristina (1.386122ms)
+✔ salvataggi vecchi, alterati o di un altro episodio vengono scartati (0.978492ms)
+✔ gli indicatori sono limitati fra zero e cento con delta reali (0.607385ms)
+✔ i contenuti errati sono rifiutati prima di giocare (0.78719ms)
+✔ registry presentation is optional and only accepts canonical local paths (2.318436ms)
+✔ context accepts documented metadata and rejects malformed context without changing legacy packs (27.804901ms)
+✔ progress reuses replay, preserves saves byte for byte and distinguishes new/outcome/complete/invalid (18.161757ms)
+✔ LAIKA assembly is deterministic, validated and projects editorial metadata out (3.550001ms)
+✔ LAIKA build rejects missing references, duplicate IDs, unresolved questions and invalid schema before writing (10.323321ms)
+✔ LAIKA resolves external stage/symbol/question data and keeps nested editorial notes out of runtime (3.818026ms)
+✔ persistent SVG geometry has actual initial/intermediate/final states, replay and skip (13.842046ms)
+✔ consecutive/interrupted transitions end at latest state; reduced motion and reload identical (3.70168ms)
+✔ SVG rejects external links, scripts, event attributes and non-numeric bindings (49.309543ms)
+✔ multitrack narrative: stagger, pause/resume, final state, replay and interruption (4.844138ms)
+✔ sequences reject overlap, missing groups, bound-state collisions and unknown easing (8.690466ms)
+✔ timeline final pose equals reload; non-restorable poses fail authoring validation (13.009223ms)
+✔ groups without explicit attributes can be animated and validated (2.213772ms)
+✔ composed poses survive animation, skip, reload and reduced motion (7.210935ms)
+✔ excursion and emphasis presets restore their declared pose (2.536258ms)
+✔ crowd, camera and clipping seek backwards, pause, resume, replay and restore static state (44.299946ms)
+✔ clip IDs are isolated per mount and transforms write once per node per frame (20.484965ms)
+ℹ tests 55
+ℹ suites 0
+ℹ pass 55
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2100.7626

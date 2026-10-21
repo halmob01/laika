@@ -1,0 +1,811 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LAIKA — Kit Forme: Brutalismo, Cosmismo & Personaggi</title>
+<style>
+  :root {
+    --paper:#f3ebdb; --paper2:#e9e0cf; --red:#cc2a25; --ink:#1c1c1b;
+    --blue:#93abb7; --mute:#59564f; --line:#bdb6a7;
+    --mono:ui-monospace,'SFMono-Regular',Consolas,monospace;
+    --text:'Roboto Condensed','Arial Narrow',Arial,sans-serif;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--text); padding:18px; }
+  .wrap { max-width:1420px; margin:0 auto; }
+  header { border-bottom:3px solid var(--ink); padding-bottom:12px; margin-bottom:18px; display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:10px; }
+  .tag { font:700 11px var(--mono); background:var(--red); color:var(--paper); padding:4px 8px; letter-spacing:.08em; display:inline-block; margin-bottom:5px; }
+  h1 { margin:0; font-size:clamp(24px,3.2vw,40px); line-height:.95; text-transform:uppercase; letter-spacing:-.03em; }
+  .top-grid { display:grid; grid-template-columns:1.5fr 1fr; gap:18px; margin-bottom:24px; }
+  @media(max-width:1000px){ .top-grid { grid-template-columns:1fr; } }
+  .box { border:3px solid var(--ink); background:var(--paper2); display:flex; flex-direction:column; }
+  .box-head { background:var(--ink); color:var(--paper); padding:9px 14px; font:700 11px var(--mono); letter-spacing:.05em; display:flex; justify-content:space-between; align-items:center; }
+  .stage-view svg { width:100%; height:auto; display:block; background:var(--paper2); }
+  .caption { background:var(--paper); border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); padding:9px 14px; font:700 12px var(--mono); display:flex; justify-content:space-between; align-items:center; gap:10px; }
+  .controls { padding:12px; background:var(--paper); display:flex; flex-direction:column; gap:10px; }
+  .row { display:flex; flex-wrap:wrap; gap:7px; align-items:center; }
+  button { font:800 11px var(--mono); text-transform:uppercase; padding:8px 11px; border:2px solid var(--ink); background:var(--paper); color:var(--ink); cursor:pointer; }
+  button:hover { background:var(--paper2); }
+  button.active, button.scene-btn.active { background:var(--red); color:var(--paper); border-color:var(--red); }
+  button.action-btn { background:var(--ink); color:var(--paper); }
+  button.action-btn:hover { background:var(--red); border-color:var(--red); }
+  .catalog-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px; padding:14px; background:var(--paper); }
+  .card { border:2px solid var(--ink); background:var(--paper2); display:flex; flex-direction:column; }
+  .card-title { background:var(--ink); color:var(--paper); padding:6px 9px; font:700 10px var(--mono); display:flex; justify-content:space-between; }
+  .card-title b { color:#ff8580; }
+  .card svg { width:100%; height:160px; display:block; background:var(--paper); }
+  .card-note { padding:7px 9px; font:600 10.5px/1.3 var(--mono); color:var(--mute); border-top:1px solid var(--line); }
+  pre { margin:0; padding:12px; background:var(--ink); color:var(--paper); font:10.5px/1.38 var(--mono); overflow:auto; max-height:440px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <span class="tag">LAIKA · KIT FORME ARCHITETTONICHE E PERSONAGGI (20 SIMBOLI)</span>
+      <h1>Brutalismo, Cosmismo, Mezzi &amp; Sagome Articolate</h1>
+    </div>
+    <div id="diagBadge" style="font:700 11px var(--mono);color:#196b27;text-align:right">
+      STATO MOTORE: INIZIALIZZAZIONE...
+    </div>
+  </header>
+
+  <div class="top-grid">
+    <div class="box">
+      <div class="box-head">
+        <span>STAGE INTERATTIVO REALE (<code>compose.js</code> + <code>stage.js</code>)</span>
+        <span>5 SCENE STORICHE</span>
+      </div>
+      <div id="stageHost" class="stage-view"></div>
+      <div class="caption">
+        <span id="captionText">Seleziona una scena o avvia le sequenze animate.</span>
+        <b style="color:var(--red);white-space:nowrap">★ Laika presente</b>
+      </div>
+      <div class="controls">
+        <div class="row">
+          <strong style="font:800 11px var(--mono)">SCENA:</strong>
+          <button class="scene-btn active" data-stage="scena-1917">1. Palazzo &amp; Treno (1917)</button>
+          <button class="scene-btn" data-stage="scena-piano">2. Diga, Gru &amp; Vysotka (Anni '30-'50)</button>
+          <button class="scene-btn" data-stage="scena-cosmo">3. Cosmodromo &amp; Monumento (1961)</button>
+          <button class="scene-btn" data-stage="scena-panelki">4. Brutalismo &amp; Tram (Anni '70)</button>
+          <button class="scene-btn" data-stage="scena-atomica">5. Reattore &amp; Torretta (Anni '80)</button>
+        </div>
+        <div class="row" id="seqButtons"></div>
+        <div class="row">
+          <span style="font:700 11px var(--mono)">BINDING METRICA (<code>progresso</code>):</span>
+          <input type="range" id="metricRange" min="0" max="100" value="40" style="flex:1;accent-color:var(--red)">
+          <strong id="metricLabel" style="font:800 12px var(--mono)">40</strong>
+          <button id="btnReplay">↺ Replay</button>
+          <button id="btnSkip">⏭ Skip</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="box-head">
+        <span>JSON VALIDATO PER <code>game.json</code></span>
+        <button id="copyBtn" style="padding:4px 8px;font-size:10px;background:var(--red);color:var(--paper);border:0">COPIA "symbols"</button>
+      </div>
+      <pre id="jsonPreview"></pre>
+    </div>
+  </div>
+
+  <div class="box">
+    <div class="box-head">
+      <span>CATALOGO COMPLETO DEI 20 SIMBOLI (ORIGINE 0,0 AL SUOLO)</span>
+      <span>ARCHITETTURE · COSMISMO · MEZZI · FOLLE · PERSONAGGI · LAIKA</span>
+    </div>
+    <div id="catalogGrid" class="catalog-grid"></div>
+  </div>
+</div>
+
+<script>
+(() => {
+  const diag = document.getElementById('diagBadge');
+  try {
+    // ========================================================================
+    // 1. LIBRERIA 20 SIMBOLI (ID rigorosamente validati, zero spazi)
+    // ========================================================================
+    const LAIKA_SYMBOLS = [
+      // 1. GRATTACIELO STALINIANO A GRADONI (VYSOTKA) — Tavola 01/7, 03/1, 04/10
+      {
+        id: 'env-vysotka',
+        meta: 'Architettura · Grattacielo a gradoni con guglia e stella rossa',
+        layers: [
+          { id: 'wings', tag: 'path', attrs: { d: 'M-82,0 V-72 H82 V0 Z', fill: '#93abb7' } },
+          { id: 'wings-sh', tag: 'path', attrs: { d: 'M72,0 V-72 H82 V0 Z M-84,-72 H84 V-67 H-84 Z', fill: '#1c1c1b' } },
+          { id: 'tier1', tag: 'path', attrs: { d: 'M-52,0 V-124 H52 V0 Z', fill: '#93abb7' } },
+          { id: 'tier1-sh', tag: 'path', attrs: { d: 'M42,0 V-124 H52 V0 Z M-55,-124 H55 V-119 H-55 Z', fill: '#1c1c1b' } },
+          { id: 'tier2', tag: 'path', attrs: { d: 'M-28,-124 V-170 H28 V-124 Z', fill: '#93abb7' } },
+          { id: 'tier2-sh', tag: 'path', attrs: { d: 'M21,-124 V-170 H28 V-124 Z M-31,-170 H31 V-165 H-31 Z', fill: '#1c1c1b' } },
+          { id: 'spire', tag: 'path', attrs: { d: 'M-12,-170 L-8,-194 H8 L12,-170 Z M-2.5,-194 L-1,-222 H1 L2.5,-194 Z', fill: '#1c1c1b' } },
+          { id: 'ribs', tag: 'path', attrs: { d: 'M-34,-114 H-30 V-10 H-34 Z M-18,-114 H-14 V-10 H-18 Z M-2,-114 H2 V-10 H-2 Z M14,-114 H18 V-10 H14 Z M-14,-160 H-10 V-128 H-14 Z M0,-160 H4 V-128 H0 Z M-68,-62 H-64 V-10 H-68 Z M60,-62 H64 V-10 H60 Z', fill: '#1c1c1b' } },
+          { id: 'star', tag: 'path', attrs: { d: 'M0,-234 L3,-226 H11 L4.5,-221 L7,-213 L0,-218 L-7,-213 L-4.5,-221 L-11,-226 H-3 Z', fill: '#cc2a25' } }
+        ]
+      },
+
+      // 2. CONDOMINI BRUTALISTI (PANELKI) CON PANNI ROSSI — Tavola 01/9, 02/1
+      {
+        id: 'env-panelki',
+        meta: 'Brutalismo · Blocchi in cemento in scorcio 3D, cavi e panni stesi',
+        layers: [
+          { id: 'b1-front', tag: 'path', attrs: { d: 'M-135,0 V-142 L-38,-132 V0 Z', fill: '#93abb7' } },
+          { id: 'b1-side', tag: 'path', attrs: { d: 'M-38,0 V-132 L-22,-138 V0 Z M-135,-142 L-38,-132 V-128 L-135,-138 Z', fill: '#1c1c1b' } },
+          { id: 'b2-front', tag: 'path', attrs: { d: 'M18,0 V-128 L122,-136 V0 Z', fill: '#93abb7' } },
+          { id: 'b2-side', tag: 'path', attrs: { d: 'M6,0 V-122 L18,-128 V0 Z M18,-128 L122,-136 V-132 L18,-124 Z', fill: '#1c1c1b' } },
+          { id: 'windows', tag: 'path', attrs: { d: 'M-120,-122 H-110 V-110 H-120 Z M-98,-120 H-88 V-108 H-98 Z M-76,-118 H-66 V-106 H-76 Z M-56,-116 H-46 V-104 H-56 Z M-120,-94 H-110 V-82 H-120 Z M-98,-92 H-88 V-80 H-98 Z M-76,-90 H-66 V-78 H-76 Z M-56,-88 H-46 V-76 H-56 Z M-120,-66 H-110 V-54 H-120 Z M-98,-64 H-88 V-52 H-98 Z M-76,-62 H-66 V-50 H-76 Z M-56,-60 H-46 V-48 H-56 Z M32,-110 H42 V-98 H32 Z M56,-112 H66 V-100 H56 Z M80,-114 H90 V-102 H80 Z M102,-115 H112 V-103 H102 Z M32,-82 H42 V-70 H32 Z M56,-84 H66 V-72 H56 Z M80,-86 H90 V-74 H80 Z M102,-87 H112 V-75 H102 Z M32,-54 H42 V-42 H32 Z M56,-56 H66 V-44 H56 Z M80,-58 H90 V-46 H80 Z M102,-59 H112 V-47 H102 Z', fill: '#1c1c1b' } },
+          { id: 'antennas', tag: 'path', attrs: { d: 'M-108,-140 V-164 H-105 V-140 Z M-115,-158 H-98 V-155 H-115 Z M-64,-135 V-156 H-61 V-135 Z M-70,-150 H-55 V-147 H-70 Z M52,-131 V-155 H55 V-131 Z M45,-149 H62 V-146 H45 Z M96,-134 V-160 H99 V-134 Z M88,-154 H106 V-151 H88 Z M-4,0 V-118 H-1 V0 Z M-10,-118 H6 V-114 H-10 Z', fill: '#1c1c1b' } },
+          { id: 'wires', tag: 'path', attrs: { d: 'M-125,-98 Q-75,-88 -22,-94 V-92 Q-75,-86 -125,-96 Z M-22,-78 Q0,-70 18,-76 V-74 Q0,-68 -22,-76 Z M25,-92 Q72,-84 118,-90 V-88 Q72,-82 25,-90 Z', fill: '#1c1c1b' } },
+          { id: 'laundry', tag: 'path', attrs: { d: 'M-92,-91 H-80 V-77 H-92 Z M-68,-90 H-58 V-79 H-68 Z M-12,-73 H-2 V-60 H-12 Z M62,-87 H74 V-73 H62 Z M86,-88 H95 V-77 H86 Z', fill: '#cc2a25' } }
+        ]
+      },
+
+      // 3. DIGA BRUTALISTA E CANTIERE IDROELETTRICO — Tavola 02/4
+      {
+        id: 'env-diga-cantiere',
+        meta: 'Brutalismo · Grande diga inclinata a contrafforti e tralicci',
+        layers: [
+          { id: 'wall', tag: 'path', attrs: { d: 'M-150,0 L-130,-95 L115,-148 L145,0 Z', fill: '#93abb7' } },
+          { id: 'ribs', tag: 'path', attrs: { d: 'M-130,-95 L115,-148 V-142 L-130,-89 Z M-95,0 L-82,-102 L-74,-104 L-85,0 Z M-35,0 L-22,-115 L-14,-117 L-25,0 Z M25,0 L38,-128 L46,-130 L35,0 Z M85,0 L98,-140 L108,-142 L95,0 Z', fill: '#f3ebdb' } },
+          { id: 'blocks', tag: 'path', attrs: { d: 'M-40,0 V-42 H55 V0 Z M55,0 V-64 H150 V0 Z', fill: '#f3ebdb' } },
+          { id: 'blocks-line', tag: 'path', attrs: { d: 'M-42,0 V-44 H53 V-66 H150 V-62 H57 V-40 H-38 V0 Z M53,-42 H57 V0 H53 Z', fill: '#1c1c1b' } },
+          { id: 'pylons', tag: 'path', attrs: { d: 'M-112,-96 L-108,-142 H-98 L-94,-99 Z M-114,-132 H-92 V-129 H-114 Z M-68,-106 L-64,-154 H-54 L-50,-110 Z M-70,-144 H-48 V-141 H-70 Z M92,-142 V-172 H95 V-142 Z', fill: '#1c1c1b' } },
+          { id: 'flag', tag: 'path', attrs: { d: 'M95,-172 L122,-165 L95,-157 Z', fill: '#cc2a25' } }
+        ]
+      },
+
+      // 4. COSMODROMO E RAZZO VOSTOK — Tavola 01/8 e 02/3
+      {
+        id: 'env-cosmodromo',
+        meta: 'Cosmismo · Razzo Vostok su rampa di lancio (rocket e gantry animabili)',
+        layers: [
+          { id: 'clouds', tag: 'path', attrs: { d: 'M-95,0 C-95,-26 -68,-38 -42,-28 C-28,-46 28,-46 42,-28 C68,-38 95,-26 95,0 Z', fill: '#93abb7' } },
+          { id: 'gantry', tag: 'g', pose: { translateX: -32, translateY: 0, rotate: 0 } },
+          { id: 'gantry-p', parent: 'gantry', tag: 'path', attrs: { d: 'M-12,0 V-135 H12 V0 H8 V-130 H-8 V0 Z M-10,-110 H10 V-106 H-10 Z M-10,-80 H10 V-76 H-10 Z M-10,-50 H10 V-46 H-10 Z M10,-128 L24,-118 L22,-114 L10,-122 Z', fill: '#1c1c1b' } },
+          { id: 'tower-r', tag: 'path', attrs: { d: 'M24,0 V-78 H40 V0 H36 V-74 H28 V0 Z M26,-56 H38 V-52 H26 Z M26,-32 H38 V-28 H26 Z', fill: '#1c1c1b' } },
+          { id: 'rocket', tag: 'g', pose: { translateX: 0, translateY: -12, rotate: 0 } },
+          { id: 'flame', parent: 'rocket', tag: 'path', attrs: { d: 'M-12,0 L-6,24 L0,10 L6,24 L12,0 Z', fill: '#cc2a25' } },
+          { id: 'boosters', parent: 'rocket', tag: 'path', attrs: { d: 'M-18,0 L-10,-58 H10 L18,0 H11 L8,-42 H-8 L-11,0 Z', fill: '#f3ebdb' } },
+          { id: 'fuselage', parent: 'rocket', tag: 'path', attrs: { d: 'M-9,-40 V-132 L0,-172 L9,-132 V-40 Z', fill: '#f3ebdb' } },
+          { id: 'nose', parent: 'rocket', tag: 'path', attrs: { d: 'M-8,-128 L0,-170 L8,-128 Z', fill: '#93abb7' } },
+          { id: 'lines', parent: 'rocket', tag: 'path', attrs: { d: 'M-10,-40 V-132 L0,-176 L10,-132 V-40 L19,0 H15 L8,-40 H-8 L-15,0 H-19 Z M-8,-128 H8 V-124 H-8 Z M-9,-68 H9 V-64 H-9 Z', fill: '#1c1c1b' } },
+          { id: 'star', parent: 'rocket', tag: 'path', attrs: { d: 'M0,-104 L2.2,-98 H8.5 L3.5,-94 L5.5,-88 L0,-92 L-5.5,-88 L-3.5,-94 L-8.5,-98 H-2.2 Z', fill: '#cc2a25' } }
+        ]
+      },
+
+      // 5. MONUMENTO COSMISTA (OBELISCO DEI CONQUISTATORI DELLO SPAZIO + SPUTNIK)
+      {
+        id: 'env-monumento-cosmo',
+        meta: 'Cosmismo · Grande rampa parabolica in titanio con razzo in vetta',
+        layers: [
+          { id: 'base', tag: 'path', attrs: { d: 'M-68,0 L-58,-28 H42 L52,0 Z', fill: '#1c1c1b' } },
+          { id: 'plinth', tag: 'path', attrs: { d: 'M-52,-28 L-44,-52 H28 L36,-28 Z', fill: '#93abb7' } },
+          // Scia parabolica ascendente verso il cielo
+          { id: 'parabola', tag: 'path', attrs: { d: 'M-42,-52 C-25,-95 0,-145 38,-198 L46,-192 C18,-138 2,-88 18,-52 Z', fill: '#93abb7' } },
+          { id: 'edge', tag: 'path', attrs: { d: 'M-44,-52 C-27,-95 -2,-145 36,-198 L40,-195 C4,-142 -18,-92 -34,-52 Z M14,-52 L36,-188 L40,-186 L20,-52 Z', fill: '#1c1c1b' } },
+          // Razzo e stella rossa al vertice della parabola
+          { id: 'tip', tag: 'path', attrs: { d: 'M36,-196 L56,-222 L48,-188 Z', fill: '#1c1c1b' } },
+          { id: 'star', tag: 'path', attrs: { d: 'M-12,-46 L-9.5,-39 H-2 L-8,-35 L-5.5,-28 L-12,-32.5 L-18.5,-28 L-16,-35 L-22,-39 H-14.5 Z', fill: '#cc2a25' } }
+        ]
+      },
+
+      // 6. PALAZZO D'INVERNO + COLONNA ROSTRALE — Tavola 01/1, 04/4, 04/8-9
+      {
+        id: 'env-palazzo-inverno',
+        meta: 'Architettura · Palazzo monumentale con cupola, balconata e colonna',
+        layers: [
+          { id: 'column', tag: 'path', attrs: { d: 'M-142,0 V-22 H-122 V0 Z M-136,-22 L-134,-148 H-128 L-126,-22 Z M-140,-148 H-124 V-154 H-140 Z M-133,-154 V-168 H-129 V-154 Z', fill: '#1c1c1b' } },
+          { id: 'dome', tag: 'path', attrs: { d: 'M-26,-110 C-24,-144 56,-144 58,-110 Z', fill: '#93abb7' } },
+          { id: 'dome-base', tag: 'path', attrs: { d: 'M-30,-110 H62 V-104 H-30 Z M14,-162 H18 V-136 H14 Z', fill: '#1c1c1b' } },
+          { id: 'roof-flag', tag: 'g', pose: { translateX: 18, translateY: -162, rotate: 0 } },
+          { id: 'roof-flag-p', parent: 'roof-flag', tag: 'path', attrs: { d: 'M0,0 L32,-7 L27,11 L0,14 Z', fill: '#cc2a25' } },
+          { id: 'facade', tag: 'path', attrs: { d: 'M-95,0 V-104 H128 V0 Z', fill: '#93abb7' } },
+          { id: 'side', tag: 'path', attrs: { d: 'M128,0 V-104 L144,-96 V0 Z M-98,-104 H130 V-98 H-98 Z', fill: '#1c1c1b' } },
+          { id: 'portico', tag: 'path', attrs: { d: 'M-36,0 V-98 H68 V0 Z', fill: '#f3ebdb' } },
+          { id: 'columns', tag: 'path', attrs: { d: 'M-28,-98 H-22 V-42 H-28 Z M-4,-98 H2 V-42 H-4 Z M28,-98 H34 V-42 H28 Z M52,-98 H58 V-42 H52 Z M-40,-42 H72 V-35 H-40 Z M8,-35 H24 V0 H8 Z', fill: '#1c1c1b' } },
+          { id: 'win', tag: 'path', attrs: { d: 'M-82,-82 H-74 V-64 H-82 Z M-62,-82 H-54 V-64 H-62 Z M-82,-48 H-74 V-30 H-82 Z M-62,-48 H-54 V-30 H-62 Z M82,-82 H90 V-64 H82 Z M102,-82 H110 V-64 H102 Z M82,-48 H90 V-30 H82 Z M102,-48 H110 V-30 H102 Z', fill: '#1c1c1b' } }
+        ]
+      },
+
+      // 7. CENTRALE / REATTORE BRUTALISTA — Tavola 03 vignetta 5
+      {
+        id: 'env-reattore',
+        meta: 'Brutalismo · Reattore industriale con camino a traliccio e fumo',
+        layers: [
+          { id: 'smoke', tag: 'path', attrs: { d: 'M-8,-168 C15,-195 58,-212 108,-218 C128,-220 138,-202 122,-188 C92,-172 35,-165 -8,-168 Z', fill: '#93abb7' } },
+          { id: 'blocks', tag: 'path', attrs: { d: 'M-125,0 V-68 H-65 V-96 H45 V-74 H115 V0 Z', fill: '#93abb7' } },
+          { id: 'shadows', tag: 'path', attrs: { d: 'M115,0 V-74 L132,-66 V0 Z M45,-74 V-96 L58,-88 V-74 Z M-127,-68 H-65 V-63 H-127 Z M-67,-96 H47 V-91 H-67 Z M45,-74 H117 V-69 H45 Z', fill: '#1c1c1b' } },
+          // Camino di ventilazione a gabbia metallica (Tavola 03 vignetta 5)
+          { id: 'stack', tag: 'path', attrs: { d: 'M-18,-96 L-14,-168 H6 L10,-96 H6 L2,-164 H-10 L-14,-96 Z M-15,-148 H7 V-144 H-15 Z M-16,-128 H8 V-124 H-16 Z M-17,-108 H9 V-104 H-17 Z', fill: '#1c1c1b' } },
+          { id: 'windows', tag: 'path', attrs: { d: 'M-108,-46 H-82 V-32 H-108 Z M-48,-76 H-28 V-58 H-48 Z M-12,-76 H8 V-58 H-12 Z M62,-52 H96 V-36 H62 Z', fill: '#1c1c1b' } },
+          // Cartello triangolare rosso
+          { id: 'sign', tag: 'path', attrs: { d: 'M72,0 V-28 H76 V0 Z M54,-26 L74,-60 L94,-26 Z', fill: '#1c1c1b' } },
+          { id: 'sign-red', tag: 'path', attrs: { d: 'M59,-29 L74,-55 L89,-29 Z', fill: '#cc2a25' } }
+        ]
+      },
+
+      // 8. ISBA RURALE E ALBERO INVERNALE — Tavola 01/4 e 03/2
+      {
+        id: 'env-isba-rurale',
+        meta: 'Ambiente · Campagna, staccionata, isba e albero spoglio',
+        layers: [
+          { id: 'fence', tag: 'path', attrs: { d: 'M-120,0 V-26 H-116 V0 Z M-100,0 V-27 H-96 V0 Z M-80,0 V-25 H-76 V0 Z M-60,0 V-26 H-56 V0 Z M-126,-18 H-50 V-15 H-126 Z M-126,-9 H-50 V-6 H-126 Z', fill: '#1c1c1b' } },
+          { id: 'house', tag: 'path', attrs: { d: 'M-36,0 V-48 H44 V0 Z', fill: '#93abb7' } },
+          { id: 'side', tag: 'path', attrs: { d: 'M44,0 V-48 L58,-42 V0 Z', fill: '#1c1c1b' } },
+          { id: 'roof', tag: 'path', attrs: { d: 'M-46,-46 L4,-78 L64,-42 L44,-46 Z M22,-64 V-84 H32 V-58 Z', fill: '#1c1c1b' } },
+          { id: 'win', tag: 'path', attrs: { d: 'M-20,-34 H-6 V-18 H-20 Z M10,-34 H24 V-18 H10 Z', fill: '#f3ebdb' } },
+          { id: 'tree', tag: 'path', attrs: { d: 'M92,0 L94,-112 H99 L101,0 Z M96,-58 L70,-88 L73,-91 L97,-64 Z M98,-74 L124,-104 L127,-101 L99,-68 Z M95,-38 L76,-58 L79,-61 L96,-43 Z', fill: '#1c1c1b' } }
+        ]
+      },
+
+      // 9. GRU DA CANTIERE CON TRAVE SOSPESA — Tavola 01/3 e 01/7
+      {
+        id: 'obj-gru',
+        meta: 'Cantiere · Gru a torre con trave d’acciaio animabile (load)',
+        layers: [
+          { id: 'mast', tag: 'path', attrs: { d: 'M-10,0 V-175 H10 V0 H6 V-170 H-6 V0 Z M-8,-140 H8 V-136 H-8 Z M-8,-105 H8 V-101 H-8 Z M-8,-70 H8 V-66 H-8 Z M-8,-35 H8 V-31 H-8 Z', fill: '#1c1c1b' } },
+          { id: 'jib', tag: 'path', attrs: { d: 'M-48,-162 H118 V-156 H-48 Z M-2,-175 L-42,-162 L-40,-159 L0,-171 Z M2,-175 L108,-162 L106,-159 L0,-171 Z M-44,-156 H-26 V-144 H-44 Z', fill: '#1c1c1b' } },
+          { id: 'load', tag: 'g', pose: { translateX: 78, translateY: -112, rotate: 0 } },
+          { id: 'cables', parent: 'load', tag: 'path', attrs: { d: 'M-2,-46 H1 V-14 H-2 Z M-1,-14 L-18,0 H-15 L0,-12 L15,0 H18 Z', fill: '#1c1c1b' } },
+          { id: 'beam', parent: 'load', tag: 'path', attrs: { d: 'M-32,0 H32 V10 H-32 Z', fill: '#93abb7' } },
+          { id: 'border', parent: 'load', tag: 'path', attrs: { d: 'M-34,-2 H34 V12 H-34 V-2 M-30,2 V8 H30 V2 Z', fill: '#1c1c1b' } }
+        ]
+      },
+
+      // 10. TRENO CORAZZATO / LOCOMOTIVA — Tavola 04 vignetta 11
+      {
+        id: 'obj-treno',
+        meta: 'Mezzo · Treno blindato a vapore con stelle rosse e fumo',
+        layers: [
+          { id: 'smoke', tag: 'path', attrs: { d: 'M58,-58 C72,-82 108,-102 148,-112 C164,-115 174,-100 162,-86 C140,-72 92,-64 58,-58 Z', fill: '#93abb7' } },
+          { id: 'cars', tag: 'path', attrs: { d: 'M-115,-12 V-48 H-52 V-12 Z M-46,-12 V-52 H18 V-12 Z M22,-12 V-44 H74 V-12 Z', fill: '#93abb7' } },
+          { id: 'details', tag: 'path', attrs: { d: 'M-120,-12 H84 V-7 H-120 Z M-117,-52 H-50 V-47 H-117 Z M-48,-56 H20 V-51 H-48 Z M52,-58 H64 V-44 H52 Z M32,-52 H44 V-44 H32 Z M74,-28 L86,-12 H74 Z', fill: '#1c1c1b' } },
+          { id: 'wheels', tag: 'path', attrs: { d: 'M-102,-7 A7,7 0 1,0 -88,-7 A7,7 0 1,0 -102,-7 Z M-74,-7 A7,7 0 1,0 -60,-7 A7,7 0 1,0 -74,-7 Z M-34,-7 A7,7 0 1,0 -20,-7 A7,7 0 1,0 -34,-7 Z M-4,-7 A7,7 0 1,0 10,-7 A7,7 0 1,0 -4,-7 Z M32,-7 A7,7 0 1,0 46,-7 A7,7 0 1,0 32,-7 Z M56,-7 A7,7 0 1,0 70,-7 A7,7 0 1,0 56,-7 Z', fill: '#1c1c1b' } },
+          { id: 'stars', tag: 'path', attrs: { d: 'M-84,-38 L-82,-32 H-76 L-81,-28 L-79,-22 L-84,-26 L-89,-22 L-87,-28 L-92,-32 H-86 Z M-14,-40 L-12,-34 H-6 L-11,-30 L-9,-24 L-14,-28 L-19,-24 L-17,-30 L-22,-34 H-16 Z', fill: '#cc2a25' } }
+        ]
+      },
+
+      // 11. TRAM ROSSO URBANO — Tavola 01 vignetta 9
+      {
+        id: 'obj-tram',
+        meta: 'Mezzo · Tram sovietico rosso con pantografo e finestrini',
+        layers: [
+          { id: 'panto', tag: 'path', attrs: { d: 'M-12,-44 L0,-58 L12,-44 H9 L0,-54 L-9,-44 Z M-16,-58 H16 V-55 H-16 Z', fill: '#1c1c1b' } },
+          { id: 'body', tag: 'path', attrs: { d: 'M-68,-10 L-64,-44 H64 L68,-10 Z', fill: '#cc2a25' } },
+          { id: 'stripe', tag: 'rect', attrs: { x: -66, y: -22, width: 132, height: 4, fill: '#f3ebdb' } },
+          { id: 'win', tag: 'path', attrs: { d: 'M-56,-38 H-38 V-26 H-56 Z M-32,-38 H-14 V-26 H-32 Z M-8,-38 H8 V-26 H-8 Z M14,-38 H32 V-26 H14 Z M38,-38 H56 V-26 H38 Z', fill: '#f3ebdb' } },
+          { id: 'chassis', tag: 'path', attrs: { d: 'M-70,-10 H70 V-5 H-70 Z M-52,-5 A5,5 0 1,0 -42,-5 Z M-36,-5 A5,5 0 1,0 -26,-5 Z M26,-5 A5,5 0 1,0 36,-5 Z M42,-5 A5,5 0 1,0 52,-5 Z', fill: '#1c1c1b' } }
+        ]
+      },
+
+      // 12. CIELO COSMISTA (LUNA + STELLE A 4 PUNTE) — Tavola 01/8 e 02/3
+      {
+        id: 'obj-cielo-cosmista',
+        meta: 'Cosmismo · Falce di luna e costellazione di stelle a 4 punte',
+        layers: [
+          { id: 'moon', tag: 'path', attrs: { d: 'M45,-45 C22,-45 8,-24 16,0 C24,22 48,30 68,20 C46,20 34,4 36,-16 C38,-32 48,-40 62,-42 C56,-44 50,-45 45,-45 Z', fill: '#93abb7' } },
+          { id: 'stars', tag: 'path', attrs: { d: 'M-90,-20 L-88,-12 L-80,-10 L-88,-8 L-90,0 L-92,-8 L-100,-10 L-92,-12 Z M-35,-48 L-33.5,-42 L-28,-40.5 L-33.5,-39 L-35,-33 L-36.5,-39 L-42,-40.5 L-36.5,-42 Z M-55,12 L-53.5,18 L-48,19.5 L-53.5,21 L-55,27 L-56.5,21 L-62,19.5 L-56.5,18 Z M105,-35 L106.5,-29 L112,-27.5 L106.5,-26 L105,-20 L103.5,-26 L98,-27.5 L103.5,-29 Z M90,15 L91.5,21 L97,22.5 L91.5,24 L90,30 L88.5,24 L83,22.5 L88.5,21 Z', fill: '#1c1c1b' } }
+        ]
+      },
+
+      // 13. TORRETTA DI SORVEGLIANZA CON STELLA E RETICOLATO — Tavola 01/5 e 03/3
+      {
+        id: 'obj-torretta',
+        meta: 'Struttura · Torretta a traliccio con stella rossa e filo spinato',
+        layers: [
+          { id: 'wire', tag: 'path', attrs: { d: 'M-95,0 V-38 H-91 V0 Z M-55,0 V-38 H-51 V0 Z M-102,-32 H-18 V-29 H-102 Z M-102,-20 H-18 V-17 H-102 Z', fill: '#1c1c1b' } },
+          { id: 'legs', tag: 'path', attrs: { d: 'M-18,0 L-10,-72 H10 L18,0 H13 L6,-68 H-6 L-13,0 Z M-12,-48 L12,-24 L10,-21 L-14,-45 Z M12,-48 L-12,-24 L-14,-27 L10,-51 Z M-15,-48 H15 V-44 H-15 Z', fill: '#1c1c1b' } },
+          { id: 'cabin', tag: 'path', attrs: { d: 'M-18,-72 H18 V-76 H-18 Z M-13,-76 V-102 H13 V-76 H9 V-98 H-9 V-76 Z M-20,-102 L0,-112 L20,-102 Z', fill: '#1c1c1b' } },
+          { id: 'star', tag: 'path', attrs: { d: 'M0,-126 L2.5,-119 H9.5 L4,-115 L6,-108 L0,-112 L-6,-108 L-4,-115 L-9.5,-119 H-2.5 Z', fill: '#cc2a25' } }
+        ]
+      },
+
+      // 14. TRIBUNA CON STELLA ROSSA — Tavola 04/10
+      {
+        id: 'obj-tribuna',
+        meta: 'Oggetto · Tribuna monumentale da piazza con stella rossa',
+        layers: [
+          { id: 'body', tag: 'path', attrs: { d: 'M-56,0 V-44 H56 V0 Z', fill: '#93abb7' } },
+          { id: 'border', tag: 'path', attrs: { d: 'M-58,0 V-46 H58 V0 H52 V-40 H-52 V0 Z', fill: '#1c1c1b' } },
+          { id: 'star', tag: 'path', attrs: { d: 'M0,-35 L3.2,-25 H13.5 L5.2,-19 L8.2,-9 L0,-15 L-8.2,-9 L-5.2,-19 L-13.5,-25 H-3.2 Z', fill: '#cc2a25' } }
+        ]
+      },
+
+      // 15. FOLLA CON BANDIERE OBLIQUE — Tavola 01/1, 04/2, 04/7
+      {
+        id: 'folla-bandiere',
+        meta: 'Folla · Blocco denso di manifestanti con bandiere inclinate',
+        layers: [
+          { id: 'poles', tag: 'path', attrs: { d: 'M-38,-18 L-24,-74 L-21,-73 L-35,-18 Z M14,-18 L28,-78 L31,-77 L17,-18 Z', fill: '#1c1c1b' } },
+          { id: 'banners', tag: 'path', attrs: { d: 'M-23,-74 L12,-66 L4,-44 L-29,-51 Z M29,-78 L66,-69 L58,-46 L23,-54 Z', fill: '#cc2a25' } },
+          { id: 'crowd-ink', tag: 'path', attrs: { d: 'M-46,-38 A4.2,4.2 0 1,0 -37.6,-38 A4.2,4.2 0 1,0 -46,-38 Z M-52,-44 L-45,-31 H-39 L-32,-44 L-29,-42 L-37,-27 V0 H-41 V-12 H-43 V0 H-47 V-27 L-55,-42 Z M-6,-39 A4.2,4.2 0 1,0 2.4,-39 A4.2,4.2 0 1,0 -6,-39 Z M-12,-45 L-5,-32 H1 L8,-45 L11,-43 L3,-28 V0 H-1 V-12 H-3 V0 H-7 V-28 L-15,-43 Z M34,-38 A4.2,4.2 0 1,0 42.4,-38 A4.2,4.2 0 1,0 34,-38 Z M28,-44 L35,-31 H41 L48,-44 L51,-42 L43,-27 V0 H39 V-12 H37 V0 H33 V-27 L25,-42 Z', fill: '#1c1c1b' } },
+          { id: 'crowd-red', tag: 'path', attrs: { d: 'M-26,-41 A4.4,4.4 0 1,0 -17.2,-41 A4.4,4.4 0 1,0 -26,-41 Z M-32,-48 L-25,-34 H-19 L-12,-48 L-9,-46 L-17,-29 V0 H-21 V-13 H-23 V0 H-27 V-29 L-35,-46 Z M14,-40 A4.4,4.4 0 1,0 22.8,-40 A4.4,4.4 0 1,0 14,-40 Z M8,-47 L15,-33 H21 L28,-47 L31,-45 L23,-28 V0 H19 V-13 H17 V0 H13 V-28 L5,-45 Z', fill: '#cc2a25' } }
+        ]
+      },
+
+      // 16. PERSONAGGIO: CONTADINO / LAVORATORE CURVO (Articolato)
+      {
+        id: 'char-contadino',
+        meta: 'Personaggio · Sagoma piegata in avanti (torso, arm-r, leg-l/r)',
+        layers: [
+          { id: 'leg-l', tag: 'g', pose: { translateX: -3, translateY: -17, rotate: 10 } },
+          { id: 'leg-l-p', parent: 'leg-l', tag: 'path', attrs: { d: 'M-2.5,0 H2 L0,17 H-4.5 Z', fill: '#1c1c1b' } },
+          { id: 'leg-r', tag: 'g', pose: { translateX: 2, translateY: -17, rotate: -10 } },
+          { id: 'leg-r-p', parent: 'leg-r', tag: 'path', attrs: { d: 'M-2,0 H2.5 L5,17 H0.5 Z', fill: '#1c1c1b' } },
+          { id: 'torso', tag: 'g', pose: { translateX: 0, translateY: -16, rotate: 28 } },
+          { id: 'torso-p', parent: 'torso', tag: 'path', attrs: { d: 'M-5,1 L-6.5,-21 H6.5 L5,1 Z', fill: '#1c1c1b' } },
+          { id: 'head', parent: 'torso', tag: 'circle', attrs: { cx: 1, cy: -26.5, r: 4.8, fill: '#1c1c1b' } },
+          { id: 'arm-r', parent: 'torso', tag: 'g', pose: { translateX: 3.5, translateY: -19, rotate: 20 } },
+          { id: 'arm-r-p', parent: 'arm-r', tag: 'path', attrs: { d: 'M-2,0 H2.2 L3,17 H-1.2 Z', fill: '#1c1c1b' } }
+        ]
+      },
+
+      // 17. PERSONAGGIO: OPERAIO / CITTADINO IN MARCIA (Articolato)
+      {
+        id: 'char-operaio',
+        meta: 'Personaggio · Sagoma slanciata in marcia (leg-l/r, torso, arm-l/r)',
+        layers: [
+          { id: 'leg-l', tag: 'g', pose: { translateX: -2, translateY: -18, rotate: 16 } },
+          { id: 'leg-l-p', parent: 'leg-l', tag: 'path', attrs: { d: 'M-2.5,0 H2 L-0.5,18 H-5 Z', fill: '#1c1c1b' } },
+          { id: 'leg-r', tag: 'g', pose: { translateX: 2, translateY: -18, rotate: -16 } },
+          { id: 'leg-r-p', parent: 'leg-r', tag: 'path', attrs: { d: 'M-2,0 H2.5 L5,18 H0.5 Z', fill: '#1c1c1b' } },
+          { id: 'torso', tag: 'g', pose: { translateX: 0, translateY: -17, rotate: 6 } },
+          { id: 'torso-p', parent: 'torso', tag: 'path', attrs: { d: 'M-4.5,1 L-6.5,-22 H6.5 L4.5,1 Z', fill: '#1c1c1b' } },
+          { id: 'head', parent: 'torso', tag: 'circle', attrs: { cx: 0.5, cy: -27.5, r: 4.8, fill: '#1c1c1b' } },
+          { id: 'arm-l', parent: 'torso', tag: 'g', pose: { translateX: -4.5, translateY: -20, rotate: 28 } },
+          { id: 'arm-l-p', parent: 'arm-l', tag: 'path', attrs: { d: 'M-2,0 H2 L1,16 H-3 Z', fill: '#1c1c1b' } },
+          { id: 'arm-r', parent: 'torso', tag: 'g', pose: { translateX: 4.5, translateY: -20, rotate: -34 } },
+          { id: 'arm-r-p', parent: 'arm-r', tag: 'path', attrs: { d: 'M-2,0 H2 L3,17 H-1 Z', fill: '#1c1c1b' } }
+        ]
+      },
+
+      // 18. PERSONAGGIO: LEADER / COMMISSARIO IN CAPPOTTO SVASATO (Tavola 03/1, 04/6)
+      {
+        id: 'char-cappotto',
+        meta: 'Personaggio · Cappotto lungo a trapezio, berretto e braccio teso',
+        layers: [
+          { id: 'leg-l', tag: 'g', pose: { translateX: -2.5, translateY: -12, rotate: 5 } },
+          { id: 'leg-l-p', parent: 'leg-l', tag: 'path', attrs: { d: 'M-2.2,0 H2 L1,12 H-3.2 Z', fill: '#1c1c1b' } },
+          { id: 'leg-r', tag: 'g', pose: { translateX: 2.5, translateY: -12, rotate: -6 } },
+          { id: 'leg-r-p', parent: 'leg-r', tag: 'path', attrs: { d: 'M-2,0 H2.2 L3.2,12 H-1 Z', fill: '#1c1c1b' } },
+          { id: 'torso', tag: 'g', pose: { translateX: 0, translateY: -11, rotate: 0 } },
+          { id: 'coat', parent: 'torso', tag: 'path', attrs: { d: 'M-8.5,3 L-6,-27 H6 L8.5,3 Z', fill: '#1c1c1b' } },
+          { id: 'head', parent: 'torso', tag: 'circle', attrs: { cx: 0.5, cy: -32.5, r: 4.8, fill: '#1c1c1b' } },
+          { id: 'cap', parent: 'torso', tag: 'path', attrs: { d: 'M-4.5,-35 H7.5 L6,-32.5 H-4.5 Z', fill: '#1c1c1b' } },
+          { id: 'arm-r', parent: 'torso', tag: 'g', pose: { translateX: 5, translateY: -25, rotate: -102 } },
+          { id: 'arm-r-p', parent: 'arm-r', tag: 'path', attrs: { d: 'M-2.2,0 H2.2 L2.8,18 H-1.5 Z', fill: '#1c1c1b' } }
+        ]
+      },
+
+      // 19. PERSONAGGIO: ALFIERE ROSSO CON BANDIERA OBLIQUA — Tavola 01/1, 04/8
+      {
+        id: 'char-alfiere',
+        meta: 'Personaggio · Figura rossa in carica con bandiera su arm-flag',
+        layers: [
+          { id: 'leg-l', tag: 'g', pose: { translateX: -2, translateY: -18, rotate: 18 } },
+          { id: 'leg-l-p', parent: 'leg-l', tag: 'path', attrs: { d: 'M-2.5,0 H2 L-1,18 H-5.5 Z', fill: '#cc2a25' } },
+          { id: 'leg-r', tag: 'g', pose: { translateX: 2, translateY: -18, rotate: -18 } },
+          { id: 'leg-r-p', parent: 'leg-r', tag: 'path', attrs: { d: 'M-2,0 H2.5 L5.5,18 H1 Z', fill: '#cc2a25' } },
+          { id: 'torso', tag: 'g', pose: { translateX: 0, translateY: -17, rotate: 8 } },
+          { id: 'torso-p', parent: 'torso', tag: 'path', attrs: { d: 'M-5,1 L-6.5,-22 H6.5 L5,1 Z', fill: '#cc2a25' } },
+          { id: 'head', parent: 'torso', tag: 'circle', attrs: { cx: 1, cy: -27.5, r: 4.8, fill: '#cc2a25' } },
+          { id: 'arm-flag', parent: 'torso', tag: 'g', pose: { translateX: 4.5, translateY: -20, rotate: -128 } },
+          { id: 'arm-p', parent: 'arm-flag', tag: 'path', attrs: { d: 'M-2,0 H2.2 L2.5,17 H-1.5 Z', fill: '#cc2a25' } },
+          { id: 'pole', parent: 'arm-flag', tag: 'path', attrs: { d: 'M-0.5,-14 H2.2 V64 H-0.5 Z', fill: '#1c1c1b' } },
+          { id: 'flag', parent: 'arm-flag', tag: 'path', attrs: { d: 'M2,64 L52,48 L42,16 L2,30 Z', fill: '#cc2a25' } }
+        ]
+      },
+
+      // 20. MASCOTTE: CAGNOLINO LAIKA (Head e Tail articolati)
+      {
+        id: 'laika-dog',
+        meta: 'Mascotte · Cagnolino Laika con testa (head) e coda (tail) articolate',
+        layers: [
+          { id: 'body', tag: 'g', pose: { translateX: 0, translateY: 0, rotate: 0 } },
+          { id: 'legs', parent: 'body', tag: 'path', attrs: { d: 'M-11,-10 H-7.5 L-9,0 H-12.5 Z M-6.5,-10 H-3 L-4,0 H-7.5 Z M4.5,-11 H8 L9,0 H5.5 Z M8.5,-11 H12 L13.5,0 H10 Z', fill: '#1c1c1b' } },
+          { id: 'trunk', parent: 'body', tag: 'path', attrs: { d: 'M-12,-9.5 L-10,-18 H10.5 L12,-9.5 Z', fill: '#1c1c1b' } },
+          { id: 'tail', parent: 'body', tag: 'g', pose: { translateX: -10, translateY: -17, rotate: 10 } },
+          { id: 'tail-p', parent: 'tail', tag: 'path', attrs: { d: 'M0,0 L-6,-8 L-2,-14 L3,-10 L0,-6 L2,0 Z', fill: '#1c1c1b' } },
+          { id: 'head', parent: 'body', tag: 'g', pose: { translateX: 9.5, translateY: -16, rotate: -6 } },
+          { id: 'head-p', parent: 'head', tag: 'path', attrs: { d: 'M-3,2 L-2,-10 L7,-11 L15,-7 L14,-3 L7,-2.5 L2,2.5 Z M-0.5,-9.5 L1.5,-17.5 L5,-10 Z M4,-10 L6.8,-17 L9,-9.5 Z', fill: '#1c1c1b' } },
+          { id: 'collar', parent: 'head', tag: 'path', attrs: { d: 'M-2.8,0.5 L4,-2.2 L5,0.5 L-1.8,3.2 Z', fill: '#cc2a25' } }
+        ]
+      }
+    ];
+
+    // ========================================================================
+    // 2. MOTORE composePack + validateStage + createStage
+    // ========================================================================
+    const GROUPS = { metric: 'metrics', resource: 'resources', relation: 'relations' };
+    const assert = (cond, msg) => { if (!cond) throw new Error(msg); };
+    const isId = (v) => typeof v === 'string' && /^[a-z0-9]+(?:[-_][a-z0-9]+)*$/.test(v);
+    const NS = 'http://www.w3.org/2000/svg';
+    const TAGS = ['g', 'rect', 'circle', 'line', 'path', 'text'];
+    const TRANSFORMS = ['translateX', 'translateY', 'scale', 'rotate'];
+    const NUMERIC = ['x', 'y', 'width', 'height', 'cx', 'cy', 'r', 'x1', 'x2', 'y1', 'y2', 'opacity', 'stroke-width'];
+    const PROPERTIES = [...NUMERIC, ...TRANSFORMS];
+    const ATTRS = [...NUMERIC, 'fill', 'stroke', 'd', 'rx', 'text-anchor', 'font-size'];
+
+    function composePack(raw) {
+      const game = JSON.parse(JSON.stringify(raw)), symbols = game.symbols || [];
+      for (const stage of game.stages || []) {
+        stage.layers = stage.layers || [];
+        for (const instance of stage.components || []) {
+          const symbol = symbols.find(s => s.id === instance.symbol);
+          assert(symbol, 'Simbolo sconosciuto: ' + instance.symbol);
+          stage.layers.push({ id: instance.id, tag: 'g', pose: instance.pose || {}, ...(instance.parent ? { parent: instance.parent } : {}) });
+          for (const layer of symbol.layers) {
+            stage.layers.push({ ...layer, id: instance.id + '-' + layer.id, parent: layer.parent ? instance.id + '-' + layer.parent : instance.id });
+          }
+        }
+        for (const sequence of stage.sequences || []) {
+          const generated = [];
+          for (const preset of sequence.presets || []) {
+            const layer = stage.layers.find(l => l.id === preset.layer);
+            assert(layer, 'Layer preset sconosciuto: ' + preset.layer);
+            const at = preset.at ?? 0, duration = preset.duration ?? 700, ease = preset.ease ?? 'smooth';
+            const attribute = preset.attribute ?? (preset.type === 'reveal' ? 'opacity' : 'translateX');
+            const baseline = layer.pose?.[attribute] ?? layer.attrs?.[attribute] ?? (['opacity', 'scale'].includes(attribute) ? 1 : 0);
+            const track = (from, to, start, length) => ({ layer: layer.id, attribute, from, to, at: start, duration: length, ease });
+            if (preset.type === 'arrive') generated.push(track(baseline + preset.distance, baseline, at, duration));
+            else if (preset.type === 'reveal') generated.push(track(0, baseline, at, duration));
+            else if (preset.type === 'excursion' || preset.type === 'emphasis') {
+              const hold = preset.hold ?? 0;
+              generated.push(track(baseline, baseline + preset.amount, at, duration / 2), track(baseline + preset.amount, baseline, at + duration / 2 + hold, duration / 2));
+            }
+          }
+          sequence.tracks = [...(sequence.tracks || []), ...generated];
+          delete sequence.presets;
+        }
+        delete stage.components;
+      }
+      delete game.symbols;
+      return game;
+    }
+
+    function validateStage(stage) {
+      assert(isId(stage.id) && Array.isArray(stage.layers) && stage.layers.length <= 300, 'Stage non valido: ' + stage.id);
+      const keys = new Set(), groups = new Set();
+      for (const layer of stage.layers) {
+        assert(isId(layer.id) && !keys.has(layer.id) && TAGS.includes(layer.tag), 'Layer non valido: ' + layer.id);
+        if (layer.parent) assert(groups.has(layer.parent), 'Parent mancante per: ' + layer.id);
+        keys.add(layer.id); if (layer.tag === 'g') groups.add(layer.id);
+        for (const [k, v] of Object.entries(layer.attrs || {})) {
+          assert(ATTRS.includes(k), 'Attr non valido: ' + k);
+          if (k === 'd') assert(/^[MmLlHhVvCcSsQqTtAaZz0-9.,\s+eE-]+$/.test(v), 'Path d non valido in ' + layer.id);
+        }
+      }
+    }
+
+    function createStage(host, { onCaption = () => {} } = {}) {
+      let descriptor, nodes = new Map(), transforms = new Map(), frame = null, last = null, tracks = [], finals = [], started = 0;
+      const ease = (p, type) => type === 'linear' ? p : type === 'out' ? 1 - (1 - p) ** 3 : p * p * (3 - 2 * p);
+      function read(layer, attribute) { if (TRANSFORMS.includes(attribute)) return transforms.get(layer)[attribute]; const v = nodes.get(layer).getAttribute(attribute); return v === null ? (attribute === 'opacity' ? 1 : 0) : Number(v); }
+      function writeOne(layer, attribute, value) {
+        if (TRANSFORMS.includes(attribute)) { const t = transforms.get(layer); t[attribute] = value; nodes.get(layer).setAttribute('transform', `translate(${t.translateX} ${t.translateY}) rotate(${t.rotate}) scale(${t.scale})`); }
+        else nodes.get(layer).setAttribute(attribute, String(value));
+      }
+      function write(items) { for (const t of items) writeOne(t.layer, t.attribute, t.to); }
+      function skip() { if (frame !== null) cancelAnimationFrame(frame); frame = null; write(finals); }
+      function paint(time) {
+        const painted = new Set();
+        for (const t of tracks) {
+          const key = t.layer + ':' + t.attribute; if (time < t.at && painted.has(key)) continue;
+          const p = t.duration === 0 ? 1 : Math.max(0, Math.min(1, (time - t.at) / t.duration)); writeOne(t.layer, t.attribute, t.from + (t.to - t.from) * ease(p, t.ease)); painted.add(key);
+        }
+      }
+      function tick(time) { const elapsed = time - started; paint(elapsed); if (elapsed < Math.max(0, ...tracks.map(t => t.at + t.duration))) frame = requestAnimationFrame(tick); else skip(); }
+      function play(items, { remember = true, caption = '' } = {}) {
+        skip(); tracks = items.map(t => ({ at: 0, duration: descriptor.duration, ease: 'smooth', ...t }));
+        const end = new Map(); for (const t of tracks) end.set(t.layer + ':' + t.attribute, t); finals = [...end.values()];
+        if (remember) last = { items: JSON.parse(JSON.stringify(tracks)), caption }; if (caption) onCaption(caption);
+        if (!tracks.length) { skip(); return; }
+        paint(0); started = performance.now(); frame = requestAnimationFrame(tick);
+      }
+      function sequence(id) { const seq = descriptor.sequences?.find(s => s.id === id); play(seq.tracks, { caption: seq.caption }); }
+      function values(state) { return (descriptor.bindings || []).map(b => ({ layer: b.layer, attribute: b.attribute, to: state[GROUPS[b.kind]][b.id] * (b.scale ?? 1) + (b.offset ?? 0) })); }
+      function mount(stage, state, { intro = false } = {}) {
+        skip(); descriptor = stage; nodes = new Map(); transforms = new Map(); host.replaceChildren(); last = null; tracks = []; finals = [];
+        const svg = document.createElementNS(NS, 'svg'); svg.setAttribute('viewBox', '0 0 640 360');
+        for (const layer of stage.layers) {
+          const node = document.createElementNS(NS, layer.tag); node.dataset.layer = layer.id;
+          for (const [k, v] of Object.entries(layer.attrs || {})) node.setAttribute(k, String(v));
+          (layer.parent ? nodes.get(layer.parent) : svg).append(node); nodes.set(layer.id, node);
+          transforms.set(layer.id, { translateX: 0, translateY: 0, scale: 1, rotate: 0, ...layer.pose });
+          for (const [k, v] of Object.entries(layer.pose || {})) writeOne(layer.id, k, v);
+        }
+        host.append(svg); write(values(state));
+        if (intro && stage.introSequence) sequence(stage.introSequence);
+      }
+      function update(state) {
+        const wanted = values(state), items = wanted.map(t => ({ ...t, from: read(t.layer, t.attribute) }));
+        if (items.some(t => t.from !== t.to)) play(items);
+      }
+      return { mount, update, sequence, skip, replay() { if (last) play(last.items, { remember: false, caption: last.caption }); } };
+    }
+
+    // ========================================================================
+    // 3. CINQUE SCENE STORICHE COMPOSTE COI 20 SIMBOLI
+    // ========================================================================
+    const demoPack = {
+      symbols: LAIKA_SYMBOLS.map(({ meta, ...rest }) => rest),
+      stages: [
+        // SCENA 1: 1917
+        {
+          id: 'scena-1917',
+          label: '1917 — Palazzo, Colonna Rostrale, Tribuna e Treno Blindato',
+          duration: 950,
+          layers: [
+            { id: 'sun', tag: 'circle', attrs: { cx: 120, cy: 88, r: 54, fill: '#f3ebdb' } },
+            { id: 'ground', tag: 'rect', attrs: { x: 0, y: 315, width: 640, height: 45, fill: '#1c1c1b' } }
+          ],
+          components: [
+            { id: 'palazzo', symbol: 'env-palazzo-inverno', pose: { translateX: 465, translateY: 315 } },
+            { id: 'treno', symbol: 'obj-treno', pose: { translateX: 135, translateY: 315, scale: 0.95 } },
+            { id: 'tribuna', symbol: 'obj-tribuna', pose: { translateX: 305, translateY: 315 } },
+            { id: 'leader', symbol: 'char-cappotto', pose: { translateX: 305, translateY: 269, scale: 1.15 } },
+            { id: 'folla-1', symbol: 'folla-bandiere', pose: { translateX: 425, translateY: 315, scale: 1.05 } },
+            { id: 'alfiere', symbol: 'char-alfiere', pose: { translateX: 535, translateY: 315, scale: 1.15 } },
+            { id: 'laika', symbol: 'laika-dog', pose: { translateX: 235, translateY: 315, scale: 1.15 } }
+          ],
+          bindings: [
+            { layer: 'treno', attribute: 'translateX', kind: 'metric', id: 'progresso', scale: 0.45, offset: 115 },
+            { layer: 'folla-1', attribute: 'translateX', kind: 'metric', id: 'progresso', scale: -0.25, offset: 435 }
+          ],
+          introSequence: 'arrivo-treno-comizio',
+          sequences: [
+            {
+              id: 'arrivo-treno-comizio',
+              caption: 'Il treno blindato avanza, il leader arringa dalla tribuna e la folla solleva le bandiere.',
+              presets: [
+                { type: 'arrive', layer: 'treno', attribute: 'translateX', distance: -140, at: 0, duration: 1200, ease: 'out' },
+                { type: 'excursion', layer: 'leader-torso', attribute: 'rotate', amount: 10, at: 200, duration: 900, hold: 400 },
+                { type: 'excursion', layer: 'leader-arm-r', attribute: 'rotate', amount: -28, at: 200, duration: 900, hold: 400 },
+                { type: 'excursion', layer: 'alfiere-arm-flag', attribute: 'rotate', amount: -25, at: 350, duration: 950, hold: 300 },
+                { type: 'excursion', layer: 'laika-tail', attribute: 'rotate', amount: -36, at: 300, duration: 400 }
+              ]
+            }
+          ]
+        },
+
+        // SCENA 2: GRANDI OPERE (DIGA + GRU + VYSOTKA)
+        {
+          id: 'scena-piano',
+          label: 'Grandi Opere — Diga Brutalista, Gru e Grattacielo Vysotka',
+          duration: 950,
+          layers: [
+            { id: 'sun', tag: 'circle', attrs: { cx: 330, cy: 84, r: 52, fill: '#f3ebdb' } },
+            { id: 'ground', tag: 'rect', attrs: { x: 0, y: 315, width: 640, height: 45, fill: '#1c1c1b' } }
+          ],
+          components: [
+            { id: 'vysotka', symbol: 'env-vysotka', pose: { translateX: 525, translateY: 315, scale: 0.96 } },
+            { id: 'diga', symbol: 'env-diga-cantiere', pose: { translateX: 170, translateY: 315 } },
+            { id: 'gru', symbol: 'obj-gru', pose: { translateX: 345, translateY: 315 } },
+            { id: 'operaio-1', symbol: 'char-operaio', pose: { translateX: 255, translateY: 251, scale: 1.05 } },
+            { id: 'contadino-1', symbol: 'char-contadino', pose: { translateX: 115, translateY: 315, scale: 1.1 } },
+            { id: 'ingegnere', symbol: 'char-cappotto', pose: { translateX: 395, translateY: 315, scale: 1.12 } },
+            { id: 'laika', symbol: 'laika-dog', pose: { translateX: 445, translateY: 315, scale: 1.12 } }
+          ],
+          bindings: [
+            { layer: 'gru-load', attribute: 'translateY', kind: 'metric', id: 'progresso', scale: -0.4, offset: -95 },
+            { layer: 'vysotka', attribute: 'scale', kind: 'metric', id: 'progresso', scale: 0.002, offset: 0.88 }
+          ],
+          introSequence: 'cantiere-attivo',
+          sequences: [
+            {
+              id: 'cantiere-attivo',
+              caption: 'La gru sposta la trave d’acciaio sopra la diga mentre gli operai coordinano il cantiere.',
+              presets: [
+                { type: 'excursion', layer: 'gru-load', attribute: 'translateX', amount: -28, at: 0, duration: 1200, hold: 300 },
+                { type: 'excursion', layer: 'operaio-1-arm-r', attribute: 'rotate', amount: -115, at: 150, duration: 850, hold: 400 },
+                { type: 'excursion', layer: 'ingegnere-arm-r', attribute: 'rotate', amount: -25, at: 250, duration: 850, hold: 400 },
+                { type: 'excursion', layer: 'laika-head', attribute: 'rotate', amount: -26, at: 300, duration: 900, hold: 400 }
+              ]
+            }
+          ]
+        },
+
+        // SCENA 3: COSMISMO (COSMODROMO + MONUMENTO SPAZIALE + LUNA)
+        {
+          id: 'scena-cosmo',
+          label: '1961 — Cosmodromo Vostok, Monumento Cosmista e Cielo Stellato',
+          duration: 1000,
+          layers: [
+            { id: 'ground', tag: 'rect', attrs: { x: 0, y: 315, width: 640, height: 45, fill: '#1c1c1b' } }
+          ],
+          components: [
+            { id: 'cielo', symbol: 'obj-cielo-cosmista', pose: { translateX: 320, translateY: 95 } },
+            { id: 'monumento', symbol: 'env-monumento-cosmo', pose: { translateX: 105, translateY: 315, scale: 0.95 } },
+            { id: 'cosmodromo', symbol: 'env-cosmodromo', pose: { translateX: 350, translateY: 315, scale: 1.08 } },
+            { id: 'folla-sx', symbol: 'folla-bandiere', pose: { translateX: 205, translateY: 315 } },
+            { id: 'folla-dx', symbol: 'folla-bandiere', pose: { translateX: 505, translateY: 315 } },
+            { id: 'laika', symbol: 'laika-dog', pose: { translateX: 275, translateY: 315, scale: 1.25 } }
+          ],
+          bindings: [
+            { layer: 'cosmodromo-rocket', attribute: 'translateY', kind: 'metric', id: 'progresso', scale: -0.95, offset: -12 },
+            { layer: 'cosmodromo-gantry', attribute: 'rotate', kind: 'metric', id: 'progresso', scale: -0.22, offset: 0 }
+          ],
+          introSequence: 'lancio-vostok',
+          sequences: [
+            {
+              id: 'lancio-vostok',
+              caption: 'La torre ombelicale si apre, il razzo Vostok si solleva verso il cosmo e Laika guarda le stelle.',
+              presets: [
+                { type: 'excursion', layer: 'cosmodromo-gantry', attribute: 'rotate', amount: -18, at: 0, duration: 1100, hold: 600 },
+                { type: 'excursion', layer: 'cosmodromo-rocket', attribute: 'translateY', amount: -68, at: 200, duration: 1200, hold: 400 },
+                { type: 'excursion', layer: 'laika-head', attribute: 'rotate', amount: -32, at: 150, duration: 1100, hold: 500 },
+                { type: 'excursion', layer: 'laika-tail', attribute: 'rotate', amount: -38, at: 200, duration: 450 }
+              ]
+            }
+          ]
+        },
+
+        // SCENA 4: BRUTALISMO QUOTIDIANO (PANELKI + TRAM ROSSO)
+        {
+          id: 'scena-panelki',
+          label: 'Anni ’70 — Quartieri Brutalisti Panelki, Panni Stesi e Tram Rosso',
+          duration: 950,
+          layers: [
+            { id: 'sun', tag: 'circle', attrs: { cx: 535, cy: 78, r: 44, fill: '#cc2a25' } },
+            { id: 'ground', tag: 'rect', attrs: { x: 0, y: 315, width: 640, height: 45, fill: '#1c1c1b' } }
+          ],
+          components: [
+            { id: 'quartiere-1', symbol: 'env-panelki', pose: { translateX: 215, translateY: 315, scale: 1.05 } },
+            { id: 'quartiere-2', symbol: 'env-panelki', pose: { translateX: 495, translateY: 315, scale: 0.92 } },
+            { id: 'tram', symbol: 'obj-tram', pose: { translateX: 155, translateY: 315, scale: 1.08 } },
+            { id: 'passante-1', symbol: 'char-operaio', pose: { translateX: 315, translateY: 315, scale: 1.08 } },
+            { id: 'passante-2', symbol: 'char-cappotto', pose: { translateX: 365, translateY: 315, scale: 1.08 } },
+            { id: 'laika', symbol: 'laika-dog', pose: { translateX: 425, translateY: 315, scale: 1.18 } }
+          ],
+          bindings: [
+            { layer: 'tram', attribute: 'translateX', kind: 'metric', id: 'progresso', scale: 1.2, offset: 110 }
+          ],
+          introSequence: 'vita-quartiere',
+          sequences: [
+            {
+              id: 'vita-quartiere',
+              caption: 'Il tram rosso scorre davanti ai blocchi in cemento coi panni stesi; Laika accompagna i passanti.',
+              presets: [
+                { type: 'arrive', layer: 'tram', attribute: 'translateX', distance: -120, at: 0, duration: 1200, ease: 'out' },
+                { type: 'excursion', layer: 'passante-1-leg-l', attribute: 'rotate', amount: -28, at: 100, duration: 500 },
+                { type: 'excursion', layer: 'passante-1-leg-r', attribute: 'rotate', amount: 28, at: 100, duration: 500 },
+                { type: 'excursion', layer: 'laika', attribute: 'translateY', amount: -10, at: 350, duration: 400 },
+                { type: 'excursion', layer: 'laika-tail', attribute: 'rotate', amount: -35, at: 200, duration: 400 }
+              ]
+            }
+          ]
+        },
+
+        // SCENA 5: CRISI E CONTROLLO (REATTORE BRUTALISTA + TORRETTA + ISBA)
+        {
+          id: 'scena-atomica',
+          label: 'Eventi Tragici — Reattore Brutalista, Torretta e Campagna',
+          duration: 950,
+          layers: [
+            { id: 'sun', tag: 'circle', attrs: { cx: 540, cy: 86, r: 38, fill: '#cc2a25' } },
+            { id: 'ground', tag: 'rect', attrs: { x: 0, y: 315, width: 640, height: 45, fill: '#1c1c1b' } }
+          ],
+          components: [
+            { id: 'torretta', symbol: 'obj-torretta', pose: { translateX: 135, translateY: 315 } },
+            { id: 'reattore', symbol: 'env-reattore', pose: { translateX: 430, translateY: 315, scale: 1.05 } },
+            { id: 'guardia', symbol: 'char-cappotto', pose: { translateX: 195, translateY: 315, scale: 1.12 } },
+            { id: 'lavoratore', symbol: 'char-contadino', pose: { translateX: 265, translateY: 315, scale: 1.12 } },
+            { id: 'laika', symbol: 'laika-dog', pose: { translateX: 585, translateY: 315, scale: 1.12 } }
+          ],
+          bindings: [
+            { layer: 'guardia-arm-r', attribute: 'rotate', kind: 'metric', id: 'progresso', scale: -0.5, offset: -65 }
+          ],
+          introSequence: 'allerta-centrale',
+          sequences: [
+            {
+              id: 'allerta-centrale',
+              caption: 'Presidio davanti al complesso industriale; Laika osserva dal margine.',
+              presets: [
+                { type: 'excursion', layer: 'guardia-arm-r', attribute: 'rotate', amount: -25, at: 0, duration: 900, hold: 400 },
+                { type: 'excursion', layer: 'lavoratore-torso', attribute: 'rotate', amount: 12, at: 200, duration: 900, hold: 400 },
+                { type: 'excursion', layer: 'laika-head', attribute: 'rotate', amount: -20, at: 250, duration: 800, hold: 300 }
+              ]
+            }
+          ]
+        }
+      ]
+    };
+
+    // Validazione e avvio
+    const expandedPack = composePack(demoPack);
+    for (const st of expandedPack.stages) validateStage(st);
+    diag.textContent = '✔ VALIDAZIONE OK · 20 SIMBOLI ATTIVI';
+
+    const state = { metrics: { progresso: 40 }, resources: {}, relations: {} };
+    const host = document.getElementById('stageHost');
+    const captionText = document.getElementById('captionText');
+    const seqButtons = document.getElementById('seqButtons');
+    const controller = createStage(host, { onCaption: (c) => { captionText.textContent = c; } });
+
+    function loadStage(stageId) {
+      const stage = expandedPack.stages.find(s => s.id === stageId);
+      controller.mount(stage, state, { intro: true });
+      seqButtons.innerHTML = '<strong style="font:800 11px var(--mono)">SEQUENZE:</strong>' +
+        stage.sequences.map(seq => `<button class="action-btn" data-seq="${seq.id}">▶ ${seq.id}</button>`).join('');
+      seqButtons.querySelectorAll('[data-seq]').forEach(btn => {
+        btn.addEventListener('click', () => controller.sequence(btn.dataset.seq));
+      });
+    }
+    loadStage('scena-1917');
+
+    document.querySelectorAll('.scene-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.scene-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        loadStage(btn.dataset.stage);
+      });
+    });
+
+    document.getElementById('btnReplay').addEventListener('click', () => controller.replay());
+    document.getElementById('btnSkip').addEventListener('click', () => controller.skip());
+    const metricRange = document.getElementById('metricRange');
+    const metricLabel = document.getElementById('metricLabel');
+    metricRange.addEventListener('input', () => {
+      state.metrics.progresso = Number(metricRange.value);
+      metricLabel.textContent = metricRange.value;
+      controller.update(state);
+    });
+
+    // Esportazione JSON e griglia catalogo
+    const cleanSymbols = { symbols: demoPack.symbols };
+    document.getElementById('jsonPreview').textContent = JSON.stringify(cleanSymbols, null, 2);
+    document.getElementById('copyBtn').addEventListener('click', (e) => {
+      navigator.clipboard.writeText(JSON.stringify(cleanSymbols, null, 2));
+      e.target.textContent = '✔ COPIATO!';
+      setTimeout(() => { e.target.textContent = 'COPIA "symbols"'; }, 1800);
+    });
+
+    const catalogGrid = document.getElementById('catalogGrid');
+    for (const sym of LAIKA_SYMBOLS) {
+      let vb = '-55 -65 110 75';
+      if (sym.id === 'env-vysotka' || sym.id === 'env-monumento-cosmo' || sym.id === 'env-reattore') vb = '-140 -240 280 255';
+      else if (sym.id.startsWith('env-')) vb = '-165 -185 330 200';
+      else if (sym.id === 'obj-gru') vb = '-70 -190 210 205';
+      else if (sym.id === 'obj-treno') vb = '-135 -125 315 140';
+      else if (sym.id === 'obj-cielo-cosmista') vb = '-120 -65 245 105';
+      else if (sym.id === 'obj-torretta') vb = '-115 -135 155 145';
+      else if (sym.id === 'obj-tram' || sym.id === 'obj-tribuna' || sym.id === 'folla-bandiere') vb = '-85 -90 170 100';
+      else if (sym.id === 'laika-dog') vb = '-26 -36 54 42';
+
+      const singlePack = composePack({
+        symbols: [sym],
+        stages: [{
+          id: 'preview-' + sym.id,
+          label: sym.id,
+          duration: 500,
+          layers: [{ id: 'ground-line', tag: 'line', attrs: { x1: -220, y1: 0, x2: 220, y2: 0, stroke: '#bdb6a7', 'stroke-width': 1.5 } }],
+          components: [{ id: 'item', symbol: sym.id, pose: { translateX: 0, translateY: 0, scale: 1 } }],
+          sequences: []
+        }]
+      });
+      const card = document.createElement('div');
+      card.className = 'card';
+      const holder = document.createElement('div');
+      const miniStage = createStage(holder);
+      miniStage.mount(singlePack.stages[0], { metrics: {}, resources: {}, relations: {} });
+      const svgEl = holder.querySelector('svg');
+      svgEl.setAttribute('viewBox', vb);
+      const [kind, desc] = sym.meta.split(' · ');
+      card.innerHTML = `<div class="card-title"><span>${sym.id}</span><b>${kind}</b></div>`;
+      card.append(svgEl);
+      const note = document.createElement('div');
+      note.className = 'card-note';
+      note.textContent = desc;
+      card.append(note);
+      catalogGrid.append(card);
+    }
+  } catch (err) {
+    diag.style.color = '#cc2a25';
+    diag.textContent = 'ERRORE: ' + err.message;
+    console.error(err);
+  }
+})();
+</script>
+</body>
+</html>

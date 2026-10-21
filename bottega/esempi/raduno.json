@@ -1,0 +1,108 @@
+{
+  "id": "esempio-raduno",
+  "etichetta": "Persone sparse si radunano davanti a una casa rurale mentre arriva un carico.",
+  "ruvido": true,
+  "elementi": [
+    {
+      "id": "casa",
+      "simbolo": "ambiente-rurale",
+      "x": 480,
+      "y": 430,
+      "scala": 1.8
+    },
+    {
+      "id": "terra",
+      "simbolo": "suolo",
+      "x": 480,
+      "y": 430,
+      "scala": 1.9
+    },
+    {
+      "id": "sacco",
+      "simbolo": "oggetto-cassa",
+      "x": 560,
+      "y": 455,
+      "scala": 0.8,
+      "davanti": true
+    }
+  ],
+  "figure": [
+    {
+      "gruppo": "villaggio",
+      "formazione": {
+        "tipo": "gruppo",
+        "n": 9,
+        "x": 470,
+        "y": 470,
+        "raggio": 150,
+        "scala": 1.3,
+        "seme": 3,
+        "varianti": [
+          "scialle",
+          "nessuna",
+          "cappello_largo",
+          "donna",
+          "bambino",
+          "cappotto"
+        ]
+      }
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "raduno",
+      "didascalia": "Da punti diversi del villaggio le persone si avvicinano; arriva un carico.",
+      "passi": [
+        {
+          "azione": "gather",
+          "chi": "villaggio",
+          "fattore": 2.6,
+          "a": 0,
+          "sfalsa": 120
+        },
+        {
+          "azione": "transfer",
+          "chi": "sacco",
+          "da": [
+            900,
+            455
+          ],
+          "a": 1500,
+          "durata": 1800,
+          "arco": 30
+        },
+        {
+          "azione": "camera",
+          "a": 0,
+          "durata": 5000,
+          "inquadrature": [
+            [
+              0,
+              0,
+              960,
+              540
+            ],
+            [
+              240,
+              220,
+              480,
+              270
+            ],
+            [
+              0,
+              0,
+              960,
+              540
+            ]
+          ],
+          "tempi": [
+            0,
+            0.5,
+            1
+          ]
+        }
+      ]
+    }
+  ],
+  "ingresso": "raduno"
+}

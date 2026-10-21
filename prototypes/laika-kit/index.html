@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f3ebdb">
+<title>LAIKA — Laboratorio Atto 0, forme e scene</title>
+<style>
+:root{--paper:#f3ebdb;--paper2:#e9e0cf;--red:#cc2a25;--ink:#1c1c1b;--blue:#93abb7;--line:#bdb6a7}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.4 'Arial Narrow',Arial,sans-serif}
+main{max-width:1400px;padding:20px;margin:auto}
+header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px;border-bottom:4px solid var(--ink);padding-bottom:20px;margin-bottom:20px}
+h1{font-size:clamp(27px,4vw,55px);line-height:.96;text-transform:uppercase;letter-spacing:-.04em;margin:6px 0}
+h2{margin:0;font-size:clamp(20px,2.7vw,33px);letter-spacing:-.025em}
+small,.eyebrow,.note,.status,button,.scene-label,.cardhead{font:700 12px/1.4 ui-monospace,Consolas,monospace}
+.eyebrow{background:var(--red);color:var(--paper);padding:5px 9px;display:inline-block}
+.note{max-width:440px;color:#59564f}
+.links{display:flex;flex-wrap:wrap;gap:12px;padding:10px 0}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+.layout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,.95fr);gap:16px;margin:0 0 24px}
+.panel{border:3px solid var(--ink);min-width:0;display:flex;flex-direction:column}
+.panel-title{background:var(--ink);color:var(--paper);padding:9px 13px;font:800 12px ui-monospace,Consolas,monospace;display:flex;justify-content:space-between;gap:12px}
+#stage,#stage svg{width:100%;display:block;min-width:0}#stage{background:var(--paper2);aspect-ratio:16/9;overflow:hidden}
+#stage svg{height:100%}
+#caption{border-top:2px solid var(--ink);padding:13px;min-height:48px;background:var(--paper)}
+.controls{display:flex;gap:8px;flex-wrap:wrap;padding:12px;background:var(--paper)}
+button{cursor:pointer;border:2px solid var(--ink);color:var(--ink);padding:9px 12px;background:var(--paper)}
+button:hover,button:focus-visible{background:var(--paper2)}
+button[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:white}
+button:focus-visible,a:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+#json{margin:0;background:var(--ink);color:var(--paper);padding:14px;max-height:430px;overflow:auto;min-width:0;white-space:pre;font:11px/1.4 ui-monospace,Consolas,monospace}
+.panel p{padding:0 12px;margin:12px 0}
+#catalog{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:14px}
+.asset{border:2px solid var(--ink);min-width:0;background:var(--paper2)}
+.cardhead{display:flex;justify-content:space-between;gap:8px;background:var(--ink);color:var(--paper);padding:7px}
+.cardhead b{color:#ff8580}
+.asset-stage{height:155px;background:var(--paper);overflow:hidden}
+.asset-stage svg{width:100%;height:100%;display:block}
+.asset p{padding:9px;margin:0;font:11px/1.4 ui-monospace,Consolas,monospace;color:#59564f}
+#status{display:inline-block;max-width:530px}
+.error{color:#a31e1e}
+@media(max-width:850px){.layout{grid-template-columns:1fr}main{padding:10px}.note{max-width:100%}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<main>
+<header><div><span class="eyebrow">LAIKA / LABORATORIO SVG / WORK IN PROGRESS</span><h1>Terra, mir, industria e crisi</h1><small>14 simboli · 4 composizioni · scenografie dimostrative</small></div><div class="note"><span id="status" role="status">Caricamento dei moduli del motore…</span><div class="links"><a href="kit-forme-laika.html">Kit originale · 20 simboli</a><a href="../laika-home/index-v2.html">Home v2 · omini organici</a></div></div></header>
+<div class="layout">
+<section class="panel" aria-label="Scene animate"><div class="panel-title"><span>STAGE SVG REALE</span><span>Motore v1 della repo</span></div><div id="stage"></div><div id="caption" aria-live="polite">Scegli una scena e riproduci l'ingresso.</div><div class="controls" id="scene-buttons" role="group" aria-label="Seleziona una scena"></div><div class="controls"><button type="button" id="play">Riproduci sequenza</button><button type="button" id="replay">Replay</button><button type="button" id="pause">Pausa / riprendi</button><button type="button" id="skip">Salta al finale</button></div></section>
+<section class="panel"><div class="panel-title"><span>DATI D'AUTORE</span><span>JSON</span></div><p>Il file contiene esclusivamente illustrazioni e scene dimostrative. Non sono implementati gli episodi, né convalidate le ricostruzioni storiche.</p><div class="controls"><button type="button" id="copy">Copia JSON</button><a href="atto0-study.json" download>Scarica dati</a></div><pre id="json">Caricamento…</pre></section>
+</div>
+<h2>Catalogo — 14 forme nuove</h2>
+<p class="note">Le geometrie sono reference SVG a colori piatti. Restano da confrontare con le cinque figure organiche della home e, dopo il merge della PR #4, con il nuovo contratto di animazione.</p>
+<div id="catalog" aria-label="Catalogo simboli"></div>
+</main>
+<script type="module">
+import {composePack} from '../../src/visual/compose.js';
+import {validateStage,createStage} from '../../src/visual/stage.js';
+const $=s=>document.querySelector(s);
+const status=$('#status'),state={metrics:{},resources:{},relations:{}};
+let raw,pack,renderer,selectedStage;
+const motionQuery=matchMedia('(prefers-reduced-motion: reduce)');
+motionQuery.addEventListener('change',event=>renderer?.setReducedMotion(event.matches));
+const previewScale=id=>id.startsWith('env-')?1.5:id.startsWith('char-famiglia')?4:id.startsWith('char-')?4.2:3.3;
+const makeBtn=(text,fn)=>{const b=document.createElement('button');b.type='button';b.textContent=text;b.addEventListener('click',fn);return b};
+function mountScene(stage){
+  renderer?.destroy(); selectedStage=stage;
+  renderer=createStage($('#stage'),{reducedMotion:motionQuery.matches,onCaption:s=>$('#caption').textContent=s});
+  renderer.mount(stage,state);
+  $('#caption').textContent=raw.stages.find(s=>s.id===stage.id)?.sequences[0]?.caption||stage.label;
+  for(const b of $('#scene-buttons').children)b.setAttribute('aria-pressed',String(b.dataset.stage===stage.id));
+}
+function showAsset(symbol){
+  const card=document.createElement('div');card.className='asset';
+  const title=document.createElement('div');title.className='cardhead';
+  const name=document.createElement('span');name.textContent=symbol.id;
+  const grp=document.createElement('b');grp.textContent=symbol.group;
+  title.append(name,grp);
+  const holder=document.createElement('div');holder.className='asset-stage';
+  const desc=document.createElement('p');desc.textContent=symbol.meta;
+  card.append(title,holder,desc);$('#catalog').append(card);
+  const mini=composePack({symbols:[symbol],stages:[{id:'mini-'+symbol.id,label:symbol.meta,duration:0,layers:[{id:'paper',tag:'rect',attrs:{x:0,y:0,width:640,height:360,fill:'#f3ebdb'}}],components:[{id:'item',symbol:symbol.id,pose:{translateX:320,translateY:284,scale:previewScale(symbol.id)}}]}]}).stages[0];
+  validateStage(mini,{metrics:[],resources:[],relations:[]});
+  createStage(holder,{reducedMotion:true}).mount(mini,state);
+}
+try{
+  const response=await fetch('atto0-study.json');
+  if(!response.ok)throw Error('Impossibile leggere atto0-study.json ('+response.status+')');
+  raw=await response.json();
+  pack=composePack(raw);
+  for(const stage of pack.stages)validateStage(stage,{metrics:[],resources:[],relations:[]});
+  $('#json').textContent=JSON.stringify({symbols:raw.symbols},null,2);
+  for(const stage of pack.stages){
+    const b=makeBtn(stage.label,()=>mountScene(stage));
+    b.dataset.stage=stage.id;
+    $('#scene-buttons').append(b);
+  }
+  for(const symbol of raw.symbols)showAsset(symbol);
+  mountScene(pack.stages[0]);
+  $('#play').addEventListener('click',()=>renderer.sequence('ingresso'));
+  $('#replay').addEventListener('click',()=>renderer.replay());
+  $('#pause').addEventListener('click',()=>renderer.paused?renderer.resume():renderer.pause());
+  $('#skip').addEventListener('click',()=>renderer.skip());
+  $('#copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(JSON.stringify(raw.symbols,null,2));$('#copy').textContent='Copiato'}catch{ $('#copy').textContent='Seleziona il testo JSON' }});
+  status.textContent='Verificati con composePack + validateStage: '+raw.symbols.length+' simboli, '+pack.stages.length+' scene.';
+}catch(error){status.textContent='Errore: '+error.message;status.classList.add('error');$('#caption').textContent='Controllare la console o eseguire con server HTTP.';console.error(error)}
+</script>
+</body>
+</html>

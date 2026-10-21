@@ -1,0 +1,20 @@
+
+> learning-game-kit@0.1.0 test:browser
+> node tests/browser.cjs
+
+P1 PASS: routing, themes, text context, home read-only, resume/complete/incompatible, no-JS home.
+Public browser contract PASS: all configured packs, keyboard, focus, stage switches, reduced motion, restore.
+Motion frame pacing (CI, not phone): {
+  browser: 'chromium',
+  frames: 712,
+  medianMs: 16.700000000000728,
+  p95Ms: 50,
+  over50ms: 17
+}
+LAIKA PASS: 14 simboli, 4 scene, viewport 390/1280, playback, pausa, skip, reduced-motion
+Browser PASS: 2 pacchetti completi, geometria iniziale/intermedia/finale, identità DOM, reload, touch, 320/390/1280px, reduced motion.
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice

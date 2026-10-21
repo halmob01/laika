@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "laika",
+  "contentVersion": "p1-internal-1",
+  "title": "LAIKA — prova tecnica interna",
+  "exposureFlags": [],
+  "acts": [
+    {
+      "id": "atto-0",
+      "file": "source/acts/atto-0.json"
+    },
+    {
+      "id": "atto-1",
+      "file": "source/acts/atto-1.json"
+    }
+  ],
+  "stages": [],
+  "scene": [],
+  "tema": "laika",
+  "symbols": "assets/symbols.json",
+  "questions": [
+    "questions/atto-0.json",
+    "questions/atto-1.json"
+  ],
+  "editorial": {
+    "status": "internal-only",
+    "sources": "sources.json"
+  }
+}

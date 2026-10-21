@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LAIKA — Studio Grafico: Palazzi Brutalisti (Fase B)</title>
+  <style>
+    :root {
+      --bg: #F6F1E3;
+      --ink: #161614;
+      --red: #E02A1B;
+      --blue-light: #C9D6DF;
+      --blue-mid: #8EA8B8;
+      --blue-dark: #4F6B7C;
+      --panel: #EFE8D5;
+      --border: #C8BEA6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Courier New", Courier, monospace;
+      background: var(--bg);
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+    header {
+      background: var(--ink);
+      color: var(--bg);
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 3px solid var(--red);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      font-size: 16px;
+    }
+    .brand span.red { color: var(--red); }
+    .mode-tabs {
+      display: flex;
+      gap: 8px;
+    }
+    .tab-btn {
+      background: #2b2b28;
+      color: var(--bg);
+      border: 1px solid #555;
+      padding: 7px 14px;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: bold;
+      font-size: 12px;
+      border-radius: 3px;
+      transition: 0.15s;
+    }
+    .tab-btn.active {
+      background: var(--red);
+      border-color: var(--red);
+      color: #fff;
+    }
+    .main-layout {
+      display: grid;
+      grid-template-columns: 360px 1fr 310px;
+      flex: 1;
+      overflow: hidden;
+    }
+    .sidebar {
+      background: var(--panel);
+      border-right: 1px solid var(--border);
+      padding: 12px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .sidebar-right {
+      background: var(--panel);
+      border-left: 1px solid var(--border);
+      padding: 12px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .section-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 10px;
+      border-radius: 3px;
+    }
+    .section-title {
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--ink);
+      padding: 4px 8px;
+      margin: -10px -10px 8px -10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .section-title span.badge {
+      background: var(--red);
+      padding: 1px 5px;
+      font-size: 10px;
+      border-radius: 2px;
+    }
+    .grid-btns {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 5px;
+    }
+    button.opt-btn {
+      background: #fff;
+      border: 1px solid var(--border);
+      padding: 6px 7px;
+      font-family: inherit;
+      font-size: 10.5px;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: left;
+      border-radius: 2px;
+      transition: 0.1s;
+      color: var(--ink);
+    }
+    button.opt-btn:hover {
+      border-color: var(--ink);
+      background: #faf6eb;
+    }
+    button.opt-btn.active {
+      background: var(--ink);
+      color: var(--bg);
+      border-color: var(--ink);
+    }
+    .canvas-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      overflow: auto;
+      background: radial-gradient(circle, #fbf8f0 0%, #e7dec8 100%);
+    }
+    #svg-container {
+      background: var(--bg);
+      border: 2px solid var(--ink);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.14);
+      max-width: 100%;
+      max-height: 84vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #svg-container svg {
+      display: block;
+      max-width: 100%;
+      max-height: 82vh;
+    }
+    textarea#svg-code {
+      width: 100%;
+      height: 150px;
+      font-family: monospace;
+      font-size: 10px;
+      background: #161614;
+      color: #f6f1e3;
+      border: 1px solid var(--border);
+      padding: 6px;
+      resize: vertical;
+    }
+    .action-btn {
+      width: 100%;
+      padding: 9px;
+      background: var(--red);
+      color: #fff;
+      border: none;
+      font-family: inherit;
+      font-weight: bold;
+      font-size: 11.5px;
+      cursor: pointer;
+      border-radius: 3px;
+      margin-top: 5px;
+    }
+    .action-btn.secondary { background: var(--ink); }
+    .action-btn.blue { background: var(--blue-dark); }
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      font-weight: bold;
+      margin: 5px 0;
+      cursor: pointer;
+    }
+    #png-preview {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <span>STUDIO GRAFICO — <span class="red">PALAZZI BRUTALISTI</span> (FASE B)</span>
+  </div>
+  <div class="mode-tabs">
+    <button class="tab-btn active" id="tab-single" onclick="setViewMode('single')">1. ISPEZIONA SINGOLO PALAZZO (15 EDIFICI)</button>
+    <button class="tab-btn" id="tab-poster" onclick="setViewMode('poster')">2. TAVOLA INTEGRALE PALAZZI (4 RIGHE)</button>
+  </div>
+</header>
+
+<div class="main-layout">
+  <div class="sidebar">
+    <div class="section-box">
+      <div class="section-title">Riga 1 — Residenziale (4 Asset) <span class="badge">R1</span></div>
+      <div class="grid-btns" id="btns-r1"></div>
+    </div>
+
+    <div class="section-box">
+      <div class="section-title">Riga 2 — Istituzionale (4 Asset) <span class="badge">R2</span></div>
+      <div class="grid-btns" id="btns-r2"></div>
+    </div>
+
+    <div class="section-box">
+      <div class="section-title">Riga 3 — Gradoni & Pilotis (4 Asset) <span class="badge">R3</span></div>
+      <div class="grid-btns" id="btns-r3"></div>
+    </div>
+
+    <div class="section-box">
+      <div class="section-title">Riga 4 — Casa della Cultura (3 Asset) <span class="badge">R4</span></div>
+      <div class="grid-btns" id="btns-r4"></div>
+    </div>
+
+    <div class="section-box">
+      <div class="section-title">Opzioni Scena & Animazione</div>
+      <label class="checkbox-row">
+        <input type="checkbox" id="chk-people" checked onchange="renderAll()" />
+        👥 Mostra Omini, Alberi e Cane in Scala
+      </label>
+      <label class="checkbox-row">
+        <input type="checkbox" id="chk-texture" checked onchange="renderAll()" />
+        🧱 Texture Casseri & Macchie Cemento
+      </label>
+      <label class="checkbox-row">
+        <input type="checkbox" id="chk-rough" checked onchange="renderAll()" />
+        🖍️ Tratto Inchiostro Ruvido (Filtro SVG)
+      </label>
+      <label class="checkbox-row">
+        <input type="checkbox" id="chk-anim" onchange="toggleAnim(this.checked)" />
+        🌬️ Anima Passanti e Bandiere Rosse
+      </label>
+    </div>
+  </div>
+
+  <div class="canvas-area">
+    <div id="svg-container"></div>
+  </div>
+
+  <div class="sidebar-right">
+    <div class="section-box">
+      <div class="section-title">Anteprima PNG Generata</div>
+      <img id="png-preview" alt="Anteprima PNG" />
+      <button class="action-btn" onclick="downloadPNG()">⬇ SCARICA PNG AD ALTA RISOLUZIONE</button>
+    </div>
+
+    <div class="section-box">
+      <div class="section-title">Codice SVG Vettoriale Puro</div>
+      <textarea id="svg-code" readonly></textarea>
+      <button class="action-btn secondary" onclick="copySVG()">📋 COPIA CODICE SVG</button>
+      <button class="action-btn blue" onclick="downloadSVG()">⬇ SCARICA FILE .SVG</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const C = {
+  bg: '#F6F1E3',
+  ink: '#161614',
+  red: '#E02A1B',
+  cLight: '#C9D6DF',
+  cMid: '#8EA8B8',
+  cDark: '#4F6B7C',
+  treeBlue: '#97B0C0'
+};
+
+const BUILDINGS = {
+  r1: [
+    { id: 'torre_residenziale',     label: 'Torre residenziale', w: 260 },
+    { id: 'torre_residenziale_var', label: 'Torre resid. (Variante)', w: 220 },
+    { id: 'blocco_abitativo',       label: 'Blocco abitativo', w: 480 },
+    { id: 'blocco_abitativo_var',   label: 'Blocco abit. (Variante)', w: 260 }
+  ],
+  r2: [
+    { id: 'palazzo_amministrativo',     label: 'Palazzo amministrativo', w: 420 },
+    { id: 'palazzo_amministrativo_var', label: 'Palazzo amm. (Variante)', w: 210 },
+    { id: 'centro_civico',              label: 'Centro civico', w: 430 },
+    { id: 'centro_civico_var',          label: 'Centro civico (Variante)', w: 240 }
+  ],
+  r3: [
+    { id: 'complesso_gradoni',     label: 'Complesso a gradoni', w: 410 },
+    { id: 'complesso_gradoni_var', label: 'Gradoni (Variante)', w: 250 },
+    { id: 'edificio_pilotis',      label: 'Edificio con pilotis', w: 380 },
+    { id: 'edificio_pilotis_var',  label: 'Pilotis (Variante)', w: 250 }
+  ],
+  r4: [
+    { id: 'casa_cultura',       label: 'Casa della Cultura', w: 500 },
+    { id: 'casa_cultura_var1',  label: 'Casa Cultura (Variante 1)', w: 360 },
+    { id: 'casa_cultura_var2',  label: 'Casa Cultura (Variante 2)', w: 350 }
+  ]
+};
+
+const state = {
+  viewMode: 'single',
+  activeId: 'blocco_abitativo',
+  anim: false,
+  tick: 0
+};
+
+function initUI() {
+  ['r1', 'r2', 'r3', 'r4'].forEach(rowKey => {
+    const box = document.getElementById(`btns-${rowKey}`);
+    BUILDINGS[rowKey].forEach(b => {
+      const btn = document.createElement('button');
+      btn.className = 'opt-btn' + (b.id === state.activeId ? ' active' : '');
+      btn.dataset.id = b.id;
+      btn.textContent = b.label;
+      btn.onclick = () => {
+        state.activeId = b.id;
+        if (state.viewMode !== 'single') setViewMode('single');
+        syncUI();
+        renderAll();
+      };
+      box.appendChild(btn);
+    });
+  });
+}
+
+function setViewMode(m) {
+  state.viewMode = m;
+  document.getElementById('tab-single').classList.toggle('active', m === 'single');
+  document.getElementById('tab-poster').classList.toggle('active', m === 'poster');
+  renderAll();
+}
+
+function syncUI() {
+  document.querySelectorAll('.opt-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.id === state.activeId);
+  });
+}
+
+function toggleAnim(on) {
+  state.anim = on;
+  renderAll();
+}
+
+function getDefs(withTexture) {
+  return `
+    <defs>
+      <filter id="brutal-ink" x="-4%" y="-4%" width="108%" height="108%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.15" numOctaves="2" seed="9" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="1.1" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <pattern id="concrete-tex" width="64" height="64" patternUnits="userSpaceOnUse">
+        ${withTexture ? `
+          <circle cx="14" cy="18" r="0.9" fill="${C.ink}" opacity="0.32"/>
+          <circle cx="46" cy="12" r="0.8" fill="${C.ink}" opacity="0.28"/>
+          <circle cx="29" cy="40" r="1.0" fill="${C.ink}" opacity="0.24"/>
+          <circle cx="52" cy="50" r="0.8" fill="${C.ink}" opacity="0.32"/>
+          <path d="M 8,24 L 8,36 M 38,16 L 38,30 M 54,26 L 54,42" stroke="${C.cDark}" stroke-width="0.65" opacity="0.38"/>
+        ` : ''}
+      </pattern>
+    </defs>
+  `;
+}
+
+// === HELPER: BLOCCO 3D IN CALCESTRUZZO ===
+function box3D(x, y, w, h, dx = 16, dy = -8, topVis = true, rightVis = true, frontColor = C.cLight, sideColor = C.cMid) {
+  let s = `<g stroke="${C.ink}" stroke-width="1.25" stroke-linejoin="round">`;
+  s += `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${frontColor}"/>`;
+  s += `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="url(#concrete-tex)" stroke="none"/>`;
+  if (topVis && dy < 0) {
+    s += `<polygon points="${x},${y} ${x + dx},${y + dy} ${x + w + dx},${y + dy} ${x + w},${y}" fill="${C.bg}" opacity="0.9"/>`;
+    s += `<polygon points="${x},${y} ${x + dx},${y + dy} ${x + w + dx},${y + dy} ${x + w},${y}" fill="${C.cLight}" opacity="0.55"/>`;
+  } else if (!topVis && dy > 0) {
+    s += `<polygon points="${x},${y + h} ${x + dx},${y + h + dy} ${x + w + dx},${y + h + dy} ${x + w},${y + h}" fill="${C.ink}"/>`;
+  }
+  if (rightVis && dx !== 0) {
+    s += `<polygon points="${x + w},${y} ${x + w + dx},${y + dy} ${x + w + dx},${y + h + dy} ${x + w},${y + h}" fill="${sideColor}"/>`;
+    s += `<polygon points="${x + w},${y} ${x + w + dx},${y + dy} ${x + w + dx},${y + h + dy} ${x + w},${y + h}" fill="url(#concrete-tex)" stroke="none"/>`;
+  }
+  s += `</g>`;
+  return s;
+}
+
+// === HELPER: OMINI, CANE E ALBERI STILIZZATI ===
+function person(x, y, opts = {}) {
+  const sc = (opts.child ? 0.65 : 1) * (opts.scale || 0.85);
+  const col = opts.red ? C.red : C.ink;
+  const sw = state.anim ? Math.sin(state.tick + x * 0.1) * 4.5 : (opts.walk ? 3.5 : 0);
+  const dx = state.anim && opts.walk ? Math.sin(state.tick * 0.5 + x) * 3 : 0;
+  return `
+    <g transform="translate(${x + dx}, ${y}) scale(${sc})">
+      <circle cx="0" cy="-22" r="2.7" fill="${col}"/>
+      ${opts.woman
+        ? `<polygon points="-2.2,-19 2.2,-19 4.6,-7 -4.6,-7" fill="${col}"/>`
+        : `<polygon points="-2.4,-19 2.4,-19 2.7,-9 -2.7,-9" fill="${col}"/>`
+      }
+      <line x1="-2" y1="-17.5" x2="${-4 - sw * 0.3}" y2="-10" stroke="${col}" stroke-width="1.7" stroke-linecap="round"/>
+      <line x1="2" y1="-17.5" x2="${4 + sw * 0.3}" y2="-10" stroke="${col}" stroke-width="1.7" stroke-linecap="round"/>
+      <line x1="-1.2" y1="-9" x2="${-2.3 - sw * 0.4}" y2="0" stroke="${col}" stroke-width="1.9" stroke-linecap="round"/>
+      <line x1="1.2" y1="-9" x2="${2.3 + sw * 0.4}" y2="0" stroke="${col}" stroke-width="1.9" stroke-linecap="round"/>
+    </g>
+  `;
+}
+
+function dog(x, y, scale = 0.9) {
+  return `
+    <g transform="translate(${x}, ${y}) scale(${scale})">
+      <path d="M -7,-5.5 L 4,-5.5 L 6.5,-10 L 8.5,-13 L 9.5,-10 L 12,-8.5 L 11,-6.5 L 7.5,-6.5 L 5.5,-3.5 L 7,0 L 5.2,0 L 3.5,-3.5 L -4.5,-3.5 L -6.5,0 L -8.2,0 L -6.5,-4.5 Z" fill="${C.ink}"/>
+      <path d="M -7,-5.5 Q -10.5,-8.5 -9.5,-11.5" fill="none" stroke="${C.ink}" stroke-width="1.6" stroke-linecap="round"/>
+      <line x1="4.5" y1="-7" x2="7.5" y2="-5" stroke="${C.red}" stroke-width="1.8" stroke-linecap="round"/>
+    </g>
+  `;
+}
+
+function stylizedTree(x, y, scale = 1, bare = false) {
+  let s = `<g transform="translate(${x}, ${y}) scale(${scale})">`;
+  if (!bare) {
+    s += `<ellipse cx="0" cy="-24" rx="8.5" ry="16" fill="${C.treeBlue}" opacity="0.65"/>`;
+  }
+  s += `<path d="M 0,0 L 0,-34 M 0,-14 L -6,-22 M 0,-19 L 6,-27 M 0,-25 L -5,-32 M 0,-28 L 4,-35" stroke="${C.ink}" stroke-width="1.2" stroke-linecap="round" fill="none"/>`;
+  s += `</g>`;
+  return s;
+}
+
+// === DISEGNATORE DEI 15 PALAZZI BRUTALISTI ===
+function drawBuilding(id, ox = 0, oy = 0, showPeople = true) {
+  let g = `<g transform="translate(${ox}, ${oy})">`;
+  const groundY = 176;
+  const flagWave = state.anim ? Math.sin(state.tick * 2) * 3.5 : 0;
+
+  switch (id) {
+    // ================= 1. TORRE RESIDENZIALE =================
+    case 'torre_residenziale':
+      g += `<line x1="6" y1="${groundY}" x2="250" y2="${groundY}" stroke="${C.ink}" stroke-width="1.5"/>`;
+      // Pilotis di base
+      [58, 76, 98, 120, 140, 158].forEach((px, i) => {
+        g += `<rect x="${px}" y="${groundY - 22}" width="7" height="22" fill="${i % 2 === 0 ? C.cLight : C.ink}" stroke="${C.ink}" stroke-width="1.1"/>`;
+      });
+      // Balconi sporgenti a sinistra (8 piani)
+      for (let f = 0; f < 8; f++) {
+        const fy = 26 + f * 15.5;
+        g += box3D(46, fy, 22, 6, 4, 2, false, false, C.cLight, C.cMid);
+        g += `<rect x="50" y="${fy - 5}" width="16" height="5" fill="${C.ink}"/>`;
+      }
+      // Corpo principale della torre
+      g += box3D(68, 18, 48, 136, 14, -6, true, true, C.cLight, C.cMid);
+      // Colonna centrale di logge scure
+      for (let f = 0; f < 8; f++) {
+        const fy = 24 + f * 15.5;
+        g += `<rect x="84" y="${fy}" width="14" height="10" fill="${C.ink}"/>`;
+        g += `<rect x="86" y="${fy + 6}" width="14" height="4" fill="${C.cMid}" stroke="${C.ink}" stroke-width="0.9"/>`;
+      }
+      // Ala destra arretrata
+      g += box3D(128, 22, 34, 132, 16, -6, true, true, C.cMid, C.cDark);
+      for (let f = 0; f < 8; f++) {
+        const fy = 28 + f * 15.5;
+        g += `<rect x="138" y="${fy}" width="5" height="7" fill="${C.ink}"/>`;
+        g += `<rect x="152" y="${fy}" width="5" height="7" fill="${C.ink}"/>`;
+      }
+      // Volumi tecnici sul tetto
+      g += box3D(80, 10, 26, 8, 8, -4, true, true);
+      if (showPeople) {
+        g += stylizedTree(24, groundY, 0.95, true);
+        g += stylizedTree(218, groundY, 0.85, true);
+        g += person(18, groundY, { scale: 0.78 });
+        g += person(92, groundY, { scale: 0.75 });
+        g += person(186, groundY, { walk: true, scale: 1.05 });
+        g += person(200, groundY, { child: true, walk: true, scale: 0.95 });
+      }
+      break;
+
+    case 'torre_residenziale_var':
+      g += `<line x1="6" y1="${groundY}" x2="210" y2="${groundY}" stroke="${C.ink}" stroke-width="1.5"/>`;
+      // Pilotis
+      [54, 72, 92, 114, 132].forEach((px, i) => {
+        g += `<rect x="${px}" y="${groundY - 18}" width="7" height="18" fill="${i % 2 === 0 ? C.cLight : C.ink}" stroke="${C.ink}" stroke-width="1.1"/>`;
+      });
+      // Balconi sinistri
+      for (let f = 0; f < 6; f++) {
+        const fy = 46 + f * 18;
+        g += box3D(42, fy, 18, 6, 4, 2, false, false);
+        g += `<rect x="45" y="${fy - 5}" width="14" height="5" fill="${C.ink}"/>`;
+      }
+      // Corpo sinistro e corpo destro con accenti rossi
+      g += box3D(60, 38, 36, 120, 10, -5, true, true, C.cLight, C.cMid);
+      g += box3D(102, 30, 38, 128, 16, -7, true, true, C.cLight, C.cMid);
+      for (let f = 0; f < 6; f++) {
+        const fy = 42 + f * 18;
+        g += `<rect x="74" y="${fy}" width="6" height="9" fill="${C.ink}"/>`;
+        g += `<rect x="116" y="${fy - 4}" width="6" height="9" fill="${C.ink}"/>`;
+        // Logge rosse sul fianco destro
+        if (f === 1 || f === 3 || f === 4) {
+          g += `<rect x="142" y="${fy - 4}" width="8" height="7" fill="${C.red}" stroke="${C.ink}" stroke-width="0.8"/>`;
+        }
+      }
+      if (showPeople) {
+        g += person(32, groundY, { scale: 0.8 });
+        g += person(98, groundY, { walk: true, scale: 0.8 });
+        g += person(166, groundY, { scale: 0.85 });
+      }
+      break;
+
+    // ================= 2. BLOCCO ABITATIVO (STECCA MONUMENTALE) =================
+    case 'blocco_abitativo':
+      g += `<line x1="6" y1="${groundY}" x2="474" y2="${groundY}" stroke="${C.ink}" stroke-width="1.5"/>`;
+      // Pilotis massicci al piano terra
+      for (let i = 0; i < 11; i++) {
+        const px = 42 + i * 34;
+        g += `<rect x="${px + 6}" y="${groundY - 26}" width="14" height="26" fill="${C.ink}"/>`;
+        g += box3D(px, groundY - 26, 12, 26, 6, -3, false, true, C.cLight, C.cMid);
+      }
+      // Grande stecca principale con 5 campate di balconi e torri scala intercalate
+      g += box3D(38, 34, 345, 116, 42, -14, true, true, C.cLight, C.cMid);
+      // Setti verticali sporgenti che dividono le 5 campate
+      [38, 102, 168, 234, 302, 368].forEach(sx => {
+        g += box3D(sx, 24, 14, 126, 8, -4, true, true, C.cLight, C.cMid);
+      });
+      // 6 Piani di balconi a nastro con alcune tende da sole rosse (#E02A1B)
+      const redAwnings = ['1-2', '2-1', '3-2', '3-4', '4-3'];
+      for (let bay = 0; bay < 5; bay++) {
+        const bx = 54 + bay * 66;
+        for (let fl = 0; fl < 6; fl++) {
+          const fy = 40 + fl * 17.5;
+          g += `<rect x="${bx}" y="${fy}" width="46" height="10" fill="${C.ink}"/>`;
+          g += `<rect x="${bx - 1}" y="${fy + 8}" width="48" height="4.5" fill="${C.cLight}" stroke="${C.ink}" stroke-width="0.9"/>`;
+          if (redAwnings.includes(`${bay}-${fl}`)) {
+            g += `<polygon points="${bx + 4},${fy} ${bx + 26},${fy} ${bx + 29},${fy + 6} ${bx + 1},${fy + 6}" fill="${C.red}" stroke="${C.ink}" stroke-width="0.8"/>`;
+          }
+        }
+      }
+      // Volumi scala sul tetto
+      g += box3D(56, 14, 32, 20, 12, -5, true, true);
+      g += box3D(326, 12, 34, 22, 12, -5, true, true);
+      if (showPeople) {
+        g += stylizedTree(22, groundY, 1.05, false);
+        g += stylizedTree(445, groundY, 1.05, false);
+        [62, 92, 124, 178, 212, 260, 312, 348, 395].forEach((px, idx) => {
+          g += person(px, groundY, { red: idx === 2, walk: idx % 2 === 0, woman: idx % 3 === 0, scale: 0.78 });
+        });
+      }
+      break;
+
+    case 'blocco_abitativo_var':
+      g += `<line x1="6" y1="${groundY}" x2="250" y2="${groundY}" stroke="${C.ink}" stroke-width="1.5"/>`;
+      // Ala sinistra
+      g += box3D(28, 38, 66, 138, 12, -6, true, true, C.cLight, C.cMid);
+      // Scavo centrale con scale esterne a zig-zag e parete rossa sul fondo
+      g += `<rect x="94" y="46" width="34" height="130" fill="${C.cDark}" stroke="${C.ink}"/>`;
+      g += `<rect x="96" y="52" width="12" height="16" fill="${C.red}"/>`;
+      for (let s = 0; s < 5; s++) {
+        const sy = 56 + s * 22;
+        g += `<polygon points="94,${sy} 128,${sy + 10} 128,${sy + 17} 94,${sy + 7}" fill="${C.cLight}" stroke="${C.ink}" stroke-width="1.1"/>`;
+      }
+      // Ala destra
+      g += box3D(128, 26, 56, 150, 24, -10, true, true, C.cLight, C.cMid);
+      for (let f = 0; f < 6; f++) {
+        const fy = 44 + f * 20;
+        g += `<rect x="46" y="${fy}" width="6" height="9" fill="${C.ink}"/>`;
+        g += `<rect x="150" y="${fy - 6}" width="6" height="9" fill="${C.ink}"/>`;
+        g += `<rect x="190" y="${fy - 4}" width="8" height="8" fill="${f % 2 === 0 ? C.red : C.ink}"/>`;
+      }
+      if (showPeople) {
+        g += stylizedTree(228, groundY, 0.95, false);
+        g += person(54, groundY, { scale: 0.8 });
+        g += person(148, groundY, { walk: true, scale: 0.8 });
+        g += person(162, groundY, { woman: true, scale: 0.8 });
+      }
+      break;
+
+    // ================= 3. PALazzo AMMINISTRATIVO =================
+    case 'palazzo_amministrativo':
+      g += `<line x1="6" y1="${groundY}" x2="414" y2="${groundY}" stroke="${C.ink}" stroke-width="1.5"/>`;
+      // Corpo principale con colonnato monumentale a tutta altezza
+      g += box3D(36, 48, 276, 114, 48, -14, true, true, C.cLight, C.cMid);
+      // 13 Grandi bucature verticali scure tra le lesene
+      for (let c = 0; c < 13; c++) {
+        const cx = 48 + c * 19.5;
+        g += `<rect x="${cx}" y="60" width="11" height="86" fill="${C.ink}"/>`;
+        g += `<rect x="${cx + 3}" y="60" width="8" height="86" fill="${C.cDark}"/>`;
+      }
+      // Portale d'ingresso avanzato al centro
+      g += box3D(114, 114, 116, 46, 10, -4, true, true, C.cLight, C.cMid);
+      g += `<rect x="128" y="124" width="88" height="36" fill="${C.ink}"/>`;
+      g += `<rect x="136" y="128" width="20" height="32" fill="${C.cMid}"/>`;
+      g += `<rect x="162" y="128" width="20" height="32" fill="${C.cLight}"/>`;
+      g += `<rect x="188" y="128" width="20" height="32" fill="${C.cMid}"/>`;
+      // Ampia scalinata alla base
+      for (let st = 0; st < 4; st++) {
+        g += `<rect x="${88 - st * 10}" y="${160 + st * 4}" width="${168 + st * 20}" height="4" fill="${st % 2 === 0 ? C.bg : C.cLight}" stroke="${C.ink}" stroke-width="0.9"/>`;
+      }
+      // Torretta centrale sul tetto con bandiera rossa
+      g += box3D(148, 34, 46, 14, 10, -4, true, true);
+      g += `<line x1="172" y1="10" x2="172" y2="34" stroke="${C.ink}" stroke-width="1.8"/>`;
+      g += `<path d="M 172,11 C 180,${10 + flagWave} 186,${15 - flagWave} 192,${13 + flagWave} L 191,${24 + flagWave} C 184,${22 - flagWave} 178,${25 + flagWave} 172,22 Z" fill="${C.red}"/>`;
+      if (showPeople) {
+        g += stylizedTree(18, groundY, 0.95, false);
+        g += stylizedTree(392, groundY, 0.95, false);
+        [44, 62, 116, 138, 174, 232, 266].forEach((px, i) => {
+          g += person(px, groundY - (px > 100 && px < 240 ? 6 : 0), { red: i === 3, walk: i % 2 === 0, scale: 0.78 });
+        });
+      }
+      break;
+
+    case 'palazzo_amministrativo_var':
+      g += `<line x1="6" y1="${groundY}" x2="204" y2="${groundY}" stroke="${C.ink}" stroke-width="1.5"/>`;
+      // Piastra basamentale
+      g += box3D(26, 142, 138, 34, 16, -6, true, true, C.cLight, C.cMid);
+      // Blocco sospeso a scanalature verticali
+      g += box3D(42, 34, 52, 98, 10, -5, true, true, C.cLight, C.cMid);
+      g += box3D(88, 22, 56, 110, 22, -9, true, true, C.cLight, C.cMid);
+      for (let i = 0; i < 4; i++) {
+        g += `<rect x="${96 + i * 11}" y="32" width="4" height="92" fill="${C.ink}"/>`;
+      }
+      if (showPeople) {
+        g += stylizedTree(188, groundY, 0.95, false);
+        g += person(68, groundY, { scale: 0.78 });
+        g += person(134, groundY, { walk: true, scale: 0.78 });
+      }
+      break;
+
+    // ================= 4. CENTRO CIVICO =================
+    case 'centro_civico':
+      g += `<line x1="6" y1="${groundY}" x2="424" y2="${groundY}" stroke="${C.ink}" stroke-width="1.5"/>`;
+      // Corpo sinistro con grande stendardo verticale rosso (#E02A1B)
+      g += box3D(28, 56, 54, 96, 12, -5, true, true, C.cMid, C.cDark);
+      g += box3D(82, 42, 56, 104, 16, -6, true, true, C.cLight, C.cMid);
+      g += `<rect x="96" y="56" width="18" height="62" fill="${C.red}" stroke="${C.ink}" stroke-width="1"/>`;
+      // Grande volume destro a sbalzo con vetrate a doppia altezza
+      g += `<polygon points="146,112 292,88 386,108 240,132" fill="${C.ink}"/>`;
+      // Pilastri sotto lo sbalzo
+      g += box3D(186, 114, 20, 42, 10, -4, false, true);
+      g += box3D(254, 110, 24, 46, 12, -4, false, true);
+      // Volume vetrato superiore
+      g += `
+        <g stroke="${C.ink}" stroke-width="1.3" stroke-linejoin="round">
+          <polygon points="146,52 224,22 224,94 146,112" fill="${C.cLight}"/>
+          <polygon points="224,22 388,52 388,108 224,94" fill="${C.cMid}"/>
+        </g>
+      `;
+      // Finestre verticali fitte sul volume a sbalzo
+      for (let w = 0; w < 11; w++) {
+        const wx = 234 + w * 13.5;
+        const wy = 32 + w * 2.1;
+        g += `<rect x="${wx}" y="${wy}" width="7.5" height="48" fill="${C.ink}"/>`;
+      }
+      // Doppia scalinata monumentale alla base
+      for (let s = 0; s < 5; s++) {
+        g += `<rect x="${120 - s * 4}" y="${152 + s * 4.8}" width="${245 + s * 8}" height="4.8" fill="${s % 2 === 0 ? C.cLight : C.bg}" stroke="${C.ink}" stroke-width="0.9"/>`;
+      }
+      if (showPeople) {
+        g += stylizedTree(14, groundY, 1.0, false);
+        g += stylizedTree(408, groundY, 0.95, false);
+        [152, 166, 212, 248, 312, 348].forEach((px, i) => {
+          g += person(px, groundY - (i < 4 ? 8 : 0), { red: i === 1, woman: i === 1, walk: i % 2 === 0, scale: 0.8 });
+        });
+      }
+      break;
+
+    case 'centro_civico_var':
+      g += `<line x1="6" y1="${groundY}" x2="234" y2="${groundY}" stroke="${C.ink}" stroke-width="1.5"/>`;
+      g += box3D(24, 72, 74, 86, 12, -5, true, true, C.cLight, C.cMid);
+      // Torre centrale con stendardo verticale rosso a coda di rondine
+      g += box3D(98, 30, 58, 134, 20, -8, true, true, C.cLight, C.cMid);
+      g += `<polygon points="116,44 128,44 128,98 122,90 116,98" fill="${C.red}" stroke="${C.ink}" stroke-width="0.9"/>`;
+      // Rampa di scala che sale da destra verso sinistra
+      g += `<polygon points="184,176 92,118 92,132 168,176" fill="${C.cLight}" stroke="${C.ink}" stroke-width="1.2"/>`;
+      // Balcone a sbalzo a destra
+      g += box3D(156, 86, 52, 22, 10, -4, true, true, C.cMid, C.cDark);
+      if (showPeople) {
+        g += person(112, 126, { scale: 0.72 });
+        g += person(188, groundY, { walk: true, scale: 0.8 });
+      }
+      break;
+
+    // ================= 5. COMPLESSO A GRADONI =================
+    case 'complesso_gradoni':
+      g += `<line x1="6" y1="${groundY}" x2="404" y2="${groundY}" stroke="${C.ink}" stroke-width="1.5"/>`;
+      // Livello alto (3° piano) con alberi sui terrazzi
+      g += stylizedTree(182, 74, 0.75, false);
+      g += stylizedTree(242, 78, 0.75, false);
+      g += box3D(96, 32, 68, 56, 14, -6, true, true, C.cLight, C.cMid);
+      g += box3D(258, 56, 68, 52, 16, -6, true, true, C.cLight, C.cMid);
+      // Livello intermedio (2° piano)
+      g += box3D(42, 78, 178, 48, 14, -5, true, true, C.cLight, C.cMid);
+      g += `<rect x="64" y="92" width="14" height="16" fill="${C.red}" stroke="${C.ink}"/>`;
+      g += `<rect x="274" y="96" width="12" height="18" fill="${C.red}" stroke="${C.ink}"/>`;
+      // Livello terreno con grandi vetrate e rampa inclinata
+      g += box3D(24, 118, 212, 58, 12, -4, true, true, C.cLight, C.cMid);
+      g += `<rect x="136" y="132" width="68" height="44" fill="${C.ink}"/>`;
+      g += `<polygon points="212,118 308,176 282,176 196,126" fill="${C.cLight}" stroke="${C.ink}" stroke-width="1.3"/>`;
+      g += box3D(284, 124, 96, 52, 14, -5, true, true, C.cMid, C.cDark);
+      if (showPeople) {
+        g += stylizedTree(390, groundY, 0.95, false);
+        g += person(126, groundY, { walk: true, scale: 0.8 });
+        g += person(182, groundY, { woman: true, scale: 0.8 });
+        g += person(248, groundY, { scale: 0.8 });
+        g += person(328, groundY, { walk: true, scale: 0.8 });
+      }
+      break;
+
+    case 'complesso_gradoni_var':
+      g += `<line x1="6" y1="${groundY}" x2="244" y2="${groundY}" stroke="${C.ink}" stroke-width="1.5"/>`;
+      // Piramide a gradoni brutalista con portali rossi
+      g += box3D(86, 44, 68, 42, 16, -6, true, true, C.cLight, C.cMid);
+      g += box3D(54, 78, 124, 46, 16, -6, true, true, C.cLight, C.cMid);
+      g += `<rect x="136" y="90" width="12" height="18" fill="${C.red}" stroke="${C.ink}"/>`;
+      g += box3D(28, 118, 174, 58, 14, -5, true, true, C.cLight, C.cMid);
+      g += `<rect x="132" y="132" width="16" height="24" fill="${C.red}" stroke="${C.ink}"/>`;
+      g += `<polygon points="82,126 146,176 126,176 68,132" fill="${C.cLight}" stroke="${C.ink}" stroke-width="1.2"/>`;
+      if (showPeople) {
+        g += stylizedTree(224, groundY, 1.0, false);
+        g += person(56, groundY, { scale: 0.78 });
+        g += person(156, groundY, { walk: true, scale: 0.78 });
+      }
+      break;
+
+    // ================= 6. EDIFICIO CON PILOTIS =================
+    case 'edificio_pilotis':
+      g += `<line x1="6" y1="${groundY}" x2="374" y2="${groundY}" stroke="${C.ink}" stroke-width="1.5"/>`;
+      // 5 Coppie di mega-pilotis che sorreggono la piastra
+      [44, 102, 168, 234, 296].forEach(px => {
+        g += `<rect x="${px + 14}" y="96" width="14" height="80" fill="${C.cDark}" stroke="${C.ink}"/>`;
+        g += box3D(px, 96, 16, 80, 10, -4, false, true, C.cLight, C.cMid);
+      });
+      // Intradosso scuro
+      g += `<polygon points="24,96 346,96 332,108 38,108" fill="${C.ink}"/>`;
+      // Grande piastra alveolare superiore (2 file di logge quadrate)
+      g += box3D(24, 42, 322, 54, 12, -5, true, true, C.cLight, C.cMid);
+      for (let r = 0; r < 2; r++) {
+        for (let c = 0; c < 18; c++) {
+          const wx = 30 + c * 17.2;
+          const wy = 48 + r * 22;
+          g += `<rect x="${wx}" y="${wy}" width="13" height="16" fill="${C.ink}"/>`;
+          g += `<rect x="${wx + 2}" y="${wy + 2}" width="9" height="9" fill="${C.cMid}"/>`;
+        }
+      }
+      if (showPeople) {
+        g += stylizedTree(18, groundY, 0.9, false);
+        g += stylizedTree(360, groundY, 0.9, false);
+        [72, 134, 148, 212, 276, 336].forEach((px, i) => {
+          g += person(px, groundY, { walk: i % 2 === 0, woman: i === 2, scale: 0.78 });
+        });
+      }
+      break;
+
+    case 'edificio_pilotis_var':
+      g += `<line x1="6" y1="${groundY}" x2="244" y2="${groundY}" stroke="${C.ink}" stroke-width="1.5"/>`;
+      // Pilotis
+      [38, 72, 112, 152].forEach(px => {
+        g += box3D(px, 104, 12, 72, 8, -3, false, true, C.cMid, C.cDark);
+      });
+      // Volume sospeso in scorcio con porta rossa e scala esterna a forbice
+      g += `
+        <g stroke="${C.ink}" stroke-width="1.3" stroke-linejoin="round">
+          <polygon points="18,74 128,44 128,102 18,116" fill="${C.cLight}"/>
+          <polygon points="128,44 218,58 218,116 128,102" fill="${C.cMid}"/>
+          <polygon points="18,116 128,102 218,116 108,128" fill="${C.ink}"/>
+        </g>
+      `;
+      // Finestre sul fianco sinistro e porta rossa a destra
+      for (let c = 0; c < 7; c++) {
+        const wx = 26 + c * 13.5;
+        const wy = 78 - c * 3.2;
+        g += `<rect x="${wx}" y="${wy}" width="8" height="10" fill="${C.ink}"/>`;
+        g += `<rect x="${wx}" y="${wy + 15}" width="8" height="10" fill="${C.ink}"/>`;
+      }
+      g += `<rect x="136" y="72" width="10" height="18" fill="${C.red}" stroke="${C.ink}"/>`;
+      // Scala esterna a zig-zag sotto la porta rossa
+      g += `
+        <g stroke="${C.ink}" stroke-width="1.2" fill="${C.cLight}">
+          <polygon points="132,92 178,122 178,132 132,102"/>
+          <polygon points="178,122 134,152 134,162 178,132"/>
+          <polygon points="134,152 176,176 156,176 134,162"/>
+        </g>
+      `;
+      if (showPeople) {
+        g += person(58, groundY, { scale: 0.78 });
+        g += person(198, groundY, { walk: true, scale: 0.78 });
+      }
+      break;
+
+    // ================= 7. CASA DELLA CULTURA =================
+    case 'casa_cultura':
+      g += `<line x1="6" y1="${groundY}" x2="494" y2="${groundY}" stroke="${C.ink}" stroke-width="1.5"/>`;
+      // Corpo sinistro aggettante
+      g += box3D(28, 36, 118, 76, 18, -8, true, true, C.cLight, C.cMid);
+      g += `<rect x="46" y="112" width="88" height="44" fill="${C.ink}"/>`;
+      // Corpo centrale vetrato arretrato
+      g += box3D(146, 46, 124, 110, 12, -5, true, false, C.cMid, C.cDark);
+      for (let c = 0; c < 6; c++) {
+        g += `<rect x="${156 + c * 16}" y="58" width="10" height="58" fill="${C.ink}"/>`;
+      }
+      // Corpo destro monumentale con GRANDE STENDARDO ROSSO e Gru/Cicogna bianca
+      g += box3D(262, 24, 148, 88, 42, -14, true, true, C.cLight, C.cMid);
+      g += `<rect x="334" y="112" width="76" height="44" fill="${C.ink}"/>`;
+      g += box3D(268, 32, 56, 124, 10, -4, false, true, C.cLight, C.cMid);
+      // Stendardo rosso con silhouette di gru/uccello bianco (fedele a image_7.png)
+      g += `
+        <g transform="translate(278, 42)">
+          <rect x="0" y="0" width="34" height="84" fill="${C.red}" stroke="${C.ink}" stroke-width="1.2"/>
+          <path d="M 17,24 C 24,24 26,34 23,44 C 20,52 12,54 11,46 C 10,38 14,32 18,22 C 20,16 16,12 12,14" fill="${C.bg}"/>
+          <line x1="16" y1="50" x2="14" y2="66" stroke="${C.bg}" stroke-width="1.6"/>
+          <line x1="20" y1="50" x2="21" y2="66" stroke="${C.bg}" stroke-width="1.6"/>
+          <line x1="6" y1="74" x2="28" y2="74" stroke="${C.bg}" stroke-width="1.5"/>
+        </g>
+      `;
+      // Ampia scalinata centrale
+      for (let s = 0; s < 5; s++) {
+        g += `<rect x="${86 - s * 8}" y="${156 + s * 4}" width="${248 + s * 16}" height="4" fill="${s % 2 === 0 ? C.cLight : C.bg}" stroke="${C.ink}" stroke-width="0.9"/>`;
+      }
+      if (showPeople) {
+        g += stylizedTree(14, groundY, 1.0, false);
+        g += stylizedTree(476, groundY, 1.0, false);
+        [36, 52, 68, 124, 186, 218, 254, 348, 386].forEach((px, i) => {
+          g += person(px, groundY - (px > 100 && px < 320 ? 6 : 0), { walk: i % 2 === 0, woman: i % 3 === 0, scale: 0.82 });
+        });
+      }
+      break;
+
+    case 'casa_cultura_var1':
+      g += `<line x1="6" y1="${groundY}" x2="354" y2="${groundY}" stroke="${C.ink}" stroke-width="1.5"/>`;
+      // Volume auditorium inclinato verso l'alto
+      g += box3D(26, 86, 86, 62, 14, -6, true, true, C.cLight, C.cMid);
+      g += `
+        <g stroke="${C.ink}" stroke-width="1.3" stroke-linejoin="round">
+          <polygon points="96,74 248,18 248,108 96,122" fill="${C.cLight}"/>
+          <polygon points="248,18 322,48 322,124 248,108" fill="${C.cMid}"/>
+          <polygon points="96,122 248,108 322,124 170,136" fill="${C.ink}"/>
+        </g>
+      `;
+      // Ingresso rosso sotto lo sbalzo e grande scalinata
+      g += `<rect x="148" y="122" width="24" height="28" fill="${C.red}" stroke="${C.ink}"/>`;
+      for (let s = 0; s < 6; s++) {
+        g += `<rect x="${112 - s * 6}" y="${146 + s * 5}" width="${112 + s * 12}" height="5" fill="${s % 2 === 0 ? C.cLight : C.bg}" stroke="${C.ink}" stroke-width="0.9"/>`;
+      }
+      if (showPeople) {
+        g += stylizedTree(338, groundY, 1.0, false);
+        [68, 134, 152, 192, 258].forEach((px, i) => {
+          g += person(px, groundY - (i === 1 || i === 2 ? 12 : 0), { walk: i % 2 === 0, scale: 0.8 });
+        });
+      }
+      break;
+
+    case 'casa_cultura_var2':
+      g += `<line x1="6" y1="${groundY}" x2="344" y2="${groundY}" stroke="${C.ink}" stroke-width="1.5"/>`;
+      // Corpo superiore a lame verticali (brise-soleil) e portale rosso in quota
+      g += box3D(48, 30, 140, 78, 12, -5, true, false, C.cLight, C.cMid);
+      for (let i = 0; i < 11; i++) {
+        g += `<rect x="${56 + i * 11.5}" y="36" width="5.5" height="66" fill="${C.ink}"/>`;
+      }
+      g += box3D(188, 24, 96, 96, 22, -8, true, true, C.cMid, C.cDark);
+      g += `<rect x="206" y="66" width="16" height="34" fill="${C.red}" stroke="${C.ink}"/>`;
+      // Basamento con portale rosso a sinistra e grande rampa/scalinata a destra
+      g += box3D(24, 108, 164, 68, 12, -5, true, true, C.cLight, C.cMid);
+      g += `<rect x="42" y="132" width="18" height="44" fill="${C.red}" stroke="${C.ink}"/>`;
+      g += `<rect x="86" y="128" width="84" height="48" fill="${C.ink}"/>`;
+      g += `<polygon points="188,100 318,176 276,176 188,120" fill="${C.cLight}" stroke="${C.ink}" stroke-width="1.3"/>`;
+      if (showPeople) {
+        [72, 114, 152, 232, 258].forEach((px, i) => {
+          g += person(px, i >= 3 ? 142 + (i - 3) * 16 : groundY, { walk: true, scale: 0.8 });
+        });
+      }
+      break;
+  }
+
+  g += `</g>`;
+  return g;
+}
+
+// === GENERATORE TAVOLA INTEGRALE PALAZZI BRUTALISTI (COME IMAGE_7.PNG) ===
+function buildFullPalazziPosterSVG(showPeople, withTexture, useRough) {
+  const W = 1520, H = 1080;
+  let svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="100%" height="100%">`;
+  svg += getDefs(withTexture);
+  svg += `<rect width="${W}" height="${H}" fill="${C.bg}"/>`;
+  const filterAttr = useRough ? `filter="url(#brutal-ink)"` : '';
+
+  // INTESTAZIONE STUDIO GRAFICO — PALAZZI BRUTALISTI + PALETTE + SCALA PERSONAGGI
+  svg += `
+    <g transform="translate(32, 44)">
+      <text x="0" y="0" font-family="monospace" font-size="30" font-weight="900" letter-spacing="2" fill="${C.ink}">STUDIO GRAFICO — <tspan fill="${C.red}">PALAZZI BRUTALISTI</tspan></text>
+      <line x1="0" y1="12" x2="960" y2="12" stroke="${C.red}" stroke-width="2"/>
+      <text x="0" y="32" font-family="monospace" font-size="14" font-weight="bold" letter-spacing="2" fill="${C.cDark}">ELEMENTI RIUTILIZZABILI PER UN KIT SVG STORICO</text>
+    </g>
+    <g transform="translate(1090, 26)">
+      <text x="38" y="0" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="${C.ink}">PALETTE</text>
+      <circle cx="0" cy="22" r="13" fill="${C.ink}"/>
+      <circle cx="38" cy="22" r="13" fill="${C.cMid}"/>
+      <circle cx="76" cy="22" r="13" fill="${C.red}"/>
+    </g>
+    <g transform="translate(1250, 62)" ${filterAttr}>
+      ${person(0, 0, { walk: true, scale: 1.15 })}
+      ${person(34, 0, { scale: 1.35 })}
+      ${person(62, 0, { child: true, scale: 1.2 })}
+      ${person(88, 0, { woman: true, scale: 1.25 })}
+      ${person(118, 0, { woman: true, scale: 1.25 })}
+      ${person(148, 0, { red: true, woman: true, scale: 1.3 })}
+      ${dog(182, 0, 1.3)}
+      <text x="90" y="18" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="${C.ink}">SCALA PERSONAGGI</text>
+    </g>
+  `;
+
+  // RIGA 1: TORRE RESIDENZIALE + VARIANTE | BLOCCO ABITATIVO + VARIANTE
+  svg += `<g ${filterAttr} transform="translate(0, 96)">
+    <text x="32" y="20" font-family="monospace" font-size="15" font-weight="900" letter-spacing="1.5" fill="${C.ink}">TORRE RESIDENZIALE</text>
+    ${drawBuilding('torre_residenziale', 24, 24, showPeople)}
+    <text x="415" y="42" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="${C.ink}">VARIANTE</text>
+    ${drawBuilding('torre_residenziale_var', 310, 24, showPeople)}
+
+    <text x="640" y="20" font-family="monospace" font-size="15" font-weight="900" letter-spacing="1.5" fill="${C.ink}">BLOCCO ABITATIVO</text>
+    ${drawBuilding('blocco_abitativo', 560, 24, showPeople)}
+    <text x="1310" y="42" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="${C.ink}">VARIANTE</text>
+    ${drawBuilding('blocco_abitativo_var', 1190, 24, showPeople)}
+  </g>`;
+
+  // RIGA 2: PALAZZO AMMINISTRATIVO + VARIANTE | CENTRO CIVICO + VARIANTE
+  svg += `<g ${filterAttr} transform="translate(0, 336)">
+    <text x="32" y="20" font-family="monospace" font-size="15" font-weight="900" letter-spacing="1.5" fill="${C.ink}">PALAZZO AMMINISTRATIVO</text>
+    ${drawBuilding('palazzo_amministrativo', 24, 24, showPeople)}
+    <text x="555" y="38" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="${C.ink}">VARIANTE</text>
+    ${drawBuilding('palazzo_amministrativo_var', 460, 24, showPeople)}
+
+    <text x="740" y="20" font-family="monospace" font-size="15" font-weight="900" letter-spacing="1.5" fill="${C.ink}">CENTRO CIVICO</text>
+    ${drawBuilding('centro_civico', 700, 24, showPeople)}
+    <text x="1315" y="42" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="${C.ink}">VARIANTE</text>
+    ${drawBuilding('centro_civico_var', 1200, 24, showPeople)}
+  </g>`;
+
+  // RIGA 3: COMPLESSO A GRADONI + VARIANTE | EDIFICIO CON PILOTIS + VARIANTE
+  svg += `<g ${filterAttr} transform="translate(0, 576)">
+    <text x="32" y="20" font-family="monospace" font-size="15" font-weight="900" letter-spacing="1.5" fill="${C.ink}">COMPLESSO A GRADONI</text>
+    ${drawBuilding('complesso_gradoni', 24, 24, showPeople)}
+    <text x="565" y="42" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="${C.ink}">VARIANTE</text>
+    ${drawBuilding('complesso_gradoni_var', 455, 24, showPeople)}
+
+    <text x="780" y="20" font-family="monospace" font-size="15" font-weight="900" letter-spacing="1.5" fill="${C.ink}">EDIFICIO CON PILOTIS</text>
+    ${drawBuilding('edificio_pilotis', 745, 24, showPeople)}
+    <text x="1315" y="42" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="${C.ink}">VARIANTE</text>
+    ${drawBuilding('edificio_pilotis_var', 1195, 24, showPeople)}
+  </g>`;
+
+  // RIGA 4: CASA DELLA CULTURA + VARIANTE 1 + VARIANTE 2
+  svg += `<g ${filterAttr} transform="translate(0, 816)">
+    <text x="32" y="20" font-family="monospace" font-size="15" font-weight="900" letter-spacing="1.5" fill="${C.ink}">CASA DELLA CULTURA</text>
+    ${drawBuilding('casa_cultura', 24, 24, showPeople)}
+    <text x="720" y="34" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="${C.ink}">VARIANTE</text>
+    ${drawBuilding('casa_cultura_var1', 590, 24, showPeople)}
+    <text x="1150" y="34" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="${C.ink}">VARIANTE</text>
+    ${drawBuilding('casa_cultura_var2', 1020, 24, showPeople)}
+  </g>`;
+
+  svg += `</svg>`;
+  return svg;
+}
+
+function renderAll() {
+  const showPeople = document.getElementById('chk-people').checked;
+  const withTexture = document.getElementById('chk-texture').checked;
+  const useRough = document.getElementById('chk-rough').checked;
+  const filterAttr = useRough ? `filter="url(#brutal-ink)"` : '';
+
+  let svgString = '';
+  if (state.viewMode === 'poster') {
+    svgString = buildFullPalazziPosterSVG(showPeople, withTexture, useRough);
+  } else {
+    const allB = [...BUILDINGS.r1, ...BUILDINGS.r2, ...BUILDINGS.r3, ...BUILDINGS.r4];
+    const item = allB.find(x => x.id === state.activeId) || BUILDINGS.r1[0];
+    const W = item.w + 30;
+    const H = 225;
+
+    svgString = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="100%" height="100%">`;
+    svgString += getDefs(withTexture);
+    svgString += `<rect width="${W}" height="${H}" fill="${C.bg}"/>`;
+    svgString += `<text x="18" y="24" font-family="monospace" font-size="12" font-weight="900" letter-spacing="1.5" fill="${C.ink}">${item.label.toUpperCase()}</text>`;
+    svgString += `<g ${filterAttr}>`;
+    svgString += drawBuilding(item.id, 12, 24, showPeople);
+    svgString += `</g></svg>`;
+  }
+
+  document.getElementById('svg-container').innerHTML = svgString;
+  document.getElementById('svg-code').value = svgString;
+  updatePNGPreview(svgString);
+}
+
+let pngTimer = null;
+function updatePNGPreview(svgString) {
+  if (pngTimer) clearTimeout(pngTimer);
+  pngTimer = setTimeout(() => {
+    const img = new Image();
+    const blob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      if (state.viewMode === 'poster') {
+        canvas.width = 1600;
+        canvas.height = 1136;
+      } else {
+        canvas.width = 1000;
+        canvas.height = 560;
+      }
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      document.getElementById('png-preview').src = canvas.toDataURL('image/png');
+      URL.revokeObjectURL(url);
+    };
+    img.src = url;
+  }, 60);
+}
+
+function copySVG() {
+  const el = document.getElementById('svg-code');
+  el.select();
+  navigator.clipboard.writeText(el.value);
+}
+
+function downloadSVG() {
+  const svgString = document.getElementById('svg-code').value;
+  const blob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `palazzi_brutalisti_${state.viewMode === 'poster' ? 'tavola_completa' : state.activeId}.svg`;
+  a.click();
+}
+
+function downloadPNG() {
+  const src = document.getElementById('png-preview').src;
+  if (!src) return;
+  const a = document.createElement('a');
+  a.href = src;
+  a.download = `palazzi_brutalisti_${state.viewMode === 'poster' ? 'tavola_completa' : state.activeId}.png`;
+  a.click();
+}
+
+function animLoop() {
+  if (state.anim) {
+    state.tick += 0.12;
+    renderAll();
+  }
+  requestAnimationFrame(animLoop);
+}
+
+initUI();
+renderAll();
+requestAnimationFrame(animLoop);
+</script>
+</body>
+</html>

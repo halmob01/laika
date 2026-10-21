@@ -1,0 +1,411 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "1.0.0",
+  "id": "messaggio",
+  "title": "Prima di inoltrare",
+  "exposureFlags": [
+    "rule",
+    "compared"
+  ],
+  "theme": {
+    "ink": "#202124",
+    "paper": "#f5f4ef",
+    "accent": "#4d536d",
+    "highlight": "#dce3e6"
+  },
+  "symbols": [
+    {
+      "id": "document",
+      "layers": [
+        {
+          "id": "paper",
+          "tag": "rect",
+          "attrs": {
+            "x": -65,
+            "y": -45,
+            "width": 130,
+            "height": 90,
+            "rx": 8,
+            "fill": "#ffffff",
+            "stroke": "#202124"
+          }
+        },
+        {
+          "id": "line",
+          "tag": "line",
+          "attrs": {
+            "x1": -42,
+            "x2": 42,
+            "y1": -15,
+            "y2": -15,
+            "stroke": "#202124",
+            "stroke-width": 5
+          }
+        },
+        {
+          "id": "short",
+          "tag": "line",
+          "attrs": {
+            "x1": -42,
+            "x2": 18,
+            "y1": 10,
+            "y2": 10,
+            "stroke": "#202124",
+            "stroke-width": 5
+          }
+        }
+      ]
+    }
+  ],
+  "stages": [
+    {
+      "id": "inbox",
+      "label": "Un messaggio arriva: il suo aspetto non ne dimostra la provenienza.",
+      "duration": 700,
+      "layers": [],
+      "components": [
+        {
+          "id": "message",
+          "symbol": "document",
+          "pose": {
+            "translateX": 320,
+            "translateY": 180
+          }
+        }
+      ],
+      "sequences": [
+        {
+          "id": "enter",
+          "caption": "Un messaggio arriva: il suo aspetto non ne dimostra la provenienza.",
+          "tracks": [],
+          "presets": [
+            {
+              "type": "arrive",
+              "layer": "message",
+              "distance": -250,
+              "duration": 1000
+            }
+          ]
+        }
+      ],
+      "introSequence": "enter"
+    },
+    {
+      "id": "desk",
+      "label": "Due documenti affiancati permettono di confrontare le informazioni.",
+      "duration": 700,
+      "layers": [],
+      "components": [
+        {
+          "id": "left",
+          "symbol": "document",
+          "pose": {
+            "translateX": 180,
+            "translateY": 180
+          }
+        },
+        {
+          "id": "right",
+          "symbol": "document",
+          "pose": {
+            "translateX": 460,
+            "translateY": 180
+          }
+        }
+      ],
+      "sequences": [
+        {
+          "id": "enter",
+          "caption": "Due documenti affiancati permettono di confrontare le informazioni.",
+          "tracks": [],
+          "presets": [
+            {
+              "type": "reveal",
+              "layer": "left",
+              "duration": 700
+            },
+            {
+              "type": "arrive",
+              "layer": "right",
+              "attribute": "translateY",
+              "distance": 100,
+              "at": 350,
+              "duration": 900
+            }
+          ]
+        }
+      ],
+      "introSequence": "enter"
+    }
+  ],
+  "acts": [
+    {
+      "id": "decisione",
+      "title": "01 · Decidere come informarsi",
+      "actors": [
+        {
+          "id": "learner"
+        }
+      ],
+      "roles": [
+        {
+          "id": "reader",
+          "label": "Lettore",
+          "actorId": "learner",
+          "mandate": "Valutare le informazioni disponibili prima di agire."
+        }
+      ],
+      "metrics": [],
+      "resources": [],
+      "relations": [],
+      "flags": [
+        "checked"
+      ],
+      "episodes": [
+        {
+          "id": "start",
+          "type": "narrative",
+          "title": "Un messaggio urgente",
+          "text": "In questa simulazione un messaggio annuncia un cambio di orario. Non sappiamo ancora chi lo abbia scritto.",
+          "roleId": "reader",
+          "stageId": "inbox",
+          "motionId": "enter"
+        },
+        {
+          "id": "decision",
+          "type": "choice",
+          "title": "Che cosa fai prima?",
+          "text": "Scegli come procedere. Le conseguenze riguardano il percorso, non un voto.",
+          "roleId": "reader",
+          "stageId": "inbox",
+          "choices": [
+            {
+              "id": "verify",
+              "label": "Cercare una conferma",
+              "feedback": "Prima di inoltrare cerchi una fonte indipendente.",
+              "effects": [
+                {
+                  "kind": "flag",
+                  "id": "checked",
+                  "value": true
+                }
+              ]
+            },
+            {
+              "id": "forward",
+              "label": "Inoltrare al gruppo",
+              "feedback": "La notizia circola, ma la sua provenienza resta da verificare.",
+              "effects": []
+            }
+          ],
+          "branches": [
+            {
+              "when": {
+                "op": "flag",
+                "id": "checked",
+                "value": true
+              },
+              "to": "verified"
+            }
+          ],
+          "next": "circulated"
+        },
+        {
+          "id": "circulated",
+          "type": "narrative",
+          "title": "La notizia viene ripetuta",
+          "text": "Più persone ripetono lo stesso messaggio. Non sono conferme indipendenti: possono aver copiato tutte la stessa fonte.",
+          "roleId": "reader",
+          "next": "lesson"
+        },
+        {
+          "id": "verified",
+          "type": "narrative",
+          "title": "La verifica può restare aperta",
+          "text": "Cerchi il canale ufficiale. Se non trovi una conferma, puoi dichiarare il dubbio e attendere.",
+          "roleId": "reader",
+          "stageId": "desk",
+          "motionId": "enter"
+        },
+        {
+          "id": "lesson",
+          "type": "narrative",
+          "title": "Una regola comune ai due percorsi",
+          "text": "Prima di presentare una notizia come certa, confrontala con una fonte indipendente. La ripetizione dello stesso messaggio non è una nuova prova.",
+          "roleId": "reader",
+          "exposes": [
+            "rule"
+          ]
+        }
+      ],
+      "reconciliation": "Scenario fittizio: le scelte restano nel diario; il nuovo atto riparte dai dati dichiarati."
+    },
+    {
+      "id": "confronto",
+      "title": "02 · Confrontare le prove",
+      "actors": [
+        {
+          "id": "learner"
+        }
+      ],
+      "roles": [
+        {
+          "id": "reader",
+          "label": "Lettore",
+          "actorId": "learner",
+          "mandate": "Valutare le informazioni disponibili prima di agire."
+        }
+      ],
+      "metrics": [],
+      "resources": [],
+      "relations": [],
+      "flags": [
+        "checked"
+      ],
+      "episodes": [
+        {
+          "id": "documents",
+          "type": "source_comparison",
+          "title": "Che cosa dicono i documenti?",
+          "text": "Il messaggio e l’avviso hanno entrambi una data. Aprili e confrontali.",
+          "roleId": "reader",
+          "stageId": "desk",
+          "motionId": "enter",
+          "exposes": [
+            "compared"
+          ],
+          "sources": [
+            {
+              "id": "message",
+              "title": "Messaggio ricevuto",
+              "text": "«Domani si entra alle 10». Il messaggio è datato 8 marzo e non indica un autore.",
+              "provenance": "Messaggio inventato per questa demo."
+            },
+            {
+              "id": "notice",
+              "title": "Avviso della scuola",
+              "text": "«Il 9 marzo le lezioni iniziano alle 8». L’avviso è datato 8 marzo e firmato dalla segreteria.",
+              "provenance": "Avviso inventato per questa demo, non riferito a una scuola reale."
+            }
+          ],
+          "choices": [
+            {
+              "id": "compare",
+              "label": "Segnalare la contraddizione tra gli orari",
+              "feedback": "I documenti indicano orari diversi. L’avviso attribuisce esplicitamente l’informazione alla segreteria.",
+              "effects": []
+            },
+            {
+              "id": "infer",
+              "label": "Concludere che il messaggio sia uno scherzo",
+              "feedback": "Gli orari sono in contrasto, ma i documenti non dimostrano chi abbia scritto il messaggio né perché.",
+              "effects": []
+            }
+          ]
+        },
+        {
+          "id": "check",
+          "type": "assessment",
+          "title": "Quale conclusione è sostenuta?",
+          "text": "Rispondi usando i due documenti appena confrontati.",
+          "roleId": "reader",
+          "question": {
+            "id": "comparison",
+            "prompt": "Che cosa possiamo affermare?",
+            "options": [
+              {
+                "id": "a",
+                "label": "L’avviso e il messaggio indicano due orari diversi."
+              },
+              {
+                "id": "b",
+                "label": "Chi ha scritto il messaggio voleva fare uno scherzo."
+              },
+              {
+                "id": "c",
+                "label": "L’orario della scuola è stato cambiato due volte."
+              }
+            ],
+            "correctId": "a",
+            "rationale": "La conclusione deve restare entro le informazioni dei documenti, senza attribuire intenzioni non dimostrate.",
+            "objectives": [
+              "Distinguere un dato verificato da una supposizione"
+            ],
+            "source": "Materiali fittizi degli episodi precedenti",
+            "requiredExposureFlags": [
+              "compared"
+            ]
+          }
+        }
+      ],
+      "reconciliation": "Scenario fittizio: le scelte restano nel diario; il nuovo atto riparte dai dati dichiarati."
+    },
+    {
+      "id": "sintesi",
+      "title": "03 · Trasferire la regola",
+      "actors": [
+        {
+          "id": "learner"
+        }
+      ],
+      "roles": [
+        {
+          "id": "reader",
+          "label": "Lettore",
+          "actorId": "learner",
+          "mandate": "Valutare le informazioni disponibili prima di agire."
+        }
+      ],
+      "metrics": [],
+      "resources": [],
+      "relations": [],
+      "flags": [
+        "checked"
+      ],
+      "episodes": [
+        {
+          "id": "transfer",
+          "type": "assessment",
+          "title": "Una notizia in un altro gruppo",
+          "text": "La stessa regola vale anche quando il messaggio arriva da una persona conosciuta.",
+          "roleId": "reader",
+          "question": {
+            "id": "transfer",
+            "prompt": "Tre compagni inoltrano lo stesso messaggio. Che cosa hai?",
+            "options": [
+              {
+                "id": "a",
+                "label": "Tre copie che potrebbero avere un’unica origine."
+              },
+              {
+                "id": "b",
+                "label": "Tre verifiche indipendenti della stessa informazione."
+              },
+              {
+                "id": "c",
+                "label": "Tre testimonianze dirette di chi ha visto il fatto."
+              }
+            ],
+            "correctId": "a",
+            "rationale": "La conclusione deve restare entro le informazioni dei documenti, senza attribuire intenzioni non dimostrate.",
+            "objectives": [
+              "Distinguere un dato verificato da una supposizione"
+            ],
+            "source": "Materiali fittizi degli episodi precedenti",
+            "requiredExposureFlags": [
+              "rule"
+            ]
+          }
+        },
+        {
+          "id": "finish",
+          "type": "narrative",
+          "title": "Prima di inoltrare",
+          "text": "Puoi indicare che cosa sai, che cosa resta incerto e quale fonte hai consultato. Conserva questa distinzione anche fuori dal gioco.",
+          "roleId": "reader"
+        }
+      ],
+      "reconciliation": "Scenario fittizio: le scelte restano nel diario; il nuovo atto riparte dai dati dichiarati."
+    }
+  ]
+}

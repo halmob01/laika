@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit infrastrutture e atmosfera (bottega)</title>
+<style>
+  body { margin: 0; font-family: monospace; background: #f6f1e3; color: #161614; }
+  h1 { font-size: 14px; margin: 12px 16px; }
+  #griglia { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; padding: 0 16px 16px; }
+  figure { margin: 0; border: 1px solid #c8bea6; background: #efe8d5; }
+  figcaption { font-size: 12px; padding: 4px 8px; border-top: 1px solid #c8bea6; }
+  svg { display: block; width: 100%; height: 200px; }
+</style>
+</head>
+<body>
+<h1>Kit infrastrutture e atmosfera: anteprima</h1>
+<div id="griglia"></div>
+<script>
+// Kit per la bottega: infrastrutture (lampione, binari, ciminiera, filo spinato) ed elementi
+// atmosferici (fumo, neve, pioggia). Rispetta bottega/CONTRATTO-KIT.md.
+// Coerenza storica: archetipi generici dell'Europa orientale del primo Novecento (1900-1917).
+// Il filo spinato militare e' coerente con il fronte della Grande Guerra (dal 1914).
+const C = {
+  bg: '#f6f1e3', ink: '#161614', red: '#e02a1b', blue: '#6b92a4', sand: '#decba8',
+  cLight: '#c9d6df', cMid: '#8ea8b8', cDark: '#4f6b7c'
+};
+
+const GROUND_Y = 150;
+
+const INFRA = [
+  { id: 'lampione', label: 'Lampione a gas' },
+  { id: 'binari', label: 'Binari' },
+  { id: 'ciminiera', label: 'Ciminiera' },
+  { id: 'filo_spinato', label: 'Filo spinato' }
+];
+const ATMO = [
+  { id: 'fumo', label: 'Fumo' },
+  { id: 'neve', label: 'Neve' },
+  { id: 'pioggia', label: 'Pioggia' }
+];
+
+const f1 = n => (Math.round(n * 10) / 10).toString();
+
+// Generatore pseudo-casuale deterministico (mulberry32): stessa seed, stesso disegno.
+function rng(seed) {
+  let a = seed >>> 0;
+  return function () {
+    a = (a + 0x6D2B79F5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+// Infrastrutture: poggiano su GROUND_Y, centrate in x = 0.
+function drawInfra(id, ox = 0, oy = 0) {
+  let s = '';
+  if (id === 'lampione') {
+    s += `<circle id="alone" cx="30" cy="52" r="24" fill="${C.sand}" opacity="0.4" data-pivot="30 52"/>`;
+    s += `<rect x="-10" y="138" width="20" height="12" fill="${C.ink}"/>`;
+    s += `<rect x="-6" y="130" width="12" height="9" fill="${C.ink}"/>`;
+    s += `<rect x="-3" y="48" width="6" height="84" fill="${C.ink}"/>`;
+    s += `<rect x="-6" y="70" width="12" height="4" fill="${C.ink}"/>`;
+    s += `<path d="M 0 54 C 0 38 20 34 30 40" fill="none" stroke="${C.ink}" stroke-width="4" stroke-linecap="round"/>`;
+    s += `<g id="lanterna"><rect x="21" y="38" width="18" height="4" fill="${C.ink}"/>`;
+    s += `<path d="M 22 42 L 38 42 L 35 62 L 25 62 Z" fill="${C.sand}" stroke="${C.ink}" stroke-width="2"/>`;
+    s += `<rect x="24" y="62" width="12" height="3" fill="${C.ink}"/></g>`;
+    s += `<ellipse id="luce" cx="30" cy="52" rx="4.5" ry="6.5" fill="${C.bg}" data-pivot="30 52"/>`;
+  } else if (id === 'binari') {
+    s += `<rect x="-120" y="146" width="240" height="4" fill="${C.cMid}" opacity="0.5"/>`;
+    for (let i = 0; i < 11; i++) {
+      s += `<rect x="${f1(-114 + i * 22)}" y="138" width="10" height="8" fill="${C.sand}" stroke="${C.ink}" stroke-width="1.5"/>`;
+    }
+    s += `<rect x="-120" y="131" width="240" height="6" fill="${C.ink}"/>`;
+    s += `<rect x="-120" y="129" width="240" height="2" fill="${C.cDark}"/>`;
+    for (let j = -1; j <= 1; j += 2) {
+      s += `<rect x="${j * 66 - 6}" y="130" width="12" height="8" fill="${C.cDark}" stroke="${C.ink}" stroke-width="1.5"/>`;
+    }
+  } else if (id === 'ciminiera') {
+    s += `<rect x="-24" y="136" width="48" height="14" fill="${C.cDark}" stroke="${C.ink}" stroke-width="2"/>`;
+    s += `<path d="M -16 136 L -10 24 L 10 24 L 16 136 Z" fill="${C.sand}" stroke="${C.ink}" stroke-width="2.5"/>`;
+    s += `<path d="M -10.5 34 L 10.5 34 L 10.2 41 L -10.2 41 Z" fill="${C.red}"/>`;
+    s += `<path d="M -11.5 52 L 11.5 52 L 11.2 59 L -11.2 59 Z" fill="${C.red}"/>`;
+    for (let k = 0; k < 6; k++) {
+      const y = 76 + k * 10, w = 11.5 + (y - 24) * 0.0535;
+      s += `<line x1="${f1(-w)}" y1="${y}" x2="${f1(w)}" y2="${y}" stroke="${C.ink}" stroke-width="1" opacity="0.45"/>`;
+    }
+    s += `<rect x="-13" y="18" width="26" height="7" fill="${C.ink}"/>`;
+    s += `<line x1="0" y1="18" x2="0" y2="4" stroke="${C.ink}" stroke-width="2" stroke-linecap="round"/>`;
+  } else if (id === 'filo_spinato') {
+    const px = [-72, -24, 24, 72];
+    for (const x of px) {
+      s += `<path d="M ${x - 2.5} 150 L ${x - 2.5} 102 L ${x + 2.5} 98 L ${x + 2.5} 150 Z" fill="${C.ink}"/>`;
+    }
+    s += `<g id="fili">`;
+    for (const y of [108, 122, 136]) {
+      let d = `M ${px[0]} ${y}`;
+      for (let i = 0; i < 3; i++) d += ` C ${px[i] + 14} ${y + 8} ${px[i + 1] - 14} ${y + 8} ${px[i + 1]} ${y}`;
+      s += `<path d="${d}" fill="none" stroke="${C.ink}" stroke-width="1.5"/>`;
+      for (let b = 0; b < 12; b++) {
+        const x = -66 + b * 12, sag = 8 * 0.75 * Math.sin(((x + 72) % 48) / 48 * Math.PI);
+        const cy = y + sag;
+        s += `<path d="M ${f1(x - 2.5)} ${f1(cy - 2.5)} L ${f1(x + 2.5)} ${f1(cy + 2.5)} M ${f1(x - 2.5)} ${f1(cy + 2.5)} L ${f1(x + 2.5)} ${f1(cy - 2.5)}" fill="none" stroke="${C.ink}" stroke-width="1.2" stroke-linecap="round"/>`;
+      }
+    }
+    s += `</g>`;
+  }
+  return `<g transform="translate(${ox} ${oy})">${s}</g>`;
+}
+
+// Elementi atmosferici: riquadro di 200 x 150 con la base su GROUND_Y, centrato in x = 0.
+// Ogni gruppo con id e' pensato per essere mosso dal motore (salita, caduta).
+function drawAtmo(id, ox = 0, oy = 0, seed = 7) {
+  let s = '';
+  const rnd = rng(seed);
+  if (id === 'fumo') {
+    // Pennacchio a pastello, come negli studi: sbuffi a scarabocchio che nascono dalla bocca
+    // del camino (x = -88, y = 146), si piegano col vento verso destra e crescono, sopra una
+    // velatura chiara. Ogni sbuffo e' una spirale che si stringe e si allarga in modo continuo.
+    // Tre gruppi animabili, dal piu' denso al piu' rado.
+    const SB = [[-82, 136, 7], [-62, 122, 12], [-34, 108, 18], [0, 96, 24], [38, 86, 28], [76, 76, 26], [104, 68, 18]];
+    const gruppi = [[0, 1, 0.95], [2, 3, 0.8], [4, 6, 0.55]];
+    gruppi.forEach(([a, b, op], g) => {
+      let velo = '', d = '';
+      for (let k = a; k <= b; k++) {
+        const [cx, cy, R] = SB[k], fase = rnd() * 6.3, passi = 120 + Math.round(rnd() * 30);
+        velo += `<ellipse cx="${f1(cx)}" cy="${f1(cy)}" rx="${f1(R * 1.15)}" ry="${f1(R * 0.72)}" fill="${C.cLight}" opacity="0.5"/>`;
+        for (let n = 0; n <= passi; n++) {
+          const th = fase + n * (2 * Math.PI / 24), q = 0.4 + 0.6 * Math.abs(Math.sin(n * 0.11 + fase));
+          const ccx = cx + Math.cos(n * 0.09 + fase) * R * 0.32, ccy = cy + Math.sin(n * 0.13 + fase) * R * 0.18;
+          d += (n ? ' L ' : ' M ') + f1(ccx + Math.cos(th) * R * q * 0.85) + ' ' + f1(ccy + Math.sin(th) * R * q * 0.5);
+        }
+      }
+      const [mx, my] = SB[Math.round((a + b) / 2)];
+      s += `<g id="sbuffo-${g + 1}" data-pivot="${mx} ${my}" opacity="${op}">${velo}` +
+        `<path d="${d.trim()}" fill="none" stroke="${C.cMid}" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></g>`;
+    });
+  } else if (id === 'neve') {
+    s += `<g id="fiocchi">`;
+    for (let i = 0; i < 26; i++) {
+      const x = -96 + rnd() * 192, y = 4 + rnd() * 142, r = 2.5 + rnd() * 3.5;
+      const a = r, b = r * 0.5;
+      s += `<path d="M ${f1(x - a)} ${f1(y)} L ${f1(x + a)} ${f1(y)} M ${f1(x - b)} ${f1(y - a * 0.87)} L ${f1(x + b)} ${f1(y + a * 0.87)} M ${f1(x - b)} ${f1(y + a * 0.87)} L ${f1(x + b)} ${f1(y - a * 0.87)}" fill="none" stroke="${C.cDark}" stroke-width="1.3" stroke-linecap="round" opacity="${f1(0.55 + rnd() * 0.4)}"/>`;
+    }
+    s += `</g>`;
+  } else if (id === 'pioggia') {
+    s += `<g id="gocce">`;
+    for (let i = 0; i < 40; i++) {
+      const x = -92 + rnd() * 192, y = 2 + rnd() * 128, l = 10 + rnd() * 12;
+      s += `<line x1="${f1(x)}" y1="${f1(y)}" x2="${f1(x - l * 0.3)}" y2="${f1(y + l)}" stroke="${C.cMid}" stroke-width="1.6" stroke-linecap="round" opacity="${f1(0.55 + rnd() * 0.4)}"/>`;
+    }
+    s += `</g>`;
+  }
+  return `<g transform="translate(${ox} ${oy})">${s}</g>`;
+}
+
+// AVVIO
+(function () {
+  const griglia = document.getElementById('griglia');
+  const aggiungi = (label, markup) => {
+    const fig = document.createElement('figure');
+    fig.innerHTML = `<svg viewBox="-125 -5 250 165">${markup}<line x1="-120" y1="150" x2="120" y2="150" stroke="${C.blue}" stroke-width="1.5" opacity="0.6"/></svg><figcaption>${label}</figcaption>`;
+    griglia.appendChild(fig);
+  };
+  INFRA.forEach(v => aggiungi(v.label, drawInfra(v.id)));
+  ATMO.forEach(v => aggiungi(v.label, drawAtmo(v.id)));
+})();
+</script>
+</body>
+</html>
