@@ -1,5 +1,7 @@
 # LAIKA — Brief di produzione visiva e didattica
 
+> **Aggiornamento 21 ottobre 2026, sera.** Che cosa raccontare è ora deciso in [PIANO-ATTI-LAIKA](PIANO-ATTI-LAIKA.md). Le sezioni 4 e 5 di questo brief descrivono l'«Atto 0» e l'«Atto I 1904–1907», che confluiscono nel nuovo Atto I (1700–marzo 1917): A0.1 → I.1-e4, A0.2 → I.1-e6, A0.3 → I.2-e1, A0.4 → I.2-e2/e3, A1.1–A1.4 → unità I.3. Le indicazioni di regia, i confronti obbligatori e le regole visive restano validi; titoli, codici e sequenza seguono il piano degli atti.
+
 Parte del [piano operativo](PIANO-LAIKA.md). Stato: decisioni per il prossimo incremento, non contenuti storici già approvati. I testi, i documenti citati e le date vanno verificati nella fase editoriale. Gli asset possono essere migliorati o creati: servono la scena, non il contrario.
 
 ## 1. Homepage di produzione
@@ -16,7 +18,7 @@ Parte del [piano operativo](PIANO-LAIKA.md). Stato: decisioni per il prossimo in
 1. Testata essenziale: wordmark LAIKA, «Il percorso», «Come funziona», «Fonti». Menu accessibile anche a tastiera; non nascondere i collegamenti mobili senza un comando funzionante. Senza JavaScript restano testo, navigazione e collegamento al player, con avviso per le attività interattive.
 2. Hero asimmetrico: circa 7 colonne al testo e 5 all'illustrazione su desktop; su mobile titolo, descrizione, CTA, scena. Titolo di lavoro: «Come cambia un mondo?». Sottotitolo: «Esplora la Rivoluzione russa attraverso scelte, fonti e conseguenze». Non duplicare un logo gigante e un titolo gigante.
 3. Un solo invito principale: «Inizia il percorso», oppure «Riprendi» con atto e unità correnti. Un link secondario porta ai fascicoli. La scena non ritarda né copre il bottone.
-4. Fascicoli: Atto 0 e Atto I con periodo, argomento e stato reale; 1917 come breve anticipazione non cliccabile, senza una scheda che sembri già giocabile. La prima versione è una parte del corso: niente promesse di atti implementati o durate misurate inesistenti.
+4. Fascicoli: l'Atto I con periodo, argomento e stato reale; gli atti successivi come breve anticipazione non cliccabile, senza una scheda che sembri già giocabile. La prima versione è una parte del corso: niente promesse di atti implementati o durate misurate inesistenti.
 5. «Come funziona»: tre passi brevi, osserva il contesto / agisci nel modello / confronta con le fonti. Spiegare che le scelte non riscrivono i fatti storici.
 6. Fonti, accessibilità e crediti a fondo pagina. Rimuovere dalla home pubblica la sezione metaprogettuale «Identità visiva» e i controlli destinati al catalogo asset.
 
@@ -95,7 +97,7 @@ La datazione di eventi russi deve dichiarare la convenzione adottata. Usare data
 
 Le sei domande per atto si distribuiscono 1+2+1+2 nelle quattro unità. Misurano nessi e limiti, non memoria di un numero modellistico. Ogni item ha obiettivo, esposizioni richieste, risposta, motivazione e spiegazione dei distrattori. Le domande sono esterne ai testi del motore e vengono assemblate dal build nel contratto esistente.
 
-## 4. Atto 0 — La terra e lo zar
+## 4. Atto 0 — La terra e lo zar (ora Atto I, unità I.1–I.2)
 
 Obiettivo complessivo: capire perché emancipazione giuridica, distribuzione della terra, istituzioni rurali e industrializzazione producono trasformazioni e tensioni differenti. Non raccontare una rivoluzione inevitabile.
 
@@ -112,7 +114,7 @@ L'esito di A0.1 deve ricomparire almeno una volta in A0.3 o A0.4. I due itinerar
 
 Terminare con un episodio `narrative` esplicito di confronto storico prima dell'avanzamento all'atto successivo: la proprietà `reconciliation` da sola non garantisce la pausa editoriale desiderata. Mostrare i fatti documentati accanto al riepilogo simulato; poi far avanzare il motore con il suo reset.
 
-## 5. Atto I — L'impero in crisi, 1904–1907
+## 5. Atto I — L'impero in crisi, 1904–1907 (ora Atto I, unità I.3)
 
 Obiettivo: collegare guerra e crisi politica senza ridurre tutto alla guerra; distinguere petizione, protesta, sciopero, soviet, concessione costituzionale e limiti dell'autocrazia.
 

@@ -1,26 +1,26 @@
 # LAIKA — Direzione degli asset (consolidamento 19 ottobre 2026)
 
-> **Aggiornamento 20 ottobre 2026.** Produzione corrente: [bottega](../bottega/README.md), con disegni derivati dagli studi originali della PR #12. I materiali di questa pagina restano riferimenti d'archivio, elencati nella sezione `archivio` del [catalogo](../bottega/catalogo.json).
+> **Aggiornamento 20 ottobre 2026.** Produzione corrente: [bottega](../../bottega/README.md), con disegni derivati dagli studi originali della PR #12. I materiali di questa pagina restano riferimenti d'archivio, elencati nella sezione `archivio` del [catalogo](../../bottega/catalogo.json).
 
 
-**Aggiornamento P0:** PR #4 e #5 integrate nel main `eb6ab832`; il catalogo è coperto dalla CI Chromium/WebKit sullo stesso commit. Inventario, font e lacune in [ASSET-MANIFEST](ASSET-MANIFEST.md); nuova review artistica e telefono reale restano da svolgere. Le formule «in questa PR» sotto descrivono lo storico della PR #5.
+**Aggiornamento P0:** PR #4 e #5 integrate nel main `eb6ab832`; il catalogo è coperto dalla CI Chromium/WebKit sullo stesso commit. Inventario, font e lacune in [ASSET-MANIFEST](../ASSET-MANIFEST.md); nuova review artistica e telefono reale restano da svolgere. Le formule «in questa PR» sotto descrivono lo storico della PR #5.
 
 **Stato originario:** proposta di consolidamento visivo. Nessuna sostituzione dei contenuti didattici, nessuna modifica a `src/`, nessun merge automatico. Il design è sottoposto a revisione visiva e storica.
 
 ## Tre materiali, tre ruoli distinti
 
-1. **[Kit forme originale — 20 simboli](../prototypes/laika-kit/kit-forme-laika.html).** Conservato integralmente come consegnato. **Mantenere** l'inventario di architetture, ambienti, infrastrutture, mezzi, emblemi e la mascotte LAIKA. Comprende le figure geometriche originarie come riferimento tecnico/di confronto, **non** come direzione definitiva dei personaggi. Le cinque scene sono studi compositivi e coprono anche epoche posteriori al 1917.
-2. **[Home v2 — cinque sagome organiche](../prototypes/laika-home/index-v2.html).** Conservata integralmente. Adottare **human-a, human-b, human-c, human-d, human-e** come riferimento di stile per gli omini pieni: curve Bézier, corpi compatti, posture meno regolari. La home è un prototipo separato, non sostituisce automaticamente la homepage esistente.
-3. **[Kit Atto 0 — 14 simboli + 4 scene](../prototypes/laika-kit/index.html).** Nuova versione eseguibile, con [dati separati](../prototypes/laika-kit/atto0-study.json), creata per salvare e completare il lavoro sul frammento HTML fornito in chat. Comprende campi e confini, proprietario, funzionario, famiglia contadina, assemblea del mir, fabbrica ottocentesca, operaio, documento, monete, grano, attrezzi, soldato, coda del pane e civile in attesa. **Non è una trascrizione integrale** del terzo HTML, che terminava durante la definizione del soldato. Le prime undici forme riprendono la struttura e i tracciati visibili del frammento; soldato, panificio e civile in attesa sono stati completati o ricreati dall'assistente. Eventuali parti successive non erano disponibili e non sono state attribuite all'autore.
+1. **[Kit forme originale — 20 simboli](../../prototypes/laika-kit/kit-forme-laika.html).** Conservato integralmente come consegnato. **Mantenere** l'inventario di architetture, ambienti, infrastrutture, mezzi, emblemi e la mascotte LAIKA. Comprende le figure geometriche originarie come riferimento tecnico/di confronto, **non** come direzione definitiva dei personaggi. Le cinque scene sono studi compositivi e coprono anche epoche posteriori al 1917.
+2. **[Home v2 — cinque sagome organiche](../../prototypes/laika-home/index-v2.html).** Conservata integralmente. Adottare **human-a, human-b, human-c, human-d, human-e** come riferimento di stile per gli omini pieni: curve Bézier, corpi compatti, posture meno regolari. La home è un prototipo separato, non sostituisce automaticamente la homepage esistente.
+3. **[Kit Atto 0 — 14 simboli + 4 scene](../../prototypes/laika-kit/index.html).** Nuova versione eseguibile, con [dati separati](../../prototypes/laika-kit/atto0-study.json), creata per salvare e completare il lavoro sul frammento HTML fornito in chat. Comprende campi e confini, proprietario, funzionario, famiglia contadina, assemblea del mir, fabbrica ottocentesca, operaio, documento, monete, grano, attrezzi, soldato, coda del pane e civile in attesa. **Non è una trascrizione integrale** del terzo HTML, che terminava durante la definizione del soldato. Le prime undici forme riprendono la struttura e i tracciati visibili del frammento; soldato, panificio e civile in attesa sono stati completati o ricreati dall'assistente. Eventuali parti successive non erano disponibili e non sono state attribuite all'autore.
 
 ## Figure organiche estratte dalla home v2
 
 Sono disponibili anche i cinque SVG standalone:
-[human-a](../prototypes/laika-kit/figure/human-a.svg),
-[human-b](../prototypes/laika-kit/figure/human-b.svg),
-[human-c](../prototypes/laika-kit/figure/human-c.svg),
-[human-d](../prototypes/laika-kit/figure/human-d.svg),
-[human-e](../prototypes/laika-kit/figure/human-e.svg).
+[human-a](../../prototypes/laika-kit/figure/human-a.svg),
+[human-b](../../prototypes/laika-kit/figure/human-b.svg),
+[human-c](../../prototypes/laika-kit/figure/human-c.svg),
+[human-d](../../prototypes/laika-kit/figure/human-d.svg),
+[human-e](../../prototypes/laika-kit/figure/human-e.svg).
 
 I `path d` sono quelli della bozza home allegata; sono stati aggiunti soltanto gruppi e ID semantici `figure`, `head`, `body`, con fill nero esplicito. Si tratta di **silhouette statiche**, non rigging articolati e non asset già integrati nel runtime. Possono essere importati come riferimenti e suddivisi dopo una revisione artistica.
 
