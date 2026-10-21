@@ -80,6 +80,8 @@ A ogni avvio: verificare branch e modifiche locali, leggere eventuali AGENTS.md 
 2. Unire la PR #16 (kit infrastrutture e atmosfera) dopo la revisione dell'utente.
 3. Dall'elenco `da_fare` del catalogo, produrre come kit con `CONTRATTO-KIT.md` i disegni che servono all'Atto 0 e alla home: strada urbana, interno contadino o izba, ufficio o cancelleria, caserma. Indicare epoca e luogo; evitare insegne e simboli inventati.
 
+**Stato al 21 ottobre 2026.** Punto 2 superato: la PR #16 è già in `main`. Punto 3 svolto nel branch `feat/p2b-kit-ambienti`: nuovo kit `prototypes/kit-ambienti-primo-novecento/` con otto voci in stato `bozza` (strada, panetteria, interno di isba, ufficio, caserma, sala a colonne, trincea, parapetto), scelte sull'Atto I fuso del nuovo arco in sette atti; due scene di esempio (`esempi/pane.json`, `esempi/isba.json`). Verifiche locali: `npm test` 81/81, `npm run test:browser` su Chromium con 130 confronti al pixel a zero differenze; WebKit solo in CI. Evidenze in `docs/evidence/p2b/`. Resta il gate visivo dell'utente: dopo l'approvazione le voci passano da `bozza` a `pronto`.
+
 **Accettazione:** CI verde su Chromium e WebKit con `browser-bottega` eseguito; nuovi disegni a catalogo con stato ed epoca, confronto al pixel a zero differenze.
 
 ## P3 — Homepage e prima unità verticale

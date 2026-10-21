@@ -56,6 +56,14 @@ export const KIT = [
       { famiglia: 'luoghi', prefisso: 'luogo-', funzione: 'drawLuogo', voci: 'LUOGHI', argomenti: ['$id', 0, 0], terra: 400 },
       { famiglia: 'atmosfera', prefisso: 'atmo-', funzione: 'drawAria', voci: 'ARIA', argomenti: ['$id', 0, 0], terra: 400 }
     ]
+  },
+  {
+    file: 'prototypes/kit-ambienti-primo-novecento/kit-ambienti-primo-novecento.html', palette: 'C',
+    token: { bg: 'paper', p2: 'paper2', ink: 'ink', red: 'red', sand: 'sand', cLight: 'concrete-light', cMid: 'concrete-mid', cDark: 'concrete-dark', sky: 'sky', tree: 'tree' },
+    definizioni: { funzione: 'getDefs', argomenti: [], texture: 'ambienti', motivi: { grana: 'grana-ambienti' } },
+    famiglie: [
+      { famiglia: 'ambienti', prefisso: 'ambiente-', funzione: 'drawAmbiente', voci: 'AMBIENTI', argomenti: ['$id', 0, 0], terra: 400 }
+    ]
   }
 ];
 // Colori scritti direttamente nel codice dei kit (fuori dalla palette).
