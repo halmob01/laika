@@ -40,7 +40,7 @@ I libri sono in `references/fonti/` solo come elenco: le copie si tengono fuori 
 | III | Ottobre | luglio 1917–marzo 1918 | Chi ha il diritto di parlare e decidere per il popolo? |
 | IV | L'assalto al cielo | 1918–1927 | Si può rifare l'essere umano, e che cosa si è disposti a pagare per provarci? |
 | V | Il prezzo della potenza | 1928–1945 | Che cosa resta di una promessa quando diventa obbligo e paura? |
-| VI | Laika | 1945–1964 | Il cielo raggiunto mantiene la promessa? Quanto vale una vita accanto a un simbolo? |
+| VI | Il cielo è vuoto? | 1945–1964 | Il cielo raggiunto mantiene la promessa? Quanto vale una vita accanto a un simbolo? |
 | VII | Cemento e silenzio | 1964–1991 | Come finisce una cosa che sembrava eterna? |
 
 Quattro movimenti: il mondo da rovesciare (I), la promessa (II e III), l'assalto al cielo e il prezzo (IV e V), il cielo raggiunto e la promessa esaurita (VI e VII). La rivoluzione occupa due atti: dieci unità su trentacinque coprono appena dodici mesi. Le domande degli appunti restano: «rivoluzione o colpo di stato?» si vive nell'Atto III, «la violenza era l'unica via?» nell'Atto V.
@@ -815,9 +815,9 @@ Ruoli: il nipote al fronte; la famiglia a Leningrado; una bambina del villaggio 
 
 **Verifiche dell'Atto V:** collettivizzazione; i piani; il terrore; la guerra; il mito; più la riflessione aperta.
 
-### Atto VI — Laika (1945–1964)
+### Atto VI — Il cielo è vuoto? (1945–1964)
 
-**Sotto l'atto.** Il cielo raggiunto mantiene la promessa del 1917? Quanto vale una vita accanto a un simbolo? E se il cielo è vuoto, che cosa c'è da vincere lassù?
+**Sotto l'atto.** Il cielo raggiunto mantiene la promessa del 1917? Quanto vale una vita accanto a un simbolo? E se il cielo è vuoto, che cosa c'è da vincere lassù? Il titolo è questa stessa domanda: non ha risposta nel gioco, la si porta con sé fino all'Atto VII.
 
 **Che cosa deve restare.** È l'atto che dà il nome al percorso e chiude il filo aperto dai contadini di Belovod'e, dal razzo disegnato in cella nel 1881 e dagli aerei sopra i campanili. L'«assalto al cielo» diventa letterale. Ma lo spazio è anche una guerra combattuta con i simboli invece che con le bombe: chi arriva primo vince davanti al mondo intero, e ogni oggetto diventa propaganda, dalla sfera lucida dello Sputnik alla cucina modello di un'esposizione americana, fino a una cagnolina regalata alla figlia del presidente degli Stati Uniti. Al centro, due figure che non si possono separare: Laika, una cagnetta presa per strada, mandata in orbita senza ritorno e raccontata per decenni con una bugia gentile; e Korolëv, l'uomo che ha costruito i razzi, passato per il gulag, di cui nessuno poteva dire il nome. Il sorriso di Gagarin sta in mezzo a loro.
 
