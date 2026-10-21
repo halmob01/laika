@@ -14,7 +14,9 @@ function step(game,s,a){return transition(game,s,a).nextState;}
 function answer(game,s,variant=0){
   const e=currentScene(game,s);
   if(s.currentAct.phase==='outcome'||e.type==='narrative')return {type:'advance'};
-  if(e.type==='resource_allocation')return {type:'allocate',allocations:Object.fromEntries(e.buckets.map((b,i)=>[b.id,i===variant%e.buckets.length?e.budget:0]))};
+  if(e.type==='resource_allocation'){// Riempie prima il secchio scelto dalla variante, poi gli altri, entro i massimi.
+    const order=e.buckets.map((b,i)=>e.buckets[(i+variant)%e.buckets.length]);let left=e.budget;const allocations=Object.fromEntries(e.buckets.map(b=>[b.id,0]));
+    for(const b of order){const n=Math.min(b.max,left);allocations[b.id]=n;left-=n;}return {type:'allocate',allocations};}
   if(e.type==='source_comparison') {const source=e.sources.find(x=>!s.currentAct.viewedSources.includes(e.id+':'+x.id));if(source)return {type:'inspect_source',sourceId:source.id};}
   if(e.type==='assessment')return {type:'answer',answerId:e.question.options[variant%e.question.options.length].id};
   const choices=e.choices.filter(c=>available(c,s.currentAct));return {type:'select',choiceId:choices[variant%choices.length].id};

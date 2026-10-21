@@ -64,6 +64,14 @@ export const KIT = [
     famiglie: [
       { famiglia: 'ambienti', prefisso: 'ambiente-', funzione: 'drawAmbiente', voci: 'AMBIENTI', argomenti: ['$id', 0, 0], terra: 400 }
     ]
+  },
+  {
+    file: 'prototypes/kit-feste-di-corte/kit-feste-di-corte.html', palette: 'C',
+    token: { bg: 'paper', p2: 'paper2', ink: 'ink', red: 'red', sand: 'sand', cLight: 'concrete-light', cMid: 'concrete-mid', cDark: 'concrete-dark', sky: 'sky', tree: 'tree' },
+    definizioni: { funzione: 'getDefs', argomenti: [], texture: 'corte', motivi: { grana: 'grana-corte' } },
+    famiglie: [
+      { famiglia: 'corte', prefisso: 'corte-', funzione: 'drawCorte', voci: 'CORTE', argomenti: ['$id', 0, 0], terra: 400 }
+    ]
   }
 ];
 // Colori scritti direttamente nel codice dei kit (fuori dalla palette).

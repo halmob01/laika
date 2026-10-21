@@ -406,73 +406,73 @@
    "id": "ambiente-strada",
    "famiglia": "ambienti",
    "nome": "Strada di città",
-   "stato": "bozza",
+   "stato": "pronto",
    "epoca": "Fine Ottocento - 1917 (Pietroburgo e grandi città dell'impero): case d'affitto a quattro piani con botteghe al piano terra; archetipo generico, nessuna insegna con scritte.",
    "fonte": "prototypes/kit-ambienti-primo-novecento/kit-ambienti-primo-novecento.html#strada",
-   "note": "Scala umana (porta circa 96 unità: figure a scala 1-1,1). Parte con id: luci (finestre accese). Bozza: in attesa della revisione visiva dell'utente."
+   "note": "Scala umana (porta circa 96 unità: figure a scala 1-1,1). Parte con id: luci (finestre accese). Approvato dall'utente il 21 ottobre 2026 (PR #1 di laika)."
   },
   {
    "id": "ambiente-panetteria",
    "famiglia": "ambienti",
    "nome": "Bottega del pane",
-   "stato": "bozza",
+   "stato": "pronto",
    "epoca": "Fine Ottocento - anni Venti (città russe): vetrina con pani e insegna sospesa a forma di kalač, segno tradizionale dei fornai; tabella dell'insegna vuota.",
    "fonte": "prototypes/kit-ambienti-primo-novecento/kit-ambienti-primo-novecento.html#panetteria",
-   "note": "Per figure a scala 1-1,2. Adatta alle code del 1917 (formazione coda davanti alla porta). Parte con id: insegna (oscilla sul perno del braccio). Bozza: in attesa della revisione visiva dell'utente."
+   "note": "Per figure a scala 1-1,2. Adatta alle code del 1917 (formazione coda davanti alla porta). Parte con id: insegna (oscilla sul perno del braccio). Approvato dall'utente il 21 ottobre 2026 (PR #1 di laika)."
   },
   {
    "id": "ambiente-isba-interno",
    "famiglia": "ambienti",
    "nome": "Interno di isba",
-   "stato": "bozza",
+   "stato": "pronto",
    "epoca": "Ottocento - primo Novecento (Russia europea): interno contadino con stufa russa imbiancata, panche, tavolo, angolo delle icone; icona come cornice senza figure.",
    "fonte": "prototypes/kit-ambienti-primo-novecento/kit-ambienti-primo-novecento.html#isba_interno",
-   "note": "Interno per figure a scala 2,2-2,4 (tavolo alto circa 85 unità). Parte con id: lampada (lampada votiva sospesa). Bozza: in attesa della revisione visiva dell'utente."
+   "note": "Interno per figure a scala 2,2-2,4 (tavolo alto circa 85 unità). Parte con id: lampada (lampada votiva sospesa). Approvato dall'utente il 21 ottobre 2026 (PR #1 di laika)."
   },
   {
    "id": "ambiente-ufficio",
    "famiglia": "ambienti",
    "nome": "Ufficio di cancelleria",
-   "stato": "bozza",
+   "stato": "pronto",
    "epoca": "Fine Ottocento - anni Venti: ufficio amministrativo con stufa in maiolica, scaffali con faldoni, scrivania; cornice alla parete vuota.",
    "fonte": "prototypes/kit-ambienti-primo-novecento/kit-ambienti-primo-novecento.html#ufficio",
-   "note": "Interno per figure a scala 2,2-2,4 (scrivania alta circa 80 unità). Utile anche per ministeri, commissariati e uffici del soviet: la scena decide gli oggetti in più. Bozza: in attesa della revisione visiva dell'utente."
+   "note": "Interno per figure a scala 2,2-2,4 (scrivania alta circa 80 unità). Utile anche per ministeri, commissariati e uffici del soviet: la scena decide gli oggetti in più. Approvato dall'utente il 21 ottobre 2026 (PR #1 di laika)."
   },
   {
    "id": "ambiente-caserma",
    "famiglia": "ambienti",
    "nome": "Caserma",
-   "stato": "bozza",
+   "stato": "pronto",
    "epoca": "Primo Ottocento - 1917 (Pietroburgo): archetipo di caserma neoclassica dei reggimenti di guardia, pronao a sei colonne e garitta a strisce; nessuno stemma.",
    "fonte": "prototypes/kit-ambienti-primo-novecento/kit-ambienti-primo-novecento.html#caserma",
-   "note": "Larghezza 1200 a scala 1: per l'esterno a figure piccole usare scala 0,5-0,7. Bozza: in attesa della revisione visiva dell'utente."
+   "note": "Larghezza 1200 a scala 1: per l'esterno a figure piccole usare scala 0,5-0,7. Approvato dall'utente il 21 ottobre 2026 (PR #1 di laika)."
   },
   {
    "id": "ambiente-sala",
    "famiglia": "ambienti",
    "nome": "Sala a colonne",
-   "stato": "bozza",
+   "stato": "pronto",
    "epoca": "Dal tardo Settecento (San Pietroburgo): archetipo di sala d'assemblea neoclassica a colonnato, modellata sulle sale del Palazzo di Tauride (Duma dal 1906, soviet nel 1917); non un rilievo.",
    "fonte": "prototypes/kit-ambienti-primo-novecento/kit-ambienti-primo-novecento.html#sala",
-   "note": "Per figure a scala 1,4-1,6. Interno per Duma, soviet, Costituente, congressi. Bozza: in attesa della revisione visiva dell'utente."
+   "note": "Per figure a scala 1,4-1,6. Interno per Duma, soviet, Costituente, congressi. Approvato dall'utente il 21 ottobre 2026 (PR #1 di laika)."
   },
   {
    "id": "ambiente-trincea",
    "famiglia": "ambienti",
    "nome": "Trincea",
-   "stato": "bozza",
+   "stato": "pronto",
    "epoca": "1914-1918 (fronte orientale della prima guerra mondiale): parete con rivestimento di pali e graticci, sacchi di terra, camminamento di tavole. Non usare prima del 1914.",
    "fonte": "prototypes/kit-ambienti-primo-novecento/kit-ambienti-primo-novecento.html#trincea",
-   "note": "Per figure a scala 1,4-1,6. Fondale: le figure stanno davanti. Abbinare a infra-filo-spinato e a ambiente-parapetto. Bozza: in attesa della revisione visiva dell'utente."
+   "note": "Per figure a scala 1,4-1,6. Fondale: le figure stanno davanti. Abbinare a infra-filo-spinato e a ambiente-parapetto. Approvato dall'utente il 21 ottobre 2026 (PR #1 di laika)."
   },
   {
    "id": "ambiente-parapetto",
    "famiglia": "ambienti",
    "nome": "Parapetto di trincea",
-   "stato": "bozza",
+   "stato": "pronto",
    "epoca": "1914-1918 (prima guerra mondiale): ciglio anteriore di terra e sacchi. Non usare prima del 1914.",
    "fonte": "prototypes/kit-ambienti-primo-novecento/kit-ambienti-primo-novecento.html#parapetto",
-   "note": "Per figure a scala 1,4-1,6. Da porre davanti alle figure (davanti: true) per mostrarle a mezzo busto dentro la trincea. Bozza: in attesa della revisione visiva dell'utente."
+   "note": "Per figure a scala 1,4-1,6. Da porre davanti alle figure (davanti: true) per mostrarle a mezzo busto dentro la trincea. Approvato dall'utente il 21 ottobre 2026 (PR #1 di laika)."
   },
   {
    "id": "mezzo-treno",
@@ -787,6 +787,60 @@
    "epoca": "Senza epoca: bande di foschia orizzontali.",
    "fonte": "prototypes/kit-luoghi-monumentali/kit-luoghi-monumentali.html#foschia",
    "note": "Larghezza 1600, alta 82 a scala 1, base sul punto di posa. Si mette dopo i piani lontani e prima delle figure per dare profondità. Parte con id: velo."
+  },
+  {
+   "id": "corte-palazzo-ghiaccio",
+   "famiglia": "corte",
+   "nome": "Palazzo di ghiaccio",
+   "stato": "pronto",
+   "epoca": "Inverno 1739-1740 (San Pietroburgo, sulla Neva gelata): archetipo della casa di ghiaccio dell'imperatrice Anna, alta circa dieci metri; forma semplificata, nessuno stemma. Solo per il 1740.",
+   "fonte": "prototypes/kit-feste-di-corte/kit-feste-di-corte.html#palazzo_ghiaccio",
+   "note": "Larghezza 780 a scala 1, per figure a scala 0,6-0,8. Con luogo-riva e atmo-neve. Approvato dall'utente il 22 ottobre 2026 (gate P2, unità I.1)."
+  },
+  {
+   "id": "corte-cannone-ghiaccio",
+   "famiglia": "corte",
+   "nome": "Cannone di ghiaccio",
+   "stato": "pronto",
+   "epoca": "Inverno 1739-1740 (San Pietroburgo): i cannoni di ghiaccio davanti alla casa di ghiaccio. Solo per il 1740.",
+   "fonte": "prototypes/kit-feste-di-corte/kit-feste-di-corte.html#cannone_ghiaccio",
+   "note": "Piccolo: 100 a scala 1. Approvato dall'utente il 22 ottobre 2026 (gate P2, unità I.1)."
+  },
+  {
+   "id": "corte-elefante-gabbia",
+   "famiglia": "corte",
+   "nome": "Elefante con gabbia",
+   "stato": "pronto",
+   "epoca": "1740 (San Pietroburgo): l'elefante con la gabbia sul dorso del corteo delle nozze di ghiaccio. Nessun cavaliere: le persone sono figure articolate.",
+   "fonte": "prototypes/kit-feste-di-corte/kit-feste-di-corte.html#elefante_gabbia",
+   "note": "Alto circa 230 a scala 1 con la gabbia, per figure a scala 0,6-0,8. Si sposta con transfer, arco 0. Approvato dall'utente il 22 ottobre 2026 (gate P2, unità I.1)."
+  },
+  {
+   "id": "corte-elefante-gemme",
+   "famiglia": "corte",
+   "nome": "Elefante di gemme",
+   "stato": "pronto",
+   "epoca": "1791 (San Pietroburgo, festa di Potemkin): archetipo dell'elefante coperto di gemme con gualdrappa e baldacchino; non imita il meccanismo dell'automa.",
+   "fonte": "prototypes/kit-feste-di-corte/kit-feste-di-corte.html#elefante_gemme",
+   "note": "Stessa scala dell'elefante con gabbia. Approvato dall'utente il 22 ottobre 2026 (gate P2, unità I.1)."
+  },
+  {
+   "id": "corte-residenza-legno",
+   "famiglia": "corte",
+   "nome": "Residenza di legno",
+   "stato": "pronto",
+   "epoca": "Meta' del Settecento (San Pietroburgo e Mosca, corte di Elisabetta 1741-1761): archetipo di palazzo di legno a due piani con avancorpo e torretta; adatto anche come residenza di corte della prima meta' del secolo.",
+   "fonte": "prototypes/kit-feste-di-corte/kit-feste-di-corte.html#residenza_legno",
+   "note": "Larghezza 820 a scala 1, per figure a scala 0,5-0,7. Per farlo sprofondare: transfer verso il basso e corte-cumulo-neve davanti. Approvato dall'utente il 22 ottobre 2026 (gate P2, unità I.1)."
+  },
+  {
+   "id": "corte-cumulo-neve",
+   "famiglia": "corte",
+   "nome": "Banco di neve",
+   "stato": "pronto",
+   "epoca": "Senza epoca (inverno russo): banco di neve in primo piano.",
+   "fonte": "prototypes/kit-feste-di-corte/kit-feste-di-corte.html#cumulo_neve",
+   "note": "Da usare con davanti: true; nasconde la base di chi o che cosa sprofonda. Approvato dall'utente il 22 ottobre 2026 (gate P2, unità I.1)."
   }
  ],
  "da_fare": [

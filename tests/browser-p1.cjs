@@ -30,12 +30,20 @@ module.exports=async(browser,root,artifacts)=>{
  const valid=await read();await page.goto(origin+'/');await page.locator('#resume').waitFor();assert.equal(await read(),valid);
  await page.locator('#resume').click();await page.locator('#scene-title').waitFor();
  assert.equal(await page.locator('#pack-theme').getAttribute('href'),'./site/laika/theme.css');
- assert.equal(await page.locator('.episode-context').innerText(),'Simulazione');
+ assert.match(await page.locator('.episode-context').innerText(),/1700/);
  await page.evaluate(()=>Promise.all(document.getAnimations().map(a=>a.finished.catch(()=>{}))));
  await page.screenshot({path:path.join(artifacts,'p1-player-mobile.png'),fullPage:true});
  await page.locator('[data-action=advance]').click();assert.match(await page.locator('#panel').innerText(),/Atto I/i);
  const saved=await read();await page.reload();await page.locator('#scene-title').waitFor();assert.equal(await read(),saved);
- await page.locator('[data-action=advance]').click();await page.locator('#summary-title').waitFor();
+ // Salvataggio completo costruito con il runner pubblico (l'unità I.1 è percorsa per intero in browser-i1).
+ {let s=newSession(game,'browser-p1');const {currentScene}=await import('../src/runner/index.js');
+  for(let i=0;i<80&&!s.complete;i++){const e=currentScene(game,s);let a;
+   if(s.currentAct.phase==='outcome'||e.type==='narrative')a={type:'advance'};
+   else if(e.type==='resource_allocation')a={type:'allocate',allocations:Object.fromEntries(e.buckets.map((b,j)=>[b.id,j===0?e.budget:0]))};
+   else if(e.type==='source_comparison'){const x=e.sources.find(x=>!s.currentAct.viewedSources.includes(e.id+':'+x.id));a=x?{type:'inspect_source',sourceId:x.id}:{type:'select',choiceId:e.choices[0].id};}
+   else if(e.type==='assessment')a={type:'answer',answerId:e.question.correctId};
+   s=transition(game,s,a).nextState;}
+  assert.equal(s.complete,true);await setSave(exportSave(game,s));await page.reload();await page.locator('#summary-title').waitFor();}
  const complete=await read();await page.goto(origin+'/');await page.locator('#progress').filter({hasText:'completata'}).waitFor();assert.equal(await page.locator('#resume').isHidden(),true);assert.equal(await read(),complete);
  for(const raw of ['invalid JSON',JSON.stringify({saveSchemaVersion:1,gameId:'laika',contentVersion:'old',commands:[]})]){
   await setSave(raw);const before=await read();await page.reload();await page.locator('#progress').filter({hasText:'non utilizzabile'}).waitFor();assert.equal(await page.locator('#resume').isHidden(),true);assert.equal(await read(),before);

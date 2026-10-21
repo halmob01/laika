@@ -4,7 +4,8 @@ module.exports=async(browser,root,artifacts)=>{
  const origin='http://127.0.0.1:4173';
  const context=await browser.newContext({viewport:{width:1440,height:900}}),page=await context.newPage(),errors=[];
  page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
- let bytes=0;page.on('response',async r=>{try{const b=await r.body();bytes+=b.length;}catch{}});
+ // Il manifesto del corso si legge dopo il primo quadro, solo per lo stato dei progressi: si misura a parte.
+ let bytes=0,corso=0;page.on('response',async r=>{try{const b=await r.body();if(r.url().endsWith('/games/laika/game.json'))corso+=b.length;else bytes+=b.length;}catch{}});
  await page.goto(origin+'/');await page.locator('#scena svg').waitFor();
  assert.equal(await page.locator('#scena').getAttribute('data-motion'),'playing');
  const pressed=()=>page.$$eval('.data',b=>b.map(x=>x.getAttribute('aria-pressed')).join());
@@ -38,5 +39,5 @@ module.exports=async(browser,root,artifacts)=>{
  assert.equal(await rp.locator('#scena').getAttribute('data-motion'),'finished');
  await rp.locator('.data').nth(2).click();assert.equal(await rp.locator('#scena').getAttribute('data-motion'),'finished');
  await reduced.close();
- console.log('Home PASS: tavola, rettifica, tastiera, pausa, fuori schermo, reduced motion, 360/390/768/1440, '+Math.round(bytes/1024)+' KB trasferiti.');
+ console.log('Home PASS: tavola, rettifica, tastiera, pausa, fuori schermo, reduced motion, 360/390/768/1440, '+Math.round(bytes/1024)+' KB per il primo quadro; manifesto del corso letto dopo: '+Math.round(corso/1024)+' KB non compressi.');
 };

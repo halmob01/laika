@@ -99,6 +99,18 @@ Stato: «localizzato» = passo trovato e letto nel contesto da Opus 5.5; resta l
 | I1-14 / e6 | che cosa chiedevano i contadini nel 1861 | Stites, cap. 1, p. 29 | «the peasants' own program in 1861: the end of all private gentry landowning and the division of all its land … an end to … "feudal" obligations» | Localizzato. È una ricostruzione di uno studioso sovietico riportata da Stites: va presentata come tale, non come documento contadino |
 | I1-12 / e3 | Gogol', *Anime morte* (1842) | conoscenza generale della trama | Čičikov compra servi morti ancora iscritti nei registri fino al censimento successivo | Parafrasi del redattore, nessuna traduzione consultata: **nessuna citazione** fra virgolette |
 
+### Dettagli dei testi di I.1 riscontrati il 22 ottobre 2026
+
+| ID / episodio | Dettaglio nel testo | Localizzazione | Esito |
+|---|---|---|---|
+| I1-15 / e2 | notte nel palazzo di ghiaccio sorvegliata dai soldati, gli sposi sopravvivono; cannoni di ghiaccio che sparano | Montefiore, Act II, Scene 2: «guarded by soldiers … They survived their wedding night»; «an ice cannon that fired real shells» | Localizzato |
+| I1-16 / e2 | tremila invitati alla festa di Potëmkin (1791) | Montefiore, Act II, Scene 4: «the gigantic Colonnade Hall … where 3,000 guests … awaited them» | Localizzato |
+| I1-17 / e3 | doni: Orlov 800 anime e 24.000 rubli; Rumjancev 5000 anime e 100.000 rubli; Zavadovskij «three or four thousand souls»; Zubov 13.199 | Montefiore, Act II, Scene 4 | Localizzato |
+| I1-18 / e3 | inventario del guardaroba (calze, scarpe, stoffe) | Montefiore, Act II, Scene 3: «two chests filled with silk stockings, several thousand pairs of shoes and more than 100 untouched lengths of French fabric» | Localizzato. **Rettifica:** la bozza lo attribuiva alle memorie di Stählin, che nel libro non sono nominate: provenienza corretta in «Montefiore» |
+| I1-19 / e6 | Konstantin versa la sabbia sull'inchiostro; «perfect calm» | Montefiore, Act III, Scene 2: «I poured sand on the ink»; lettera a Barjatinskij | Localizzato |
+| I1-20 / e5 | migrazioni verso Belovod'e; «oltre l'acqua»; scalzi | Stites, cap. 1, pp. 15–16: «In the 1830s and 1840s, large migrations were mounted to find it»; «across the water»; «all went barefoot» | Localizzato. **Rettifica:** non «per tutto l'Ottocento», ma negli anni Trenta e Quaranta |
+| I1-21 / e5 | Alessandro I visita Gruzino e se ne innamora; 750.000 persone nelle colonie | Stites, cap. 1, p. 22: «On visiting Gruzino, Tsar Alexander I became enamored of "the order which prevails everywhere"»; «about 750,000 men, women, and children» | Localizzato |
+
 ### Voci [verificare] dell'Atto I fuori da I.1
 
 | Voce del piano | Esito | Localizzazione |

@@ -1,0 +1,109 @@
+{
+  "id": "a1-u1-inverno-pieno",
+  "etichetta": "Interno di isba in inverno. Sacchi di grano accanto alla stufa; la famiglia è riunita in piedi, la madre parla, il nonno ascolta seduto.",
+  "ruvido": true,
+  "elementi": [
+    {
+      "id": "casa",
+      "simbolo": "ambiente-isba-interno",
+      "x": 480,
+      "y": 450,
+      "scala": 1.1
+    },
+    {
+      "id": "sacco-1",
+      "simbolo": "oggetto-cassa",
+      "x": 250,
+      "y": 450,
+      "scala": 1.6
+    },
+    {
+      "id": "sacco-2",
+      "simbolo": "oggetto-cassa",
+      "x": 320,
+      "y": 450,
+      "scala": 1.6
+    },
+    {
+      "id": "sacco-3",
+      "simbolo": "oggetto-cassa",
+      "x": 285,
+      "y": 382,
+      "scala": 1.4
+    }
+  ],
+  "figure": [
+    {
+      "id": "padre",
+      "x": 450,
+      "y": 450,
+      "scala": 2.2,
+      "variante": "nessuna",
+      "posa": "in_piedi",
+      "abito": "cappotto",
+      "cappello": null
+    },
+    {
+      "id": "madre",
+      "x": 560,
+      "y": 450,
+      "scala": 2.2,
+      "variante": "scialle",
+      "posa": "parla",
+      "flip": true
+    },
+    {
+      "id": "figlio",
+      "x": 500,
+      "y": 450,
+      "scala": 1.7,
+      "variante": "bambino",
+      "posa": "in_piedi",
+      "ruolo": "protagonista"
+    },
+    {
+      "id": "nonno",
+      "x": 740,
+      "y": 432,
+      "scala": 2.2,
+      "variante": "bastone",
+      "posa": "seduto",
+      "flip": true
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "Il grano basta fino a primavera.",
+      "passi": [
+        {
+          "azione": "reveal",
+          "chi": [
+            "sacco-1",
+            "sacco-2",
+            "sacco-3"
+          ],
+          "modo": "sale",
+          "a": 0,
+          "durata": 600,
+          "sfalsa": 250
+        },
+        {
+          "azione": "speak",
+          "chi": "madre",
+          "cicli": 2,
+          "a": 800,
+          "durata": 2600
+        },
+        {
+          "azione": "listen",
+          "chi": "nonno",
+          "cicli": 2,
+          "a": 900,
+          "durata": 2600
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

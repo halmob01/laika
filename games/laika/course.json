@@ -1,29 +1,41 @@
 {
   "schemaVersion": 1,
   "id": "laika",
-  "contentVersion": "p1-internal-1",
-  "title": "LAIKA — prova tecnica interna",
-  "exposureFlags": [],
+  "contentVersion": "p3-i1-1",
+  "title": "LAIKA",
+  "exposureFlags": [
+    "a1-anime",
+    "a1-feste",
+    "a1-inventari",
+    "a1-anno",
+    "a1-utopie",
+    "a1-manifesto"
+  ],
   "acts": [
-    {
-      "id": "atto-0",
-      "file": "source/acts/atto-0.json"
-    },
     {
       "id": "atto-1",
       "file": "source/acts/atto-1.json"
     }
   ],
   "stages": [],
-  "scene": [],
+  "scene": [
+    "source/scene/a1-u1-anime.json",
+    "source/scene/a1-u1-feste.json",
+    "source/scene/a1-u1-inventari.json",
+    "source/scene/a1-u1-anno.json",
+    "source/scene/a1-u1-inverno-pieno.json",
+    "source/scene/a1-u1-inverno-magro.json",
+    "source/scene/a1-u1-utopie.json",
+    "source/scene/a1-u1-manifesto.json"
+  ],
   "tema": "laika",
   "symbols": "assets/symbols.json",
   "questions": [
-    "questions/atto-0.json",
     "questions/atto-1.json"
   ],
   "editorial": {
-    "status": "internal-only",
-    "sources": "sources.json"
+    "status": "unit-i1-review",
+    "sources": "sources.json",
+    "note": "Unità I.1 completa; I.2–I.5 da fare."
   }
 }

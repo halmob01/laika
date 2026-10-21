@@ -52,6 +52,7 @@ const server=http.createServer((req,res)=>{const pathname=new URL(req.url,'http:
  await require('./browser-contract.cjs')(browser,root,artifacts);
  await require('./browser-motion.cjs')(browser,root,artifacts);
  await require('./browser-laika.cjs')(browser,root,artifacts);
+ await require('./browser-i1.cjs')(browser,root,artifacts);
  await require('./browser-rig.cjs')(browser,root,artifacts);
  await require('./browser-bottega.cjs')(browser,root,artifacts);
  const page=await browser.newPage();await page.emulateMedia({reducedMotion:'reduce'});await page.goto('http://127.0.0.1:4173/play.html');await page.locator('#scene-title').waitFor();

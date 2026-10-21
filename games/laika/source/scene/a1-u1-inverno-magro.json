@@ -1,0 +1,81 @@
+{
+  "id": "a1-u1-inverno-magro",
+  "etichetta": "Interno di isba in inverno. Accanto alla stufa non c'è niente; il padre e la madre siedono lontani, il figlio seduto a terra vicino alla stufa, il nonno in piedi alla finestra.",
+  "ruvido": true,
+  "elementi": [
+    {
+      "id": "casa",
+      "simbolo": "ambiente-isba-interno",
+      "x": 480,
+      "y": 450,
+      "scala": 1.1
+    }
+  ],
+  "figure": [
+    {
+      "id": "padre",
+      "x": 640,
+      "y": 432,
+      "scala": 2.2,
+      "variante": "nessuna",
+      "posa": "seduto",
+      "flip": true,
+      "abito": "cappotto",
+      "cappello": null
+    },
+    {
+      "id": "madre",
+      "x": 820,
+      "y": 432,
+      "scala": 2.2,
+      "variante": "scialle",
+      "posa": "seduto",
+      "flip": true
+    },
+    {
+      "id": "figlio",
+      "x": 360,
+      "y": 440,
+      "scala": 1.7,
+      "variante": "bambino",
+      "posa": "seduto",
+      "ruolo": "protagonista"
+    },
+    {
+      "id": "nonno",
+      "x": 500,
+      "y": 450,
+      "scala": 2.2,
+      "variante": "bastone",
+      "posa": "in_piedi",
+      "flip": true
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "A febbraio la farina è finita.",
+      "passi": [
+        {
+          "azione": "walk",
+          "chi": "nonno",
+          "da": "destra",
+          "distanza": 120,
+          "a": 0,
+          "durata": 2400
+        },
+        {
+          "azione": "listen",
+          "chi": [
+            "padre",
+            "madre"
+          ],
+          "cicli": 1,
+          "a": 600,
+          "durata": 2400
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

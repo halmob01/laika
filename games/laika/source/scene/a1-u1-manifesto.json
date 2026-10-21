@@ -1,0 +1,228 @@
+{
+  "id": "a1-u1-manifesto",
+  "etichetta": "Davanti alla chiesa del villaggio il prete legge un foglio; i contadini si raccolgono intorno. Poi sui campi compaiono, uno dopo l'altro, i cartellini delle rate da pagare.",
+  "viewBox": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "elementi": [
+    {
+      "id": "campi",
+      "simbolo": "luogo-pianura",
+      "x": 800,
+      "y": 900,
+      "scala": 2.9
+    },
+    {
+      "id": "chiesa",
+      "simbolo": "luogo-chiesa",
+      "x": 330,
+      "y": 700,
+      "scala": 1.5
+    },
+    {
+      "id": "tenuta",
+      "simbolo": "luogo-tenuta",
+      "x": 1300,
+      "y": 606,
+      "scala": 0.8
+    },
+    {
+      "id": "villaggio",
+      "simbolo": "luogo-isbe",
+      "x": 800,
+      "y": 610,
+      "scala": 0.6
+    },
+    {
+      "id": "debito-1",
+      "simbolo": "oggetto-cartello-vuoto",
+      "x": 980,
+      "y": 780,
+      "scala": 0.55
+    },
+    {
+      "id": "debito-2",
+      "simbolo": "oggetto-cartello-vuoto",
+      "x": 1100,
+      "y": 830,
+      "scala": 0.55
+    },
+    {
+      "id": "debito-3",
+      "simbolo": "oggetto-cartello-vuoto",
+      "x": 1230,
+      "y": 790,
+      "scala": 0.55
+    },
+    {
+      "id": "debito-4",
+      "simbolo": "oggetto-cartello-vuoto",
+      "x": 1350,
+      "y": 850,
+      "scala": 0.55
+    },
+    {
+      "id": "debito-5",
+      "simbolo": "oggetto-cartello-vuoto",
+      "x": 1460,
+      "y": 800,
+      "scala": 0.55
+    }
+  ],
+  "figure": [
+    {
+      "id": "prete",
+      "x": 470,
+      "y": 760,
+      "scala": 1.05,
+      "variante": "clero",
+      "posa": "legge"
+    },
+    {
+      "gruppo": "villaggio-folla",
+      "formazione": {
+        "tipo": "gruppo",
+        "n": 8,
+        "passo": 46,
+        "x": 640,
+        "y": 800,
+        "scala": 0.95,
+        "raggio": 90,
+        "seme": 7,
+        "varianti": [
+          "nessuna",
+          "scialle",
+          "bastone",
+          "scialle"
+        ],
+        "pose": [
+          "in_piedi"
+        ],
+        "flip": true
+      }
+    },
+    {
+      "id": "padre",
+      "x": 760,
+      "y": 840,
+      "scala": 1.0,
+      "variante": "nessuna",
+      "posa": "in_piedi",
+      "flip": true,
+      "abito": "cappotto",
+      "cappello": null
+    },
+    {
+      "id": "figlio",
+      "x": 800,
+      "y": 850,
+      "scala": 0.78,
+      "variante": "bambino",
+      "posa": "in_piedi",
+      "ruolo": "protagonista",
+      "flip": true
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "Il Manifesto viene letto in chiesa: i servi sono liberi.",
+      "passi": [
+        {
+          "azione": "gather",
+          "chi": "villaggio-folla",
+          "fattore": 1.8,
+          "a": 0,
+          "durata": 2600
+        },
+        {
+          "azione": "walk",
+          "chi": [
+            "padre",
+            "figlio"
+          ],
+          "da": "destra",
+          "distanza": 200,
+          "a": 400,
+          "durata": 2600
+        },
+        {
+          "azione": "speak",
+          "chi": "prete",
+          "cicli": 3,
+          "a": 2600,
+          "durata": 3600
+        },
+        {
+          "azione": "listen",
+          "chi": "villaggio-folla",
+          "cicli": 2,
+          "a": 2800,
+          "durata": 3200,
+          "sfalsa": 60
+        },
+        {
+          "azione": "camera",
+          "inquadrature": [
+            [
+              200,
+              450,
+              800,
+              450
+            ],
+            [
+              0,
+              0,
+              1600,
+              900
+            ]
+          ],
+          "tempi": [
+            0,
+            1
+          ],
+          "a": 0,
+          "durata": 6400
+        }
+      ],
+      "battute": [
+        {
+          "a": 2600,
+          "testo": "Ventidue milioni di servi diventano liberi."
+        }
+      ]
+    },
+    {
+      "id": "rate",
+      "didascalia": "La terra resta da pagare: le rate durano quarantanove anni.",
+      "passi": [
+        {
+          "azione": "reveal",
+          "chi": [
+            "debito-1",
+            "debito-2",
+            "debito-3",
+            "debito-4",
+            "debito-5"
+          ],
+          "modo": "sale",
+          "a": 0,
+          "durata": 600,
+          "sfalsa": 350
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}
