@@ -6,7 +6,7 @@ Repository di un **kit di giochi didattici** (motore riutilizzabile) e del primo
 
 1. Leggi questo file e il documento della parte che tocchi:
    - scene, disegni, animazioni → `bottega/README.md`;
-   - contenuti, atti, episodi → `docs/PIANO-LAIKA.md`, `docs/BRIEF-HOME-ATTI.md`, `docs/FONTI-LAIKA.md`;
+   - contenuti, atti, episodi → `docs/PIANO-ATTI-LAIKA.md` (schede degli episodi), `docs/PIANO-LAIKA.md`, `docs/BRIEF-HOME-ATTI.md`, `docs/FONTI-LAIKA.md`;
    - motore e contratto dati → `docs/CREARE-UN-GIOCO.md`, `docs/MOTION.md`;
    - fase corrente, incarichi e modello consigliato → `docs/PIANO-LAIKA.md` §4 e §7, `docs/INCARICHI-LAIKA.md`.
 2. Controlla branch e modifiche locali. Non resettare lavoro altrui, non fare merge, non fare force-push su `main`.

@@ -63,6 +63,7 @@ Questi sono studi visivi: non sostituiscono la home o le demo del kit, non costi
 La review successiva ai merge #4 e #5 propone un percorso operativo, ancora da implementare:
 
 - [Piano, decisioni architetturali, fasi e modelli consigliati](docs/PIANO-LAIKA.md).
+- [Piano generale degli Atti I–VII: episodi, aneddoti, fonti e divisione del lavoro fra agenti](docs/PIANO-ATTI-LAIKA.md).
 - [Brief di homepage, illustrazioni, Atto 0 e Atto I](docs/BRIEF-HOME-ATTI.md).
 - [Incarichi circoscritti per gli agenti, criteri di accettazione e prompt iniziale](docs/INCARICHI-LAIKA.md).
 

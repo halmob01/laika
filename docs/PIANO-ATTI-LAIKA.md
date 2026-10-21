@@ -35,7 +35,7 @@ I libri sono in `references/fonti/` solo come elenco: le copie si tengono fuori 
 
 | Atto | Titolo di lavoro | Periodo | Domanda sotto l'atto |
 |---|---|---|---|
-| I | Anime e semidei | 1700–marzo 1917 | Si può possedere un essere umano? Che cosa tiene in piedi un potere che si crede sacro? |
+| I | Anime e semidei (titolo di lavoro) | 1700–marzo 1917 | Si può possedere un essere umano? Che cosa tiene in piedi un potere che si crede sacro? |
 | II | La primavera della libertà | marzo–luglio 1917 | Che cosa chiede chi, per la prima volta, può chiedere tutto? |
 | III | Ottobre | luglio 1917–marzo 1918 | Chi ha il diritto di parlare e decidere per il popolo? |
 | IV | L'assalto al cielo | 1918–1927 | Si può rifare l'essere umano, e che cosa si è disposti a pagare per provarci? |
@@ -50,7 +50,7 @@ Quattro movimenti: il mondo da rovesciare (I), la promessa (II e III), l'assalto
 Ogni unità ne tira almeno uno; il confronto di fine atto li richiama per nome.
 
 - **La promessa e il suo prezzo.** Il filo principale: una speranza concreta e ciò che si accetta di pagare per lei.
-- **Anime e semidei.** La distanza fra chi possiede e chi è posseduto: le anime regalate, il palazzo di ghiaccio, i gioielli venduti mentre manca il pane; poi i palazzi invasi, svuotati, trasformati in scuole e sedi di partito; poi i nuovi privilegi (il portiere con i galloni d'oro per gli operai modello, la tavola di Stalin, la nomenklatura). È l'immagine-guida del docente: nel gioco si mostra, non si nomina come concetto.
+- **Anime e semidei.** La distanza fra chi possiede e chi è posseduto: le anime regalate, il palazzo di ghiaccio, i gioielli venduti mentre manca il pane; poi i palazzi invasi, svuotati, trasformati in scuole e sedi di partito; poi i nuovi privilegi (il portiere con i galloni d'oro per gli operai modello, la tavola di Stalin, la nomenklatura). È l'immagine-guida del docente e resta il nome di lavoro del filo e dell'Atto I: nel gioco si troverà un'altra formula (sezione 10). Nel testo per lo studente la distanza si mostra, non si nomina con questa espressione.
 - **Il cielo.** Dalle cupole del villaggio al Regno delle Acque Bianche dei contadini; dal razzo disegnato in cella da un condannato a morte del 1881 ai contadini portati in aereo per vedere che lassù Dio non c'è; dai «falchi di Stalin» allo Sputnik, a Laika, a Gagarin; fino all'ultimo cosmonauta sovietico che nel 1991 parte da un paese e torna in un altro. È il filo che dà il nome al percorso: il desiderio di superare ogni limite e il suo rovescio.
 - **La terra.** Dal riscatto del 1861 al mir, a Stolypin, alle occupazioni del 1917, al decreto, alle requisizioni, al kolchoz.
 - **Chi rappresenta chi.** Il mir, il soviet del 1905, la Duma, il soviet di Pietrogrado, la Costituente, il partito unico, il Politburo, il referendum del 1991.
@@ -1050,6 +1050,7 @@ Tutto con `CONTRATTO-KIT` e con l'epoca registrata. Rispetto alla v4.1 si aggiun
 3. Quanto mostrare della morte di Laika (VI.3-e2): la proposta è il segnale che si interrompe, senza immagini.
 4. Valutazione sommativa a fine atto o solo a fine percorso; le riflessioni aperte (III.5, V.5, VII.4) richiedono una rubrica.
 5. Gli ID tecnici degli atti nel motore.
+6. La formula che nel gioco sostituirà «anime e semidei» (titolo dell'Atto I, di I.1 e del filo). Fino ad allora l'espressione resta solo nei documenti di lavoro, non nei testi per lo studente.
 
 ## 11. Chi fa che cosa: Sonnet e Opus
 
