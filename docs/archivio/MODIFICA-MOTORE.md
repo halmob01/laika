@@ -1,8 +1,8 @@
 # MODIFICA-MOTORE — incarico tecnico per Astra
 
 **Progetto:** RIV-RUSSA · [halmob01/riv-russa](https://github.com/halmob01/riv-russa)  
-**Stato attuale:** prima implementazione integrata con PR #1 su autorizzazione esplicita del docente; consolidamento e limiti in [STATO-KIT.md](STATO-KIT.md). Il testo seguente conserva l’incarico originale e le relative fasi.  
-**Documento di contesto:** [docs/PROGETTO.md](./PROGETTO.md).  
+**Stato attuale:** prima implementazione integrata con PR #1 su autorizzazione esplicita del docente; consolidamento e limiti in [STATO-KIT.md](../STATO-KIT.md). Il testo seguente conserva l’incarico originale e le relative fasi.  
+**Documento di contesto:** [docs/PROGETTO.md](PROGETTO.md).  
 **Base sorgente effettiva:** [epica-romanzo](https://github.com/halmob01/epica-romanzo), a sua volta derivata da [sito-game-template1](https://github.com/halmob01/sito-game-template1) / [sito-feudo](https://github.com/halmob01/sito-feudo).  
 **Aggiornamento:** 18 ottobre 2026.
 

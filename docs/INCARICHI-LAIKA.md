@@ -1,5 +1,7 @@
 # LAIKA — Incarichi eseguibili dagli agenti
 
+> **Aggiornamento 21 ottobre 2026, sera.** I contenuti seguono il nuovo arco in sette atti di [PIANO-ATTI-LAIKA](PIANO-ATTI-LAIKA.md): ogni episodio ha una scheda pronta da sviluppare, con aneddoti, passi da cercare e indicazione del modello (sezione 11). Corrispondenze con i codici precedenti: A0.1 → I.1-e4, A0.2 → I.1-e6, A0.3 → I.2-e1, A0.4 → I.2-e2/e3, A1.1–A1.4 → unità I.3. P4 e P5 sono state riallineate di conseguenza.
+
 Usare con [PIANO-LAIKA.md](PIANO-LAIKA.md) e [BRIEF-HOME-ATTI.md](BRIEF-HOME-ATTI.md). Non affidare l'intero piano a un agente con il solo comando «fai tutto».
 
 ## Contratto comune da incollare all'inizio di ogni incarico
@@ -13,7 +15,7 @@ A ogni avvio: verificare branch e modifiche locali, leggere eventuali AGENTS.md 
 
 **Mandato sulle fonti per tutti gli agenti:** Gli appunti «La Rivoluzione Russa» guidano temi, sequenza e obiettivi. Gli agenti devono consultare i materiali anche per frasi da citare, aneddoti e dettagli precisi, non soltanto per una bibliografia finale. Registrare ogni prelievo e il suo contesto secondo [FONTI-LAIKA](FONTI-LAIKA.md) e la scheda di [FONTI-MATRICE-LAIKA](FONTI-MATRICE-LAIKA.md). Considerare Sheila Fitzpatrick se conosciuta dall'agente: conoscenza pregressa utile a ricerca e confronto, opera/edizione ancora da aggiungere; non inventare citazioni o pagine senza riscontro.
 
-**Stato al 21 ottobre 2026:** P0 e P1 concluse ([P0-BASELINE](P0-BASELINE.md), [HANDOFF-P1](HANDOFF-P1.md)); P2 tecnica conclusa con la bottega, gate visivo aperto; P3: homepage conclusa e approvata (PR #19), resta l'unità A0.1; P2b da fare (si può svolgere in parallelo).
+**Stato al 21 ottobre 2026:** P0 e P1 concluse ([P0-BASELINE](archivio/P0-BASELINE.md), [HANDOFF-P1](archivio/HANDOFF-P1.md)); P2 tecnica conclusa con la bottega, gate visivo aperto; P3: homepage conclusa e approvata (PR #19), resta l'unità I.1 (ex A0.1); P2b in revisione con il kit ambienti (PR #1 di `laika`).
 
 ## P0 — Baseline e risoluzione dei documenti
 
@@ -78,7 +80,7 @@ A ogni avvio: verificare branch e modifiche locali, leggere eventuali AGENTS.md 
 
 1. ~~Stabilizzare `tests/browser-original-studies.cjs`~~ Fatto il 21/10/2026: il test è stato rimosso. Confrontava al pixel gli studi prima e dopo un trasloco ormai concluso; la conservazione degli originali è garantita da `tests/laika-originals.test.js` (SHA-256 e blob Git), il confronto bottega/studi da `browser-bottega`.
 2. Unire la PR #16 (kit infrastrutture e atmosfera) dopo la revisione dell'utente.
-3. Dall'elenco `da_fare` del catalogo, produrre come kit con `CONTRATTO-KIT.md` i disegni che servono all'Atto 0 e alla home: strada urbana, interno contadino o izba, ufficio o cancelleria, caserma. Indicare epoca e luogo; evitare insegne e simboli inventati.
+3. Dall'elenco `da_fare` del catalogo, produrre come kit con `CONTRATTO-KIT.md` i disegni che servono all'Atto I e alla home (elenco in PIANO-ATTI §9): strada urbana, interno contadino o izba, ufficio o cancelleria, caserma. Indicare epoca e luogo; evitare insegne e simboli inventati.
 
 **Accettazione:** CI verde su Chromium e WebKit con `browser-bottega` eseguito; nuovi disegni a catalogo con stato ed epoca, confronto al pixel a zero differenze.
 
@@ -86,55 +88,55 @@ A ogni avvio: verificare branch e modifiche locali, leggere eventuali AGENTS.md 
 
 **Modello:** Claude Opus 5.5 o GPT-6.1 Sol high. **Dipendenze:** P1 e bottega (concluse); la bozza della home può partire con il gate P2 aperto.
 
-**Stato al 21 ottobre 2026:** azioni 1, 2 e 5 concluse per la home (PR #19). Restano le azioni 3 e 4 (unità A0.1 e collegamento scelta → scena) e la verifica finale da home a fine A0.1. Non modificare impaginazione e illustrazioni della home senza richiesta dell'utente: le regole sono in BRAND-DESIGN §5.
+**Stato al 21 ottobre 2026:** azioni 1, 2 e 5 concluse per la home (PR #19). Restano le azioni 3 e 4 (unità I.1, ex A0.1, e collegamento scelta → scena) e la verifica finale da home a fine A0.1. Non modificare impaginazione e illustrazioni della home senza richiesta dell'utente: le regole sono in BRAND-DESIGN §5.
 
-**Leggere:** `AGENTS.md`, brief home e A0.1, prototipo home v2, `bottega/README.md`, sorgenti del pack e adattatore progressi. Non copiare il JS del catalogo come runtime.
+**Leggere:** `AGENTS.md`, schede I.1-e1…e7 di PIANO-ATTI, brief home, prototipo home v2, `bottega/README.md`, sorgenti del pack e adattatore progressi. Non copiare il JS del catalogo come runtime.
 
-**File ammessi:** `index.html`, `site/laika/`, schede in `games/laika/source/scene/`, unità A0.1 e fonti correlate; shell solo per difetti d'integrazione riproducibili. Il hero è una o più schede scena della bottega, non SVG scritto a mano nella pagina.
+**File ammessi:** `index.html`, `site/laika/`, schede in `games/laika/source/scene/`, unità I.1 e fonti correlate; shell solo per difetti d'integrazione riproducibili. Il hero è una o più schede scena della bottega, non SVG scritto a mano nella pagina.
 
 **Azioni:**
 
 1. Implementare gerarchia home del brief, CTA reale, ripresa, fascicoli e layout mobile. Caricare il corso al bisogno; rispettare il budget trasferito del primo quadro.
 2. Implementare il hero come scheda scena con tre sequenze (terra, città, assemblea), una sola attiva alla volta e posa finale; montarla con `createStage` del motore; interrompere il lavoro fuori viewport o a pagina nascosta. Usare solo voci del catalogo con epoca compatibile (niente architettura successiva al 1917).
-3. Scrivere e verificare A0.1 completa: contesto, allocazione, feedback causale, confronto e un item formativo. Registrare le fonti; non lasciare lorem ipsum nel traguardo di qualità.
+3. Scrivere e verificare l'unità I.1 completa (schede I.1-e1…e7): contesto, allocazione, feedback causale, confronto e un item formativo. Registrare le fonti; non lasciare lorem ipsum nel traguardo di qualità.
 4. Collegare stato e scena: scelta → effetto leggibile → salvataggio → reload con la stessa conseguenza rappresentata. Il replay della scena non ricompie la scelta.
 5. Verificare tastiera, ridimensionamento, telefono emulato, reduced motion e nuovo accesso/ripresa dalla home.
 
-**Accettazione:** demo realmente giocabile da home fino a fine A0.1; due allocazioni producono risposte distinguibili e spiegate; font/diritti risolti o sostituzione provvisoria chiaramente dichiarata; preview e video. **Gate utente:** valutazione della qualità complessiva prima di produrre tutte le scene. La UI non promette un Atto I completo mentre è ancora assente.
+**Accettazione:** demo realmente giocabile da home fino a fine I.1; due allocazioni producono risposte distinguibili e spiegate; font/diritti risolti o sostituzione provvisoria chiaramente dichiarata; preview e video. **Gate utente:** valutazione della qualità complessiva prima di produrre tutte le scene. La UI non promette un Atto I completo mentre è ancora assente.
 
-## P4 — Completare Atto 0
+## P4 — Atto I, prima parte: unità I.2 e I.3
 
 **Modello:** Claude Sonnet 5.5 o GPT-6.1 Sol medium; Opus 5.5 o Sol high solo per scene difficili. Review storica: modello dell'altra famiglia (Astra high o Opus 5.5). **Dipendenza:** P3.
 
-**Leggere:** brief A0, dossier fonti, schema dei sei tipi e esempio verticale approvato.
+**Leggere:** schede I.2 e I.3 di PIANO-ATTI, brief (sezioni 4–5 per la regia), dossier fonti, schema dei sei tipi e unità I.1 approvata.
 
 **File ammessi:** sorgenti/asset/domande/fonti LAIKA, manifest generato, test di percorso; documenti di stato. Non aggiungere tipi di interazione.
 
 **Azioni:**
 
-1. Implementare A0.2–4 con le interazioni indicate. Per ogni unità produrre una scheda breve obiettivo → fonti → attività → effetti → trasformazione visiva → limiti.
+1. Implementare le unità I.2 e I.3 secondo le schede. Per ogni unità produrre una scheda breve obiettivo → fonti → attività → effetti → trasformazione visiva → limiti.
 2. Calibrare i parametri del modello in una tabella, provare priorità sussistenza e priorità investimento. Almeno una conseguenza differita deve maturare e risultare comprensibile; non provocare dead end.
 3. Completare sei domande formative totali, esposizioni e feedback. Applicare la skill didattica se realmente disponibile; in alternativa fare review esplicita degli item senza dichiarare quel controllo eseguito.
-4. Aggiungere il confronto storico come episodio finale prima del passaggio all'atto successivo. Predisporre il contratto dell'Atto I ma non simulare il suo completamento.
+4. Preparare gli effetti differiti verso I.4 e I.5 senza simulare il completamento dell'atto.
 5. Controllare cronologia, anacronismi e fonti con reviewer distinto. Ogni feedback storico importante ha una fonte verificabile, non solo consenso fra modelli.
 
-**Accettazione:** quattro unità complete, sei item, asset coerenti, due itinerari provati, reload e diario funzionanti, nessun placeholder pubblico. Review storica Astra high su fonti/testo/item, non su una descrizione riassunta dall'autore.
+**Accettazione:** unità I.1–I.3 complete, item formativi delle tre unità, asset coerenti, due itinerari provati, reload e diario funzionanti, nessun placeholder pubblico. Review storica Astra high su fonti/testo/item, non su una descrizione riassunta dall'autore.
 
-## P5 — Completare Atto I e demo di folla
+## P5 — Atto I, seconda parte: I.4, I.5, confronto finale e demo di folla
 
-**Modello:** Claude Sonnet 5.5 o GPT-6.1 Sol medium per dati e testi; Opus 5.5 o Sol high per A1.2–3. **Dipendenza:** P4.
+**Modello:** Claude Sonnet 5.5 o GPT-6.1 Sol medium per dati e testi; Opus 5.5 o Sol high per il corteo del 1905 (I.3-e1), il soviet (I.3-e3) e il confronto finale (I.5-e5). **Dipendenza:** P4.
 
-**Leggere:** brief A1, fonti verificate sul 1904–1907, rig approvato e contratto del compositore.
+**Leggere:** schede I.4 e I.5 di PIANO-ATTI, brief sezione 5 per la regia del corteo, fonti verificate, rig approvato e contratto del compositore.
 
 **Azioni:**
 
-1. Realizzare le quattro unità, le sei domande e il confronto finale. Separare rigorosamente fatti, fonti e simulazione; controllare calendario, Duma e riforme.
+1. Realizzare le unità I.4 e I.5, le verifiche V5–V6 e il confronto finale dell'atto. Separare rigorosamente fatti, fonti e simulazione; controllare calendario, Duma e riforme.
 2. Creare il corteo del 1905 e l'assemblea come schede scena con le formazioni della bottega (`marcia`, `discorso`, `gruppo`) e le pose approvate. Usare dettagli pertinenti, non adattare una parata sovietica con una didascalia diversa.
 3. A1.2 deve avere aggregazione, coordinamento dei passi, gesto, cambio d'inquadratura e arresto narrativo; A1.3 ha almeno due composizioni finali corrispondenti agli esiti. Versioni statiche per reduced motion e reload.
-4. Testare il passaggio A0→A1: reset delle variabili, mantenimento diario/esposizioni secondo il contratto, nessuna eredità controfattuale spacciata per storia. Provare refresh prima e dopo l'avanzamento.
+4. Testare il passaggio fra le unità e la fine dell'atto: reset delle variabili dove previsto, mantenimento diario/esposizioni secondo il contratto, nessuna eredità controfattuale spacciata per storia. Provare refresh prima e dopo l'avanzamento.
 5. Terminare il corso con riepilogo e indicazione onesta del seguito; nessun bottone verso atti vuoti.
 
-**Accettazione:** percorso completo giocabile e riprendibile, due itinerari A1 senza blocchi, demo visiva con pause/replay/reload, zero duplicazione di effetti da animazione. Review utente della folla e review storica separata prima della chiusura.
+**Accettazione:** Atto I completo giocabile e riprendibile, due itinerari senza blocchi, demo visiva con pause/replay/reload, zero duplicazione di effetti da animazione. Review utente della folla e review storica separata prima della chiusura.
 
 ## P6 — QA e candidato alla consegna
 
@@ -179,6 +181,6 @@ Prossimo incarico e prerequisiti:
 
 ## Prompt iniziale pronto
 
-> Esegui la parte restante di P3 di docs/INCARICHI-LAIKA.md (unità A0.1 completa e collegata alla home) seguendo docs/PIANO-LAIKA.md e AGENTS.md. La home è approvata: non cambiarne impaginazione né illustrazioni. Le scene dell'unità sono schede della bottega (bottega/README.md): scegli i disegni dal catalogo rispettando l'epoca, non disegnare SVG a mano; tieni la parte generica nel motore o nella bottega e quella specifica in games/laika/. Verifica la base attuale, preserva il lavoro recente, apri una PR senza merge e consegna l'handoff previsto.
+> Esegui la parte restante di P3 di docs/INCARICHI-LAIKA.md (unità I.1 completa e collegata alla home: schede I.1-e1…e7 di docs/PIANO-ATTI-LAIKA.md) seguendo docs/PIANO-LAIKA.md e AGENTS.md. I passi da citare si cercano nei libri forniti dal docente; non inventare dati e segnala ciò che non trovi. La home è approvata: non cambiarne impaginazione né illustrazioni. Le scene dell'unità sono schede della bottega (bottega/README.md): scegli i disegni dal catalogo rispettando l'epoca, non disegnare SVG a mano; tieni la parte generica nel motore o nella bottega e quella specifica in games/laika/. Verifica la base attuale, preserva il lavoro recente, apri una PR senza merge e consegna l'handoff previsto.
 
 Per un'altra fase sostituire il numero e aggiungere il link alla PR precedente e al suo handoff. Non incollare tutta la cronologia della conversazione: piano, brief pertinente, diff e risultati bastano.

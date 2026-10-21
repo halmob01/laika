@@ -4,7 +4,7 @@
 
 **Stato:** proposta di processo, da leggere in P2 e aggiornare durante gli atti. **Non** è un mandato a disegnare adesso tutto il Novecento, né un nuovo motore, né un pacchetto già implementato.
 
-**Contesto:** LAIKA / Rivoluzione russa, 19 ottobre 2026. Questo documento affianca [PIANO-LAIKA](PIANO-LAIKA.md), [BRIEF-HOME-ATTI](BRIEF-HOME-ATTI.md), [LAIKA-ASSET-DIRECTION](LAIKA-ASSET-DIRECTION.md), [SVG-AUTHORING](SVG-AUTHORING.md) e [MOTION](MOTION.md). L'[inventario P0](ASSET-MANIFEST.md) è **l'unica fonte di verità sugli asset attualmente presenti**, una volta integrata la PR #7. Non duplicarne il catalogo qui.
+**Contesto:** LAIKA / Rivoluzione russa, 19 ottobre 2026. Questo documento affianca [PIANO-LAIKA](PIANO-LAIKA.md), [BRIEF-HOME-ATTI](BRIEF-HOME-ATTI.md), [LAIKA-ASSET-DIRECTION](archivio/LAIKA-ASSET-DIRECTION.md), [SVG-AUTHORING](SVG-AUTHORING.md) e [MOTION](MOTION.md). L'[inventario P0](ASSET-MANIFEST.md) è **l'unica fonte di verità sugli asset attualmente presenti**, una volta integrata la PR #7. Non duplicarne il catalogo qui.
 
 ## 1. Scopo e principi
 

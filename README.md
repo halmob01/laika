@@ -11,13 +11,19 @@ npm run serve
 
 Aprire http://localhost:4173/ (servizio HTTP necessario). Per i test Chromium: `npm install`, `npx playwright install chromium`, `npm run test:browser`.
 
-- [Come creare un nuovo gioco e contratto dati](docs/CREARE-UN-GIOCO.md)
-- [Mappa delle dipendenze e scelte rispetto al piano](docs/IMPATTO-MOTORE.md)
-- [Animazioni e contratto delle sequenze](docs/MOTION.md)
-- [Report test e limiti](docs/REPORT-TEST.md)
-- [Bottega: disegni, figure, folle e movimenti riutilizzabili](bottega/README.md) · [istruzioni per gli agenti](AGENTS.md)
-- [Progetto didattico](docs/PROGETTO.md)
-- [Mandato iniziale della modifica](docs/MODIFICA-MOTORE.md)
+## Da dove partire
+
+**Il percorso LAIKA**
+- [Piano generale degli Atti I–VII](docs/PIANO-ATTI-LAIKA.md): che cosa raccontare, episodio per episodio, con aneddoti, fonti e divisione del lavoro fra agenti.
+- [Piano operativo](docs/PIANO-LAIKA.md): architettura del sito, fasi e uso dei modelli; [incarichi per gli agenti](docs/INCARICHI-LAIKA.md); [brief visivo](docs/BRIEF-HOME-ATTI.md).
+- [Fonti: priorità e uso](docs/FONTI-LAIKA.md) · [opere di riferimento](references/fonti/README.md) · [atlante degli aneddoti](references/fonti/atlanti/README.md).
+
+**Il kit**
+- [Istruzioni per gli agenti](AGENTS.md) · [bottega: disegni, figure, folle e movimenti](bottega/README.md).
+- [Come creare un nuovo gioco e contratto dati](docs/CREARE-UN-GIOCO.md) · [animazioni e sequenze](docs/MOTION.md).
+- [Stato del kit](docs/STATO-KIT.md) · [report test e limiti](docs/REPORT-TEST.md).
+
+Documenti superati o di sola cronologia: [archivio](docs/archivio/README.md).
 
 I test originali del motore narrativo restano in `tests/legacy`. Le storie originali sono fixture di regressione, non contenuti caricati dal nuovo sito. La compatibilità v1 riguarda l’API pura, non una migrazione automatica della vecchia interfaccia.
 
@@ -53,25 +59,25 @@ Per una demo autonoma da condividere: `python3 scripts/build-motion-preview.py` 
 - [Catalogo visivo Atto 0 (14 simboli, 4 scene)](prototypes/laika-kit/index.html), basato sui moduli del renderer già in `main`.
 - [Primo kit di forme (20 simboli, originale)](prototypes/laika-kit/kit-forme-laika.html), conservato come materiale illustrativo e confronto tecnico.
 - [Home v2 (5 figure organiche)](prototypes/laika-home/index-v2.html), proposta di direzione per gli omini; [SVG autonomi delle cinque figure](prototypes/laika-kit/figure/human-a.svg) disponibili in `prototypes/laika-kit/figure/`.
-- [Criteri di selezione, limiti, provenienza e revisioni necessarie](docs/LAIKA-ASSET-DIRECTION.md).
+- [Criteri di selezione, limiti, provenienza e revisioni necessarie](docs/archivio/LAIKA-ASSET-DIRECTION.md).
 
 Questi sono studi visivi: non sostituiscono la home o le demo del kit, non costituiscono episodi storici e non modificano il motore e vanno ricontrollati sulle capacità già integrate dalla PR #4.
 
 
-## Piano di produzione LAIKA — homepage e primi due atti
+## Piano di produzione LAIKA
 
-La review successiva ai merge #4 e #5 propone un percorso operativo, ancora da implementare:
+Il percorso è progettato in sette atti, dal 1700 al 1991; la prima versione giocabile sarà l'Atto I. Documenti di riferimento:
 
 - [Piano, decisioni architetturali, fasi e modelli consigliati](docs/PIANO-LAIKA.md).
 - [Piano generale degli Atti I–VII: episodi, aneddoti, fonti e divisione del lavoro fra agenti](docs/PIANO-ATTI-LAIKA.md).
-- [Brief di homepage, illustrazioni, Atto 0 e Atto I](docs/BRIEF-HOME-ATTI.md).
+- [Brief di homepage e illustrazioni](docs/BRIEF-HOME-ATTI.md).
 - [Incarichi circoscritti per gli agenti, criteri di accettazione e prompt iniziale](docs/INCARICHI-LAIKA.md).
 
 Gli asset sono una base migliorabile: il piano include nuovi disegni quando necessari, revisione visiva delle animazioni e separazione fra motore generico e identità LAIKA. Non rappresenta funzionalità già completate.
 
 ## Baseline P0
 
-Stato e limiti verificati: [P0-BASELINE](docs/P0-BASELINE.md). [Inventario asset/font](docs/ASSET-MANIFEST.md) e [matrice delle fonti](docs/FONTI-MATRICE-LAIKA.md) preparano le fasi successive. Alla consegna P0 homepage e atti non erano ancora implementati; l’aggiornamento P1 è descritto sotto.
+Stato e limiti verificati: [P0-BASELINE](docs/archivio/P0-BASELINE.md). [Inventario asset/font](docs/ASSET-MANIFEST.md) e [matrice delle fonti](docs/FONTI-MATRICE-LAIKA.md) preparano le fasi successive. Alla consegna P0 homepage e atti non erano ancora implementati; l’aggiornamento P1 è descritto sotto.
 
 ## Fonti di lavoro LAIKA
 
@@ -92,7 +98,7 @@ L'auditor analizza le domande nel formato descritto dalla skill: il manifest run
 
 `index.html` è ora una home essenziale che dichiara gli atti in preparazione; il player generico è in `play.html`. I vecchi URL `index.html?game=...` e `/?game=...` inoltrano al player preservando query e frammento. I tre laboratori restano disponibili.
 
-`npm run build:laika` rigenera un pacchetto interno con due atti di prova, senza lezioni storiche. [Struttura authoring e comando di build](games/laika/README.md); [evidenze e handoff P1](docs/HANDOFF-P1.md). Il tema opzionale appartiene al registro; il riepilogo pubblico dei progressi non modifica i salvataggi. Grafica e contenuti restano alle fasi successive.
+`npm run build:laika` rigenera un pacchetto interno con due atti di prova, senza lezioni storiche. [Struttura authoring e comando di build](games/laika/README.md); [evidenze e handoff P1](docs/archivio/HANDOFF-P1.md). Il tema opzionale appartiene al registro; il riepilogo pubblico dei progressi non modifica i salvataggi. Grafica e contenuti restano alle fasi successive.
 
 ## Studi grafici originali e atlante editoriale
 

@@ -1,8 +1,11 @@
-# LAIKA — Piano operativo: homepage, Atto 0 e Atto I
+# LAIKA — Piano operativo: sito, architettura e fasi
 
-Prima stesura: 19 ottobre 2026. **Revisione: 20 ottobre 2026**, base `main` a `21504d5` (merge della PR #15, bottega). **Aggiornamento 21 ottobre 2026:** homepage di produzione realizzata e approvata (PR #19); resta di P3 l'unità A0.1.
+> **Aggiornamento 21 ottobre 2026, sera — nuovo arco.** I contenuti del percorso sono ora definiti in [PIANO-ATTI-LAIKA](PIANO-ATTI-LAIKA.md): sette atti, dal 1700 al 1991, con le schede di tutti gli episodi. L'«Atto 0 — La terra e lo zar» e l'«Atto I — L'impero in crisi, 1904–1907» di questo documento confluiscono nel nuovo **Atto I (1700–marzo 1917)**. Corrispondenze: A0.1 → I.1-e4 (con I.1-e1/e2 come quadro); A0.2 → I.1-e6; A0.3 → I.2-e1; A0.4 → I.2-e2/e3; A1.1–A1.4 → unità I.3 (il 1905). Le unità I.4 e I.5 (guerra e febbraio 1917) sono nuove. Questo documento resta il riferimento per architettura, fasi, verifiche e uso dei modelli; per che cosa raccontare vale il piano degli atti.
 
-**Questo documento pianifica il lavoro; non dichiara implementate le modifiche.** Stato delle fasi in §4. P0 e P1 sono concluse ([P0-BASELINE](P0-BASELINE.md), [HANDOFF-P1](HANDOFF-P1.md)); la parte tecnica di P2 è stata sostituita dalla bottega (§3, «Identità e illustrazioni»). Nessun merge automatico: la qualità visiva richiede revisione dell'utente.
+
+Prima stesura: 19 ottobre 2026. **Revisione: 20 ottobre 2026**, base `main` a `21504d5` (merge della PR #15, bottega). **Aggiornamento 21 ottobre 2026:** homepage di produzione realizzata e approvata (PR #19); resta di P3 l'unità I.1 (ex A0.1).
+
+**Questo documento pianifica il lavoro; non dichiara implementate le modifiche.** Stato delle fasi in §4. P0 e P1 sono concluse ([P0-BASELINE](archivio/P0-BASELINE.md), [HANDOFF-P1](archivio/HANDOFF-P1.md)); la parte tecnica di P2 è stata sostituita dalla bottega (§3, «Identità e illustrazioni»). Nessun merge automatico: la qualità visiva richiede revisione dell'utente.
 
 **Cosa è cambiato con la revisione del 20 ottobre.** Le illustrazioni non si disegnano più scena per scena: si compongono con la [bottega](../bottega/README.md) (catalogo di disegni neutri, figura articolata, formazioni, azioni) scrivendo **schede scena** JSON. Lo stile di riferimento sono i tre studi originali forniti dall'utente (`prototypes/laika-studi-originali/`), riprodotti al pixel dal motore. Le figure organiche v2 non sono più la base dei personaggi. Di conseguenza le fasi successive chiedono meno disegno e più regia, e una parte del lavoro può passare a modelli meno costosi (§7).
 
@@ -10,14 +13,14 @@ Leggere insieme [brief di produzione](BRIEF-HOME-ATTI.md) e [incarichi per gli a
 
 ## 1. Risultato da consegnare
 
-Un sito LAIKA riconoscibile e animato, con homepage di produzione, accesso e ripresa del percorso, Atto 0 «La terra e lo zar» e Atto I «L'impero in crisi», giocabili da inizio a fine e verificati su desktop e smartphone. Atto I significa il 1904–1907: non rinominare l'introduzione del 1861 in Atto I per accorciare il lavoro.
+Un sito LAIKA riconoscibile e animato, con homepage di produzione, accesso e ripresa del percorso e l'Atto I «Anime e semidei» (titolo di lavoro; 1700–marzo 1917, cinque unità) giocabile da inizio a fine e verificato su desktop e smartphone. Gli atti successivi seguono la procedura del §6 e le schede di [PIANO-ATTI-LAIKA](PIANO-ATTI-LAIKA.md).
 
 Il kit deve continuare a funzionare con i giochi dimostrativi non storici. Asset, contenuti, palette e regia di LAIKA rimangono nel pacchetto LAIKA. L'obiettivo non è completare tutti gli atti, costruire un CMS o aggiungere una nuova libreria di animazione.
 
 Due traguardi:
 
-1. **Prova di qualità:** homepage e un'unità completa dell'Atto 0, con grafica e movimento rappresentativi. Serve una revisione visiva prima di moltiplicare le scene.
-2. **Prima versione completa:** homepage, quattro unità dell'Atto 0, quattro dell'Atto I, fonti, verifiche formative, confronto storico e salvataggi affidabili.
+1. **Prova di qualità:** homepage e l'unità I.1 completa, con grafica e movimento rappresentativi. Serve una revisione visiva prima di moltiplicare le scene.
+2. **Prima versione completa:** homepage, le cinque unità dell'Atto I, fonti, verifiche formative, confronto storico e salvataggi affidabili.
 
 ## 2. Stato reale e review indipendente
 
@@ -41,7 +44,7 @@ Aggiornamento fonti del 19 ottobre 2026: l'utente ha fornito «La Rivoluzione Ru
 
 ### Impiego delle fonti
 
-Gli appunti «La Rivoluzione Russa» guidano temi, sequenza e obiettivi. Gli agenti devono consultare i materiali anche per frasi da citare, aneddoti e dettagli precisi, non soltanto per una bibliografia finale. Registrare ogni prelievo e il suo contesto secondo [FONTI-LAIKA](FONTI-LAIKA.md) e la scheda di [FONTI-MATRICE-LAIKA](FONTI-MATRICE-LAIKA.md). Considerare Sheila Fitzpatrick se conosciuta dall'agente: conoscenza pregressa utile a ricerca e confronto, opera/edizione ancora da aggiungere; non inventare citazioni o pagine senza riscontro.
+Gli appunti «La Rivoluzione Russa» guidano temi, sequenza e obiettivi. Gli agenti devono consultare i materiali anche per frasi da citare, aneddoti e dettagli precisi, non soltanto per una bibliografia finale. Registrare ogni prelievo e il suo contesto secondo [FONTI-LAIKA](FONTI-LAIKA.md) e la scheda di [FONTI-MATRICE-LAIKA](FONTI-MATRICE-LAIKA.md). Le schede di [PIANO-ATTI-LAIKA](PIANO-ATTI-LAIKA.md) indicano per ogni episodio gli aneddoti da usare e le parole da cercare nelle opere di riferimento; i libri non sono nella repository e si chiedono al docente. I libri servono a rendere le scene vere e concrete: le interpretazioni degli storici restano sullo sfondo e nel gioco diventano punti di vista vissuti, non citazioni d'autorità. Non inventare citazioni o pagine senza riscontro.
 
 ### Identità e illustrazioni
 
@@ -56,12 +59,12 @@ Gli appunti «La Rivoluzione Russa» guidano temi, sequenza e obiettivi. Gli age
 ### Architettura e accesso
 
 - `index.html` diventa homepage LAIKA. `play.html?game=laika` ospita il player generico; gli esempi restano accessibili con `play.html?game=biblioteca` e analoghi. Conservare i vecchi URL `index.html?game=...` tramite inoltro compatibile prima dell'avvio della home, preservando il parametro e gli eventuali parametri supportati.
-- Un solo corso `laika`, con due atti nel manifest: non due giochi separati. Il completamento dell'Atto 0 porta al confronto storico e poi all'Atto I con reset dello stato simulato previsto dal motore.
+- Un solo corso `laika`, con gli atti nel manifest: non giochi separati. Il completamento di un atto porta al confronto storico e poi all'atto successivo con reset dello stato simulato previsto dal motore.
 - `site/laika/` contiene home, tema, font e identità. `games/laika/` contiene contenuti, asset e regie. `src/` resta generico: nessuna condizione su `game.id === 'laika'`, nessuna forma umana disegnata nel motore.
 - Aggiungere al registro dei giochi un oggetto opzionale `presentation: {stylesheet, homeHref}`. Solo percorsi locali relativi validati; niente CSS o script arbitrario nel JSON del corso. Il bootstrap applica il tema scelto e un collegamento di ritorno. I giochi senza l'oggetto mantengono il comportamento precedente.
 - Per i cartigli degli episodi introdurre il solo metadato opzionale `context: {kind, dateLabel?, placeLabel?}`; `kind` è `documented`, `simulation`, `source` o `assessment`. Validarlo nello schema e renderizzarlo come testo con etichette italiane. Non influenza punteggi o transizioni. Serve a distinguere esplicitamente fatto e modello, non a introdurre regole storiche nel core.
 - La home legge lo stato mediante un adattatore pubblico del runner/storage: nessun accesso a chiavi interne di localStorage e nessun secondo parser dei salvataggi. Lo stato mostrato distingue nuovo percorso, ripresa valida, completamento e salvataggio incompatibile; non presenta un pulsante Riprendi funzionante su dati invalidi.
-- Nella prima versione «Inizia» avvia Atto 0; «Riprendi» riprende il punto valido. Non implementare accessi arbitrari a episodi o un editor di progressi. I fascicoli spiegano il percorso; Atto I diventa raggiungibile attraverso la progressione. Un eventuale riavvio richiede l'azione esplicita già prevista dal player e non cancella silenziosamente i dati.
+- Nella prima versione «Inizia» avvia l'Atto I; «Riprendi» riprende il punto valido. Non implementare accessi arbitrari a episodi o un editor di progressi. I fascicoli spiegano il percorso; Gli atti successivi diventano raggiungibili attraverso la progressione. Un eventuale riavvio richiede l'azione esplicita già prevista dal player e non cancella silenziosamente i dati.
 
 ### Authoring leggero
 
@@ -71,9 +74,9 @@ Struttura destinazione (nuovi percorsi da creare, non file già esistenti):
 site/laika/                 home.js, home.css, theme.css, fonts/, hero.config.json, scene/ (schede del hero), hero.json (generato)
 games/laika/
   course.json              indice authoring, ordine atti e metadati
-  source/acts/              atto-0.json, atto-1.json
+  source/acts/              un file per atto (atto-1.json, …; ID tecnici da decidere)
   source/scene/             schede scena della bottega (elencate in course.scene)
-  questions/               atto-0.json, atto-1.json
+  questions/               un file per atto
   sources.json             provenienza e uso delle fonti
   game.json                manifest generato compatibile con il kit
 scripts/build-laika.js      assemblaggio deterministico, senza nuovo runtime
@@ -84,7 +87,7 @@ Il build compone le schede elencate in `course.scene` con il tema `laika` e inse
 
 Il build risolve riferimenti ai file e agli item delle domande, assembla e valida con gli strumenti del kit. Nessun linguaggio di template, import dinamico di codice dal contenuto o libreria di build aggiuntiva. I file sorgente sono l'autorità; `game.json` si rigenera e non si risolve a mano nei conflitti. Una seconda esecuzione produce gli stessi byte.
 
-Usare i sei tipi esistenti: `narrative`, `choice`, `resource_allocation`, `role_crisis`, `source_comparison`, `assessment`. Le quattro unità didattiche di un atto possono contenere più episodi runtime. Identificatori stabili, ad esempio `a0-u01-quadro`, `a0-u01-scelta`, `a0-u01-confronto`. Nessun plugin assemblea o rete politica finché queste unità non dimostrano un limite concreto.
+Usare i sei tipi esistenti: `narrative`, `choice`, `resource_allocation`, `role_crisis`, `source_comparison`, `assessment`. Le quattro unità didattiche di un atto possono contenere più episodi runtime. Identificatori stabili derivati dai codici del piano degli atti, ad esempio `a1-u1-e4` per I.1-e4. Nessun plugin assemblea o rete politica finché queste unità non dimostrano un limite concreto.
 
 ### Motion: regia prima di nuove API
 
@@ -103,25 +106,25 @@ Reduced motion conserva tutti i contenuti e le conseguenze in una posa statica s
 | P0 | conclusa (#7) | Baseline, documenti, inventario asset/font e fonti | — | — | — |
 | P1 | conclusa (#10) | Routing home/player, tema per pack, lettura progressi, build e scheletro LAIKA | — | — | — |
 | P2 | tecnica conclusa (#15); gate aperto | Bottega: disegni, figura, azioni, schede scena. Resta la **tavola pose per il gate dell'utente** | Opus 5.5 per la tavola; Sonnet 5.5 per pose o varianti aggiuntive | GPT-6.1 Sol medium | Pose approvate dall'utente |
-| P2b | da fare | Disegni mancanti per Atto 0 (ambienti urbani, caserma, ufficio, interni) via kit | Sonnet 5.5 (kit, test); Opus 5.5 se il test resta instabile | GPT-6.1 Sol medium/high | CI verde su Chromium e WebKit; disegni a catalogo con epoca |
-| P3 | in corso: home conclusa (#19), A0.1 da fare | Homepage di produzione con hero come scheda scena + unità A0.1 completa | Opus 5.5 | GPT-6.1 Sol high | Traguardo «prova di qualità» desktop/mobile, gate utente |
-| P4 | — | Atto 0 completo: quattro unità e sei item formativi | Sonnet 5.5 (schede, contenuti approvati); review storica Opus 5.5 | GPT-6.1 Sol medium; review GPT-6 Astra high | Percorsi, fonti e confronto finale verificati |
-| P5 | — | Atto I completo (1904–1907), corteo e assemblea come schede scena | Sonnet 5.5; Opus 5.5 per A1.2–3 e review | GPT-6.1 Sol medium/high; review Astra | 1904–1907 completo, reset tra atti e continuità salvata |
+| P2b | in revisione: kit ambienti (PR #1 di `laika`) | Disegni mancanti per l'Atto I (ambienti urbani, caserma, ufficio, interni) via kit; elenco completo in PIANO-ATTI §9 | Sonnet 5.5 (kit, test); Opus 5.5 se il test resta instabile | GPT-6.1 Sol medium/high | CI verde su Chromium e WebKit; disegni a catalogo con epoca |
+| P3 | in corso: home conclusa (#19), I.1 da fare | Homepage di produzione con hero come scheda scena + unità I.1 completa (I.1-e1…e7; ex A0.1 e A0.2) | Opus 5.5 | GPT-6.1 Sol high | Traguardo «prova di qualità» desktop/mobile, gate utente |
+| P4 | — | Atto I, prima parte: unità I.2 e I.3 (ex A0.3–A0.4 e Atto I 1904–1907) | Sonnet 5.5 (schede, contenuti approvati); review storica Opus 5.5 | GPT-6.1 Sol medium; review GPT-6 Astra high | Percorsi, fonti e confronto finale verificati |
+| P5 | — | Atto I, seconda parte: I.4, I.5 e confronto finale; corteo, soviet e treno come schede scena | Sonnet 5.5; Opus 5.5 per A1.2–3 e review | GPT-6.1 Sol medium/high; review Astra | 1904–1907 completo, reset tra atti e continuità salvata |
 | P6 | — | QA integrata, performance, accessibilità, regressioni e consegna | Opus 5.5; review indipendente dell'altra famiglia | GPT-6.1 Sol high; review Astra | Evidenze riproducibili, revisione utente, nessun merge autonomo |
-| P7 | — | Procedura per il prossimo atto e backlog verificato | Sonnet 5.5 | GPT-6.1 Sol medium | Handoff e modello authoring utilizzabile senza rifare il motore |
+| P7 | — | Procedura per gli atti successivi (ordine proposto: III, IV, II, V, VI, VII) e backlog verificato | Sonnet 5.5 | GPT-6.1 Sol medium | Handoff e modello authoring utilizzabile senza rifare il motore |
 
 La PR #14 (P2 con figure disegnate a mano) è stata chiusa: sostituita dalla bottega. La PR #16 (kit infrastrutture e atmosfera) è la prima prova della procedura «famiglia nuova» e fa parte di P2b.
 
 **Regola per la review:** chi rivede non è chi ha scritto. Quando l'autore è un modello Claude, rivede preferibilmente un modello GPT, e viceversa; in mancanza, almeno un'istanza nuova senza il contesto dell'autore.
 
-Ordine: P2 (gate) → P2b → P3 → P4 → P5 → P6 → P7. La home di P3 può partire in bozza mentre il gate P2 è aperto, perché usa la bottega già unita; non si moltiplicano però le scene degli atti prima dell'approvazione. P2b e il dossier storico procedono in parallelo su branch distinti, senza toccare gli stessi file.
+Ordine: P2 (gate) → P2b → P3 → P4 → P5 → P6 → P7. Le schede degli episodi sono in PIANO-ATTI; la divisione del lavoro fra Sonnet e Opus per i contenuti è nella sua sezione 11. La home di P3 può partire in bozza mentre il gate P2 è aperto, perché usa la bottega già unita; non si moltiplicano però le scene degli atti prima dell'approvazione. P2b e il dossier storico procedono in parallelo su branch distinti, senza toccare gli stessi file.
 
 P2/P3 non si considerano riuscite soltanto con screenshot o test verdi: consegnare una preview utilizzabile e registrazioni brevi di movimento e reduced motion. L'utente decide la qualità artistica; l'agente può continuare lavoro indipendente su fonti, non propagare una direzione visiva respinta.
 
 ## 5. Verifica e criteri di completamento
 
 - Eseguire `npm test` e `npm run test:browser` dopo le modifiche rilevanti; test mirati durante il lavoro. Nessun conteggio di test copiato da una review precedente.
-- Percorsi: primo accesso, ingresso dalla home, ripresa in mezzo a una scelta e dopo il suo esito, ritorno alla home, completamento Atto 0, confronto finale, ingresso Atto I con reset, completamento corso, replay visivo, reload, riavvio esplicito e salvataggio incompatibile.
+- Percorsi: primo accesso, ingresso dalla home, ripresa in mezzo a una scelta e dopo il suo esito, ritorno alla home, completamento dell'Atto I, confronto finale, passaggio all'atto successivo con reset quando esisterà, completamento corso, replay visivo, reload, riavvio esplicito e salvataggio incompatibile.
 - Testare almeno due itinerari didattici contrastanti per atto, i rami condizionati e gli effetti differiti. Le scelte non possono bloccarsi per combinazioni valide dello stato.
 - Tutte le domande sono raggiungibili dopo l'esposizione ai contenuti richiesti; sei item per atto, formativi. Non vendere il punteggio 0–100 esistente come voto sommativo validato. Nessun premio per una posizione politica.
 - Viewport: 360×800, 390×844, 768×1024 e 1440×900; Chromium e WebKit, più una prova su telefono reale quando disponibile. Registrare browser, dispositivo, viewport, commit e limiti della prova. Emulazione desktop non equivale a telefono reale.
@@ -132,13 +135,13 @@ P2/P3 non si considerano riuscite soltanto con screenshot o test verdi: consegna
 
 ## 6. Come continuare con gli atti successivi
 
-Per ogni nuovo atto: (1) dossier fonti e obiettivi; (2) quattro o meno unità con meccaniche esistenti; (3) storyboard e inventario asset: per ogni scena, quali voci del catalogo della bottega servono, con epoca compatibile, e quali disegni mancano (da chiedere con CONTRATTO-KIT prima di scrivere le scene); (4) una unità verticale; (5) review storica e visiva; (6) completamento, esposizioni e verifiche; (7) prove di salvataggio e regressioni; (8) PR con evidenze e richiesta di revisione.
+Per ogni nuovo atto si parte dalle sue schede in [PIANO-ATTI-LAIKA](PIANO-ATTI-LAIKA.md), dopo la verifica delle voci segnate [verificare]. Poi: (1) dossier fonti e obiettivi; (2) quattro o cinque unità con meccaniche esistenti; (3) storyboard e inventario asset: per ogni scena, quali voci del catalogo della bottega servono, con epoca compatibile, e quali disegni mancano (da chiedere con CONTRATTO-KIT prima di scrivere le scene); (4) una unità verticale; (5) review storica e visiva; (6) completamento, esposizioni e verifiche; (7) prove di salvataggio e regressioni; (8) PR con evidenze e richiesta di revisione.
 
 Non aggiungere un tipo di interazione perché compare in un'idea. Aprire una decisione architetturale solo con una scena concreta impossibile da esprimere bene, due usi plausibili, contratto dati minimo e costo di mantenimento. Non fare un DSL per una sola scena.
 
 Prima di aggiungere l'Atto II a una versione già distribuita, implementare e testare la compatibilità **append-only** dei salvataggi: l'attuale contentVersion esatta non basta. Conservare il vecchio save, verificare che il prefisso di contenuti e regole già giocati sia equivalente, rieseguire il ledger con il motore e continuare dal nuovo atto. Se la verifica fallisce, offrire riavvio esplicito con spiegazione, senza perdere silenziosamente i dati. Non costruire ora un framework universale di migrazioni.
 
-Il brief del nuovo atto deve fissare: periodo e calendario, quattro obiettivi osservabili, attori/ruoli, scelte e limiti del modello, trasformazioni visive, fonti, sei item formativi motivati, asset mancanti, percorso di test e reset. Riutilizzare la struttura dell'Atto 0, non duplicare il runtime.
+Il brief del nuovo atto deve fissare: periodo e calendario, quattro obiettivi osservabili, attori/ruoli, scelte e limiti del modello, trasformazioni visive, fonti, sei item formativi motivati, asset mancanti, percorso di test e reset. Riutilizzare la struttura dell'Atto I, non duplicare il runtime.
 
 ## 7. Uso dei modelli e controllo dei costi
 

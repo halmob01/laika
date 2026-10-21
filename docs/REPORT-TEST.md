@@ -7,11 +7,11 @@
 
 ## Aggiornamento P1 — 20 ottobre 2026
 
-**55/55 test Node e suite browser complete Chromium/WebKit superati localmente**. Nuovi controlli per routing legacy, temi isolati, contesto testuale, lettura progressi senza mutazioni e build LAIKA deterministico (errori e riferimenti risolti). Browser, SHA, comandi, dipendenze locali WebKit, misure e limiti in [HANDOFF-P1](HANDOFF-P1.md). Nessuna verifica storico-didattica o artistica P2/P3 dichiarata. Le sezioni seguenti conservano le evidenze precedenti.
+**55/55 test Node e suite browser complete Chromium/WebKit superati localmente**. Nuovi controlli per routing legacy, temi isolati, contesto testuale, lettura progressi senza mutazioni e build LAIKA deterministico (errori e riferimenti risolti). Browser, SHA, comandi, dipendenze locali WebKit, misure e limiti in [HANDOFF-P1](archivio/HANDOFF-P1.md). Nessuna verifica storico-didattica o artistica P2/P3 dichiarata. Le sezioni seguenti conservano le evidenze precedenti.
 
 ## Baseline aggiornata P0 — 19 ottobre 2026
 
-Runtime esaminato: `eb6ab8326045add19606e85c1f707ecba6407afa`, dopo il merge #6. [Evidenze e handoff](P0-BASELINE.md) distinguono le prove locali dalla [CI sullo stesso main](https://github.com/halmob01/riv-russa/actions/runs/39294716760): **48/48 test Node e suite browser Chromium/WebKit superati in CI**. Le sezioni successive conservano lo storico, non il conteggio attuale.
+Runtime esaminato: `eb6ab8326045add19606e85c1f707ecba6407afa`, dopo il merge #6. [Evidenze e handoff](archivio/P0-BASELINE.md) distinguono le prove locali dalla [CI sullo stesso main](https://github.com/halmob01/riv-russa/actions/runs/39294716760): **48/48 test Node e suite browser Chromium/WebKit superati in CI**. Le sezioni successive conservano lo storico, non il conteggio attuale.
 
 Locale: tre pack validati, build HTML autonomo e otto test Python della skill riusciti. `npm test` non è tutto verde: il caso d'import SVG incontra `spawnSync python3 EPERM`; diagnosi senza isolamento: 47/48 pass, uno bloccato. L'import Python diretto di `human-a` è corretto, ma non sostituisce l'intero test. Suite browser locale bloccata all'apertura porta (`listen EPERM`), nessuna nuova sessione locale riuscita.
 
