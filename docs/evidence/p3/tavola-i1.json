@@ -1,0 +1,493 @@
+{
+ "figure": [
+  {
+   "titolo": "1 · La famiglia (gli antenati, [S])",
+   "nota": "Padre e madre in nero, il figlio in rosso come nel hero della home: è il filo che lo studente segue fino al 1861. Il padre perde il cappello a tesa (fedora, anacronistico prima del tardo Ottocento): testa scoperta e abito lungo. Il nonno conserva il berretto da contadino.",
+   "carte": [
+    {
+     "chi": "Padre",
+     "posa": "in_piedi",
+     "variante": "nessuna",
+     "dove": "e1, e4, e6",
+     "abito": "cappotto",
+     "cappello": null
+    },
+    {
+     "chi": "Padre al lavoro",
+     "posa": "zappa",
+     "variante": "nessuna",
+     "dove": "e4: campo proprio e corvée",
+     "abito": "cappotto",
+     "cappello": null
+    },
+    {
+     "chi": "Padre in cammino",
+     "posa": "cammina_1",
+     "variante": "nessuna",
+     "dove": "e1, e4",
+     "abito": "cappotto",
+     "cappello": null
+    },
+    {
+     "chi": "Padre in chiesa",
+     "posa": "inginocchiato",
+     "variante": "nessuna",
+     "dove": "e6: lettura del Manifesto",
+     "abito": "cappotto",
+     "cappello": null
+    },
+    {
+     "chi": "Madre",
+     "posa": "in_piedi",
+     "variante": "scialle",
+     "dove": "e1, e4, e6"
+    },
+    {
+     "chi": "Madre al lavoro",
+     "posa": "zappa",
+     "variante": "scialle",
+     "dove": "e4"
+    },
+    {
+     "chi": "Madre che parla",
+     "posa": "parla",
+     "variante": "scialle",
+     "dove": "e4: la voce della famiglia"
+    },
+    {
+     "chi": "Madre seduta",
+     "posa": "seduto",
+     "variante": "scialle",
+     "dove": "interno di isba"
+    },
+    {
+     "chi": "Figlio",
+     "posa": "in_piedi",
+     "variante": "bambino",
+     "dove": "tutta l'unità",
+     "ruolo": "protagonista"
+    },
+    {
+     "chi": "Figlio in cammino",
+     "posa": "cammina_1",
+     "variante": "bambino",
+     "dove": "e4, e6",
+     "ruolo": "protagonista"
+    },
+    {
+     "chi": "Nonno",
+     "posa": "in_piedi",
+     "variante": "bastone",
+     "dove": "e4, e6"
+    },
+    {
+     "chi": "Nonno seduto",
+     "posa": "seduto",
+     "variante": "bastone",
+     "dove": "interno di isba"
+    }
+   ]
+  },
+  {
+   "titolo": "2 · Tenuta, villaggio e chiesa",
+   "nota": "L'amministratore e il signore senza cappello a tesa; il prete di villaggio con la veste a croce della bottega. Il foglio che reggono è l'oggetto «giornale» della posa legge: qui vale come registro o manifesto (vedi «Disegni che mancano»).",
+   "carte": [
+    {
+     "chi": "Amministratore col registro",
+     "posa": "legge",
+     "variante": "nessuna",
+     "dove": "e1, e3",
+     "abito": "cappotto",
+     "cappello": null
+    },
+    {
+     "chi": "Amministratore al tavolo",
+     "posa": "seduto",
+     "variante": "nessuna",
+     "dove": "e3: i tre fogli",
+     "abito": "cappotto",
+     "cappello": null
+    },
+    {
+     "chi": "Il signore",
+     "posa": "indica",
+     "variante": "mantello",
+     "dove": "e1, e4",
+     "cappello": null
+    },
+    {
+     "chi": "Il signore",
+     "posa": "mani_fianchi",
+     "variante": "mantello",
+     "dove": "e4: la corvée",
+     "cappello": null
+    },
+    {
+     "chi": "Prete che legge",
+     "posa": "legge",
+     "variante": "clero",
+     "dove": "e6: il Manifesto in chiesa"
+    },
+    {
+     "chi": "Prete che parla",
+     "posa": "parla",
+     "variante": "clero",
+     "dove": "e6"
+    },
+    {
+     "chi": "Contadina in ascolto",
+     "posa": "inginocchiato",
+     "variante": "scialle",
+     "dove": "e6"
+    },
+    {
+     "chi": "Contadino in ascolto",
+     "posa": "in_piedi",
+     "variante": "bastone",
+     "dove": "e6: chi dubita"
+    }
+   ]
+  },
+  {
+   "titolo": "3 · Le utopie (e5)",
+   "nota": "Dal basso, i pellegrini verso Belovod'e: zaino e bastone, nessuna insegna. Dall'alto, i coloni di Arakčeev: ruolo «esercito» (azzurro), abito lungo e berretto; l'ufficiale con il registro delle punizioni. Nessuno spara o punisce in scena: il registro basta.",
+   "carte": [
+    {
+     "chi": "Pellegrino",
+     "posa": "cammina_1",
+     "variante": "zaino",
+     "dove": "Belovod'e"
+    },
+    {
+     "chi": "Pellegrina",
+     "posa": "cammina_2",
+     "variante": "scialle",
+     "dove": "Belovod'e"
+    },
+    {
+     "chi": "Anziano della carovana",
+     "posa": "cammina_1",
+     "variante": "bastone",
+     "dove": "Belovod'e"
+    },
+    {
+     "chi": "Colono-soldato",
+     "posa": "in_piedi",
+     "variante": "nessuna",
+     "dove": "Gruzino",
+     "ruolo": "esercito",
+     "abito": "cappotto",
+     "cappello": "berretto"
+    },
+    {
+     "chi": "Colono in marcia",
+     "posa": "cammina_1",
+     "variante": "nessuna",
+     "dove": "Gruzino",
+     "ruolo": "esercito",
+     "abito": "cappotto",
+     "cappello": "berretto"
+    },
+    {
+     "chi": "Ufficiale col registro",
+     "posa": "legge",
+     "variante": "nessuna",
+     "dove": "Gruzino",
+     "ruolo": "esercito",
+     "abito": "mantello",
+     "cappello": null
+    }
+   ]
+  },
+  {
+   "titolo": "4 · La corte (e2, l'osservatore)",
+   "nota": "La corte è collettiva: nessuna figura imita un sovrano riconoscibile (nessuna corona, nessun ritratto). Uomini in mantello senza cappello a tesa, dame in abito lungo. Le feste si leggono dai luoghi e dalle didascalie, non da costumi d'epoca che la bottega non ha.",
+   "carte": [
+    {
+     "chi": "Cortigiano",
+     "posa": "in_piedi",
+     "variante": "mantello",
+     "dove": "e2",
+     "cappello": null
+    },
+    {
+     "chi": "Cortigiano che saluta",
+     "posa": "saluta",
+     "variante": "mantello",
+     "dove": "e2",
+     "cappello": null
+    },
+    {
+     "chi": "Cortigiano che parla",
+     "posa": "parla",
+     "variante": "mantello",
+     "dove": "e2: l'osservatore",
+     "cappello": null
+    },
+    {
+     "chi": "Dama",
+     "posa": "in_piedi",
+     "variante": "vestito",
+     "dove": "e2"
+    },
+    {
+     "chi": "Dama che gira",
+     "posa": "gira",
+     "variante": "vestito",
+     "dove": "e2: il ballo"
+    },
+    {
+     "chi": "Servitore",
+     "posa": "in_piedi",
+     "variante": "nessuna",
+     "dove": "e2: C13, la casa che sprofonda",
+     "abito": "cappotto",
+     "cappello": null
+    }
+   ]
+  }
+ ],
+ "disegni": [
+  {
+   "id": "luogo-pianura",
+   "esito": "ok",
+   "uso": "e1, e4, e6: i campi a strisce"
+  },
+  {
+   "id": "luogo-isbe",
+   "esito": "ok",
+   "uso": "e1 (le case che passano di mano), e4, e5"
+  },
+  {
+   "id": "luogo-tenuta",
+   "esito": "ok",
+   "uso": "e1, e4: la casa del signore; neoclassica, va bene come segno per tutto il periodo"
+  },
+  {
+   "id": "luogo-chiesa",
+   "esito": "ok",
+   "uso": "e6: il Manifesto letto in chiesa"
+  },
+  {
+   "id": "luogo-betulle",
+   "esito": "ok",
+   "uso": "e4, e5"
+  },
+  {
+   "id": "atmo-foschia",
+   "esito": "ok",
+   "uso": "e5: Belovod'e che sfuma come un miraggio"
+  },
+  {
+   "id": "atmo-neve",
+   "esito": "ok",
+   "uso": "e2: l'inverno del palazzo di ghiaccio"
+  },
+  {
+   "id": "ambiente-isba-interno",
+   "esito": "ok",
+   "uso": "e4: la famiglia decide l'anno"
+  },
+  {
+   "id": "luogo-riva",
+   "esito": "ok",
+   "uso": "e2: la Neva gelata dove sorge il palazzo di ghiaccio (1740)"
+  },
+  {
+   "id": "luogo-palazzo",
+   "esito": "warn",
+   "uso": "e2: «il palazzo in alto». Archetipo dal 1762: proposto come segno della corte per tutto il Settecento, con data nella didascalia"
+  },
+  {
+   "id": "ambiente-sala",
+   "esito": "warn",
+   "uso": "e2: la festa di Potëmkin (1791). Epoca compatibile solo per C18"
+  },
+  {
+   "id": "ambiente-ufficio",
+   "esito": "warn",
+   "uso": "e3: il tavolo dell'amministratore (anni 1840–1850). Archetipo «fine Ottocento»: stufa e faldoni vanno bene, da approvare"
+  },
+  {
+   "id": "oggetto-giornale",
+   "esito": "warn",
+   "uso": "e3, e6: il foglio. È un giornale piegato: vale come documento solo in mancanza del «foglio»"
+  },
+  {
+   "id": "oggetto-cartello-vuoto",
+   "esito": "warn",
+   "uso": "e1: il cartellino con il numero di anime sopra le case (senza scritta: il numero va in didascalia)"
+  }
+ ],
+ "mancanti": "<table><tr><th>Disegno</th><th>Dove serve</th><th>Proposta</th></tr>\n<tr><td><b>Il foglio</b>: documento, registro, sigillo (oggetto ricorrente del §4)</td><td>e1 (registro delle anime, sigillo), e3 (tre fogli), e5 (registro delle punizioni), e6 (Manifesto)</td><td>A: usare per ora l'oggetto «giornale» (posa <code>legge</code>). B: chiedere un piccolo kit «carte» (foglio, registro aperto, sigillo, rotolo) con CONTRATTO-KIT. <b>Consiglio B</b>: il foglio torna in tutti e sette gli atti.</td></tr>\n<tr><td><b>Palazzo di ghiaccio</b>, <b>elefante</b> (con gabbia; di gemme)</td><td>e2: C08–C09, C18</td><td>Non si improvvisano. A: e2 mostra solo palazzo, riva gelata, sala e villaggio, e le feste vivono nelle didascalie. B: kit «feste di corte» (palazzo di ghiaccio, elefante). Consiglio A per I.1, B se vuoi che il palazzo di ghiaccio sia un'immagine-guida.</td></tr>\n<tr><td><b>Residenza di legno del primo Settecento</b></td><td>e2: C01 (anni 1690), C12–C13 (anni 1740)</td><td>Usare <code>luogo-palazzo</code> come segno, con anno in didascalia (arancio sopra), oppure kit nuovo.</td></tr>\n<tr><td><b>Colonia militare con case in fila</b> (già nel §9)</td><td>e5: Gruzino</td><td>A: ripetere <code>luogo-isbe</code> in file rigide e allineate, con coloni azzurri e l'ufficiale col registro (non sono case rosa a due famiglie: la differenza va in didascalia). B: kit dedicato. Consiglio A per ora.</td></tr>\n<tr><td><b>Confine o steccato</b> che cade; <b>segni dei debiti</b> sul campo</td><td>e6: la regia del piano</td><td>Il filo spinato è del 1914: non si usa. Proposta: al posto del confine, la casa padronale che si allontana (<code>replace</code>) e i coloni-debitori sulle strisce del campo; i debiti come cartellini vuoti sulle strisce.</td></tr>\n</table>",
+ "prove": [
+  {
+   "id": "prova-isba",
+   "etichetta": "Interno di isba: padre, madre seduta, nonno, figlio (rosso) alla dimensione delle scene del player.",
+   "ruvido": true,
+   "elementi": [
+    {
+     "id": "casa",
+     "simbolo": "ambiente-isba-interno",
+     "x": 480,
+     "y": 450,
+     "scala": 1.1
+    }
+   ],
+   "figure": [
+    {
+     "id": "padre",
+     "x": 300,
+     "y": 450,
+     "scala": 2.2,
+     "variante": "nessuna",
+     "abito": "cappotto",
+     "cappello": null,
+     "posa": "parla"
+    },
+    {
+     "id": "madre",
+     "x": 560,
+     "y": 432,
+     "scala": 2.2,
+     "variante": "scialle",
+     "posa": "seduto",
+     "flip": true
+    },
+    {
+     "id": "nonno",
+     "x": 740,
+     "y": 432,
+     "scala": 2.2,
+     "variante": "bastone",
+     "posa": "seduto",
+     "flip": true
+    },
+    {
+     "id": "figlio",
+     "x": 420,
+     "y": 450,
+     "scala": 1.7,
+     "variante": "bambino",
+     "ruolo": "protagonista",
+     "posa": "in_piedi"
+    }
+   ]
+  },
+  {
+   "id": "prova-pianura",
+   "etichetta": "Pianura: la casa del signore, la chiesa, le isbe; contadini alla corvée, l'amministratore col registro, il prete. Scala dei luoghi grandi.",
+   "viewBox": [
+    0,
+    0,
+    1600,
+    700
+   ],
+   "camera": [
+    0,
+    0,
+    1600,
+    700
+   ],
+   "sfondo": "none",
+   "ruvido": false,
+   "elementi": [
+    {
+     "id": "campi",
+     "simbolo": "luogo-pianura",
+     "x": 800,
+     "y": 700,
+     "scala": 2.3
+    },
+    {
+     "id": "chiesa",
+     "simbolo": "luogo-chiesa",
+     "x": 300,
+     "y": 472,
+     "scala": 0.7
+    },
+    {
+     "id": "isbe",
+     "simbolo": "luogo-isbe",
+     "x": 560,
+     "y": 472,
+     "scala": 0.55
+    },
+    {
+     "id": "tenuta",
+     "simbolo": "luogo-tenuta",
+     "x": 1130,
+     "y": 472,
+     "scala": 0.7
+    },
+    {
+     "id": "betulle",
+     "simbolo": "luogo-betulle",
+     "x": 1440,
+     "y": 478,
+     "scala": 1.05
+    }
+   ],
+   "figure": [
+    {
+     "id": "l1",
+     "x": 600,
+     "y": 600,
+     "scala": 0.3,
+     "variante": "nessuna",
+     "abito": "cappotto",
+     "cappello": null,
+     "posa": "zappa"
+    },
+    {
+     "id": "l2",
+     "x": 720,
+     "y": 610,
+     "scala": 0.3,
+     "variante": "scialle",
+     "posa": "zappa",
+     "flip": true
+    },
+    {
+     "id": "l3",
+     "x": 840,
+     "y": 600,
+     "scala": 0.3,
+     "variante": "nessuna",
+     "abito": "cappotto",
+     "cappello": null,
+     "posa": "zappa"
+    },
+    {
+     "id": "amm",
+     "x": 1020,
+     "y": 640,
+     "scala": 0.38,
+     "variante": "nessuna",
+     "abito": "cappotto",
+     "cappello": null,
+     "posa": "legge",
+     "flip": true
+    },
+    {
+     "id": "prete",
+     "x": 330,
+     "y": 640,
+     "scala": 0.38,
+     "variante": "clero",
+     "posa": "legge"
+    },
+    {
+     "id": "fig",
+     "x": 470,
+     "y": 660,
+     "scala": 0.3,
+     "variante": "bambino",
+     "ruolo": "protagonista",
+     "posa": "in_piedi",
+     "flip": true
+    }
+   ]
+  }
+ ]
+}
