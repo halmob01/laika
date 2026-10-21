@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit ambienti primo Novecento (bottega)</title>
+<style>
+  body { margin: 0; font-family: monospace; background: #dcdcd8; color: #161614; }
+  h1 { font-size: 14px; margin: 12px 16px; }
+  #griglia { display: grid; grid-template-columns: repeat(auto-fill, minmax(520px, 1fr)); gap: 12px; padding: 0 16px 16px; }
+  figure { margin: 0; border: 1px solid #b4b6b3; background: #f6f1e3; }
+  figcaption { font-size: 12px; padding: 4px 8px; border-top: 1px solid #b4b6b3; }
+  svg { display: block; width: 100%; height: 300px; }
+</style>
+</head>
+<body>
+<h1>Kit ambienti primo Novecento: anteprima</h1>
+<div id="griglia"></div>
+<script>
+// Kit per la bottega: ambienti a scala umana per le scene dell'Atto I di LAIKA (1861-1917) e oltre.
+// Rispetta bottega/CONTRATTO-KIT.md. Tutti i pezzi poggiano su GROUND_Y e sono centrati in x = 0.
+// Scala: gli esterni (strada, panetteria) hanno porte di 96-122 unita' e accolgono figure a scala
+// 1-1,2; gli interni (isba, ufficio) sono disegnati per figure a scala 2,2-2,4 (un tavolo e' alto
+// circa 85 unita'); sala e trincea per figure a scala 1,4-1,6; la caserma, larga 1200, per figure
+// a scala 0,5-0,7.
+// Stile: lo stesso tratto a mano del kit luoghi monumentali (righe che sbordano, campiture fuori
+// registro, grana a pastello, tratteggi d'ombra), generato in modo deterministico.
+// Coerenza storica (vedi anche il campo epoca nel catalogo):
+// - strada: via di Pietroburgo fra 1880 e 1917, case d'affitto a quattro piani con botteghe al piano
+//   terra; archetipo generico, nessuna insegna con scritte.
+// - panetteria: bottega del pane della stessa epoca; insegna sospesa a forma di kalac (pane ad
+//   anello con manico), segno tradizionale dei fornai russi; tabella dell'insegna lasciata vuota.
+// - isba_interno: interno contadino della Russia europea dell'Ottocento e primo Novecento: stufa
+//   russa imbiancata, panca lungo la parete, tavolo, angolo delle icone con una lampada; l'icona e'
+//   una cornice con il fondo scuro, senza figure.
+// - ufficio: ufficio di cancelleria o di amministrazione fra fine Ottocento e anni Venti: stufa in
+//   maiolica, scaffali con faldoni, scrivania con carte. La cornice alla parete e' vuota: nessun
+//   ritratto identificabile, la scena decide se e quale usare.
+// - caserma: caserma neoclassica di Pietroburgo (modello generico delle caserme dei reggimenti di
+//   guardia, primo Ottocento) con pronao a sei colonne e garitta a strisce; nessuno stemma.
+// - sala: sala d'assemblea neoclassica a colonne (modello generico: le sale a colonnato del
+//   Palazzo di Tauride, sede della Duma dal 1906 e del soviet nel 1917); archetipo, non un rilievo.
+// - trincea e parapetto: trincea della prima guerra mondiale (1914-1918), fronte orientale;
+//   parete con rivestimento in legno, sacchi di terra, camminamento di tavole. Il parapetto va
+//   disegnato davanti alle figure.
+const C = {
+  bg: '#f6f1e3', p2: '#ece5d3', ink: '#161614', red: '#e02a1b', sand: '#decba8',
+  cLight: '#c9d6df', cMid: '#8ea8b8', cDark: '#4f6b7c', sky: '#b8cbd8', tree: '#97b0c0'
+};
+const GROUND_Y = 400;
+const AMBIENTI = [
+  { id: 'strada', label: 'Strada di citta' },
+  { id: 'panetteria', label: 'Bottega del pane' },
+  { id: 'isba_interno', label: 'Interno di isba' },
+  { id: 'ufficio', label: 'Ufficio di cancelleria' },
+  { id: 'caserma', label: 'Caserma' },
+  { id: 'sala', label: 'Sala a colonne' },
+  { id: 'trincea', label: 'Trincea' },
+  { id: 'parapetto', label: 'Parapetto di trincea' }
+];
+const f1 = n => (Math.round(n * 10) / 10).toString();
+const arco = (x, w, top, base) => `M ${f1(x - w / 2)} ${base} L ${f1(x - w / 2)} ${f1(top + w / 2)} A ${f1(w / 2)} ${f1(w / 2)} 0 0 1 ${f1(x + w / 2)} ${f1(top + w / 2)} L ${f1(x + w / 2)} ${base} Z`;
+// Generatore pseudo-casuale deterministico (mulberry32).
+function rng(seed) {
+  let a = seed >>> 0;
+  return function () {
+    a = (a + 0x6D2B79F5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+// --- Strumenti del tratto (gli stessi del kit luoghi monumentali) ------------------------
+function linea(pts, r, amp = 0.8, passo = 22) {
+  let d = '';
+  for (let i = 0; i < pts.length - 1; i++) {
+    const [x1, y1] = pts[i], [x2, y2] = pts[i + 1];
+    const L = Math.hypot(x2 - x1, y2 - y1) || 1, n = Math.max(1, Math.round(L / passo));
+    const nx = -(y2 - y1) / L, ny = (x2 - x1) / L;
+    for (let k = i === 0 ? 0 : 1; k <= n; k++) {
+      const t = k / n, j = (r() - 0.5) * 2 * amp * (k === 0 || k === n ? 0.5 : 1);
+      d += (d ? ' L ' : 'M ') + f1(x1 + (x2 - x1) * t + nx * j) + ' ' + f1(y1 + (y2 - y1) * t + ny * j);
+    }
+  }
+  return d;
+}
+function riga(x1, y1, x2, y2, r, amp = 0.8, sborda = 3) {
+  const L = Math.hypot(x2 - x1, y2 - y1) || 1, ux = (x2 - x1) / L, uy = (y2 - y1) / L;
+  const a = sborda * r(), b = sborda * r();
+  return linea([[x1 - ux * a, y1 - uy * a], [x2 + ux * b, y2 + uy * b]], r, amp);
+}
+function bordo(x, y, w, h, r, amp = 0.8, sborda = 3) {
+  return [riga(x, y, x + w, y, r, amp, sborda), riga(x + w, y, x + w, y + h, r, amp, sborda),
+    riga(x + w, y + h, x, y + h, r, amp, sborda), riga(x, y + h, x, y, r, amp, sborda)].join(' ');
+}
+function macchia(x, y, w, h, r, sp = 1.6) {
+  const j = () => (r() - 0.5) * 2 * sp;
+  return `M ${f1(x + sp + j())} ${f1(y - sp * 0.6 + j())} L ${f1(x + w + sp + j())} ${f1(y - sp * 0.6 + j())} L ${f1(x + w + sp + j())} ${f1(y + h + j())} L ${f1(x + sp + j())} ${f1(y + h + j())} Z`;
+}
+function macchiaP(pts, r, sp = 1.6) {
+  return 'M ' + pts.map(([x, y]) => f1(x + sp + (r() - 0.5) * 2 * sp) + ' ' + f1(y - sp * 0.6 + (r() - 0.5) * 2 * sp)).join(' L ') + ' Z';
+}
+function tratteggio(x, y, w, h, r, passo = 5, amp = 0.5) {
+  let d = '';
+  for (let c = x - h; c < x + w; c += passo) {
+    let x1 = c, y1 = y + h, x2 = c + h, y2 = y;
+    if (x1 < x) { y1 -= x - x1; x1 = x; }
+    if (x2 > x + w) { y2 += x2 - (x + w); x2 = x + w; }
+    if (x2 - x1 < 1) continue;
+    d += ' ' + linea([[x1, y1], [x2, y2]], r, amp, 40);
+  }
+  return d.trim();
+}
+function puntiArco(cx, cy, rx, ry, a0, a1, n = 18) {
+  const p = [];
+  for (let i = 0; i <= n; i++) { const a = a0 + (a1 - a0) * i / n; p.push([cx + Math.cos(a) * rx, cy + Math.sin(a) * ry]); }
+  return p;
+}
+const inchiostro = (d, w = 1.4, op = 1) => `<path d="${d}" fill="none" stroke="${C.ink}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"${op < 1 ? ` opacity="${op}"` : ''}/>`;
+const tinta = (d, fill, op = 1) => `<path d="${d}" fill="${fill}"${op < 1 ? ` opacity="${op}"` : ''}/>`;
+const grana = (d, op = 1) => `<path d="${d}" fill="url(#grana)"${op < 1 ? ` opacity="${op}"` : ''}/>`;
+// Rettangolo arrotondato come tracciato (sacchi, pagnotte).
+const tondo = (x, y, w, h, q) => `M ${f1(x + q)} ${f1(y)} L ${f1(x + w - q)} ${f1(y)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x + w)} ${f1(y + q)} L ${f1(x + w)} ${f1(y + h - q)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x + w - q)} ${f1(y + h)} L ${f1(x + q)} ${f1(y + h)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x)} ${f1(y + h - q)} L ${f1(x)} ${f1(y + q)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x + q)} ${f1(y)} Z`;
+// Ellisse come tracciato.
+const ovale = (cx, cy, rx, ry) => `M ${f1(cx - rx)} ${f1(cy)} A ${f1(rx)} ${f1(ry)} 0 1 0 ${f1(cx + rx)} ${f1(cy)} A ${f1(rx)} ${f1(ry)} 0 1 0 ${f1(cx - rx)} ${f1(cy)} Z`;
+
+function getDefs() {
+  const r = rng(6);
+  let punti = '', chiari = '', segni = '';
+  for (let i = 0; i < 14; i++) { const x = r() * 46 + 1, y = r() * 46 + 1, q = 0.5 + r() * 0.7; punti += `M ${f1(x - q)} ${f1(y)} L ${f1(x + q)} ${f1(y + 0.3)} `; }
+  for (let i = 0; i < 10; i++) { const x = r() * 44 + 2, y = r() * 44 + 2, q = 1.5 + r() * 2.5; chiari += `M ${f1(x)} ${f1(y)} L ${f1(x + q)} ${f1(y - q * 0.4)} `; }
+  for (let i = 0; i < 3; i++) { const x = r() * 44 + 2, y = r() * 30 + 2; segni += `M ${f1(x)} ${f1(y)} L ${f1(x + 0.3)} ${f1(y + 8 + r() * 6)} `; }
+  return `<pattern id="grana" width="48" height="48" patternUnits="userSpaceOnUse">` +
+    `<path d="${punti.trim()}" fill="none" stroke="${C.ink}" stroke-width="1.1" stroke-linecap="round" opacity="0.32"/>` +
+    `<path d="${chiari.trim()}" fill="none" stroke="${C.bg}" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>` +
+    `<path d="${segni.trim()}" fill="none" stroke="${C.cDark}" stroke-width="0.7" opacity="0.35"/>` +
+    `</pattern>`;
+}
+
+function drawAmbiente(id, ox = 0, oy = 0) {
+  let s = '';
+  if (id === 'strada') {
+    const r = rng(1101);
+    // Tre case d'affitto: x, larghezza, gronda, colore della facciata.
+    const case_ = [[-480, 300, 74, C.p2], [-180, 320, 44, C.cLight], [140, 340, 92, C.sand]];
+    let luci = '';
+    for (const [x, w, top, col] of case_) {
+      s += tinta(macchia(x, top, w, 388 - top, r, 1.6), col, col === C.sand ? 0.75 : 1);
+      s += grana(macchia(x, top, w, 388 - top, r, 0), 0.8);
+      // Finestre dei piani alti, con piccolo timpano a riga.
+      let fin = '', timp = '', k = 0;
+      for (let y = top + 26; y + 44 < 278; y += 62) {
+        for (let fx = x + 22; fx + 20 < x + w - 10; fx += 44) {
+          const d = macchia(fx, y, 20, 42, r, 0.4) + ' ';
+          if ((k * 7 + fx) % 5 === 1) luci += d; else fin += d;
+          timp += riga(fx - 4, y - 5, fx + 24, y - 5, r, 0.4, 1) + ' ';
+          k++;
+        }
+      }
+      s += tinta(fin.trim(), C.cDark);
+      s += inchiostro(timp.trim(), 0.9);
+      // Piano terra: vetrina e portone.
+      const vw = Math.round(w * 0.42);
+      s += tinta(macchia(x + 18, 302, vw, 64, r, 0.8), C.cLight, 0.9);
+      s += inchiostro(bordo(x + 18, 302, vw, 64, r, 0.5, 2) + ' ' + riga(x + 18 + vw / 2, 302, x + 18 + vw / 2, 366, r, 0.3, 0), 1.1);
+      s += tinta(macchia(x + w - 64, 292, 36, 96, r, 0.8), C.cDark);
+      s += inchiostro(bordo(x + w - 64, 292, 36, 96, r, 0.5, 2) + ' ' + riga(x + w - 46, 292, x + w - 46, 388, r, 0.3, 0), 1.1);
+      // Cornicione, marcapiano, contorno e pluviale.
+      let c = riga(x - 6, top, x + w + 6, top, r, 0.8, 4) + ' ' + riga(x - 3, top + 7, x + w + 3, top + 7, r, 0.6, 2);
+      c += ' ' + riga(x, 282, x + w, 282, r, 0.7, 3) + ' ' + bordo(x, top, w, 388 - top, r, 0.8, 3);
+      c += ' ' + riga(x + w - 8, top + 8, x + w - 8, 388, r, 0.3, 0);
+      s += inchiostro(c, 1.5);
+      s += inchiostro(tratteggio(x + 2, top + 9, w - 4, 5, r, 4, 0.3), 0.6, 0.5);
+    }
+    s += `<path id="luci" d="${luci.trim()}" fill="${C.sand}"/>`;
+    // Marciapiede in pietra.
+    s += tinta(macchia(-500, 388, 1000, 12, r, 1), C.cMid);
+    let marc = riga(-500, 388, 500, 388, r, 0.6, 5) + ' ' + riga(-500, 400, 500, 400, r, 0.6, 5);
+    for (let x = -480; x < 500; x += 52) marc += ' ' + riga(x, 388, x - 2, 400, r, 0.3, 0);
+    s += inchiostro(marc, 1.1);
+  } else if (id === 'panetteria') {
+    const r = rng(1202);
+    s += tinta(macchia(-190, 196, 380, 204, r, 1.6), C.sand, 0.75) + grana(macchia(-190, 196, 380, 204, r, 0), 0.8);
+    // Tabella dell'insegna, vuota.
+    s += tinta(macchia(-160, 214, 320, 30, r, 1), C.cDark);
+    s += inchiostro(bordo(-160, 214, 320, 30, r, 0.5, 3), 1.3);
+    // Vetrina con due ripiani di pani.
+    s += tinta(macchia(-160, 262, 200, 100, r, 1), C.cLight, 0.85);
+    let pani = '', pc = '';
+    for (const [y, n] of [[318, 5], [350, 4]]) {
+      for (let i = 0; i < n; i++) {
+        const cx = -140 + i * (160 / (n - 1)) + (y === 350 ? 18 : 0), rx = 13 + r() * 4;
+        pani += ovale(cx, y - 7, rx, 8) + ' ';
+        pc += linea(puntiArco(cx, y - 7, rx, 8, Math.PI, 2 * Math.PI, 8), r, 0.3, 10) + ' ';
+      }
+    }
+    s += tinta(pani.trim(), C.sand);
+    s += inchiostro(pc.trim(), 1);
+    s += inchiostro(riga(-160, 320, 40, 320, r, 0.4, 0) + ' ' + riga(-160, 352, 40, 352, r, 0.4, 0), 1.1);
+    s += inchiostro(bordo(-160, 262, 200, 100, r, 0.6, 3) + ' ' + riga(-60, 262, -60, 362, r, 0.4, 0), 1.5);
+    // Porta a vetri.
+    s += tinta(macchia(70, 266, 52, 122, r, 0.8), C.cDark);
+    s += tinta(macchia(78, 276, 36, 48, r, 0.5), C.cLight, 0.85);
+    s += inchiostro(bordo(70, 266, 52, 122, r, 0.5, 2) + ' ' + bordo(78, 276, 36, 48, r, 0.3, 1), 1.2);
+    s += `<path d="M 112 336 L 118 336 L 118 340 L 112 340 Z" fill="${C.ink}"/>`;
+    // Zoccolo e gradino.
+    s += tinta(macchia(-190, 378, 380, 22, r, 1), C.cMid);
+    s += inchiostro(bordo(-190, 378, 380, 22, r, 0.5, 4), 1.3);
+    // Insegna sospesa a forma di kalac: braccio fisso, pane che oscilla.
+    s += inchiostro(riga(150, 222, 214, 222, r, 0.3, 1) + ' ' + riga(150, 246, 196, 222, r, 0.3, 0), 1.6);
+    s += `<g id="insegna" data-pivot="204 222">`;
+    s += `<path d="M 204 222 L 204 234" fill="none" stroke="${C.ink}" stroke-width="1.4"/>`;
+    s += `<path d="M 192 236 L 216 236" fill="none" stroke="${C.sand}" stroke-width="6" stroke-linecap="round"/>`;
+    s += `<circle cx="204" cy="258" r="17" fill="none" stroke="${C.sand}" stroke-width="8"/>`;
+    s += `<circle cx="204" cy="258" r="21" fill="none" stroke="${C.ink}" stroke-width="1.4"/>`;
+    s += `<circle cx="204" cy="258" r="13" fill="none" stroke="${C.ink}" stroke-width="1.2"/>`;
+    s += `<path d="M 191 233 L 217 233 M 191 239 L 217 239" fill="none" stroke="${C.ink}" stroke-width="1.1"/>`;
+    s += `</g>`;
+  } else if (id === 'isba_interno') {
+    const r = rng(1303);
+    // Parete di tronchi.
+    s += tinta(macchia(-420, 70, 840, 330, r, 1.6), C.sand, 0.7) + grana(macchia(-420, 70, 840, 330, r, 0), 0.9);
+    let tronchi = '';
+    for (let y = 92; y < 388; y += 22) tronchi += riga(-420, y, 420, y, r, 0.9, 2) + ' ';
+    s += inchiostro(tronchi.trim(), 0.9, 0.55);
+    s += inchiostro(riga(-420, 72, 420, 72, r, 0.8, 4), 1.4);
+    // Finestrella con quattro vetri e cornice intagliata semplificata.
+    s += tinta(macchia(-40, 172, 80, 64, r, 0.8), C.sky);
+    s += inchiostro(bordo(-40, 172, 80, 64, r, 0.5, 2) + ' ' + riga(0, 172, 0, 236, r, 0.3, 0) + ' ' + riga(-40, 204, 40, 204, r, 0.3, 0), 1.3);
+    s += tinta(macchiaP([[-50, 172], [0, 156], [50, 172]], r, 0.8), C.cDark);
+    s += tinta(macchia(-50, 236, 100, 7, r, 0.6), C.cDark);
+    // Stufa russa imbiancata, con bocca del forno e camino.
+    s += tinta(macchia(-400, 150, 230, 238, r, 1.6), C.bg) + grana(macchia(-400, 150, 230, 238, r, 0), 0.45);
+    s += tinta(macchia(-332, 72, 56, 80, r, 1), C.bg);
+    s += tinta(arco(-285, 64, 248, 304), C.ink);
+    s += tinta(macchia(-334, 304, 98, 12, r, 0.6), C.cMid);
+    s += inchiostro(bordo(-400, 150, 230, 238, r, 0.8, 3) + ' ' + bordo(-332, 72, 56, 80, r, 0.6, 2) + ' ' + riga(-404, 200, -166, 200, r, 0.6, 3), 1.4);
+    s += inchiostro(tratteggio(-232, 206, 58, 178, r, 6, 0.3), 0.6, 0.45);
+    // Panca accostata alla stufa (lezanka) e panca lungo la parete.
+    s += tinta(macchia(-170, 320, 52, 68, r, 0.8), C.bg);
+    s += inchiostro(bordo(-170, 320, 52, 68, r, 0.5, 2), 1.2);
+    s += tinta(macchia(220, 340, 200, 10, r, 0.6), C.cDark);
+    s += inchiostro(riga(220, 340, 420, 340, r, 0.4, 2) + ' ' + riga(236, 350, 236, 388, r, 0.3, 0) + ' ' + riga(404, 350, 404, 388, r, 0.3, 0), 1.3);
+    // Tavolo con una pagnotta.
+    s += tinta(macchia(0, 312, 200, 10, r, 0.6), C.cDark);
+    s += inchiostro(riga(-4, 312, 204, 312, r, 0.4, 2) + ' ' + riga(14, 322, 14, 388, r, 0.3, 0) + ' ' + riga(186, 322, 186, 388, r, 0.3, 0), 1.4);
+    s += tinta(ovale(64, 304, 22, 8), C.sand) + inchiostro(linea(puntiArco(64, 304, 22, 8, Math.PI, 2 * Math.PI, 10), r, 0.3, 10), 1);
+    // Angolo delle icone: mensola, cornice senza figure, lampada sospesa.
+    s += tinta(macchia(318, 150, 96, 7, r, 0.5), C.cDark);
+    s += tinta(macchia(344, 104, 34, 44, r, 0.5), C.sand);
+    s += tinta(macchia(350, 110, 22, 32, r, 0.3), C.cDark);
+    s += inchiostro(bordo(344, 104, 34, 44, r, 0.3, 1) + ' ' + riga(318, 150, 414, 150, r, 0.4, 2), 1.2);
+    s += `<g id="lampada" data-pivot="396 90"><path d="M 396 90 L 396 112" fill="none" stroke="${C.ink}" stroke-width="1"/>`;
+    s += `<path d="M 389 112 L 403 112 L 400 122 L 392 122 Z" fill="${C.red}"/></g>`;
+    // Pavimento di assi.
+    s += tinta(macchia(-430, 388, 860, 12, r, 0.8), C.cMid);
+    s += inchiostro(riga(-430, 388, 430, 388, r, 0.6, 4) + ' ' + riga(-430, 400, 430, 400, r, 0.6, 4), 1.2);
+  } else if (id === 'ufficio') {
+    const r = rng(1404);
+    s += tinta(macchia(-440, 60, 880, 340, r, 1.6), C.cLight) + grana(macchia(-440, 60, 880, 340, r, 0), 0.8);
+    s += inchiostro(riga(-440, 74, 440, 74, r, 0.7, 4) + ' ' + riga(-440, 80, 440, 80, r, 0.5, 3), 1.2);
+    // Zoccolatura a pannelli.
+    s += tinta(macchia(-440, 300, 880, 88, r, 1), C.cMid);
+    let pan = riga(-440, 300, 440, 300, r, 0.6, 3);
+    for (let x = -430; x < 430; x += 86) pan += ' ' + bordo(x + 8, 312, 70, 64, r, 0.4, 1);
+    s += inchiostro(pan, 1, 0.8);
+    // Finestra alta con tende.
+    s += tinta(macchia(-396, 108, 110, 180, r, 1), C.sky);
+    s += inchiostro(bordo(-396, 108, 110, 180, r, 0.6, 2) + ' ' + riga(-341, 108, -341, 288, r, 0.3, 0) + ' ' + riga(-396, 168, -286, 168, r, 0.3, 0) + ' ' + riga(-396, 228, -286, 228, r, 0.3, 0), 1.3);
+    s += tinta(macchiaP([[-414, 96], [-386, 96], [-392, 300], [-420, 300]], r, 1), C.cDark, 0.9);
+    s += tinta(macchiaP([[-296, 96], [-268, 96], [-262, 300], [-290, 300]], r, 1), C.cDark, 0.9);
+    s += inchiostro(riga(-424, 96, -258, 96, r, 0.4, 3), 1.6);
+    // Stufa in maiolica.
+    s += tinta(macchia(-236, 132, 72, 256, r, 1), C.bg);
+    let pia = '';
+    for (let y = 152; y < 388; y += 20) pia += riga(-236, y, -164, y, r, 0.3, 0) + ' ';
+    for (const x of [-212, -188]) pia += riga(x, 132, x, 388, r, 0.3, 0) + ' ';
+    s += inchiostro(pia.trim(), 0.6, 0.5);
+    s += tinta(macchia(-242, 122, 84, 12, r, 0.6), C.cMid);
+    s += inchiostro(bordo(-236, 132, 72, 256, r, 0.5, 2) + ' ' + bordo(-242, 122, 84, 12, r, 0.4, 2), 1.3);
+    // Cornice vuota alla parete.
+    s += tinta(macchia(-6, 118, 72, 84, r, 0.8), C.cDark, 0.85);
+    s += `<path d="${bordo(-6, 118, 72, 84, r, 0.4, 1)}" fill="none" stroke="${C.sand}" stroke-width="5"/>`;
+    s += inchiostro(bordo(-9, 115, 78, 90, r, 0.4, 1), 1.1);
+    // Sedia e scrivania con carte e calamaio.
+    s += tinta(macchia(16, 262, 40, 56, r, 0.6), C.cDark);
+    s += inchiostro(bordo(16, 262, 40, 56, r, 0.4, 1), 1.1);
+    s += tinta(macchia(-90, 318, 250, 14, r, 0.8), C.cMid);
+    s += tinta(macchia(-84, 332, 238, 56, r, 0.8), C.cDark);
+    s += inchiostro(bordo(-90, 318, 250, 14, r, 0.5, 3) + ' ' + bordo(-84, 332, 238, 56, r, 0.5, 2) + ' ' + riga(35, 332, 35, 388, r, 0.3, 0), 1.3);
+    s += tinta(macchia(-60, 312, 46, 6, r, 0.3) + ' ' + macchia(-8, 313, 40, 5, r, 0.3) + ' ' + macchia(90, 311, 36, 7, r, 0.3), C.bg);
+    s += inchiostro(bordo(-60, 312, 46, 6, r, 0.2, 0.5) + ' ' + bordo(90, 311, 36, 7, r, 0.2, 0.5), 0.8);
+    s += `<path d="M 60 306 L 72 306 L 72 318 L 60 318 Z" fill="${C.ink}"/>`;
+    s += `<path d="M 70 306 L 80 290" fill="none" stroke="${C.ink}" stroke-width="1"/>`;
+    // Scaffali con faldoni.
+    s += tinta(macchia(214, 120, 210, 268, r, 1), C.cMid);
+    let sca = bordo(214, 120, 210, 268, r, 0.6, 2), dorsi = '', dorsi2 = '', dorsi3 = '';
+    for (const y of [180, 244, 308, 372]) {
+      sca += ' ' + riga(214, y, 424, y, r, 0.4, 1);
+      let x = 220;
+      while (x < 412) {
+        const w = 10 + Math.floor(r() * 9), h = 38 + Math.floor(r() * 18), t = r();
+        const d = macchia(x, y - h, w, h, r, 0.3) + ' ';
+        if (t < 0.4) dorsi += d; else if (t < 0.75) dorsi2 += d; else dorsi3 += d;
+        x += w + 2 + (r() < 0.15 ? 14 : 0);
+      }
+    }
+    s += tinta(dorsi.trim(), C.sand) + tinta(dorsi2.trim(), C.cMid) + tinta(dorsi3.trim(), C.bg);
+    s += inchiostro(sca, 1.3);
+    s += inchiostro(riga(-440, 388, 440, 388, r, 0.6, 4), 1.4);
+  } else if (id === 'caserma') {
+    const r = rng(1505);
+    s += tinta(macchia(-600, 190, 1200, 198, r, 2), C.sand, 0.8) + grana(macchia(-600, 190, 1200, 198, r, 0), 0.9);
+    // Bugnato del piano terra.
+    let bug = '';
+    for (let y = 310; y < 388; y += 13) bug += riga(-600, y, 600, y, r, 0.4, 0) + ' ';
+    s += inchiostro(bug.trim(), 0.6, 0.45);
+    // Finestre: rettangolari al piano nobile, ad arco al piano terra (salvo il pronao).
+    let fin = '', fin2 = '', timp = '';
+    for (let x = -578; x < 578; x += 46) {
+      if (Math.abs(x + 8) < 132 || (x > 130 && x < 190)) continue;
+      fin += macchia(x, 218, 16, 46, r, 0.4) + ' ';
+      timp += riga(x - 4, 212, x + 20, 212, r, 0.4, 1) + ' ';
+      fin2 += arco(x + 8, 16, 318, 366) + ' ';
+    }
+    s += tinta(fin.trim(), C.cDark) + tinta(fin2.trim(), C.cDark);
+    s += inchiostro(timp.trim(), 0.9);
+    // Cornicione e marcapiano.
+    s += inchiostro(riga(-606, 190, 606, 190, r, 0.9, 5) + ' ' + riga(-603, 197, 603, 197, r, 0.6, 3) + ' ' + riga(-600, 296, 600, 296, r, 0.7, 4) + ' ' + bordo(-600, 190, 1200, 198, r, 0.8, 4), 1.5);
+    s += inchiostro(tratteggio(-598, 199, 1196, 6, r, 4, 0.3), 0.6, 0.5);
+    // Pronao: podio, sei colonne, trabeazione e timpano.
+    s += tinta(macchia(-132, 356, 264, 32, r, 1), C.cMid);
+    s += tinta(macchiaP([[-136, 172], [0, 124], [136, 172]], r, 1), C.p2) + grana(macchiaP([[-136, 172], [0, 124], [136, 172]], r, 0));
+    s += tinta(macchia(-136, 172, 272, 14, r, 0.8), C.cLight);
+    let col = '', colC = '';
+    for (let i = 0; i < 6; i++) {
+      const x = -110 + i * 44;
+      col += macchia(x - 9, 186, 18, 170, r, 0.5) + ' ';
+      colC += riga(x - 9, 186, x - 9, 356, r, 0.4, 0) + ' ' + riga(x + 9, 186, x + 9, 356, r, 0.4, 0) + ' ' + riga(x - 13, 190, x + 13, 190, r, 0.3, 0.5) + ' ' + riga(x - 13, 352, x + 13, 352, r, 0.3, 0.5) + ' ';
+    }
+    s += tinta(col.trim(), C.bg);
+    s += inchiostro(colC.trim(), 1.1);
+    s += tinta(arco(0, 40, 300, 356), C.ink);
+    s += inchiostro(linea([[-142, 173], [0, 122], [142, 173]], r, 0.5, 20) + ' ' + bordo(-136, 172, 272, 14, r, 0.5, 4) + ' ' + bordo(-132, 356, 264, 32, r, 0.5, 3) + ' ' + riga(-120, 372, 120, 372, r, 0.3, 1), 1.4);
+    // Garitta a strisce diagonali.
+    s += tinta(macchia(146, 318, 30, 70, r, 0.5), C.bg);
+    let str = '';
+    for (let k = 0; k < 6; k++) { const y = 322 + k * 12; str += `M 146 ${f1(y)} L 176 ${f1(y - 8)} L 176 ${f1(y - 2)} L 146 ${f1(y + 6)} Z `; }
+    s += tinta(str.trim(), C.ink);
+    s += tinta(macchiaP([[140, 318], [161, 302], [182, 318]], r, 0.5), C.ink);
+    s += inchiostro(bordo(146, 318, 30, 70, r, 0.4, 1), 1.2);
+    s += inchiostro(riga(-620, 400, 620, 400, r, 0.6, 5), 1.3);
+  } else if (id === 'sala') {
+    const r = rng(1606);
+    s += tinta(macchia(-560, 40, 1120, 348, r, 1.8), C.p2) + grana(macchia(-560, 40, 1120, 348, r, 0), 0.8);
+    // Finestre alte ad arco sulla parete di fondo, fra le colonne.
+    let fin = '', finC = '';
+    for (let i = 0; i < 7; i++) {
+      const x = -420 + i * 140;
+      fin += arco(x, 54, 96, 286) + ' ';
+      finC += linea([[x - 27, 286], [x - 27, 123]], r, 0.4) + ' ' + linea(puntiArco(x, 123, 27, 27, Math.PI, 2 * Math.PI, 10), r, 0.3, 10) + ' ' + linea([[x + 27, 123], [x + 27, 286]], r, 0.4) + ' ';
+      finC += riga(x, 104, x, 286, r, 0.3, 0) + ' ' + riga(x - 27, 200, x + 27, 200, r, 0.3, 0) + ' ';
+    }
+    s += tinta(fin.trim(), C.sky, 0.9);
+    s += inchiostro(finC.trim(), 1.1);
+    s += inchiostro(riga(-566, 44, 566, 44, r, 0.8, 5) + ' ' + riga(-563, 54, 563, 54, r, 0.6, 3) + ' ' + riga(-560, 300, 560, 300, r, 0.6, 3), 1.4);
+    s += inchiostro(tratteggio(-558, 56, 1116, 8, r, 4, 0.3), 0.6, 0.5);
+    // Colonne in primo piano.
+    let col = '', capi = '', colC = '', omb = '';
+    for (let i = 0; i < 8; i++) {
+      const x = -490 + i * 140;
+      col += macchia(x - 14, 66, 28, 306, r, 0.6) + ' ';
+      capi += macchia(x - 21, 58, 42, 10, r, 0.5) + ' ' + macchia(x - 21, 372, 42, 10, r, 0.5) + ' ';
+      colC += riga(x - 14, 68, x - 14, 372, r, 0.5, 0) + ' ' + riga(x + 14, 68, x + 14, 372, r, 0.5, 0) + ' ' + bordo(x - 21, 58, 42, 10, r, 0.3, 1) + ' ' + bordo(x - 21, 372, 42, 10, r, 0.3, 1) + ' ';
+      colC += riga(x - 5, 72, x - 5, 368, r, 0.4, 0) + ' ';
+      omb += tratteggio(x + 2, 72, 11, 296, r, 5, 0.3) + ' ';
+    }
+    s += tinta(col.trim(), C.bg) + tinta(capi.trim(), C.cLight);
+    s += inchiostro(omb.trim(), 0.6, 0.55);
+    s += inchiostro(colC.trim(), 1.2);
+    // Pavimento a listoni.
+    s += tinta(macchia(-570, 382, 1140, 18, r, 1), C.cMid);
+    let pav = riga(-570, 382, 570, 382, r, 0.5, 4) + ' ' + riga(-570, 400, 570, 400, r, 0.5, 4);
+    for (let x = -560; x < 570; x += 38) pav += ' ' + riga(x, 382, x - 6, 400, r, 0.3, 0);
+    s += inchiostro(pav, 1, 0.9);
+  } else if (id === 'trincea') {
+    const r = rng(1707);
+    // Parete posteriore di terra con rivestimento di pali e graticci.
+    s += tinta(macchia(-520, 262, 1040, 130, r, 2), C.sand, 0.65) + grana(macchia(-520, 262, 1040, 130, r, 0));
+    let rive = '';
+    for (let x = -500; x < 520; x += 46) rive += riga(x, 266, x + (r() - 0.5) * 4, 392, r, 0.6, 2) + ' ';
+    for (let y = 290; y < 392; y += 16) rive += linea([[-520, y], [520, y + (r() - 0.5) * 4]], r, 1.4, 30) + ' ';
+    s += inchiostro(rive.trim(), 0.9, 0.6);
+    // Sacchi di terra sul ciglio.
+    let sacchi = '', sc = '';
+    for (const [y, sh] of [[248, 0], [234, 26]]) {
+      for (let x = -520 + sh; x < 500; x += 52) {
+        const w = 44 + r() * 12, h = 14 + r() * 4, d = tondo(x + (r() - 0.5) * 4, y + 16 - h, w, h, 6.5);
+        sacchi += d + ' ';
+        sc += d + ' ';
+      }
+    }
+    s += tinta(sacchi.trim(), C.p2) + grana(sacchi.trim(), 0.7);
+    s += inchiostro(sc.trim(), 1.1);
+    s += inchiostro(riga(-520, 264, 520, 264, r, 0.8, 4), 1.4);
+    // Camminamento di tavole.
+    s += tinta(macchia(-520, 390, 1040, 10, r, 0.8), C.cDark);
+    let tav = riga(-520, 390, 520, 390, r, 0.4, 3);
+    for (let x = -510; x < 520; x += 14) tav += ' ' + riga(x, 390, x, 400, r, 0.2, 0);
+    s += inchiostro(tav, 0.9);
+  } else if (id === 'parapetto') {
+    const r = rng(1808);
+    // Ciglio anteriore: terra e sacchi, da mettere davanti alle figure (figure a meta' busto).
+    s += tinta(macchiaP([[-520, 400], [-520, 350], [-300, 344], [0, 348], [300, 342], [520, 350], [520, 400]], r, 2), C.sand, 0.85);
+    s += grana(macchiaP([[-520, 400], [-520, 350], [-300, 344], [0, 348], [300, 342], [520, 350], [520, 400]], r, 0));
+    let sacchi = '';
+    for (const [y, sh] of [[330, 0], [316, 24]]) for (let x = -520 + sh; x < 500; x += 48) { const w = 42 + r() * 10, h = 14 + r() * 4; sacchi += tondo(x + (r() - 0.5) * 4, y + 16 - h, w, h, 6.5) + ' '; }
+    s += tinta(sacchi.trim(), C.p2) + grana(sacchi.trim(), 0.7);
+    s += inchiostro(sacchi.trim(), 1.1);
+    s += inchiostro(linea([[-520, 352], [-300, 346], [0, 350], [300, 344], [520, 352]], r, 1, 26), 1.3);
+    s += inchiostro(tratteggio(-520, 360, 1040, 40, r, 7, 0.4), 0.6, 0.4);
+  }
+  return `<g transform="translate(${ox} ${oy})">${s}</g>`;
+}
+// AVVIO
+(function () {
+  const griglia = document.getElementById('griglia');
+  const defs = `<defs>${getDefs()}</defs>`;
+  AMBIENTI.forEach(v => {
+    const fig = document.createElement('figure');
+    fig.innerHTML = `<svg viewBox="-640 0 1280 420">${defs}${drawAmbiente(v.id)}</svg><figcaption>${v.label}</figcaption>`;
+    griglia.appendChild(fig);
+  });
+})();
+</script>
+</body>
+</html>

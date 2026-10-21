@@ -15,7 +15,7 @@ A ogni avvio: verificare branch e modifiche locali, leggere eventuali AGENTS.md 
 
 **Mandato sulle fonti per tutti gli agenti:** Gli appunti «La Rivoluzione Russa» guidano temi, sequenza e obiettivi. Gli agenti devono consultare i materiali anche per frasi da citare, aneddoti e dettagli precisi, non soltanto per una bibliografia finale. Registrare ogni prelievo e il suo contesto secondo [FONTI-LAIKA](FONTI-LAIKA.md) e la scheda di [FONTI-MATRICE-LAIKA](FONTI-MATRICE-LAIKA.md). Considerare Sheila Fitzpatrick se conosciuta dall'agente: conoscenza pregressa utile a ricerca e confronto, opera/edizione ancora da aggiungere; non inventare citazioni o pagine senza riscontro.
 
-**Stato al 21 ottobre 2026:** P0 e P1 concluse ([P0-BASELINE](archivio/P0-BASELINE.md), [HANDOFF-P1](archivio/HANDOFF-P1.md)); P2 tecnica conclusa con la bottega, gate visivo aperto; P3: homepage conclusa e approvata (PR #19), resta l'unità I.1 (ex A0.1); P2b in revisione con il kit ambienti (PR #1 di `laika`).
+**Stato al 21 ottobre 2026:** P0 e P1 concluse ([P0-BASELINE](archivio/P0-BASELINE.md), [HANDOFF-P1](archivio/HANDOFF-P1.md)); P2 tecnica conclusa con la bottega, gate visivo aperto; P3: homepage conclusa e approvata (PR #19), resta l'unità I.1 (ex A0.1); P2b: kit ambienti approvato dall'utente il 21 ottobre 2026 (PR #1 di `laika`).
 
 ## P0 — Baseline e risoluzione dei documenti
 
@@ -81,6 +81,8 @@ A ogni avvio: verificare branch e modifiche locali, leggere eventuali AGENTS.md 
 1. ~~Stabilizzare `tests/browser-original-studies.cjs`~~ Fatto il 21/10/2026: il test è stato rimosso. Confrontava al pixel gli studi prima e dopo un trasloco ormai concluso; la conservazione degli originali è garantita da `tests/laika-originals.test.js` (SHA-256 e blob Git), il confronto bottega/studi da `browser-bottega`.
 2. Unire la PR #16 (kit infrastrutture e atmosfera) dopo la revisione dell'utente.
 3. Dall'elenco `da_fare` del catalogo, produrre come kit con `CONTRATTO-KIT.md` i disegni che servono all'Atto I e alla home (elenco in PIANO-ATTI §9): strada urbana, interno contadino o izba, ufficio o cancelleria, caserma. Indicare epoca e luogo; evitare insegne e simboli inventati.
+
+**Stato al 21 ottobre 2026.** Punto 2 superato: la PR #16 è già in `main`. Punto 3 svolto nel branch `feat/p2b-kit-ambienti`: nuovo kit `prototypes/kit-ambienti-primo-novecento/` con otto voci in stato `bozza` (strada, panetteria, interno di isba, ufficio, caserma, sala a colonne, trincea, parapetto), scelte sull'Atto I fuso del nuovo arco in sette atti; due scene di esempio (`esempi/pane.json`, `esempi/isba.json`). Verifiche locali: `npm test` 81/81, `npm run test:browser` su Chromium con 130 confronti al pixel a zero differenze; WebKit solo in CI. Evidenze in `docs/evidence/p2b/`. Resta il gate visivo dell'utente: dopo l'approvazione le voci passano da `bozza` a `pronto`. **Approvato dall'utente il 21 ottobre 2026 sera** e unito in `main`.
 
 **Accettazione:** CI verde su Chromium e WebKit con `browser-bottega` eseguito; nuovi disegni a catalogo con stato ed epoca, confronto al pixel a zero differenze.
 

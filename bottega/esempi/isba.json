@@ -1,0 +1,83 @@
+{
+  "id": "esempio-isba",
+  "etichetta": "Interno di una casa contadina: la madre parla accanto alla stufa, il figlio rientra, l'anziano ascolta seduto; una lampada accesa nell'angolo delle icone.",
+  "ruvido": true,
+  "elementi": [
+    {
+      "id": "casa",
+      "simbolo": "ambiente-isba-interno",
+      "x": 480,
+      "y": 450,
+      "scala": 1.1
+    }
+  ],
+  "figure": [
+    {
+      "id": "anziano",
+      "x": 700,
+      "y": 432,
+      "scala": 2.3,
+      "variante": "cappello",
+      "posa": "seduto",
+      "flip": true
+    },
+    {
+      "id": "madre",
+      "x": 330,
+      "y": 450,
+      "scala": 2.3,
+      "variante": "scialle",
+      "posa": "parla"
+    },
+    {
+      "id": "figlio",
+      "x": 520,
+      "y": 450,
+      "scala": 1.7,
+      "variante": "bambino",
+      "posa": "in_piedi",
+      "flip": true
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "sera",
+      "didascalia": "La madre parla, il figlio rientra, l'anziano ascolta; la lampada oscilla appena.",
+      "passi": [
+        {
+          "azione": "speak",
+          "chi": "madre",
+          "cicli": 2,
+          "a": 0,
+          "durata": 3600
+        },
+        {
+          "azione": "walk",
+          "chi": "figlio",
+          "da": "destra",
+          "distanza": 160,
+          "a": 400,
+          "durata": 2600
+        },
+        {
+          "azione": "listen",
+          "chi": "anziano",
+          "cicli": 2,
+          "a": 1200,
+          "durata": 2400
+        },
+        {
+          "azione": "repeat",
+          "chi": "casa",
+          "parti": {
+            "lampada": 4
+          },
+          "cicli": 2,
+          "a": 0,
+          "durata": 4000
+        }
+      ]
+    }
+  ],
+  "ingresso": "sera"
+}

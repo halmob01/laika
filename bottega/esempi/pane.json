@@ -1,0 +1,99 @@
+{
+  "id": "esempio-pane",
+  "etichetta": "Una coda di persone davanti a una bottega del pane, sotto la neve; l'insegna oscilla al vento.",
+  "ruvido": true,
+  "elementi": [
+    {
+      "id": "strada",
+      "simbolo": "ambiente-strada",
+      "x": 300,
+      "y": 430,
+      "scala": 0.75
+    },
+    {
+      "id": "pane",
+      "simbolo": "ambiente-panetteria",
+      "x": 690,
+      "y": 430,
+      "scala": 1.05
+    },
+    {
+      "id": "lampione",
+      "simbolo": "infra-lampione",
+      "x": 120,
+      "y": 430,
+      "scala": 1.2
+    },
+    {
+      "id": "neve",
+      "simbolo": "atmo-neve",
+      "x": 480,
+      "y": 430,
+      "scala": 2.6,
+      "davanti": true
+    }
+  ],
+  "figure": [
+    {
+      "gruppo": "fila",
+      "formazione": {
+        "tipo": "coda",
+        "n": 8,
+        "x": 770,
+        "y": 470,
+        "passo": 50,
+        "scala": 1.15,
+        "varianti": [
+          "scialle",
+          "donna",
+          "cappotto",
+          "scialle",
+          "bambino",
+          "donna",
+          "borsa",
+          "scialle"
+        ]
+      }
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "si-forma",
+      "didascalia": "Prima dell'alba le persone arrivano una dopo l'altra davanti alla bottega.",
+      "passi": [
+        {
+          "azione": "queue",
+          "chi": "fila",
+          "da": "sinistra",
+          "distanza": 240,
+          "a": 0,
+          "sfalsa": 500
+        },
+        {
+          "azione": "repeat",
+          "chi": "pane",
+          "parti": {
+            "insegna": 6
+          },
+          "cicli": 3,
+          "a": 0,
+          "durata": 6000
+        }
+      ]
+    },
+    {
+      "id": "avanza",
+      "didascalia": "La porta si apre per poco: la coda avanza di un posto.",
+      "passi": [
+        {
+          "azione": "advance",
+          "chi": "fila",
+          "passo": 50,
+          "a": 0,
+          "sfalsa": 160
+        }
+      ]
+    }
+  ],
+  "ingresso": "si-forma"
+}

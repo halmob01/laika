@@ -10,7 +10,9 @@
   "bottega/esempi/scontro.json",
   "bottega/esempi/raduno.json",
   "bottega/esempi/dispersione.json",
-  "bottega/esempi/inverno.json"
+  "bottega/esempi/inverno.json",
+  "bottega/esempi/pane.json",
+  "bottega/esempi/isba.json"
  ],
  "figure": {
   "stato": "pronto",
@@ -401,6 +403,78 @@
    "fonte": "prototypes/laika-studi-originali/studio personaggi.html#rurale"
   },
   {
+   "id": "ambiente-strada",
+   "famiglia": "ambienti",
+   "nome": "Strada di città",
+   "stato": "bozza",
+   "epoca": "Fine Ottocento - 1917 (Pietroburgo e grandi città dell'impero): case d'affitto a quattro piani con botteghe al piano terra; archetipo generico, nessuna insegna con scritte.",
+   "fonte": "prototypes/kit-ambienti-primo-novecento/kit-ambienti-primo-novecento.html#strada",
+   "note": "Scala umana (porta circa 96 unità: figure a scala 1-1,1). Parte con id: luci (finestre accese). Bozza: in attesa della revisione visiva dell'utente."
+  },
+  {
+   "id": "ambiente-panetteria",
+   "famiglia": "ambienti",
+   "nome": "Bottega del pane",
+   "stato": "bozza",
+   "epoca": "Fine Ottocento - anni Venti (città russe): vetrina con pani e insegna sospesa a forma di kalač, segno tradizionale dei fornai; tabella dell'insegna vuota.",
+   "fonte": "prototypes/kit-ambienti-primo-novecento/kit-ambienti-primo-novecento.html#panetteria",
+   "note": "Per figure a scala 1-1,2. Adatta alle code del 1917 (formazione coda davanti alla porta). Parte con id: insegna (oscilla sul perno del braccio). Bozza: in attesa della revisione visiva dell'utente."
+  },
+  {
+   "id": "ambiente-isba-interno",
+   "famiglia": "ambienti",
+   "nome": "Interno di isba",
+   "stato": "bozza",
+   "epoca": "Ottocento - primo Novecento (Russia europea): interno contadino con stufa russa imbiancata, panche, tavolo, angolo delle icone; icona come cornice senza figure.",
+   "fonte": "prototypes/kit-ambienti-primo-novecento/kit-ambienti-primo-novecento.html#isba_interno",
+   "note": "Interno per figure a scala 2,2-2,4 (tavolo alto circa 85 unità). Parte con id: lampada (lampada votiva sospesa). Bozza: in attesa della revisione visiva dell'utente."
+  },
+  {
+   "id": "ambiente-ufficio",
+   "famiglia": "ambienti",
+   "nome": "Ufficio di cancelleria",
+   "stato": "bozza",
+   "epoca": "Fine Ottocento - anni Venti: ufficio amministrativo con stufa in maiolica, scaffali con faldoni, scrivania; cornice alla parete vuota.",
+   "fonte": "prototypes/kit-ambienti-primo-novecento/kit-ambienti-primo-novecento.html#ufficio",
+   "note": "Interno per figure a scala 2,2-2,4 (scrivania alta circa 80 unità). Utile anche per ministeri, commissariati e uffici del soviet: la scena decide gli oggetti in più. Bozza: in attesa della revisione visiva dell'utente."
+  },
+  {
+   "id": "ambiente-caserma",
+   "famiglia": "ambienti",
+   "nome": "Caserma",
+   "stato": "bozza",
+   "epoca": "Primo Ottocento - 1917 (Pietroburgo): archetipo di caserma neoclassica dei reggimenti di guardia, pronao a sei colonne e garitta a strisce; nessuno stemma.",
+   "fonte": "prototypes/kit-ambienti-primo-novecento/kit-ambienti-primo-novecento.html#caserma",
+   "note": "Larghezza 1200 a scala 1: per l'esterno a figure piccole usare scala 0,5-0,7. Bozza: in attesa della revisione visiva dell'utente."
+  },
+  {
+   "id": "ambiente-sala",
+   "famiglia": "ambienti",
+   "nome": "Sala a colonne",
+   "stato": "bozza",
+   "epoca": "Dal tardo Settecento (San Pietroburgo): archetipo di sala d'assemblea neoclassica a colonnato, modellata sulle sale del Palazzo di Tauride (Duma dal 1906, soviet nel 1917); non un rilievo.",
+   "fonte": "prototypes/kit-ambienti-primo-novecento/kit-ambienti-primo-novecento.html#sala",
+   "note": "Per figure a scala 1,4-1,6. Interno per Duma, soviet, Costituente, congressi. Bozza: in attesa della revisione visiva dell'utente."
+  },
+  {
+   "id": "ambiente-trincea",
+   "famiglia": "ambienti",
+   "nome": "Trincea",
+   "stato": "bozza",
+   "epoca": "1914-1918 (fronte orientale della prima guerra mondiale): parete con rivestimento di pali e graticci, sacchi di terra, camminamento di tavole. Non usare prima del 1914.",
+   "fonte": "prototypes/kit-ambienti-primo-novecento/kit-ambienti-primo-novecento.html#trincea",
+   "note": "Per figure a scala 1,4-1,6. Fondale: le figure stanno davanti. Abbinare a infra-filo-spinato e a ambiente-parapetto. Bozza: in attesa della revisione visiva dell'utente."
+  },
+  {
+   "id": "ambiente-parapetto",
+   "famiglia": "ambienti",
+   "nome": "Parapetto di trincea",
+   "stato": "bozza",
+   "epoca": "1914-1918 (prima guerra mondiale): ciglio anteriore di terra e sacchi. Non usare prima del 1914.",
+   "fonte": "prototypes/kit-ambienti-primo-novecento/kit-ambienti-primo-novecento.html#parapetto",
+   "note": "Per figure a scala 1,4-1,6. Da porre davanti alle figure (davanti: true) per mostrarle a mezzo busto dentro la trincea. Bozza: in attesa della revisione visiva dell'utente."
+  },
+  {
    "id": "mezzo-treno",
    "famiglia": "mezzi",
    "nome": "Treno",
@@ -720,17 +794,23 @@
    "famiglia": "ambienti",
    "priorita": "alta",
    "voci": [
-    "strada urbana",
-    "appartamento",
-    "ufficio",
-    "caserma"
+    "appartamento"
    ],
    "gia_presenti": [
     "ambiente-piazza",
     "ambiente-fabbrica",
     "ambiente-rurale",
-    "ambiente-stazione"
-   ]
+    "ambiente-stazione",
+    "ambiente-strada",
+    "ambiente-panetteria",
+    "ambiente-isba-interno",
+    "ambiente-ufficio",
+    "ambiente-caserma",
+    "ambiente-sala",
+    "ambiente-trincea",
+    "ambiente-parapetto"
+   ],
+   "note": "Fatti nel kit ambienti primo Novecento (P2b): strada, panetteria, interno di isba, ufficio, caserma, sala a colonne, trincea, parapetto. Resta l'appartamento (kommunalka, anni Venti): serve all'Atto III."
   },
   {
    "famiglia": "mezzi",
