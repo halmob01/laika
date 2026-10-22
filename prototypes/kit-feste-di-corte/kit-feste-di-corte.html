@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit feste di corte (bottega)</title>
+<style>
+  body { margin: 0; font-family: monospace; background: #dcdcd8; color: #161614; }
+  h1 { font-size: 14px; margin: 12px 16px; }
+  #griglia { display: grid; grid-template-columns: repeat(auto-fill, minmax(520px, 1fr)); gap: 12px; padding: 0 16px 16px; }
+  figure { margin: 0; border: 1px solid #b4b6b3; background: #f6f1e3; }
+  figcaption { font-size: 12px; padding: 4px 8px; border-top: 1px solid #b4b6b3; }
+  svg { display: block; width: 100%; height: 300px; }
+</style>
+</head>
+<body>
+<h1>Kit feste di corte: anteprima</h1>
+<div id="griglia"></div>
+<script>
+// Kit per la bottega: luoghi e oggetti delle feste della corte russa del Settecento, per l'unita'
+// I.1 di LAIKA (episodio «I semidei»). Rispetta bottega/CONTRATTO-KIT.md. Tutti i pezzi poggiano
+// su GROUND_Y e sono centrati in x = 0. Scala: disegnati per figure a scala 0,6-0,8 (una figura
+// a scala 0,7 e' alta circa 63 unita', cioe' 1,7 m: un metro vale circa 37 unita').
+// Stile: lo stesso tratto a mano dei kit luoghi monumentali e ambienti primo Novecento (righe che
+// sbordano, campiture fuori registro, grana a pastello), generato in modo deterministico.
+// Coerenza storica (vedi anche il campo epoca nel catalogo). Fonte di riferimento: Montefiore,
+// The Romanovs, Act II, Scene 2 e Scene 3-4. Sono archetipi, non rilievi:
+// - palazzo_ghiaccio: la «casa di ghiaccio» dell'imperatrice Anna sulla Neva gelata, inverno
+//   1739-1740; alta circa dieci metri («thirty-three feet»), blocchi di ghiaccio, finestre e
+//   balaustra. Forma semplificata e generica, nessuno stemma.
+// - cannone_ghiaccio: uno dei cannoni di ghiaccio davanti alla casa (1740).
+// - elefante_gabbia: elefante con una gabbia sul dorso, come nel corteo delle nozze del 1740.
+//   Nessun cavaliere: le persone si aggiungono con la figura articolata.
+// - elefante_gemme: elefante coperto di gemme con gualdrappa e baldacchino, come quello svelato
+//   alla festa di Potemkin del 1791. Archetipo: l'originale era un automa, qui non se ne imita
+//   il meccanismo.
+// - residenza_legno: palazzo di legno a due piani della meta' del Settecento (le residenze
+//   costruite in fretta per la corte di Elisabetta, 1741-1761); archetipo generico.
+// - cumulo_neve: banco di neve in primo piano, da disegnare davanti alle figure o a un edificio
+//   che sprofonda.
+const C = {
+  bg: '#f6f1e3', p2: '#ece5d3', ink: '#161614', red: '#e02a1b', sand: '#decba8',
+  cLight: '#c9d6df', cMid: '#8ea8b8', cDark: '#4f6b7c', sky: '#b8cbd8', tree: '#97b0c0'
+};
+const GROUND_Y = 400;
+const CORTE = [
+  { id: 'palazzo_ghiaccio', label: 'Palazzo di ghiaccio' },
+  { id: 'cannone_ghiaccio', label: 'Cannone di ghiaccio' },
+  { id: 'elefante_gabbia', label: 'Elefante con gabbia' },
+  { id: 'elefante_gemme', label: 'Elefante di gemme' },
+  { id: 'residenza_legno', label: 'Residenza di legno' },
+  { id: 'cumulo_neve', label: 'Banco di neve' }
+];
+const f1 = n => (Math.round(n * 10) / 10).toString();
+const arco = (x, w, top, base) => `M ${f1(x - w / 2)} ${base} L ${f1(x - w / 2)} ${f1(top + w / 2)} A ${f1(w / 2)} ${f1(w / 2)} 0 0 1 ${f1(x + w / 2)} ${f1(top + w / 2)} L ${f1(x + w / 2)} ${base} Z`;
+// Generatore pseudo-casuale deterministico (mulberry32).
+function rng(seed) {
+  let a = seed >>> 0;
+  return function () {
+    a = (a + 0x6D2B79F5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+// --- Strumenti del tratto (gli stessi del kit luoghi monumentali) ------------------------
+function linea(pts, r, amp = 0.8, passo = 22) {
+  let d = '';
+  for (let i = 0; i < pts.length - 1; i++) {
+    const [x1, y1] = pts[i], [x2, y2] = pts[i + 1];
+    const L = Math.hypot(x2 - x1, y2 - y1) || 1, n = Math.max(1, Math.round(L / passo));
+    const nx = -(y2 - y1) / L, ny = (x2 - x1) / L;
+    for (let k = i === 0 ? 0 : 1; k <= n; k++) {
+      const t = k / n, j = (r() - 0.5) * 2 * amp * (k === 0 || k === n ? 0.5 : 1);
+      d += (d ? ' L ' : 'M ') + f1(x1 + (x2 - x1) * t + nx * j) + ' ' + f1(y1 + (y2 - y1) * t + ny * j);
+    }
+  }
+  return d;
+}
+function riga(x1, y1, x2, y2, r, amp = 0.8, sborda = 3) {
+  const L = Math.hypot(x2 - x1, y2 - y1) || 1, ux = (x2 - x1) / L, uy = (y2 - y1) / L;
+  const a = sborda * r(), b = sborda * r();
+  return linea([[x1 - ux * a, y1 - uy * a], [x2 + ux * b, y2 + uy * b]], r, amp);
+}
+function bordo(x, y, w, h, r, amp = 0.8, sborda = 3) {
+  return [riga(x, y, x + w, y, r, amp, sborda), riga(x + w, y, x + w, y + h, r, amp, sborda),
+    riga(x + w, y + h, x, y + h, r, amp, sborda), riga(x, y + h, x, y, r, amp, sborda)].join(' ');
+}
+function macchia(x, y, w, h, r, sp = 1.6) {
+  const j = () => (r() - 0.5) * 2 * sp;
+  return `M ${f1(x + sp + j())} ${f1(y - sp * 0.6 + j())} L ${f1(x + w + sp + j())} ${f1(y - sp * 0.6 + j())} L ${f1(x + w + sp + j())} ${f1(y + h + j())} L ${f1(x + sp + j())} ${f1(y + h + j())} Z`;
+}
+function macchiaP(pts, r, sp = 1.6) {
+  return 'M ' + pts.map(([x, y]) => f1(x + sp + (r() - 0.5) * 2 * sp) + ' ' + f1(y - sp * 0.6 + (r() - 0.5) * 2 * sp)).join(' L ') + ' Z';
+}
+function tratteggio(x, y, w, h, r, passo = 5, amp = 0.5) {
+  let d = '';
+  for (let c = x - h; c < x + w; c += passo) {
+    let x1 = c, y1 = y + h, x2 = c + h, y2 = y;
+    if (x1 < x) { y1 -= x - x1; x1 = x; }
+    if (x2 > x + w) { y2 += x2 - (x + w); x2 = x + w; }
+    if (x2 - x1 < 1) continue;
+    d += ' ' + linea([[x1, y1], [x2, y2]], r, amp, 40);
+  }
+  return d.trim();
+}
+function puntiArco(cx, cy, rx, ry, a0, a1, n = 18) {
+  const p = [];
+  for (let i = 0; i <= n; i++) { const a = a0 + (a1 - a0) * i / n; p.push([cx + Math.cos(a) * rx, cy + Math.sin(a) * ry]); }
+  return p;
+}
+const inchiostro = (d, w = 1.4, op = 1) => `<path d="${d}" fill="none" stroke="${C.ink}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"${op < 1 ? ` opacity="${op}"` : ''}/>`;
+const tinta = (d, fill, op = 1) => `<path d="${d}" fill="${fill}"${op < 1 ? ` opacity="${op}"` : ''}/>`;
+const grana = (d, op = 1) => `<path d="${d}" fill="url(#grana)"${op < 1 ? ` opacity="${op}"` : ''}/>`;
+// Rettangolo arrotondato come tracciato (sacchi, pagnotte).
+const tondo = (x, y, w, h, q) => `M ${f1(x + q)} ${f1(y)} L ${f1(x + w - q)} ${f1(y)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x + w)} ${f1(y + q)} L ${f1(x + w)} ${f1(y + h - q)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x + w - q)} ${f1(y + h)} L ${f1(x + q)} ${f1(y + h)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x)} ${f1(y + h - q)} L ${f1(x)} ${f1(y + q)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x + q)} ${f1(y)} Z`;
+// Ellisse come tracciato.
+const ovale = (cx, cy, rx, ry) => `M ${f1(cx - rx)} ${f1(cy)} A ${f1(rx)} ${f1(ry)} 0 1 0 ${f1(cx + rx)} ${f1(cy)} A ${f1(rx)} ${f1(ry)} 0 1 0 ${f1(cx - rx)} ${f1(cy)} Z`;
+
+function getDefs() {
+  const r = rng(6);
+  let punti = '', chiari = '', segni = '';
+  for (let i = 0; i < 14; i++) { const x = r() * 46 + 1, y = r() * 46 + 1, q = 0.5 + r() * 0.7; punti += `M ${f1(x - q)} ${f1(y)} L ${f1(x + q)} ${f1(y + 0.3)} `; }
+  for (let i = 0; i < 10; i++) { const x = r() * 44 + 2, y = r() * 44 + 2, q = 1.5 + r() * 2.5; chiari += `M ${f1(x)} ${f1(y)} L ${f1(x + q)} ${f1(y - q * 0.4)} `; }
+  for (let i = 0; i < 3; i++) { const x = r() * 44 + 2, y = r() * 30 + 2; segni += `M ${f1(x)} ${f1(y)} L ${f1(x + 0.3)} ${f1(y + 8 + r() * 6)} `; }
+  return `<pattern id="grana" width="48" height="48" patternUnits="userSpaceOnUse">` +
+    `<path d="${punti.trim()}" fill="none" stroke="${C.ink}" stroke-width="1.1" stroke-linecap="round" opacity="0.32"/>` +
+    `<path d="${chiari.trim()}" fill="none" stroke="${C.bg}" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>` +
+    `<path d="${segni.trim()}" fill="none" stroke="${C.cDark}" stroke-width="0.7" opacity="0.35"/>` +
+    `</pattern>`;
+}
+
+
+// Riflessi chiari sul ghiaccio: tratti color carta.
+const luce = (d, w = 1.4, op = 0.8) => `<path d="${d}" fill="none" stroke="${C.bg}" stroke-width="${w}" stroke-linecap="round"${op < 1 ? ` opacity="${op}"` : ''}/>`;
+
+// Elefante di profilo, rivolto a destra, zampe su GROUND_Y. Corpo centrato in x = 0.
+function elefante(r, gemme) {
+  let s = '';
+  const corpo = macchiaP(puntiArco(-4, 292, 92, 58, Math.PI, 2 * Math.PI, 16).concat(puntiArco(-4, 292, 92, 44, 0, Math.PI, 12)), r, 1.2);
+  // Zampe lontane, piu' scure.
+  s += tinta(macchia(-62, 318, 24, 82, r, 0.8) + ' ' + macchia(36, 318, 24, 82, r, 0.8), C.cDark);
+  s += tinta(corpo, C.cMid) + grana(corpo, 0.7);
+  // Zampe vicine.
+  s += tinta(macchia(-40, 322, 26, 78, r, 0.8) + ' ' + macchia(58, 322, 26, 78, r, 0.8), C.cMid);
+  s += inchiostro(bordo(-40, 322, 26, 78, r, 0.4, 1) + ' ' + bordo(58, 322, 26, 78, r, 0.4, 1), 1.2);
+  s += inchiostro(riga(-40, 394, -14, 394, r, 0.3, 0) + ' ' + riga(58, 394, 84, 394, r, 0.3, 0), 2);
+  // Testa, orecchio, proboscide, zanna, occhio.
+  const testa = ovale(98, 268, 34, 36);
+  s += tinta(testa, C.cMid) + grana(testa, 0.7);
+  const orecchio = macchiaP([[70, 244], [96, 246], [100, 300], [76, 316], [62, 290]], r, 1);
+  s += tinta(orecchio, C.cDark, 0.85);
+  const prob = 'M 118 278 C 134 300 136 334 128 370 L 140 384 L 124 388 L 114 372 C 120 340 118 312 104 296 Z';
+  s += tinta(prob, C.cMid);
+  s += tinta('M 112 300 C 124 306 132 304 140 296 L 138 304 C 128 312 118 312 110 306 Z', C.bg);
+  s += `<circle cx="108" cy="258" r="2.6" fill="${C.ink}"/>`;
+  s += inchiostro(linea(puntiArco(-4, 292, 92, 58, Math.PI, 2 * Math.PI, 16), r, 0.6, 18) + ' ' + linea(puntiArco(98, 268, 34, 36, -2.4, 1.0, 12), r, 0.5, 14) + ' ' + linea([[118, 278], [130, 300], [134, 334], [128, 370], [140, 384]], r, 0.5, 16), 1.4);
+  s += inchiostro(linea([[-94, 292], [-108, 330]], r, 0.4, 10), 1.6);
+  if (gemme) {
+    // Gualdrappa rossa con frangia, gemme sul corpo e sulla fronte, baldacchino.
+    const gual = macchiaP([[-70, 252], [64, 252], [72, 318], [-78, 318]], r, 1);
+    s += tinta(gual, C.red);
+    let fr = '';
+    for (let x = -76; x < 72; x += 8) fr += `M ${f1(x)} 318 L ${f1(x + 4)} 326 `;
+    s += inchiostro(fr.trim(), 1.2);
+    let g1 = '', g2 = '';
+    for (let i = 0; i < 26; i++) {
+      const x = -64 + r() * 128, y = 258 + r() * 54, q = 2.2 + r() * 1.6;
+      if (i % 2) g1 += ovale(x, y, q, q) + ' '; else g2 += ovale(x, y, q, q) + ' ';
+    }
+    s += tinta(g1.trim(), C.sand) + tinta(g2.trim(), C.bg);
+    s += tinta(ovale(104, 236, 5, 5) + ' ' + ovale(92, 240, 3.5, 3.5) + ' ' + ovale(116, 240, 3.5, 3.5), C.red);
+    s += tinta(macchia(-38, 214, 70, 38, r, 0.8), C.sand) + grana(macchia(-38, 214, 70, 38, r, 0), 0.8);
+    s += tinta(macchiaP([[-46, 214], [-3, 186], [40, 214]], r, 0.8), C.red);
+    s += inchiostro(bordo(-38, 214, 70, 38, r, 0.4, 2) + ' ' + linea([[-46, 214], [-3, 186], [40, 214]], r, 0.4, 12) + ' ' + riga(-3, 186, -3, 174, r, 0.2, 0), 1.3);
+    s += tinta(ovale(-3, 172, 4, 4), C.red);
+  } else {
+    // Gabbia di ferro sul dorso, con il fondo di tavole.
+    s += tinta(macchia(-58, 228, 104, 10, r, 0.6), C.sand);
+    let sb = '';
+    for (let x = -54; x <= 42; x += 12) sb += riga(x, 230, x, 168, r, 0.3, 0) + ' ';
+    sb += riga(-60, 168, 48, 168, r, 0.4, 2) + ' ' + riga(-60, 198, 48, 198, r, 0.3, 1);
+    s += inchiostro(sb.trim(), 1.6);
+    s += tinta(macchiaP([[-64, 168], [-6, 146], [52, 168]], r, 0.6), C.cDark);
+    s += inchiostro(bordo(-58, 228, 104, 10, r, 0.3, 1), 1.2);
+  }
+  return s;
+}
+
+function drawCorte(id, ox = 0, oy = 0) {
+  let s = '';
+  if (id === 'palazzo_ghiaccio') {
+    const r = rng(2101);
+    // Zoccolo, corpo, cornicione, balaustra, frontone.
+    s += tinta(macchia(-392, 372, 784, 28, r, 1.2), C.cMid) + grana(macchia(-392, 372, 784, 28, r, 0), 0.6);
+    s += tinta(macchia(-360, 172, 720, 200, r, 1.6), C.cLight) + grana(macchia(-360, 172, 720, 200, r, 0), 0.7);
+    // Commessure dei blocchi di ghiaccio.
+    let gi = '';
+    for (let y = 194; y < 372; y += 22) {
+      gi += riga(-360, y, 360, y, r, 0.4, 0) + ' ';
+      const off = ((y - 194) / 22) % 2 ? 0 : 30;
+      for (let x = -360 + off; x < 360; x += 60) gi += riga(x, y - 22, x, y, r, 0.3, 0) + ' ';
+    }
+    s += inchiostro(gi.trim(), 0.6, 0.35);
+    // Finestre alte ad arco, con i vetri chiari e il riflesso.
+    let fin = '', finC = '', rif = '';
+    for (let i = 0; i < 8; i++) {
+      const x = -315 + i * 90;
+      if (Math.abs(x) < 50) continue;
+      fin += arco(x, 34, 214, 330) + ' ';
+      finC += linea([[x - 17, 330], [x - 17, 231]], r, 0.3) + ' ' + linea(puntiArco(x, 231, 17, 17, Math.PI, 2 * Math.PI, 8), r, 0.3, 8) + ' ' + linea([[x + 17, 231], [x + 17, 330]], r, 0.3) + ' ' + riga(x, 218, x, 330, r, 0.2, 0) + ' ' + riga(x - 17, 280, x + 17, 280, r, 0.2, 0) + ' ';
+      rif += riga(x - 10, 300, x - 2, 248, r, 0.3, 0) + ' ';
+    }
+    s += tinta(fin.trim(), C.sky, 0.95) + inchiostro(finC.trim(), 1.1) + luce(rif.trim(), 1.6, 0.9);
+    // Portale centrale.
+    s += tinta(arco(0, 60, 266, 372), C.cDark);
+    s += inchiostro(linea([[-30, 372], [-30, 296]], r, 0.3) + ' ' + linea(puntiArco(0, 296, 30, 30, Math.PI, 2 * Math.PI, 10), r, 0.3, 10) + ' ' + linea([[30, 296], [30, 372]], r, 0.3), 1.4);
+    // Paraste chiare.
+    let par = '';
+    for (const x of [-360, -270, -180, -90, 90, 180, 270, 352]) par += macchia(x, 176, 8, 196, r, 0.3) + ' ';
+    s += tinta(par.trim(), C.bg, 0.75);
+    s += inchiostro(riga(-368, 172, 368, 172, r, 0.8, 5) + ' ' + riga(-364, 164, 364, 164, r, 0.6, 4) + ' ' + bordo(-360, 172, 720, 200, r, 0.8, 4) + ' ' + bordo(-392, 372, 784, 28, r, 0.6, 3), 1.5);
+    // Balaustra.
+    let bal = '';
+    for (let x = -356; x <= 356; x += 16) bal += riga(x, 146, x, 164, r, 0.2, 0) + ' ';
+    s += inchiostro(bal.trim() + ' ' + riga(-364, 146, 364, 146, r, 0.5, 3), 1.2);
+    // Frontone e due vasi d'angolo.
+    const fr = [[-130, 146], [0, 98], [130, 146]];
+    s += tinta(macchiaP(fr, r, 1), C.cLight) + grana(macchiaP(fr, r, 0), 0.7);
+    s += inchiostro(linea([[-136, 147], [0, 96], [136, 147]], r, 0.5, 20) + ' ' + riga(-136, 147, 136, 147, r, 0.4, 2), 1.4);
+    s += luce(riga(-90, 136, -20, 112, r, 0.3, 0) + ' ' + riga(-300, 360, -200, 190, r, 0.3, 0) + ' ' + riga(220, 360, 300, 200, r, 0.3, 0), 1.6, 0.7);
+    for (const x of [-350, 350]) {
+      s += tinta(macchiaP([[x - 12, 146], [x + 12, 146], [x + 8, 128], [x + 14, 116], [x - 14, 116], [x - 8, 128]], r, 0.5), C.cLight);
+      s += inchiostro(linea([[x - 12, 146], [x - 8, 128], [x - 14, 116], [x + 14, 116], [x + 8, 128], [x + 12, 146]], r, 0.3, 8), 1.1);
+    }
+    s += inchiostro(riga(-420, 400, 420, 400, r, 0.6, 5), 1.3);
+  } else if (id === 'cannone_ghiaccio') {
+    const r = rng(2202);
+    // Affusto e ruota di ghiaccio, canna inclinata.
+    s += tinta(macchiaP([[-34, 384], [26, 384], [30, 396], [-38, 396]], r, 0.6), C.cMid);
+    const canna = 'M -40 372 L 42 352 L 46 366 L -36 386 Z';
+    s += tinta(canna, C.cLight) + grana(canna, 0.7);
+    s += inchiostro(linea([[-40, 372], [42, 352], [46, 366], [-36, 386], [-40, 372]], r, 0.4, 12), 1.3);
+    s += tinta(ovale(-14, 386, 14, 14), C.cLight) + inchiostro(linea(puntiArco(-14, 386, 14, 14, 0, 2 * Math.PI, 16), r, 0.3, 6), 1.3);
+    s += tinta(ovale(-14, 386, 3, 3), C.cDark);
+    s += luce(riga(-24, 372, 30, 359, r, 0.2, 0), 1.4, 0.9);
+    s += inchiostro(riga(-50, 400, 52, 400, r, 0.4, 2), 1.2);
+  } else if (id === 'elefante_gabbia') {
+    s += elefante(rng(2303), false);
+    s += inchiostro(riga(-110, 400, 150, 400, rng(2304), 0.4, 3), 1.2);
+  } else if (id === 'elefante_gemme') {
+    s += elefante(rng(2303), true);
+    s += inchiostro(riga(-110, 400, 150, 400, rng(2404), 0.4, 3), 1.2);
+  } else if (id === 'residenza_legno') {
+    const r = rng(2505);
+    // Corpo di tronchi, tetto, avancorpo centrale con torretta.
+    s += tinta(macchia(-370, 232, 740, 156, r, 1.6), C.sand, 0.85) + grana(macchia(-370, 232, 740, 156, r, 0), 0.9);
+    let tr = '';
+    for (let y = 242; y < 388; y += 10) tr += riga(-370, y, 370, y, r, 0.5, 0) + ' ';
+    s += inchiostro(tr.trim(), 0.6, 0.4);
+    s += tinta(macchiaP([[-388, 232], [-344, 196], [344, 196], [388, 232]], r, 1), C.cDark);
+    s += inchiostro(linea([[-388, 232], [-344, 196], [344, 196], [388, 232]], r, 0.6, 24) + ' ' + riga(-388, 232, 388, 232, r, 0.6, 4), 1.4);
+    s += tinta(macchia(-92, 186, 184, 202, r, 1.2), C.p2) + grana(macchia(-92, 186, 184, 202, r, 0), 0.8);
+    s += tinta(macchiaP([[-102, 186], [0, 150], [102, 186]], r, 0.8), C.cDark);
+    s += tinta(macchia(-26, 112, 52, 40, r, 0.6), C.p2);
+    s += tinta(ovale(0, 108, 22, 16), C.cMid);
+    s += inchiostro(riga(0, 92, 0, 70, r, 0.2, 0), 1.4) + tinta(ovale(0, 84, 5, 7), C.cMid);
+    s += inchiostro(bordo(-92, 186, 184, 202, r, 0.6, 3) + ' ' + linea([[-102, 186], [0, 150], [102, 186]], r, 0.4, 16) + ' ' + bordo(-26, 112, 52, 40, r, 0.4, 2) + ' ' + linea(puntiArco(0, 108, 22, 16, Math.PI, 2 * Math.PI, 10), r, 0.3, 8), 1.3);
+    // Finestre su due piani, cornici chiare.
+    let fin = '', cor = '';
+    for (let x = -350; x < 350; x += 52) {
+      if (Math.abs(x + 13) < 110) continue;
+      fin += macchia(x, 252, 26, 34, r, 0.4) + ' ' + macchia(x, 318, 26, 40, r, 0.4) + ' ';
+      cor += riga(x - 4, 248, x + 30, 248, r, 0.3, 1) + ' ' + riga(x - 4, 314, x + 30, 314, r, 0.3, 1) + ' ';
+    }
+    for (const x of [-60, 34]) fin += macchia(x, 210, 26, 40, r, 0.4) + ' ';
+    s += tinta(fin.trim(), C.cLight) + inchiostro(cor.trim(), 1.1);
+    s += tinta(arco(0, 44, 300, 388), C.ink);
+    // Paraste dipinte, segno del barocco di legno.
+    let par = '';
+    for (const x of [-370, -100, 92, 362]) par += macchia(x, 236, 8, 152, r, 0.3) + ' ';
+    s += tinta(par.trim(), C.bg, 0.8);
+    s += inchiostro(bordo(-370, 232, 740, 156, r, 0.8, 4) + ' ' + riga(-370, 300, 370, 300, r, 0.5, 3), 1.4);
+    s += inchiostro(riga(-410, 400, 410, 400, r, 0.6, 5), 1.3);
+  } else if (id === 'cumulo_neve') {
+    const r = rng(2606);
+    const pts = [[-430, 400]];
+    for (let x = -430; x <= 430; x += 40) pts.push([x, 368 + Math.round(r() * 14)]);
+    pts.push([430, 400]);
+    s += tinta(macchiaP(pts, r, 0.8), C.bg) + grana(macchiaP(pts, r, 0), 0.5);
+    s += inchiostro(linea(pts.slice(1, -1), r, 0.6, 20), 1.3);
+    let om = '';
+    for (let x = -410; x < 410; x += 60) om += riga(x, 388, x + 34, 384, r, 0.3, 0) + ' ';
+    s += `<path d="${om.trim()}" fill="none" stroke="${C.cMid}" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>`;
+  }
+  return s;
+}
+
+// AVVIO
+(function () {
+  const griglia = document.getElementById('griglia');
+  const defs = `<defs>${getDefs()}</defs>`;
+  CORTE.forEach(v => {
+    const fig = document.createElement('figure');
+    fig.innerHTML = `<svg viewBox="-460 40 920 380">${defs}${drawCorte(v.id)}</svg><figcaption>${v.label}</figcaption>`;
+    griglia.appendChild(fig);
+  });
+})();
+</script>
+</body>
+</html>

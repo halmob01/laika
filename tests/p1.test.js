@@ -52,15 +52,15 @@ test('progress reuses replay, preserves saves byte for byte and distinguishes ne
 test('LAIKA assembly is deterministic, validated and projects editorial metadata out',()=>{
  const first=buildLaika(undefined,{write:false});assert.equal(buildLaika(undefined,{write:false}),first);
  assert.equal(first,fs.readFileSync(new URL('../games/laika/game.json',import.meta.url),'utf8'));
- assert.ok(!first.includes('editorial'));assert.equal(validatePack(JSON.parse(first)).acts.length,2);
+ assert.ok(!first.includes('editorial'));assert.equal(validatePack(JSON.parse(first)).acts.length,1);
 });
 test('LAIKA build rejects missing references, duplicate IDs, unresolved questions and invalid schema before writing',()=>{
  const mutations=[
-  dir=>{const p=path.join(dir,'source/acts/atto-0.json');fs.unlinkSync(p);},
-  dir=>{const p=path.join(dir,'source/acts/atto-0.json');const a=JSON.parse(fs.readFileSync(p));a.episodes.push(a.episodes[0]);fs.writeFileSync(p,JSON.stringify(a));},
-  dir=>{const p=path.join(dir,'source/acts/atto-0.json');const a=JSON.parse(fs.readFileSync(p));a.episodes[0].type='assessment';a.episodes[0].questionRef='missing';fs.writeFileSync(p,JSON.stringify(a));},
-  dir=>{const p=path.join(dir,'source/acts/atto-0.json');const a=JSON.parse(fs.readFileSync(p));a.episodes[0].roleId='missing';fs.writeFileSync(p,JSON.stringify(a));},
-  dir=>{const p=path.join(dir,'questions/atto-0.json');fs.writeFileSync(p,JSON.stringify([{id:'duplicate'},{id:'duplicate'}]));}
+  dir=>{const p=path.join(dir,'source/acts/atto-1.json');fs.unlinkSync(p);},
+  dir=>{const p=path.join(dir,'source/acts/atto-1.json');const a=JSON.parse(fs.readFileSync(p));a.episodes.push(a.episodes[0]);fs.writeFileSync(p,JSON.stringify(a));},
+  dir=>{const p=path.join(dir,'source/acts/atto-1.json');const a=JSON.parse(fs.readFileSync(p));a.episodes[0].type='assessment';a.episodes[0].questionRef='missing';fs.writeFileSync(p,JSON.stringify(a));},
+  dir=>{const p=path.join(dir,'source/acts/atto-1.json');const a=JSON.parse(fs.readFileSync(p));a.episodes[0].roleId='missing';fs.writeFileSync(p,JSON.stringify(a));},
+  dir=>{const p=path.join(dir,'questions/atto-1.json');fs.writeFileSync(p,JSON.stringify([{id:'duplicate'},{id:'duplicate'}]));}
  ];
  for(const mutate of mutations){
   const dir=fs.mkdtempSync(path.join(os.tmpdir(),'laika-build-'));
@@ -74,15 +74,15 @@ test('LAIKA resolves external stage/symbol/question data and keeps nested editor
  const write=(p,v)=>fs.writeFileSync(path.join(dir,p),JSON.stringify(v));
  try{
   fs.cpSync(new URL('../games/laika/',import.meta.url),dir,{recursive:true});
-  const course=read('course.json');course.exposureFlags=['seen'];course.stages=['source/stages/test.json'];write('course.json',course);
-  const act=read('source/acts/atto-0.json');act.roles[0].editorial={note:'PRIVATE_ROLE'};
-  act.episodes[0].exposes=['seen'];act.episodes[0].stageId='test';
-  act.episodes.push({id:'test-question',type:'assessment',title:'Test',text:'Test',roleId:'reader',questionRef:'question'});write('source/acts/atto-0.json',act);
-  write('questions/atto-0.json',[{id:'question',prompt:'Test?',rationale:'Explanation',source:'Runtime provenance',objectives:['Test'],requiredExposureFlags:['seen'],correctId:'a',options:[{id:'a',label:'A',editorial:{note:'PRIVATE_OPTION'}},{id:'b',label:'B'}],editorial:{note:'PRIVATE_QUESTION'}}]);
+  const course=read('course.json');course.exposureFlags=[...course.exposureFlags,'seen'];course.stages=['source/stages/test.json'];write('course.json',course);
+  const act=read('source/acts/atto-1.json');act.roles[0].editorial={note:'PRIVATE_ROLE'};
+  act.episodes[0].exposes=[...act.episodes[0].exposes,'seen'];act.episodes[0].stageId='test';delete act.episodes[0].motionId;
+  act.episodes.push({id:'test-question',type:'assessment',title:'Test',text:'Test',roleId:act.roles[0].id,questionRef:'question'});write('source/acts/atto-1.json',act);
+  write('questions/atto-1.json',[...read('questions/atto-1.json'),{id:'question',prompt:'Test?',rationale:'Explanation',source:'Runtime provenance',objectives:['Test'],requiredExposureFlags:['seen'],correctId:'a',options:[{id:'a',label:'A',editorial:{note:'PRIVATE_OPTION'}},{id:'b',label:'B'}],editorial:{note:'PRIVATE_QUESTION'}}]);
   write('assets/symbols.json',[{id:'symbol',editorial:{note:'PRIVATE_SYMBOL'},layers:[{id:'shape',tag:'rect',attrs:{width:20,height:20},editorial:{note:'PRIVATE_LAYER'}}]}]);
   write('source/stages/test.json',{id:'test',label:'Test',duration:0,components:[{id:'instance',symbol:'symbol'}],editorial:{note:'PRIVATE_STAGE'}});
   const output=buildLaika(dir,{write:false}),game=validatePack(JSON.parse(output));
-  assert.equal(output.includes('PRIVATE_'),false);assert.equal(game.acts[0].episodes[1].question.source,'Runtime provenance');assert.equal(game.stages[0].layers.length,2);
+  assert.equal(output.includes('PRIVATE_'),false);assert.equal(game.acts[0].episodes.find(e=>e.id==='test-question').question.source,'Runtime provenance');assert.equal(game.stages[0].layers.length,2);
   const stage=read('source/stages/test.json');stage.components[0].symbol='missing';write('source/stages/test.json',stage);assert.throws(()=>buildLaika(dir),/Simbolo sconosciuto/);
  }finally{fs.rmSync(dir,{recursive:true,force:true});}
 });

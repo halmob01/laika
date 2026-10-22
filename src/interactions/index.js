@@ -33,7 +33,7 @@ registerInteraction('source_comparison',ctx=>{
     host.append(button(s.title+(viewed?' · letta':''),()=>dispatch({type:'inspect_source',sourceId:s.id}),{'data-source':s.id,'aria-expanded':String(viewed)}));
     if(viewed){const article=el('article',undefined,{class:'source'});article.append(el('p',s.text),el('small',s.provenance));host.append(article);}}
   if(episode.sources.every(s=>state.viewedSources.includes(episode.id+':'+s.id)))choices(ctx);
-  else host.append(el('p','Apri entrambe le fonti per confrontarle.'));
+  else host.append(el('p','Apri tutte le fonti per confrontarle.'));
 });
 registerInteraction('assessment',({host,episode,seed,dispatch})=>{
   host.append(el('h2',episode.question.prompt));

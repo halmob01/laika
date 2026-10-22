@@ -1,0 +1,370 @@
+{
+  "id": "a1-u1-feste",
+  "etichetta": "In alto, sulla riva gelata, le feste della corte: una residenza di legno che sprofonda nella neve, il palazzo di ghiaccio con l'elefante e la gabbia, una sala dove si scopre un elefante di gemme. In basso, nella stessa inquadratura, il villaggio dove si zappa.",
+  "viewBox": [
+    0,
+    0,
+    1920,
+    1080
+  ],
+  "camera": [
+    0,
+    0,
+    1920,
+    1080
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "elementi": [
+    {
+      "id": "riva",
+      "simbolo": "luogo-riva",
+      "x": 960,
+      "y": 600,
+      "scala": 1.1
+    },
+    {
+      "id": "residenza",
+      "simbolo": "corte-residenza-legno",
+      "x": 330,
+      "y": 585,
+      "scala": 0.55
+    },
+    {
+      "id": "neve-residenza",
+      "simbolo": "corte-cumulo-neve",
+      "x": 330,
+      "y": 560,
+      "scala": 0.6,
+      "davanti": true
+    },
+    {
+      "id": "palazzo-ghiaccio",
+      "simbolo": "corte-palazzo-ghiaccio",
+      "x": 930,
+      "y": 540,
+      "scala": 0.55
+    },
+    {
+      "id": "cannone",
+      "simbolo": "corte-cannone-ghiaccio",
+      "x": 700,
+      "y": 540,
+      "scala": 0.6
+    },
+    {
+      "id": "elefante",
+      "simbolo": "corte-elefante-gabbia",
+      "x": 1200,
+      "y": 540,
+      "scala": 0.5
+    },
+    {
+      "id": "sala",
+      "simbolo": "ambiente-sala",
+      "x": 1640,
+      "y": 540,
+      "scala": 0.42
+    },
+    {
+      "id": "elefante-gemme",
+      "simbolo": "corte-elefante-gemme",
+      "x": 1640,
+      "y": 535,
+      "scala": 0.42
+    },
+    {
+      "id": "nevicata",
+      "simbolo": "atmo-neve",
+      "x": 930,
+      "y": 380,
+      "scala": 1.3
+    },
+    {
+      "id": "foschia",
+      "simbolo": "atmo-foschia",
+      "x": 960,
+      "y": 690,
+      "scala": 0.9
+    },
+    {
+      "id": "campi",
+      "simbolo": "luogo-pianura",
+      "x": 960,
+      "y": 1080,
+      "scala": 3.4
+    },
+    {
+      "id": "chiesa",
+      "simbolo": "luogo-chiesa",
+      "x": 420,
+      "y": 735,
+      "scala": 0.55
+    },
+    {
+      "id": "villaggio",
+      "simbolo": "luogo-isbe",
+      "x": 980,
+      "y": 736,
+      "scala": 0.7
+    },
+    {
+      "id": "tenuta",
+      "simbolo": "luogo-tenuta",
+      "x": 1520,
+      "y": 735,
+      "scala": 0.6
+    }
+  ],
+  "figure": [
+    {
+      "id": "dama-1",
+      "x": 820,
+      "y": 540,
+      "scala": 0.38,
+      "variante": "vestito",
+      "posa": "gira"
+    },
+    {
+      "id": "cortigiano-1",
+      "x": 870,
+      "y": 540,
+      "scala": 0.38,
+      "variante": "mantello",
+      "posa": "saluta",
+      "cappello": null,
+      "flip": true
+    },
+    {
+      "id": "cortigiano-2",
+      "x": 1520,
+      "y": 535,
+      "scala": 0.36,
+      "variante": "mantello",
+      "posa": "indica",
+      "cappello": null
+    },
+    {
+      "id": "dama-2",
+      "x": 1570,
+      "y": 535,
+      "scala": 0.36,
+      "variante": "vestito",
+      "posa": "in_piedi"
+    },
+    {
+      "id": "servitore-1",
+      "x": 250,
+      "y": 560,
+      "scala": 0.36,
+      "variante": "nessuna",
+      "posa": "braccia_alzate",
+      "abito": "cappotto",
+      "cappello": null
+    },
+    {
+      "id": "servitore-2",
+      "x": 420,
+      "y": 560,
+      "scala": 0.36,
+      "variante": "nessuna",
+      "posa": "corre",
+      "flip": true,
+      "abito": "cappotto",
+      "cappello": null
+    },
+    {
+      "id": "zappa-1",
+      "x": 560,
+      "y": 900,
+      "scala": 0.5,
+      "variante": "nessuna",
+      "posa": "zappa",
+      "abito": "cappotto",
+      "cappello": null
+    },
+    {
+      "id": "zappa-2",
+      "x": 760,
+      "y": 940,
+      "scala": 0.55,
+      "variante": "scialle",
+      "posa": "zappa",
+      "flip": true
+    },
+    {
+      "id": "zappa-3",
+      "x": 1180,
+      "y": 920,
+      "scala": 0.52,
+      "variante": "nessuna",
+      "posa": "zappa",
+      "abito": "cappotto",
+      "cappello": null
+    },
+    {
+      "id": "zappa-4",
+      "x": 1400,
+      "y": 960,
+      "scala": 0.58,
+      "variante": "scialle",
+      "posa": "zappa"
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "Lassù una festa per regno; quaggiù, ogni volta, lo stesso villaggio.",
+      "passi": [
+        {
+          "azione": "camera",
+          "inquadrature": [
+            [
+              0,
+              280,
+              720,
+              405
+            ],
+            [
+              0,
+              640,
+              720,
+              405
+            ],
+            [
+              600,
+              260,
+              760,
+              428
+            ],
+            [
+              500,
+              650,
+              760,
+              428
+            ],
+            [
+              1300,
+              300,
+              640,
+              360
+            ],
+            [
+              1100,
+              680,
+              640,
+              360
+            ],
+            [
+              0,
+              0,
+              1920,
+              1080
+            ]
+          ],
+          "tempi": [
+            0,
+            0.15,
+            0.3,
+            0.46,
+            0.6,
+            0.76,
+            1
+          ],
+          "a": 0,
+          "durata": 12000
+        },
+        {
+          "azione": "transfer",
+          "chi": "residenza",
+          "da": [
+            330,
+            545
+          ],
+          "arco": 0,
+          "a": 200,
+          "durata": 1500
+        },
+        {
+          "azione": "walk",
+          "chi": [
+            "servitore-1",
+            "servitore-2"
+          ],
+          "da": "destra",
+          "distanza": 60,
+          "a": 200,
+          "durata": 1400
+        },
+        {
+          "azione": "transfer",
+          "chi": "elefante",
+          "da": [
+            1500,
+            540
+          ],
+          "arco": 0,
+          "a": 3400,
+          "durata": 2200
+        },
+        {
+          "azione": "reveal",
+          "chi": "elefante-gemme",
+          "modo": "cresce",
+          "a": 7000,
+          "durata": 900
+        },
+        {
+          "azione": "speak",
+          "chi": "cortigiano-2",
+          "cicli": 2,
+          "a": 7200,
+          "durata": 1600
+        },
+        {
+          "azione": "repeat",
+          "chi": [
+            "zappa-1",
+            "zappa-2",
+            "zappa-3",
+            "zappa-4"
+          ],
+          "parti": {
+            "arm-near": -20,
+            "arm-far": -20
+          },
+          "a": 0,
+          "durata": 1400,
+          "cicli": 8
+        }
+      ],
+      "battute": [
+        {
+          "a": 200,
+          "testo": "Anni Quaranta: la residenza di legno sprofonda."
+        },
+        {
+          "a": 1800,
+          "testo": "Nel villaggio si zappa."
+        },
+        {
+          "a": 3400,
+          "testo": "1740: il palazzo di ghiaccio sulla Neva."
+        },
+        {
+          "a": 5500,
+          "testo": "Nel villaggio si zappa."
+        },
+        {
+          "a": 7000,
+          "testo": "1791: l'elefante di gemme."
+        },
+        {
+          "a": 9100,
+          "testo": "Nel villaggio si zappa."
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

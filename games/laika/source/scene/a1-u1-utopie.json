@@ -1,0 +1,270 @@
+{
+  "id": "a1-u1-utopie",
+  "etichetta": "Due villaggi ideali, uno accanto all'altro. A sinistra una carovana cammina verso un villaggio lontano che svanisce nella foschia. A destra file di case identiche e allineate, coloni in uniforme azzurra in fila e un ufficiale con un registro.",
+  "viewBox": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "elementi": [
+    {
+      "id": "campi",
+      "simbolo": "luogo-pianura",
+      "x": 800,
+      "y": 900,
+      "scala": 2.9
+    },
+    {
+      "id": "miraggio",
+      "simbolo": "luogo-isbe",
+      "x": 330,
+      "y": 606,
+      "scala": 0.4
+    },
+    {
+      "id": "velo",
+      "simbolo": "atmo-foschia",
+      "x": 420,
+      "y": 612,
+      "scala": 0.7
+    },
+    {
+      "id": "betulle",
+      "simbolo": "luogo-betulle",
+      "x": 120,
+      "y": 612,
+      "scala": 0.8
+    },
+    {
+      "id": "colonia-0-0",
+      "simbolo": "luogo-isbe",
+      "x": 1060,
+      "y": 560,
+      "scala": 0.42
+    },
+    {
+      "id": "colonia-0-1",
+      "simbolo": "luogo-isbe",
+      "x": 1260,
+      "y": 560,
+      "scala": 0.42
+    },
+    {
+      "id": "colonia-0-2",
+      "simbolo": "luogo-isbe",
+      "x": 1460,
+      "y": 560,
+      "scala": 0.42
+    },
+    {
+      "id": "colonia-1-0",
+      "simbolo": "luogo-isbe",
+      "x": 1060,
+      "y": 610,
+      "scala": 0.42
+    },
+    {
+      "id": "colonia-1-1",
+      "simbolo": "luogo-isbe",
+      "x": 1260,
+      "y": 610,
+      "scala": 0.42
+    },
+    {
+      "id": "colonia-1-2",
+      "simbolo": "luogo-isbe",
+      "x": 1460,
+      "y": 610,
+      "scala": 0.42
+    },
+    {
+      "id": "colonia-2-0",
+      "simbolo": "luogo-isbe",
+      "x": 1060,
+      "y": 660,
+      "scala": 0.42
+    },
+    {
+      "id": "colonia-2-1",
+      "simbolo": "luogo-isbe",
+      "x": 1260,
+      "y": 660,
+      "scala": 0.42
+    },
+    {
+      "id": "colonia-2-2",
+      "simbolo": "luogo-isbe",
+      "x": 1460,
+      "y": 660,
+      "scala": 0.42
+    }
+  ],
+  "figure": [
+    {
+      "id": "pellegrino-1",
+      "x": 470,
+      "y": 790,
+      "scala": 0.8,
+      "variante": "zaino",
+      "posa": "cammina_1",
+      "flip": true
+    },
+    {
+      "id": "pellegrina-1",
+      "x": 560,
+      "y": 800,
+      "scala": 0.8,
+      "variante": "scialle",
+      "posa": "cammina_2",
+      "flip": true
+    },
+    {
+      "id": "anziano",
+      "x": 650,
+      "y": 790,
+      "scala": 0.8,
+      "variante": "bastone",
+      "posa": "cammina_1",
+      "flip": true
+    },
+    {
+      "id": "pellegrino-2",
+      "x": 360,
+      "y": 770,
+      "scala": 0.7,
+      "variante": "zaino",
+      "posa": "cammina_2",
+      "flip": true
+    },
+    {
+      "id": "ufficiale",
+      "x": 1500,
+      "y": 800,
+      "scala": 0.95,
+      "variante": "nessuna",
+      "posa": "legge",
+      "ruolo": "esercito",
+      "abito": "mantello",
+      "cappello": null,
+      "flip": true
+    },
+    {
+      "gruppo": "coloni",
+      "formazione": {
+        "tipo": "fila",
+        "n": 6,
+        "passo": 62,
+        "x": 1200,
+        "y": 790,
+        "scala": 0.85,
+        "varianti": [
+          "nessuna"
+        ],
+        "pose": [
+          "in_piedi"
+        ],
+        "ruoli": [
+          "esercito"
+        ]
+      }
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "A sinistra si cerca un regno senza padroni, che svanisce. A destra un villaggio perfetto, progettato da chi comanda.",
+      "passi": [
+        {
+          "azione": "camera",
+          "inquadrature": [
+            [
+              0,
+              330,
+              1000,
+              563
+            ],
+            [
+              0,
+              330,
+              1000,
+              563
+            ],
+            [
+              600,
+              330,
+              1000,
+              563
+            ],
+            [
+              0,
+              0,
+              1600,
+              900
+            ]
+          ],
+          "tempi": [
+            0,
+            0.35,
+            0.65,
+            1
+          ],
+          "a": 0,
+          "durata": 10000
+        },
+        {
+          "azione": "walk",
+          "chi": [
+            "pellegrino-2",
+            "pellegrino-1",
+            "pellegrina-1",
+            "anziano"
+          ],
+          "da": "destra",
+          "distanza": 260,
+          "a": 0,
+          "durata": 3200,
+          "sfalsa": 200
+        },
+        {
+          "azione": "replace",
+          "esce": "miraggio",
+          "entra": "velo",
+          "a": 2600,
+          "durata": 1600
+        },
+        {
+          "azione": "march",
+          "chi": "coloni",
+          "da": [
+            0,
+            90
+          ],
+          "distanza": 90,
+          "a": 5600,
+          "durata": 2400,
+          "sfalsa": 80
+        }
+      ],
+      "battute": [
+        {
+          "a": 0,
+          "testo": "La carovana cerca il Regno delle Acque Bianche."
+        },
+        {
+          "a": 5600,
+          "testo": "Nelle colonie si ara e si marcia."
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

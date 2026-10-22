@@ -90,6 +90,8 @@ A ogni avvio: verificare branch e modifiche locali, leggere eventuali AGENTS.md 
 
 **Modello:** Claude Opus 5.5 o GPT-6.1 Sol high. **Dipendenze:** P1 e bottega (concluse); la bozza della home può partire con il gate P2 aperto.
 
+**Stato al 22 ottobre 2026:** gate P2 superato (tavola pose I.1 e kit `prototypes/kit-feste-di-corte/` approvati dall'utente). Azioni 3 e 4 svolte nel branch `feat/p3-unita-i1`: unità I.1 con nove episodi runtime (e1–e7, più i due esiti di e4), otto schede scena, V1, effetto differito e4 → e6, collegamento dalla home; evidenze in `docs/evidence/p3/`. Resta il gate utente sulla qualità complessiva.
+
 **Stato al 21 ottobre 2026:** azioni 1, 2 e 5 concluse per la home (PR #19). Restano le azioni 3 e 4 (unità I.1, ex A0.1, e collegamento scelta → scena) e la verifica finale da home a fine A0.1. Non modificare impaginazione e illustrazioni della home senza richiesta dell'utente: le regole sono in BRAND-DESIGN §5.
 
 **Leggere:** `AGENTS.md`, schede I.1-e1…e7 di PIANO-ATTI, brief home, prototipo home v2, `bottega/README.md`, sorgenti del pack e adattatore progressi. Non copiare il JS del catalogo come runtime.

@@ -1,37 +1,466 @@
 {
   "id": "atto-1",
-  "title": "Atto I — struttura interna",
+  "title": "Atto I — La terra e lo zar",
   "actors": [
     {
-      "id": "learner"
+      "id": "famiglia"
+    },
+    {
+      "id": "corte"
     }
   ],
   "roles": [
     {
-      "id": "reader",
-      "label": "Lettore",
-      "actorId": "learner",
-      "mandate": "Valutare le informazioni disponibili prima di agire."
+      "id": "antenati",
+      "label": "La famiglia",
+      "actorId": "famiglia",
+      "mandate": "Far durare il raccolto fino al prossimo, sotto un padrone."
+    },
+    {
+      "id": "osservatore",
+      "label": "Un osservatore della corte",
+      "actorId": "corte",
+      "mandate": "Guardare da vicino la corte e ricordare che cosa succede intanto nei villaggi."
     }
   ],
-  "metrics": [],
-  "resources": [],
+  "metrics": [
+    {
+      "id": "tensione",
+      "label": "Tensione nel villaggio (indice della simulazione)",
+      "min": 0,
+      "max": 100,
+      "start": 30
+    },
+    {
+      "id": "attrezzi",
+      "label": "Attrezzi riparati",
+      "min": 0,
+      "max": 10,
+      "start": 0,
+      "hidden": true
+    }
+  ],
+  "resources": [
+    {
+      "id": "sussistenza",
+      "label": "Sussistenza della famiglia (indice della simulazione)",
+      "min": 0,
+      "max": 100,
+      "start": 50
+    }
+  ],
   "relations": [],
   "flags": [],
   "episodes": [
     {
-      "id": "atto-1-prova",
+      "id": "a1-u1-e1",
       "type": "narrative",
-      "roleId": "reader",
-      "title": "Prova tecnica — contenuto non didattico",
-      "text": "Questo scheletro verifica caricamento, progressione e salvataggio. Non contiene una lezione né rappresenta un atto storico completato.",
+      "roleId": "antenati",
+      "title": "Le anime",
       "context": {
-        "kind": "simulation"
+        "kind": "documented",
+        "dateLabel": "1700–1800",
+        "placeLabel": "Russia europea"
       },
+      "text": "Nel registro di una tenuta il villaggio non ha nomi. Ha un numero.\n\nLa ricchezza di un nobile russo non si misura in campi ma in «anime». Si contano soltanto i maschi: le donne valgono meno, e nei conti non entrano. Dal tempo dell'imperatrice Elisabetta, a metà del Settecento, il padrone può comprare e vendere i suoi servi, e mandarli in Siberia per «insolenza» senza chiedere il permesso a nessuno.\n\nLe anime si regalano. Nel 1700 il nobile più ricco di Russia ne possiede trentatremila; vent'anni dopo il principe Menšikov, favorito di Pietro il Grande e poi di sua moglie Caterina I, arriva a trecentomila. Nel 1777 Caterina II congeda un favorito, Zorič, con una tenuta di settemila anime. Un villaggio intero cambia padrone per un dono, e chi ci vive continua a zappare lo stesso campo.\n\nIn uno di questi villaggi vive la famiglia che seguirai fino al 1861: il padre, la madre, il nonno, un figlio. È inventata. Il mondo intorno a lei no.",
+      "stageId": "a1-u1-anime",
+      "motionId": "ingresso",
+      "exposes": [
+        "a1-anime"
+      ],
+      "visualExplanation": "Sopra le isbe compaiono cartellini senza nomi; poi il villaggio passa da una tenuta all'altra. In primo piano la famiglia (il figlio è in rosso) e l'amministratore con il registro. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
       "editorial": {
-        "status": "placeholder"
+        "sources": [
+          "I1-01",
+          "I1-02",
+          "I1-03",
+          "I1-05"
+        ],
+        "scheda": "I.1-e1"
       }
+    },
+    {
+      "id": "a1-u1-e2",
+      "type": "narrative",
+      "roleId": "osservatore",
+      "title": "Una festa per regno",
+      "context": {
+        "kind": "documented",
+        "dateLabel": "1690–1791",
+        "placeLabel": "Mosca e San Pietroburgo"
+      },
+      "text": "Lassù il potere è una festa, e ogni regno ne inventa una più lontana dalla terra.\n\nAnni Novanta del Seicento. Alle cene di Pietro il Grande un finto papa benedice gli ospiti in ginocchio con due pipe olandesi al posto della croce.\n\nInverno 1740. L'imperatrice Anna decide di sposare per scherzo il suo buffone, il principe Golicyn, con una serva calmucca. Gli sposi arrivano chiusi in una gabbia sul dorso di un elefante. Sulla Neva gelata li aspetta un palazzo di ghiaccio alto una decina di metri, con cannoni di ghiaccio che sparano davvero. Dentro c'è un letto di ghiaccio, senza coperte. I due passano lì la notte, sorvegliati dai soldati, e sopravvivono.\n\nAnni Quaranta. L'imperatrice Elisabetta lascerà quindicimila abiti, ma i suoi palazzi hanno così pochi mobili che a ogni trasloco della corte li si porta da una residenza all'altra. Sono costruiti in fretta: una residenza di legno comincia a sprofondare mentre dentro ci sono i granduchi. Loro si salvano a stento; sedici servitori muoiono.\n\n1791. Alla festa di Potëmkin, davanti a tremila invitati, si scopre un elefante coperto di gemme: il cavaliere suona una campana e dietro si apre un teatro intero.\n\nIntanto, nei villaggi, le anime pagano le tasse dello zar e danno i soldati all'esercito. A corte si racconta che Potëmkin, per il viaggio di Caterina in Crimea del 1787, abbia fatto dipingere finte facciate di villaggi. I testimoni diranno di no; gli storici ne discutono ancora. Ma la voce resta: da lassù, un villaggio può sembrare una scenografia.",
+      "stageId": "a1-u1-feste",
+      "motionId": "ingresso",
+      "exposes": [
+        "a1-feste"
+      ],
+      "visualExplanation": "In alto, sulla riva gelata: la residenza di legno che sprofonda, il palazzo di ghiaccio con l'elefante e la gabbia, la sala con l'elefante di gemme. In basso, dopo ogni festa, lo stesso villaggio. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
+      "editorial": {
+        "sources": [
+          "C01",
+          "C08–C09",
+          "C12",
+          "C13",
+          "C18",
+          "C20"
+        ],
+        "scheda": "I.1-e2",
+        "nota": "C21 escluso; pipe senza il contesto osceno."
+      }
+    },
+    {
+      "id": "a1-u1-e3",
+      "type": "source_comparison",
+      "roleId": "osservatore",
+      "title": "Tre inventari",
+      "context": {
+        "kind": "source",
+        "dateLabel": "1761–1842"
+      },
+      "text": "Tre fogli di epoche diverse, sullo stesso tavolo. Ognuno fa un conto. Aprili tutti e tre, poi decidi che cosa hanno in comune.",
+      "stageId": "a1-u1-inventari",
+      "motionId": "ingresso",
+      "exposes": [
+        "a1-inventari"
+      ],
+      "visualExplanation": "L'ufficio di una tenuta: l'amministratore legge, davanti a lui i tre fogli. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
+      "sources": [
+        {
+          "id": "doni",
+          "title": "I doni di Caterina II",
+          "text": "1762: ai fratelli Orlov, che l'hanno aiutata a prendere il trono, 800 anime e 24.000 rubli ciascuno. Dopo la pace con i Turchi: al maresciallo Rumjancev 5000 anime e 100.000 rubli. 1777: al favorito Zavadovskij tre o quattromila anime; nello stesso anno al favorito Zorič una tenuta con 7000 anime. 1796: al favorito Zubov 13.199 anime.",
+          "provenance": "Elenco compilato dalla redazione da S. S. Montefiore, I Romanov (edizione inglese, capitolo «The Golden Age»). Non è un documento dell'epoca."
+        },
+        {
+          "id": "guardaroba",
+          "title": "Il guardaroba di Elisabetta",
+          "text": "Alla morte dell'imperatrice, nel 1761, si contano quindicimila abiti, due bauli pieni di calze di seta, alcune migliaia di paia di scarpe e più di cento pezze di stoffa francese mai tagliate.",
+          "provenance": "Inventario alla morte dell'imperatrice riferito da S. S. Montefiore, I Romanov (edizione inglese, capitolo «Russian Venus»). Parafrasi."
+        },
+        {
+          "id": "gogol",
+          "title": "Le anime morte (romanzo, 1842)",
+          "text": "Il protagonista, Čičikov, gira le tenute di provincia e compra dai proprietari i servi morti dopo l'ultimo censimento. Per lo Stato, fino al censimento successivo, quei morti sono ancora vivi: sulla carta sono anime, e un'anima si può comprare, vendere, impegnare per avere un prestito.",
+          "provenance": "Letteratura: Nikolaj Gogol', Le anime morte, 1842. Riassunto della trama a cura della redazione. È un romanzo, non un documento."
+        }
+      ],
+      "choices": [
+        {
+          "id": "conti",
+          "label": "La ricchezza si conta in cose e in persone, e quello che conta è il registro",
+          "feedback": "I doni e il romanzo trattano le persone come voci di un conto: si regalano a migliaia e restano anime perfino da morte, finché il registro non cambia. Il guardaroba mostra che cosa si poteva accumulare dall'altra parte del conto.",
+          "effects": []
+        },
+        {
+          "id": "lusso",
+          "label": "I fogli mostrano soprattutto il lusso della corte, lontano dai villaggi",
+          "feedback": "Il lusso c'è, ma i doni di Caterina non sono lusso: sono villaggi interi che passano di mano. Il conto della corte e quello del villaggio sono lo stesso conto, visto da due lati.",
+          "effects": []
+        },
+        {
+          "id": "romanzo",
+          "label": "Contano solo i primi due: il romanzo è invenzione e non dice niente del passato",
+          "feedback": "Un romanzo non prova un fatto. Però i lettori del 1842 riconoscevano il meccanismo: le anime restavano sui registri fino al censimento. Documenti e letteratura si leggono insieme, sapendo che cosa sono.",
+          "effects": []
+        }
+      ],
+      "editorial": {
+        "sources": [
+          "I1-04",
+          "C12",
+          "I1-12"
+        ],
+        "scheda": "I.1-e3"
+      }
+    },
+    {
+      "id": "a1-u1-e4",
+      "type": "resource_allocation",
+      "roleId": "antenati",
+      "title": "L'anno della famiglia",
+      "context": {
+        "kind": "simulation",
+        "dateLabel": "anni Cinquanta dell'Ottocento",
+        "placeLabel": "un villaggio della Russia centrale"
+      },
+      "text": "La settimana ha sei giorni di lavoro. Una parte spetta al signore: è la corvée, il lavoro sui suoi campi. Il resto è per il campo della famiglia, che deve nutrire quattro persone fino al raccolto successivo, e per gli attrezzi e la casa.\n\nL'amministratore annota chi si presenta alla corvée. Il padre guarda il cielo: se piove, il fieno del signore e il proprio vanno tagliati nello stesso giorno.\n\nDividi i sei giorni.",
+      "stageId": "a1-u1-anno",
+      "motionId": "ingresso",
+      "resultMotionId": "raccolto",
+      "exposes": [
+        "a1-anno"
+      ],
+      "visualExplanation": "A sinistra il campo della famiglia, a destra quelli del signore con l'amministratore. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
+      "budget": 6,
+      "buckets": [
+        {
+          "id": "campo",
+          "label": "Giorni sul campo della famiglia",
+          "max": 6,
+          "perUnit": [
+            {
+              "kind": "resource",
+              "id": "sussistenza",
+              "delta": 5
+            }
+          ]
+        },
+        {
+          "id": "corvee",
+          "label": "Giorni di corvée per il signore",
+          "max": 6,
+          "perUnit": [
+            {
+              "kind": "metric",
+              "id": "tensione",
+              "delta": -4
+            }
+          ]
+        },
+        {
+          "id": "attrezzi",
+          "label": "Giorni per attrezzi e casa",
+          "max": 2,
+          "perUnit": [
+            {
+              "kind": "metric",
+              "id": "attrezzi",
+              "delta": 1
+            }
+          ]
+        }
+      ],
+      "effects": [
+        {
+          "kind": "resource",
+          "id": "sussistenza",
+          "delta": -15
+        },
+        {
+          "kind": "metric",
+          "id": "tensione",
+          "delta": 12
+        }
+      ],
+      "feedback": "Nel modello ogni giorno sul campo della famiglia mette da parte cibo per l'inverno; ogni giorno di corvée che manca rende più tesi i rapporti con l'amministratore. Il tempo dato agli attrezzi non si vede subito. Nessuna divisione è giusta: è il conto che ogni famiglia di servi faceva.",
+      "delayed": [
+        {
+          "id": "attrezzi-riscatto",
+          "episodeId": "a1-u1-e6",
+          "expiresAfterTurns": 2,
+          "onExit": "discard",
+          "when": {
+            "op": "gte",
+            "kind": "metric",
+            "id": "attrezzi",
+            "value": 1
+          },
+          "explanation": "Gli attrezzi riparati negli anni della corvée servono adesso: la famiglia lavora meglio il suo lotto e mette da parte qualcosa per la prima rata.",
+          "effects": [
+            {
+              "kind": "resource",
+              "id": "sussistenza",
+              "delta": 10
+            }
+          ]
+        }
+      ],
+      "branches": [
+        {
+          "when": {
+            "op": "gte",
+            "kind": "resource",
+            "id": "sussistenza",
+            "value": 55
+          },
+          "to": "a1-u1-e4-pieno"
+        }
+      ],
+      "next": "a1-u1-e4-magro",
+      "editorial": {
+        "scheda": "I.1-e4 (ex A0.1)",
+        "calibrazione": "campo 5/corvée 1 → sussistenza 60, tensione 38 (inverno pieno); campo 3/corvée 3 → 50, 30 (inverno magro); campo 3/corvée 2/attrezzi 1 → 50, 34, effetto differito +10 in e6; campo 4/attrezzi 2 → 55, 42 (pieno)."
+      }
+    },
+    {
+      "id": "a1-u1-e4-pieno",
+      "type": "narrative",
+      "roleId": "antenati",
+      "title": "Un inverno con il grano",
+      "context": {
+        "kind": "simulation",
+        "dateLabel": "l'inverno seguente",
+        "placeLabel": "il villaggio della famiglia"
+      },
+      "text": "La famiglia arriva a primavera senza vendere la mucca. Il nonno conta i sacchi due volte, per abitudine.\n\nMa nel registro dell'amministratore, accanto al nome del padre, ci sono i giorni che mancano alla corvée. Nel villaggio lo sanno tutti. Il padre ha tenuto per la sua famiglia un tempo che, secondo il registro, non era suo.",
+      "stageId": "a1-u1-inverno-pieno",
+      "motionId": "ingresso",
+      "next": "a1-u1-e5",
+      "visualExplanation": "Sacchi di grano accanto alla stufa, la famiglia riunita. È l'esito della tua divisione nella simulazione. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti."
+    },
+    {
+      "id": "a1-u1-e4-magro",
+      "type": "narrative",
+      "roleId": "antenati",
+      "title": "Un inverno magro",
+      "context": {
+        "kind": "simulation",
+        "dateLabel": "l'inverno seguente",
+        "placeLabel": "il villaggio della famiglia"
+      },
+      "text": "I campi del signore sono stati falciati per primi e con cura. Quelli della famiglia dopo, quando il tempo era già cambiato.\n\nA febbraio la farina è finita. Si mangia una volta al giorno; il nonno dice che si è sempre fatto così, e nessuno gli risponde. Nel registro dell'amministratore, accanto al nome del padre, non c'è niente da segnare.",
+      "stageId": "a1-u1-inverno-magro",
+      "motionId": "ingresso",
+      "visualExplanation": "Accanto alla stufa non c'è niente; la famiglia siede lontana. È l'esito della tua divisione nella simulazione. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti."
+    },
+    {
+      "id": "a1-u1-e5",
+      "type": "narrative",
+      "roleId": "antenati",
+      "title": "Due modi di sognare un mondo giusto",
+      "context": {
+        "kind": "documented",
+        "dateLabel": "1690–1898",
+        "placeLabel": "Russia"
+      },
+      "text": "Anche chi non possiede niente sogna un mondo giusto. I contadini lo dicono con due parole: pravda, che è insieme verità e giustizia, e volja, la libertà di andarsene da sotto il padrone e il poliziotto.\n\nQualcuno parte davvero. Negli anni Trenta e Quaranta dell'Ottocento intere comunità si mettono in cammino per cercare Belovod'e, il Regno delle Acque Bianche: una terra «oltre l'acqua» dove si va scalzi, si dividono i frutti della terra e non ci sono crimini né guerre. L'ultima spedizione conosciuta è del 1898: tre cosacchi degli Urali tornano e dicono che quella terra non esiste.\n\nAltri fanno circolare carte false. Nel 1861, nella provincia di Char'kov, girano «lettere d'oro» con la firma dello zar: tutta la terra ai contadini, e ai signori un pezzo di palude, da seminare e mietere con le proprie mani. Nel Nord, dal 1690 alla metà dell'Ottocento, la comunità dei Vecchi Credenti di Vyg tiene campi e lavoro in comune, con una disciplina severa.\n\nAnche dall'alto si sogna. Aleksej Arakčeev, uomo di fiducia degli zar Paolo e Alessandro I, costruisce nella sua tenuta di Gruzino un villaggio perfetto: file di case rosa tutte uguali, strade dritte e lastricate. Alessandro I lo visita e se ne innamora. Nascono le colonie militari: contadini in uniforme che arano e fanno esercitazioni, con casa, medico e scuola gratuiti. Nessuno possiede niente, e per ogni abitante c'è un registro delle punizioni. All'inizio degli anni Venti dell'Ottocento nelle colonie vivono circa 750.000 persone.",
+      "stageId": "a1-u1-utopie",
+      "motionId": "ingresso",
+      "exposes": [
+        "a1-utopie"
+      ],
+      "visualExplanation": "A sinistra la carovana verso un villaggio che svanisce nella foschia. A destra case in file identiche (la bottega non ha le case rosa di Gruzino: qui sono isbe), coloni in azzurro e un ufficiale con il registro. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
+      "editorial": {
+        "sources": [
+          "I1-07",
+          "I1-08",
+          "N001",
+          "N002",
+          "N003–N004"
+        ],
+        "scheda": "I.1-e5"
+      }
+    },
+    {
+      "id": "a1-u1-e6",
+      "type": "source_comparison",
+      "roleId": "antenati",
+      "title": "Il Manifesto del 1861",
+      "context": {
+        "kind": "source",
+        "dateLabel": "3 marzo 1861 (g. 19 febbraio)",
+        "placeLabel": "Russia"
+      },
+      "text": "Lo zar Alessandro II firma il Manifesto: ventidue milioni di servi diventano liberi. Poco dopo il prete lo legge in tutte le chiese, anche in quella del villaggio.\n\nI contadini aspettavano una parola, volja. Il foglio invece parla di rate e di lotti. Negli anni seguenti, nelle rivolte dei villaggi, si dice che la volja vera esista e che qualcuno la tenga nascosta: come una cosa avvolta nella carta, chiusa in una scatola.\n\nLa sera, sul tavolo della famiglia, ci sono tre fogli. Aprili tutti, poi decidi che cosa ha ricevuto la famiglia.",
+      "stageId": "a1-u1-manifesto",
+      "motionId": "ingresso",
+      "exposes": [
+        "a1-manifesto"
+      ],
+      "visualExplanation": "Il prete legge davanti alla chiesa e i contadini si raccolgono. Dopo la tua lettura, sui campi compaiono i cartellini delle rate. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
+      "sources": [
+        {
+          "id": "firma",
+          "title": "Nel palazzo: la firma",
+          "text": "Il granduca Konstantin, fratello dello zar, annota nel diario la scena: lo zar legge il testo ad alta voce, si fa il segno della croce e firma; Konstantin stesso versa la sabbia sull'inchiostro. Comincia un'epoca nuova, scrive, e aggiunge che c'era chi aveva previsto una rivoluzione. Allo zar la riforma sembrerà passata in perfetta calma.",
+          "provenance": "Diario del granduca Konstantin Nikolaevič e lettera di Alessandro II al principe Barjatinskij, riferiti da S. S. Montefiore, I Romanov (edizione inglese, capitolo «Liberator»). Parafrasi."
+        },
+        {
+          "id": "condizioni",
+          "title": "Le condizioni",
+          "text": "La libertà è della persona; la terra no. La famiglia riceve un lotto e lo deve riscattare a rate, pagando lo Stato: le rate durano quarantanove anni. Il lotto non è mai pari ai campi che la famiglia lavorava prima. Delle rate e delle tasse risponde tutta la comunità del villaggio, il mir: se una famiglia non paga, devono pagare gli altri.",
+          "provenance": "Sintesi degli statuti del 1861 da una scheda divulgativa (EBSCO Research Starters, «Emancipation of the Russian Serfs», consultata il 21 ottobre 2026). Da riscontrare su un manuale."
+        },
+        {
+          "id": "lettera",
+          "title": "Nel villaggio: una lettera d'oro",
+          "text": "Nello stesso 1861, nella provincia di Char'kov, contadini che si dicono inviati dello zar fanno girare una carta con la sua firma falsa. Dice che tutta la terra va a chi la lavora, anche quella dei signori. Ai signori resta un pezzo di palude magra: se vogliono mangiare, possono seminarla e mieterla con le loro mani.",
+          "provenance": "Falso dell'epoca riassunto da R. Stites, Revolutionary Dreams, Oxford University Press 1989, p. 16. Non è una legge: mostra che cosa alcuni contadini si aspettavano dallo zar."
+        }
+      ],
+      "choices": [
+        {
+          "id": "liberi-senza-terra",
+          "label": "La famiglia è libera, ma la terra deve pagarla, e per decenni",
+          "feedback": "Così è: la libertà della persona arriva subito, la terra no. I tre fogli lo dicono in modi diversi. Chi firma vede un'epoca nuova; le regole fissano rate e responsabilità comune; la lettera falsa immagina la terra senza riscatto. Nel modello arriva la prima rata.",
+          "effects": [
+            {
+              "kind": "resource",
+              "id": "sussistenza",
+              "delta": -10
+            },
+            {
+              "kind": "metric",
+              "id": "tensione",
+              "delta": 5
+            }
+          ],
+          "motionId": "rate"
+        },
+        {
+          "id": "tutto",
+          "label": "La famiglia ha avuto quello che chiedeva: la libertà e la terra",
+          "feedback": "Il diario del granduca parla di un'epoca nuova, ma le condizioni dicono altro: la terra si riscatta in quarantanove anni e il lotto è più piccolo dei campi di prima. La lettera d'oro mostra che i contadini chiedevano proprio la terra, senza pagarla. Nel modello arriva la prima rata.",
+          "effects": [
+            {
+              "kind": "resource",
+              "id": "sussistenza",
+              "delta": -10
+            },
+            {
+              "kind": "metric",
+              "id": "tensione",
+              "delta": 5
+            }
+          ],
+          "motionId": "rate"
+        },
+        {
+          "id": "niente",
+          "label": "Non è cambiato niente: la lettera falsa dice la verità che il Manifesto nasconde",
+          "feedback": "Qualcosa cambia davvero: nessuno può più vendere, regalare o mandare in Siberia la famiglia. Ma la lettera non è il vero Manifesto nascosto: è un falso, e dice che cosa i contadini speravano. Nel modello arriva la prima rata.",
+          "effects": [
+            {
+              "kind": "resource",
+              "id": "sussistenza",
+              "delta": -10
+            },
+            {
+              "kind": "metric",
+              "id": "tensione",
+              "delta": 5
+            }
+          ],
+          "motionId": "rate"
+        }
+      ],
+      "editorial": {
+        "sources": [
+          "I1-09",
+          "I1-10",
+          "N001"
+        ],
+        "scheda": "I.1-e6 (ex A0.2)",
+        "nota": "«Vera libertà nascosta»: Stites p. 18 (I1-11), parafrasi; la lettera d'oro (N001) è il documento che la rende concreta."
+      }
+    },
+    {
+      "id": "a1-u1-e7",
+      "type": "assessment",
+      "roleId": "antenati",
+      "title": "Che cosa cambia nel 1861",
+      "questionRef": "a1-v1",
+      "context": {
+        "kind": "assessment"
+      },
+      "text": "Una domanda sul Manifesto. Non valuta le scelte che hai fatto per la famiglia nella simulazione.",
+      "stageId": "a1-u1-manifesto"
     }
   ],
-  "reconciliation": "Solo verifica tecnica del passaggio tra atti; nessun confronto storico implementato."
+  "reconciliation": "Fine dell'unità I.1 (1700–1861). Per un secolo e mezzo la ricchezza si è contata in anime, e il tempo di un servo apparteneva in parte al signore. La libertà del 1861 è vera, ma arriva senza la terra: la terra si paga per quarantanove anni, e il villaggio risponde insieme dei debiti. Le tue scelte hanno cambiato soltanto la simulazione, non questi fatti. Le unità successive dell'Atto I (1861–1917) sono in preparazione: per ora il percorso si ferma qui.",
+  "editorial": {
+    "unita": "I.1",
+    "piano": "docs/PIANO-ATTI-LAIKA.md §7"
+  }
 }

@@ -1,0 +1,231 @@
+{
+  "id": "a1-u1-anno",
+  "etichetta": "Visti dall'alto, i campi a strisce: a sinistra quelli della famiglia, a destra quelli del signore con la casa padronale. La camera scende sulle figure: il padre e la madre zappano, il figlio porta l'acqua, il nonno guarda.",
+  "viewBox": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "elementi": [
+    {
+      "id": "campi",
+      "simbolo": "luogo-pianura",
+      "x": 800,
+      "y": 900,
+      "scala": 2.9
+    },
+    {
+      "id": "villaggio",
+      "simbolo": "luogo-isbe",
+      "x": 420,
+      "y": 610,
+      "scala": 0.7
+    },
+    {
+      "id": "tenuta",
+      "simbolo": "luogo-tenuta",
+      "x": 1250,
+      "y": 606,
+      "scala": 0.95
+    },
+    {
+      "id": "betulle",
+      "simbolo": "luogo-betulle",
+      "x": 800,
+      "y": 612,
+      "scala": 0.75
+    }
+  ],
+  "figure": [
+    {
+      "id": "padre",
+      "x": 420,
+      "y": 800,
+      "scala": 1.05,
+      "variante": "nessuna",
+      "posa": "zappa",
+      "abito": "cappotto",
+      "cappello": null
+    },
+    {
+      "id": "madre",
+      "x": 560,
+      "y": 820,
+      "scala": 1.05,
+      "variante": "scialle",
+      "posa": "zappa",
+      "flip": true
+    },
+    {
+      "id": "nonno",
+      "x": 300,
+      "y": 800,
+      "scala": 1.0,
+      "variante": "bastone",
+      "posa": "in_piedi"
+    },
+    {
+      "id": "figlio",
+      "x": 680,
+      "y": 840,
+      "scala": 0.8,
+      "variante": "bambino",
+      "posa": "cammina_1",
+      "ruolo": "protagonista",
+      "flip": true
+    },
+    {
+      "id": "corvee-1",
+      "x": 1050,
+      "y": 760,
+      "scala": 0.75,
+      "variante": "nessuna",
+      "posa": "zappa",
+      "abito": "cappotto",
+      "cappello": null
+    },
+    {
+      "id": "corvee-2",
+      "x": 1180,
+      "y": 770,
+      "scala": 0.75,
+      "variante": "scialle",
+      "posa": "zappa"
+    },
+    {
+      "id": "corvee-3",
+      "x": 1320,
+      "y": 760,
+      "scala": 0.75,
+      "variante": "nessuna",
+      "posa": "zappa",
+      "flip": true,
+      "abito": "cappotto",
+      "cappello": null
+    },
+    {
+      "id": "amministratore",
+      "x": 1460,
+      "y": 790,
+      "scala": 0.95,
+      "variante": "nessuna",
+      "posa": "legge",
+      "flip": true,
+      "abito": "cappotto",
+      "cappello": null
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "Lo stesso tempo per due campi: quello della famiglia e quello del signore.",
+      "passi": [
+        {
+          "azione": "camera",
+          "inquadrature": [
+            [
+              200,
+              520,
+              700,
+              394
+            ],
+            [
+              200,
+              520,
+              700,
+              394
+            ],
+            [
+              900,
+              500,
+              700,
+              394
+            ],
+            [
+              0,
+              0,
+              1600,
+              900
+            ]
+          ],
+          "tempi": [
+            0,
+            0.15,
+            0.55,
+            1
+          ],
+          "a": 0,
+          "durata": 8000
+        },
+        {
+          "azione": "repeat",
+          "chi": [
+            "padre",
+            "madre",
+            "corvee-1",
+            "corvee-2",
+            "corvee-3"
+          ],
+          "parti": {
+            "arm-near": -22,
+            "arm-far": -22
+          },
+          "a": 0,
+          "durata": 1300,
+          "cicli": 5
+        },
+        {
+          "azione": "walk",
+          "chi": "figlio",
+          "da": "destra",
+          "distanza": 160,
+          "a": 800,
+          "durata": 2600
+        }
+      ],
+      "battute": [
+        {
+          "a": 200,
+          "testo": "Il campo della famiglia."
+        },
+        {
+          "a": 3900,
+          "testo": "La corvée sui campi del signore."
+        }
+      ]
+    },
+    {
+      "id": "raccolto",
+      "didascalia": "La settimana è divisa: si lavora dove si è deciso.",
+      "passi": [
+        {
+          "azione": "repeat",
+          "chi": [
+            "padre",
+            "madre",
+            "corvee-1",
+            "corvee-2",
+            "corvee-3"
+          ],
+          "parti": {
+            "arm-near": -22,
+            "arm-far": -22
+          },
+          "a": 0,
+          "durata": 1000,
+          "cicli": 2
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

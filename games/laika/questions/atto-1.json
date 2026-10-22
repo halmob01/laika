@@ -1,1 +1,36 @@
-[]
+[
+  {
+    "id": "a1-v1",
+    "prompt": "Nel 1861 che cosa ottiene una famiglia di servi come quella che hai seguito, e che cosa no?",
+    "options": [
+      {
+        "id": "liberta",
+        "label": "La libertà della persona subito; la terra solo pagando rate per decenni, con il villaggio che risponde dei debiti"
+      },
+      {
+        "id": "terra",
+        "label": "La terra che lavorava, senza pagarla; ma deve restare al servizio del signore per altri quarantanove anni"
+      },
+      {
+        "id": "lotto",
+        "label": "La libertà della persona e un lotto più grande di prima, perché le terre dei signori vengono divise"
+      }
+    ],
+    "correctId": "liberta",
+    "rationale": "Il Manifesto libera le persone: nessuno può più venderle o regalarle. La terra invece va riscattata con rate allo Stato per quarantanove anni, il lotto non è mai pari ai campi di prima e il mir risponde insieme dei pagamenti. Chi sceglie la seconda risposta confonde il riscatto con il servizio; chi sceglie la terza scambia la speranza delle lettere d'oro con la legge.",
+    "objectives": [
+      "Distinguere la libertà della persona dalla proprietà della terra nella riforma del 1861"
+    ],
+    "source": "Episodio «Il Manifesto del 1861»: Montefiore, I Romanov; scheda EBSCO sugli statuti del 1861; Stites, Revolutionary Dreams, p. 16",
+    "requiredExposureFlags": [
+      "a1-manifesto"
+    ],
+    "editorial": {
+      "verifica": "V1",
+      "distrattori": {
+        "terra": "confonde riscatto e servizio; prende la terra gratuita dalla lettera d'oro",
+        "lotto": "scambia l'attesa contadina (lettere d'oro) per la legge"
+      }
+    }
+  }
+]

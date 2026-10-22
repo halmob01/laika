@@ -1,0 +1,256 @@
+{
+  "id": "a1-u1-anime",
+  "etichetta": "Una pianura con due case padronali e un villaggio di isbe. Sopra le case compaiono cartellini senza nomi; poi il villaggio passa da una tenuta all'altra. In primo piano una famiglia zappa, l'amministratore legge il registro.",
+  "viewBox": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "elementi": [
+    {
+      "id": "campi",
+      "simbolo": "luogo-pianura",
+      "x": 800,
+      "y": 900,
+      "scala": 2.9
+    },
+    {
+      "id": "tenuta-a",
+      "simbolo": "luogo-tenuta",
+      "x": 330,
+      "y": 606,
+      "scala": 0.95
+    },
+    {
+      "id": "tenuta-b",
+      "simbolo": "luogo-tenuta",
+      "x": 1290,
+      "y": 606,
+      "scala": 0.95,
+      "flip": true
+    },
+    {
+      "id": "chiesa",
+      "simbolo": "luogo-chiesa",
+      "x": 110,
+      "y": 606,
+      "scala": 0.6
+    },
+    {
+      "id": "betulle",
+      "simbolo": "luogo-betulle",
+      "x": 1520,
+      "y": 610,
+      "scala": 0.9
+    },
+    {
+      "id": "villaggio",
+      "simbolo": "luogo-isbe",
+      "x": 1000,
+      "y": 610,
+      "scala": 0.75
+    },
+    {
+      "id": "cartello-1",
+      "simbolo": "oggetto-cartello-vuoto",
+      "x": 900,
+      "y": 578,
+      "scala": 0.6
+    },
+    {
+      "id": "cartello-2",
+      "simbolo": "oggetto-cartello-vuoto",
+      "x": 1000,
+      "y": 578,
+      "scala": 0.6
+    },
+    {
+      "id": "cartello-3",
+      "simbolo": "oggetto-cartello-vuoto",
+      "x": 1100,
+      "y": 578,
+      "scala": 0.6
+    }
+  ],
+  "figure": [
+    {
+      "id": "padre",
+      "x": 560,
+      "y": 790,
+      "scala": 0.95,
+      "variante": "nessuna",
+      "posa": "zappa",
+      "abito": "cappotto",
+      "cappello": null
+    },
+    {
+      "id": "madre",
+      "x": 700,
+      "y": 810,
+      "scala": 0.95,
+      "variante": "scialle",
+      "posa": "zappa",
+      "flip": true
+    },
+    {
+      "id": "figlio",
+      "x": 640,
+      "y": 830,
+      "scala": 0.75,
+      "variante": "bambino",
+      "posa": "in_piedi",
+      "ruolo": "protagonista"
+    },
+    {
+      "id": "contadino-1",
+      "x": 380,
+      "y": 740,
+      "scala": 0.6,
+      "variante": "nessuna",
+      "posa": "zappa",
+      "abito": "cappotto",
+      "cappello": null
+    },
+    {
+      "id": "contadina-1",
+      "x": 880,
+      "y": 730,
+      "scala": 0.55,
+      "variante": "scialle",
+      "posa": "zappa",
+      "flip": true
+    },
+    {
+      "id": "amministratore",
+      "x": 1180,
+      "y": 800,
+      "scala": 1.0,
+      "variante": "nessuna",
+      "posa": "legge",
+      "flip": true,
+      "abito": "cappotto",
+      "cappello": null
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "Sopra le isbe compaiono i cartellini delle anime. Poi il villaggio cambia padrone, con un dono, mentre la famiglia zappa.",
+      "passi": [
+        {
+          "azione": "camera",
+          "inquadrature": [
+            [
+              460,
+              360,
+              960,
+              540
+            ],
+            [
+              460,
+              360,
+              960,
+              540
+            ],
+            [
+              0,
+              0,
+              1600,
+              900
+            ]
+          ],
+          "tempi": [
+            0,
+            0.45,
+            1
+          ],
+          "a": 0,
+          "durata": 8200
+        },
+        {
+          "azione": "repeat",
+          "chi": [
+            "padre",
+            "madre",
+            "contadino-1",
+            "contadina-1"
+          ],
+          "parti": {
+            "arm-near": -20,
+            "arm-far": -20
+          },
+          "a": 0,
+          "durata": 1300,
+          "cicli": 5
+        },
+        {
+          "azione": "reveal",
+          "chi": [
+            "cartello-1",
+            "cartello-2",
+            "cartello-3"
+          ],
+          "modo": "sale",
+          "a": 900,
+          "durata": 700,
+          "sfalsa": 350
+        },
+        {
+          "azione": "transfer",
+          "chi": "villaggio",
+          "da": [
+            560,
+            610
+          ],
+          "arco": 60,
+          "a": 3800,
+          "durata": 2600
+        },
+        {
+          "azione": "transfer",
+          "chi": [
+            "cartello-1",
+            "cartello-2",
+            "cartello-3"
+          ],
+          "da": [
+            460,
+            578
+          ],
+          "arco": 60,
+          "a": 3800,
+          "durata": 2600,
+          "sfalsa": 120
+        },
+        {
+          "azione": "walk",
+          "chi": "figlio",
+          "da": "sinistra",
+          "distanza": 160,
+          "a": 2400,
+          "durata": 2600
+        }
+      ],
+      "battute": [
+        {
+          "a": 900,
+          "testo": "Ogni casa è un numero di anime."
+        },
+        {
+          "a": 3800,
+          "testo": "Il villaggio passa a un altro padrone."
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

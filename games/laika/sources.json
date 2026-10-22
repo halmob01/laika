@@ -1,6 +1,68 @@
 {
-  "status": "Struttura tecnica senza affermazioni storiche. Fonti e localizzazioni da associare nelle fasi contenuti.",
+  "status": "Unità I.1: ogni affermazione storica rimanda a una riga di docs/FONTI-MATRICE-LAIKA.md (sezione «Atto I — riscontri del 21 ottobre 2026»). Stato «localizzato», review di un'istanza distinta da fare.",
   "priority": "../../references/fonti/appunti/la-rivoluzione-russa.docx",
   "dossier": "../../docs/FONTI-LAIKA.md",
-  "claims": []
+  "claims": [
+    {
+      "episode": "a1-u1-e1",
+      "ids": [
+        "I1-01",
+        "I1-02",
+        "I1-03",
+        "I1-05"
+      ]
+    },
+    {
+      "episode": "a1-u1-e2",
+      "ids": [
+        "C01",
+        "C08",
+        "C09",
+        "C12",
+        "C13",
+        "C18",
+        "C20",
+        "I1-01"
+      ]
+    },
+    {
+      "episode": "a1-u1-e3",
+      "ids": [
+        "I1-04",
+        "C12",
+        "I1-12"
+      ]
+    },
+    {
+      "episode": "a1-u1-e4",
+      "ids": [],
+      "note": "Simulazione [S]: famiglia immaginaria, coefficienti del modello."
+    },
+    {
+      "episode": "a1-u1-e5",
+      "ids": [
+        "I1-07",
+        "I1-08",
+        "N001",
+        "N002",
+        "N003",
+        "N004"
+      ]
+    },
+    {
+      "episode": "a1-u1-e6",
+      "ids": [
+        "I1-09",
+        "I1-10",
+        "N001"
+      ]
+    },
+    {
+      "episode": "a1-u1-e7",
+      "ids": [
+        "I1-09",
+        "I1-10"
+      ]
+    }
+  ]
 }
