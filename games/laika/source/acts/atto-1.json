@@ -62,7 +62,7 @@
         "dateLabel": "1700–1800",
         "placeLabel": "Russia europea"
       },
-      "text": "Nel registro di una tenuta il villaggio non ha nomi. Ha un numero.\n\nLa ricchezza di un nobile russo non si misura in campi ma in «anime». Si contano soltanto i maschi: le donne valgono meno, e nei conti non entrano. Dal tempo dell'imperatrice Elisabetta, a metà del Settecento, il padrone può comprare e vendere i suoi servi, e mandarli in Siberia per «insolenza» senza chiedere il permesso a nessuno.\n\nLe anime si regalano. Nel 1700 il nobile più ricco di Russia ne possiede trentatremila; vent'anni dopo il principe Menšikov, favorito di Pietro il Grande e poi di sua moglie Caterina I, arriva a trecentomila. Nel 1777 Caterina II congeda un favorito, Zorič, con una tenuta di settemila anime. Un villaggio intero cambia padrone per un dono, e chi ci vive continua a zappare lo stesso campo.\n\nIn uno di questi villaggi vive la famiglia che seguirai fino al 1861: il padre, la madre, il nonno, un figlio. È inventata. Il mondo intorno a lei no.",
+      "text": "Nel registro di una tenuta il villaggio non ha nomi. Ha un numero.\n\nLa ricchezza di un nobile russo non si misura in campi ma in «anime». Si contano soltanto i maschi: le donne valgono meno e nei conti non entrano. Dal tempo dell'imperatrice Elisabetta, a metà del Settecento, il padrone può comprare e vendere i suoi servi e mandarli in Siberia per «insolenza» senza chiedere il permesso a nessuno.\n\nLe anime si regalano. Nel 1700 il nobile più ricco di Russia ne possiede trentatremila; vent'anni dopo il principe Menšikov, favorito di Pietro il Grande e poi di sua moglie Caterina I, arriva a trecentomila. Nel 1777 Caterina II congeda un favorito, Zorič, con una tenuta di settemila anime. Un villaggio intero cambia padrone per un dono. Chi ci vive continua a zappare lo stesso campo.\n\nIn uno di questi villaggi vive la famiglia che seguirai fino al 1861: il padre, la madre, il nonno, un figlio. È inventata. Il mondo intorno a lei no.",
       "stageId": "a1-u1-anime",
       "motionId": "ingresso",
       "exposes": [
@@ -89,7 +89,7 @@
         "dateLabel": "1690–1791",
         "placeLabel": "Mosca e San Pietroburgo"
       },
-      "text": "Lassù il potere è una festa, e ogni regno ne inventa una più lontana dalla terra.\n\nAnni Novanta del Seicento. Alle cene di Pietro il Grande un finto papa benedice gli ospiti in ginocchio con due pipe olandesi al posto della croce.\n\nInverno 1740. L'imperatrice Anna decide di sposare per scherzo il suo buffone, il principe Golicyn, con una serva calmucca. Gli sposi arrivano chiusi in una gabbia sul dorso di un elefante. Sulla Neva gelata li aspetta un palazzo di ghiaccio alto una decina di metri, con cannoni di ghiaccio che sparano davvero. Dentro c'è un letto di ghiaccio, senza coperte. I due passano lì la notte, sorvegliati dai soldati, e sopravvivono.\n\nAnni Quaranta. L'imperatrice Elisabetta lascerà quindicimila abiti, ma i suoi palazzi hanno così pochi mobili che a ogni trasloco della corte li si porta da una residenza all'altra. Sono costruiti in fretta: una residenza di legno comincia a sprofondare mentre dentro ci sono i granduchi. Loro si salvano a stento; sedici servitori muoiono.\n\n1791. Alla festa di Potëmkin, davanti a tremila invitati, si scopre un elefante coperto di gemme: il cavaliere suona una campana e dietro si apre un teatro intero.\n\nIntanto, nei villaggi, le anime pagano le tasse dello zar e danno i soldati all'esercito. A corte si racconta che Potëmkin, per il viaggio di Caterina in Crimea del 1787, abbia fatto dipingere finte facciate di villaggi. I testimoni diranno di no; gli storici ne discutono ancora. Ma la voce resta: da lassù, un villaggio può sembrare una scenografia.",
+      "text": "Lassù il potere è una festa. Ogni regno ne inventa una più lontana dalla terra.\n\nAnni Novanta del Seicento. Alle cene di Pietro il Grande un finto papa benedice gli ospiti in ginocchio con due pipe olandesi al posto della croce.\n\nInverno 1740. L'imperatrice Anna decide di sposare per scherzo il suo buffone, il principe Golicyn, con una serva calmucca. Gli sposi arrivano chiusi in una gabbia sul dorso di un elefante. Sulla Neva gelata li aspetta un palazzo di ghiaccio alto una decina di metri, con cannoni di ghiaccio che sparano davvero. Dentro c'è un letto di ghiaccio, senza coperte. I due passano lì la notte, sorvegliati dai soldati. Sopravvivono.\n\nAnni Quaranta. L'imperatrice Elisabetta lascerà quindicimila abiti, ma i suoi palazzi hanno così pochi mobili che a ogni trasloco della corte li si porta da una residenza all'altra. Sono costruiti in fretta: una residenza di legno comincia a sprofondare mentre dentro ci sono i granduchi. Loro si salvano a stento; sedici servitori muoiono.\n\n1791. Alla festa di Potëmkin, davanti a tremila invitati, si scopre un elefante coperto di gemme: il cavaliere suona una campana e dietro si apre un teatro intero.\n\nIntanto, nei villaggi, le anime pagano le tasse dello zar e danno i soldati all'esercito. A corte si racconta che Potëmkin, per il viaggio di Caterina in Crimea del 1787, abbia fatto dipingere finte facciate di villaggi. I testimoni diranno di no; gli storici ne discutono ancora. Ma la voce resta: da lassù, un villaggio può sembrare una scenografia.",
       "stageId": "a1-u1-feste",
       "motionId": "ingresso",
       "exposes": [
@@ -141,14 +141,14 @@
         {
           "id": "gogol",
           "title": "Le anime morte (romanzo, 1842)",
-          "text": "Il protagonista, Čičikov, gira le tenute di provincia e compra dai proprietari i servi morti dopo l'ultimo censimento. Per lo Stato, fino al censimento successivo, quei morti sono ancora vivi: sulla carta sono anime, e un'anima si può comprare, vendere, impegnare per avere un prestito.",
+          "text": "Il protagonista, Čičikov, gira le tenute di provincia e compra dai proprietari i servi morti dopo l'ultimo censimento. Per lo Stato, fino al censimento successivo, quei morti sono ancora vivi: sulla carta sono anime. E un'anima si può comprare, vendere, impegnare per avere un prestito.",
           "provenance": "Letteratura: Nikolaj Gogol', Le anime morte, 1842. Riassunto della trama a cura della redazione. È un romanzo, non un documento."
         }
       ],
       "choices": [
         {
           "id": "conti",
-          "label": "La ricchezza si conta in cose e in persone, e quello che conta è il registro",
+          "label": "La ricchezza si conta in cose e in persone: quello che conta è il registro",
           "feedback": "I doni e il romanzo trattano le persone come voci di un conto: si regalano a migliaia e restano anime perfino da morte, finché il registro non cambia. Il guardaroba mostra che cosa si poteva accumulare dall'altra parte del conto.",
           "effects": []
         },
@@ -184,7 +184,7 @@
         "dateLabel": "anni Cinquanta dell'Ottocento",
         "placeLabel": "un villaggio della Russia centrale"
       },
-      "text": "La settimana ha sei giorni di lavoro. Una parte spetta al signore: è la corvée, il lavoro sui suoi campi. Il resto è per il campo della famiglia, che deve nutrire quattro persone fino al raccolto successivo, e per gli attrezzi e la casa.\n\nL'amministratore annota chi si presenta alla corvée. Il padre guarda il cielo: se piove, il fieno del signore e il proprio vanno tagliati nello stesso giorno.\n\nDividi i sei giorni.",
+      "text": "La settimana ha sei giorni di lavoro. Una parte spetta al signore: è la corvée, il lavoro sui suoi campi. Il resto è per il campo della famiglia, che deve nutrire quattro persone fino al raccolto successivo; un po' va agli attrezzi e alla casa.\n\nL'amministratore annota chi si presenta alla corvée. Il padre guarda il cielo: se piove, il fieno del signore e il proprio vanno tagliati nello stesso giorno.\n\nDividi i sei giorni.",
       "stageId": "a1-u1-anno",
       "motionId": "ingresso",
       "resultMotionId": "raccolto",
@@ -309,7 +309,7 @@
         "dateLabel": "l'inverno seguente",
         "placeLabel": "il villaggio della famiglia"
       },
-      "text": "I campi del signore sono stati falciati per primi e con cura. Quelli della famiglia dopo, quando il tempo era già cambiato.\n\nA febbraio la farina è finita. Si mangia una volta al giorno; il nonno dice che si è sempre fatto così, e nessuno gli risponde. Nel registro dell'amministratore, accanto al nome del padre, non c'è niente da segnare.",
+      "text": "I campi del signore sono stati falciati per primi e con cura. Quelli della famiglia dopo, quando il tempo era già cambiato.\n\nA febbraio la farina è finita. Si mangia una volta al giorno; il nonno dice che si è sempre fatto così. Nessuno gli risponde. Nel registro dell'amministratore, accanto al nome del padre, non c'è niente da segnare.",
       "stageId": "a1-u1-inverno-magro",
       "motionId": "ingresso",
       "visualExplanation": "Accanto alla stufa non c'è niente; la famiglia siede lontana. È l'esito della tua divisione nella simulazione. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti."
@@ -324,7 +324,7 @@
         "dateLabel": "1690–1898",
         "placeLabel": "Russia"
       },
-      "text": "Anche chi non possiede niente sogna un mondo giusto. I contadini lo dicono con due parole: pravda, che è insieme verità e giustizia, e volja, la libertà di andarsene da sotto il padrone e il poliziotto.\n\nQualcuno parte davvero. Negli anni Trenta e Quaranta dell'Ottocento intere comunità si mettono in cammino per cercare Belovod'e, il Regno delle Acque Bianche: una terra «oltre l'acqua» dove si va scalzi, si dividono i frutti della terra e non ci sono crimini né guerre. L'ultima spedizione conosciuta è del 1898: tre cosacchi degli Urali tornano e dicono che quella terra non esiste.\n\nAltri fanno circolare carte false. Nel 1861, nella provincia di Char'kov, girano «lettere d'oro» con la firma dello zar: tutta la terra ai contadini, e ai signori un pezzo di palude, da seminare e mietere con le proprie mani. Nel Nord, dal 1690 alla metà dell'Ottocento, la comunità dei Vecchi Credenti di Vyg tiene campi e lavoro in comune, con una disciplina severa.\n\nAnche dall'alto si sogna. Aleksej Arakčeev, uomo di fiducia degli zar Paolo e Alessandro I, costruisce nella sua tenuta di Gruzino un villaggio perfetto: file di case rosa tutte uguali, strade dritte e lastricate. Alessandro I lo visita e se ne innamora. Nascono le colonie militari: contadini in uniforme che arano e fanno esercitazioni, con casa, medico e scuola gratuiti. Nessuno possiede niente, e per ogni abitante c'è un registro delle punizioni. All'inizio degli anni Venti dell'Ottocento nelle colonie vivono circa 750.000 persone.",
+      "text": "Anche chi non possiede niente sogna un mondo giusto. I contadini lo dicono con due parole: pravda, che è insieme verità e giustizia; volja, la libertà di andarsene da sotto il padrone e il poliziotto.\n\nQualcuno parte davvero. Negli anni Trenta e Quaranta dell'Ottocento intere comunità si mettono in cammino per cercare Belovod'e, il Regno delle Acque Bianche: una terra «oltre l'acqua» dove si va scalzi, si dividono i frutti della terra e non ci sono crimini né guerre. L'ultima spedizione conosciuta è del 1898: tre cosacchi degli Urali tornano e dicono che quella terra non esiste.\n\nAltri fanno circolare carte false. Nel 1861, nella provincia di Char'kov, girano «lettere d'oro» con la firma dello zar: tutta la terra ai contadini; ai signori un pezzo di palude, da seminare e mietere con le proprie mani. Nel Nord, dal 1690 alla metà dell'Ottocento, la comunità dei Vecchi Credenti di Vyg tiene campi e lavoro in comune, con una disciplina severa.\n\nAnche dall'alto si sogna. Aleksej Arakčeev, uomo di fiducia degli zar Paolo e Alessandro I, costruisce nella sua tenuta di Gruzino un villaggio perfetto: file di case rosa tutte uguali, strade dritte e lastricate. Alessandro I lo visita e se ne innamora. Nascono le colonie militari: contadini in uniforme che arano e fanno esercitazioni, con casa, medico e scuola gratuiti. Nessuno possiede niente. Per ogni abitante c'è un registro delle punizioni. All'inizio degli anni Venti dell'Ottocento nelle colonie vivono circa 750.000 persone.",
       "stageId": "a1-u1-utopie",
       "motionId": "ingresso",
       "exposes": [
@@ -363,7 +363,7 @@
         {
           "id": "firma",
           "title": "Nel palazzo: la firma",
-          "text": "Il granduca Konstantin, fratello dello zar, annota nel diario la scena: lo zar legge il testo ad alta voce, si fa il segno della croce e firma; Konstantin stesso versa la sabbia sull'inchiostro. Comincia un'epoca nuova, scrive, e aggiunge che c'era chi aveva previsto una rivoluzione. Allo zar la riforma sembrerà passata in perfetta calma.",
+          "text": "Il granduca Konstantin, fratello dello zar, annota nel diario la scena: lo zar legge il testo ad alta voce, si fa il segno della croce e firma; Konstantin stesso versa la sabbia sull'inchiostro. Comincia un'epoca nuova, scrive. Poi aggiunge che c'era chi aveva previsto una rivoluzione. Allo zar la riforma sembrerà passata in perfetta calma.",
           "provenance": "Diario del granduca Konstantin Nikolaevič e lettera di Alessandro II al principe Barjatinskij, riferiti da S. S. Montefiore, I Romanov (edizione inglese, capitolo «Liberator»). Parafrasi."
         },
         {
@@ -382,7 +382,7 @@
       "choices": [
         {
           "id": "liberi-senza-terra",
-          "label": "La famiglia è libera, ma la terra deve pagarla, e per decenni",
+          "label": "La famiglia è libera, ma la terra deve pagarla per decenni",
           "feedback": "Così è: la libertà della persona arriva subito, la terra no. I tre fogli lo dicono in modi diversi. Chi firma vede un'epoca nuova; le regole fissano rate e responsabilità comune; la lettera falsa immagina la terra senza riscatto. Nel modello arriva la prima rata.",
           "effects": [
             {
@@ -419,7 +419,7 @@
         {
           "id": "niente",
           "label": "Non è cambiato niente: la lettera falsa dice la verità che il Manifesto nasconde",
-          "feedback": "Qualcosa cambia davvero: nessuno può più vendere, regalare o mandare in Siberia la famiglia. Ma la lettera non è il vero Manifesto nascosto: è un falso, e dice che cosa i contadini speravano. Nel modello arriva la prima rata.",
+          "feedback": "Qualcosa cambia davvero: nessuno può più vendere, regalare o mandare in Siberia la famiglia. Ma la lettera non è il vero Manifesto nascosto: è un falso che dice che cosa i contadini speravano. Nel modello arriva la prima rata.",
           "effects": [
             {
               "kind": "resource",
@@ -458,7 +458,7 @@
       "stageId": "a1-u1-manifesto"
     }
   ],
-  "reconciliation": "Fine dell'unità I.1 (1700–1861). Per un secolo e mezzo la ricchezza si è contata in anime, e il tempo di un servo apparteneva in parte al signore. La libertà del 1861 è vera, ma arriva senza la terra: la terra si paga per quarantanove anni, e il villaggio risponde insieme dei debiti. Le tue scelte hanno cambiato soltanto la simulazione, non questi fatti. Le unità successive dell'Atto I (1861–1917) sono in preparazione: per ora il percorso si ferma qui.",
+  "reconciliation": "Fine dell'unità I.1 (1700–1861). Per un secolo e mezzo la ricchezza si è contata in anime e il tempo di un servo apparteneva in parte al signore. La libertà del 1861 è vera, ma arriva senza la terra: la terra si paga per quarantanove anni e il villaggio risponde insieme dei debiti. Le tue scelte hanno cambiato soltanto la simulazione, non questi fatti. Le unità successive dell'Atto I (1861–1917) sono in preparazione: per ora il percorso si ferma qui.",
   "editorial": {
     "unita": "I.1",
     "piano": "docs/PIANO-ATTI-LAIKA.md §7"
