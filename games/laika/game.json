@@ -29524,14 +29524,14 @@
       "metrics": [
         {
           "id": "occhio",
-          "label": "Occhio del padrone (indice della simulazione)",
+          "label": "Occhio del padrone",
           "min": 0,
           "max": 100,
           "start": 30
         },
         {
           "id": "speranza",
-          "label": "Speranza (indice della simulazione)",
+          "label": "Speranza",
           "min": 0,
           "max": 100,
           "start": 10
@@ -29548,7 +29548,7 @@
       "resources": [
         {
           "id": "grano",
-          "label": "Grano della famiglia (indice della simulazione)",
+          "label": "Grano della famiglia",
           "min": 0,
           "max": 100,
           "start": 50

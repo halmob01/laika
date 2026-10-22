@@ -5,7 +5,7 @@ import {newSession,currentScene,transition,recap} from '../runner/index.js';
 import {save,load,restore,exportSave,storageKey} from '../storage/index.js';
 import {createStage} from '../visual/stage.js';
 import {el,button,renderInteraction} from '../interactions/index.js';
-import {activeStage} from '../core/turns.js';
+import {activeStage,netChanges} from '../core/turns.js';
 const $=id=>document.getElementById(id);
 let game,state,stageId=null,blocked=false,storage=null,cardEpisode=null,cardIndex=0;
 try{storage=window.localStorage;}catch{}
@@ -18,9 +18,12 @@ function download(value,name){const url=URL.createObjectURL(new Blob([value],{ty
 function journal(){
   $('journal').replaceChildren();if(!state.journal.length)return;
   const details=el('details'),summary=el('summary','Perché la situazione è cambiata · diario della simulazione');details.append(summary);
-  for(const entry of state.journal){const p=el('div',undefined,{class:'journal-entry'});p.append(el('strong',game.acts.find(a=>a.id===entry.actId).episodes.find(e=>e.id===entry.episodeId).title));
+  // Una voce per decisione, le più recenti in alto; per ogni indicatore solo la variazione netta, senza codici interni.
+  for(const entry of [...state.journal].reverse()){const p=el('div',undefined,{class:'journal-entry'});p.append(el('strong',game.acts.find(a=>a.id===entry.actId).episodes.find(e=>e.id===entry.episodeId).title));
     if(entry.feedback)p.append(el('p',entry.feedback));
-    for(const c of entry.changes)p.append(el('p',c.label+': '+c.before+' → '+c.after+' · causa: '+c.cause));
+    // Gli indicatori nascosti restano nascosti anche nel diario.
+    const act=game.acts.find(a=>a.id===entry.actId),hidden=new Set([...(act.metrics||[]),...(act.resources||[]),...(act.relations||[])].filter(d=>d.hidden).map(d=>d.id));
+    const net=netChanges(entry.changes).filter(c=>!hidden.has(c.id));if(net.length){const ul=el('ul',undefined,{class:'journal-changes'});for(const c of net)ul.append(el('li',c.label+': '+c.before+' → '+c.after));p.append(ul);}
     for(const e of entry.events)p.append(el('p',(e.type==='delayed'?'Conseguenza differita: ':e.type==='discarded'?'Effetto chiuso senza applicazione: ':e.type==='expired'?'Effetto scaduto: ':'Nuovo quadro: ')+e.text));details.append(p);}
   $('journal').append(details);
 }

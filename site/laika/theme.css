@@ -151,6 +151,11 @@ main{max-width:none;margin:0;padding:0}
 .turn-overlay button:disabled{background:var(--slab);opacity:.9}
 .turn-overlay button:hover:not(:disabled){background:var(--ink)}
 
+/* Diario: una voce per decisione */
+.journal-entry>p{margin:6px 0 0}
+.journal-changes{margin:8px 0 0;padding:0;list-style:none;font-family:var(--mono);font-size:.8rem;color:var(--mute)}
+.journal-changes li+li{margin-top:2px}
+
 /* Riepilogo, diario e strumenti: registro e piede della home. */
 #summary{max-width:none;padding:clamp(40px,5vw,80px) var(--gut)}
 #summary h1{font-family:var(--sans);font-weight:700;text-transform:uppercase;letter-spacing:-.005em;width:fit-content;padding:.12em .22em .06em;background:var(--ink);color:var(--paper)}
