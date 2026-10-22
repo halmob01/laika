@@ -12,6 +12,8 @@ const ATTRS=[...NUMERIC,'fill','stroke','d','text-anchor','font-size','font-fami
 export function validateStage(stage,act) {
   assert(id(stage.id)&&text(stage.label)&&Array.isArray(stage.layers)&&stage.layers.length<=MOTION_LIMITS.layers,'Stage non valido');
   if(stage.viewBox)assert(Array.isArray(stage.viewBox)&&stage.viewBox.length===4&&stage.viewBox.every(Number.isFinite)&&stage.viewBox[2]>0&&stage.viewBox[3]>0,'ViewBox non valido');
+  // Inquadratura su schermi stretti: dove sta l'azione (0 = bordo sinistro, 1 = destro) e quanto ingrandire. Il tema decide se usarla.
+  if(stage.mobile!==undefined){const m=stage.mobile;assert(m&&typeof m==='object'&&!Array.isArray(m)&&Object.keys(m).every(k=>['center','zoom'].includes(k))&&Number.isFinite(m.center)&&m.center>=0&&m.center<=1&&(m.zoom===undefined||(Number.isFinite(m.zoom)&&m.zoom>=1&&m.zoom<=3)),'Inquadratura per telefono non valida');}
   const keys=new Set(),groups=new Set();
   for(const layer of stage.layers) {
     assert(id(layer.id)&&!keys.has(layer.id)&&TAGS.includes(layer.tag),'Layer non valido');
@@ -117,7 +119,8 @@ export function createStage(host,{reducedMotion=false,textures=true,raf=requestA
   function sequence(id){const seq=descriptor.sequences?.find(s=>s.id===id);if(!seq)throw new Error('Sequenza sconosciuta: '+id);play(seq.tracks,{caption:seq.caption,beats:seq.beats||[]});}
   function values(state){return (descriptor.bindings||[]).map(b=>({layer:b.layer,attribute:b.attribute,to:state[GROUPS[b.kind]][b.id]*(b.scale??1)+(b.offset??0)}));}
   function mount(stage,state,{intro=false}={}){
-    skip();descriptor=stage;nodes=new Map();transforms=new Map();dirty.clear();origins.clear();cache.clear();host.replaceChildren();last=null;tracks=[];finals=[];endTime=0;
+    // La didascalia della scena precedente non deve ricomparire chiudendola: la nuova scena parte senza.
+    caption='';beats=[];lastBeat=-1;skip();descriptor=stage;nodes=new Map();transforms=new Map();dirty.clear();origins.clear();cache.clear();host.replaceChildren();last=null;tracks=[];finals=[];endTime=0;
     textured=[];
     const prefix='motion-'+(++instanceNumber)+'-';
     const svg=document.createElementNS(NS,'svg');svg.setAttribute('viewBox',(stage.viewBox||[0,0,640,360]).join(' '));svg.setAttribute('role','img');svg.setAttribute('aria-label',stage.label);

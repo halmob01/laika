@@ -109,7 +109,24 @@ Le animazioni sono parte del contratto stabile del kit. Vedere [MOTION.md](MOTIO
 
 ## Presentazione e contesto opzionali (P1)
 
-Nel registro `config.json` una voce può dichiarare `presentation: {"stylesheet":"./site/nome/theme.css","homeHref":"./"}`. Entrambi sono percorsi locali relativi canonici; niente URL esterni, traversal, query o frammenti. `stylesheet` deve finire in `.css`. L'assenza conserva il comportamento precedente. Il player applica il solo tema del pack aperto, oltre al CSS generico e agli eventuali token `game.theme` già supportati.
+Nel registro `config.json` una voce può dichiarare `presentation: {"stylesheet":"./site/nome/theme.css","homeHref":"./"}`. Entrambi sono percorsi locali relativi canonici; niente URL esterni, traversal, query o frammenti. `stylesheet` deve finire in `.css`. L'assenza conserva il comportamento precedente. Il player applica il solo tema del pack aperto, oltre al CSS generico e agli eventuali token `game.theme` già supportati. Due campi opzionali: `homeLabel` (testo di al massimo 40 caratteri, sostituisce «Laboratori interattivi» nel ritorno alla home) e `standalone: true` (il gioco si apre da solo: nessun menu degli altri laboratori; `<html>` riceve l'attributo `data-standalone`). Il pannello porta `data-type` con il tipo dell'episodio, perché il tema possa adattare le etichette.
+
+Un episodio narrativo con almeno due paragrafi (separati da una riga vuota) può dichiarare `display: "cards"`: il player lo mostra un paragrafo alla volta con «Indietro» e «Avanti», e «Continua» compare all'ultima card. Lo stato del gioco e il salvataggio non cambiano. Una scenografia può dichiarare `mobile: {center, zoom}` (dalla bottega: `telefono`); il player la espone al tema come variabili CSS `--stage-center` e `--stage-zoom` su `#stage`.
+
+### Partita a turni (`turn_game`)
+
+Un episodio `turn_game` è una partita di più turni dentro un solo episodio. Campi:
+
+- `stageId`: la scenografia del tabellone; `places`: almeno due posti `{id, label, x, y, perToken, max?}`, con `x` e `y` da 0 a 1 sulla scena (il player li mostra come pulsanti sopra l'illustrazione) ed effetti numerici per ogni pedina;
+- `tokens` e `tokenLabel`: quante pedine per turno e come si chiamano («giorni»);
+- `rules` iniziali e per turno: `tokens`, `tokensDelta`, `min` (obblighi per posto), `places` (nuova etichetta o nuovi effetti di un posto), `upkeep` (consumi in più);
+- `upkeep`: effetti applicati ogni turno; `luck`: imprevisti con `weight` e `yield` per posto (le probabilità sono mostrate prima di confermare);
+- `control` facoltativo: se un obbligo non è rispettato, con probabilità `chance` (`base` + `factor` × metrica) si applicano `effects` e `perMissing` moltiplicato per le pedine mancanti;
+- `crises`: `{id, when, text, effects, rules}`, ciascuna scatta una volta quando la condizione è vera;
+- `turns`: `{label, cards?, rules?, preview?, event?}`. Le `cards` hanno `text` e facoltativi `title`, `kind` (`documented`, `simulation`, `source`: etichetta mostrata sulla card), `stageId` e `motionId` (la card è illustrata da quella scena); l'`event` è «chi bussa»: `{who, text, choices}`, ogni risposta con `text` ed effetti o con `chance` ed esiti `success`/`failure`, che possono cambiare le regole;
+- `feedback`: testo finale.
+
+Le mosse sono azioni `{type:"turn", step}` con `step` fra `card`, `back`, `place` (`placeId`, `delta` ±1), `confirm`, `choose` (`choiceId`), `continue`. Il caso dipende dal seme della sessione: il salvataggio (registro delle mosse) rigioca la stessa partita. Il player mostra una riga per metrica con la variazione netta. Il codice sta in `src/core/turns.js`; la prova neutra in `tests/turns.test.js`.
 
 Un episodio può dichiarare `context: {"kind":"simulation","dateLabel":"1861","placeLabel":"Russia"}`. `kind` ammette `documented`, `simulation`, `source`, `assessment`; le etichette opzionali sono testo. Il cartiglio non cambia stato, punteggi o transizioni e non interpreta HTML.
 

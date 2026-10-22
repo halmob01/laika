@@ -1,8 +1,9 @@
+import {validateTurnGame} from './turns.js';
 export const own = (o, k) => Object.prototype.hasOwnProperty.call(o, k);
 export const assert = (ok, message) => { if (!ok) throw new Error(message); };
 export const text = v => typeof v === 'string' && v.trim().length > 0;
 export const id = v => text(v) && /^[a-z][a-z0-9_-]*$/.test(v) && !['constructor','prototype','__proto__'].includes(v);
-export const TYPES = ['narrative','choice','resource_allocation','role_crisis','source_comparison','assessment'];
+export const TYPES = ['narrative','choice','resource_allocation','role_crisis','source_comparison','assessment','turn_game'];
 export const GROUPS = {metric:'metrics',resource:'resources',relation:'relations'};
 export function jsonData(value, depth = 0) {
   assert(depth < 40, 'Dati troppo annidati');
@@ -83,6 +84,8 @@ export function validateGame(game) {
       try {
       assert(TYPES.includes(e.type)&&text(e.title)&&text(e.text)&&roles.has(e.roleId),'Episodio non valido');
       if(e.context!==undefined)validateContext(e.context);
+      // Racconto a card: un paragrafo per card, solo per episodi narrativi con almeno due paragrafi.
+      if(e.display!==undefined)assert(e.display==='cards'&&e.type==='narrative'&&e.text.split(/\n\s*\n/).filter(x=>x.trim()).length>=2,'Presentazione a card non valida: '+e.id);
       if(e.stageId) assert(stages.has(e.stageId),'Scenografia sconosciuta');
       for(const f of e.exposes||[]) assert(game.exposureFlags.includes(f),'Esposizione non dichiarata');
       assert(incoming[index].length,'Episodio irraggiungibile: '+e.id);
@@ -102,6 +105,7 @@ export function validateGame(game) {
         for(const b of e.buckets) { assert(text(b.label)&&Number.isInteger(b.max)&&b.max>=0,'Destinazione allocazione non valida'); mutations(b.perUnit,act); assert(b.perUnit.every(m=>m.kind!=='flag'),'Allocazione solo numerica'); }
         assert(e.buckets.reduce((n,b)=>n+b.max,0)>=e.budget,'Budget impossibile da distribuire'); outcome(e,act,delayedIds);
       }
+      if(e.type==='turn_game') { assert(e.stageId,'La partita a turni richiede una scenografia per il tabellone'); validateTurnGame(e,act,stages); }
       if(e.type==='source_comparison') {
         unique(e.sources,'Fonti',2);
         e.sources.forEach(s=>assert(text(s.title)&&text(s.text)&&text(s.provenance),'Fonte senza provenienza'));

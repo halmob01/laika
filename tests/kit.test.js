@@ -14,6 +14,12 @@ function step(game,s,a){return transition(game,s,a).nextState;}
 function answer(game,s,variant=0){
   const e=currentScene(game,s);
   if(s.currentAct.phase==='outcome'||e.type==='narrative')return {type:'advance'};
+  if(e.type==='turn_game'){// Partita a turni: legge le card, piazza a rotazione secondo la variante, risponde a chi bussa.
+    const g=s.currentAct.game;if(g.phase==='cards')return {type:'turn',step:'card'};
+    if(g.phase==='place'){const n=Object.values(g.placement).reduce((a,b)=>a+b,0);if(n>=g.rules.tokens)return {type:'turn',step:'confirm'};
+      const p=e.places.map((_,i)=>e.places[(i+variant+n)%e.places.length]).find(p=>p.max===undefined||g.placement[p.id]<p.max);return {type:'turn',step:'place',placeId:p.id,delta:1};}
+    if(g.phase==='event'){const c=e.turns[g.turn].event.choices;return {type:'turn',step:'choose',choiceId:c[variant%c.length].id};}
+    return {type:'turn',step:'continue'};}
   if(e.type==='resource_allocation'){// Riempie prima il secchio scelto dalla variante, poi gli altri, entro i massimi.
     const order=e.buckets.map((b,i)=>e.buckets[(i+variant)%e.buckets.length]);let left=e.budget;const allocations=Object.fromEntries(e.buckets.map(b=>[b.id,0]));
     for(const b of order){const n=Math.min(b.max,left);allocations[b.id]=n;left-=n;}return {type:'allocate',allocations};}
@@ -27,7 +33,7 @@ for(const game of packs) {
     validateGame(game);for(const a of game.acts)for(const e of a.episodes)if(e.stageId)validateStage(game.stages.find(s=>s.id===e.stageId),a);
     for(let variant=0;variant<3;variant++){
       let s=newSession(game,'fixed'),count=0;
-      while(!s.complete&&count++<100){const before=structuredClone(s);const t=transition(game,s,answer(game,s,variant));assert.deepEqual(s,before);s=t.nextState;
+      while(!s.complete&&count++<400){const before=structuredClone(s);const t=transition(game,s,answer(game,s,variant));assert.deepEqual(s,before);s=t.nextState;
         const back=restore(game,exportSave(game,s));assert.equal(back.ok,true,back.error);assert.deepEqual(back.state,s);}
       assert.equal(s.complete,true);assert.equal(s.historySnapshots.length,game.acts.length);assert.equal(recap(game,s).assessment.count,s.ledger.filter(e=>e.action.type==='answer').length);
       assert.throws(()=>step(game,s,{type:'advance'}));

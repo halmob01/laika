@@ -6,3 +6,6 @@
 
 #workspace.text-only{grid-template-columns:minmax(0,850px)}
 #scene-title:focus-visible,#summary-title:focus-visible{outline:3px solid var(--accent);outline-offset:6px}
+/* Partita a turni: posti toccabili sopra la scena (posizioni dalla scheda del gioco) e righe accessibili nel pannello. */
+#stage{position:relative}.turn-overlay{position:absolute;pointer-events:none}.turn-overlay button{position:absolute;transform:translate(-50%,-50%);pointer-events:auto;min-width:44px;min-height:44px;padding:0 10px;background:var(--paper);font-weight:700}
+.turn-place{display:grid;grid-template-columns:1fr auto auto auto;gap:10px;align-items:center;padding:10px 0;border-top:1px solid #2223}.turn-place span{display:block;font-size:.85rem}.turn-place b{min-width:2ch;text-align:center}.turn-tokens{display:flex;gap:6px;margin:6px 0 12px}.turn-tokens i{width:18px;height:18px;border:2px solid var(--ink)}.turn-tokens i.used{background:var(--ink)}

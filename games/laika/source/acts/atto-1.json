@@ -25,32 +25,41 @@
   ],
   "metrics": [
     {
-      "id": "tensione",
-      "label": "Tensione nel villaggio (indice della simulazione)",
+      "id": "occhio",
+      "label": "Occhio del padrone (indice della simulazione)",
       "min": 0,
       "max": 100,
       "start": 30
     },
     {
-      "id": "attrezzi",
-      "label": "Attrezzi riparati",
+      "id": "speranza",
+      "label": "Speranza (indice della simulazione)",
       "min": 0,
-      "max": 10,
-      "start": 0,
+      "max": 100,
+      "start": 10
+    },
+    {
+      "id": "legami",
+      "label": "Legami nel villaggio",
+      "min": 0,
+      "max": 100,
+      "start": 40,
       "hidden": true
     }
   ],
   "resources": [
     {
-      "id": "sussistenza",
-      "label": "Sussistenza della famiglia (indice della simulazione)",
+      "id": "grano",
+      "label": "Grano della famiglia (indice della simulazione)",
       "min": 0,
       "max": 100,
       "start": 50
     }
   ],
   "relations": [],
-  "flags": [],
+  "flags": [
+    "mucca_venduta"
+  ],
   "episodes": [
     {
       "id": "a1-u1-e1",
@@ -63,6 +72,7 @@
         "placeLabel": "Russia europea"
       },
       "text": "Nel registro di una tenuta il villaggio non ha nomi. Ha un numero.\n\nLa ricchezza di un nobile russo non si misura in campi ma in «anime». Si contano soltanto i maschi: le donne valgono meno e nei conti non entrano. Dal tempo dell'imperatrice Elisabetta, a metà del Settecento, il padrone può comprare e vendere i suoi servi e mandarli in Siberia per «insolenza» senza chiedere il permesso a nessuno.\n\nLe anime si regalano. Nel 1700 il nobile più ricco di Russia ne possiede trentatremila; vent'anni dopo il principe Menšikov, favorito di Pietro il Grande e poi di sua moglie Caterina I, arriva a trecentomila. Nel 1777 Caterina II congeda un favorito, Zorič, con una tenuta di settemila anime. Un villaggio intero cambia padrone per un dono. Chi ci vive continua a zappare lo stesso campo.\n\nIn uno di questi villaggi vive la famiglia che seguirai fino al 1861: il padre, la madre, il nonno, un figlio. È inventata. Il mondo intorno a lei no.",
+      "display": "cards",
       "stageId": "a1-u1-anime",
       "motionId": "ingresso",
       "exposes": [
@@ -80,369 +90,1018 @@
       }
     },
     {
-      "id": "a1-u1-e2",
-      "type": "narrative",
-      "roleId": "osservatore",
-      "title": "Una festa per regno",
-      "context": {
-        "kind": "documented",
-        "dateLabel": "1690–1791",
-        "placeLabel": "Mosca e San Pietroburgo"
-      },
-      "text": "Lassù il potere è una festa. Ogni regno ne inventa una più lontana dalla terra.\n\nAnni Novanta del Seicento. Alle cene di Pietro il Grande un finto papa benedice gli ospiti in ginocchio con due pipe olandesi al posto della croce.\n\nInverno 1740. L'imperatrice Anna decide di sposare per scherzo il suo buffone, il principe Golicyn, con una serva calmucca. Gli sposi arrivano chiusi in una gabbia sul dorso di un elefante. Sulla Neva gelata li aspetta un palazzo di ghiaccio alto una decina di metri, con cannoni di ghiaccio che sparano davvero. Dentro c'è un letto di ghiaccio, senza coperte. I due passano lì la notte, sorvegliati dai soldati. Sopravvivono.\n\nAnni Quaranta. L'imperatrice Elisabetta lascerà quindicimila abiti, ma i suoi palazzi hanno così pochi mobili che a ogni trasloco della corte li si porta da una residenza all'altra. Sono costruiti in fretta: una residenza di legno comincia a sprofondare mentre dentro ci sono i granduchi. Loro si salvano a stento; sedici servitori muoiono.\n\n1791. Alla festa di Potëmkin, davanti a tremila invitati, si scopre un elefante coperto di gemme: il cavaliere suona una campana e dietro si apre un teatro intero.\n\nIntanto, nei villaggi, le anime pagano le tasse dello zar e danno i soldati all'esercito. A corte si racconta che Potëmkin, per il viaggio di Caterina in Crimea del 1787, abbia fatto dipingere finte facciate di villaggi. I testimoni diranno di no; gli storici ne discutono ancora. Ma la voce resta: da lassù, un villaggio può sembrare una scenografia.",
-      "stageId": "a1-u1-feste",
-      "motionId": "ingresso",
-      "exposes": [
-        "a1-feste"
-      ],
-      "visualExplanation": "In alto, sulla riva gelata: la residenza di legno che sprofonda, il palazzo di ghiaccio con l'elefante e la gabbia, la sala con l'elefante di gemme. In basso, dopo ogni festa, lo stesso villaggio. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
-      "editorial": {
-        "sources": [
-          "C01",
-          "C08–C09",
-          "C12",
-          "C13",
-          "C18",
-          "C20"
-        ],
-        "scheda": "I.1-e2",
-        "nota": "C21 escluso; pipe senza il contesto osceno."
-      }
-    },
-    {
-      "id": "a1-u1-e3",
-      "type": "source_comparison",
-      "roleId": "osservatore",
-      "title": "Tre inventari",
-      "context": {
-        "kind": "source",
-        "dateLabel": "1761–1842"
-      },
-      "text": "Tre fogli di epoche diverse, sullo stesso tavolo. Ognuno fa un conto. Aprili tutti e tre, poi decidi che cosa hanno in comune.",
-      "stageId": "a1-u1-inventari",
-      "motionId": "ingresso",
-      "exposes": [
-        "a1-inventari"
-      ],
-      "visualExplanation": "L'ufficio di una tenuta: l'amministratore legge, davanti a lui i tre fogli. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
-      "sources": [
-        {
-          "id": "doni",
-          "title": "I doni di Caterina II",
-          "text": "1762: ai fratelli Orlov, che l'hanno aiutata a prendere il trono, 800 anime e 24.000 rubli ciascuno. Dopo la pace con i Turchi: al maresciallo Rumjancev 5000 anime e 100.000 rubli. 1777: al favorito Zavadovskij tre o quattromila anime; nello stesso anno al favorito Zorič una tenuta con 7000 anime. 1796: al favorito Zubov 13.199 anime.",
-          "provenance": "Elenco compilato dalla redazione da S. S. Montefiore, I Romanov (edizione inglese, capitolo «The Golden Age»). Non è un documento dell'epoca."
-        },
-        {
-          "id": "guardaroba",
-          "title": "Il guardaroba di Elisabetta",
-          "text": "Alla morte dell'imperatrice, nel 1761, si contano quindicimila abiti, due bauli pieni di calze di seta, alcune migliaia di paia di scarpe e più di cento pezze di stoffa francese mai tagliate.",
-          "provenance": "Inventario alla morte dell'imperatrice riferito da S. S. Montefiore, I Romanov (edizione inglese, capitolo «Russian Venus»). Parafrasi."
-        },
-        {
-          "id": "gogol",
-          "title": "Le anime morte (romanzo, 1842)",
-          "text": "Il protagonista, Čičikov, gira le tenute di provincia e compra dai proprietari i servi morti dopo l'ultimo censimento. Per lo Stato, fino al censimento successivo, quei morti sono ancora vivi: sulla carta sono anime. E un'anima si può comprare, vendere, impegnare per avere un prestito.",
-          "provenance": "Letteratura: Nikolaj Gogol', Le anime morte, 1842. Riassunto della trama a cura della redazione. È un romanzo, non un documento."
-        }
-      ],
-      "choices": [
-        {
-          "id": "conti",
-          "label": "La ricchezza si conta in cose e in persone: quello che conta è il registro",
-          "feedback": "I doni e il romanzo trattano le persone come voci di un conto: si regalano a migliaia e restano anime perfino da morte, finché il registro non cambia. Il guardaroba mostra che cosa si poteva accumulare dall'altra parte del conto.",
-          "effects": []
-        },
-        {
-          "id": "lusso",
-          "label": "I fogli mostrano soprattutto il lusso della corte, lontano dai villaggi",
-          "feedback": "Il lusso c'è, ma i doni di Caterina non sono lusso: sono villaggi interi che passano di mano. Il conto della corte e quello del villaggio sono lo stesso conto, visto da due lati.",
-          "effects": []
-        },
-        {
-          "id": "romanzo",
-          "label": "Contano solo i primi due: il romanzo è invenzione e non dice niente del passato",
-          "feedback": "Un romanzo non prova un fatto. Però i lettori del 1842 riconoscevano il meccanismo: le anime restavano sui registri fino al censimento. Documenti e letteratura si leggono insieme, sapendo che cosa sono.",
-          "effects": []
-        }
-      ],
-      "editorial": {
-        "sources": [
-          "I1-04",
-          "C12",
-          "I1-12"
-        ],
-        "scheda": "I.1-e3"
-      }
-    },
-    {
-      "id": "a1-u1-e4",
-      "type": "resource_allocation",
+      "id": "a1-u1-settimana",
+      "type": "turn_game",
       "roleId": "antenati",
-      "title": "L'anno della famiglia",
+      "title": "La settimana",
       "context": {
         "kind": "simulation",
-        "dateLabel": "anni Cinquanta dell'Ottocento",
+        "dateLabel": "1740–1861",
         "placeLabel": "un villaggio della Russia centrale"
       },
-      "text": "La settimana ha sei giorni di lavoro. Una parte spetta al signore: è la corvée, il lavoro sui suoi campi. Il resto è per il campo della famiglia, che deve nutrire quattro persone fino al raccolto successivo; un po' va agli attrezzi e alla casa.\n\nL'amministratore annota chi si presenta alla corvée. Il padre guarda il cielo: se piove, il fieno del signore e il proprio vanno tagliati nello stesso giorno.\n\nDividi i sei giorni.",
+      "text": "Una partita di otto anni, dal 1740 al 1861. Ogni anno arriva una notizia dall'alto, poi si dividono i sei giorni della settimana, poi qualcuno bussa alla porta.",
       "stageId": "a1-u1-anno",
-      "motionId": "ingresso",
       "resultMotionId": "raccolto",
       "exposes": [
-        "a1-anno"
+        "a1-feste",
+        "a1-inventari",
+        "a1-anno",
+        "a1-utopie",
+        "a1-manifesto"
       ],
-      "visualExplanation": "A sinistra il campo della famiglia, a destra quelli del signore con l'amministratore. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
-      "budget": 6,
-      "buckets": [
+      "visualExplanation": "Il tabellone è il villaggio: tocca i posti sulla scena oppure usa + e − qui sotto. Gli indicatori sono indici della simulazione: non sono dati storici né voti.",
+      "tokens": 6,
+      "tokenLabel": "giorni",
+      "places": [
         {
           "id": "campo",
-          "label": "Giorni sul campo della famiglia",
-          "max": 6,
-          "perUnit": [
+          "label": "Il campo della famiglia",
+          "x": 0.27,
+          "y": 0.84,
+          "perToken": [
             {
               "kind": "resource",
-              "id": "sussistenza",
-              "delta": 5
+              "id": "grano",
+              "delta": 7
             }
           ]
         },
         {
           "id": "corvee",
-          "label": "Giorni di corvée per il signore",
-          "max": 6,
-          "perUnit": [
+          "label": "I campi del signore (corvée)",
+          "x": 0.76,
+          "y": 0.84,
+          "perToken": [
             {
               "kind": "metric",
-              "id": "tensione",
-              "delta": -4
+              "id": "occhio",
+              "delta": -5
             }
           ]
         },
         {
-          "id": "attrezzi",
-          "label": "Giorni per attrezzi e casa",
-          "max": 2,
-          "perUnit": [
+          "id": "vicini",
+          "label": "Il villaggio: aiutare i vicini",
+          "x": 0.27,
+          "y": 0.66,
+          "perToken": [
             {
               "kind": "metric",
-              "id": "attrezzi",
-              "delta": 1
+              "id": "legami",
+              "delta": 6
+            },
+            {
+              "kind": "resource",
+              "id": "grano",
+              "delta": 3
             }
           ]
         }
       ],
-      "effects": [
+      "rules": {
+        "min": {
+          "corvee": 3
+        }
+      },
+      "upkeep": [
         {
           "kind": "resource",
-          "id": "sussistenza",
-          "delta": -15
+          "id": "grano",
+          "delta": -20
         },
         {
           "kind": "metric",
-          "id": "tensione",
-          "delta": 12
+          "id": "occhio",
+          "delta": 8
         }
       ],
-      "feedback": "Nel modello ogni giorno sul campo della famiglia mette da parte cibo per l'inverno; ogni giorno di corvée che manca rende più tesi i rapporti con l'amministratore. Il tempo dato agli attrezzi non si vede subito. Nessuna divisione è giusta: è il conto che ogni famiglia di servi faceva.",
-      "delayed": [
+      "luck": [
         {
-          "id": "attrezzi-riscatto",
-          "episodeId": "a1-u1-e6",
-          "expiresAfterTurns": 2,
-          "onExit": "discard",
+          "id": "buona",
+          "label": "buona annata",
+          "weight": 1,
+          "yield": {
+            "campo": 1.5
+          }
+        },
+        {
+          "id": "normale",
+          "label": "annata normale",
+          "weight": 2,
+          "yield": {
+            "campo": 1
+          }
+        },
+        {
+          "id": "gelo",
+          "label": "gelo tardivo",
+          "weight": 1,
+          "yield": {
+            "campo": 0.5
+          }
+        }
+      ],
+      "control": {
+        "text": "L'amministratore segna nel registro i giorni che mancano e si prende una parte del raccolto, un tanto per ogni giorno.",
+        "chance": {
+          "base": 0.15,
+          "metric": "occhio",
+          "factor": 0.008
+        },
+        "effects": [
+          {
+            "kind": "metric",
+            "id": "occhio",
+            "delta": 6
+          }
+        ],
+        "perMissing": [
+          {
+            "kind": "resource",
+            "id": "grano",
+            "delta": -5
+          },
+          {
+            "kind": "metric",
+            "id": "occhio",
+            "delta": 3
+          }
+        ]
+      },
+      "crises": [
+        {
+          "id": "mucca",
+          "when": {
+            "op": "lte",
+            "kind": "resource",
+            "id": "grano",
+            "value": 0
+          },
+          "text": "Il grano è finito prima della primavera: la famiglia vende la mucca. Senza letame il campo renderà meno.",
+          "effects": [
+            {
+              "kind": "resource",
+              "id": "grano",
+              "delta": 25
+            },
+            {
+              "kind": "flag",
+              "id": "mucca_venduta",
+              "value": true
+            }
+          ],
+          "rules": {
+            "places": {
+              "campo": {
+                "perToken": [
+                  {
+                    "kind": "resource",
+                    "id": "grano",
+                    "delta": 6
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "id": "vicini",
+          "when": {
+            "op": "all",
+            "items": [
+              {
+                "op": "flag",
+                "id": "mucca_venduta",
+                "value": true
+              },
+              {
+                "op": "lte",
+                "kind": "resource",
+                "id": "grano",
+                "value": 0
+              },
+              {
+                "op": "gte",
+                "kind": "metric",
+                "id": "legami",
+                "value": 50
+              }
+            ]
+          },
+          "text": "Il grano finisce di nuovo. Questa volta i vicini dividono con voi il pane fino al raccolto.",
+          "effects": [
+            {
+              "kind": "resource",
+              "id": "grano",
+              "delta": 15
+            }
+          ]
+        },
+        {
+          "id": "lontano",
+          "when": {
+            "op": "all",
+            "items": [
+              {
+                "op": "flag",
+                "id": "mucca_venduta",
+                "value": true
+              },
+              {
+                "op": "lte",
+                "kind": "resource",
+                "id": "grano",
+                "value": 0
+              },
+              {
+                "op": "lt",
+                "kind": "metric",
+                "id": "legami",
+                "value": 50
+              }
+            ]
+          },
+          "text": "Il grano finisce di nuovo e nessuno può aiutarvi. Il figlio va a lavorare per un altro padrone, lontano: due braccia in meno.",
+          "effects": [
+            {
+              "kind": "resource",
+              "id": "grano",
+              "delta": 10
+            }
+          ],
+          "rules": {
+            "tokensDelta": -1
+          }
+        },
+        {
+          "id": "insolenza",
           "when": {
             "op": "gte",
             "kind": "metric",
-            "id": "attrezzi",
-            "value": 1
+            "id": "occhio",
+            "value": 85
           },
-          "explanation": "Gli attrezzi riparati negli anni della corvée servono adesso: la famiglia lavora meglio il suo lotto e mette da parte qualcosa per la prima rata.",
+          "text": "Il padrone manda il figlio in Siberia per «insolenza». Ha il diritto di farlo e nessuno può impedirglielo. Il figlio non tornerà.",
           "effects": [
             {
-              "kind": "resource",
-              "id": "sussistenza",
-              "delta": 10
+              "kind": "metric",
+              "id": "occhio",
+              "delta": -30
+            },
+            {
+              "kind": "metric",
+              "id": "speranza",
+              "delta": -15
             }
-          ]
+          ],
+          "rules": {
+            "tokensDelta": -1
+          }
         }
       ],
-      "branches": [
+      "feedback": "Il 1861 è arrivato. La famiglia è libera: nessuno può più venderla, regalarla o mandarla in Siberia. La terra però si paga anno dopo anno e la settimana non è diventata più lunga. Gli indici raccontano che cosa avete costruito e che cosa vi è costato.",
+      "turns": [
         {
-          "when": {
-            "op": "gte",
-            "kind": "resource",
-            "id": "sussistenza",
-            "value": 55
+          "label": "1740",
+          "cards": [
+            {
+              "kind": "documented",
+              "text": "Sulla Neva gelata l'imperatrice Anna fa costruire un palazzo di ghiaccio alto una decina di metri. Ci manda a passare la notte di nozze il suo buffone, un principe sposato per scherzo a una serva. Gli sposi arrivano in una gabbia, sul dorso di un elefante.",
+              "stageId": "a1-u1-feste",
+              "motionId": "ghiaccio",
+              "editorial": {
+                "fonti": [
+                  "C08–C09",
+                  "I1-15"
+                ]
+              }
+            },
+            {
+              "kind": "simulation",
+              "text": "Quaggiù, nello stesso inverno, il problema è un altro: far durare il grano fino a primavera. La settimana ha sei giorni di lavoro. Il signore ne pretende tre per i suoi campi: è la corvée. Il resto è della famiglia, se riesce a farlo bastare."
+            }
+          ],
+          "preview": "il vicino ha la febbre da giorni.",
+          "event": {
+            "who": "Bussa la moglie del vicino",
+            "text": "Il marito ha la febbre da una settimana e il loro campo è rimasto indietro. Chiede se qualcuno di voi può dare una mano.",
+            "choices": [
+              {
+                "id": "braccia",
+                "label": "Mandare il figlio ad aiutarli per due giorni",
+                "text": "Il figlio torna stanco. Il vicino non lo dimenticherà.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "legami",
+                    "delta": 12
+                  },
+                  {
+                    "kind": "resource",
+                    "id": "grano",
+                    "delta": -6
+                  }
+                ]
+              },
+              {
+                "id": "grano",
+                "label": "Dare un po' di grano invece delle braccia",
+                "text": "Il sacco è più leggero, ma in casa del vicino stasera si mangia.",
+                "effects": [
+                  {
+                    "kind": "resource",
+                    "id": "grano",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "legami",
+                    "delta": 6
+                  }
+                ]
+              },
+              {
+                "id": "no",
+                "label": "Dire che quest'anno non si può",
+                "text": "La porta si chiude piano. Nel villaggio si ricorda chi aiuta e chi no.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "legami",
+                    "delta": -10
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "1761",
+          "cards": [
+            {
+              "kind": "documented",
+              "text": "Muore l'imperatrice Elisabetta. Nel suo guardaroba si contano quindicimila abiti. I suoi palazzi però sono costruiti in fretta: negli anni Quaranta una residenza di legno sprofonda mentre dentro ci sono i granduchi. Loro si salvano a stento; sedici servitori muoiono.",
+              "stageId": "a1-u1-feste",
+              "motionId": "residenza",
+              "editorial": {
+                "fonti": [
+                  "C12",
+                  "C13",
+                  "I1-18"
+                ]
+              }
+            },
+            {
+              "kind": "documented",
+              "text": "Negli anni di Elisabetta i padroni hanno ottenuto un diritto nuovo: comprare e vendere i servi e mandarli in Siberia per «insolenza», senza chiedere il permesso a nessuno. Nei villaggi la parola «insolenza» si impara in fretta.",
+              "editorial": {
+                "fonti": [
+                  "I1-02"
+                ]
+              }
+            }
+          ],
+          "preview": "l'amministratore è di cattivo umore.",
+          "event": {
+            "who": "Torna il figlio, rosso in faccia",
+            "text": "L'amministratore lo ha accusato di aver lavorato male. Lui ha risposto. Davanti a tutti.",
+            "choices": [
+              {
+                "id": "scuse",
+                "label": "Andare tutti a chiedere scusa",
+                "text": "Vi inchinate. L'amministratore fa finta di non sentire, ma il registro resta chiuso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "occhio",
+                    "delta": -6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "speranza",
+                    "delta": -4
+                  }
+                ]
+              },
+              {
+                "id": "prete",
+                "label": "Chiedere al prete di parlare per lui",
+                "chance": {
+                  "base": 0.2,
+                  "metric": "legami",
+                  "factor": 0.006
+                },
+                "success": {
+                  "text": "Il prete parla dopo la messa. L'amministratore lascia perdere.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "occhio",
+                      "delta": -10
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Il prete non osa. L'amministratore scrive il nome del figlio nel registro, accanto alla parola «insolenza».",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "occhio",
+                      "delta": 15
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "speranza",
+                      "delta": -6
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "testa-bassa",
+                "label": "Non dire niente e lavorare di più",
+                "text": "Per tutta la settimana la famiglia lavora a testa bassa. Nessuno ne parla più, ma nessuno dimentica.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "occhio",
+                    "delta": -4
+                  },
+                  {
+                    "kind": "resource",
+                    "id": "grano",
+                    "delta": -6
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "1777",
+          "cards": [
+            {
+              "kind": "documented",
+              "text": "Caterina II chiude la storia con il favorito Zorič e lo congeda come si congeda un ospite di riguardo: con una tenuta di settemila anime. Settemila persone cambiano padrone con una firma.",
+              "stageId": "a1-u1-anime",
+              "motionId": "ingresso",
+              "editorial": {
+                "fonti": [
+                  "I1-03"
+                ]
+              }
+            },
+            {
+              "kind": "simulation",
+              "text": "Una di quelle firme, nel gioco, riguarda anche il vostro villaggio. Il nuovo padrone non l'avete mai visto. Il suo amministratore sì: dal prossimo raccolto i giorni di corvée sono quattro."
+            }
+          ],
+          "rules": {
+            "min": {
+              "corvee": 4
+            }
           },
-          "to": "a1-u1-e4-pieno"
+          "preview": "il nuovo amministratore vuole anche il fieno.",
+          "event": {
+            "who": "L'amministratore nuovo",
+            "text": "Vuole un giorno in più per il fieno del signore, proprio adesso che il vostro è da tagliare.",
+            "choices": [
+              {
+                "id": "si",
+                "label": "Dare il giorno",
+                "text": "Il fieno del signore è al coperto. Il vostro prende la pioggia.",
+                "effects": [
+                  {
+                    "kind": "resource",
+                    "id": "grano",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "occhio",
+                    "delta": -8
+                  }
+                ]
+              },
+              {
+                "id": "insieme",
+                "label": "Rifiutare insieme agli altri del villaggio",
+                "chance": {
+                  "base": 0.1,
+                  "metric": "legami",
+                  "factor": 0.008
+                },
+                "success": {
+                  "text": "Sono in troppi a dire di no. L'amministratore rinuncia, per questa volta.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "speranza",
+                      "delta": 8
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "legami",
+                      "delta": 4
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "L'amministratore annota i nomi di chi ha parlato. Il vostro è il primo.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "occhio",
+                      "delta": 18
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "soli",
+                "label": "Rifiutare da soli",
+                "chance": {
+                  "base": 0.15
+                },
+                "success": {
+                  "text": "L'amministratore borbotta e se ne va.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "speranza",
+                      "delta": 4
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Da soli non avete nessuno alle spalle. Il giorno lo darete lo stesso, con una multa in grano.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "occhio",
+                      "delta": 15
+                    },
+                    {
+                      "kind": "resource",
+                      "id": "grano",
+                      "delta": -6
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "label": "1787",
+          "cards": [
+            {
+              "kind": "documented",
+              "text": "Caterina scende verso la Crimea. A corte si racconta che Potëmkin abbia fatto montare lungo il fiume facciate di villaggi finti. I testimoni diranno di no; gli storici ne discutono ancora. Ma la voce resta: da lassù un villaggio può sembrare una scenografia.",
+              "editorial": {
+                "fonti": [
+                  "C20"
+                ]
+              }
+            },
+            {
+              "kind": "documented",
+              "text": "1791. Alla festa di Potëmkin, davanti a tremila invitati, si scopre un elefante coperto di gemme. Il cavaliere suona una campana e dietro si apre un teatro intero.",
+              "editorial": {
+                "fonti": [
+                  "C18",
+                  "I1-16"
+                ]
+              },
+              "stageId": "a1-u1-feste",
+              "motionId": "gemme"
+            }
+          ],
+          "event": {
+            "who": "Arriva un ordine dal padrone",
+            "text": "Un ospite importante passerà sulla strada maestra. Le isbe che si vedono dalla strada vanno imbiancate e sistemate entro domenica.",
+            "choices": [
+              {
+                "id": "imbianca",
+                "label": "Lavorare per abbellire le case",
+                "text": "Dalla strada le case sembrano nuove. Dentro, il tetto gocciola come prima.",
+                "effects": [
+                  {
+                    "kind": "resource",
+                    "id": "grano",
+                    "delta": -6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "occhio",
+                    "delta": -8
+                  }
+                ]
+              },
+              {
+                "id": "ragazzi",
+                "label": "Mandare solo i ragazzi",
+                "text": "I ragazzi fanno quel che possono. L'amministratore guarda e non dice niente.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "occhio",
+                    "delta": 4
+                  },
+                  {
+                    "kind": "resource",
+                    "id": "grano",
+                    "delta": -2
+                  }
+                ]
+              },
+              {
+                "id": "ridere",
+                "label": "Riderci sopra con i vicini",
+                "text": "La sera si ride delle case nuove da un lato solo. Ridere insieme tiene unito il villaggio.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "legami",
+                    "delta": 8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "occhio",
+                    "delta": 6
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "1820",
+          "cards": [
+            {
+              "kind": "documented",
+              "title": "Anni Venti dell'Ottocento",
+              "text": "Aleksej Arakčeev, uomo di fiducia dello zar Alessandro I, ha costruito nella sua tenuta di Gruzino un villaggio perfetto: file di case rosa tutte uguali, strade dritte e lastricate. Lo zar lo visita e se ne innamora.",
+              "stageId": "a1-u1-utopie",
+              "motionId": "ingresso",
+              "editorial": {
+                "fonti": [
+                  "N003–N004",
+                  "I1-21"
+                ]
+              }
+            },
+            {
+              "kind": "documented",
+              "text": "Nascono le colonie militari: contadini in uniforme che arano e fanno esercitazioni. Casa, medico e scuola gratuiti; niente di proprio e, per ogni abitante, un registro delle punizioni. Ci vivono circa 750.000 persone.",
+              "editorial": {
+                "fonti": [
+                  "N003–N004",
+                  "I1-21"
+                ]
+              }
+            }
+          ],
+          "event": {
+            "who": "Un ufficiale con un registro",
+            "text": "Cerca giovani per una colonia nuova. Promette una casa rosa, un medico e una scuola. In cambio: l'uniforme, la disciplina e un registro con il nome di ciascuno.",
+            "choices": [
+              {
+                "id": "colono",
+                "label": "Mandare il figlio come colono",
+                "text": "Il figlio parte in uniforme. Ogni tanto arriva un sacco di grano; le sue braccia non tornano.",
+                "effects": [
+                  {
+                    "kind": "resource",
+                    "id": "grano",
+                    "delta": 15
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "speranza",
+                    "delta": -8
+                  }
+                ],
+                "rules": {
+                  "tokensDelta": -1
+                }
+              },
+              {
+                "id": "no",
+                "label": "Dire che la vostra casa basta",
+                "text": "L'ufficiale scrive qualcosa e se ne va. La casa è vecchia, ma il tetto è vostro.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "speranza",
+                    "delta": 6
+                  }
+                ]
+              },
+              {
+                "id": "vicini",
+                "label": "Chiedere che cosa ne pensano i vicini",
+                "text": "Nel villaggio se ne parla per giorni. Nessuno parte; tutti hanno un'opinione.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "legami",
+                    "delta": 5
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "speranza",
+                    "delta": 2
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "1840",
+          "cards": [
+            {
+              "kind": "documented",
+              "title": "Anni Trenta e Quaranta",
+              "text": "Intere comunità si mettono in cammino per cercare Belovod'e, il Regno delle Acque Bianche: una terra «oltre l'acqua» dove si va scalzi, si dividono i frutti della terra e non ci sono crimini né guerre.",
+              "stageId": "a1-u1-utopie",
+              "motionId": "ingresso",
+              "editorial": {
+                "fonti": [
+                  "I1-08",
+                  "I1-20"
+                ]
+              }
+            }
+          ],
+          "preview": "un forestiero gira per i villaggi con una carta disegnata a mano.",
+          "event": {
+            "who": "Bussa un pellegrino",
+            "text": "Ha i piedi fasciati e una carta disegnata a mano. Dice che una carovana parte a primavera e cerca braccia giovani.",
+            "choices": [
+              {
+                "id": "parte",
+                "label": "Lasciar partire il figlio",
+                "text": "Il figlio parte all'alba. Nessuno sa se tornerà. In casa ci sono due braccia in meno e una speranza in più.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "speranza",
+                    "delta": 18
+                  }
+                ],
+                "rules": {
+                  "tokensDelta": -1
+                }
+              },
+              {
+                "id": "racconta",
+                "label": "Farsi raccontare la strada e restare",
+                "text": "Il pellegrino parla fino a tardi. Da quella sera, nel villaggio, Belovod'e ha un nome.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "speranza",
+                    "delta": 8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "legami",
+                    "delta": 3
+                  }
+                ]
+              },
+              {
+                "id": "via",
+                "label": "Mandarlo via prima che lo veda l'amministratore",
+                "text": "Il pellegrino se ne va senza una parola. Il registro resta pulito.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "occhio",
+                    "delta": -5
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "speranza",
+                    "delta": -6
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "1842",
+          "cards": [
+            {
+              "kind": "source",
+              "text": "In città esce un romanzo, Le anime morte di Gogol'. Il protagonista compra dai padroni i servi morti ancora iscritti nei registri fino al censimento successivo: sulla carta sono anime. E un'anima si può comprare. È letteratura, ma i lettori riconoscono il meccanismo.",
+              "stageId": "a1-u1-inventari",
+              "motionId": "ingresso",
+              "editorial": {
+                "fonti": [
+                  "I1-12"
+                ]
+              }
+            }
+          ],
+          "preview": "tre famiglie si riuniscono di notte.",
+          "event": {
+            "who": "Tre famiglie alla porta",
+            "text": "Vogliono chiedere insieme al padrone di tornare a tre giorni di corvée. Serve la croce di ogni casa sul foglio.",
+            "choices": [
+              {
+                "id": "croce",
+                "label": "Mettere la croce",
+                "chance": {
+                  "base": 0.1,
+                  "metric": "legami",
+                  "factor": 0.007
+                },
+                "success": {
+                  "text": "Il padrone, lontano a Pietroburgo, risponde in poche righe: tre giorni. Nel villaggio si festeggia sottovoce.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "speranza",
+                      "delta": 10
+                    }
+                  ],
+                  "rules": {
+                    "min": {
+                      "corvee": 3
+                    }
+                  }
+                },
+                "failure": {
+                  "text": "La risposta non arriva. Arriva invece l'amministratore, con il foglio delle croci in mano.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "occhio",
+                      "delta": 18
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "speranza",
+                      "delta": -6
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "no",
+                "label": "Non mettere la croce",
+                "text": "Le tre famiglie vanno avanti da sole. Quando tornano, non vi salutano.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "legami",
+                    "delta": -10
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "1861",
+          "cards": [
+            {
+              "kind": "documented",
+              "title": "3 marzo 1861 (g. 19 febbraio)",
+              "text": "Lo zar Alessandro II firma il Manifesto: ventidue milioni di servi diventano liberi. Poco dopo il prete lo legge in tutte le chiese, anche nella vostra.",
+              "stageId": "a1-u1-manifesto",
+              "motionId": "ingresso",
+              "editorial": {
+                "fonti": [
+                  "I1-09",
+                  "I1-10"
+                ]
+              }
+            },
+            {
+              "kind": "source",
+              "text": "La libertà è della persona. La terra no: il lotto va riscattato a rate per quarantanove anni ed è più piccolo dei campi di prima. Delle rate risponde tutto il villaggio insieme.",
+              "editorial": {
+                "fonti": [
+                  "I1-10"
+                ]
+              }
+            },
+            {
+              "kind": "documented",
+              "text": "Nei villaggi si aspettava una parola, volja. Nelle rivolte degli anni seguenti si dirà che la volja vera esiste e che qualcuno la tiene nascosta: come una cosa avvolta nella carta, chiusa in una scatola.",
+              "stageId": "a1-u1-manifesto",
+              "motionId": "rate",
+              "editorial": {
+                "fonti": [
+                  "I1-11"
+                ]
+              }
+            },
+            {
+              "kind": "simulation",
+              "text": "Da quest'anno nessuno pretende più la corvée. Il lavoro sui campi del vecchio padrone, se lo fate, ve lo paga. Ma ogni anno c'è la rata."
+            }
+          ],
+          "rules": {
+            "min": {
+              "corvee": 0
+            },
+            "places": {
+              "corvee": {
+                "label": "Lavoro a giornata dal vecchio padrone (pagato)",
+                "perToken": [
+                  {
+                    "kind": "resource",
+                    "id": "grano",
+                    "delta": 3
+                  }
+                ]
+              }
+            },
+            "upkeep": [
+              {
+                "kind": "resource",
+                "id": "grano",
+                "delta": -8
+              }
+            ]
+          },
+          "event": {
+            "who": "Un uomo con una carta d'oro",
+            "text": "È una lettera con la firma dello zar. Dice che tutta la terra va a chi la lavora; ai signori resta un pezzo di palude, da seminare e mietere con le proprie mani.",
+            "choices": [
+              {
+                "id": "crede",
+                "label": "Crederci e aspettare",
+                "text": "La lettera passa di casa in casa. È falsa, ma dice quello che il villaggio sperava da sempre.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "speranza",
+                    "delta": 15
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "occhio",
+                    "delta": 6
+                  }
+                ]
+              },
+              {
+                "id": "prete",
+                "label": "Chiedere al prete se è vera",
+                "text": "Il prete scuote la testa: la firma è falsa. La speranza si raffredda, ma resta.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "speranza",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "legami",
+                    "delta": 4
+                  }
+                ]
+              }
+            ]
+          }
         }
       ],
-      "next": "a1-u1-e4-magro",
       "editorial": {
-        "scheda": "I.1-e4 (ex A0.1)",
-        "calibrazione": "campo 5/corvée 1 → sussistenza 60, tensione 38 (inverno pieno); campo 3/corvée 3 → 50, 30 (inverno magro); campo 3/corvée 2/attrezzi 1 → 50, 34, effetto differito +10 in e6; campo 4/attrezzi 2 → 55, 42 (pieno)."
+        "scheda": "I.1 (forma nuova, REPERTORIO-GIOCHI §5)",
+        "nota": "Card [D] dalla matrice delle fonti; chi bussa, regole e numeri sono simulazione."
       }
     },
     {
-      "id": "a1-u1-e4-pieno",
+      "id": "a1-u1-ricorda",
       "type": "narrative",
       "roleId": "antenati",
-      "title": "Un inverno con il grano",
-      "context": {
-        "kind": "simulation",
-        "dateLabel": "l'inverno seguente",
-        "placeLabel": "il villaggio della famiglia"
-      },
-      "text": "La famiglia arriva a primavera senza vendere la mucca. Il nonno conta i sacchi due volte, per abitudine.\n\nMa nel registro dell'amministratore, accanto al nome del padre, ci sono i giorni che mancano alla corvée. Nel villaggio lo sanno tutti. Il padre ha tenuto per la sua famiglia un tempo che, secondo il registro, non era suo.",
-      "stageId": "a1-u1-inverno-pieno",
-      "motionId": "ingresso",
-      "next": "a1-u1-e5",
-      "visualExplanation": "Sacchi di grano accanto alla stufa, la famiglia riunita. È l'esito della tua divisione nella simulazione. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti."
-    },
-    {
-      "id": "a1-u1-e4-magro",
-      "type": "narrative",
-      "roleId": "antenati",
-      "title": "Un inverno magro",
-      "context": {
-        "kind": "simulation",
-        "dateLabel": "l'inverno seguente",
-        "placeLabel": "il villaggio della famiglia"
-      },
-      "text": "I campi del signore sono stati falciati per primi e con cura. Quelli della famiglia dopo, quando il tempo era già cambiato.\n\nA febbraio la farina è finita. Si mangia una volta al giorno; il nonno dice che si è sempre fatto così. Nessuno gli risponde. Nel registro dell'amministratore, accanto al nome del padre, non c'è niente da segnare.",
-      "stageId": "a1-u1-inverno-magro",
-      "motionId": "ingresso",
-      "visualExplanation": "Accanto alla stufa non c'è niente; la famiglia siede lontana. È l'esito della tua divisione nella simulazione. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti."
-    },
-    {
-      "id": "a1-u1-e5",
-      "type": "narrative",
-      "roleId": "antenati",
-      "title": "Due modi di sognare un mondo giusto",
+      "title": "Cosa ti devi ricordare",
       "context": {
         "kind": "documented",
-        "dateLabel": "1690–1898",
-        "placeLabel": "Russia"
+        "dateLabel": "1700–1861"
       },
-      "text": "Anche chi non possiede niente sogna un mondo giusto. I contadini lo dicono con due parole: pravda, che è insieme verità e giustizia; volja, la libertà di andarsene da sotto il padrone e il poliziotto.\n\nQualcuno parte davvero. Negli anni Trenta e Quaranta dell'Ottocento intere comunità si mettono in cammino per cercare Belovod'e, il Regno delle Acque Bianche: una terra «oltre l'acqua» dove si va scalzi, si dividono i frutti della terra e non ci sono crimini né guerre. L'ultima spedizione conosciuta è del 1898: tre cosacchi degli Urali tornano e dicono che quella terra non esiste.\n\nAltri fanno circolare carte false. Nel 1861, nella provincia di Char'kov, girano «lettere d'oro» con la firma dello zar: tutta la terra ai contadini; ai signori un pezzo di palude, da seminare e mietere con le proprie mani. Nel Nord, dal 1690 alla metà dell'Ottocento, la comunità dei Vecchi Credenti di Vyg tiene campi e lavoro in comune, con una disciplina severa.\n\nAnche dall'alto si sogna. Aleksej Arakčeev, uomo di fiducia degli zar Paolo e Alessandro I, costruisce nella sua tenuta di Gruzino un villaggio perfetto: file di case rosa tutte uguali, strade dritte e lastricate. Alessandro I lo visita e se ne innamora. Nascono le colonie militari: contadini in uniforme che arano e fanno esercitazioni, con casa, medico e scuola gratuiti. Nessuno possiede niente. Per ogni abitante c'è un registro delle punizioni. All'inizio degli anni Venti dell'Ottocento nelle colonie vivono circa 750.000 persone.",
-      "stageId": "a1-u1-utopie",
-      "motionId": "ingresso",
-      "exposes": [
-        "a1-utopie"
-      ],
-      "visualExplanation": "A sinistra la carovana verso un villaggio che svanisce nella foschia. A destra case in file identiche (la bottega non ha le case rosa di Gruzino: qui sono isbe), coloni in azzurro e un ufficiale con il registro. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
-      "editorial": {
-        "sources": [
-          "I1-07",
-          "I1-08",
-          "N001",
-          "N002",
-          "N003–N004"
-        ],
-        "scheda": "I.1-e5"
-      }
-    },
-    {
-      "id": "a1-u1-e6",
-      "type": "source_comparison",
-      "roleId": "antenati",
-      "title": "Il Manifesto del 1861",
-      "context": {
-        "kind": "source",
-        "dateLabel": "3 marzo 1861 (g. 19 febbraio)",
-        "placeLabel": "Russia"
-      },
-      "text": "Lo zar Alessandro II firma il Manifesto: ventidue milioni di servi diventano liberi. Poco dopo il prete lo legge in tutte le chiese, anche in quella del villaggio.\n\nI contadini aspettavano una parola, volja. Il foglio invece parla di rate e di lotti. Negli anni seguenti, nelle rivolte dei villaggi, si dice che la volja vera esista e che qualcuno la tenga nascosta: come una cosa avvolta nella carta, chiusa in una scatola.\n\nLa sera, sul tavolo della famiglia, ci sono tre fogli. Aprili tutti, poi decidi che cosa ha ricevuto la famiglia.",
+      "text": "Per un secolo e mezzo la ricchezza di un nobile russo si è contata in anime: servi maschi iscritti nei registri, che si potevano comprare, vendere e regalare a migliaia.\n\nLa corvée: una parte della settimana del servo apparteneva al signore. Non solo la terra, anche il tempo era del padrone.\n\nNel 1861 il Manifesto di Alessandro II libera ventidue milioni di servi. La libertà della persona arriva subito; la terra si riscatta a rate per quarantanove anni e il villaggio risponde insieme dei debiti.\n\nDal basso e dall'alto si sognava un mondo giusto: Belovod'e e le lettere d'oro da una parte, le colonie militari di Arakčeev dall'altra.",
+      "display": "cards",
       "stageId": "a1-u1-manifesto",
-      "motionId": "ingresso",
-      "exposes": [
-        "a1-manifesto"
-      ],
-      "visualExplanation": "Il prete legge davanti alla chiesa e i contadini si raccolgono. Dopo la tua lettura, sui campi compaiono i cartellini delle rate. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
-      "sources": [
-        {
-          "id": "firma",
-          "title": "Nel palazzo: la firma",
-          "text": "Il granduca Konstantin, fratello dello zar, annota nel diario la scena: lo zar legge il testo ad alta voce, si fa il segno della croce e firma; Konstantin stesso versa la sabbia sull'inchiostro. Comincia un'epoca nuova, scrive. Poi aggiunge che c'era chi aveva previsto una rivoluzione. Allo zar la riforma sembrerà passata in perfetta calma.",
-          "provenance": "Diario del granduca Konstantin Nikolaevič e lettera di Alessandro II al principe Barjatinskij, riferiti da S. S. Montefiore, I Romanov (edizione inglese, capitolo «Liberator»). Parafrasi."
-        },
-        {
-          "id": "condizioni",
-          "title": "Le condizioni",
-          "text": "La libertà è della persona; la terra no. La famiglia riceve un lotto e lo deve riscattare a rate, pagando lo Stato: le rate durano quarantanove anni. Il lotto non è mai pari ai campi che la famiglia lavorava prima. Delle rate e delle tasse risponde tutta la comunità del villaggio, il mir: se una famiglia non paga, devono pagare gli altri.",
-          "provenance": "Sintesi degli statuti del 1861 da una scheda divulgativa (EBSCO Research Starters, «Emancipation of the Russian Serfs», consultata il 21 ottobre 2026). Da riscontrare su un manuale."
-        },
-        {
-          "id": "lettera",
-          "title": "Nel villaggio: una lettera d'oro",
-          "text": "Nello stesso 1861, nella provincia di Char'kov, contadini che si dicono inviati dello zar fanno girare una carta con la sua firma falsa. Dice che tutta la terra va a chi la lavora, anche quella dei signori. Ai signori resta un pezzo di palude magra: se vogliono mangiare, possono seminarla e mieterla con le loro mani.",
-          "provenance": "Falso dell'epoca riassunto da R. Stites, Revolutionary Dreams, Oxford University Press 1989, p. 16. Non è una legge: mostra che cosa alcuni contadini si aspettavano dallo zar."
-        }
-      ],
-      "choices": [
-        {
-          "id": "liberi-senza-terra",
-          "label": "La famiglia è libera, ma la terra deve pagarla per decenni",
-          "feedback": "Così è: la libertà della persona arriva subito, la terra no. I tre fogli lo dicono in modi diversi. Chi firma vede un'epoca nuova; le regole fissano rate e responsabilità comune; la lettera falsa immagina la terra senza riscatto. Nel modello arriva la prima rata.",
-          "effects": [
-            {
-              "kind": "resource",
-              "id": "sussistenza",
-              "delta": -10
-            },
-            {
-              "kind": "metric",
-              "id": "tensione",
-              "delta": 5
-            }
-          ],
-          "motionId": "rate"
-        },
-        {
-          "id": "tutto",
-          "label": "La famiglia ha avuto quello che chiedeva: la libertà e la terra",
-          "feedback": "Il diario del granduca parla di un'epoca nuova, ma le condizioni dicono altro: la terra si riscatta in quarantanove anni e il lotto è più piccolo dei campi di prima. La lettera d'oro mostra che i contadini chiedevano proprio la terra, senza pagarla. Nel modello arriva la prima rata.",
-          "effects": [
-            {
-              "kind": "resource",
-              "id": "sussistenza",
-              "delta": -10
-            },
-            {
-              "kind": "metric",
-              "id": "tensione",
-              "delta": 5
-            }
-          ],
-          "motionId": "rate"
-        },
-        {
-          "id": "niente",
-          "label": "Non è cambiato niente: la lettera falsa dice la verità che il Manifesto nasconde",
-          "feedback": "Qualcosa cambia davvero: nessuno può più vendere, regalare o mandare in Siberia la famiglia. Ma la lettera non è il vero Manifesto nascosto: è un falso che dice che cosa i contadini speravano. Nel modello arriva la prima rata.",
-          "effects": [
-            {
-              "kind": "resource",
-              "id": "sussistenza",
-              "delta": -10
-            },
-            {
-              "kind": "metric",
-              "id": "tensione",
-              "delta": 5
-            }
-          ],
-          "motionId": "rate"
-        }
-      ],
+      "motionId": "rate",
+      "visualExplanation": "I campi dopo il 1861: i cartellini sono le rate del riscatto.",
       "editorial": {
         "sources": [
+          "I1-01",
+          "I1-03",
           "I1-09",
           "I1-10",
-          "N001"
-        ],
-        "scheda": "I.1-e6 (ex A0.2)",
-        "nota": "«Vera libertà nascosta»: Stites p. 18 (I1-11), parafrasi; la lettera d'oro (N001) è il documento che la rende concreta."
+          "N001",
+          "N003–N004",
+          "I1-08"
+        ]
       }
     },
     {
@@ -454,7 +1113,7 @@
       "context": {
         "kind": "assessment"
       },
-      "text": "Una domanda sul Manifesto. Non valuta le scelte che hai fatto per la famiglia nella simulazione.",
+      "text": "Una domanda sul 1861. Non valuta le scelte che hai fatto nella partita.",
       "stageId": "a1-u1-manifesto"
     }
   ],

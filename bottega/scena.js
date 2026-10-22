@@ -132,7 +132,13 @@ export function compilaScena(scena, { libreria }) {
   }
   for (const c of components) if (nascosti.has(c.id)) c.opacity = 0;
   if (scena.ingresso && !sequences.some(s => s.id === scena.ingresso)) throw errore(scena, 'ingresso: sequenza sconosciuta "' + scena.ingresso + '"');
-  const stage = { id: scena.id, label: scena.etichetta, viewBox, duration: 700, layers, components, sequences, ...(scena.ingresso ? { introSequence: scena.ingresso } : {}) };
+  let mobile;
+  if (scena.telefono !== undefined) {
+    const t = scena.telefono, ok = t && typeof t === 'object' && Object.keys(t).every(k => ['centro', 'zoom'].includes(k)) && Number.isFinite(t.centro) && t.centro >= 0 && t.centro <= 1 && (t.zoom === undefined || (Number.isFinite(t.zoom) && t.zoom >= 1 && t.zoom <= 3));
+    if (!ok) throw errore(scena, 'telefono: serve { "centro": 0–1, "zoom": 1–3 } (centro = dove sta l\'azione, da sinistra a destra)');
+    mobile = { center: t.centro, ...(t.zoom !== undefined ? { zoom: t.zoom } : {}) };
+  }
+  const stage = { id: scena.id, label: scena.etichetta, viewBox, duration: 700, layers, components, sequences, ...(scena.ingresso ? { introSequence: scena.ingresso } : {}), ...(mobile ? { mobile } : {}) };
   return { symbols: [...symbols.values()], stage };
 }
 function occupa(canali, chiave, da, a, etichetta, scena, seq) {

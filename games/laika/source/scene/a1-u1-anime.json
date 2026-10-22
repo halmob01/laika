@@ -1,6 +1,10 @@
 {
   "id": "a1-u1-anime",
   "etichetta": "Una pianura con due case padronali e un villaggio di isbe. Sopra le case compaiono cartellini senza nomi; poi il villaggio passa da una tenuta all'altra. In primo piano una famiglia zappa, l'amministratore legge il registro.",
+  "telefono": {
+    "centro": 0.5,
+    "zoom": 1.5
+  },
   "viewBox": [
     0,
     0,

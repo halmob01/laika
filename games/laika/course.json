@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "laika",
-  "contentVersion": "p3-i1-1",
+  "contentVersion": "p3r-i1-2",
   "title": "LAIKA",
   "exposureFlags": [
     "a1-anime",
@@ -28,7 +28,7 @@
     "source/scene/a1-u1-utopie.json",
     "source/scene/a1-u1-manifesto.json"
   ],
-  "tema": "laika",
+  "tema": "laika-grigio",
   "symbols": "assets/symbols.json",
   "questions": [
     "questions/atto-1.json"

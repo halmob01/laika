@@ -160,7 +160,7 @@ test('LAIKA: il build compone le schede scena con il tema del corso', () => {
     const course = JSON.parse(fs.readFileSync(path.join(dir, 'course.json'))); course.scene = [...course.scene, 'source/scene/prova.json'];
     fs.writeFileSync(path.join(dir, 'course.json'), JSON.stringify(course));
     const game = JSON.parse(buildLaika(dir, { write: false }));
-    assert.equal(game.palette.paper, palette.paper);
+    assert.equal(game.palette.paper, temi.temi[course.tema].paper);
     assert.ok(game.stages.some(s => s.id === 'esempio-coda'));
     validatePack(game);
   } finally { fs.rmSync(dir, { recursive: true, force: true }); }
