@@ -85,6 +85,7 @@ Esempio minimo (vedi `esempi/` per scene complete):
 | `gruppi` | no | gruppi con nome scelti a mano: `{"oratore": ["comizio-1"]}` |
 | `sequenze` | no | animazioni: `{id, didascalia, passi, battute}` |
 | `ingresso` | no | sequenza che parte all'apertura della scena |
+| `telefono` | no | inquadratura sugli schermi stretti: `{centro, zoom}`. `centro` (da 0 a 1) è dove sta l'azione da sinistra a destra, `zoom` (da 1 a 3) quanto ingrandire. Il tema del progetto decide come usarla; LAIKA ingrandisce e centra la scena come il hero della home |
 
 **Figura singola**: `{id, x, y, scala, variante, corpo, cappello, abito, accessorio, ruolo, posa, flip, oggetti}`. `x,y` sono i piedi. Valori ammessi:
 

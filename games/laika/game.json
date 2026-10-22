@@ -12,17 +12,17 @@
     "a1-manifesto"
   ],
   "palette": {
-    "paper": "#f3ebdb",
-    "paper2": "#e9e0cf",
-    "ink": "#1c1c1b",
-    "red": "#cc2a25",
-    "blue": "#93abb7",
-    "sand": "#decba8",
-    "concrete-light": "#c9d6df",
-    "concrete-mid": "#8ea8b8",
-    "concrete-dark": "#4f6b7c",
-    "sky": "#b8cbd8",
-    "tree": "#97b0c0"
+    "paper": "#e9e8e4",
+    "paper2": "#dcdbd6",
+    "ink": "#1b1c1c",
+    "red": "#c22a22",
+    "blue": "#7f8a8d",
+    "sand": "#d3c39d",
+    "concrete-light": "#c5c8c7",
+    "concrete-mid": "#8f9594",
+    "concrete-dark": "#555c5d",
+    "sky": "#cbcecd",
+    "tree": "#9ba19f"
   },
   "patterns": [
     {
@@ -13403,7 +13403,11 @@
           ]
         }
       ],
-      "introSequence": "ingresso"
+      "introSequence": "ingresso",
+      "mobile": {
+        "center": 0.5,
+        "zoom": 1.5
+      }
     },
     {
       "id": "a1-u1-feste",
@@ -14752,7 +14756,11 @@
           ]
         }
       ],
-      "introSequence": "ingresso"
+      "introSequence": "ingresso",
+      "mobile": {
+        "center": 0.47,
+        "zoom": 1.2
+      }
     },
     {
       "id": "a1-u1-inventari",
@@ -15073,7 +15081,11 @@
           ]
         }
       ],
-      "introSequence": "ingresso"
+      "introSequence": "ingresso",
+      "mobile": {
+        "center": 0.62,
+        "zoom": 1.5
+      }
     },
     {
       "id": "a1-u1-anno",
@@ -16173,7 +16185,11 @@
           "shots": []
         }
       ],
-      "introSequence": "ingresso"
+      "introSequence": "ingresso",
+      "mobile": {
+        "center": 0.55,
+        "zoom": 1.25
+      }
     },
     {
       "id": "a1-u1-inverno-pieno",
@@ -16593,7 +16609,11 @@
           "shots": []
         }
       ],
-      "introSequence": "ingresso"
+      "introSequence": "ingresso",
+      "mobile": {
+        "center": 0.62,
+        "zoom": 1.6
+      }
     },
     {
       "id": "a1-u1-inverno-magro",
@@ -17379,7 +17399,11 @@
           "shots": []
         }
       ],
-      "introSequence": "ingresso"
+      "introSequence": "ingresso",
+      "mobile": {
+        "center": 0.62,
+        "zoom": 1.4
+      }
     },
     {
       "id": "a1-u1-utopie",
@@ -24338,7 +24362,11 @@
           ]
         }
       ],
-      "introSequence": "ingresso"
+      "introSequence": "ingresso",
+      "mobile": {
+        "center": 0.55,
+        "zoom": 1.15
+      }
     },
     {
       "id": "a1-u1-manifesto",
@@ -28234,7 +28262,11 @@
           "shots": []
         }
       ],
-      "introSequence": "ingresso"
+      "introSequence": "ingresso",
+      "mobile": {
+        "center": 0.36,
+        "zoom": 1.7
+      }
     }
   ],
   "acts": [
@@ -28309,7 +28341,8 @@
           },
           "exposes": [
             "a1-anime"
-          ]
+          ],
+          "display": "cards"
         },
         {
           "id": "a1-u1-e2",
@@ -28327,7 +28360,8 @@
           },
           "exposes": [
             "a1-feste"
-          ]
+          ],
+          "display": "cards"
         },
         {
           "id": "a1-u1-e3",
@@ -28538,7 +28572,8 @@
           },
           "exposes": [
             "a1-utopie"
-          ]
+          ],
+          "display": "cards"
         },
         {
           "id": "a1-u1-e6",

@@ -1,6 +1,10 @@
 {
   "id": "a1-u1-inverno-pieno",
   "etichetta": "Interno di isba in inverno. Sacchi di grano accanto alla stufa; la famiglia è riunita in piedi, la madre parla, il nonno ascolta seduto.",
+  "telefono": {
+    "centro": 0.62,
+    "zoom": 1.6
+  },
   "ruvido": true,
   "elementi": [
     {

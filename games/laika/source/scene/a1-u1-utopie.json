@@ -1,6 +1,10 @@
 {
   "id": "a1-u1-utopie",
   "etichetta": "Due villaggi ideali, uno accanto all'altro. A sinistra una carovana cammina verso un villaggio lontano che svanisce nella foschia. A destra file di case identiche e allineate, coloni in uniforme azzurra in fila e un ufficiale con un registro.",
+  "telefono": {
+    "centro": 0.55,
+    "zoom": 1.15
+  },
   "viewBox": [
     0,
     0,

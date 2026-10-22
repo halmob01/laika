@@ -1,6 +1,10 @@
 {
   "id": "a1-u1-inverno-magro",
   "etichetta": "Interno di isba in inverno. Accanto alla stufa non c'è niente; il padre e la madre siedono lontani, il figlio seduto a terra vicino alla stufa, il nonno in piedi alla finestra.",
+  "telefono": {
+    "centro": 0.62,
+    "zoom": 1.4
+  },
   "ruvido": true,
   "elementi": [
     {

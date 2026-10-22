@@ -1,6 +1,10 @@
 {
   "id": "a1-u1-feste",
   "etichetta": "In alto, sulla riva gelata, le feste della corte: una residenza di legno che sprofonda nella neve, il palazzo di ghiaccio con l'elefante e la gabbia, una sala dove si scopre un elefante di gemme. In basso, nella stessa inquadratura, il villaggio dove si zappa.",
+  "telefono": {
+    "centro": 0.47,
+    "zoom": 1.2
+  },
   "viewBox": [
     0,
     0,

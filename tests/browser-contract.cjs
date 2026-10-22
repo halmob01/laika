@@ -23,6 +23,8 @@ module.exports=async function(browser,root,artifacts){
    if(state.currentAct.phase==='outcome'||e.type==='narrative'){
     // Heading focus -> Tab reaches Continue on narrative/outcome; activate by keyboard.
     await page.locator('#scene-title').focus();await page.keyboard.press('Tab');
+    // Racconto a card: Tab porta ad Avanti; Invio sfoglia e il fuoco resta sul comando successivo fino a Continua.
+    for(let n=0;n<20&&await page.evaluate(()=>document.activeElement.dataset.card==='next');n++)await page.keyboard.press('Enter');
     assert.equal(await page.evaluate(()=>document.activeElement.dataset.action),'advance');
     await page.keyboard.press('Enter');
    }else if(e.type==='resource_allocation'){

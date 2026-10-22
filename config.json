@@ -18,11 +18,13 @@
     },
     {
       "id": "laika",
-      "label": "LAIKA — prova tecnica interna",
+      "label": "LAIKA",
       "manifest": "./games/laika/game.json",
       "presentation": {
         "stylesheet": "./site/laika/theme.css",
-        "homeHref": "./"
+        "homeHref": "./",
+        "homeLabel": "LAIKA",
+        "standalone": true
       }
     }
   ]

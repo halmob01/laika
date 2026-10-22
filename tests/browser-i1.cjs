@@ -11,7 +11,11 @@ module.exports=async(browser,root,artifacts)=>{
   const fine=()=>page.evaluate(()=>Promise.all(document.getAnimations().map(a=>a.finished.catch(()=>{}))));
   await page.goto(origin+'/');await page.locator('#inizia').click();await page.locator('#scene-title').waitFor();
   const overflow=()=>page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1);
-  const titolo=()=>page.locator('#scene-title').innerText();
+  const titolo=()=>page.locator('#scene-title').textContent();
+  // Redesign: gioco autonomo (niente menu delle demo), marchio del progetto, scena ingrandita su schermi stretti.
+  assert.equal(await page.locator('#packs').isVisible(),false,'menu dei laboratori nascosto');
+  assert.equal((await page.locator('#home-link').innerText()).trim(),'LAIKA');
+  if(run.viewport.width<=980){const [svgW,stageW]=await page.evaluate(()=>[document.querySelector('#stage svg').getBoundingClientRect().width,document.querySelector('#stage').getBoundingClientRect().width]);assert.ok(svgW>stageW*1.1,'scena ingrandita sul telefono: '+svgW+' su '+stageW);}
   // I paragrafi separati da una riga vuota restano paragrafi (white-space: pre-line del player).
   assert.equal(await page.locator('.lead').evaluate(n=>getComputedStyle(n).whiteSpace),'pre-line');
   let n=0,visti=[];
@@ -19,6 +23,8 @@ module.exports=async(browser,root,artifacts)=>{
    if(await page.locator('#summary-title').isVisible())break;
    const t=await titolo();if(visti.at(-1)!==t){visti.push(t);await page.locator('#skip').click().catch(()=>{});await fine();await shot(String(++n).padStart(2,'0'));}
    assert.equal(await overflow(),true,'overflow orizzontale in «'+t+'»');
+   // Racconto a card: si sfoglia fino all'ultima, poi c'è Continua.
+   if(await page.locator('[data-card=next]').count()){await page.locator('[data-card=next]').click();continue;}
    if(await page.locator('[name=campo]').count()){
     for(const [k,v] of Object.entries(run.alloc))await page.locator('[name='+k+']').fill(String(v));
     await page.getByRole('button',{name:'Conferma distribuzione'}).click();await fine();await shot(String(++n).padStart(2,'0')+'-esito');
@@ -32,7 +38,7 @@ module.exports=async(browser,root,artifacts)=>{
     if(await fonti.count()===3&&n<40){await fine();await shot(String(++n).padStart(2,'0')+'-fonti');}
     await page.locator('[data-choice]').first().click();await fine();continue;
    }
-   if(await page.locator('[data-answer]').count()){await page.locator('[data-answer=liberta]').click();await fine();await shot(String(++n).padStart(2,'0')+'-verifica');continue;}
+   if(await page.locator('[data-answer]').count()){await page.locator('[data-answer=liberta]').click();await fine();await shot(String(++n).padStart(2,'0')+'-verifica');assert.equal(await page.locator('#panel').getAttribute('data-type'),'assessment');continue;}
    await page.locator('[data-action=advance]').click();
   }
   assert.ok(await page.locator('#summary-title').isVisible(),'unità non conclusa: '+visti.join(' | '));

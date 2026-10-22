@@ -12,6 +12,8 @@ const ATTRS=[...NUMERIC,'fill','stroke','d','text-anchor','font-size','font-fami
 export function validateStage(stage,act) {
   assert(id(stage.id)&&text(stage.label)&&Array.isArray(stage.layers)&&stage.layers.length<=MOTION_LIMITS.layers,'Stage non valido');
   if(stage.viewBox)assert(Array.isArray(stage.viewBox)&&stage.viewBox.length===4&&stage.viewBox.every(Number.isFinite)&&stage.viewBox[2]>0&&stage.viewBox[3]>0,'ViewBox non valido');
+  // Inquadratura su schermi stretti: dove sta l'azione (0 = bordo sinistro, 1 = destro) e quanto ingrandire. Il tema decide se usarla.
+  if(stage.mobile!==undefined){const m=stage.mobile;assert(m&&typeof m==='object'&&!Array.isArray(m)&&Object.keys(m).every(k=>['center','zoom'].includes(k))&&Number.isFinite(m.center)&&m.center>=0&&m.center<=1&&(m.zoom===undefined||(Number.isFinite(m.zoom)&&m.zoom>=1&&m.zoom<=3)),'Inquadratura per telefono non valida');}
   const keys=new Set(),groups=new Set();
   for(const layer of stage.layers) {
     assert(id(layer.id)&&!keys.has(layer.id)&&TAGS.includes(layer.tag),'Layer non valido');

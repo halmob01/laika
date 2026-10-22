@@ -1,6 +1,10 @@
 {
   "id": "a1-u1-manifesto",
   "etichetta": "Davanti alla chiesa del villaggio il prete legge un foglio; i contadini si raccolgono intorno. Poi sui campi compaiono, uno dopo l'altro, i cartellini delle rate da pagare.",
+  "telefono": {
+    "centro": 0.36,
+    "zoom": 1.7
+  },
   "viewBox": [
     0,
     0,

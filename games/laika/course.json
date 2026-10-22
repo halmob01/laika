@@ -28,7 +28,7 @@
     "source/scene/a1-u1-utopie.json",
     "source/scene/a1-u1-manifesto.json"
   ],
-  "tema": "laika",
+  "tema": "laika-grigio",
   "symbols": "assets/symbols.json",
   "questions": [
     "questions/atto-1.json"
