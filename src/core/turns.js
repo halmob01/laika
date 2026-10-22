@@ -211,6 +211,7 @@ export function turnAction(act, e, previous, action, seed) {
       }
       const c = fireCrises(act, e, state, g, cause); changes.push(...c.changes);
       g.result = { luck: { id: luck.id, label: luck.label }, control, crises: c.crises, changes: netChanges(changes), preview: t.preview || null };
+      feedback = [t.label + ': ' + luck.label + '.', control?.caught ? e.control.text : null, ...c.crises.map(x => x.text)].filter(Boolean).join(' ');
       g.phase = 'result'; break;
     }
     case 'continue':
@@ -227,6 +228,7 @@ export function turnAction(act, e, previous, action, seed) {
       changes.push(...applyEffects(act, state, o.effects || [], cause + ':' + c.id));
       const cr = fireCrises(act, e, state, g, cause); changes.push(...cr.changes);
       g.eventResult = { choiceId: c.id, text: o.text, p: p === null ? null : Math.round(p * 100), success, crises: cr.crises, changes: netChanges(changes) };
+      feedback = [t.label + ' · ' + t.event.who + ': «' + c.label + '».', o.text, ...cr.crises.map(x => x.text)].join(' ');
       g.phase = 'eventResult'; break;
     }
   }

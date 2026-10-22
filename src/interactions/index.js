@@ -45,8 +45,8 @@ registerInteraction('assessment',({host,episode,seed,dispatch})=>{
 // Partita a turni: card, piazzamento «tocca e tocca» (anche sulla scena), esito, chi bussa.
 let fitObserver=null;
 const sign=n=>(n>0?'+':'−')+Math.abs(n);
-const metricLabel=(act,m)=>[...(act.metrics||[]),...(act.resources||[])].find(d=>d.id===m.id)?.label.replace(/\s*\(indice della simulazione\)/,'')||m.id;
-function changeList(act,changes){const ul=el('ul',undefined,{class:'turn-changes'});for(const c of changes)ul.append(el('li',c.label.replace(/\s*\(indice della simulazione\)/,'')+': '+c.before+' → '+c.after));return ul;}
+const metricLabel=(act,m)=>[...(act.metrics||[]),...(act.resources||[])].find(d=>d.id===m.id)?.label||m.id;
+function changeList(act,changes){const ul=el('ul',undefined,{class:'turn-changes'}),hidden=new Set([...(act.metrics||[]),...(act.resources||[])].filter(d=>d.hidden).map(d=>d.id));for(const c of changes.filter(x=>!hidden.has(x.id)))ul.append(el('li',c.label+': '+c.before+' → '+c.after));return ul;}
 function hotspots(stageHost,episode,game,dispatch){
   stageHost?.querySelector('.turn-overlay')?.remove();fitObserver?.disconnect();fitObserver=null;
   const svg=stageHost?.querySelector('svg');if(!svg||game.phase!=='place')return;

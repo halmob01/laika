@@ -43,7 +43,11 @@ module.exports=async(browser,root,artifacts)=>{
     // Reload a metà anno: le pedine piazzate restano dove erano.
     if(!reloaded){const prima=await save();const prima_n=await page.locator('.turn-tokens i.used').count();await page.reload();await page.locator('.turn-label').waitFor();
       assert.equal(await save(),prima);assert.equal(await page.locator('.turn-tokens i.used').count(),prima_n);reloaded=true;}
-    await page.locator('[data-turn=confirm]').click();if(anno===1||anno===3)await shot(String(anno).padStart(2,'0')+'-esito');continue;}
+    await page.locator('[data-turn=confirm]').click();if(anno===1||anno===3)await shot(String(anno).padStart(2,'0')+'-esito');
+    // Il diario parla in italiano: nessun codice interno, una riga per indicatore.
+    if(anno===3){const d=page.locator('#journal details');await d.evaluate(n=>n.open=true);const testo=await d.innerText();
+      assert.doesNotMatch(testo,/causa:|a1-u1|settimana:\d/,'codici interni nel diario');assert.doesNotMatch(testo,/Legami nel villaggio/,'indicatore nascosto nel diario');assert.match(testo,/1777: /);await shot('03-diario');await d.evaluate(n=>n.open=false);}
+    continue;}
    if(await page.locator('[data-turn-choice]').count()){if(anno===1)await shot('01-bussa');await page.locator('[data-turn-choice]').first().click();continue;}
    if(await page.locator('[data-turn=continue]').count()){await page.locator('[data-turn=continue]').click();continue;}
    if(await page.locator('[data-action=advance]').count()){await shot('80-fine-partita');await page.locator('[data-action=advance]').click();continue;}
