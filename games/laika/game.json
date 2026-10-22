@@ -29564,7 +29564,7 @@
           "id": "a1-u1-e1",
           "type": "narrative",
           "title": "Le anime",
-          "text": "Nel registro di una tenuta il villaggio non ha nomi. Ha un numero.\n\nLa ricchezza di un nobile russo non si misura in campi ma in «anime». Si contano soltanto i maschi: le donne valgono meno, e nei conti non entrano. Dal tempo dell'imperatrice Elisabetta, a metà del Settecento, il padrone può comprare e vendere i suoi servi, e mandarli in Siberia per «insolenza» senza chiedere il permesso a nessuno.\n\nLe anime si regalano. Nel 1700 il nobile più ricco di Russia ne possiede trentatremila; vent'anni dopo il principe Menšikov, favorito di Pietro il Grande e poi di sua moglie Caterina I, arriva a trecentomila. Nel 1777 Caterina II congeda un favorito, Zorič, con una tenuta di settemila anime. Un villaggio intero cambia padrone per un dono, e chi ci vive continua a zappare lo stesso campo.\n\nIn uno di questi villaggi vive la famiglia che seguirai fino al 1861: il padre, la madre, il nonno, un figlio. È inventata. Il mondo intorno a lei no.",
+          "text": "Nel registro di una tenuta il villaggio non ha nomi. Ha un numero.\n\nLa ricchezza di un nobile russo non si misura in campi ma in «anime». Si contano soltanto i maschi: le donne valgono meno e nei conti non entrano. Dal tempo dell'imperatrice Elisabetta, a metà del Settecento, il padrone può comprare e vendere i suoi servi e mandarli in Siberia per «insolenza» senza chiedere il permesso a nessuno.\n\nLe anime si regalano. Nel 1700 il nobile più ricco di Russia ne possiede trentatremila; vent'anni dopo il principe Menšikov, favorito di Pietro il Grande e poi di sua moglie Caterina I, arriva a trecentomila. Nel 1777 Caterina II congeda un favorito, Zorič, con una tenuta di settemila anime. Un villaggio intero cambia padrone per un dono. Chi ci vive continua a zappare lo stesso campo.\n\nIn uno di questi villaggi vive la famiglia che seguirai fino al 1861: il padre, la madre, il nonno, un figlio. È inventata. Il mondo intorno a lei no.",
           "roleId": "antenati",
           "stageId": "a1-u1-anime",
           "motionId": "ingresso",
@@ -29600,7 +29600,7 @@
             "a1-utopie",
             "a1-manifesto"
           ],
-          "feedback": "Il 1861 è arrivato. La famiglia è libera: nessuno può più venderla, regalarla o mandarla in Siberia. La terra però si paga, anno dopo anno, e la settimana non è diventata più lunga. Gli indici raccontano che cosa avete costruito e che cosa vi è costato.",
+          "feedback": "Il 1861 è arrivato. La famiglia è libera: nessuno può più venderla, regalarla o mandarla in Siberia. La terra però si paga anno dopo anno e la settimana non è diventata più lunga. Gli indici raccontano che cosa avete costruito e che cosa vi è costato.",
           "places": [
             {
               "id": "campo",
@@ -30014,7 +30014,7 @@
               "cards": [
                 {
                   "kind": "documented",
-                  "text": "Caterina II chiude la storia con un favorito, Zorič, e lo congeda come si congeda un ospite di riguardo: con una tenuta di settemila anime. Settemila persone cambiano padrone con una firma.",
+                  "text": "Caterina II chiude la storia con il favorito Zorič e lo congeda come si congeda un ospite di riguardo: con una tenuta di settemila anime. Settemila persone cambiano padrone con una firma.",
                   "stageId": "a1-u1-anime",
                   "motionId": "ingresso"
                 },
@@ -30518,7 +30518,7 @@
           },
           "question": {
             "id": "a1-v1",
-            "prompt": "Nel 1861 che cosa ottiene una famiglia di servi come quella che hai seguito, e che cosa no?",
+            "prompt": "Nel 1861 che cosa ottiene una famiglia di servi come quella che hai seguito? E che cosa no?",
             "rationale": "Il Manifesto libera le persone: nessuno può più venderle o regalarle. La terra invece va riscattata con rate allo Stato per quarantanove anni, il lotto non è mai pari ai campi di prima e il mir risponde insieme dei pagamenti. Chi sceglie la seconda risposta confonde il riscatto con il servizio; chi sceglie la terza scambia la speranza delle lettere d'oro con la legge.",
             "source": "Episodio «Il Manifesto del 1861»: Montefiore, I Romanov; scheda EBSCO sugli statuti del 1861; Stites, Revolutionary Dreams, p. 16",
             "objectives": [

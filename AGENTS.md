@@ -2,6 +2,8 @@
 
 Repository di un **kit di giochi didattici** (motore riutilizzabile) e del primo corso costruito con esso, **LAIKA** sulla Rivoluzione russa. Lingua di lavoro: italiano. Non usare emoji nei file.
 
+**Regola di stile per tutti i testi del gioco e della home:** in italiano non si mette la virgola prima di «e», «ed», «o», «od», «né» (niente «virgola di Oxford»). Se la frase senza virgola diventa ambigua o troppo lunga, si spezza in due frasi o si usa il punto e virgola. Il test `tests/laika-virgola.test.js` la controlla.
+
 ## Prima di tutto
 
 1. Leggi questo file e il documento della parte che tocchi:
