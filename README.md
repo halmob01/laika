@@ -15,6 +15,7 @@ Aprire http://localhost:4173/ (servizio HTTP necessario). Per i test Chromium: `
 
 **Il percorso LAIKA**
 - [Piano generale degli Atti I–VII](docs/PIANO-ATTI-LAIKA.md): che cosa raccontare, episodio per episodio, con aneddoti, fonti e divisione del lavoro fra agenti.
+- [Repertorio dei giochi](docs/REPERTORIO-GIOCHI-LAIKA.md): con quali giochi si vive ogni unità, i modelli da cui vengono, costi e sequenza di lavoro.
 - [Piano operativo](docs/PIANO-LAIKA.md): architettura del sito, fasi e uso dei modelli; [incarichi per gli agenti](docs/INCARICHI-LAIKA.md); [brief visivo](docs/BRIEF-HOME-ATTI.md).
 - [Fonti: priorità e uso](docs/FONTI-LAIKA.md) · [opere di riferimento](references/fonti/README.md) · [atlante degli aneddoti](references/fonti/atlanti/README.md).
 

@@ -108,6 +108,21 @@ A ogni avvio: verificare branch e modifiche locali, leggere eventuali AGENTS.md 
 
 **Accettazione:** demo realmente giocabile da home fino a fine I.1; due allocazioni producono risposte distinguibili e spiegate; font/diritti risolti o sostituzione provvisoria chiaramente dichiarata; preview e video. **Gate utente:** valutazione della qualità complessiva prima di produrre tutte le scene. La UI non promette un Atto I completo mentre è ancora assente.
 
+## P3R — Rifacimento: player, motore a turni, I.1 nuova
+
+**Perché:** la prima versione di I.1 (PR #7) ha troppo testo e poco gioco; la meccanica non è integrata e l'impaginazione del player è quella generica delle demo. Decisioni del docente del 22 ottobre 2026 in [REPERTORIO-GIOCHI](REPERTORIO-GIOCHI-LAIKA.md).
+
+**Modello:** Claude Opus 5.5. **Leggere:** `AGENTS.md`, REPERTORIO-GIOCHI, BRAND-DESIGN §5 e §5ter, `bottega/README.md`, `docs/CREARE-UN-GIOCO.md`.
+
+**Azioni, una PR ciascuna, con prova del docente dal telefono prima della successiva:**
+
+1. **Redesign del player** secondo BRAND-DESIGN §5ter: tema in `site/laika/`, parte generica nello shell con test, menu dei giochi dimostrativi nascosto per LAIKA, mobile bilanciato.
+2. **Prototipo della settimana**: tre anni giocabili, pagina da buttare in `prototypes/`, nessuna modifica al motore.
+3. **Motore a turni** con gestione e decisioni sui gruppi, piazzamento «tocca la pedina, poi tocca il posto» (niente trascinamento), salvataggio a metà turno, test Node e browser; schede di lettura in `docs/meccaniche/`.
+4. **I.1 ricostruita** sul motore (REPERTORIO §5), con le fonti già registrate e bilanciamento provato su almeno due strategie contrastanti.
+
+**Accettazione:** il docente gioca I.1 dal telefono e la approva. Nessun merge senza la sua richiesta.
+
 ## P4 — Atto I, prima parte: unità I.2 e I.3
 
 **Modello:** Claude Sonnet 5.5 o GPT-6.1 Sol medium; Opus 5.5 o Sol high solo per scene difficili. Review storica: modello dell'altra famiglia (Astra high o Opus 5.5). **Dipendenza:** P3.

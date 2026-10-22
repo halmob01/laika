@@ -87,6 +87,23 @@ Approvata dall'utente in tre revisioni (PR #19). Regole da conservare nelle modi
 
 **Dove sta.** `index.html`, `site/laika/home.css` (variabili in `:root` e per epoca in `.hero[data-epoca]`), `site/laika/home.js`, `site/laika/scene/`, tema `laika-grigio` in `bottega/temi.json`.
 
+## 5ter. Player LAIKA (redesign, 22 ottobre 2026)
+
+Richiesta del docente: il player non deve più somigliare al gioco del feudo né alle demo del kit, ma alla home. Riferimenti forniti: la copertina di «Наши достижения» (1930) con la torre di Šuchov, il manifesto «Смена» con il traliccio rosso, una ciminiera nera con due figure minuscole sotto un disco rosso, l'«Izvestija» con il Decreto sulla pace, le etichette di fiammiferi sovietiche (pittogrammi, numeri come grafica), i palazzi a pannelli nella neve all'imbrunire, il monumento illuminato «Петроград 24–25 октября 1917». Idea guida: **illustrazioni grandi**, figure minuscole, poche masse, il rosso come piano e segnale.
+
+**Regole.**
+1. **Testata** come la home: marchio LAIKA, riga di protocollo in monospazio, ritorno all'archivio. Nessun menu dei giochi dimostrativi.
+2. **Scena a tutta larghezza**, in proporzione 16:9, ritagliata al centro quando lo schermo è basso. È l'elemento principale della pagina.
+3. **Lastra scura sotto la scena**, come la linea del tempo della home: a sinistra didascalia e comandi del movimento (sottolineati, in monospazio); a destra gli indicatori come celle con il numero grande in Propaganda e l'etichetta in monospazio. L'avvertenza «indici della simulazione, non voti» resta sempre visibile.
+4. **Titolo dell'episodio** in Roboto Condensed nero, maiuscolo, su fascia nera (Propaganda non ha gli accenti e i titoli sono dinamici). Contesto ed etichetta [D] [S] [F] [V] in monospazio.
+5. **Testo** su una colonna di lettura larga al massimo 62 caratteri, corpo grande. Scelte come righe numerate con il quadrato rosso degli articoli della home; «Continua» come il pulsante nero della home.
+6. **Documenti** come fogli di carta chiara con la provenienza in monospazio; **esito** su lastra scura con l'etichetta «Esito della simulazione».
+7. **Card** per i racconti che lo chiedono: un paragrafo per card, avanzamento con barre come nei prologhi del gioco del feudo, «Indietro» e «Avanti».
+8. **Telefono.** La scena non si rimpicciolisce: si ingrandisce e si centra sul punto dell'azione, come il hero della home (`--fc`, `--mz`). Ogni scheda scena dichiara `telefono: { centro, zoom }`; senza dichiarazione vale il centro con zoom 1,4. La scena occupa al massimo poco più di metà dello schermo; sotto, la lastra con gli indicatori in fila, poi il titolo e il testo.
+9. **Tema delle scene**: le scene del corso usano il tema `laika-grigio` della home.
+
+**Dove sta.** `site/laika/theme.css` (identità), `config.json` (`presentation.homeLabel`, `presentation.standalone`); nel motore solo i meccanismi generici (centro e zoom per il telefono, card, etichetta del marchio, menu nascosto), con test.
+
 ## 5bis. Homepage: prototipo iniziale (storico)
 
 1. **Testata** con marchio LAIKA e navigazione.
