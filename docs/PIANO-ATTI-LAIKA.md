@@ -77,7 +77,7 @@ Il diario delle scelte è il ponte: all'inizio di ogni atto l'episodio breve «C
 - Fine atto: un episodio narrative di confronto prima del reset; il diario resta consultabile.
 - Il punteggio misura la comprensione dei nessi; nessuna metrica simulata e nessuna posizione politica vale punti.
 - Le date sono gregoriane; fino al febbraio 1918 si aggiunge tra parentesi la data giuliana preceduta da «g.».
-- Le meccaniche nuove proposte nella v4.1 (voto d'assemblea, mappa con stati, linea del tempo) restano proposte da decidere a parte (sezione 10).
+- Le meccaniche di gioco sono decise nel [repertorio dei giochi](REPERTORIO-GIOCHI-LAIKA.md) (22 ottobre 2026): ogni unità ha un gioco principale (gestione, decisioni sui gruppi, code, punti azione, città che resiste, fiducia, corsa). Le schede di questo piano dicono che cosa si vive; il repertorio dice con quale gioco. Dove una scheda descrive un episodio di sola lettura, il contenuto entra nel gioco come notizia, richiesta o regola che cambia.
 
 ## 7. Gli atti
 
@@ -1045,7 +1045,7 @@ Tutto con `CONTRATTO-KIT` e con l'epoca registrata. Rispetto alla v4.1 si aggiun
 **Rettifiche agli appunti da verificare.** Restano valide quelle della v4.1 (scissione del 1903, guerra col Giappone, Duma, Stolypin, kulaki, calendario di febbraio, data dei funerali del Campo di Marte, composizione del governo provvisorio, Kerenskij socialrivoluzionario, Kornilov, vittime di ottobre, Brest-Litovsk, cifre della Costituente, Costituzione del 1924, NEP, Trockij, piani e carestia, arte, perdite di guerra), da registrare come revisioni motivate secondo `FONTI-LAIKA`.
 
 **Decisioni aperte.**
-1. Le tre meccaniche nuove della v4.1 (voto d'assemblea, mappa con stati, linea del tempo): servono soprattutto negli Atti III, IV e VI.
+1. ~~Le tre meccaniche nuove della v4.1~~ Decisa il 22 ottobre 2026: si veda il [repertorio dei giochi](REPERTORIO-GIOCHI-LAIKA.md). Voto d'assemblea e linea del tempo non sono giochi a sé.
 2. Il nome della carestia del 1932–1933 e il modo di presentarne le interpretazioni (V.1-e3).
 3. Quanto mostrare della morte di Laika (VI.3-e2): la proposta è il segnale che si interrompe, senza immagini.
 4. Valutazione sommativa a fine atto o solo a fine percorso; le riflessioni aperte (III.5, V.5, VII.4) richiedono una rubrica.
