@@ -83,6 +83,8 @@ export function validateGame(game) {
       try {
       assert(TYPES.includes(e.type)&&text(e.title)&&text(e.text)&&roles.has(e.roleId),'Episodio non valido');
       if(e.context!==undefined)validateContext(e.context);
+      // Racconto a card: un paragrafo per card, solo per episodi narrativi con almeno due paragrafi.
+      if(e.display!==undefined)assert(e.display==='cards'&&e.type==='narrative'&&e.text.split(/\n\s*\n/).filter(x=>x.trim()).length>=2,'Presentazione a card non valida: '+e.id);
       if(e.stageId) assert(stages.has(e.stageId),'Scenografia sconosciuta');
       for(const f of e.exposes||[]) assert(game.exposureFlags.includes(f),'Esposizione non dichiarata');
       assert(incoming[index].length,'Episodio irraggiungibile: '+e.id);

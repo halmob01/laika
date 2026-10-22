@@ -1,6 +1,10 @@
 {
   "id": "a1-u1-inventari",
   "etichetta": "Un ufficio di tenuta con la stufa e gli scaffali. L'amministratore legge in piedi; davanti a lui compaiono, uno dopo l'altro, tre fogli.",
+  "telefono": {
+    "centro": 0.62,
+    "zoom": 1.5
+  },
   "ruvido": true,
   "elementi": [
     {

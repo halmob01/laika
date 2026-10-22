@@ -109,7 +109,9 @@ Le animazioni sono parte del contratto stabile del kit. Vedere [MOTION.md](MOTIO
 
 ## Presentazione e contesto opzionali (P1)
 
-Nel registro `config.json` una voce può dichiarare `presentation: {"stylesheet":"./site/nome/theme.css","homeHref":"./"}`. Entrambi sono percorsi locali relativi canonici; niente URL esterni, traversal, query o frammenti. `stylesheet` deve finire in `.css`. L'assenza conserva il comportamento precedente. Il player applica il solo tema del pack aperto, oltre al CSS generico e agli eventuali token `game.theme` già supportati.
+Nel registro `config.json` una voce può dichiarare `presentation: {"stylesheet":"./site/nome/theme.css","homeHref":"./"}`. Entrambi sono percorsi locali relativi canonici; niente URL esterni, traversal, query o frammenti. `stylesheet` deve finire in `.css`. L'assenza conserva il comportamento precedente. Il player applica il solo tema del pack aperto, oltre al CSS generico e agli eventuali token `game.theme` già supportati. Due campi opzionali: `homeLabel` (testo di al massimo 40 caratteri, sostituisce «Laboratori interattivi» nel ritorno alla home) e `standalone: true` (il gioco si apre da solo: nessun menu degli altri laboratori; `<html>` riceve l'attributo `data-standalone`). Il pannello porta `data-type` con il tipo dell'episodio, perché il tema possa adattare le etichette.
+
+Un episodio narrativo con almeno due paragrafi (separati da una riga vuota) può dichiarare `display: "cards"`: il player lo mostra un paragrafo alla volta con «Indietro» e «Avanti», e «Continua» compare all'ultima card. Lo stato del gioco e il salvataggio non cambiano. Una scenografia può dichiarare `mobile: {center, zoom}` (dalla bottega: `telefono`); il player la espone al tema come variabili CSS `--stage-center` e `--stage-zoom` su `#stage`.
 
 Un episodio può dichiarare `context: {"kind":"simulation","dateLabel":"1861","placeLabel":"Russia"}`. `kind` ammette `documented`, `simulation`, `source`, `assessment`; le etichette opzionali sono testo. Il cartiglio non cambia stato, punteggi o transizioni e non interpreta HTML.
 

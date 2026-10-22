@@ -63,6 +63,7 @@
         "placeLabel": "Russia europea"
       },
       "text": "Nel registro di una tenuta il villaggio non ha nomi. Ha un numero.\n\nLa ricchezza di un nobile russo non si misura in campi ma in «anime». Si contano soltanto i maschi: le donne valgono meno, e nei conti non entrano. Dal tempo dell'imperatrice Elisabetta, a metà del Settecento, il padrone può comprare e vendere i suoi servi, e mandarli in Siberia per «insolenza» senza chiedere il permesso a nessuno.\n\nLe anime si regalano. Nel 1700 il nobile più ricco di Russia ne possiede trentatremila; vent'anni dopo il principe Menšikov, favorito di Pietro il Grande e poi di sua moglie Caterina I, arriva a trecentomila. Nel 1777 Caterina II congeda un favorito, Zorič, con una tenuta di settemila anime. Un villaggio intero cambia padrone per un dono, e chi ci vive continua a zappare lo stesso campo.\n\nIn uno di questi villaggi vive la famiglia che seguirai fino al 1861: il padre, la madre, il nonno, un figlio. È inventata. Il mondo intorno a lei no.",
+      "display": "cards",
       "stageId": "a1-u1-anime",
       "motionId": "ingresso",
       "exposes": [
@@ -90,6 +91,7 @@
         "placeLabel": "Mosca e San Pietroburgo"
       },
       "text": "Lassù il potere è una festa, e ogni regno ne inventa una più lontana dalla terra.\n\nAnni Novanta del Seicento. Alle cene di Pietro il Grande un finto papa benedice gli ospiti in ginocchio con due pipe olandesi al posto della croce.\n\nInverno 1740. L'imperatrice Anna decide di sposare per scherzo il suo buffone, il principe Golicyn, con una serva calmucca. Gli sposi arrivano chiusi in una gabbia sul dorso di un elefante. Sulla Neva gelata li aspetta un palazzo di ghiaccio alto una decina di metri, con cannoni di ghiaccio che sparano davvero. Dentro c'è un letto di ghiaccio, senza coperte. I due passano lì la notte, sorvegliati dai soldati, e sopravvivono.\n\nAnni Quaranta. L'imperatrice Elisabetta lascerà quindicimila abiti, ma i suoi palazzi hanno così pochi mobili che a ogni trasloco della corte li si porta da una residenza all'altra. Sono costruiti in fretta: una residenza di legno comincia a sprofondare mentre dentro ci sono i granduchi. Loro si salvano a stento; sedici servitori muoiono.\n\n1791. Alla festa di Potëmkin, davanti a tremila invitati, si scopre un elefante coperto di gemme: il cavaliere suona una campana e dietro si apre un teatro intero.\n\nIntanto, nei villaggi, le anime pagano le tasse dello zar e danno i soldati all'esercito. A corte si racconta che Potëmkin, per il viaggio di Caterina in Crimea del 1787, abbia fatto dipingere finte facciate di villaggi. I testimoni diranno di no; gli storici ne discutono ancora. Ma la voce resta: da lassù, un villaggio può sembrare una scenografia.",
+      "display": "cards",
       "stageId": "a1-u1-feste",
       "motionId": "ingresso",
       "exposes": [
@@ -325,6 +327,7 @@
         "placeLabel": "Russia"
       },
       "text": "Anche chi non possiede niente sogna un mondo giusto. I contadini lo dicono con due parole: pravda, che è insieme verità e giustizia, e volja, la libertà di andarsene da sotto il padrone e il poliziotto.\n\nQualcuno parte davvero. Negli anni Trenta e Quaranta dell'Ottocento intere comunità si mettono in cammino per cercare Belovod'e, il Regno delle Acque Bianche: una terra «oltre l'acqua» dove si va scalzi, si dividono i frutti della terra e non ci sono crimini né guerre. L'ultima spedizione conosciuta è del 1898: tre cosacchi degli Urali tornano e dicono che quella terra non esiste.\n\nAltri fanno circolare carte false. Nel 1861, nella provincia di Char'kov, girano «lettere d'oro» con la firma dello zar: tutta la terra ai contadini, e ai signori un pezzo di palude, da seminare e mietere con le proprie mani. Nel Nord, dal 1690 alla metà dell'Ottocento, la comunità dei Vecchi Credenti di Vyg tiene campi e lavoro in comune, con una disciplina severa.\n\nAnche dall'alto si sogna. Aleksej Arakčeev, uomo di fiducia degli zar Paolo e Alessandro I, costruisce nella sua tenuta di Gruzino un villaggio perfetto: file di case rosa tutte uguali, strade dritte e lastricate. Alessandro I lo visita e se ne innamora. Nascono le colonie militari: contadini in uniforme che arano e fanno esercitazioni, con casa, medico e scuola gratuiti. Nessuno possiede niente, e per ogni abitante c'è un registro delle punizioni. All'inizio degli anni Venti dell'Ottocento nelle colonie vivono circa 750.000 persone.",
+      "display": "cards",
       "stageId": "a1-u1-utopie",
       "motionId": "ingresso",
       "exposes": [

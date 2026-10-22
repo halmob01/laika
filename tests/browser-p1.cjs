@@ -33,6 +33,7 @@ module.exports=async(browser,root,artifacts)=>{
  assert.match(await page.locator('.episode-context').innerText(),/1700/);
  await page.evaluate(()=>Promise.all(document.getAnimations().map(a=>a.finished.catch(()=>{}))));
  await page.screenshot({path:path.join(artifacts,'p1-player-mobile.png'),fullPage:true});
+ while(await page.locator('[data-card=next]').count())await page.locator('[data-card=next]').click();
  await page.locator('[data-action=advance]').click();assert.match(await page.locator('#panel').innerText(),/Atto I/i);
  const saved=await read();await page.reload();await page.locator('#scene-title').waitFor();assert.equal(await read(),saved);
  // Salvataggio completo costruito con il runner pubblico (l'unità I.1 è percorsa per intero in browser-i1).

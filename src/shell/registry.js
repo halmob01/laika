@@ -10,8 +10,11 @@ export function validateRegistry(config) {
     assert(id(item.id)&&text(item.label)&&localPath(item.manifest),'Voce registro non valida');
     if(item.presentation!==undefined){
       const p=item.presentation;
-      assert(p&&typeof p==='object'&&!Array.isArray(p)&&Object.keys(p).every(k=>['stylesheet','homeHref'].includes(k)),'Presentazione non valida');
+      assert(p&&typeof p==='object'&&!Array.isArray(p)&&Object.keys(p).every(k=>['stylesheet','homeHref','homeLabel','standalone'].includes(k)),'Presentazione non valida');
       assert(localPath(p.stylesheet)&&p.stylesheet.endsWith('.css')&&localPath(p.homeHref),'Percorsi presentazione non validi');
+      // Etichetta del ritorno alla home (testo semplice) e gioco autonomo: senza menu degli altri laboratori.
+      if(p.homeLabel!==undefined)assert(text(p.homeLabel)&&p.homeLabel.length<=40,'Etichetta della home non valida');
+      if(p.standalone!==undefined)assert(typeof p.standalone==='boolean','Opzione standalone non valida');
     }
   }
   return config;
@@ -19,7 +22,8 @@ export function validateRegistry(config) {
 export function applyPresentation(item,document) {
   document.getElementById('pack-theme')?.remove();
   const home=document.getElementById('home-link');
-  if(home)home.setAttribute('href',item.presentation?.homeHref||'./');
+  if(home){home.setAttribute('href',item.presentation?.homeHref||'./');if(item.presentation?.homeLabel)home.textContent=item.presentation.homeLabel;}
+  document.documentElement.toggleAttribute('data-standalone',Boolean(item.presentation?.standalone));
   if(item.presentation){
     const link=document.createElement('link');link.id='pack-theme';link.rel='stylesheet';link.href=item.presentation.stylesheet;document.head.append(link);
   }

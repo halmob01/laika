@@ -6,7 +6,7 @@ import {save,load,restore,exportSave,storageKey} from '../storage/index.js';
 import {createStage} from '../visual/stage.js';
 import {el,button,renderInteraction} from '../interactions/index.js';
 const $=id=>document.getElementById(id);
-let game,state,stageId=null,blocked=false,storage=null;
+let game,state,stageId=null,blocked=false,storage=null,cardEpisode=null,cardIndex=0;
 try{storage=window.localStorage;}catch{}
 const media=matchMedia('(prefers-reduced-motion: reduce)');
 const stage=createStage($('stage'),{reducedMotion:media.matches,onCaption:message=>{$('caption').textContent=message;},onStatus:value=>{$('pause').textContent=value==='paused'?'Riprendi':'Pausa';$('pause').setAttribute('aria-pressed',String(value==='paused'));$('pause').disabled=value==='finished';}});
@@ -34,6 +34,8 @@ function render({motion=false,intro=false,sceneMotion=false,cue=null}={}) {
   $('caption').textContent=e.visualExplanation||'Scena della simulazione.';
   if(descriptor){if(stageId!==descriptor.id){stage.mount(descriptor,s,{intro:intro&&!e.motionId});stageId=descriptor.id;if((intro||sceneMotion)&&e.motionId)stage.sequence(e.motionId);}else stage.update(s,{animate:motion,sequence:cue||(sceneMotion?e.motionId:undefined)});}
   else {stage.destroy();stageId=null;}
+  // Inquadratura per schermi stretti dichiarata dalla scenografia: il tema la usa per centrare l'azione.
+  for(const [name,value] of [['--stage-center',descriptor?.mobile?.center],['--stage-zoom',descriptor?.mobile?.zoom]])value===undefined?$('stage').style.removeProperty(name):$('stage').style.setProperty(name,String(value));
   $('replay').disabled=!descriptor;$('skip').disabled=!descriptor;if(!descriptor)$('pause').disabled=true;
   const hasMetrics=[...(act.metrics||[]),...(act.resources||[])].some(d=>!d.hidden);
   $('stage').parentElement.hidden=!descriptor&&!hasMetrics;
@@ -45,13 +47,24 @@ function render({motion=false,intro=false,sceneMotion=false,cue=null}={}) {
   for(const [group,definitions] of [['metrics',act.metrics],['resources',act.resources]])for(const d of definitions||[]){if(d.hidden)continue;
     const row=el('div',undefined,{class:'metric'}),title=el('span'),meter=el('div',undefined,{class:'meter'}),fill=el('i');
     title.append(el('span',d.label),el('b',String(s[group][d.id])));fill.style.width=(100*(s[group][d.id]-d.min)/(d.max-d.min))+'%';meter.append(fill);row.append(title,meter);$('metrics').append(row);}
-  const panel=$('panel');panel.replaceChildren(el('p',act.title+' · '+(act.episodes.indexOf(e)+1)+' / '+act.episodes.length,{class:'eyebrow'}),el('h1',e.title,{id:'scene-title',tabindex:'-1'}),el('p',e.text,{class:'lead'}));
+  const panel=$('panel');panel.dataset.type=e.type;panel.replaceChildren(el('p',act.title+' · '+(act.episodes.indexOf(e)+1)+' / '+act.episodes.length,{class:'eyebrow'}),el('h1',e.title,{id:'scene-title',tabindex:'-1'}));
+  // Racconto a card: un paragrafo alla volta; il testo intero resta nell'episodio e nel salvataggio non cambia nulla.
+  if(cardEpisode!==e.id){cardEpisode=e.id;cardIndex=0;}
+  const cards=e.display==='cards'?e.text.split(/\n\s*\n/).map(x=>x.trim()).filter(Boolean):null,lastCard=!cards||cardIndex>=cards.length-1;
+  if(cards){
+    const box=el('div',undefined,{class:'cards',role:'group','aria-label':'Racconto a card'}),bar=el('div',undefined,{class:'card-bar','aria-hidden':'true'}),nav=el('div',undefined,{class:'card-nav'});
+    cards.forEach((_,i)=>bar.append(el('i',undefined,{class:i<cardIndex?'done':i===cardIndex?'now':''})));
+    const go=step=>{cardIndex=Math.max(0,Math.min(cards.length-1,cardIndex+step));render();($('panel').querySelector(cardIndex>=cards.length-1?'[data-action=advance]':'[data-card=next]')||$('panel').querySelector('.card-text'))?.focus({preventScroll:true});};
+    const prev=button('Indietro',()=>go(-1),{'data-card':'prev'});prev.disabled=cardIndex===0;nav.append(prev);
+    if(!lastCard)nav.append(button('Avanti',()=>go(1),{'data-card':'next',class:'primary'}));
+    box.append(el('p','Card '+(cardIndex+1)+' di '+cards.length,{class:'card-count','aria-live':'polite'}),el('p',cards[cardIndex],{class:'lead card-text',tabindex:'-1'}),bar,nav);panel.append(box);
+  } else panel.append(el('p',e.text,{class:'lead'}));
   if(e.context)panel.insertBefore(el('p',contextLabel(e.context),{class:'episode-context'}),panel.querySelector('h1'));
   if(s.phase==='outcome'){
     const outcome=el('div',undefined,{class:'outcome',role:'status'});outcome.append(el('p',s.last.feedback));
     for(const c of s.last.changes)outcome.append(el('p',c.label+': '+c.before+' → '+c.after));panel.append(outcome);
   }else {const host=el('div',undefined,{id:'interaction'});panel.append(host);renderInteraction(e.type,{host,episode:e,act,state:s,seed:state.seed,dispatch});}
-  if(s.phase==='outcome'||e.type==='narrative')panel.append(button('Continua',()=>dispatch({type:'advance'}),{class:'primary','data-action':'advance'}));
+  if(s.phase==='outcome'||(e.type==='narrative'&&lastCard))(cards?panel.querySelector('.card-nav'):panel).append(button('Continua',()=>dispatch({type:'advance'}),{class:'primary','data-action':'advance'}));
 }
 function dispatch(action){
   try{const before=currentScene(game,state);const cue=action.type==='select'?before.choices?.find(c=>c.id===action.choiceId)?.motionId:action.type==='allocate'?before.resultMotionId:null;const result=transition(game,state,action);state=result.nextState;notice('');persist();render({motion:true,sceneMotion:action.type==='advance',cue});
@@ -79,7 +92,8 @@ async function start(){
   game=validatePack(await (await fetch(item.manifest)).json());
   document.title=game.title;$('game-title').textContent=game.title;
   for(const [key,value] of Object.entries(game.theme||{}))if(['ink','paper','accent','highlight'].includes(key)&&/^#[0-9a-f]{6}$/i.test(value))document.documentElement.style.setProperty('--'+key,value);
-  for(const g of config.games){const a=el('a',g.label,{href:'?game='+encodeURIComponent(g.id)});if(g.id===selected)a.setAttribute('aria-current','page');$('packs').append(a);}
+  if(item.presentation?.standalone)$('packs').hidden=true;
+  else for(const g of config.games){const a=el('a',g.label,{href:'?game='+encodeURIComponent(g.id)});if(g.id===selected)a.setAttribute('aria-current','page');$('packs').append(a);}
   const result=load(game,storage);blocked=!result.ok;
   state=result.ok&&result.state?result.state:newSession(game,crypto.randomUUID());
   if(blocked){notice(result.error+' Il backup originale resta conservato; questa prova non lo sovrascrive.');$('raw').hidden=false;}
