@@ -1,10 +1,12 @@
 import {assert, own, GROUPS, defs} from './schema.js';
+import {initGame} from './turns.js';
 export const clone = value => structuredClone(value);
 export const clamp = (value,min,max) => Math.max(min,Math.min(max,value));
 export function initialState(act) {
   const state={actId:act.id,episodeId:act.episodes[0].id,roleId:act.episodes[0].roleId,phase:'scene',turn:0,flags:{},pendingEffects:[],appliedEffectIds:[],events:[],viewedSources:[],processedSources:[],last:null};
   for(const [kind,group] of Object.entries(GROUPS)) state[group]=Object.fromEntries(defs(act,kind).map(d=>[d.id,d.start]));
   act.flags.forEach(f=>state.flags[f]=false);
+  if(act.episodes[0].type==='turn_game')state.game=initGame(act.episodes[0]);
   return state;
 }
 export function matches(c,state) {
@@ -80,5 +82,6 @@ export function actOn(act,episode,previous,action) {
 }
 export function enterEpisode(act,previous,episode) {
   const state=clone(previous);state.episodeId=episode.id;state.roleId=episode.roleId;state.phase='scene';state.last=null;
+  if(episode.type==='turn_game')state.game=initGame(episode);else delete state.game;
   const result=settle(act,state,'entry');return {state,appliedChanges:result.changes,events:result.events,feedback:''};
 }

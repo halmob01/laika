@@ -113,6 +113,21 @@ Nel registro `config.json` una voce può dichiarare `presentation: {"stylesheet"
 
 Un episodio narrativo con almeno due paragrafi (separati da una riga vuota) può dichiarare `display: "cards"`: il player lo mostra un paragrafo alla volta con «Indietro» e «Avanti», e «Continua» compare all'ultima card. Lo stato del gioco e il salvataggio non cambiano. Una scenografia può dichiarare `mobile: {center, zoom}` (dalla bottega: `telefono`); il player la espone al tema come variabili CSS `--stage-center` e `--stage-zoom` su `#stage`.
 
+### Partita a turni (`turn_game`)
+
+Un episodio `turn_game` è una partita di più turni dentro un solo episodio. Campi:
+
+- `stageId`: la scenografia del tabellone; `places`: almeno due posti `{id, label, x, y, perToken, max?}`, con `x` e `y` da 0 a 1 sulla scena (il player li mostra come pulsanti sopra l'illustrazione) ed effetti numerici per ogni pedina;
+- `tokens` e `tokenLabel`: quante pedine per turno e come si chiamano («giorni»);
+- `rules` iniziali e per turno: `tokens`, `tokensDelta`, `min` (obblighi per posto), `places` (nuova etichetta o nuovi effetti di un posto), `upkeep` (consumi in più);
+- `upkeep`: effetti applicati ogni turno; `luck`: imprevisti con `weight` e `yield` per posto (le probabilità sono mostrate prima di confermare);
+- `control` facoltativo: se un obbligo non è rispettato, con probabilità `chance` (`base` + `factor` × metrica) si applicano `effects` e `perMissing` moltiplicato per le pedine mancanti;
+- `crises`: `{id, when, text, effects, rules}`, ciascuna scatta una volta quando la condizione è vera;
+- `turns`: `{label, cards?, rules?, preview?, event?}`. Le `cards` hanno `text` e facoltativi `title`, `kind` (`documented`, `simulation`, `source`: etichetta mostrata sulla card), `stageId` e `motionId` (la card è illustrata da quella scena); l'`event` è «chi bussa»: `{who, text, choices}`, ogni risposta con `text` ed effetti o con `chance` ed esiti `success`/`failure`, che possono cambiare le regole;
+- `feedback`: testo finale.
+
+Le mosse sono azioni `{type:"turn", step}` con `step` fra `card`, `back`, `place` (`placeId`, `delta` ±1), `confirm`, `choose` (`choiceId`), `continue`. Il caso dipende dal seme della sessione: il salvataggio (registro delle mosse) rigioca la stessa partita. Il player mostra una riga per metrica con la variazione netta. Il codice sta in `src/core/turns.js`; la prova neutra in `tests/turns.test.js`.
+
 Un episodio può dichiarare `context: {"kind":"simulation","dateLabel":"1861","placeLabel":"Russia"}`. `kind` ammette `documented`, `simulation`, `source`, `assessment`; le etichette opzionali sono testo. Il cartiglio non cambia stato, punteggi o transizioni e non interpreta HTML.
 
 `readProgress(game, storage)` in `src/storage/index.js` restituisce `status` uguale a `new`, `resumable`, `complete` o `incompatible`. Per una ripresa restituisce ID/titoli di atto/episodio e fase corrente. Legge e ricostruisce il ledger con `load`/`restore`; non scrive, inizializza o cancella salvataggi. La home non deve interpretare direttamente chiavi o JSON di localStorage.
