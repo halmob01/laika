@@ -67,7 +67,8 @@ main{max-width:none;margin:0;padding:0}
 
 /* Scelte come gli articoli della home: righe con il quadrato rosso. */
 #interaction{margin:28px 0 0;gap:0}
-#interaction>p{margin:0 0 14px;font-family:var(--mono);font-size:.82rem;color:var(--mute)}
+#interaction>p:not(.lead){margin:0 0 14px;font-family:var(--mono);font-size:.82rem;color:var(--mute)}
+#interaction>p.lead{margin:0 0 22px}
 #interaction button[data-choice],#interaction button[data-answer],#interaction button[data-role]{position:relative;width:100%;min-height:58px;margin:0;padding:18px 12px 18px 38px;border:0;border-top:1px solid var(--line);background:none;font-size:1.08rem;line-height:1.35}
 #interaction button[data-choice]::before,#interaction button[data-answer]::before,#interaction button[data-role]::before{content:"";position:absolute;left:0;top:24px;width:14px;height:14px;background:var(--red)}
 #interaction button[data-choice]:hover,#interaction button[data-answer]:hover,#interaction button[data-role]:hover{background:var(--paper2)}
@@ -115,6 +116,40 @@ main{max-width:none;margin:0;padding:0}
 .card-nav{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .card-nav button{margin-top:6px!important}
 #panel .card-nav button[data-card=prev]{min-height:52px;padding:0 1.2rem;margin-top:6px}
+
+/* Partita a turni: l'anno in grande, i posti come timbri rossi sulla scena, rischi e scelte come gli articoli. */
+.turn-label{display:flex;align-items:baseline;gap:14px;margin:0 0 18px}
+.turn-year{font-family:var(--display);font-size:clamp(44px,5vw,72px);line-height:.85;color:var(--ink)}
+.turn-count{font-family:var(--mono);font-size:.78rem;color:var(--mute)}
+.card-kind{margin:0;padding-left:.6rem;border-left:3px solid var(--concrete);font-family:var(--mono);font-size:.74rem;color:var(--mute)}
+.card-kind[data-kind=documented],.card-kind[data-kind=source]{border-left-color:var(--red)}
+.card-title{margin:0;font-family:var(--sans);font-weight:700;font-size:1.05rem;text-transform:uppercase;letter-spacing:.02em}
+.turn-pool{margin:0;font-family:var(--mono);font-size:.82rem;color:var(--ink)}
+.turn-tokens{display:flex;gap:6px;margin:8px 0 14px}
+.turn-tokens i{width:22px;height:22px;border:2px solid var(--ink);background:none}
+.turn-tokens i.used{background:var(--ink)}
+.turn-places{border-bottom:1px solid var(--line)}
+.turn-place{grid-template-columns:1fr 48px 3ch 48px;gap:12px;padding:14px 0;border-top:1px solid var(--line)}
+.turn-place strong{display:block;font-size:1.05rem}
+.turn-place span{font-family:var(--mono);font-size:.76rem;color:var(--mute);margin-top:4px}
+.turn-place b{font-family:var(--display);font-weight:400;font-size:2rem;line-height:1}
+#panel .turn-place button{width:48px;min-height:48px;padding:0;text-align:center;font-size:1.4rem;font-weight:700;border:2px solid var(--ink);background:none}
+#panel .turn-place button:hover:not(:disabled){background:var(--ink);color:var(--paper)}
+.turn-risk{margin:16px 0 0;padding:14px 18px;background:var(--paper2);font-family:var(--mono);font-size:.8rem;line-height:1.5}
+.turn-risk p{margin:0}.turn-risk p+p{margin-top:6px}
+.turn-warning{padding-left:20px;position:relative}
+.turn-warning::before{content:"";position:absolute;left:0;top:.35em;width:10px;height:10px;background:var(--red)}
+.turn-preview{margin:16px 0 0;padding-left:.7rem;border-left:3px solid var(--red);font-family:var(--mono);font-size:.82rem}
+.turn-who{margin:0 0 10px;font-family:var(--mono);font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;color:var(--mute)}
+.turn-changes{margin:12px 0 0;padding:0;list-style:none;font-family:var(--mono);font-size:.82rem}
+.turn-changes li+li{margin-top:4px}
+.turn-crisis{font-weight:700}
+#interaction button[data-turn-choice]{position:relative;width:100%;min-height:58px;margin:0;padding:18px 12px 18px 38px;border:0;border-top:1px solid var(--line);background:none;font-size:1.08rem;line-height:1.35;text-align:left}
+#interaction button[data-turn-choice]::before{content:"";position:absolute;left:0;top:24px;width:14px;height:14px;background:var(--red)}
+#interaction button[data-turn-choice]:hover{background:var(--paper2)}
+.turn-overlay button{min-width:52px;min-height:52px;border:3px solid var(--paper);border-radius:0;background:var(--red);color:var(--paper);font-family:var(--display);font-size:26px;line-height:1;box-shadow:0 6px 18px #1b1c1c33}
+.turn-overlay button:disabled{background:var(--slab);opacity:.9}
+.turn-overlay button:hover:not(:disabled){background:var(--ink)}
 
 /* Riepilogo, diario e strumenti: registro e piede della home. */
 #summary{max-width:none;padding:clamp(40px,5vw,80px) var(--gut)}

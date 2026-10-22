@@ -3,6 +3,7 @@ module.exports=async function(browser,root,artifacts){
  const {readPacks}=await import('../scripts/packs.js');
  const {restore}=await import('../src/storage/index.js');
  const {available}=await import('../src/core/engine.js');
+ const {activeStage}=await import('../src/core/turns.js');
  for(const {item,game} of readPacks(root))for(let variant=0;variant<2;variant++){
   const context=await browser.newContext({viewport:{width:variant?1280:390,height:850},reducedMotion:variant?'reduce':'no-preference'});
   const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
@@ -10,11 +11,12 @@ module.exports=async function(browser,root,artifacts){
   const read=()=>page.evaluate(id=>localStorage.getItem('learning-kit:'+id+':save-v1'),game.id);
   async function activate(locator){await locator.focus();await page.keyboard.press('Enter');}
   let guard=0,previousStage=null;
-  while(await page.locator('#summary').isHidden()&&guard++<100){
+  while(await page.locator('#summary').isHidden()&&guard++<400){
    const restored=restore(game,await read());assert.equal(restored.ok,true,restored.error);
    const state=restored.state,e=game.acts[state.actIndex].episodes.find(e=>e.id===state.currentAct.episodeId);
+   const shown=e.type==='turn_game'&&state.currentAct.game?activeStage(e,state.currentAct.game).stageId:e.stageId;
    if(e.stageId){
-    assert.equal(await page.getByRole('img',{name:game.stages.find(s=>s.id===e.stageId).label,exact:true}).count(),1);
+    assert.equal(await page.getByRole('img',{name:game.stages.find(s=>s.id===shown).label,exact:true}).count(),1);
     if(previousStage!==e.stageId&&e.motionId&&state.currentAct.phase==='scene')assert.equal(await page.locator('#stage').getAttribute('data-motion'),variant?'finished':'playing','entry cue on new stage');
    }else assert.equal(await page.locator('#stage').isHidden(),true);
    if(game.id==='messaggio'&&e.stageId&&previousStage!==e.stageId)await page.screenshot({path:path.join(artifacts,game.id+'-'+e.stageId+'-'+variant+'.png'),fullPage:true});
@@ -27,6 +29,15 @@ module.exports=async function(browser,root,artifacts){
     for(let n=0;n<20&&await page.evaluate(()=>document.activeElement.dataset.card==='next');n++)await page.keyboard.press('Enter');
     assert.equal(await page.evaluate(()=>document.activeElement.dataset.action),'advance');
     await page.keyboard.press('Enter');
+   }else if(e.type==='turn_game'){
+    // Partita a turni da tastiera: card, posti (+), conferma, chi bussa, avanti.
+    const g=state.currentAct.game;
+    if(g.phase==='cards')await activate(page.locator('[data-turn=card]'));
+    else if(g.phase==='place'){const n=Object.values(g.placement).reduce((a,b)=>a+b,0);
+      if(n>=g.rules.tokens)await activate(page.locator('[data-turn=confirm]'));
+      else {const p=e.places[(variant+n)%e.places.length];await activate(page.locator('[data-place="'+p.id+'"][data-delta="1"]'));}}
+    else if(g.phase==='event')await activate(page.locator('[data-turn-choice]').nth(variant%e.turns[g.turn].event.choices.length));
+    else await activate(page.locator('[data-turn=continue]'));
    }else if(e.type==='resource_allocation'){
     let remaining=e.budget;for(const b of e.buckets){const units=Math.min(b.max,remaining);await page.locator('[name="'+b.id+'"]').fill(String(units));remaining-=units;}
     await activate(page.getByRole('button',{name:'Conferma distribuzione'}));
@@ -35,9 +46,9 @@ module.exports=async function(browser,root,artifacts){
     if(e.type==='source_comparison')for(const source of e.sources){await activate(page.locator('[data-source="'+source.id+'"]'));assert.equal(await page.evaluate(()=>document.activeElement.dataset.source),source.id);}
     const choices=e.choices.filter(c=>available(c,state.currentAct));await activate(page.locator('[data-choice="'+choices[variant%choices.length].id+'"]'));
    }
-   assert.match(await page.evaluate(()=>document.activeElement.id),/^(scene-title|summary-title)$/,'focus retained after interaction');
+   assert.equal(await page.evaluate(()=>/^(scene-title|summary-title)$/.test(document.activeElement.id)||'place' in document.activeElement.dataset||'turn' in document.activeElement.dataset),true,'focus retained after interaction');
   }
-  assert.ok(guard<100);assert.equal(await page.evaluate(()=>document.activeElement.id),'summary-title');
+  assert.ok(guard<400);assert.equal(await page.evaluate(()=>document.activeElement.id),'summary-title');
   const final=await read();await page.reload();await page.locator('#summary h1').waitFor();assert.equal(await read(),final);
   assert.deepEqual(errors,[]);
   if(game.id==='messaggio')await page.screenshot({path:path.join(artifacts,game.id+'-contract-'+variant+'.png'),fullPage:true});

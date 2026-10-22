@@ -368,6 +368,260 @@
           "testo": "Nel villaggio si zappa."
         }
       ]
+    },
+    {
+      "id": "ghiaccio",
+      "didascalia": "1740: il palazzo di ghiaccio sulla Neva.",
+      "passi": [
+        {
+          "azione": "camera",
+          "inquadrature": [
+            [
+              600,
+              260,
+              760,
+              428
+            ],
+            [
+              600,
+              260,
+              760,
+              428
+            ],
+            [
+              500,
+              650,
+              760,
+              428
+            ],
+            [
+              0,
+              0,
+              1920,
+              1080
+            ]
+          ],
+          "tempi": [
+            0,
+            0.5,
+            0.75,
+            1
+          ],
+          "a": 0,
+          "durata": 6000
+        },
+        {
+          "azione": "transfer",
+          "chi": "elefante",
+          "da": [
+            1500,
+            540
+          ],
+          "arco": 0,
+          "a": 0,
+          "durata": 2600
+        },
+        {
+          "azione": "repeat",
+          "chi": [
+            "zappa-1",
+            "zappa-2",
+            "zappa-3",
+            "zappa-4"
+          ],
+          "parti": {
+            "arm-near": -20,
+            "arm-far": -20
+          },
+          "a": 3600,
+          "durata": 1200,
+          "cicli": 2
+        }
+      ],
+      "battute": [
+        {
+          "a": 0,
+          "testo": "1740: il palazzo di ghiaccio sulla Neva; gli sposi arrivano in gabbia sull'elefante."
+        },
+        {
+          "a": 3600,
+          "testo": "Nello stesso inverno, nel villaggio, si zappa."
+        }
+      ]
+    },
+    {
+      "id": "residenza",
+      "didascalia": "Anni Quaranta: la residenza di legno sprofonda.",
+      "passi": [
+        {
+          "azione": "camera",
+          "inquadrature": [
+            [
+              0,
+              280,
+              720,
+              405
+            ],
+            [
+              0,
+              280,
+              720,
+              405
+            ],
+            [
+              0,
+              640,
+              720,
+              405
+            ],
+            [
+              0,
+              0,
+              1920,
+              1080
+            ]
+          ],
+          "tempi": [
+            0,
+            0.5,
+            0.75,
+            1
+          ],
+          "a": 0,
+          "durata": 6000
+        },
+        {
+          "azione": "transfer",
+          "chi": "residenza",
+          "da": [
+            330,
+            545
+          ],
+          "arco": 0,
+          "a": 300,
+          "durata": 1800
+        },
+        {
+          "azione": "walk",
+          "chi": [
+            "servitore-1",
+            "servitore-2"
+          ],
+          "da": "destra",
+          "distanza": 60,
+          "a": 300,
+          "durata": 1400
+        },
+        {
+          "azione": "repeat",
+          "chi": [
+            "zappa-1",
+            "zappa-2",
+            "zappa-3",
+            "zappa-4"
+          ],
+          "parti": {
+            "arm-near": -20,
+            "arm-far": -20
+          },
+          "a": 3600,
+          "durata": 1200,
+          "cicli": 2
+        }
+      ],
+      "battute": [
+        {
+          "a": 0,
+          "testo": "Anni Quaranta: la residenza di legno sprofonda."
+        },
+        {
+          "a": 3600,
+          "testo": "Nel villaggio si zappa."
+        }
+      ]
+    },
+    {
+      "id": "gemme",
+      "didascalia": "1791: l'elefante di gemme alla festa di Potëmkin.",
+      "passi": [
+        {
+          "azione": "camera",
+          "inquadrature": [
+            [
+              1300,
+              300,
+              640,
+              360
+            ],
+            [
+              1300,
+              300,
+              640,
+              360
+            ],
+            [
+              1100,
+              680,
+              640,
+              360
+            ],
+            [
+              0,
+              0,
+              1920,
+              1080
+            ]
+          ],
+          "tempi": [
+            0,
+            0.5,
+            0.75,
+            1
+          ],
+          "a": 0,
+          "durata": 6000
+        },
+        {
+          "azione": "reveal",
+          "chi": "elefante-gemme",
+          "modo": "cresce",
+          "a": 400,
+          "durata": 900
+        },
+        {
+          "azione": "speak",
+          "chi": "cortigiano-2",
+          "cicli": 2,
+          "a": 800,
+          "durata": 1600
+        },
+        {
+          "azione": "repeat",
+          "chi": [
+            "zappa-1",
+            "zappa-2",
+            "zappa-3",
+            "zappa-4"
+          ],
+          "parti": {
+            "arm-near": -20,
+            "arm-far": -20
+          },
+          "a": 3600,
+          "durata": 1200,
+          "cicli": 2
+        }
+      ],
+      "battute": [
+        {
+          "a": 0,
+          "testo": "1791: l'elefante di gemme alla festa di Potëmkin."
+        },
+        {
+          "a": 3600,
+          "testo": "Nel villaggio si zappa."
+        }
+      ]
     }
   ],
   "ingresso": "ingresso"

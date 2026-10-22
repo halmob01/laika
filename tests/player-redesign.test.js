@@ -50,7 +50,7 @@ test('episodi: display "cards" solo per racconti con almeno due paragrafi', () =
   narrativo.display = 'cards';
   assert.ok(validatePack(structuredClone(pack)));
   const conScelte = structuredClone(pack);
-  conScelte.acts[0].episodes.find(e => e.type === 'source_comparison').display = 'cards';
+  conScelte.acts[0].episodes.find(e => e.type !== 'narrative').display = 'cards';
   assert.throws(() => validatePack(conScelte), /card/);
   const unParagrafo = structuredClone(pack);
   const e = unParagrafo.acts[0].episodes.find(x => x.id === narrativo.id);

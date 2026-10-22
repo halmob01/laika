@@ -5,6 +5,7 @@ import {newSession,currentScene,transition,recap} from '../runner/index.js';
 import {save,load,restore,exportSave,storageKey} from '../storage/index.js';
 import {createStage} from '../visual/stage.js';
 import {el,button,renderInteraction} from '../interactions/index.js';
+import {activeStage} from '../core/turns.js';
 const $=id=>document.getElementById(id);
 let game,state,stageId=null,blocked=false,storage=null,cardEpisode=null,cardIndex=0;
 try{storage=window.localStorage;}catch{}
@@ -30,9 +31,11 @@ function render({motion=false,intro=false,sceneMotion=false,cue=null}={}) {
     if(summary.assessment.count)$('summary').append(el('h2','Prova formativa: '+summary.assessment.score+' / 100'),el('p','Il risultato riguarda le risposte di comprensione, non le tue scelte nella simulazione.'));
     return;
   }
-  const act=game.acts[state.actIndex],s=state.currentAct,e=currentScene(game,state),descriptor=game.stages.find(x=>x.id===e.stageId);
+  const act=game.acts[state.actIndex],s=state.currentAct,e=currentScene(game,state);
+  // Nella partita a turni la scena attiva è quella della card in lettura, altrimenti il tabellone.
+  const active=e.type==='turn_game'&&s.game?activeStage(e,s.game):{stageId:e.stageId,motionId:e.motionId},descriptor=game.stages.find(x=>x.id===active.stageId);
   $('caption').textContent=e.visualExplanation||'Scena della simulazione.';
-  if(descriptor){if(stageId!==descriptor.id){stage.mount(descriptor,s,{intro:intro&&!e.motionId});stageId=descriptor.id;if((intro||sceneMotion)&&e.motionId)stage.sequence(e.motionId);}else stage.update(s,{animate:motion,sequence:cue||(sceneMotion?e.motionId:undefined)});}
+  if(descriptor){if(stageId!==descriptor.id){stage.mount(descriptor,s,{intro:intro&&!active.motionId});stageId=descriptor.id;if((intro||sceneMotion||e.type==='turn_game')&&active.motionId)stage.sequence(active.motionId);}else stage.update(s,{animate:motion,sequence:cue||(sceneMotion?e.motionId:undefined)});}
   else {stage.destroy();stageId=null;}
   // Inquadratura per schermi stretti dichiarata dalla scenografia: il tema la usa per centrare l'azione.
   for(const [name,value] of [['--stage-center',descriptor?.mobile?.center],['--stage-zoom',descriptor?.mobile?.zoom]])value===undefined?$('stage').style.removeProperty(name):$('stage').style.setProperty(name,String(value));
@@ -58,19 +61,22 @@ function render({motion=false,intro=false,sceneMotion=false,cue=null}={}) {
     const prev=button('Indietro',()=>go(-1),{'data-card':'prev'});prev.disabled=cardIndex===0;nav.append(prev);
     if(!lastCard)nav.append(button('Avanti',()=>go(1),{'data-card':'next',class:'primary'}));
     box.append(el('p','Card '+(cardIndex+1)+' di '+cards.length,{class:'card-count','aria-live':'polite'}),el('p',cards[cardIndex],{class:'lead card-text',tabindex:'-1'}),bar,nav);panel.append(box);
-  } else panel.append(el('p',e.text,{class:'lead'}));
+  } else if(e.type!=='turn_game')panel.append(el('p',e.text,{class:'lead'}));
   if(e.context)panel.insertBefore(el('p',contextLabel(e.context),{class:'episode-context'}),panel.querySelector('h1'));
   if(s.phase==='outcome'){
     const outcome=el('div',undefined,{class:'outcome',role:'status'});outcome.append(el('p',s.last.feedback));
     for(const c of s.last.changes)outcome.append(el('p',c.label+': '+c.before+' → '+c.after));panel.append(outcome);
-  }else {const host=el('div',undefined,{id:'interaction'});panel.append(host);renderInteraction(e.type,{host,episode:e,act,state:s,seed:state.seed,dispatch});}
+  }else {const host=el('div',undefined,{id:'interaction'});panel.append(host);renderInteraction(e.type,{host,episode:e,act,state:s,seed:state.seed,dispatch,stageHost:$('stage')});}
   if(s.phase==='outcome'||(e.type==='narrative'&&lastCard))(cards?panel.querySelector('.card-nav'):panel).append(button('Continua',()=>dispatch({type:'advance'}),{class:'primary','data-action':'advance'}));
 }
 function dispatch(action){
-  try{const before=currentScene(game,state);const cue=action.type==='select'?before.choices?.find(c=>c.id===action.choiceId)?.motionId:action.type==='allocate'?before.resultMotionId:null;const result=transition(game,state,action);state=result.nextState;notice('');persist();render({motion:true,sceneMotion:action.type==='advance',cue});
+  try{const before=currentScene(game,state);const cue=action.type==='select'?before.choices?.find(c=>c.id===action.choiceId)?.motionId:action.type==='allocate'||(action.type==='turn'&&action.step==='confirm')?before.resultMotionId:null;const result=transition(game,state,action);state=result.nextState;notice('');persist();render({motion:true,sceneMotion:action.type==='advance',cue});
     if(result.events.length)$('caption').textContent=result.events.map(e=>e.text).join(' ');
     if(action.type==='view_role')$('panel').querySelector('[data-role="'+action.roleId+'"]')?.focus();
     else if(action.type==='inspect_source')$('panel').querySelector('[data-source="'+action.sourceId+'"]')?.focus();
+    // Partita a turni: il fuoco resta sul comando appena usato, così da tastiera si piazza senza ripartire dal titolo.
+    else if(action.type==='turn'&&action.step==='place')($('panel').querySelector('[data-place="'+action.placeId+'"][data-delta="'+action.delta+'"]:not(:disabled)')||$('panel').querySelector('[data-turn=confirm]:not(:disabled)')||$('scene-title'))?.focus({preventScroll:true});
+    else if(action.type==='turn'&&['card','back'].includes(action.step))($('panel').querySelector('[data-turn=card]')||$('scene-title'))?.focus({preventScroll:true});
     else ($(state.complete?'summary-title':'scene-title'))?.focus({preventScroll:true});
   }catch(error){notice(error.message);}
 }

@@ -1,6 +1,7 @@
 import {validateGame, assert, jsonData} from '../core/schema.js';
 import {initialState, clone, actOn, enterEpisode, matches} from '../core/engine.js';
 import {assess,report} from '../assessment/index.js';
+import {turnAction} from '../core/turns.js';
 export function newSession(game,seed='session') {
   validateGame(game);assert(typeof seed==='string'&&seed.length<=100,'Seed non valido');
   return {gameId:game.id,contentVersion:game.contentVersion,seed,actIndex:0,currentAct:initialState(game.acts[0]),ledger:[],historySnapshots:[],exposureFlags:[],assessmentResults:[],journal:[],complete:false};
@@ -20,6 +21,10 @@ export function transition(game,previous,action) {
       assert(episode.type==='source_comparison'&&state.phase==='scene'&&episode.sources.some(x=>x.id===action.sourceId),'Fonte non disponibile');
       const key=episode.id+':'+action.sourceId;
       if(!state.viewedSources.includes(key))state.viewedSources.push(key);break;
+    }
+    case 'turn': {
+      assert(episode.type==='turn_game','Non è una partita a turni');
+      const t=turnAction(act,episode,state,action,session.seed);state=t.state;changes=t.appliedChanges;feedback=t.feedback;break;
     }
     case 'answer': {
       assert(episode.type==='assessment'&&state.phase==='scene','Non è il momento della verifica');

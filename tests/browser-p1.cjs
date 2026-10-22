@@ -38,8 +38,10 @@ module.exports=async(browser,root,artifacts)=>{
  const saved=await read();await page.reload();await page.locator('#scene-title').waitFor();assert.equal(await read(),saved);
  // Salvataggio completo costruito con il runner pubblico (l'unità I.1 è percorsa per intero in browser-i1).
  {let s=newSession(game,'browser-p1');const {currentScene}=await import('../src/runner/index.js');
-  for(let i=0;i<80&&!s.complete;i++){const e=currentScene(game,s);let a;
+  for(let i=0;i<400&&!s.complete;i++){const e=currentScene(game,s);let a;
    if(s.currentAct.phase==='outcome'||e.type==='narrative')a={type:'advance'};
+   else if(e.type==='turn_game'){const g=s.currentAct.game,n=Object.values(g.placement).reduce((x,y)=>x+y,0);
+    a=g.phase==='cards'?{type:'turn',step:'card'}:g.phase==='place'?(n<g.rules.tokens?{type:'turn',step:'place',placeId:'campo',delta:1}:{type:'turn',step:'confirm'}):g.phase==='event'?{type:'turn',step:'choose',choiceId:e.turns[g.turn].event.choices[0].id}:{type:'turn',step:'continue'};}
    else if(e.type==='resource_allocation')a={type:'allocate',allocations:Object.fromEntries(e.buckets.map((b,j)=>[b.id,j===0?e.budget:0]))};
    else if(e.type==='source_comparison'){const x=e.sources.find(x=>!s.currentAct.viewedSources.includes(e.id+':'+x.id));a=x?{type:'inspect_source',sourceId:x.id}:{type:'select',choiceId:e.choices[0].id};}
    else if(e.type==='assessment')a={type:'answer',answerId:e.question.correctId};
