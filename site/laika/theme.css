@@ -241,3 +241,5 @@ main{max-width:none;margin:0;padding:0}
  .turn-workers{grid-template-columns:1fr 1fr;gap:8px}#panel .turn-workers button{min-height:64px}}
 .turn-steps{margin:14px 0 0;padding:0;list-style:none;font-family:var(--mono);font-size:.8rem;border-top:1px solid #ffffff33}
 .turn-steps li{display:flex;justify-content:space-between;gap:16px;padding:6px 0;border-bottom:1px solid #ffffff22}.turn-steps b{font-weight:400;text-align:right}
+/* Nel corso il progresso resta nel browser: niente esporta/importa e niente nota sul file. */
+#export,#tools .import,.privacy{display:none}
