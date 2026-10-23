@@ -72,7 +72,7 @@ Il diario delle scelte è il ponte: all'inizio di ogni atto l'episodio breve «C
 ## 6. Vincoli del motore che il piano rispetta
 
 - Sette tipi di episodio: i sei originari e `turn_game`, il motore a turni su cui si innestano i giochi del repertorio. Quattro o cinque unità per atto, da tre a sei episodi ciascuna.
-- Al massimo tre indicatori visibili per atto, etichettati «indice della simulazione»; flag e relazioni nascosti dove servono.
+- Pochi indicatori visibili **per unità** (in I.1 quattro: grano, occhio del padrone, speranza, legami nel villaggio), etichettati «indice della simulazione»; ogni unità mostra solo i propri. Regola del docente (23 ottobre 2026): **se un'azione del gioco serve a far crescere qualcosa, quel qualcosa è un indicatore visibile** (in I.1 aiutare i vicini muoveva i legami, che erano nascosti: l'azione sembrava senza motivo). Flag e relazioni restano nascosti dove servono.
 - Almeno un effetto differito per atto, spiegato nel diario.
 - Fine atto: un episodio narrative di confronto prima del reset; il diario resta consultabile.
 - Il punteggio misura la comprensione dei nessi; nessuna metrica simulata e nessuna posizione politica vale punti.
