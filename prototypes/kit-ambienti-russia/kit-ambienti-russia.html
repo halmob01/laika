@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LAIKA — Kit ambienti Russia 1800–1917</title>
+<style>
+body { margin:0; font-family:monospace; background:#dcdcd8; color:#161614; }
+header { padding:18px 20px 14px; border-bottom:2px solid #161614; }
+h1 { font-size:18px; margin:0 0 8px; } p { line-height:1.6; margin:6px 0; max-width:100ch; }
+.kicker { font-size:11px; letter-spacing:2px; margin-bottom:8px; }
+.controls { display:flex; flex-wrap:wrap; gap:16px; align-items:center; padding:12px 20px; }
+button, select { font:inherit; color:inherit; background:#f6f1e3; border:1px solid #161614; padding:6px 10px; }
+button:focus-visible, select:focus-visible, input:focus-visible { outline:3px solid #e02a1b; outline-offset:3px; }
+#griglia { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr)); gap:12px; padding:0 20px 20px; }
+figure { margin:0; border:1px solid #8ea8b8; background:#f6f1e3; }
+figure svg { display:block; width:100%; height:auto; aspect-ratio:1280 / 440; }
+figcaption { border-top:1px solid #8ea8b8; padding:10px 12px; font-size:12px; line-height:1.7; }
+figcaption strong { display:block; font-size:13px; } figcaption small { display:block; }
+footer { background:#f6f1e3; border-top:2px solid #161614; padding:20px; font-size:12px; }
+footer h2 { font-size:14px; margin:0 0 12px; } li { line-height:1.6; margin-bottom:8px; }
+footer ol { padding-left:24px; columns:2; column-gap:40px; max-width:1200px; } li { break-inside:avoid; }
+@media(max-width:650px) { footer ol { columns:1; } header { padding:16px; } #griglia { padding:0 12px 12px; } }
+@media print { .controls { display:none; } figure { break-inside:avoid; } }
+</style>
+</head>
+<body>
+<header>
+<div class="kicker">LAIKA / BOTTEGA / STUDI DI AMBIENTI</div>
+<h1>Russia, 1800–1917</h1>
+<p>Otto soggetti, dieci pezzi trasparenti. Inchiostro, azzurro e campiture a pastello. Ogni pezzo è centrato in x = 0 e poggia a y = 400.</p>
+</header>
+<div class="controls">
+<label>Catalogo <select id="selezione"><option value="tutti">Tutti i pezzi</option></select></label>
+<label><input id="terra" type="checkbox" checked> Linea di terra nell’anteprima</label>
+<button id="fondo" type="button" aria-pressed="false">Prova su fondo scuro</button>
+</div>
+<main id="griglia" aria-label="Catalogo dei dieci pezzi"></main>
+<noscript><p>Abilitare JavaScript per vedere i disegni generati dalle funzioni SVG inline.</p></noscript>
+<footer>
+<h2>Verifica del contratto — 12 punti</h2>
+<ol>
+<li><strong>Palette.</strong> Costante C all’inizio dello script, colori a sei cifre tra apici singoli. Le campiture usano C; mappa token dichiarata nel sorgente.</li>
+<li><strong>Catalogo.</strong> Costante ITEMS con dieci ID in minuscolo e underscore e relative etichette.</li>
+<li><strong>Funzioni pure.</strong> drawAmbiente(id, ox, oy) e strumenti restituiscono stringhe SVG senza accesso al DOM o mutazioni globali.</li>
+<li><strong>Elementi SVG.</strong> Solo elementi ammessi; un pattern di grana separato in getDefs(). Nessuna classe o regola CSS nei pezzi.</li>
+<li><strong>Attributi e tracciati.</strong> Geometria e presentazione ammesse, ID e data-pivot previsti dal punto 8. Solo comandi assoluti e translate.</li>
+<li><strong>Trasparenza.</strong> Nessun fondale o didascalia nel markup dei pezzi. Pareti e pavimenti sono parti materiali dell’ambiente; titoli e linea guida appartengono all’anteprima.</li>
+<li><strong>Appoggio.</strong> GROUND_Y = 400 per tutta la famiglia. Basi simmetriche rispetto a x = 0; offset applicati al gruppo esterno.</li>
+<li><strong>Parti animabili.</strong> Porte, luci, ruote, sportello e fumo hanno ID semantici unici nel pezzo e data-pivot locali. Nessuna animazione temporale.</li>
+<li><strong>Grana.</strong> Un solo pattern deterministico in getDefs(), ripreso dal kit di riferimento. Nessun filtro applicato ai disegni.</li>
+<li><strong>Avvio separato.</strong> Tutto il codice dipendente dal browser segue la riga // AVVIO. La parte precedente si esegue in Node.</li>
+<li><strong>Determinismo.</strong> Seme fisso per voce; stessa chiamata, stesso markup. Nessun Math.random.</li>
+<li><strong>Coerenza storica.</strong> Epoca, luogo e natura archetipica commentati per ciascuna voce. Nessuna insegna, bandiera, uniforme o aggiunta posteriore al 1917.</li>
+</ol>
+<p>San Giorgio: due blocchi distinti dello stesso ambiente, non due sale diverse. Tauride: ali autonome con gallerie; corpo centrale omesso. Le semplificazioni sono dichiarate nei commenti storici.</p>
+<p>Controlli eseguiti: esecuzione senza DOM, determinismo, sintassi SVG e conversione con svg-in-layer.js del repository. Questo file è un kit da importare: non modifica il catalogo del gioco.</p>
+</footer>
+<script>
+const C = {
+  bg: '#f6f1e3', ink: '#161614', red: '#e02a1b', sand: '#decba8',
+  cLight: '#c9d6df', cMid: '#8ea8b8', cDark: '#4f6b7c', sky: '#b8cbd8', tree: '#97b0c0'
+};
+// Mappa per KIT: bg -> paper; ink -> ink; red -> red; sand -> sand;
+// cLight -> concrete-light; cMid -> concrete-mid; cDark -> concrete-dark;
+// sky -> sky; tree -> tree. Valori identici al tema studi.
+// Famiglia: ambienti_russia. Funzione: drawAmbiente. Voci: ITEMS. Terra: 400.
+// Definizioni: getDefs(), motivo grana. Nessuna risorsa esterna.
+// Tratto e grana derivati da prototypes/kit-ambienti-primo-novecento/:
+// stessa costruzione deterministica di righe, macchie, bordi e tratteggi.
+// Scala figure suggerita: cella/dormitorio 1.5-1.8; ballo e San Giorgio 1.2-1.5;
+// vagone 0.85-1; colonia e Tauride 0.6-0.8; vetrina 1.5-1.8.
+// Non sono rilievi architettonici. Nessun dettaglio ornamentale incerto e' ricostruito.
+// Riferimenti consultati per la tipologia (non dipendenze del file):
+// https://purehost.bath.ac.uk/ws/portalfiles/portal/136837119/Hermitage_Essay_FINAL.pdf
+// https://www.encspb.ru/object/2804004262?lc=en
+const GROUND_Y = 400;
+const ITEMS = [
+  { id: 'cella', label: 'Cella con cielo', epoca: 'Russia · 1881', nota: 'Archetipo di cella muraria con finestra alta.' },
+  { id: 'dormitorio_fabbrica', label: 'Dormitorio di fabbrica', epoca: 'Pietroburgo · fine Ottocento', nota: 'Archetipo di alloggio collettivo con giacigli e stufa.' },
+  { id: 'sala_ballo', label: 'Sala da ballo illuminata', epoca: 'Pietroburgo · 1896', nota: 'Archetipo di sala di palazzo, illuminazione a candele.' },
+  { id: 'san_giorgio_colonnato', label: 'San Giorgio / A · Colonnato', epoca: 'Pietroburgo · 1905–1906', nota: 'Palazzo d’Inverno: campata laterale semplificata.' },
+  { id: 'san_giorgio_fondo', label: 'San Giorgio / B · Testata cerimoniale', epoca: 'Pietroburgo · 1905–1906', nota: 'Palazzo d’Inverno: settore del trono reso come archetipo.' },
+  { id: 'vagone_imperiale', label: 'Vagone imperiale fermo', epoca: 'Ferrovia russa · marzo 1917', nota: 'Archetipo di carrozza di corte. Livrea convenzionale LAIKA.' },
+  { id: 'colonia_militare', label: 'Colonia militare con case in fila', epoca: 'Russia · primo Ottocento', nota: 'Archetipo di insediamento militare-agricolo.' },
+  { id: 'tauride_ala_sinistra', label: 'Tauride / Ala sinistra', epoca: 'Pietroburgo · 1917', nota: 'Padiglione e galleria a destra. Corpo centrale omesso.' },
+  { id: 'tauride_ala_destra', label: 'Tauride / Ala destra', epoca: 'Pietroburgo · 1917', nota: 'Padiglione e galleria a sinistra. Corpo centrale omesso.' },
+  { id: 'vetrina_gioielli', label: 'Vetrina di gioielli', epoca: 'Pietroburgo · 1915–1916', nota: 'Archetipo di bottega, nessun marchio o gioielliere attribuito.' }
+];
+
+const f1 = n => (Math.round(n * 10) / 10).toString();
+const arco = (x, w, top, base) => `M ${f1(x - w / 2)} ${base} L ${f1(x - w / 2)} ${f1(top + w / 2)} A ${f1(w / 2)} ${f1(w / 2)} 0 0 1 ${f1(x + w / 2)} ${f1(top + w / 2)} L ${f1(x + w / 2)} ${base} Z`;
+// Generatore pseudo-casuale deterministico (mulberry32).
+function rng(seed) {
+  let a = seed >>> 0;
+  return function () {
+    a = (a + 0x6D2B79F5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+// --- Strumenti del tratto (gli stessi del kit luoghi monumentali) ------------------------
+function linea(pts, r, amp = 0.8, passo = 22) {
+  let d = '';
+  for (let i = 0; i < pts.length - 1; i++) {
+    const [x1, y1] = pts[i], [x2, y2] = pts[i + 1];
+    const L = Math.hypot(x2 - x1, y2 - y1) || 1, n = Math.max(1, Math.round(L / passo));
+    const nx = -(y2 - y1) / L, ny = (x2 - x1) / L;
+    for (let k = i === 0 ? 0 : 1; k <= n; k++) {
+      const t = k / n, j = (r() - 0.5) * 2 * amp * (k === 0 || k === n ? 0.5 : 1);
+      d += (d ? ' L ' : 'M ') + f1(x1 + (x2 - x1) * t + nx * j) + ' ' + f1(y1 + (y2 - y1) * t + ny * j);
+    }
+  }
+  return d;
+}
+function riga(x1, y1, x2, y2, r, amp = 0.8, sborda = 3) {
+  const L = Math.hypot(x2 - x1, y2 - y1) || 1, ux = (x2 - x1) / L, uy = (y2 - y1) / L;
+  const a = sborda * r(), b = sborda * r();
+  return linea([[x1 - ux * a, y1 - uy * a], [x2 + ux * b, y2 + uy * b]], r, amp);
+}
+function bordo(x, y, w, h, r, amp = 0.8, sborda = 3) {
+  return [riga(x, y, x + w, y, r, amp, sborda), riga(x + w, y, x + w, y + h, r, amp, sborda),
+    riga(x + w, y + h, x, y + h, r, amp, sborda), riga(x, y + h, x, y, r, amp, sborda)].join(' ');
+}
+function macchia(x, y, w, h, r, sp = 1.6) {
+  const j = () => (r() - 0.5) * 2 * sp;
+  return `M ${f1(x + sp + j())} ${f1(y - sp * 0.6 + j())} L ${f1(x + w + sp + j())} ${f1(y - sp * 0.6 + j())} L ${f1(x + w + sp + j())} ${f1(y + h + j())} L ${f1(x + sp + j())} ${f1(y + h + j())} Z`;
+}
+function macchiaP(pts, r, sp = 1.6) {
+  return 'M ' + pts.map(([x, y]) => f1(x + sp + (r() - 0.5) * 2 * sp) + ' ' + f1(y - sp * 0.6 + (r() - 0.5) * 2 * sp)).join(' L ') + ' Z';
+}
+function tratteggio(x, y, w, h, r, passo = 5, amp = 0.5) {
+  let d = '';
+  for (let c = x - h; c < x + w; c += passo) {
+    let x1 = c, y1 = y + h, x2 = c + h, y2 = y;
+    if (x1 < x) { y1 -= x - x1; x1 = x; }
+    if (x2 > x + w) { y2 += x2 - (x + w); x2 = x + w; }
+    if (x2 - x1 < 1) continue;
+    d += ' ' + linea([[x1, y1], [x2, y2]], r, amp, 40);
+  }
+  return d.trim();
+}
+function puntiArco(cx, cy, rx, ry, a0, a1, n = 18) {
+  const p = [];
+  for (let i = 0; i <= n; i++) { const a = a0 + (a1 - a0) * i / n; p.push([cx + Math.cos(a) * rx, cy + Math.sin(a) * ry]); }
+  return p;
+}
+const inchiostro = (d, w = 1.4, op = 1) => `<path d="${d}" fill="none" stroke="${C.ink}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"${op < 1 ? ` opacity="${op}"` : ''}/>`;
+const tinta = (d, fill, op = 1) => `<path d="${d}" fill="${fill}"${op < 1 ? ` opacity="${op}"` : ''}/>`;
+const grana = (d, op = 1) => `<path d="${d}" fill="url(#grana)"${op < 1 ? ` opacity="${op}"` : ''}/>`;
+// Rettangolo arrotondato come tracciato (sacchi, pagnotte).
+const tondo = (x, y, w, h, q) => `M ${f1(x + q)} ${f1(y)} L ${f1(x + w - q)} ${f1(y)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x + w)} ${f1(y + q)} L ${f1(x + w)} ${f1(y + h - q)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x + w - q)} ${f1(y + h)} L ${f1(x + q)} ${f1(y + h)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x)} ${f1(y + h - q)} L ${f1(x)} ${f1(y + q)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x + q)} ${f1(y)} Z`;
+// Ellisse come tracciato.
+const ovale = (cx, cy, rx, ry) => `M ${f1(cx - rx)} ${f1(cy)} A ${f1(rx)} ${f1(ry)} 0 1 0 ${f1(cx + rx)} ${f1(cy)} A ${f1(rx)} ${f1(ry)} 0 1 0 ${f1(cx - rx)} ${f1(cy)} Z`;
+
+function getDefs() {
+  const r = rng(6);
+  let punti = '', chiari = '', segni = '';
+  for (let i = 0; i < 14; i++) { const x = r() * 46 + 1, y = r() * 46 + 1, q = 0.5 + r() * 0.7; punti += `M ${f1(x - q)} ${f1(y)} L ${f1(x + q)} ${f1(y + 0.3)} `; }
+  for (let i = 0; i < 10; i++) { const x = r() * 44 + 2, y = r() * 44 + 2, q = 1.5 + r() * 2.5; chiari += `M ${f1(x)} ${f1(y)} L ${f1(x + q)} ${f1(y - q * 0.4)} `; }
+  for (let i = 0; i < 3; i++) { const x = r() * 44 + 2, y = r() * 30 + 2; segni += `M ${f1(x)} ${f1(y)} L ${f1(x + 0.3)} ${f1(y + 8 + r() * 6)} `; }
+  return `<pattern id="grana" width="48" height="48" patternUnits="userSpaceOnUse">` +
+    `<path d="${punti.trim()}" fill="none" stroke="${C.ink}" stroke-width="1.1" stroke-linecap="round" opacity="0.32"/>` +
+    `<path d="${chiari.trim()}" fill="none" stroke="${C.bg}" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>` +
+    `<path d="${segni.trim()}" fill="none" stroke="${C.cDark}" stroke-width="0.7" opacity="0.35"/>` +
+    `</pattern>`;
+}
+
+
+
+// Coordinate locali: x = 0 e' il centro; GROUND_Y = 400 e' l'appoggio comune.
+// I pavimenti sono parti materiali dell'oggetto, mai fondali della scena.
+function pannello(x, y, w, h, colore, r) {
+  const d = macchia(x, y, w, h, r, 0.7);
+  return tinta(d, colore) + grana(d, 0.55) + inchiostro(bordo(x, y, w, h, r, 0.5, 1.5), 1.15);
+}
+function base(w, r) {
+  let s = `<rect x="${-w / 2}" y="388" width="${w}" height="12" fill="${C.cMid}"/>`;
+  s += inchiostro(riga(-w / 2, 388, w / 2, 388, r, 0.4, 0), 1.2);
+  for (let x = -w / 2 + 20; x < w / 2; x += 42) s += inchiostro(riga(x, 389, x - 4, 399, r, 0.2, 0), 0.8);
+  return s;
+}
+function finestra(x, y, w, h, r) {
+  return pannello(x, y, w, h, C.sky, r) + inchiostro(riga(x + w / 2, y, x + w / 2, y + h, r, 0.25, 0) + ' ' + riga(x, y + h * 0.48, x + w, y + h * 0.48, r, 0.25, 0), 1);
+}
+function porta(nome, x, y, w, h, r, vetro = false) {
+  return `<g id="${nome}" data-pivot="${x} ${y + h / 2}">` + pannello(x, y, w, h, C.cDark, r) + inchiostro(bordo(x + 6, y + 8, w - 12, h - 16, r, 0.3, 0), 0.8) + (vetro ? finestra(x + 12, y + 13, w - 24, 86, r) : '') + `<circle cx="${x + w - 8}" cy="${y + h * 0.56}" r="2" fill="${C.sand}"/></g>`;
+}
+function lampadario(nome, x, r) {
+  let s = `<g id="${nome}" data-pivot="${x} 48">` + inchiostro(`M ${x} 48 L ${x} 130 M ${x - 54} 128 Q ${x} 168 ${x + 54} 128 M ${x - 36} 110 Q ${x} 140 ${x + 36} 110`, 1.6);
+  for (const [dx, y] of [[-54, 128], [-36, 110], [0, 146], [36, 110], [54, 128]]) {
+    s += `<path d="M ${x + dx - 4} ${y - 14} Q ${x + dx - 8} ${y - 22} ${x + dx} ${y - 28} Q ${x + dx + 7} ${y - 20} ${x + dx + 4} ${y - 14} Z" fill="${C.sand}"/>`;
+    s += inchiostro(`M ${x + dx - 7} ${y} L ${x + dx + 7} ${y} M ${x + dx} ${y} L ${x + dx} ${y - 14}`, 1.3);
+  }
+  s += `<circle cx="${x}" cy="154" r="4" fill="${C.sand}"/></g>`;
+  return s;
+}
+function colonna(x, top, bottom, r) {
+  return pannello(x - 12, top + 10, 24, bottom - top - 20, C.bg, r) + pannello(x - 20, top, 40, 10, C.sand, r) + pannello(x - 20, bottom - 10, 40, 10, C.cLight, r) + inchiostro(tratteggio(x + 4, top + 14, 7, bottom - top - 28, r, 6, 0.2), 0.55, 0.65);
+}
+function drawAmbiente(id, ox = 0, oy = 0) {
+  const indice = ITEMS.findIndex(v => v.id === id);
+  if (indice < 0) throw new Error('Voce sconosciuta: ' + id);
+  const r = rng(3100 + indice);
+  let s = '';
+  if (id === 'cella') {
+    // Russia, 1881. Archetipo generico di cella muraria: non e' una ricostruzione
+    // di una prigione identificata. Il solo cielo e' contenuto nella finestrella alta.
+    s += pannello(-370, 48, 740, 340, C.cLight, r);
+    let conci = '';
+    for (let y = 82; y < 388; y += 38) {
+      conci += riga(-366, y, 366, y, r, 0.7, 0) + ' ';
+      for (let x = -330 + ((y - 82) / 38 % 2) * 52; x < 360; x += 104) {
+        if (y < 160 && x > -70 && x < 80) continue;
+        conci += riga(x, y, x, Math.min(y + 34, 387), r, 0.4, 0) + ' ';
+      }
+    }
+    s += inchiostro(conci, 0.6, 0.35);
+    s += pannello(-65, 66, 130, 78, C.cDark, r);
+    s += `<rect x="-55" y="74" width="110" height="60" fill="${C.sky}"/>`;
+    s += `<path d="M -51 89 Q -35 82 -21 89 Q -7 78 12 89" fill="none" stroke="${C.bg}" stroke-width="3"/>`;
+    for (const x of [-32, 0, 32]) s += inchiostro(`M ${x} 73 L ${x} 136`, 3);
+    s += inchiostro('M -56 106 L 56 106', 2);
+    s += porta('cella-porta', 244, 216, 86, 172, r);
+    s += pannello(-312, 324, 235, 12, C.cDark, r);
+    s += `<path d="M -300 336 L -300 388 M -91 336 L -91 388" fill="none" stroke="${C.ink}" stroke-width="5"/>`;
+    s += pannello(-300, 314, 209, 10, C.sand, r);
+    s += base(780, r);
+  } else if (id === 'dormitorio_fabbrica') {
+    // Pietroburgo, fine Ottocento. Archetipo generico di dormitorio operaio collettivo.
+    // Letti e stufa sono tipologici: non si attribuisce questo impianto a una fabbrica nota.
+    s += pannello(-480, 64, 960, 324, C.cLight, r);
+    s += inchiostro(riga(-478, 276, 478, 276, r, 0.6, 0), 1.3);
+    for (const x of [-355, -70, 215]) s += finestra(x, 98, 94, 124, r);
+    for (const x of [-435, -150, 135]) {
+      // Due giacigli sovrapposti con montanti continui, senza corpi o uniformi.
+      s += `<path d="M ${x} 234 L ${x} 388 M ${x + 220} 234 L ${x + 220} 388" fill="none" stroke="${C.ink}" stroke-width="4"/>`;
+      for (const y of [266, 350]) {
+        s += pannello(x, y, 220, 13, C.cDark, r);
+        s += pannello(x + 5, y - 16, 210, 16, C.sand, r);
+        s += pannello(x + 12, y - 20, 42, 15, C.bg, r);
+        s += inchiostro(riga(x + 72, y - 14, x + 72, y - 1, r, 0.3, 0), 1);
+      }
+    }
+    s += pannello(398, 264, 58, 112, C.cDark, r);
+    s += inchiostro('M 427 264 L 427 68', 9);
+    s += porta('dormitorio-sportello-stufa', 412, 304, 29, 35, r);
+    s += `<g id="dormitorio-fumo" data-pivot="427 60" opacity="0.5">` + inchiostro('M 427 60 C 400 42 448 32 429 14 M 441 58 C 423 43 457 30 445 18', 3, 0.5) + '</g>';
+    s += base(1000, r);
+  } else if (id === 'sala_ballo') {
+    // Pietroburgo, 1896. Archetipo di sala da ballo di palazzo con illuminazione
+    // a candele. Non rappresenta una festa o una sala storica identificata.
+    s += pannello(-510, 44, 1020, 344, C.cLight, r);
+    s += pannello(-510, 44, 1020, 14, C.sand, r);
+    for (const x of [-442, -248, 140, 334]) {
+      s += pannello(x, 103, 106, 197, C.sand, r);
+      s += pannello(x + 8, 111, 90, 181, C.sky, r);
+      s += inchiostro(`M ${x + 16} 270 L ${x + 70} 128 M ${x + 47} 282 L ${x + 91} 162`, 0.8, 0.55);
+    }
+    s += porta('ballo-porta-sinistra', -67, 212, 67, 176, r);
+    s += porta('ballo-porta-destra', 0, 212, 67, 176, r);
+    s += inchiostro('M -78 210 Q 0 141 78 210', 2);
+    for (const x of [-490, -295, -100, 100, 295, 490]) s += colonna(x, 68, 382, r);
+    // Lampadari fra le colonne (a +-198, al centro dei grandi specchi), mai appesi su una colonna.
+    for (const [i, x] of [-198, 0, 198].entries()) s += lampadario('ballo-luci-' + (i + 1), x, r);
+    s += base(1060, r);
+  } else if (id === 'san_giorgio_colonnato') {
+    // Pietroburgo, 1905-1906. Sala di San Giorgio del Palazzo d'Inverno, blocco A:
+    // campata del colonnato in marmo chiaro con aperture ad arco. Riduzione tipologica,
+    // non rilievo: numero di colonne, proporzioni e decorazione sono semplificati.
+    // Non e' la sala omonima del Cremlino. Si omettono rilievi figurativi e stemmi.
+    s += pannello(-470, 46, 940, 342, C.cLight, r);
+    for (const x of [-352, -117, 117, 352]) {
+      s += tinta(arco(x, 90, 105, 315), C.sky);
+      s += inchiostro(arco(x, 90, 105, 315), 1.2);
+      s += inchiostro(`M ${x} 107 L ${x} 315 M ${x - 45} 230 L ${x + 45} 230`, 1);
+      s += pannello(x - 40, 66, 80, 25, C.sky, r);
+    }
+    s += pannello(-476, 43, 952, 16, C.sand, r);
+    s += inchiostro(riga(-470, 82, 470, 82, r, 0.4, 0), 1.1);
+    for (const x of [-452, -218, 0, 218, 452]) {
+      s += colonna(x - 16, 97, 382, r);
+      s += colonna(x + 16, 97, 382, r);
+    }
+    // Due lampadari davanti alle arcate (a +-117): quello centrale cadeva sulla coppia di colonne a x = 0.
+    s += lampadario('san-giorgio-colonnato-luci', -117, r);
+    s += lampadario('san-giorgio-colonnato-luci-destra', 117, r);
+    s += base(1000, r);
+  } else if (id === 'san_giorgio_fondo') {
+    // Pietroburgo, 1905-1906. Sala di San Giorgio del Palazzo d'Inverno, blocco B:
+    // testata cerimoniale con pedana e baldacchino, distinta dal colonnato laterale.
+    // Archetipo ridotto del settore del trono: ricami, rilievi, armi e simboli dinastici
+    // sono omessi; il seggio e' generico. Non e' una ricostruzione dell'allestimento.
+    s += pannello(-470, 46, 940, 342, C.cLight, r);
+    s += pannello(-476, 43, 952, 16, C.sand, r);
+    for (const x of [-390, -270, 270, 390]) s += colonna(x, 97, 382, r);
+    s += pannello(-167, 101, 334, 263, C.bg, r);
+    s += pannello(-133, 159, 266, 191, C.red, r);
+    s += pannello(-151, 142, 302, 18, C.sand, r);
+    s += tinta('M -148 159 L -99 159 L -115 296 L -143 314 Z M 148 159 L 99 159 L 115 296 L 143 314 Z', C.red);
+    s += inchiostro('M -135 163 L -128 273 M 135 163 L 128 273', 1.3);
+    s += pannello(-35, 246, 70, 77, C.sand, r);
+    s += pannello(-27, 254, 54, 61, C.red, r);
+    s += pannello(-45, 323, 90, 12, C.sand, r);
+    s += inchiostro('M -35 335 L -35 350 M 35 335 L 35 350', 4);
+    for (const [w, y] of [[280, 350], [320, 363], [360, 376]]) s += pannello(-w / 2, y, w, 12, C.cMid, r);
+    // A +-330, a meta' fra le colonne a +-270 e +-390 (a +-245 sfioravano le colonne).
+    s += lampadario('san-giorgio-fondo-luci', -330, r);
+    s += lampadario('san-giorgio-fondo-luci-destra', 330, r);
+    s += base(1000, r);
+  } else if (id === 'vagone_imperiale') {
+    // Ferrovia russa, marzo 1917. Archetipo di carrozza di corte prerivoluzionaria
+    // su due carrelli. Non si identifica un numero di vettura o il vagone dell'abdicazione.
+    // Livrea azzurra convenzionale LAIKA, non documentazione del colore originale.
+    // Mezzo fermo: nessuna locomotiva, nessun pennacchio attribuito alla carrozza.
+    s += tinta('M -449 198 Q -438 174 -401 174 L 401 174 Q 438 174 449 198 Z', C.cDark);
+    s += inchiostro('M -449 198 Q -438 174 -401 174 L 401 174 Q 438 174 449 198', 1.6);
+    s += pannello(-440, 198, 880, 139, C.cLight, r);
+    s += pannello(-440, 292, 880, 45, C.cMid, r);
+    s += inchiostro('M -438 288 L 438 288 M -415 317 L 415 317', 1);
+    for (let x = -335; x <= 305; x += 80) s += finestra(x, 218, 45, 62, r);
+    s += porta('vagone-porta-sinistra', -423, 211, 45, 116, r);
+    s += porta('vagone-porta-destra', 378, 211, 45, 116, r);
+    s += `<g id="vagone-luci" data-pivot="0 249">`;
+    for (let x = -327; x <= 313; x += 80) s += `<rect x="${x}" y="224" width="29" height="8" fill="${C.sand}"/>`;
+    s += '</g>';
+    s += pannello(-442, 337, 884, 12, C.cDark, r);
+    for (const [i, x] of [-325, -235, 235, 325].entries()) {
+      s += `<g id="vagone-ruota-${i + 1}" data-pivot="${x} 368"><circle cx="${x}" cy="368" r="24" fill="${C.ink}"/><circle cx="${x}" cy="368" r="15" fill="${C.cMid}"/><circle cx="${x}" cy="368" r="4" fill="${C.ink}"/>` + inchiostro(`M ${x - 14} 368 L ${x + 14} 368 M ${x} 354 L ${x} 382`, 1) + '</g>';
+    }
+    s += inchiostro('M -350 349 L -210 349 M 210 349 L 350 349', 7);
+    s += inchiostro('M -480 326 L -442 326 M 442 326 L 480 326', 6);
+    s += `<path d="M -465 392 L 465 392 L 465 400 L -465 400 Z" fill="${C.cDark}"/>`;
+    s += inchiostro('M -465 393 L 465 393', 1);
+  } else if (id === 'colonia_militare') {
+    // Russia, primo Ottocento. Archetipo generico di insediamento militare-agricolo
+    // con alloggi ripetuti in fila; non e' una veduta di una colonia identificata.
+    // Tetti a falde e muratura semplice: nessuna divisa, insegna o bandiera.
+    for (const [i, x] of [-492, -240, 12, 264].entries()) {
+      s += pannello(x, 246, 228, 142, C.cLight, r);
+      s += tinta(`M ${x - 7} 246 L ${x + 30} 211 L ${x + 198} 211 L ${x + 235} 246 Z`, C.cDark);
+      s += inchiostro(`M ${x - 7} 246 L ${x + 30} 211 L ${x + 198} 211 L ${x + 235} 246 Z`, 1.3);
+      s += pannello(x + 164, 193, 18, 40, C.cMid, r);
+      for (const fx of [x + 18, x + 158]) s += finestra(fx, 276, 49, 62, r);
+      s += porta('colonia-porta-' + (i + 1), x + 93, 293, 42, 95, r);
+    }
+    s += base(1040, r);
+  } else if (id === 'tauride_ala_sinistra' || id === 'tauride_ala_destra') {
+    // Pietroburgo, 1917 (toponimo storico del periodo: Pietrogrado).
+    // Palazzo di Tauride: due moduli/ali indipendenti per la composizione scenica.
+    // NON sono due nuove facciate complete. Ogni modulo comprende padiglione laterale
+    // e galleria; il corpo centrale con cupola e pronao a sei colonne e' omesso.
+    // Archetipo della tipologia documentata: padiglioni con portico a quattro colonne
+    // e gallerie basse. Numero di finestre, proporzioni e dettagli sono semplificati.
+    const sinistra = id === 'tauride_ala_sinistra';
+    // Posizioni esplicite: nessuna riflessione scale(-1 1), non ammessa dal contratto.
+    const px = sinistra ? -440 : 160, gx = sinistra ? -160 : -440;
+    s += pannello(gx, 291, 600, 97, C.cLight, r);
+    s += pannello(gx - 4, 280, 608, 11, C.cMid, r);
+    for (let x = gx + 20; x < gx + 570; x += 65) s += finestra(x, 310, 29, 52, r);
+    s += pannello(px, 192, 280, 196, C.cLight, r);
+    s += tinta(`M ${px - 7} 192 L ${px + 140} 150 L ${px + 287} 192 Z`, C.cDark);
+    s += inchiostro(`M ${px - 7} 192 L ${px + 140} 150 L ${px + 287} 192`, 1.5);
+    for (const x of [px + 24, px + 215]) s += finestra(x, 224, 41, 57, r);
+    s += porta(sinistra ? 'tauride-porta-sinistra' : 'tauride-porta-destra', px + 111, 290, 58, 85, r);
+    s += tinta(`M ${px + 63} 221 L ${px + 140} 191 L ${px + 217} 221 Z`, C.bg);
+    s += inchiostro(`M ${px + 63} 221 L ${px + 140} 191 L ${px + 217} 221 Z`, 1.1);
+    s += pannello(px + 63, 221, 154, 10, C.cLight, r);
+    for (const dx of [78, 119, 161, 202]) {
+      // Colonne doriche rese senza ornamenti figurativi.
+      s += pannello(px + dx - 6, 231, 12, 139, C.bg, r);
+      s += pannello(px + dx - 9, 230, 18, 5, C.bg, r);
+    }
+    s += pannello(px + 62, 375, 156, 13, C.cMid, r);
+    s += base(940, r);
+  } else if (id === 'vetrina_gioielli') {
+    // Pietroburgo, 1915-1916. Archetipo di vetrina di gioielli in bottega urbana.
+    // Nessuna attribuzione a Faberge' o ad altro gioielliere. Collane e anelli generici,
+    // nessun marchio, nessuna insegna. Illuminazione resa come punto luce non identificato.
+    s += pannello(-355, 127, 710, 261, C.cLight, r);
+    s += pannello(-363, 117, 726, 14, C.cDark, r);
+    s += pannello(-316, 162, 450, 181, C.cDark, r);
+    s += pannello(-306, 172, 430, 161, C.sky, r);
+    for (const y of [244, 320]) {
+      s += pannello(-299, y, 416, 5, C.sand, r);
+      for (let i = 0; i < 4; i++) {
+        const x = -253 + i * 102;
+        if (y === 244) {
+          s += tinta(`M ${x - 22} ${y - 4} L ${x - 14} ${y - 43} Q ${x} ${y - 54} ${x + 14} ${y - 43} L ${x + 22} ${y - 4} Z`, C.cDark);
+          s += `<path d="M ${x - 13} ${y - 38} Q ${x} ${y - 9} ${x + 13} ${y - 38}" fill="none" stroke="${C.sand}" stroke-width="2.5"/>`;
+          s += `<circle cx="${x}" cy="${y - 21}" r="3" fill="${C.red}"/>`;
+        } else {
+          s += pannello(x - 21, y - 12, 42, 10, C.cDark, r);
+          s += `<circle cx="${x}" cy="${y - 22}" r="8" fill="none" stroke="${C.sand}" stroke-width="3"/><polygon points="${x - 5},${y - 32} ${x},${y - 38} ${x + 5},${y - 32} ${x},${y - 28}" fill="${C.bg}"/>`;
+        }
+      }
+    }
+    s += inchiostro('M -91 172 L -91 333', 2);
+    s += porta('gioielli-porta', 196, 180, 100, 208, r, true);
+    s += `<g id="gioielli-luci" data-pivot="-91 168">`;
+    for (const x of [-253, -49, 53]) s += `<ellipse cx="${x}" cy="179" rx="13" ry="4" fill="${C.sand}"/>`;
+    s += '</g>';
+    s += pannello(-355, 350, 489, 38, C.cMid, r);
+    s += base(760, r);
+  }
+  return `<g transform="translate(${ox} ${oy})">${s}</g>`;
+}
+
+// AVVIO
+(function () {
+  const griglia = document.getElementById('griglia');
+  const selezione = document.getElementById('selezione');
+  const terra = document.getElementById('terra');
+  const fondo = document.getElementById('fondo');
+  let scuro = false;
+  ITEMS.forEach(v => {
+    const opzione = document.createElement('option');
+    opzione.value = v.id;
+    opzione.textContent = v.label;
+    selezione.appendChild(opzione);
+  });
+  function render() {
+    griglia.innerHTML = '';
+    ITEMS.filter(v => selezione.value === 'tutti' || v.id === selezione.value).forEach(v => {
+      const fig = document.createElement('figure');
+      // La cornice, il fondo di prova e la guida non fanno parte del pezzo importabile.
+      const guida = terra.checked ? `<path d="M -620 400 L 620 400" fill="none" stroke="${C.red}" stroke-width="0.8" opacity="0.7"/>` : '';
+      fig.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${v.label}" viewBox="-640 0 1280 440"><defs>${getDefs()}</defs>${drawAmbiente(v.id)}${guida}</svg><figcaption><strong>${v.label}</strong>${v.epoca}<small>${v.nota}</small></figcaption>`;
+      fig.querySelector('svg').style.background = scuro ? C.cDark : C.bg;
+      // Il pattern ha un ID diverso per ogni anteprima. Il markup puro resta intatto.
+      const svg = fig.querySelector('svg');
+      svg.innerHTML = svg.innerHTML.replaceAll('id="grana"', `id="anteprima-grana-${v.id}"`).replaceAll('url(#grana)', `url(#anteprima-grana-${v.id})`);
+      griglia.appendChild(fig);
+    });
+  }
+  selezione.addEventListener('change', render);
+  terra.addEventListener('change', render);
+  fondo.addEventListener('click', () => {
+    scuro = !scuro;
+    fondo.setAttribute('aria-pressed', String(scuro));
+    fondo.textContent = scuro ? 'Torna al fondo carta' : 'Prova su fondo scuro';
+    render();
+  });
+  render();
+})();
+</script>
+</body>
+</html>

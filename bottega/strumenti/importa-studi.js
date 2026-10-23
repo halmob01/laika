@@ -72,6 +72,14 @@ export const KIT = [
     famiglie: [
       { famiglia: 'corte', prefisso: 'corte-', funzione: 'drawCorte', voci: 'CORTE', argomenti: ['$id', 0, 0], terra: 400 }
     ]
+  },
+  {
+    file: 'prototypes/kit-ambienti-russia/kit-ambienti-russia.html', palette: 'C',
+    token: { bg: 'paper', ink: 'ink', red: 'red', sand: 'sand', cLight: 'concrete-light', cMid: 'concrete-mid', cDark: 'concrete-dark', sky: 'sky', tree: 'tree' },
+    definizioni: { funzione: 'getDefs', argomenti: [], texture: 'russia', motivi: { grana: 'grana-russia' } },
+    famiglie: [
+      { famiglia: 'ambienti', prefisso: 'ambiente-', funzione: 'drawAmbiente', voci: 'ITEMS', argomenti: ['$id', 0, 0], terra: 400 }
+    ]
   }
 ];
 // Colori scritti direttamente nel codice dei kit (fuori dalla palette).

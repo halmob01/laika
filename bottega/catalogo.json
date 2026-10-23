@@ -841,6 +841,96 @@
    "epoca": "Senza epoca (inverno russo): banco di neve in primo piano.",
    "fonte": "prototypes/kit-feste-di-corte/kit-feste-di-corte.html#cumulo_neve",
    "note": "Da usare con davanti: true; nasconde la base di chi o che cosa sprofonda. Approvato dall'utente il 22 ottobre 2026 (gate P2, unità I.1)."
+  },
+  {
+   "id": "ambiente-cella",
+   "famiglia": "ambienti",
+   "nome": "Cella con cielo",
+   "stato": "pronto",
+   "epoca": "Russia, 1881: archetipo generico di cella muraria con finestra alta; non una prigione identificata. Il cielo è contenuto nella finestrella.",
+   "fonte": "prototypes/kit-ambienti-russia/kit-ambienti-russia.html#cella",
+   "note": "Interno per figure a scala 1,5-1,8. Parti animabili: cella-porta."
+  },
+  {
+   "id": "ambiente-dormitorio-fabbrica",
+   "famiglia": "ambienti",
+   "nome": "Dormitorio di fabbrica",
+   "stato": "pronto",
+   "epoca": "Pietroburgo, fine Ottocento: archetipo di dormitorio operaio collettivo con giacigli sovrapposti e stufa; non attribuito a una fabbrica nota.",
+   "fonte": "prototypes/kit-ambienti-russia/kit-ambienti-russia.html#dormitorio_fabbrica",
+   "note": "Per figure a scala 1,5-1,8. Parti animabili: dormitorio-sportello-stufa, dormitorio-fumo."
+  },
+  {
+   "id": "ambiente-sala-ballo",
+   "famiglia": "ambienti",
+   "nome": "Sala da ballo illuminata",
+   "stato": "pronto",
+   "epoca": "Pietroburgo, 1896: archetipo di sala da ballo di palazzo con illuminazione a candele; non una festa o una sala storica identificata.",
+   "fonte": "prototypes/kit-ambienti-russia/kit-ambienti-russia.html#sala_ballo",
+   "note": "Per figure a scala 1,2-1,5. Parti animabili: ballo-porta-sinistra, ballo-porta-destra, ballo-luci-1, ballo-luci-2, ballo-luci-3 (lampadari fra le colonne). Distinta da ambiente-sala (assemblea)."
+  },
+  {
+   "id": "ambiente-san-giorgio-colonnato",
+   "famiglia": "ambienti",
+   "nome": "San Giorgio, A: colonnato",
+   "stato": "pronto",
+   "epoca": "Pietroburgo, 1905-1906: Palazzo d'Inverno, sala di San Giorgio, campata laterale semplificata con aperture ad arco; riduzione tipologica, non un rilievo. Non è la sala omonima del Cremlino.",
+   "fonte": "prototypes/kit-ambienti-russia/kit-ambienti-russia.html#san_giorgio_colonnato",
+   "note": "Blocco A di due blocchi della stessa sala (l'altro è ambiente-san-giorgio-fondo): non sono due sale diverse. Per figure a scala 1,2-1,5. Parti animabili: san-giorgio-colonnato-luci, san-giorgio-colonnato-luci-destra."
+  },
+  {
+   "id": "ambiente-san-giorgio-fondo",
+   "famiglia": "ambienti",
+   "nome": "San Giorgio, B: testata cerimoniale",
+   "stato": "pronto",
+   "epoca": "Pietroburgo, 1905-1906: Palazzo d'Inverno, sala di San Giorgio, settore del trono reso come archetipo (pedana e baldacchino); rilievi, armi e simboli dinastici omessi, seggio generico.",
+   "fonte": "prototypes/kit-ambienti-russia/kit-ambienti-russia.html#san_giorgio_fondo",
+   "note": "Blocco B della stessa sala di ambiente-san-giorgio-colonnato. Per figure a scala 1,2-1,5. Parti animabili: san-giorgio-fondo-luci, san-giorgio-fondo-luci-destra (lampadari a +-330, fra le colonne)."
+  },
+  {
+   "id": "ambiente-vagone-imperiale",
+   "famiglia": "ambienti",
+   "nome": "Vagone imperiale fermo",
+   "stato": "pronto",
+   "epoca": "Ferrovia russa, marzo 1917: archetipo di carrozza di corte prerivoluzionaria su due carrelli; non è identificata una vettura né il vagone dell'abdicazione. Livrea azzurra convenzionale LAIKA, non il colore originale.",
+   "fonte": "prototypes/kit-ambienti-russia/kit-ambienti-russia.html#vagone_imperiale",
+   "note": "Mezzo fermo, senza locomotiva. Per figure a scala 1-1,2 (con 0,85-1 la testa arriva al pianale: scala misurata con figure vere). Parti animabili: vagone-porta-sinistra, vagone-porta-destra, vagone-luci, vagone-ruota-1...4."
+  },
+  {
+   "id": "ambiente-colonia-militare",
+   "famiglia": "ambienti",
+   "nome": "Colonia militare con case in fila",
+   "stato": "pronto",
+   "epoca": "Russia, primo Ottocento: archetipo di insediamento militare-agricolo con alloggi ripetuti in fila; non una veduta di una colonia identificata. Nessuna divisa, insegna o bandiera.",
+   "fonte": "prototypes/kit-ambienti-russia/kit-ambienti-russia.html#colonia_militare",
+   "note": "Larghezza 1040. Porta alta 95: figura a scala 0,9-1 davanti a una porta; 0,6-0,8 solo per figure lontane o per una folla minuta. Parti animabili: colonia-porta-1...4."
+  },
+  {
+   "id": "ambiente-tauride-ala-sinistra",
+   "famiglia": "ambienti",
+   "nome": "Palazzo di Tauride, ala sinistra",
+   "stato": "pronto",
+   "epoca": "Pietroburgo (Pietrogrado), 1917: padiglione con portico a quattro colonne e galleria bassa a destra; il corpo centrale con cupola e pronao è omesso. Archetipo semplificato, non un rilievo.",
+   "fonte": "prototypes/kit-ambienti-russia/kit-ambienti-russia.html#tauride_ala_sinistra",
+   "note": "Da affiancare a ambiente-tauride-ala-destra lasciando fra le due ali lo spazio del corpo centrale. Porta alta 85: figure a scala 0,85-1 davanti al portico; 0,6-0,8 per figure lontane. Parte animabile: tauride-porta-sinistra."
+  },
+  {
+   "id": "ambiente-tauride-ala-destra",
+   "famiglia": "ambienti",
+   "nome": "Palazzo di Tauride, ala destra",
+   "stato": "pronto",
+   "epoca": "Pietroburgo (Pietrogrado), 1917: padiglione con portico a quattro colonne e galleria bassa a sinistra; il corpo centrale con cupola e pronao è omesso. Archetipo semplificato, non un rilievo.",
+   "fonte": "prototypes/kit-ambienti-russia/kit-ambienti-russia.html#tauride_ala_destra",
+   "note": "Speculare compositivo di ambiente-tauride-ala-sinistra, disegnato con posizioni esplicite (niente flip). Porta alta 85: figure a scala 0,85-1 davanti al portico; 0,6-0,8 per figure lontane. Parte animabile: tauride-porta-destra."
+  },
+  {
+   "id": "ambiente-vetrina-gioielli",
+   "famiglia": "ambienti",
+   "nome": "Vetrina di gioielli",
+   "stato": "pronto",
+   "epoca": "Pietroburgo, 1915-1916: archetipo di vetrina di gioielli in bottega urbana; nessun gioielliere attribuito, nessun marchio o insegna.",
+   "fonte": "prototypes/kit-ambienti-russia/kit-ambienti-russia.html#vetrina_gioielli",
+   "note": "Per figure a scala 1,5-1,8. Parti animabili: gioielli-porta, gioielli-luci."
   }
  ],
  "da_fare": [
@@ -862,9 +952,19 @@
     "ambiente-caserma",
     "ambiente-sala",
     "ambiente-trincea",
-    "ambiente-parapetto"
+    "ambiente-parapetto",
+    "ambiente-cella",
+    "ambiente-dormitorio-fabbrica",
+    "ambiente-sala-ballo",
+    "ambiente-san-giorgio-colonnato",
+    "ambiente-san-giorgio-fondo",
+    "ambiente-vagone-imperiale",
+    "ambiente-colonia-militare",
+    "ambiente-tauride-ala-sinistra",
+    "ambiente-tauride-ala-destra",
+    "ambiente-vetrina-gioielli"
    ],
-   "note": "Fatti nel kit ambienti primo Novecento (P2b): strada, panetteria, interno di isba, ufficio, caserma, sala a colonne, trincea, parapetto. Resta l'appartamento (kommunalka, anni Venti): serve all'Atto III."
+   "note": "Fatti nel kit ambienti primo Novecento (P2b): strada, panetteria, interno di isba, ufficio, caserma, sala a colonne, trincea, parapetto. Kit ambienti Russia 1800-1917: cella, dormitorio di fabbrica, sala da ballo, sala di San Giorgio (due blocchi), vagone imperiale, colonia militare, ali del Palazzo di Tauride, vetrina di gioielli. Resta l'appartamento (kommunalka, anni Venti): serve all'Atto III."
   },
   {
    "famiglia": "mezzi",
