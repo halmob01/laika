@@ -1,0 +1,767 @@
+[
+ {
+  "id": "brut-cemento-vista",
+  "d": 0,
+  "ink": 70474
+ },
+ {
+  "id": "brut-finestre-modulari",
+  "d": 0,
+  "ink": 77610
+ },
+ {
+  "id": "brut-griglie",
+  "d": 0,
+  "ink": 71115
+ },
+ {
+  "id": "brut-bucature-profonde",
+  "d": 0,
+  "ink": 65893
+ },
+ {
+  "id": "brut-aggetti",
+  "d": 0,
+  "ink": 60073
+ },
+ {
+  "id": "brut-pareti-scanalate",
+  "d": 0,
+  "ink": 71915
+ },
+ {
+  "id": "brut-pannelli-prefabbricati",
+  "d": 0,
+  "ink": 78733
+ },
+ {
+  "id": "brut-pilotis",
+  "d": 0,
+  "ink": 78053
+ },
+ {
+  "id": "brut-passerelle",
+  "d": 0,
+  "ink": 56210
+ },
+ {
+  "id": "brut-scale-esterne",
+  "d": 0,
+  "ink": 47966
+ },
+ {
+  "id": "brut-rampe",
+  "d": 0,
+  "ink": 56926
+ },
+ {
+  "id": "brut-torri-scala",
+  "d": 0,
+  "ink": 47076
+ },
+ {
+  "id": "brut-blocchi-sovrapposti",
+  "d": 0,
+  "ink": 75197
+ },
+ {
+  "id": "brut-ingresso-monumentale",
+  "d": 0,
+  "ink": 88960
+ },
+ {
+  "id": "brut-cortile",
+  "d": 0,
+  "ink": 72044
+ },
+ {
+  "id": "brut-pensilina",
+  "d": 0,
+  "ink": 33162
+ },
+ {
+  "id": "brut-segnaletica",
+  "d": 0,
+  "ink": 67287
+ },
+ {
+  "id": "brut-elementi-modulari",
+  "d": 0,
+  "ink": 27657
+ },
+ {
+  "id": "brut-piazza-ventosa",
+  "d": 0,
+  "ink": 87107
+ },
+ {
+  "id": "brut-cortile-residenziale",
+  "d": 0,
+  "ink": 153514
+ },
+ {
+  "id": "brut-scalinata-monumentale",
+  "d": 0,
+  "ink": 178148
+ },
+ {
+  "id": "palazzo-torre-residenziale",
+  "d": 0,
+  "ink": 79191
+ },
+ {
+  "id": "palazzo-torre-residenziale-var",
+  "d": 0,
+  "ink": 61458
+ },
+ {
+  "id": "palazzo-blocco-abitativo",
+  "d": 0,
+  "ink": 234393
+ },
+ {
+  "id": "palazzo-blocco-abitativo-var",
+  "d": 0,
+  "ink": 109846
+ },
+ {
+  "id": "palazzo-palazzo-amministrativo",
+  "d": 0,
+  "ink": 181728
+ },
+ {
+  "id": "palazzo-palazzo-amministrativo-var",
+  "d": 0,
+  "ink": 83281
+ },
+ {
+  "id": "palazzo-centro-civico",
+  "d": 0,
+  "ink": 169751
+ },
+ {
+  "id": "palazzo-centro-civico-var",
+  "d": 0,
+  "ink": 80079
+ },
+ {
+  "id": "palazzo-complesso-gradoni",
+  "d": 0,
+  "ink": 156458
+ },
+ {
+  "id": "palazzo-complesso-gradoni-var",
+  "d": 0,
+  "ink": 84106
+ },
+ {
+  "id": "palazzo-edificio-pilotis",
+  "d": 0,
+  "ink": 137722
+ },
+ {
+  "id": "palazzo-edificio-pilotis-var",
+  "d": 0,
+  "ink": 76760
+ },
+ {
+  "id": "palazzo-casa-cultura",
+  "d": 0,
+  "ink": 238529
+ },
+ {
+  "id": "palazzo-casa-cultura-var1",
+  "d": 0,
+  "ink": 124506
+ },
+ {
+  "id": "palazzo-casa-cultura-var2",
+  "d": 0,
+  "ink": 155868
+ },
+ {
+  "id": "ambiente-piazza",
+  "d": 0,
+  "ink": 191659
+ },
+ {
+  "id": "ambiente-fabbrica",
+  "d": 0,
+  "ink": 99997
+ },
+ {
+  "id": "ambiente-stazione",
+  "d": 0,
+  "ink": 116588
+ },
+ {
+  "id": "ambiente-rurale",
+  "d": 0,
+  "ink": 110305
+ },
+ {
+  "id": "mezzo-treno",
+  "d": 0,
+  "ink": 34763
+ },
+ {
+  "id": "mezzo-tram",
+  "d": 0,
+  "ink": 33680
+ },
+ {
+  "id": "mezzo-camion",
+  "d": 0,
+  "ink": 24118
+ },
+ {
+  "id": "mezzo-tank",
+  "d": 0,
+  "ink": 24009
+ },
+ {
+  "id": "infra-tralicci",
+  "d": 0,
+  "ink": 14639
+ },
+ {
+  "id": "oggetto-bandiera",
+  "d": 0,
+  "ink": 6630
+ },
+ {
+  "id": "oggetto-cartello-vuoto",
+  "d": 0,
+  "ink": 6820
+ },
+ {
+  "id": "oggetto-cartello-pane",
+  "d": 0,
+  "ink": 8288
+ },
+ {
+  "id": "oggetto-fucile",
+  "d": 0,
+  "ink": 1430
+ },
+ {
+  "id": "oggetto-bastone",
+  "d": 0,
+  "ink": 1127
+ },
+ {
+  "id": "oggetto-martello",
+  "d": 0,
+  "ink": 1528
+ },
+ {
+  "id": "oggetto-megafono",
+  "d": 0,
+  "ink": 2951
+ },
+ {
+  "id": "oggetto-cassa",
+  "d": 0,
+  "ink": 7740
+ },
+ {
+  "id": "oggetto-barricata",
+  "d": 0,
+  "ink": 9696
+ },
+ {
+  "id": "oggetto-tamburo",
+  "d": 0,
+  "ink": 5648
+ },
+ {
+  "id": "oggetto-giornale",
+  "d": 0,
+  "ink": 8833
+ },
+ {
+  "id": "oggetto-volantini",
+  "d": 0,
+  "ink": 1142
+ },
+ {
+  "id": "infra-lampione",
+  "d": 0,
+  "ink": 10996
+ },
+ {
+  "id": "infra-binari",
+  "d": 0,
+  "ink": 16304
+ },
+ {
+  "id": "infra-ciminiera",
+  "d": 0,
+  "ink": 16810
+ },
+ {
+  "id": "infra-filo-spinato",
+  "d": 0,
+  "ink": 10035
+ },
+ {
+  "id": "atmo-fumo",
+  "d": 0,
+  "ink": 25808
+ },
+ {
+  "id": "atmo-neve",
+  "d": 0,
+  "ink": 4448
+ },
+ {
+  "id": "atmo-pioggia",
+  "d": 0,
+  "ink": 6288
+ },
+ {
+  "id": "luogo-palazzo",
+  "d": 0,
+  "ink": 1044832
+ },
+ {
+  "id": "luogo-colonna",
+  "d": 0,
+  "ink": 39390
+ },
+ {
+  "id": "luogo-fabbrica",
+  "d": 0,
+  "ink": 1101049
+ },
+ {
+  "id": "luogo-ponte",
+  "d": 0,
+  "ink": 261824
+ },
+ {
+  "id": "luogo-riva",
+  "d": 0,
+  "ink": 423070
+ },
+ {
+  "id": "luogo-pianura",
+  "d": 0,
+  "ink": 491421
+ },
+ {
+  "id": "luogo-tenuta",
+  "d": 0,
+  "ink": 71515
+ },
+ {
+  "id": "luogo-chiesa",
+  "d": 0,
+  "ink": 42442
+ },
+ {
+  "id": "luogo-isbe",
+  "d": 0,
+  "ink": 44645
+ },
+ {
+  "id": "luogo-betulle",
+  "d": 0,
+  "ink": 38199
+ },
+ {
+  "id": "luogo-folla",
+  "d": 0,
+  "ink": 71319
+ },
+ {
+  "id": "atmo-foschia",
+  "d": 0,
+  "ink": 721600
+ },
+ {
+  "id": "ambiente-strada",
+  "d": 0,
+  "ink": 1280553
+ },
+ {
+  "id": "ambiente-panetteria",
+  "d": 0,
+  "ink": 316072
+ },
+ {
+  "id": "ambiente-isba-interno",
+  "d": 0,
+  "ink": 1117699
+ },
+ {
+  "id": "ambiente-ufficio",
+  "d": 0,
+  "ink": 1199312
+ },
+ {
+  "id": "ambiente-caserma",
+  "d": 0,
+  "ink": 1018049
+ },
+ {
+  "id": "ambiente-sala",
+  "d": 0,
+  "ink": 1627931
+ },
+ {
+  "id": "ambiente-trincea",
+  "d": 0,
+  "ink": 690028
+ },
+ {
+  "id": "ambiente-parapetto",
+  "d": 0,
+  "ink": 343533
+ },
+ {
+  "id": "campagna-orto-cantiere",
+  "d": 0,
+  "ink": 51277
+ },
+ {
+  "id": "campagna-orto-finito",
+  "d": 0,
+  "ink": 64807
+ },
+ {
+  "id": "campagna-stalla-cantiere",
+  "d": 0,
+  "ink": 45218
+ },
+ {
+  "id": "campagna-stalla-finita",
+  "d": 0,
+  "ink": 105905
+ },
+ {
+  "id": "campagna-bosco-cantiere",
+  "d": 0,
+  "ink": 136428
+ },
+ {
+  "id": "campagna-bosco-finito",
+  "d": 0,
+  "ink": 139934
+ },
+ {
+  "id": "campagna-sokha",
+  "d": 0,
+  "ink": 10449
+ },
+ {
+  "id": "campagna-mucca",
+  "d": 0,
+  "ink": 12654
+ },
+ {
+  "id": "campagna-cavallo",
+  "d": 0,
+  "ink": 20637
+ },
+ {
+  "id": "campagna-sacchi",
+  "d": 0,
+  "ink": 10546
+ },
+ {
+  "id": "campagna-granaio",
+  "d": 0,
+  "ink": 53822
+ },
+ {
+  "id": "campagna-carro",
+  "d": 0,
+  "ink": 22930
+ },
+ {
+  "id": "campagna-banco-fiera",
+  "d": 0,
+  "ink": 24649
+ },
+ {
+  "id": "corte-palazzo-ghiaccio",
+  "d": 0,
+  "ink": 724290
+ },
+ {
+  "id": "corte-cannone-ghiaccio",
+  "d": 0,
+  "ink": 10006
+ },
+ {
+  "id": "corte-elefante-gabbia",
+  "d": 0,
+  "ink": 124039
+ },
+ {
+  "id": "corte-elefante-gemme",
+  "d": 0,
+  "ink": 121007
+ },
+ {
+  "id": "corte-residenza-legno",
+  "d": 0,
+  "ink": 616995
+ },
+ {
+  "id": "corte-cumulo-neve",
+  "d": 0,
+  "ink": 87754
+ },
+ {
+  "id": "nessuna/popolo/in_piedi",
+  "d": 0,
+  "ink": 6723
+ },
+ {
+  "id": "nessuna/protagonista/in_piedi",
+  "d": 0,
+  "ink": 6723
+ },
+ {
+  "id": "nessuna/esercito/in_piedi",
+  "d": 0,
+  "ink": 6723
+ },
+ {
+  "id": "nessuna/partigiano/in_piedi",
+  "d": 0,
+  "ink": 6736
+ },
+ {
+  "id": "nessuna/popolo/corre",
+  "d": 0,
+  "ink": 7036
+ },
+ {
+  "id": "nessuna/protagonista/corre",
+  "d": 0,
+  "ink": 7036
+ },
+ {
+  "id": "nessuna/esercito/corre",
+  "d": 0,
+  "ink": 7036
+ },
+ {
+  "id": "nessuna/partigiano/corre",
+  "d": 0,
+  "ink": 7057
+ },
+ {
+  "id": "nessuna/popolo/seduto",
+  "d": 0,
+  "ink": 6592
+ },
+ {
+  "id": "nessuna/protagonista/seduto",
+  "d": 0,
+  "ink": 6592
+ },
+ {
+  "id": "nessuna/esercito/seduto",
+  "d": 0,
+  "ink": 6592
+ },
+ {
+  "id": "nessuna/partigiano/seduto",
+  "d": 0,
+  "ink": 6605
+ },
+ {
+  "id": "nessuna/popolo/a_terra",
+  "d": 0,
+  "ink": 6530
+ },
+ {
+  "id": "nessuna/protagonista/a_terra",
+  "d": 0,
+  "ink": 6530
+ },
+ {
+  "id": "nessuna/esercito/a_terra",
+  "d": 0,
+  "ink": 6530
+ },
+ {
+  "id": "nessuna/partigiano/a_terra",
+  "d": 0,
+  "ink": 6559
+ },
+ {
+  "id": "nessuna/popolo/porta_bandiera",
+  "d": 0,
+  "ink": 11552
+ },
+ {
+  "id": "nessuna/protagonista/porta_bandiera",
+  "d": 0,
+  "ink": 11552
+ },
+ {
+  "id": "nessuna/esercito/porta_bandiera",
+  "d": 0,
+  "ink": 11552
+ },
+ {
+  "id": "nessuna/partigiano/porta_bandiera",
+  "d": 0,
+  "ink": 11578
+ },
+ {
+  "id": "nessuna/popolo/tiene_cartello",
+  "d": 0,
+  "ink": 14525
+ },
+ {
+  "id": "nessuna/protagonista/tiene_cartello",
+  "d": 0,
+  "ink": 14525
+ },
+ {
+  "id": "nessuna/esercito/tiene_cartello",
+  "d": 0,
+  "ink": 14525
+ },
+ {
+  "id": "nessuna/partigiano/tiene_cartello",
+  "d": 0,
+  "ink": 14552
+ },
+ {
+  "id": "nessuna/popolo/spara",
+  "d": 0,
+  "ink": 7937
+ },
+ {
+  "id": "nessuna/protagonista/spara",
+  "d": 0,
+  "ink": 7937
+ },
+ {
+  "id": "nessuna/esercito/spara",
+  "d": 0,
+  "ink": 7937
+ },
+ {
+  "id": "nessuna/partigiano/spara",
+  "d": 0,
+  "ink": 7962
+ },
+ {
+  "id": "nessuna/popolo/costruisce",
+  "d": 0,
+  "ink": 12965
+ },
+ {
+  "id": "nessuna/protagonista/costruisce",
+  "d": 0,
+  "ink": 12965
+ },
+ {
+  "id": "nessuna/esercito/costruisce",
+  "d": 0,
+  "ink": 12965
+ },
+ {
+  "id": "nessuna/partigiano/costruisce",
+  "d": 0,
+  "ink": 12965
+ },
+ {
+  "id": "donna/popolo/cammina_1",
+  "d": 0,
+  "ink": 6688
+ },
+ {
+  "id": "bambino/popolo/cammina_1",
+  "d": 0,
+  "ink": 3671
+ },
+ {
+  "id": "cappello/popolo/cammina_1",
+  "d": 0,
+  "ink": 7389
+ },
+ {
+  "id": "cappello_largo/popolo/cammina_1",
+  "d": 0,
+  "ink": 7804
+ },
+ {
+  "id": "cappotto/popolo/cammina_1",
+  "d": 0,
+  "ink": 8203
+ },
+ {
+  "id": "vestito/popolo/cammina_1",
+  "d": 0,
+  "ink": 6688
+ },
+ {
+  "id": "scialle/popolo/cammina_1",
+  "d": 0,
+  "ink": 6813
+ },
+ {
+  "id": "zaino/popolo/cammina_1",
+  "d": 0,
+  "ink": 7079
+ },
+ {
+  "id": "borsa/popolo/cammina_1",
+  "d": 0,
+  "ink": 7153
+ },
+ {
+  "id": "bastone/popolo/cammina_1",
+  "d": 0,
+  "ink": 8249
+ },
+ {
+  "id": "mantello/popolo/cammina_1",
+  "d": 0,
+  "ink": 9823
+ },
+ {
+  "id": "clero/popolo/cammina_1",
+  "d": 0,
+  "ink": 8922
+ },
+ {
+  "id": "folla/statica",
+  "d": 0,
+  "ink": 55572
+ },
+ {
+  "id": "folla/marcia",
+  "d": 0,
+  "ink": 40982
+ },
+ {
+  "id": "folla/carica",
+  "d": 0,
+  "ink": 33699
+ },
+ {
+  "id": "folla/barricata",
+  "d": 0,
+  "ink": 57901
+ },
+ {
+  "id": "folla/discorso",
+  "d": 0,
+  "ink": 48765
+ },
+ {
+  "id": "folla/scontro",
+  "d": 0,
+  "ink": 43800
+ }
+]

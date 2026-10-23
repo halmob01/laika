@@ -1,0 +1,51 @@
+{
+  "fonte": "2c5082975176b45034b143057b647f29795846a1",
+  "pose": [
+    "in_piedi",
+    "cammina_1",
+    "cammina_2",
+    "corre",
+    "braccia_alzate",
+    "gira",
+    "indica",
+    "saluta",
+    "parla",
+    "mani_fianchi",
+    "seduto",
+    "inginocchiato",
+    "a_terra",
+    "porta_bandiera",
+    "manifesta",
+    "lancia",
+    "sbarra",
+    "tiene_cartello",
+    "usa_fucile",
+    "spara",
+    "con_megafono",
+    "costruisce",
+    "lavora",
+    "legge",
+    "zappa"
+  ],
+  "ruoli": [
+    "popolo",
+    "protagonista",
+    "esercito",
+    "partigiano"
+  ],
+  "varianti": {
+    "nessuna": "48c668c71335b0b6285e36f90d059a5cd6d72a417899d9e3f6059af3b6f5d15b",
+    "donna": "e8fc0c4714f46eba1402444583a79f2ee966c8f61712c4497b11df16286df510",
+    "bambino": "8c31be467b52ce990b7ec5ad01dbd6c36ed0e7709fed4740b7084e33278a803d",
+    "cappello": "ac5bba59ec5a5da28f1e97ab91bdeebe65accb7a88ccb1642372f6b660dc3dd8",
+    "cappello_largo": "b957db16c89d328c49f499bf8d58e5ad372451b9db6149d840fe00be9172bd00",
+    "cappotto": "f6be9462faaf6fef5dee3e1d6dc74c5161197556b55f8a8f873a3ee8e0295502",
+    "vestito": "3e1d71bf74d8508b8c0f513f17b7f9968fcb1e5b7e6bb4deeeac3d0e6b1367b8",
+    "scialle": "36f954a7e01720c92a3a0ee03d3584878dafe8e09c0c8e401f8cbb6bebe02c13",
+    "zaino": "13c4d8a0a227ac65b429937a3af36f3f5cfc20a5f93dfddb43677e9bdfc0cdb1",
+    "borsa": "80da09aaf011850268dc5be4861d4f24248fdabbda6afe35140fc90c3e651a6f",
+    "bastone": "6701aaef1552401eb25975747bab7a044708afdc07612efb72f59cb4fc69568c",
+    "mantello": "b911f919d1107a795898e1401ac041a8c853e230860d60215f65e3b400a29255",
+    "clero": "57812f3628b3fe32547b6b00db1995a9e198b39e861592066a143bdb24e6d707"
+  }
+}

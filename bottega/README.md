@@ -90,7 +90,7 @@ Esempio minimo (vedi `esempi/` per scene complete):
 **Figura singola**: `{id, x, y, scala, variante, corpo, cappello, abito, accessorio, ruolo, posa, flip, oggetti}`. `x,y` sono i piedi. Valori ammessi:
 
 - `posa`: `in_piedi`, `cammina_1`, `cammina_2`, `corre`, `braccia_alzate`, `gira`, `indica`, `saluta`, `parla`, `mani_fianchi`, `seduto`, `inginocchiato`, `a_terra`, e le azioni con oggetto `porta_bandiera`, `manifesta`, `lancia`, `sbarra`, `tiene_cartello`, `usa_fucile`, `spara`, `con_megafono`, `costruisce`, `lavora`, `legge`. L'oggetto dell'azione compare da solo.
-- `variante`: `nessuna`, `donna`, `bambino`, `cappello`, `cappello_largo`, `cappotto`, `vestito`, `scialle`, `zaino`, `borsa`, `bastone`, `mantello`, `clero`. `corpo`, `cappello`, `abito`, `accessorio` sovrascrivono la variante.
+- `variante`: `nessuna`, `donna`, `bambino`, `cappello`, `cappello_largo`, `cappotto`, `vestito`, `scialle`, `zaino`, `borsa`, `bastone`, `mantello`, `clero`. Aggiunte in **bozza**: `marinaio`, `soldato_guarnigione`, `soldatessa` (corpo donna con tunica e pantaloni), `uomo_cappello` (senza barba o dettagli del viso). Epoca, fonti e limiti sono in `catalogo.json`, sotto `figure.varianti`. `corpo`, `cappello`, `abito`, `accessorio` sovrascrivono la variante.
 - `ruolo`: `popolo` (nero), `protagonista` (rosso), `esercito` (azzurro), `partigiano` (fascia rossa).
 - `flip: true`: la figura guarda a sinistra. **Senza flip guarda a destra.** Chi cammina verso sinistra deve avere `flip: true`.
 - `oggetti`: oggetti in più agganciati alla mano, scelti fra quelli di `figura/figura.js` (es. `borsa`, `bandiera`).

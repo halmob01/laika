@@ -12,7 +12,7 @@ module.exports=async function(browser,root,artifacts){
  const P=kit('prototypes/laika-studi-originali/studio personaggi.html');
  const figure=[];
  for(const pose of ['in_piedi','corre','seduto','a_terra','porta_bandiera','tiene_cartello','spara','costruisce'])for(const role of ['popolo','protagonista','esercito','partigiano'])figure.push({pose,role,variant:'nessuna'});
- for(const variant of ['donna','bambino','cappello_largo','zaino','borsa','bastone','mantello','clero'])figure.push({pose:'cammina_1',role:'popolo',variant});
+ for(const variant of ['donna','bambino','cappello','cappello_largo','cappotto','vestito','scialle','zaino','borsa','bastone','mantello','clero'])figure.push({pose:'cammina_1',role:'popolo',variant});
  for(const f of figure)f.markup=P.chiama('buildOminoSVG',[{x:0,y:0,scale:1,...f}]);
  const folle=['statica','marcia','carica','barricata','discorso','scontro'].map(tipo=>({tipo,markup:P.chiama('buildCrowdCompositionSVG',[tipo,0,0,1])}));
  const page=await browser.newPage({viewport:{width:1000,height:800}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
@@ -51,6 +51,19 @@ module.exports=async function(browser,root,artifacts){
  await page.emulateMedia({reducedMotion:'reduce'});await page.reload();await page.waitForFunction(()=>window.__galleria);assert.equal(await page.locator('#stage').getAttribute('data-motion'),'finished');
  await page.setViewportSize({width:390,height:844});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),true,'galleria senza scorrimento orizzontale');
  await page.locator('[data-tab=figure]').click();await page.waitForTimeout(300);{const {POSE}=await import(require('node:url').pathToFileURL(path.join(root,'bottega/figura/pose.js')).href);assert.equal(await page.locator('#pose .card').count(),Object.keys(POSE).length);}
+ // Ogni nuova variante deve passare dal selettore reale e disegnare tutte le pose in tutti i ruoli.
+ for(const variant of ['marinaio','soldato_guarnigione','soldatessa','uomo_cappello']){
+  await page.selectOption('#variante',variant);
+  for(const role of ['popolo','protagonista','esercito','partigiano']){
+   await page.selectOption('#ruolo',role);
+   assert.equal(await page.locator('#pose .thumb svg').count(),25,variant+'/'+role);
+   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),true,variant+': senza overflow');
+  }
+  if(variant==='soldatessa'){
+   assert.equal(await page.locator('#pose [data-layer="f-chignon"]').count(),0);
+   assert.equal(await page.locator('#pose [data-layer="f-torso-cintura"]').count(),25);
+  }
+ }
  await page.locator('[data-tab=catalogo]').click();await page.waitForTimeout(300);assert.equal(await page.locator('#catalogo .card').count(),studi.symbols.length);
  assert.deepEqual(errors,[]);await page.close();
  console.log('Bottega PASS: '+result.length+' confronti al pixel con gli studi, '+sceneIds.length+' scene di esempio.');
