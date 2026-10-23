@@ -147,6 +147,41 @@ main{max-width:none;margin:0;padding:0}
 #interaction button[data-turn-choice]{position:relative;width:100%;min-height:58px;margin:0;padding:18px 12px 18px 38px;border:0;border-top:1px solid var(--line);background:none;font-size:1.08rem;line-height:1.35;text-align:left}
 #interaction button[data-turn-choice]::before{content:"";position:absolute;left:0;top:24px;width:14px;height:14px;background:var(--red)}
 #interaction button[data-turn-choice]:hover{background:var(--paper2)}
+/* Gestione: persone, posti, lavori lunghi, granaio, fiera */
+.turn-workers{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:14px 0 18px}
+#panel .turn-workers button{min-height:76px;padding:10px 12px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);font-family:var(--sans,inherit)}
+#panel .turn-workers button strong{font-size:1.02rem}
+#panel .turn-workers button small{font-family:var(--mono);font-size:.72rem;color:var(--mute)}
+#panel .turn-workers button[aria-pressed=true]{background:var(--ink);color:var(--paper);outline:0}
+#panel .turn-workers button[aria-pressed=true] small{color:var(--paper)}
+.turn-dots{color:var(--red);letter-spacing:2px;font-size:.9rem}
+#panel .turn-target{position:relative;padding:14px 0 14px 30px;border-top:1px solid var(--line);background:none;color:var(--ink);font-size:1rem;opacity:1}
+#panel .turn-target::before{content:"";position:absolute;left:4px;top:19px;width:12px;height:12px;border:2px solid var(--ink)}
+#panel .turn-target:disabled{opacity:1;color:var(--ink);cursor:default}
+#panel .turn-target:not(:disabled):hover{background:var(--paper2)}
+#panel .turn-target:not(:disabled)::before{background:var(--red);border-color:var(--red)}
+#panel .turn-target strong{font-size:1.05rem}
+#panel .turn-target span{font-family:var(--mono);font-size:.76rem;color:var(--mute);line-height:1.45}
+#panel .turn-target .turn-there{font-family:var(--mono);font-size:.78rem;color:var(--ink)}
+#panel .turn-target.project strong::after{content:"  lavoro lungo";font-family:var(--mono);font-size:.66rem;font-weight:400;letter-spacing:.06em;text-transform:uppercase;color:var(--red)}
+.turn-progress{height:8px;margin-top:6px;background:var(--paper2);max-width:320px}.turn-progress i{background:#c8302a55}.turn-progress i.done{background:var(--red)}
+.turn-reserve{margin:18px 0 0;padding:16px 18px;border:0;background:var(--slab);color:var(--paper)}
+.turn-reserve strong{font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+.turn-reserve p{margin:6px 0 0;font-size:.92rem;line-height:1.45;max-width:none}
+.turn-reserve-ctl b{font-family:var(--display);font-weight:400;font-size:2.4rem;line-height:1}
+#panel .turn-reserve-ctl button{width:48px;min-height:48px;padding:0;text-align:center;font-size:1.4rem;font-weight:700;border:2px solid var(--paper);background:none;color:var(--paper)}
+#panel .turn-reserve-ctl button:disabled{opacity:.35}
+.turn-reserve .turn-warning::before{background:var(--red)}
+.turn-built{font-weight:700}.turn-built::before{content:"■ ";color:var(--red)}
+#panel .turn-market button{min-height:60px;padding:12px 14px 12px 38px;position:relative;border:0;border-top:1px solid var(--line);background:none;color:var(--ink);font-size:1.02rem}
+#panel .turn-market button::before{content:"";position:absolute;left:4px;top:18px;width:14px;height:14px;background:var(--red)}
+#panel .turn-market button:disabled::before{background:var(--line)}
+#panel .turn-market button span,#panel .turn-market button small{font-family:var(--mono);font-size:.76rem;color:var(--mute)}
+.turn-overlay .turn-stamp{border:3px solid var(--paper);background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;box-shadow:0 6px 18px #1b1c1c33}
+.turn-overlay .turn-stamp.work{background:var(--paper);color:var(--ink);border-color:var(--ink)}
+.turn-overlay button{font-family:var(--sans)!important;font-weight:700;font-size:17px!important;padding:0 12px!important;white-space:nowrap}
+.turn-overlay button.project{background:var(--paper);color:var(--ink);border-color:var(--ink)}
+.turn-overlay button:disabled{background:var(--paper)!important;color:var(--ink);border-color:var(--ink);opacity:.85!important;box-shadow:none}
 .turn-overlay button{min-width:52px;min-height:52px;border:3px solid var(--paper);border-radius:0;background:var(--red);color:var(--paper);font-family:var(--display);font-size:26px;line-height:1;box-shadow:0 6px 18px #1b1c1c33}
 .turn-overlay button:disabled{background:var(--slab);opacity:.9}
 .turn-overlay button:hover:not(:disabled){background:var(--ink)}
@@ -201,3 +236,8 @@ main{max-width:none;margin:0;padding:0}
 @media (prefers-reduced-motion:reduce){
  #panel>*,#scene-title,.lead,#interaction,.outcome{animation:none}
 }
+
+@media (max-width:640px){.turn-overlay button{min-width:34px;min-height:34px;font-size:12px!important;padding:0 6px!important;border-width:2px}.turn-overlay .turn-stamp{font-size:9px;padding:1px 5px;border-width:2px}
+ .turn-workers{grid-template-columns:1fr 1fr;gap:8px}#panel .turn-workers button{min-height:64px}}
+.turn-steps{margin:14px 0 0;padding:0;list-style:none;font-family:var(--mono);font-size:.8rem;border-top:1px solid #ffffff33}
+.turn-steps li{display:flex;justify-content:space-between;gap:16px;padding:6px 0;border-bottom:1px solid #ffffff22}.turn-steps b{font-weight:400;text-align:right}

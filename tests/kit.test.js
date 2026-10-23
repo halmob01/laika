@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {validateGame,jsonData} from '../src/core/schema.js';
 import {newSession,currentScene,transition,recap} from '../src/runner/index.js';
-import {available} from '../src/core/engine.js';
+import {available,matches} from '../src/core/engine.js';
+import {workersOf,targetsOf} from '../src/core/turns.js';
 import {restore,exportSave,storageKey,load,save} from '../src/storage/index.js';
 import {optionOrder} from '../src/assessment/index.js';
 import {validateStage} from '../src/visual/stage.js';
@@ -16,9 +17,12 @@ function answer(game,s,variant=0){
   if(s.currentAct.phase==='outcome'||e.type==='narrative')return {type:'advance'};
   if(e.type==='turn_game'){// Partita a turni: legge le card, piazza a rotazione secondo la variante, risponde a chi bussa.
     const g=s.currentAct.game;if(g.phase==='cards')return {type:'turn',step:'card'};
+    if(g.phase==='place'&&e.workers){const w=workersOf(e,g).find(x=>!g.assign[x.id]);if(!w)return {type:'turn',step:'confirm'};
+      const ts=targetsOf(e,g,s.currentAct).filter(t=>t.kind==='place');return {type:'turn',step:'assign',workerId:w.id,placeId:ts[(variant+Object.keys(g.assign).length)%ts.length].id};}
+    if(g.phase==='market')return {type:'turn',step:'leave'};
     if(g.phase==='place'){const n=Object.values(g.placement).reduce((a,b)=>a+b,0);if(n>=g.rules.tokens)return {type:'turn',step:'confirm'};
       const p=e.places.map((_,i)=>e.places[(i+variant+n)%e.places.length]).find(p=>p.max===undefined||g.placement[p.id]<p.max);return {type:'turn',step:'place',placeId:p.id,delta:1};}
-    if(g.phase==='event'){const c=e.turns[g.turn].event.choices;return {type:'turn',step:'choose',choiceId:c[variant%c.length].id};}
+    if(g.phase==='event'){const c=e.turns[g.turn].event.choices.filter(x=>!x.when||matches(x.when,s.currentAct));return {type:'turn',step:'choose',choiceId:c[variant%c.length].id};}
     return {type:'turn',step:'continue'};}
   if(e.type==='resource_allocation'){// Riempie prima il secchio scelto dalla variante, poi gli altri, entro i massimi.
     const order=e.buckets.map((b,i)=>e.buckets[(i+variant)%e.buckets.length]);let left=e.budget;const allocations=Object.fromEntries(e.buckets.map(b=>[b.id,0]));

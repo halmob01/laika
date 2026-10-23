@@ -120,6 +120,7 @@ A ogni avvio: verificare branch e modifiche locali, leggere eventuali AGENTS.md 
 2. **Prototipo della settimana**: tre anni giocabili, pagina da buttare in `prototypes/`, nessuna modifica al motore.
 3. **Motore a turni** con gestione e decisioni sui gruppi, piazzamento «tocca la pedina, poi tocca il posto» (niente trascinamento), salvataggio a metà turno, test Node e browser; schede di lettura in `docs/meccaniche/`.
 4. **I.1 ricostruita** sul motore (REPERTORIO §5), con le fonti già registrate e bilanciamento provato su almeno due strategie contrastanti.
+5. **I.1 come gestione** (richiesta del docente del 23 ottobre 2026): persone con forza diversa al posto dei giorni, figure che si spostano sulla scena, lavori lunghi che restano, semina, fiera, esito spiegato voce per voce. Motore generico (`workers`, `projects`, `reserve`, `market`, `boost`, `yearly`) con prova neutra; `stage.position` nel motore visivo. **Restano aperti:** i disegni delle migliorie (orto, stalla rifatta, campo nel bosco, sokha) da chiedere alla bottega con CONTRATTO-KIT: per ora sulla scena c'è un'etichetta; le pose delle figure non cambiano con il posto (tutti zappano).
 
 **Accettazione:** il docente gioca I.1 dal telefono e la approva. Nessun merge senza la sua richiesta.
 

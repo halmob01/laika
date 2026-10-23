@@ -1,7 +1,8 @@
 import {available} from '../core/engine.js';
 import {CONTEXT_LABELS} from '../core/schema.js';
 import {optionOrder} from '../assessment/index.js';
-import {chanceOf,luckOdds,shortfalls,placed,placeLabel,perToken} from '../core/turns.js';
+import {chanceOf,luckOdds,shortfalls,placed,placeLabel,perToken,workersOf,targetsOf,yieldOf,committed,offerOpen,activeStage} from '../core/turns.js';
+import {matches} from '../core/engine.js';
 export function el(tag,text,attrs={}) {const node=document.createElement(tag);if(text!==undefined)node.textContent=text;for(const [k,v] of Object.entries(attrs))node.setAttribute(k,v);return node;}
 export function button(label,handler,attrs={}) {const b=el('button',label,{type:'button',...attrs});b.addEventListener('click',handler);return b;}
 const registry=new Map();
@@ -47,22 +48,86 @@ let fitObserver=null;
 const sign=n=>(n>0?'+':'−')+Math.abs(n);
 const metricLabel=(act,m)=>[...(act.metrics||[]),...(act.resources||[])].find(d=>d.id===m.id)?.label||m.id;
 function changeList(act,changes){const ul=el('ul',undefined,{class:'turn-changes'}),hidden=new Set([...(act.metrics||[]),...(act.resources||[])].filter(d=>d.hidden).map(d=>d.id));for(const c of changes.filter(x=>!hidden.has(x.id)))ul.append(el('li',c.label+': '+c.before+' → '+c.after));return ul;}
-function hotspots(stageHost,episode,game,dispatch){
-  stageHost?.querySelector('.turn-overlay')?.remove();fitObserver?.disconnect();fitObserver=null;
-  const svg=stageHost?.querySelector('svg');if(!svg||game.phase!=='place')return;
-  const layer=el('div',undefined,{class:'turn-overlay','aria-hidden':'true'});
-  for(const p of episode.places){const b=button(String(game.placement[p.id]),()=>dispatch({type:'turn',step:'place',placeId:p.id,delta:1}),{tabindex:'-1','data-hotspot':p.id,title:placeLabel(episode,game,p)});
-    b.style.left=(p.x*100)+'%';b.style.top=(p.y*100)+'%';b.disabled=placed(game)>=game.rules.tokens;layer.append(b);}
-  stageHost.append(layer);
+function overlay(stageHost){stageHost?.querySelector('.turn-overlay')?.remove();fitObserver?.disconnect();fitObserver=null;
+  const svg=stageHost?.querySelector('svg');if(!svg)return null;const layer=el('div',undefined,{class:'turn-overlay','aria-hidden':'true'});stageHost.append(layer);
   const fit=()=>{const a=stageHost.getBoundingClientRect(),r=svg.getBoundingClientRect();Object.assign(layer.style,{left:(r.left-a.left)+'px',top:(r.top-a.top)+'px',width:r.width+'px',height:r.height+'px'});};
-  fit();if(typeof ResizeObserver==='function'){fitObserver=new ResizeObserver(fit);fitObserver.observe(stageHost);}
+  fit();if(typeof ResizeObserver==='function'){fitObserver=new ResizeObserver(fit);fitObserver.observe(stageHost);}return {layer,svg};}
+const at=(node,x,y)=>{node.style.left=(x*100)+'%';node.style.top=(y*100)+'%';return node;};
+function clearOverlay(stageHost){stageHost?.querySelector('.turn-overlay')?.remove();fitObserver?.disconnect();fitObserver=null;}
+function hotspots(stageHost,episode,game,dispatch){
+  const o=game.phase==='place'?overlay(stageHost):(clearOverlay(stageHost),null);if(!o)return;
+  for(const p of episode.places){const b=button(String(game.placement[p.id]),()=>dispatch({type:'turn',step:'place',placeId:p.id,delta:1}),{tabindex:'-1','data-hotspot':p.id,title:placeLabel(episode,game,p)});
+    at(b,p.x,p.y);b.disabled=placed(game)>=game.rules.tokens;o.layer.append(b);}
 }
-registerInteraction('turn_game',({host,episode,act,state,dispatch,stageHost})=>{
-  const g=state.game,t=episode.turns[g.turn];
-  hotspots(stageHost,episode,g,dispatch);
+// Gestione: la persona scelta (stato dell'interfaccia, non della partita) e le figure sulla scena.
+let pick={key:'',worker:null},seenGeneration=-1;
+function pickFor(episode,g){const key=episode.id+':'+g.turn;if(pick.key!==key)pick={key,worker:workersOf(episode,g).find(w=>!g.assign[w.id])?.id||null};
+  if(pick.worker&&!workersOf(episode,g).some(w=>w.id===pick.worker))pick.worker=null;return pick.worker;}
+function board(stageHost,stage,episode,act,state,dispatch){
+  const g=state.game,onBoard=activeStage(episode,g).stageId===episode.stageId;pickFor(episode,g);
+  const o=onBoard?overlay(stageHost):(clearOverlay(stageHost),null);if(!o)return;
+  const targets=targetsOf(episode,g,state),placing=g.phase==='place'&&state.phase==='scene';
+  for(const p of targets){const n=g.placement[p.id]||0,label=p.kind==='project'?p.label+' · '+(g.progress[p.id]||0)+'/'+p.work:placeLabel(episode,g,p);
+    if(placing){const b=button((p.short?p.short+' ':'')+(p.kind==='project'?(g.progress[p.id]||0)+'/'+p.work:String(n)),()=>{if(pick.worker)dispatch({type:'turn',step:'assign',workerId:pick.worker,placeId:p.id});},{tabindex:'-1','data-hotspot':p.id,title:label,class:p.kind==='project'?'project':''});
+      b.disabled=!pick.worker;o.layer.append(at(b,p.x,p.y));}
+    else if(p.kind==='project'&&g.progress[p.id])o.layer.append(at(el('span',(p.short?p.short+' ':'')+(g.progress[p.id]||0)+'/'+p.work,{class:'turn-stamp work',title:label}),p.x,p.y));}
+  for(const p of (episode.projects||[]).filter(x=>g.built.includes(x.id)))o.layer.append(at(el('span',p.short||p.label,{class:'turn-stamp built','data-built':p.id}),p.x,p.y));
+  // Le figure delle persone vanno dove sono state mandate; chi non ha un posto resta al punto di partenza.
+  if(!stage)return;const vb=(o.svg.getAttribute('viewBox')||'0 0 1 1').split(/\s+/).map(Number),groups=new Map();
+  for(const w of workersOf(episode,g))if(w.figure&&g.assign[w.id]){const k=g.assign[w.id];groups.set(k,[...(groups.get(k)||[]),w]);}
+  const moves=(episode.workers||[]).filter(w=>w.figure).map(w=>({layer:w.figure,translateX:null,translateY:null}));
+  for(const [k,list] of groups){const p=[...episode.places,...(episode.projects||[])].find(x=>x.id===k),pt=p.stand||{x:p.x,y:p.y};
+    list.forEach((w,i)=>{const m=moves.find(x=>x.layer===w.figure);m.translateX=vb[0]+vb[2]*(pt.x+(i-(list.length-1)/2)*0.055);m.translateY=vb[1]+vb[3]*pt.y;});}
+  for(const w of episode.workers||[])if(w.figure&&!workersOf(episode,g).some(x=>x.id===w.id)){const m=moves.find(x=>x.layer===w.figure);m.translateX=-9999;m.translateY=null;}
+  const fresh=stage.generation!==seenGeneration;seenGeneration=stage.generation;stage.position(moves,{animate:!fresh});
+}
+const dots=n=>'●'.repeat(n);
+function effectsText(act,list){return list.map(m=>sign(m.delta)+' '+metricLabel(act,m)).join(', ');}
+function managePlace(host,episode,act,state,go){
+  const g=state.game,people=workersOf(episode,g),chosen=pickFor(episode,g),targets=targetsOf(episode,g,state),unit=episode.strengthLabel;
+  const nameOf=id=>{const t=targets.find(x=>x.id===id)||[...episode.places,...(episode.projects||[])].find(x=>x.id===id);return t?(t.kind==='project'||episode.projects?.some(p=>p.id===id)?t.label:placeLabel(episode,g,t)):'';};
+  const free=people.filter(w=>!g.assign[w.id]).length;
+  host.append(el('p',chosen?'Dove mandi '+people.find(w=>w.id===chosen).label.toLowerCase()+'? Tocca un posto qui sotto o sulla scena.':free?'Tocca una persona, poi il posto dove la mandi.':'Tutti hanno un posto. Puoi spostare chi vuoi, poi comincia l’anno.',{class:'turn-pool',role:'status'}));
+  const crew=el('div',undefined,{class:'turn-workers'});
+  for(const w of people){const b=button('',()=>{pick.worker=w.id;go(null);},{'data-worker':w.id,'data-at':g.assign[w.id]||'','aria-pressed':String(w.id===chosen)});
+    b.append(el('strong',w.label),el('span',dots(w.strength),{class:'turn-dots','aria-label':w.strength+' '+unit}),el('small',g.assign[w.id]?nameOf(g.assign[w.id]):'senza posto'));crew.append(b);}
+  host.append(crew);
+  const list=el('div',undefined,{class:'turn-places'});
+  for(const p of targets){
+    const there=people.filter(w=>g.assign[w.id]===p.id),row=button('',()=>{if(chosen)go('assign',{workerId:chosen,placeId:p.id});},{class:'turn-target'+(p.kind==='project'?' project':''),'data-target':p.id});
+    row.disabled=!chosen||g.assign[chosen]===p.id;
+    const req=g.rules.min[p.id],n=g.placement[p.id]||0;
+    row.append(el('strong',p.kind==='project'?p.label:placeLabel(episode,g,p)));
+    if(p.kind==='project'){row.append(el('span',p.text+' Fatto: '+(g.progress[p.id]||0)+' su '+p.work+' ●'+(p.cost&&!g.started.includes(p.id)?' · per cominciare: '+effectsText(act,p.cost):'')+'.'));
+      const bar=el('span',undefined,{class:'turn-progress','aria-hidden':'true'});const fill=el('i');fill.style.width=Math.min(100,100*((g.progress[p.id]||0)+n)/p.work)+'%';const done=el('i',undefined,{class:'done'});done.style.width=Math.min(100,100*(g.progress[p.id]||0)/p.work)+'%';bar.append(fill,done);row.append(bar);}
+    else{const y=yieldOf(episode,g,p.id);row.append(el('span',effectsText(act,perToken(episode,g,p))+' per ogni ●'+(y!==1?' · resa '+Math.round(y*100)+'%':'')+(req?' · dovute al signore: '+dots(req):'')));}
+    row.append(el('small',(there.length?there.map(w=>w.label).join(', ')+' · '+dots(n):'nessuno'),{class:'turn-there'}));
+    if(req&&n<req)row.append(el('small','Mancano '+dots(req-n),{class:'turn-warning','aria-label':'Mancano '+(req-n)+' '+unit}));
+    list.append(row);
+  }
+  host.append(list);
+  if(episode.reserve){const r=episode.reserve,res=(act.resources||[]).find(d=>d.id===r.from),have=state.resources[r.from],need=-[...(episode.upkeep||[]),...g.rules.upkeep].filter(m=>m.id===r.from).reduce((n,m)=>n+m.delta,0);
+    const spent=committed(episode,g)[r.from]||0,left=have-spent-need,box=el('div',undefined,{class:'turn-reserve'});
+    box.append(el('strong',r.label));if(r.text)box.append(el('p',r.text));
+    const ctl=el('div',undefined,{class:'turn-reserve-ctl'}),minus=button('−',()=>go('reserve',{delta:-1}),{'data-reserve':'-1','aria-label':'Meno '+r.label.toLowerCase()}),plus=button('+',()=>go('reserve',{delta:1}),{'data-reserve':'1','aria-label':'Più '+r.label.toLowerCase()});
+    minus.disabled=g.reserve<=0;plus.disabled=spent+r.step>have;ctl.append(minus,el('b',String(g.reserve),{'aria-label':g.reserve+' '+r.label.toLowerCase()}),plus);box.append(ctl);
+    const pct=Math.round(100*yieldOf(episode,{...g,rules:{...g.rules,boost:{}}},r.places[0]));
+    box.append(el('p',res.label+': '+have+'. Da mangiare fino al raccolto: '+need+'. Dopo la semina'+(spent>g.reserve?' e i lavori':'')+' resta '+left+'. Il campo renderà il '+pct+'% del possibile.',{role:'status'}));
+    if(left<0)box.append(el('p','Non basta: il grano finirà prima del raccolto.',{class:'turn-warning'}));host.append(box);}
+  const risk=el('div',undefined,{class:'turn-risk'});
+  risk.append(el('p','Il tempo che farà: '+luckOdds(episode).map(l=>l.label+' '+l.p+'%').join(' · ')+'.'));
+  for(const s of shortfalls(episode,g))if(episode.control)risk.append(el('p','Al signore mancano '+dots(s.required-s.given)+' ('+(s.required-s.given)+' '+unit+'): qualcuno se ne accorge nel '+Math.round(chanceOf(episode.control.chance,act,state)*100)+'% dei casi.',{class:'turn-warning'}));
+  host.append(risk);
+  const ok=button('Comincia l’anno',()=>go('confirm'),{'data-turn':'confirm',class:'primary'});ok.disabled=!!free;host.append(ok);
+}
+function turnGame(ctx){
+  const {host,episode,act,state,dispatch,stageHost,stage}=ctx,g=state.game,t=episode.turns[g.turn];
+  // go(null): cambia solo la persona scelta, che non è una mossa della partita: si ridisegna il pannello sul posto.
+  const go=(step,extra={})=>{if(step==='assign'){const next=workersOf(episode,g).find(w=>w.id!==extra.workerId&&!g.assign[w.id]);pick.worker=next?.id||null;}
+    if(step!==null)return dispatch({type:'turn',step,...extra});host.replaceChildren();turnGame(ctx);(host.querySelector('[data-worker][aria-pressed=true]')||host.querySelector('[data-worker]'))?.focus({preventScroll:true});};
+  if(episode.workers)board(stageHost,stage,episode,act,state,dispatch);else hotspots(stageHost,episode,g,dispatch);
   if(state.phase!=='scene')return;
   const head=el('p',undefined,{class:'turn-label'});head.append(el('span',t.label,{class:'turn-year'}),el('span','anno '+(g.turn+1)+' di '+episode.turns.length,{class:'turn-count'}));host.append(head);
-  const go=(step,extra={})=>dispatch({type:'turn',step,...extra});
   if(g.phase==='cards'){
     const c=t.cards[g.card],box=el('div',undefined,{class:'cards turn-cards'}),bar=el('div',undefined,{class:'card-bar','aria-hidden':'true'}),nav=el('div',undefined,{class:'card-nav'});
     t.cards.forEach((_,i)=>bar.append(el('i',undefined,{class:i<g.card?'done':i===g.card?'now':''})));
@@ -72,6 +137,7 @@ registerInteraction('turn_game',({host,episode,act,state,dispatch,stageHost})=>{
     if(c.title)box.append(el('h2',c.title,{class:'card-title'}));
     box.append(el('p',c.text,{class:'lead card-text',tabindex:'-1'}),bar,nav);host.append(box);return;
   }
+  if(g.phase==='place'&&episode.workers){managePlace(host,episode,act,state,go);return;}
   if(g.phase==='place'){
     const left=g.rules.tokens-placed(g);
     host.append(el('p','Hai '+g.rules.tokens+' '+episode.tokenLabel+'. '+(left?'Da mettere: '+left+'.':'Tutti assegnati.'),{class:'turn-pool',role:'status'}));
@@ -97,15 +163,19 @@ registerInteraction('turn_game',({host,episode,act,state,dispatch,stageHost})=>{
     const r=g.result,box=el('div',undefined,{class:'outcome turn-result',role:'status'});
     box.append(el('p','L’anno: '+r.luck.label+'.'));
     if(r.control)box.append(el('p',r.control.caught?r.control.text:'Questa volta nessuno se ne accorge ('+r.control.p+'%).'));
+    for(const b of r.built||[])box.append(el('p',b.label+'. '+b.text,{class:'turn-built'}));
     for(const c of r.crises)box.append(el('p',c.text,{class:'turn-crisis'}));
+    if(r.steps?.length){const hidden=new Set([...(act.metrics||[]),...(act.resources||[])].filter(d=>d.hidden).map(d=>d.id)),tbl=el('ul',undefined,{class:'turn-steps','aria-label':'Da dove viene ogni variazione'});
+      for(const st of r.steps){const vis=st.changes.filter(c=>!hidden.has(c.id));if(!vis.length)continue;const li=el('li');li.append(el('span',st.label),el('b',vis.map(c=>sign(c.delta)+' '+c.label).join(' · ')));tbl.append(li);}
+      box.append(tbl);}
     box.append(changeList(act,r.changes));host.append(box);
     if(r.preview)host.append(el('p','Si dice in giro: '+r.preview,{class:'turn-preview'}));
-    host.append(button(t.event?'Qualcuno bussa':'Avanti',()=>go('continue'),{'data-turn':'continue',class:'primary'}));return;
+    host.append(button(t.event?'Qualcuno bussa':t.market?'Alla fiera':'Avanti',()=>go('continue'),{'data-turn':'continue',class:'primary'}));return;
   }
   if(g.phase==='event'){
     host.append(el('p',t.event.who,{class:'turn-who'}),el('p',t.event.text,{class:'lead'}));
     for(const c of t.event.choices){const p=c.chance?Math.round(chanceOf(c.chance,act,state)*100):null;
-      host.append(button(c.label+(p===null?'':' · riesce nel '+p+'% dei casi'),()=>go('choose',{choiceId:c.id}),{'data-turn-choice':c.id}));}
+      const b=button(c.label+(p===null?'':' · riesce nel '+p+'% dei casi'),()=>go('choose',{choiceId:c.id}),{'data-turn-choice':c.id});b.disabled=!!c.when&&!matches(c.when,state);if(b.disabled)b.title='Non si può, in questa situazione';host.append(b);}
     return;
   }
   if(g.phase==='eventResult'){
@@ -113,6 +183,16 @@ registerInteraction('turn_game',({host,episode,act,state,dispatch,stageHost})=>{
     if(r.p!==null)box.append(el('p',(r.success?'Riuscito':'Non riuscito')+' ('+r.p+'%).'));
     box.append(el('p',r.text));for(const c of r.crises)box.append(el('p',c.text,{class:'turn-crisis'}));
     if(r.changes.length)box.append(changeList(act,r.changes));host.append(box);
-    host.append(button(g.turn>=episode.turns.length-1?'Fine della partita':'L’anno dopo',()=>go('continue'),{'data-turn':'continue',class:'primary'}));
+    host.append(button(t.market?'Alla fiera':g.turn>=episode.turns.length-1?'Fine della partita':'L’anno dopo',()=>go('continue'),{'data-turn':'continue',class:'primary'}));return;
   }
-});
+  if(g.phase==='market'){
+    const m=t.market;host.append(el('p',m.who,{class:'turn-who'}),el('p',m.text,{class:'lead'}));
+    const shop=el('div',undefined,{class:'turn-market'});
+    for(const o of m.offers){const b=button('',()=>go('buy',{offerId:o.id}),{'data-offer':o.id});b.append(el('strong',o.label));if(o.effects?.length)b.append(el('span',effectsText(act,o.effects.filter(x=>x.kind!=='flag'))));
+      b.disabled=!offerOpen(episode,g,o,state);if(g.market.bought.includes(o.id))b.append(el('small','preso'));shop.append(b);}
+    host.append(shop);
+    if(g.market.log.length){const box=el('div',undefined,{class:'outcome turn-result',role:'status'});for(const line of g.market.log)box.append(el('p',line));box.append(changeList(act,g.market.changes));host.append(box);}
+    host.append(button(g.turn>=episode.turns.length-1?'Fine della partita':'Torna a casa',()=>go('leave'),{'data-turn':'leave',class:'primary'}));
+  }
+}
+registerInteraction('turn_game',turnGame);

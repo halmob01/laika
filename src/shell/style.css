@@ -10,3 +10,10 @@
 #stage{position:relative}.turn-overlay{position:absolute;pointer-events:none}.turn-overlay button{position:absolute;transform:translate(-50%,-50%);pointer-events:auto;min-width:44px;min-height:44px;padding:0 10px;background:var(--paper);font-weight:700}
 .turn-place{display:grid;grid-template-columns:1fr auto auto auto;gap:10px;align-items:center;padding:10px 0;border-top:1px solid #2223}.turn-place span{display:block;font-size:.85rem}.turn-place b{min-width:2ch;text-align:center}.turn-tokens{display:flex;gap:6px;margin:6px 0 12px}.turn-tokens i{width:18px;height:18px;border:2px solid var(--ink)}.turn-tokens i.used{background:var(--ink)}
 .journal-changes{margin:6px 0 0;padding-left:18px}
+.turn-overlay .turn-stamp{position:absolute;transform:translate(-50%,-50%);padding:2px 8px;background:var(--paper);border:2px solid var(--ink);font-size:.8rem;font-weight:700;white-space:nowrap;pointer-events:none}
+.turn-workers{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin:10px 0 14px}.turn-workers button{display:grid;gap:2px;text-align:left;min-height:64px;padding:8px 10px}.turn-workers button[aria-pressed=true]{outline:3px solid var(--ink);outline-offset:-3px}
+.turn-target{display:grid;gap:3px;width:100%;text-align:left;padding:10px 0;border:0;border-top:1px solid #2223;background:none}.turn-target span,.turn-target small{display:block;font-size:.85rem}
+.turn-progress{position:relative;display:block;height:8px;margin-top:4px;background:#2221}.turn-progress i{position:absolute;left:0;top:0;bottom:0;background:#2224}.turn-progress i.done{background:var(--ink)}
+.turn-reserve{margin:14px 0 0;padding:12px 14px;border:2px solid var(--ink)}.turn-reserve-ctl{display:flex;align-items:center;gap:12px;margin:8px 0}.turn-reserve-ctl b{min-width:3ch;text-align:center;font-size:1.4rem}
+.turn-market{display:grid;gap:8px;margin:12px 0}.turn-market button{display:grid;gap:2px;text-align:left;padding:10px 12px}
+.turn-steps{list-style:none;padding:0}.turn-steps li{display:flex;justify-content:space-between;gap:12px}

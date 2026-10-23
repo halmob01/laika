@@ -103,3 +103,12 @@ test('clip IDs are isolated per mount and transforms write once per node per fra
  const world=host.children[0].children.find(n=>n.dataset.layer==='world');let writes=0;const original=world.setAttribute.bind(world);world.setAttribute=(k,v)=>{if(k==='transform')writes++;original(k,v);};
  stage.sequence('gather');writes=0;stage.seek(6000);assert.equal(writes,1);stage.seek(6000);assert.equal(writes,1);
 });
+test('position moves a layer to a point and back to its starting pose; a mount bumps the generation',()=>{
+ const {stage,tick,node}=setup();const g=stage.generation,tr=()=>node('stock').getAttribute('transform')||'';
+ assert.equal(stage.position([{layer:'stock',translateX:100,translateY:40}]),true);tick(350);assert.match(tr(),/translate\((?!0 0|100 40)[\d.]+ [\d.]+\)/);
+ tick(800);assert.match(tr(),/^translate\(100 40\)/);
+ assert.equal(stage.position([{layer:'stock',translateX:100,translateY:40}]),false,'già lì: nessun movimento');
+ stage.position([{layer:'stock',translateX:null,translateY:null}],{animate:false});assert.match(tr(),/^translate\(0 0\)/);
+ assert.equal(stage.position([{layer:'assente',translateX:5}]),false);
+ stage.mount(descriptor,{metrics:{ready:20,access:20}});assert.equal(stage.generation,g+1);
+});

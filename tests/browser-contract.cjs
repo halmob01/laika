@@ -33,10 +33,17 @@ module.exports=async function(browser,root,artifacts){
     // Partita a turni da tastiera: card, posti (+), conferma, chi bussa, avanti.
     const g=state.currentAct.game;
     if(g.phase==='cards')await activate(page.locator('[data-turn=card]'));
+    else if(g.phase==='place'&&e.workers){
+      // Gestione da tastiera: Invio sulla persona, poi Invio sul posto; il fuoco passa alla persona successiva.
+      const free=e.workers.filter(w=>!g.rules.workers?.[w.id]?.away&&!g.assign[w.id]);
+      if(!free.length)await activate(page.locator('[data-turn=confirm]'));
+      else{await activate(page.locator('[data-worker="'+free[0].id+'"]'));assert.equal(await page.evaluate(()=>document.activeElement.dataset.worker),free[0].id,'il fuoco resta sulla persona scelta');
+        const places=e.places.filter(p=>!p.when);await activate(page.locator('[data-target="'+places[(variant+free.length)%places.length].id+'"]'));}}
+    else if(g.phase==='market')await activate(page.locator('[data-turn=leave]'));
     else if(g.phase==='place'){const n=Object.values(g.placement).reduce((a,b)=>a+b,0);
       if(n>=g.rules.tokens)await activate(page.locator('[data-turn=confirm]'));
       else {const p=e.places[(variant+n)%e.places.length];await activate(page.locator('[data-place="'+p.id+'"][data-delta="1"]'));}}
-    else if(g.phase==='event')await activate(page.locator('[data-turn-choice]').nth(variant%e.turns[g.turn].event.choices.length));
+    else if(g.phase==='event'){const open=page.locator('[data-turn-choice]:not([disabled])');await activate(open.nth(variant%(await open.count())));}
     else await activate(page.locator('[data-turn=continue]'));
    }else if(e.type==='resource_allocation'){
     let remaining=e.budget;for(const b of e.buckets){const units=Math.min(b.max,remaining);await page.locator('[name="'+b.id+'"]').fill(String(units));remaining-=units;}
@@ -46,7 +53,7 @@ module.exports=async function(browser,root,artifacts){
     if(e.type==='source_comparison')for(const source of e.sources){await activate(page.locator('[data-source="'+source.id+'"]'));assert.equal(await page.evaluate(()=>document.activeElement.dataset.source),source.id);}
     const choices=e.choices.filter(c=>available(c,state.currentAct));await activate(page.locator('[data-choice="'+choices[variant%choices.length].id+'"]'));
    }
-   assert.equal(await page.evaluate(()=>/^(scene-title|summary-title)$/.test(document.activeElement.id)||'place' in document.activeElement.dataset||'turn' in document.activeElement.dataset),true,'focus retained after interaction');
+   assert.equal(await page.evaluate(()=>/^(scene-title|summary-title)$/.test(document.activeElement.id)||['place','turn','worker','reserve','offer'].some(k=>k in document.activeElement.dataset)),true,'focus retained after interaction');
   }
   assert.ok(guard<400);assert.equal(await page.evaluate(()=>document.activeElement.id),'summary-title');
   const final=await read();await page.reload();await page.locator('#summary h1').waitFor();assert.equal(await read(),final);
