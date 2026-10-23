@@ -22,7 +22,7 @@ Questo documento tiene la scansione e le idee della v4.1 e le porta su tutti e s
 
 Ogni episodio ha questa forma.
 
-- **Codice · tipo [etichetta] · titolo.** I tipi sono quelli del motore: narrative, choice, resource_allocation, role_crisis, source_comparison, assessment. Le etichette restano quelle del player: [D] documentato, [S] simulazione, [F] fonte, [V] verifica.
+- **Codice · tipo [etichetta] · titolo.** Il tipo dice **che forma ha il contenuto** (racconto, scelta, fonti, verifica), non con quale gioco si costruisce l'unità. **Il gioco di ogni unità è deciso nel [repertorio](REPERTORIO-GIOCHI-LAIKA.md), §5.1, e prevale sul tipo scritto nella scheda**: una scheda `resource_allocation` o `role_crisis` di un'unità che ha un gioco del repertorio diventa una fase, una richiesta o una regola di quel gioco (regola del 22–23 ottobre 2026; vedi §6). Le etichette restano quelle del player: [D] documentato, [S] simulazione, [F] fonte, [V] verifica.
 - **Scena.** Che cosa vive lo studente, in concreto.
 - **Sotto la scena.** La domanda implicita. Guida chi scrive, non va stampata così.
 - **Materiali.** Gli aneddoti da usare, con il loro codice (C, R, F dall'atlante del 20 ottobre; N dall'integrazione dei 48) e, quando servono, libro e parole da cercare. Le voci segnate **[verificare]** vengono dalla conoscenza generale o dalla rete e vanno riscontrate prima di scrivere il testo definitivo.
@@ -43,7 +43,7 @@ I libri sono in `references/fonti/` solo come elenco: le copie si tengono fuori 
 | VI | Il cielo è vuoto? | 1945–1964 | Il cielo raggiunto mantiene la promessa? Quanto vale una vita accanto a un simbolo? |
 | VII | Cemento e silenzio | 1964–1991 | Come finisce una cosa che sembrava eterna? |
 
-Quattro movimenti: il mondo da rovesciare (I), la promessa (II e III), l'assalto al cielo e il prezzo (IV e V), il cielo raggiunto e la promessa esaurita (VI e VII). La rivoluzione occupa due atti: dieci unità su trentacinque coprono appena dodici mesi. Le domande degli appunti restano: «rivoluzione o colpo di stato?» si vive nell'Atto III, «la violenza era l'unica via?» nell'Atto V.
+Quattro movimenti: il mondo da rovesciare (I), la promessa (II e III), l'assalto al cielo e il prezzo (IV e V), il cielo raggiunto e la promessa esaurita (VI e VII). La rivoluzione occupa due atti: dieci unità su trentaquattro coprono appena dodici mesi. Le domande degli appunti restano: «rivoluzione o colpo di stato?» si vive nell'Atto III, «la violenza era l'unica via?» nell'Atto V.
 
 ## 4. I fili che attraversano gli atti
 
@@ -71,8 +71,8 @@ Il diario delle scelte è il ponte: all'inizio di ogni atto l'episodio breve «C
 
 ## 6. Vincoli del motore che il piano rispetta
 
-- Sei tipi di episodio; quattro o cinque unità per atto, da tre a sei episodi ciascuna.
-- Al massimo tre indicatori visibili per atto, etichettati «indice della simulazione»; flag e relazioni nascosti dove servono.
+- Sette tipi di episodio: i sei originari e `turn_game`, il motore a turni su cui si innestano i giochi del repertorio. Quattro o cinque unità per atto, da tre a sei episodi ciascuna.
+- Pochi indicatori visibili **per unità** (in I.1 quattro: grano, occhio del padrone, speranza, legami nel villaggio), etichettati «indice della simulazione»; ogni unità mostra solo i propri. Regola del docente (23 ottobre 2026): **se un'azione del gioco serve a far crescere qualcosa, quel qualcosa è un indicatore visibile** (in I.1 aiutare i vicini muoveva i legami, che erano nascosti: l'azione sembrava senza motivo). Flag e relazioni restano nascosti dove servono.
 - Almeno un effetto differito per atto, spiegato nel diario.
 - Fine atto: un episodio narrative di confronto prima del reset; il diario resta consultabile.
 - Il punteggio misura la comprensione dei nessi; nessuna metrica simulata e nessuna posizione politica vale punti.
