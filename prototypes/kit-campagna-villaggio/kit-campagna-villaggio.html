@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit campagna del villaggio (bottega)</title>
+<!-- Il CSS riguarda soltanto l'interfaccia HTML. I disegni SVG usano attributi. -->
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: monospace; background: var(--p2); color: var(--ink); }
+  header { padding: 24px; border-bottom: 2px solid var(--ink); }
+  h1 { margin: 6px 0 12px; font-size: 24px; font-weight: 500; }
+  p { margin: 8px 0; line-height: 1.6; max-width: 90ch; }
+  small { font-size: 11px; letter-spacing: 0.08em; }
+  label { display: inline-block; margin-top: 10px; padding: 6px 0; cursor: pointer; }
+  input { accent-color: var(--ink); }
+  #griglia { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr)); gap: 16px; padding: 24px; }
+  figure { margin: 0; border: 1px solid var(--ink); background: var(--bg); min-width: 0; }
+  svg { display: block; width: 100%; height: auto; }
+  figcaption { padding: 12px 16px; border-top: 1px solid var(--ink); line-height: 1.65; }
+  strong { display: block; font-size: 14px; }
+  code { font-size: 11px; overflow-wrap: anywhere; }
+  figcaption p { margin: 6px 0 0; font-size: 11px; }
+  footer { padding: 0 24px 24px; font-size: 11px; }
+  @media (max-width: 540px) { header { padding: 16px; } #griglia { padding: 16px; } h1 { font-size: 20px; } }
+</style>
+</head>
+<body>
+<header>
+  <small>BOTTEGA / STUDI DI CAMPAGNA / 13 PEZZI</small>
+  <h1>La campagna del villaggio</h1>
+  <p>Russia centrale, 1740–1861. Archetipi generici per un villaggio di servi della gleba.</p>
+  <p>Anteprime alla stessa scala. Il riferimento laterale è alto 90 unità; la linea di appoggio è a y = 200. Riferimento, linea e didascalie appartengono soltanto all'anteprima.</p>
+  <label><input id="monocromo" type="checkbox"> Anteprima in grigi</label>
+</header>
+<main id="griglia" aria-label="Catalogo dei pezzi"></main>
+<footer>Bozza per l'importazione. Le parti con perno sono statiche; il movimento verrà applicato dal motore.</footer>
+<script>
+const C = {
+  bg: '#f6f1e3', p2: '#ece5d3', ink: '#161614', red: '#e02a1b', sand: '#decba8',
+  cLight: '#c9d6df', cMid: '#8ea8b8', cDark: '#4f6b7c', sky: '#b8cbd8', tree: '#97b0c0'
+};
+const GROUND_Y = 200;
+const FIGURE_SCALE = 1;
+// Scala comune: una persona adulta in piedi misura 90 unità. Tutti i centri sono x = 0.
+// Le larghezze delle coppie sono anche gli ingombri geometrici effettivi (contorni inclusi).
+const ITEMS = [
+  // 1740-1861, Russia centrale, orto dietro un'isba; archetipo generico.
+  { id: 'campagna_orto_cantiere', label: 'Orto in cantiere', width: 300 },
+  // 1740-1861, Russia centrale, orto dietro un'isba; archetipo generico.
+  { id: 'campagna_orto_finito', label: 'Orto con recinto di vimini', width: 300 },
+  // 1740-1861, Russia centrale, ricovero contadino per una mucca; archetipo generico.
+  { id: 'campagna_stalla_cantiere', label: 'Stalla in cantiere', width: 240 },
+  // 1740-1861, Russia centrale, ricovero contadino per una mucca; archetipo generico.
+  { id: 'campagna_stalla_finita', label: 'Stalla di betulla e paglia', width: 240 },
+  // 1740-1861, Russia centrale, dissodamento con taglio e fuoco; archetipo generico.
+  { id: 'campagna_bosco_cantiere', label: 'Dissodamento del bosco', width: 420 },
+  // 1740-1861, Russia centrale, campo ricavato dal bosco; archetipo generico.
+  { id: 'campagna_bosco_finito', label: 'Campo dissodato', width: 420 },
+  // 1740-1861, Russia centrale, sokha lignea a due punte forgiate; archetipo generico.
+  { id: 'campagna_sokha', label: 'Sokha di legno', width: 130 },
+  // 1740-1861, Russia centrale, piccola vacca contadina; archetipo generico.
+  { id: 'campagna_mucca', label: 'Vacca contadina', width: 95 },
+  // 1740-1861, Russia centrale, cavallo da lavoro senza bardatura; archetipo generico.
+  { id: 'campagna_cavallo', label: 'Cavallo da lavoro', width: 125 },
+  // 1740-1861, Russia centrale, sacchi di tela per il grano; archetipo generico.
+  { id: 'campagna_sacchi', label: 'Sacchi di grano', width: 80 },
+  // 1740-1861, Russia centrale, granaio di tronchi sopra ceppi; archetipo generico.
+  { id: 'campagna_granaio', label: 'Granaio sui ceppi', width: 170 },
+  // 1740-1861, Russia centrale, carro contadino ligneo a due assi; archetipo generico.
+  { id: 'campagna_carro', label: 'Carro a due assi', width: 140 },
+  // 1740-1861, Russia centrale, banco di fiera rurale; archetipo generico.
+  { id: 'campagna_banco_fiera', label: 'Banco della fiera', width: 130 }
+];
+
+// Strumenti e grana copiati dal kit ambienti primo Novecento.
+const f1 = n => (Math.round(n * 10) / 10).toString();
+const arco = (x, w, top, base) => `M ${f1(x - w / 2)} ${base} L ${f1(x - w / 2)} ${f1(top + w / 2)} A ${f1(w / 2)} ${f1(w / 2)} 0 0 1 ${f1(x + w / 2)} ${f1(top + w / 2)} L ${f1(x + w / 2)} ${base} Z`;
+// Generatore pseudo-casuale deterministico (mulberry32).
+function rng(seed) {
+  let a = seed >>> 0;
+  return function () {
+    a = (a + 0x6D2B79F5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+// --- Strumenti del tratto (gli stessi del kit luoghi monumentali) ------------------------
+function linea(pts, r, amp = 0.8, passo = 22) {
+  let d = '';
+  for (let i = 0; i < pts.length - 1; i++) {
+    const [x1, y1] = pts[i], [x2, y2] = pts[i + 1];
+    const L = Math.hypot(x2 - x1, y2 - y1) || 1, n = Math.max(1, Math.round(L / passo));
+    const nx = -(y2 - y1) / L, ny = (x2 - x1) / L;
+    for (let k = i === 0 ? 0 : 1; k <= n; k++) {
+      const t = k / n, j = (r() - 0.5) * 2 * amp * (k === 0 || k === n ? 0.5 : 1);
+      d += (d ? ' L ' : 'M ') + f1(x1 + (x2 - x1) * t + nx * j) + ' ' + f1(y1 + (y2 - y1) * t + ny * j);
+    }
+  }
+  return d;
+}
+function riga(x1, y1, x2, y2, r, amp = 0.8, sborda = 3) {
+  const L = Math.hypot(x2 - x1, y2 - y1) || 1, ux = (x2 - x1) / L, uy = (y2 - y1) / L;
+  const a = sborda * r(), b = sborda * r();
+  return linea([[x1 - ux * a, y1 - uy * a], [x2 + ux * b, y2 + uy * b]], r, amp);
+}
+function bordo(x, y, w, h, r, amp = 0.8, sborda = 3) {
+  return [riga(x, y, x + w, y, r, amp, sborda), riga(x + w, y, x + w, y + h, r, amp, sborda),
+    riga(x + w, y + h, x, y + h, r, amp, sborda), riga(x, y + h, x, y, r, amp, sborda)].join(' ');
+}
+function macchia(x, y, w, h, r, sp = 1.6) {
+  const j = () => (r() - 0.5) * 2 * sp;
+  return `M ${f1(x + sp + j())} ${f1(y - sp * 0.6 + j())} L ${f1(x + w + sp + j())} ${f1(y - sp * 0.6 + j())} L ${f1(x + w + sp + j())} ${f1(y + h + j())} L ${f1(x + sp + j())} ${f1(y + h + j())} Z`;
+}
+function macchiaP(pts, r, sp = 1.6) {
+  return 'M ' + pts.map(([x, y]) => f1(x + sp + (r() - 0.5) * 2 * sp) + ' ' + f1(y - sp * 0.6 + (r() - 0.5) * 2 * sp)).join(' L ') + ' Z';
+}
+function tratteggio(x, y, w, h, r, passo = 5, amp = 0.5) {
+  let d = '';
+  for (let c = x - h; c < x + w; c += passo) {
+    let x1 = c, y1 = y + h, x2 = c + h, y2 = y;
+    if (x1 < x) { y1 -= x - x1; x1 = x; }
+    if (x2 > x + w) { y2 += x2 - (x + w); x2 = x + w; }
+    if (x2 - x1 < 1) continue;
+    d += ' ' + linea([[x1, y1], [x2, y2]], r, amp, 40);
+  }
+  return d.trim();
+}
+function puntiArco(cx, cy, rx, ry, a0, a1, n = 18) {
+  const p = [];
+  for (let i = 0; i <= n; i++) { const a = a0 + (a1 - a0) * i / n; p.push([cx + Math.cos(a) * rx, cy + Math.sin(a) * ry]); }
+  return p;
+}
+const inchiostro = (d, w = 1.4, op = 1) => `<path d="${d}" fill="none" stroke="${C.ink}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"${op < 1 ? ` opacity="${op}"` : ''}/>`;
+const tinta = (d, fill, op = 1) => `<path d="${d}" fill="${fill}"${op < 1 ? ` opacity="${op}"` : ''}/>`;
+const grana = (d, op = 1) => `<path d="${d}" fill="url(#grana)"${op < 1 ? ` opacity="${op}"` : ''}/>`;
+// Rettangolo arrotondato come tracciato (sacchi, pagnotte).
+const tondo = (x, y, w, h, q) => `M ${f1(x + q)} ${f1(y)} L ${f1(x + w - q)} ${f1(y)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x + w)} ${f1(y + q)} L ${f1(x + w)} ${f1(y + h - q)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x + w - q)} ${f1(y + h)} L ${f1(x + q)} ${f1(y + h)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x)} ${f1(y + h - q)} L ${f1(x)} ${f1(y + q)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x + q)} ${f1(y)} Z`;
+// Ellisse come tracciato.
+const ovale = (cx, cy, rx, ry) => `M ${f1(cx - rx)} ${f1(cy)} A ${f1(rx)} ${f1(ry)} 0 1 0 ${f1(cx + rx)} ${f1(cy)} A ${f1(rx)} ${f1(ry)} 0 1 0 ${f1(cx - rx)} ${f1(cy)} Z`;
+
+function getDefs() {
+  const r = rng(6);
+  let punti = '', chiari = '', segni = '';
+  for (let i = 0; i < 14; i++) { const x = r() * 46 + 1, y = r() * 46 + 1, q = 0.5 + r() * 0.7; punti += `M ${f1(x - q)} ${f1(y)} L ${f1(x + q)} ${f1(y + 0.3)} `; }
+  for (let i = 0; i < 10; i++) { const x = r() * 44 + 2, y = r() * 44 + 2, q = 1.5 + r() * 2.5; chiari += `M ${f1(x)} ${f1(y)} L ${f1(x + q)} ${f1(y - q * 0.4)} `; }
+  for (let i = 0; i < 3; i++) { const x = r() * 44 + 2, y = r() * 30 + 2; segni += `M ${f1(x)} ${f1(y)} L ${f1(x + 0.3)} ${f1(y + 8 + r() * 6)} `; }
+  return `<pattern id="grana" width="48" height="48" patternUnits="userSpaceOnUse">` +
+    `<path d="${punti.trim()}" fill="none" stroke="${C.ink}" stroke-width="1.1" stroke-linecap="round" opacity="0.32"/>` +
+    `<path d="${chiari.trim()}" fill="none" stroke="${C.bg}" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>` +
+    `<path d="${segni.trim()}" fill="none" stroke="${C.cDark}" stroke-width="0.7" opacity="0.35"/>` +
+    `</pattern>`;
+}
+
+// Campitura e contorno a mano libera. Il motivo viene sovrapposto alla sola sagoma.
+function materia(d, colore, r, peso = 1.2) {
+  return tinta(d, colore) + grana(d, 0.65) + inchiostro(d, peso);
+}
+function asse(x1, y1, x2, y2, r, w = 4) {
+  const d = riga(x1, y1, x2, y2, r, 0.35, 0);
+  return inchiostro(d, w) + `<path d="${d}" fill="none" stroke="${C.sand}" stroke-width="${Math.max(0.6, w - 2)}" stroke-linecap="round"/>`;
+}
+// Graticcio intrecciato lungo un lato, anche inclinato nel piano del terreno.
+function recinto(x1, y1, x2, y2, r, altezza = 26) {
+  let s = '', d = '';
+  const n = Math.ceil(Math.hypot(x2 - x1, y2 - y1) / 24);
+  const punti = Array.from({ length: n + 1 }, (_, i) => [x1 + (x2 - x1) * i / n, y1 + (y2 - y1) * i / n]);
+  for (const [x, y] of punti) s += asse(x, y, x + (r() - 0.5), y - altezza - 3, r, 3);
+  for (let k = 3; k < altezza; k += 4) {
+    const p = punti.map(([x, y], i) => [x + (i % 2 ? 1.8 : -1.8), y - k]);
+    d += linea(p, r, 0.45, 10) + ' ';
+  }
+  return s + inchiostro(d.trim(), 1.2);
+}
+function cavolo(x, y, r) {
+  const d = macchiaP([[x - 7, y], [x - 9, y - 5], [x - 4, y - 10], [x, y - 8], [x + 5, y - 10], [x + 8, y - 4], [x + 6, y + 1]], r, 0.35);
+  return materia(d, C.sand, r, 0.8) + inchiostro(`M ${x - 5} ${y - 4} Q ${x} ${y - 12} ${x + 5} ${y - 4} M ${x - 4} ${y - 1} Q ${x} ${y - 6} ${x + 4} ${y - 1}`, 0.7);
+}
+function rapa(x, y, r) {
+  return tinta(ovale(x, y - 1, 3, 3), C.sand) + inchiostro(ovale(x, y - 1, 3, 3), 0.7) +
+    inchiostro(linea([[x, y - 3], [x - 5, y - 9], [x, y - 6], [x + 4, y - 11], [x + 2, y - 4]], r, 0.2, 8), 1);
+}
+function betulla(x, base, h, r) {
+  let s = '';
+  // Chioma a masse semplici: i vuoti tra i rami mantengono leggibile il tronco di betulla.
+  for (const [dx, dy, w, hh] of [[-12, 20, 25, 39], [7, 0, 24, 48], [19, 32, 23, 42]]) {
+    const yy = base - h + dy;
+    const d = macchiaP([[x + dx - w / 2, yy + hh], [x + dx - w / 2 - 3, yy + 17], [x + dx, yy], [x + dx + w / 2, yy + 16], [x + dx + w / 2, yy + hh]], r, 0.6);
+    s += tinta(d, C.tree) + grana(d, 0.5) + inchiostro(d, 0.65);
+  }
+  s += asse(x, base - 1.8, x + 2, base - h + 12, r, 3.6);
+  let segni = '';
+  for (let y = base - h + 23; y < base - 10; y += 13) segni += riga(x - 1, y, x + 2.5, y - 1, r, 0.2, 0) + ' ';
+  for (const [dx, dy] of [[-17, 49], [19, 66], [-13, 80]]) segni += linea([[x + 1, base - h + dy + 22], [x + dx, base - h + dy]], r, 0.3, 15) + ' ';
+  return s + inchiostro(segni, 1.1);
+}
+function abete(x, base, h, r) {
+  let p = [[x, base - h]];
+  for (let i = 1; i <= 4; i++) p.push([x + 6 + i * 5, base - h + i * h / 5], [x + i * 2, base - h + i * h / 5 - 3]);
+  p.push([x + 30, base - 12], [x - 30, base - 12]);
+  for (let i = 4; i >= 1; i--) p.push([x - i * 2, base - h + i * h / 5 - 3], [x - 6 - i * 5, base - h + i * h / 5]);
+  const d = macchiaP(p, r, 0.5);
+  return asse(x, base - 1.7, x, base - h + 12, r, 3.4) + tinta(d, C.tree) + grana(d, 0.7) + inchiostro(d, 1) +
+    inchiostro(linea([[x - 15, base - h / 2], [x, base - h / 2 + 8], [x + 13, base - h / 2 - 2]], r, 0.35), 0.75);
+}
+function ceppo(x, y, r, bruciato = false) {
+  const h = bruciato ? 5 : 12;
+  const d = `M ${x - 9} ${y} L ${x - 6} ${y - h} L ${x + 6} ${y - h} L ${x + 9} ${y} Z`;
+  return tinta(d, bruciato ? C.ink : C.sand) + inchiostro(d, 0.8) +
+    tinta(ovale(x, y - h, 6, 2), bruciato ? C.cDark : C.sand) + inchiostro(ovale(x, y - h, 6, 2), 0.7) +
+    inchiostro(`M ${x - 3} ${y - h} L ${x + 3} ${y - h} M ${x - 4} ${y - 1} L ${x - 3} ${y - h + 3}`, 0.6);
+}
+// Copertura di paglia: gerbes orientate secondo la falda, con bordo irregolare.
+function paglia(punti, r) {
+  const d = macchiaP(punti, r, 0);
+  let segni = '';
+  const [a, b, c, e] = punti;
+  for (let i = 0.04; i < 1; i += 0.045) {
+    const x1 = a[0] + (b[0] - a[0]) * i, y1 = a[1] + (b[1] - a[1]) * i;
+    const x2 = e[0] + (c[0] - e[0]) * i, y2 = e[1] + (c[1] - e[1]) * i;
+    segni += linea([[x1, y1 + 2], [(x1 + x2) / 2, (y1 + y2) / 2], [x2, y2 - 1]], r, 0.6, 13) + ' ';
+  }
+  return tinta(d, C.sand) + grana(d, 0.9) + inchiostro(segni, 0.65, 0.8) + inchiostro(d, 1.1);
+}
+function sacco(x, base, w, h, r) {
+  const d = `M ${x - 4} ${base - h + 7} Q ${x - w / 2 - 1} ${base - h + 13} ${x - w / 2} ${base - 4} Q ${x - w / 2} ${base} ${x} ${base} Q ${x + w / 2} ${base} ${x + w / 2} ${base - 4} Q ${x + w / 2 + 1} ${base - h + 13} ${x + 4} ${base - h + 7} L ${x + 6} ${base - h} L ${x - 6} ${base - h} Z`;
+  return materia(d, C.sand, r, 0.9) + inchiostro(riga(x - 5, base - h + 7, x + 5, base - h + 7, r, 0.2, 1) + ' ' +
+    linea([[x - 5, base - h + 8], [x - 9, base - h + 14], [x - 11, base - 7]], r, 0.3, 12), 0.7);
+}
+
+// Famiglia unica, pura: nessun DOM e nessuna dipendenza dal tempo.
+function drawCampagna(id, ox = 0, oy = 0) {
+  let s = '';
+  if (id === 'campagna_orto_cantiere' || id === 'campagna_orto_finito') {
+    const r = rng(2101), finito = id === 'campagna_orto_finito';
+    // La stessa zolla fissa ingombro e centro per lo scambio dei due stati.
+    const terra = 'M -150 178 L -112 157 L 150 157 L 150 200 L -150 200 Z';
+    s += tinta(terra, C.sand) + grana(terra, 0.8);
+    if (finito) {
+      s += recinto(-144, 197, -108, 158, r) + recinto(-108, 158, 144, 158, r) + recinto(144, 158, 144, 197, r);
+      for (let k = 0; k < 3; k++) {
+        const y = 168 + k * 10;
+        s += inchiostro(riga(-99 - k * 8, y + 3, 128, y + 3, r, 0.5, 0), 1.4);
+        for (let x = -87 - k * 8; x < 126; x += 23) s += k === 1 ? rapa(x, y, r) : cavolo(x, y, r);
+      }
+      s += recinto(-144, 197, 68, 197, r) + recinto(108, 197, 144, 197, r);
+      // Cancelletto: assi legate con vimini, senza filo metallico.
+      s += tinta(macchia(71, 174, 34, 22, r, 0), C.sand);
+      for (const x of [72, 83, 94, 104]) s += asse(x, 197, x, 171, r, 2.5);
+      s += inchiostro(riga(71, 178, 105, 178, r, 0.25, 0) + ' ' + riga(71, 191, 105, 191, r, 0.25, 0) + ' ' + riga(72, 191, 104, 178, r, 0.25, 0), 1.7);
+    } else {
+      // Solchi aperti, zolle scavate, paletti ancora privi di intreccio.
+      for (let k = 0; k < 5; k++) {
+        const y = 165 + k * 6;
+        s += inchiostro(linea([[-103 - k * 7, y], [-52, y - 2], [32, y + 1], [133, y]], r, 0.8, 13), 1.2);
+        s += inchiostro(tratteggio(-82, y + 1, 140, 3, r, 6, 0.25), 0.6, 0.65);
+      }
+      for (const [x, y] of [[-140, 195], [-107, 158], [-40, 158], [143, 158], [143, 195]]) s += asse(x, y, x + 1, y - 27, r, 3);
+      for (let k = 0; k < 7; k++) s += inchiostro(linea([[45, 191 - k * 0.7], [77, 184 - k * 0.6], [116 + k, 188 - k * 0.6]], r, 0.5, 12), 1.1);
+      s += inchiostro('M 74 181 Q 70 187 78 191 M 88 181 Q 84 185 92 191', 1.2);
+      for (const [x, y] of [[-117, 191], [-73, 194], [10, 191]]) s += tinta(macchiaP([[x - 6, y], [x - 2, y - 4], [x + 5, y - 2], [x + 8, y + 1]], r, 0.3), C.ink, 0.6);
+    }
+  } else if (id === 'campagna_stalla_cantiere' || id === 'campagna_stalla_finita') {
+    const r = rng(2202), finita = id === 'campagna_stalla_finita';
+    // Piano comune: porta 70, colmo a 60, larghezza 240 inclusa la gronda.
+    const fronte = 'M -105 110 L 7 110 L 7 200 L -105 200 Z';
+    const fianco = 'M 7 110 L 105 121 L 105 200 L 7 200 Z';
+    if (finita) {
+      s += tinta(fronte + ' ' + fianco, C.sand) + grana(fronte + ' ' + fianco, 0.8);
+      let tronchi = '';
+      for (let y = 119; y < 198; y += 9) tronchi += riga(-107, y, 8, y, r, 0.4, 0) + ' ';
+      s += inchiostro(tronchi, 1.2);
+      s += recinto(12, 197, 101, 197, r, 74);
+      s += tinta('M -70 130 L -29 130 L -29 200 L -70 200 Z', C.ink);
+      s += '<g id="porta" data-pivot="-70 130">';
+      s += tinta(macchia(-70, 130, 41, 70, r, 0), C.sand) + grana(macchia(-70, 130, 41, 70, r, 0));
+      s += inchiostro(bordo(-70, 130.7, 41, 68.6, r, 0.25, 0), 1);
+      for (const x of [-60, -50, -40]) s += inchiostro(riga(x, 132, x, 198, r, 0.35, 0), 0.8);
+      s += asse(-67, 141, -32, 141, r, 3) + asse(-67, 188, -32, 188, r, 3);
+      s += inchiostro('M -36 165 L -31 165', 2) + '</g>';
+    } else {
+      // Il vuoto attraversa lo scheletro. Saette e travi sono montate, le pareti mancano.
+      s += asse(-99, 196, 100, 196, r, 4);
+      s += asse(-99, 197, -70, 118, r, 3.6) + asse(100, 197, 44, 117, r, 3.6);
+      s += asse(-99, 112, 100, 124, r, 4);
+      for (let k = 0; k < 5; k++) s += asse(15, 189 - k * 3, 75, 185 - k * 3, r, 3);
+      s += inchiostro('M 29 173 L 31 190 M 62 171 L 64 188', 0.8);
+    }
+    for (const [x, top] of [[-105, 110], [7, 110], [105, 121]]) s += asse(x, 198, x, top, r, 4);
+    s += asse(-105, 111, 7, 111, r, 4) + asse(7, 111, 105, 122, r, 4);
+    s += asse(-105, 110, -50, 62, r, 3.5) + asse(-50, 62, 7, 110, r, 3.5);
+    const falda = [[-50, 61], [44, 73], [119, 120], [20, 110]];
+    if (finita) {
+      s += tinta('M -105 109 L -50 68 L 7 109 Z', C.sand);
+      s += inchiostro(tratteggio(-70, 93, 39, 14, r, 4, 0.2), 0.65);
+      s += paglia([[-50, 61], [44, 73], [-21, 121], [-119, 110]], r) + paglia(falda, r);
+    } else {
+      // Metà falda già coperta da fasci di paglia, metà con correnti scoperti.
+      for (const t of [0, 0.25, 0.5, 0.75, 1]) s += asse(-50 + 94 * t, 62 + 12 * t, 20 + 98 * t, 110 + 10 * t, r, 2.8);
+      s += asse(-15, 86, 82, 97, r, 2.5);
+      s += paglia([[-50, 61], [-3, 67], [-70, 115.5], [-119, 110]], r);
+      s += paglia([[-50, 61], [-3, 67], [69.5, 115], [20, 110]], r);
+    }
+    // Contorno identico, senza tremolio ai limiti laterali: x = -120 e x = 120.
+    s += inchiostro('M -119 110 L -50 61 L 44 73 L 119 120 L 20 110 L -50 61 M -119 110 L 20 110', 2);
+    s += tinta('M -105 198 L 105 198 L 105 200 L -105 200 Z', C.sand);
+  } else if (id === 'campagna_bosco_cantiere' || id === 'campagna_bosco_finito') {
+    const r = rng(2303), finito = id === 'campagna_bosco_finito';
+    const terra = 'M -210 177 L -171 147 L -85 151 L 14 145 L 116 148 L 210 170 L 210 200 L -210 200 Z';
+    s += tinta(terra, C.sand) + grana(terra, 0.95);
+    if (finito) {
+      // Bordo del bosco arretrato: basi a 143-153 invece che a 180-196.
+      s += abete(-173, 149, 131, r) + betulla(-132, 150, 140, r) + abete(176, 145, 130, r);
+      s += betulla(145, 154, 140, r) + betulla(112, 181, 163, r);
+      // Terra annerita dal fuoco: campitura sand sotto un fitto tratteggio scuro.
+      s += inchiostro(tratteggio(-197, 168, 394, 31, r, 3.5, 0.35), 0.9, 0.7);
+      for (let k = 0; k < 5; k++) {
+        const y = 167 + k * 6;
+        s += inchiostro(linea([[-189, y], [-90, y - 3], [15, y + 1], [192, y - 2]], r, 0.6, 18), 1.5);
+      }
+      for (const [x, y] of [[-160, 178], [-104, 195], [-24, 181], [65, 194], [169, 185]]) s += ceppo(x, y, r, true);
+    } else {
+      s += abete(-174, 192, 180, r) + betulla(-132, 191, 178, r);
+      s += abete(173, 193, 177, r) + betulla(131, 188, 175, r);
+      // Betulla abbattuta: troncatura fresca e rami stesi verso il centro del campo.
+      s += asse(-115, 184, -21, 161, r, 6);
+      for (const [x, y, dx, dy] of [[-80, 176, -12, -23], [-57, 170, 17, -24], [-38, 166, 23, 13], [-31, 163, 26, -16]]) s += asse(x, y, x + dx, y + dy, r, 2);
+      s += tinta(ovale(-114, 184, 4, 3), C.sand) + inchiostro(ovale(-114, 184, 4, 3), 0.8);
+      for (const [x, y] of [[-103, 196], [-31, 194], [83, 179]]) s += ceppo(x, y, r);
+      // Catasta di tronchi appena tagliati, con le sezioni leggibili.
+      for (const [x, y] of [[45, 195], [54, 185], [63, 176]]) {
+        s += asse(x, y, x + 62, y - 7, r, 7);
+        s += tinta(ovale(x, y, 3.7, 3.4), C.sand) + inchiostro(ovale(x, y, 3.7, 3.4), 0.8);
+      }
+      let rami = '';
+      for (let k = 0; k < 11; k++) rami += linea([[-54 + k * 4, 191], [-33 + k * 3, 172 + k % 3], [12 + k, 191]], r, 0.5, 12) + ' ';
+      s += inchiostro(rami, 1.7);
+      s += '<g id="fumo" data-pivot="-12 174">';
+      s += tinta('M -17 174 C -43 154 -6 151 -24 130 C -41 109 -7 102 -18 81 C 8 103 -21 119 -5 135 C 13 153 -18 160 -7 174 Z', C.cMid, 0.55);
+      s += inchiostro('M -12 165 C -32 148 -9 141 -20 127 M -16 118 C -4 105 -21 98 -16 89', 1.1, 0.65) + '</g>';
+    }
+  } else if (id === 'campagna_sokha') {
+    const r = rng(2404);
+    // Sokha a ceppo biforcuto: lungo timone ligneo e due strette punte di ferro battuto.
+    // Le stegole risalgono dal ceppo; nessun vomere industriale o elemento in ghisa.
+    s += materia('M -27 155 Q -11 160 13 182 L 25 194 L 19 197 L 3 184 Q -14 170 -32 165 Z', C.sand, r);
+    s += materia('M -26 157 L 64 168 L 63 175 L -24 167 Z', C.sand, r);
+    s += materia('M -26 164 Q -43 144 -58 118 L -64 118 L -64 115 L -54 115 Q -32 142 -18 159 Z', C.sand, r);
+    s += materia('M -12 168 Q -24 139 -37 119 L -46 119 L -47 115 L -34 115 Q -15 138 -4 169 Z', C.sand, r);
+    s += materia('M -12 170 L 7 179 L 13 193 L 7 196 L -1 181 Z', C.sand, r, 0.9);
+    s += tinta('M 19 190 L 26 192 L 31 200 L 20 200 L 16 196 Z M 6 191 L 13 193 L 17 200 L 6 200 L 3 197 Z', C.cDark);
+    s += inchiostro('M 19 190 L 26 192 L 31 199 M 6 191 L 13 193 L 17 199', 0.9);
+    s += asse(-39, 144, -17, 140, r, 2.6);
+    s += inchiostro('M -26 157 L -29 168 M -22 158 L -25 169 M -18 159 L -21 170', 1.1);
+  } else if (id === 'campagna_mucca') {
+    const r = rng(2505);
+    // Gambe lontane, poi corpo angoloso: garrese a 135 e zoccoli a 200.
+    s += tinta('M -24 163 L -18 165 L -20 193 L -17 200 L -24 200 L -26 191 Z M 13 162 L 18 162 L 16 194 L 20 200 L 12 200 L 12 191 Z', C.cDark);
+    s += '<g id="coda" data-pivot="-32 140">';
+    s += inchiostro(linea([[-32, 140], [-39, 148], [-41, 168], [-44, 179]], r, 0.35, 10), 1.8);
+    s += tinta('M -44 175 Q -46.55 179 -46 187 L -41 183 L -41 177 Z', C.ink) + '</g>';
+    const corpo = 'M -33 143 L -26 136 L -10 140 L 12 136 L 21 138 L 24 152 L 18 168 L 8 174 L -6 171 L -20 169 L -31 161 Z';
+    s += materia(corpo, C.sand, r, 1.2);
+    s += tinta('M -30 142 L -23 138 L -15 142 L -17 153 L -28 155 Z M 3 141 L 12 138 L 17 143 L 14 151 L 6 150 Z', C.ink, 0.88);
+    s += tinta('M -30 158 L -23 161 L -26 186 L -24 198 L -30 198 L -32 186 Z M 12 166 L 18 162 L 19 188 L 22 198 L 15 198 L 12 187 Z', C.sand);
+    s += inchiostro('M -30 160 L -32 186 L -30 197 M -23 164 L -26 186 L -24 197 M 18 165 L 19 187 L 22 198 M 12 168 L 12 187 L 15 198', 1.1);
+    s += tinta('M -30 197 L -24 197 L -23 200 L -31 200 Z M 15 197 L 22 197 L 23 200 L 15 200 Z', C.ink);
+    s += tinta('M -1 171 Q 3 180 10 174 L 12 169 Z', C.sand) + inchiostro('M 2 175 L 2 179 M 7 175 L 7 179', 0.9);
+    s += inchiostro('M -9 147 Q -5 152 -7 163 M -2 146 Q 2 152 0 165 M 5 146 Q 9 152 7 163 M -25 157 L -17 160', 0.7, 0.7);
+    s += '<g id="testa" data-pivot="19 141">';
+    s += materia('M 16 138 L 25 138 L 31 143 L 35 149 L 45 155 L 46 162 L 39 166 L 31 162 L 25 153 L 18 153 Z', C.sand, r, 1.1);
+    s += tinta('M 37 154 L 45 155 L 46 162 L 40 163 L 36 160 Z', C.cDark);
+    s += materia('M 28 143 L 20 138 L 20 134 Q 26 135 31 140 Z', C.sand, r, 0.7);
+    s += inchiostro('M 31 141 Q 27 134 31 129 M 35 144 Q 39 138 38 133', 1.5);
+    s += `<circle cx="34" cy="149" r="1.25" fill="${C.ink}"/><circle cx="43" cy="158" r="0.8" fill="${C.ink}"/>`;
+    s += '</g>';
+  } else if (id === 'campagna_cavallo') {
+    const r = rng(2606);
+    s += tinta('M -30 155 L -23 156 L -25 181 L -20 200 L -28 200 L -31 181 Z M 12 153 L 18 152 L 18 181 L 25 200 L 17 200 L 12 181 Z', C.cDark);
+    s += '<g id="coda" data-pivot="-40 127">';
+    s += tinta('M -40 125 Q -53 128 -54 146 Q -56 163 -61.6 177 L -51 175 Q -44 153 -44 141 L -36 132 Z', C.ink);
+    s += inchiostro('M -47 139 Q -47 162 -55 172', 0.7) + '</g>';
+    const corpo = 'M -43 134 Q -40 122 -31 123 L -13 126 L 15 120 L 26 126 L 26 143 L 17 157 Q -4 166 -24 157 L -35 153 Z';
+    s += materia(corpo, C.sand, r, 1.3);
+    s += tinta('M -39 147 L -30 152 L -36 178 L -34 197 L -40 197 L -42 177 Z M 17 151 L 24 145 L 23 178 L 28 197 L 21 197 L 17 177 Z', C.sand);
+    s += inchiostro('M -39 148 L -42 177 L -40 197 M -30 155 L -36 178 L -34 197 M 24 149 L 23 177 L 28 197 M 17 155 L 17 177 L 21 197', 1.1);
+    s += tinta('M -40 196 L -34 196 L -32 200 L -41 200 Z M 21 196 L 28 196 L 30 200 L 21 200 Z', C.ink);
+    s += inchiostro('M -28 133 Q -37 139 -33 150 M -12 135 Q -9 143 -11 153 M -5 134 Q -2 141 -4 153 M 2 132 Q 6 140 4 152', 0.7, 0.65);
+    s += '<g id="testa" data-pivot="22 128">';
+    s += materia('M 14 128 Q 26 118 28 106 L 36 102 L 45 109 L 49 120 L 61 129 L 59 137 L 50 137 L 38 128 L 33 137 L 25 150 L 19 148 Z', C.sand, r, 1.2);
+    s += tinta('M 27 107 L 33 103 L 35 111 L 31 118 L 29 132 L 24 143 L 20 144 L 24 125 Z', C.ink);
+    s += materia('M 33 106 L 32 95 L 36 97 L 39 107 M 40 109 L 42 98 L 45 102 L 44 112', C.sand, r, 0.9);
+    s += tinta('M 53 126 L 61 129 L 59 137 L 52 135 Z', C.cDark);
+    s += `<circle cx="44" cy="117" r="1.25" fill="${C.ink}"/><circle cx="58" cy="132" r="0.9" fill="${C.ink}"/>`;
+    s += inchiostro('M 49 134 L 57 136 M 32 123 Q 33 130 29 136', 0.7) + '</g>';
+  } else if (id === 'campagna_sacchi') {
+    const r = rng(2707);
+    s += sacco(-23, 199.55, 30, 34, r) + sacco(6, 199.55, 29, 35, r) + sacco(-8, 172, 29, 27, r);
+    // Quarto sacco ripiegato a metà: orlo aperto e singoli chicchi, senza affidarsi al colore.
+    const d = 'M 17 178 Q 26 174 38 178 L 39 195 Q 39 199.55 27 199.55 Q 17 199.55 16 195 Z';
+    s += materia(d, C.sand, r, 0.9);
+    s += `<ellipse cx="27" cy="178" rx="11" ry="4" fill="${C.ink}"/><ellipse cx="27" cy="177.5" rx="9" ry="2.8" fill="${C.sand}"/>`;
+    let chicchi = '';
+    for (let k = 0; k < 17; k++) {
+      const x = 19 + r() * 16, y = 175.8 + r() * 3;
+      chicchi += `M ${f1(x)} ${f1(y)} L ${f1(x + 1.1)} ${f1(y - 0.7)} `;
+    }
+    s += inchiostro(chicchi, 0.65) + inchiostro('M 17 181 Q 27 185 38 181 M 20 187 L 19 195', 0.8);
+  } else if (id === 'campagna_granaio') {
+    const r = rng(2808);
+    // Ceppi portanti e cappelli di legno sporgenti contro l'accesso dei roditori.
+    for (const x of [-52, 0, 52]) {
+      s += tinta(`M ${x - 7} 181 L ${x + 7} 181 L ${x + 9} 200 L ${x - 9} 200 Z`, C.sand);
+      s += inchiostro(`M ${x - 7} 183 L ${x - 9} 199 M ${x + 7} 183 L ${x + 9} 199 M ${x - 2} 185 L ${x - 3} 196`, 1.1);
+      s += materia(macchia(x - 13, 178, 26, 4, r, 0), C.sand, r, 0.8);
+    }
+    const facciata = 'M -63 112 L 63 112 L 63 178 L -63 178 Z';
+    s += tinta(facciata, C.sand) + grana(facciata);
+    for (let y = 116; y < 179; y += 8) {
+      s += inchiostro(riga(-67, y, 67, y, r, 0.35, 0), 1.2);
+      for (const x of [-60, 60]) s += inchiostro(ovale(x, y - 1, 3, 2.6), 0.65);
+    }
+    s += tinta('M -60 113 L 0 76 L 60 113 Z', C.sand);
+    s += inchiostro('M -55 111 L -12 84 M -30 111 L 0 90 M 30 111 L 9 91 M 54 111 L 20 91', 0.8);
+    s += paglia([[0, 71], [10, 75], [84, 116], [0, 110]], r);
+    s += paglia([[-8, 75], [0, 71], [0, 110], [-84, 116]], r);
+    s += inchiostro('M -84 116 L 0 71 L 84 116', 1.8);
+    s += tinta('M -20 123 L 18 123 L 18 177 L -20 177 Z', C.ink);
+    s += '<g id="porta" data-pivot="-20 123">';
+    s += tinta(macchia(-20, 123, 38, 54, r, 0), C.sand) + grana(macchia(-20, 123, 38, 54, r, 0));
+    for (const x of [-19, -10, -1, 8, 17]) s += inchiostro(riga(x, 124, x, 176, r, 0.3, 0), 0.85);
+    s += asse(-17, 132, 15, 132, r, 3) + asse(-17, 167, 15, 167, r, 3);
+    s += inchiostro('M -14 164 L 12 135 M 9 149 L 15 149', 1.2) + '</g>';
+    // Scaletta appoggiata alla soglia, a pioli di legno.
+    s += asse(31, 198.2, 17, 175, r, 3) + asse(53, 198.2, 39, 175, r, 3);
+    for (const y of [181, 188, 195]) {
+      const x = 17 + (y - 175) * 14 / 23.5;
+      s += asse(x, y, x + 22, y, r, 2.1);
+    }
+  } else if (id === 'campagna_carro') {
+    const r = rng(2909);
+    // Due assi in legno, due ruote visibili di profilo. Nessun cavallo o ferratura industriale.
+    s += asse(-68, 157, 68, 157, r, 4) + asse(-57, 169, 56, 169, r, 5);
+    s += materia('M -60 139 L 57 139 L 52 165 L -55 165 Z', C.sand, r);
+    for (const y of [144, 153, 162]) s += inchiostro(riga(-56, y, 53, y, r, 0.4, 0), 0.9);
+    for (const x of [-57, -19, 20, 55]) s += asse(x, 164, x - 2, 132, r, 3.2);
+    s += asse(-62, 132, 61, 132, r, 3.5);
+    s += inchiostro(tratteggio(-47, 156, 94, 7, r, 6, 0.2), 0.65);
+    for (const [i, x] of [[1, -41], [2, 42]]) {
+      s += `<g id="ruota-${i}" data-pivot="${x} 181">`;
+      s += `<circle cx="${x}" cy="181" r="17" fill="none" stroke="${C.ink}" stroke-width="4"/>`;
+      s += `<circle cx="${x}" cy="181" r="17" fill="none" stroke="${C.sand}" stroke-width="2"/>`;
+      for (let k = 0; k < 8; k++) {
+        const a = k * Math.PI / 4;
+        s += asse(x, 181, x + Math.cos(a) * 15, 181 + Math.sin(a) * 15, r, 2);
+      }
+      s += `<circle cx="${x}" cy="181" r="3.5" fill="${C.sand}" stroke="${C.ink}" stroke-width="1"/>` + '</g>';
+    }
+  } else if (id === 'campagna_banco_fiera') {
+    const r = rng(3010);
+    // Quattro pali: i due posteriori restano visibili sopra e sotto il piano.
+    s += asse(-48, 183, -48, 94, r, 3.4) + asse(48, 183, 48, 94, r, 3.4);
+    s += asse(-58, 198.2, -58, 101, r, 3.6) + asse(58, 198.2, 58, 101, r, 3.6);
+    s += asse(-58, 181, -39, 160, r, 2) + asse(58, 181, 39, 160, r, 2);
+    s += '<g id="telo" data-pivot="-58 94">';
+    const telo = 'M -64 102 L -48 90 L 48 90 L 64 102 L 59 109 L 44 106 L 28 110 L 12 106 L -4 110 L -20 106 L -36 110 L -51 106 L -64 110 Z';
+    s += materia(telo, C.sand, r, 1.1);
+    s += inchiostro('M -48 91 L -52 101 M -20 91 L -24 102 M 12 91 L 15 102 M 45 91 L 53 102 M -63 102 Q 0 108 63 102', 0.8, 0.7) + '</g>';
+    // Piano, traverse e legature.
+    s += materia('M -59 151 L -48 144 L 49 144 L 60 151 L 60 157 L -59 157 Z', C.sand, r, 1);
+    s += inchiostro('M -58 151 L 59 151 M -55 147 L 54 147 M -61 158 L -55 159 M 55 159 L 61 158', 0.8);
+    // Barre di ferro battuto, non profilati industriali.
+    s += tinta('M -49 140 L -13 138 L -12 142 L -49 145 Z M -44 135 L -9 136 L -10 139 L -45 139 Z', C.cDark);
+    s += inchiostro('M -49 140 L -13 138 M -44 135 L -9 136', 0.9);
+    s += sacco(6, 146, 15, 20, r) + sacco(23, 146, 14, 18, r);
+    // Due punte strette di sokha forgiate a mano, riconoscibili anche in monocromia.
+    s += tinta('M 34 136 L 39 134 L 48 145 L 38 145 Z M 44 131 L 48 130 L 55 142 L 47 142 Z', C.cMid);
+    s += inchiostro('M 34 136 L 39 134 L 48 145 L 38 145 Z M 44 131 L 48 130 L 55 142 L 47 142 Z', 0.9);
+    // Un solo fazzoletto rosso: unico accento di colore dell'intero kit.
+    s += tinta('M 49 156 L 54 153 L 56 160 L 53 180 L 43 174 L 48 164 Z', C.red);
+    s += inchiostro('M 49 156 L 54 153 L 56 160 L 53 180 L 43 174 L 48 164 Z M 52 160 L 49 172', 0.8);
+  } else {
+    throw new Error('Voce sconosciuta: ' + id);
+  }
+  return `<g transform="translate(${ox} ${oy})">${s}</g>`;
+}
+// AVVIO
+(function () {
+  for (const [nome, valore] of Object.entries(C)) document.documentElement.style.setProperty('--' + nome, valore);
+  const griglia = document.getElementById('griglia');
+  const checkbox = document.getElementById('monocromo');
+  const grigio = valore => {
+    const n = parseInt(valore.slice(1), 16);
+    const y = Math.round(0.2126 * (n >> 16) + 0.7152 * ((n >> 8) & 255) + 0.0722 * (n & 255));
+    return `rgb(${y}, ${y}, ${y})`;
+  };
+  function aggiorna() {
+    for (const [nome, valore] of Object.entries(C)) document.documentElement.style.setProperty('--' + nome, checkbox.checked ? grigio(valore) : valore);
+    griglia.replaceChildren();
+    ITEMS.forEach((v, i) => {
+      const fig = document.createElement('figure');
+      // Il riferimento umano e il piano comune restano fuori da drawCampagna.
+      const riferimento = `<g opacity="0.4"><path d="M -251 200 L 251 200" fill="none" stroke="${C.ink}" stroke-width="0.5"/><circle cx="-237" cy="117" r="7" fill="${C.ink}"/><path d="M -242 128 L -232 128 L -229 158 L -231 171 L -228 200 L -234 200 L -237 174 L -240 200 L -246 200 L -242 167 L -244 148 L -248 162 L -252 160 Z" fill="${C.ink}"/></g>`;
+      const markup = `<defs>${getDefs()}</defs>${riferimento}${drawCampagna(v.id)}`;
+      // ID locali anche nella pagina con molti SVG: gli originali rimangono quelli del pezzo.
+      let anteprima = markup.replace(/id="([^"]+)"/g, (_, nome) => `id="anteprima-${i}-${nome}"`).replace(/url\(#([^)]+)\)/g, (_, nome) => `url(#anteprima-${i}-${nome})`);
+      if (checkbox.checked) for (const valore of Object.values(C)) anteprima = anteprima.split(valore).join(grigio(valore));
+      const parti = [...drawCampagna(v.id).matchAll(/id="([^"]+)" data-pivot="([^"]+)"/g)].map(m => `${m[1]} (${m[2]})`).join('; ') || 'nessuna';
+      fig.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-265 0 530 218" role="img" aria-label="${v.label}">${anteprima}</svg><figcaption><strong>${v.label}</strong><code>${v.id}</code><p>1740–1861 / Russia centrale / archetipo generico<br>Figura: scala ${FIGURE_SCALE} / larghezza indicativa: ${v.width}<br>Parti e perni: ${parti}</p></figcaption>`;
+      griglia.appendChild(fig);
+    });
+  }
+  checkbox.addEventListener('change', aggiorna);
+  aggiorna();
+})();
+</script>
+</body>
+</html>
