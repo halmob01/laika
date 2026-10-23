@@ -1533,8 +1533,8 @@
           "id": "orto",
           "label": "L'orto dietro l'isba",
           "text": "Cavoli e rape non temono il gelo di maggio.",
-          "x": 0.095,
-          "y": 0.67,
+          "x": 0.1,
+          "y": 0.57,
           "work": 1,
           "cost": [
             {
@@ -1569,8 +1569,8 @@
           "id": "bosco",
           "label": "Un campo nel bosco",
           "text": "Tagliare, bruciare, togliere le radici: un campo nuovo, ma ci vogliono anni.",
-          "x": 0.54,
-          "y": 0.57,
+          "x": 0.55,
+          "y": 0.43,
           "work": 4,
           "done": {
             "text": "Il bosco è diventato campo. La terra bruciata rende molto.",
@@ -1594,8 +1594,8 @@
           "id": "stalla",
           "label": "La stalla rifatta",
           "text": "Pali di betulla e paglia nuova: la mucca passa l'inverno al riparo e il letame resta nel campo.",
-          "x": 0.37,
-          "y": 0.58,
+          "x": 0.375,
+          "y": 0.455,
           "work": 2,
           "when": {
             "op": "flag",
@@ -1625,7 +1625,7 @@
           "label": "La sokha rimessa a nuovo",
           "text": "Il fabbro monta le punte di ferro comprate alla fiera: si ara più a fondo.",
           "x": 0.21,
-          "y": 0.8,
+          "y": 0.69,
           "work": 1,
           "when": {
             "op": "flag",
