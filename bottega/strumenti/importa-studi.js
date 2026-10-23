@@ -80,6 +80,16 @@ export const KIT = [
     famiglie: [
       { famiglia: 'corte', prefisso: 'corte-', funzione: 'drawCorte', voci: 'CORTE', argomenti: ['$id', 0, 0], terra: 400 }
     ]
+  },
+  {
+    file: 'prototypes/kit-primavera-1917/kit-primavera-1917.html', palette: 'C',
+    token: { bg: 'paper', p2: 'paper2', ink: 'ink', red: 'red', sand: 'sand', cLight: 'concrete-light', cMid: 'concrete-mid', cDark: 'concrete-dark', sky: 'sky', tree: 'tree' },
+    definizioni: { funzione: 'getDefs', argomenti: [], texture: 'primavera', motivi: { grana: 'grana-primavera' } },
+    famiglie: [
+      { famiglia: 'oggetti', prefisso: 'oggetto-', funzione: 'drawOggetto', voci: "ITEMS.filter(v => v.famiglia === 'oggetti')", argomenti: ['$id', 0, 0], terra: 200 },
+      { famiglia: 'ambienti', prefisso: 'ambiente-', funzione: 'drawAmbiente1917', voci: "ITEMS.filter(v => v.famiglia === 'ambienti')", argomenti: ['$id', 0, 0], terra: 400 },
+      { famiglia: 'luoghi', prefisso: 'luogo-', funzione: 'drawLuogo1917', voci: "ITEMS.filter(v => v.famiglia === 'luoghi')", argomenti: ['$id', 0, 0], terra: 400 }
+    ]
   }
 ];
 // Colori scritti direttamente nel codice dei kit (fuori dalla palette).

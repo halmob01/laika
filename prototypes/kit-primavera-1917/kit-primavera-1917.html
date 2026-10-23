@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit primavera 1917 (bottega)</title>
+<style>
+  body { margin: 0; font-family: monospace; background: var(--p2); color: var(--ink); }
+  header { padding: 20px; border-bottom: 2px solid var(--ink); }
+  h1 { font-size: 22px; font-weight: 500; }
+  p { max-width: 90ch; line-height: 1.5; }
+  #griglia { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 16px; padding: 20px; }
+  figure { margin: 0; border: 1px solid var(--ink); background: var(--bg); min-width: 0; }
+  svg { display: block; width: 100%; height: 290px; }
+  figcaption { border-top: 1px solid var(--ink); padding: 12px; line-height: 1.6; }
+  small { display: block; }
+</style>
+</head>
+<body>
+<header>
+<p>BOTTEGA / BOZZE</p>
+<h1>Oggetti e spazi della primavera</h1>
+<p>Forme semplificate da rivedere. Gli oggetti hanno linea di terra 200; ambienti e luoghi 400. Una figura adulta a scala 1 è alta circa 90 unità. I riferimenti e i limiti storici sono nel catalogo.</p>
+</header>
+<div id="griglia"></div>
+<script>
+const C = {
+  bg: '#f6f1e3', p2: '#ece5d3', ink: '#161614', red: '#e02a1b', sand: '#decba8',
+  cLight: '#c9d6df', cMid: '#8ea8b8', cDark: '#4f6b7c', sky: '#b8cbd8', tree: '#97b0c0'
+};
+const GROUND_Y = 400;
+const OBJECT_GROUND_Y = 200;
+const ITEMS = [
+  // Russia imperiale, XIX secolo-marzo 1917; archetipo generico di aquila bicipite.
+  { id: 'aquila_imperiale', label: 'Aquila bicipite', famiglia: 'oggetti', box: [-85, 100, 170, 110] },
+  // Russia, fine XIX secolo-marzo 1917; archetipo generico di ritratto dinastico.
+  { id: 'ritratto_zar', label: 'Ritratto in cornice', famiglia: 'oggetti', box: [-55, 90, 110, 120] },
+  // Russia, marzo 1917; archetipo generico di effigie effimera, non un monumento identificato.
+  { id: 'statua_zar', label: 'Statua su piedistallo', famiglia: 'oggetti', box: [-65, 40, 130, 170] },
+  // Mosca, marzo 1917; archetipo generico di bara nera da corteo, senza scritta.
+  { id: 'bara', label: 'Bara nera', famiglia: 'oggetti', box: [-90, 145, 180, 65] },
+  // Pietrogrado, primavera 1917; archetipo generico di bara rivestita di rosso.
+  { id: 'bara_rossa', label: 'Bara rossa', famiglia: 'oggetti', box: [-90, 145, 180, 65] },
+  // Mosca, marzo 1917; archetipo generico di elefante del circo, nuovo disegno.
+  { id: 'elefante_circo', label: 'Elefante del circo', famiglia: 'oggetti', box: [-155, 15, 310, 200] },
+  // Russia, inizio XX secolo; archetipo generico di mazzo di fiori recisi.
+  { id: 'fiori', label: 'Mazzo di fiori', famiglia: 'oggetti', box: [-22, 163, 44, 43] },
+  // Russia, 1914-1917; archetipo generico di manifesto, campo tipografico lasciato vuoto.
+  { id: 'manifesto_prestito', label: 'Manifesto vuoto', famiglia: 'oggetti', box: [-55, 80, 110, 130] },
+  // Russia, 1910-1917; archetipo generico di mitragliatrice con scudo e affusto a ruote.
+  { id: 'mitragliatrice', label: 'Mitragliatrice su affusto', famiglia: 'oggetti', box: [-85, 120, 170, 90] },
+  // Russia, inizio XX secolo; archetipo generico di carriola lignea da lavoro.
+  { id: 'carriola', label: 'Carriola vuota', famiglia: 'oggetti', box: [-85, 130, 170, 80] },
+  // Pietrogrado, 1900-1917; archetipo generico di caffè, senza attribuzione a un locale.
+  { id: 'caffe', label: 'Interno di caffè', famiglia: 'ambienti', box: [-460, 20, 920, 400] },
+  // Pietrogrado, 1860-1917; archetipo generico ispirato a un teatro imperiale.
+  { id: 'teatro_palco', label: 'Teatro con palco in primo piano', famiglia: 'ambienti', box: [-540, 0, 1080, 420] },
+  // Pietrogrado, 1900-1917; archetipo generico di salone, non rilievo di un palazzo.
+  { id: 'salone_lampadari', label: 'Salone con lampadari', famiglia: 'ambienti', box: [-510, 20, 1020, 400] },
+  // San Pietroburgo, dal 1789; Tauride neoclassico semplificato, non rilievo metrico.
+  { id: 'palazzo_tauride', label: 'Palazzo di Tauride', famiglia: 'luoghi', box: [-590, 110, 1180, 310] }
+];
+
+// Tratto e grana del kit ambienti primo Novecento.
+const f1 = n => (Math.round(n * 10) / 10).toString();
+const arco = (x, w, top, base) => `M ${f1(x - w / 2)} ${base} L ${f1(x - w / 2)} ${f1(top + w / 2)} A ${f1(w / 2)} ${f1(w / 2)} 0 0 1 ${f1(x + w / 2)} ${f1(top + w / 2)} L ${f1(x + w / 2)} ${base} Z`;
+// Generatore pseudo-casuale deterministico (mulberry32).
+function rng(seed) {
+  let a = seed >>> 0;
+  return function () {
+    a = (a + 0x6D2B79F5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+// --- Strumenti del tratto (gli stessi del kit luoghi monumentali) ------------------------
+function linea(pts, r, amp = 0.8, passo = 22) {
+  let d = '';
+  for (let i = 0; i < pts.length - 1; i++) {
+    const [x1, y1] = pts[i], [x2, y2] = pts[i + 1];
+    const L = Math.hypot(x2 - x1, y2 - y1) || 1, n = Math.max(1, Math.round(L / passo));
+    const nx = -(y2 - y1) / L, ny = (x2 - x1) / L;
+    for (let k = i === 0 ? 0 : 1; k <= n; k++) {
+      const t = k / n, j = (r() - 0.5) * 2 * amp * (k === 0 || k === n ? 0.5 : 1);
+      d += (d ? ' L ' : 'M ') + f1(x1 + (x2 - x1) * t + nx * j) + ' ' + f1(y1 + (y2 - y1) * t + ny * j);
+    }
+  }
+  return d;
+}
+function riga(x1, y1, x2, y2, r, amp = 0.8, sborda = 3) {
+  const L = Math.hypot(x2 - x1, y2 - y1) || 1, ux = (x2 - x1) / L, uy = (y2 - y1) / L;
+  const a = sborda * r(), b = sborda * r();
+  return linea([[x1 - ux * a, y1 - uy * a], [x2 + ux * b, y2 + uy * b]], r, amp);
+}
+function bordo(x, y, w, h, r, amp = 0.8, sborda = 3) {
+  return [riga(x, y, x + w, y, r, amp, sborda), riga(x + w, y, x + w, y + h, r, amp, sborda),
+    riga(x + w, y + h, x, y + h, r, amp, sborda), riga(x, y + h, x, y, r, amp, sborda)].join(' ');
+}
+function macchia(x, y, w, h, r, sp = 1.6) {
+  const j = () => (r() - 0.5) * 2 * sp;
+  return `M ${f1(x + sp + j())} ${f1(y - sp * 0.6 + j())} L ${f1(x + w + sp + j())} ${f1(y - sp * 0.6 + j())} L ${f1(x + w + sp + j())} ${f1(y + h + j())} L ${f1(x + sp + j())} ${f1(y + h + j())} Z`;
+}
+function macchiaP(pts, r, sp = 1.6) {
+  return 'M ' + pts.map(([x, y]) => f1(x + sp + (r() - 0.5) * 2 * sp) + ' ' + f1(y - sp * 0.6 + (r() - 0.5) * 2 * sp)).join(' L ') + ' Z';
+}
+function tratteggio(x, y, w, h, r, passo = 5, amp = 0.5) {
+  let d = '';
+  for (let c = x - h; c < x + w; c += passo) {
+    let x1 = c, y1 = y + h, x2 = c + h, y2 = y;
+    if (x1 < x) { y1 -= x - x1; x1 = x; }
+    if (x2 > x + w) { y2 += x2 - (x + w); x2 = x + w; }
+    if (x2 - x1 < 1) continue;
+    d += ' ' + linea([[x1, y1], [x2, y2]], r, amp, 40);
+  }
+  return d.trim();
+}
+function puntiArco(cx, cy, rx, ry, a0, a1, n = 18) {
+  const p = [];
+  for (let i = 0; i <= n; i++) { const a = a0 + (a1 - a0) * i / n; p.push([cx + Math.cos(a) * rx, cy + Math.sin(a) * ry]); }
+  return p;
+}
+const inchiostro = (d, w = 1.4, op = 1) => `<path d="${d}" fill="none" stroke="${C.ink}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"${op < 1 ? ` opacity="${op}"` : ''}/>`;
+const tinta = (d, fill, op = 1) => `<path d="${d}" fill="${fill}"${op < 1 ? ` opacity="${op}"` : ''}/>`;
+const grana = (d, op = 1) => `<path d="${d}" fill="url(#grana)"${op < 1 ? ` opacity="${op}"` : ''}/>`;
+// Rettangolo arrotondato come tracciato (sacchi, pagnotte).
+const tondo = (x, y, w, h, q) => `M ${f1(x + q)} ${f1(y)} L ${f1(x + w - q)} ${f1(y)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x + w)} ${f1(y + q)} L ${f1(x + w)} ${f1(y + h - q)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x + w - q)} ${f1(y + h)} L ${f1(x + q)} ${f1(y + h)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x)} ${f1(y + h - q)} L ${f1(x)} ${f1(y + q)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x + q)} ${f1(y)} Z`;
+// Ellisse come tracciato.
+const ovale = (cx, cy, rx, ry) => `M ${f1(cx - rx)} ${f1(cy)} A ${f1(rx)} ${f1(ry)} 0 1 0 ${f1(cx + rx)} ${f1(cy)} A ${f1(rx)} ${f1(ry)} 0 1 0 ${f1(cx - rx)} ${f1(cy)} Z`;
+
+function getDefs() {
+  const r = rng(6);
+  let punti = '', chiari = '', segni = '';
+  for (let i = 0; i < 14; i++) { const x = r() * 46 + 1, y = r() * 46 + 1, q = 0.5 + r() * 0.7; punti += `M ${f1(x - q)} ${f1(y)} L ${f1(x + q)} ${f1(y + 0.3)} `; }
+  for (let i = 0; i < 10; i++) { const x = r() * 44 + 2, y = r() * 44 + 2, q = 1.5 + r() * 2.5; chiari += `M ${f1(x)} ${f1(y)} L ${f1(x + q)} ${f1(y - q * 0.4)} `; }
+  for (let i = 0; i < 3; i++) { const x = r() * 44 + 2, y = r() * 30 + 2; segni += `M ${f1(x)} ${f1(y)} L ${f1(x + 0.3)} ${f1(y + 8 + r() * 6)} `; }
+  return `<pattern id="grana" width="48" height="48" patternUnits="userSpaceOnUse">` +
+    `<path d="${punti.trim()}" fill="none" stroke="${C.ink}" stroke-width="1.1" stroke-linecap="round" opacity="0.32"/>` +
+    `<path d="${chiari.trim()}" fill="none" stroke="${C.bg}" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>` +
+    `<path d="${segni.trim()}" fill="none" stroke="${C.cDark}" stroke-width="0.7" opacity="0.35"/>` +
+    `</pattern>`;
+}
+
+function campitura(d, colore, peso = 1.2) {
+  return tinta(d, colore) + grana(d, 0.7) + inchiostro(d, peso);
+}
+function ruota(x, y, raggio, r) {
+  let s = `<circle cx="${x}" cy="${y}" r="${raggio}" fill="${C.sand}" stroke="${C.ink}" stroke-width="2"/>`;
+  let raggi = '';
+  for (let i = 0; i < 8; i++) {
+    const a = i * Math.PI / 4;
+    raggi += riga(x, y, x + Math.cos(a) * (raggio - 2), y + Math.sin(a) * (raggio - 2), r, 0.2, 0) + ' ';
+  }
+  return s + inchiostro(raggi, 1.2) + `<circle cx="${x}" cy="${y}" r="2.5" fill="${C.ink}"/>`;
+}
+// Presa del mazzo in (0, 0). Il medesimo markup viene conservato come prop a token.
+function drawMazzo() {
+  return `<g transform="scale(0.55)"><path d="M -4 9 L 5 -27 M 0 9 L -12 -24 M 3 9 L 17 -23 M -1 7 L -3 -34 M 1 3 Q -14 -2 -13 -11 Q -4 -11 1 -1 M 3 -5 Q 17 -13 19 -8 Q 16 -1 2 1" fill="none" stroke="${C.ink}" stroke-width="1.6" stroke-linecap="round"/>` +
+    `<path d="M -7 1 L 6 -1 L 5 4 L -5 5 Z" fill="${C.sand}" stroke="${C.ink}" stroke-width="0.8"/>` +
+    `<path d="M -18 -26 Q -22 -35 -15 -35 Q -17 -43 -9 -40 Q -3 -43 -3 -35 Q 4 -30 -4 -25 Q -10 -21 -18 -26 Z M 9 -25 Q 2 -32 9 -36 Q 9 -44 16 -39 Q 24 -43 24 -35 Q 31 -30 23 -26 Q 18 -21 9 -25 Z" fill="${C.red}" stroke="${C.ink}" stroke-width="0.8"/>` +
+    `<path d="M -7 -36 Q -15 -41 -9 -47 Q -6 -53 -1 -48 Q 8 -50 8 -43 Q 12 -36 4 -34 Z" fill="${C.sand}" stroke="${C.ink}" stroke-width="0.8"/>` +
+    `<circle cx="-10" cy="-32" r="2" fill="${C.ink}"/><circle cx="16" cy="-32" r="2" fill="${C.ink}"/><circle cx="0" cy="-42" r="1.8" fill="${C.ink}"/></g>`;
+}
+
+function drawOggetto(id, ox = 0, oy = 0) {
+  const r = rng(3100 + ITEMS.findIndex(v => v.id === id));
+  let s = '';
+  if (id === 'aquila_imperiale') {
+    const d = 'M -8 154 L -13 141 L -23 138 L -28 132 L -20 128 L -11 131 L -4 145 L 0 149 L 4 145 L 11 131 L 20 128 L 28 132 L 23 138 L 13 141 L 8 154 L 24 147 L 38 131 L 57 115 L 63 117 L 52 139 L 65 132 L 63 144 L 49 156 L 61 152 L 55 165 L 39 170 L 49 170 L 41 181 L 22 176 L 14 181 L 25 190 L 17 194 L 8 187 L 13 200 L 0 194 L -13 200 L -8 187 L -17 194 L -25 190 L -14 181 L -22 176 L -41 181 L -49 170 L -39 170 L -55 165 L -61 152 L -49 156 L -63 144 L -65 132 L -52 139 L -63 117 L -57 115 L -38 131 L -24 147 Z';
+    s += tinta(d, C.ink);
+    s += `<circle cx="-19" cy="132" r="1.2" fill="${C.bg}"/><circle cx="19" cy="132" r="1.2" fill="${C.bg}"/>`;
+    s += `<path d="M -15 152 Q 0 143 15 152 L 12 174 Q 0 183 -12 174 Z" fill="${C.sand}"/>`;
+    s += `<path d="M -36 148 L -50 136 M -32 155 L -47 148 M 36 148 L 50 136 M 32 155 L 47 148" fill="none" stroke="${C.cMid}" stroke-width="1.2"/>`;
+    // Nessun blasone, monogramma, corona o stemma leggibile sul petto.
+  } else if (id === 'ritratto_zar') {
+    s += campitura(macchia(-37, 100, 74, 100, r, 0), C.sand);
+    s += tinta(macchia(-28, 109, 56, 82, r, 0), C.p2);
+    s += inchiostro(bordo(-33, 104, 66, 92, r, 0.4, 0) + ' ' + bordo(-28, 109, 56, 82, r, 0.3, 0), 0.9);
+    s += `<ellipse cx="0" cy="138" rx="10" ry="14" fill="${C.cMid}"/>`;
+    s += tinta('M -6 150 L 7 150 L 10 156 Q 24 159 25 183 L -25 183 Q -23 159 -10 156 Z', C.ink);
+    s += inchiostro('M -4 153 L 0 169 L 5 153', 0.8, 0.7);
+    // Il volto è una campitura senza lineamenti; abito privo di decorazioni di rango.
+  } else if (id === 'statua_zar') {
+    s += campitura('M -42 187 L 42 187 L 46 200 L -46 200 Z', C.cMid);
+    s += campitura('M -31 156 L 31 156 L 31 187 L -31 187 Z', C.cLight);
+    s += campitura('M -37 151 L 37 151 L 37 157 L -37 157 Z', C.cMid);
+    s += '<g id="effigie" data-pivot="0 151">';
+    s += `<ellipse cx="0" cy="68" rx="10" ry="12" fill="${C.cDark}"/>`;
+    s += campitura('M -8 81 L 11 81 L 20 95 L 17 121 L 20 145 L 13 151 L -17 151 L -21 145 L -15 121 L -22 94 Z', C.cMid);
+    s += tinta('M -19 90 L -28 118 L -22 130 L -17 122 L -9 98 M 10 91 L 28 108 L 25 114 L 8 108 Z', C.cDark);
+    s += inchiostro('M -2 95 L -6 139 M 8 113 L 12 140 M -12 145 L -10 150 M 8 146 L 9 151', 1.1) + '</g>';
+  } else if (id === 'bara' || id === 'bara_rossa') {
+    // Stessa geometria per le due varianti, senza croci o iscrizioni.
+    const colore = id === 'bara' ? C.ink : C.red;
+    s += tinta('M -74 174 L -53 159 L 54 159 L 74 174 L 65 200 L -65 200 Z', colore);
+    s += `<path d="M -74 174 L 74 174 M -53 164 L 53 164 M -60 193 L 60 193" fill="none" stroke="${C.cMid}" stroke-width="1.1"/>`;
+    for (const x of [-42, 0, 42]) s += `<path d="M ${x - 5} 181 L ${x - 5} 187 L ${x + 5} 187 L ${x + 5} 181" fill="none" stroke="${C.cLight}" stroke-width="1.6"/>`;
+  } else if (id === 'elefante_circo') {
+    // Disegno nuovo: animale da circo a terra, senza gabbia, baldacchino o gioielli.
+    s += tinta('M -91 124 L -65 128 L -64 190 L -57 200 L -82 200 L -88 176 Z M 28 126 L 48 126 L 48 190 L 55 200 L 32 200 L 28 171 Z', C.cDark);
+    s += '<g id="coda" data-pivot="-109 86">';
+    s += inchiostro('M -109 86 Q -128 106 -130 139 L -133 156', 2.2);
+    s += tinta('M -134 150 L -129 150 L -126 164 L -136 163 Z', C.ink) + '</g>';
+    s += campitura('M -112 91 Q -108 54 -70 48 Q -34 37 15 52 Q 51 50 69 76 L 68 123 Q 34 147 -8 151 L -67 148 Q -110 139 -112 91 Z', C.cMid);
+    s += campitura('M -99 119 L -73 131 L -80 174 L -76 200 L -102 200 L -105 176 Z M 39 123 L 66 116 L 65 176 L 70 200 L 44 200 L 39 174 Z', C.cMid);
+    s += '<g id="proboscide" data-pivot="79 90">';
+    s += campitura('M 68 75 Q 101 70 111 97 L 113 153 Q 116 177 131 165 L 140 170 Q 133 197 111 190 Q 94 187 94 160 L 91 113 L 70 112 Z', C.cMid);
+    s += inchiostro('M 102 126 L 111 126 M 103 137 L 112 137 M 104 148 L 112 148 M 108 170 Q 114 178 122 175', 0.8) + '</g>';
+    s += campitura('M 43 64 Q 68 44 87 71 Q 101 98 76 128 Q 45 126 39 99 Z', C.cMid);
+    s += inchiostro('M 54 75 Q 39 99 67 119 M -80 72 Q -52 62 -23 68 M -51 137 Q -27 143 2 137', 1, 0.6);
+    s += `<circle cx="94" cy="87" r="2.2" fill="${C.ink}"/>`;
+    s += tinta('M 89 110 Q 107 120 118 112 Q 111 129 91 120 Z', C.bg);
+    s += inchiostro('M -98 194 L -98 199 M -90 194 L -90 199 M 49 194 L 49 199 M 59 194 L 59 199', 0.9);
+  } else if (id === 'fiori') {
+    s += `<g transform="translate(0 194.61)">${drawMazzo()}</g>`;
+  } else if (id === 'manifesto_prestito') {
+    s += campitura('M -41 84 L 42 84 L 42 200 L -42 200 L -42 91 Z', C.p2);
+    s += tinta('M -35 91 L 35 91 L 35 193 L -35 193 Z', C.bg);
+    s += inchiostro(bordo(-35, 91, 70, 102, r, 0.35, 0), 0.8);
+    s += tinta('M 30 191 L 42 183 L 42 200 L 30 200 Z', C.sand);
+    // Il riquadro resta davvero vuoto: niente righe che simulino testo o slogan.
+  } else if (id === 'mitragliatrice') {
+    s += inchiostro('M -64 197 L -19 177 L 14 178 M -24 181 L -21 164', 4);
+    s += `<g id="ruota-2" data-pivot="-11 180">${ruota(-11, 180, 12, r)}</g>`;
+    s += campitura('M 0 136 L 13 134 L 22 177 L -3 177 Z', C.cDark);
+    s += campitura('M -42 145 L 7 145 L 7 164 L -39 164 Z', C.cMid);
+    s += campitura('M 7 148 L 58 148 L 58 159 L 7 159 Z', C.cDark);
+    s += tinta('M 58 151 L 67 151 L 67 156 L 58 156 Z', C.ink);
+    s += inchiostro('M -42 146 L -49 144 L -49 156 M -38 164 L -44 173 M 49 148 L 49 142 L 53 142 M -20 143 L -20 139 L -10 139 L -10 144', 2);
+    s += `<g id="ruota-1" data-pivot="-22 185">${ruota(-22, 185, 14, r)}</g>`;
+    // Solo sagoma esterna. Niente marcature, accessori moderni o fiammate.
+  } else if (id === 'carriola') {
+    s += inchiostro(riga(-65, 153, 42, 172, r, 0.4, 0) + ' ' + riga(-62, 158, 42, 177, r, 0.4, 0), 3);
+    s += campitura('M -39 143 L 26 145 L 19 167 L -27 165 Z', C.sand);
+    s += inchiostro('M -26 165 L -29 198 L -18 198 M 13 169 L 8 198 L 18 198', 3);
+    s += inchiostro(riga(-32, 150, 21, 152, r, 0.3, 0) + ' ' + riga(-29, 158, 18, 159, r, 0.3, 0), 0.8);
+    s += `<g id="ruota" data-pivot="43 184">${ruota(43, 184, 15, r)}</g>`;
+  } else throw new Error('Oggetto sconosciuto: ' + id);
+  return `<g transform="translate(${ox} ${oy})">${s}</g>`;
+}
+
+function tavolino(x, y, r) {
+  let s = inchiostro(`M ${x} ${y + 4} L ${x} 395 M ${x} 384 L ${x - 23} 399 M ${x} 384 L ${x + 23} 399`, 2.4);
+  s += `<ellipse cx="${x}" cy="${y}" rx="54" ry="11" fill="${C.sand}" stroke="${C.ink}" stroke-width="1.2"/>`;
+  s += inchiostro(linea(puntiArco(x, y, 48, 8, 0, Math.PI, 14), r, 0.35, 12), 0.7);
+  for (const dx of [-76, 76]) {
+    s += inchiostro(`M ${x + dx - 13} 345 L ${x + dx - 13} 309 Q ${x + dx} 290 ${x + dx + 13} 309 L ${x + dx + 13} 345 M ${x + dx - 15} 347 L ${x + dx + 15} 347 M ${x + dx - 10} 348 L ${x + dx - 14} 398 M ${x + dx + 10} 348 L ${x + dx + 15} 398`, 2);
+  }
+  return s;
+}
+function lampadario(x, r, numero) {
+  let s = `<g id="lampadario-${numero}" data-pivot="${x} 70">`;
+  s += inchiostro(`M ${x} 70 L ${x} 121 M ${x - 46} 146 Q ${x} 177 ${x + 46} 146 M ${x - 33} 130 Q ${x} 152 ${x + 33} 130`, 2);
+  for (const [dx, y] of [[-46, 146], [-24, 156], [0, 159], [24, 156], [46, 146], [-33, 130], [33, 130]]) {
+    s += `<path d="M ${x + dx - 4} ${y} L ${x + dx + 4} ${y} L ${x + dx + 3} ${y - 8} L ${x + dx - 3} ${y - 8} Z" fill="${C.sand}" stroke="${C.ink}" stroke-width="0.8"/>`;
+    s += inchiostro(`M ${x + dx} ${y + 5} L ${x + dx} ${y + 13}`, 0.8);
+    s += tinta(macchiaP([[x + dx, y + 13], [x + dx + 3, y + 18], [x + dx, y + 23], [x + dx - 3, y + 18]], r, 0.2), C.cLight);
+  }
+  return s + '</g>';
+}
+function drawAmbiente1917(id, ox = 0, oy = 0) {
+  const r = rng(3201 + ITEMS.findIndex(v => v.id === id));
+  let s = '';
+  if (id === 'caffe') {
+    s += campitura(macchia(-420, 54, 840, 334, r, 0), C.p2);
+    s += tinta(macchia(-420, 278, 840, 110, r, 0), C.cMid);
+    for (let x = -406; x < 400; x += 74) s += inchiostro(bordo(x, 291, 58, 84, r, 0.4, 0), 0.8);
+    for (const x of [-330, 240]) {
+      s += tinta(macchia(x, 94, 90, 160, r, 0), C.sky);
+      s += inchiostro(bordo(x, 94, 90, 160, r, 0.5, 0) + ' ' + riga(x + 45, 94, x + 45, 254, r, 0.3, 0) + ' ' + riga(x, 167, x + 90, 167, r, 0.3, 0), 1.3);
+    }
+    // Cartello completamente vuoto, distinto dalla parete con una cornice scura.
+    s += campitura(macchia(-82, 120, 164, 62, r, 0), C.sand);
+    s += tinta(macchia(-73, 128, 146, 46, r, 0), C.bg);
+    s += inchiostro(bordo(-73, 128, 146, 46, r, 0.3, 0), 0.9);
+    s += inchiostro(riga(-425, 63, 425, 63, r, 0.6, 2) + ' ' + riga(-420, 278, 420, 278, r, 0.5, 0), 1.5);
+    s += tinta(macchia(-430, 388, 860, 12, r, 0), C.sand);
+    s += tavolino(-265, 323, r) + tavolino(0, 330, r) + tavolino(265, 323, r);
+  } else if (id === 'teatro_palco') {
+    s += campitura(macchia(-500, 34, 1000, 354, r, 0), C.p2);
+    // Boccascena sul lato sinistro, ordini di logge arretrati sulla destra.
+    s += tinta(macchia(-446, 100, 440, 232, r, 0), C.cDark);
+    s += campitura(macchia(-466, 78, 480, 24, r, 0), C.sand);
+    for (const x of [-465, 3]) s += campitura(macchia(x, 101, 14, 231, r, 0), C.sand);
+    s += '<g id="sipario" data-pivot="-446 102">';
+    s += tinta('M -446 102 L -226 102 Q -284 161 -359 156 L -378 330 L -446 330 Z M -226 102 L -6 102 L -6 330 L -74 330 L -94 156 Q -166 161 -226 102 Z', C.red);
+    s += inchiostro('M -432 113 L -424 319 M -408 121 L -402 319 M -382 132 L -384 304 M -22 113 L -29 318 M -47 125 L -52 317 M -72 137 L -70 302', 1, 0.75) + '</g>';
+    s += tinta('M -446 332 L -6 332 L 15 351 L -467 351 Z', C.sand);
+    for (const y of [124, 202]) {
+      for (const x of [58, 173, 288, 403]) {
+        s += tinta(macchia(x, y, 87, 52, r, 0), C.cDark);
+        s += campitura(macchia(x - 4, y + 44, 95, 14, r, 0), C.sand, 0.7);
+      }
+    }
+    // Il palco in primo piano ha accesso aperto, parapetto e tendaggi. Nessuna aquila fissa.
+    s += tinta(macchia(130, 198, 310, 163, r, 0), C.cDark);
+    s += campitura('M 119 196 L 162 159 L 402 159 L 447 196 Z', C.sand);
+    s += inchiostro('M 157 180 Q 280 145 407 180 M 168 187 L 396 187', 1.2);
+    for (const x of [124, 430]) s += campitura(macchia(x, 198, 14, 174, r, 0), C.sand);
+    s += tinta('M 138 198 L 195 198 L 177 286 L 139 293 Z M 373 198 L 430 198 L 429 293 L 390 286 Z', C.red);
+    s += tinta('M 130 351 L 440 351 L 453 388 L 117 388 Z', C.sand);
+    s += inchiostro('M 126 359 L 445 359 M 130 381 L 442 381', 1.3);
+    for (let x = 146; x < 431; x += 29) s += inchiostro(bordo(x, 365, 18, 11, r, 0.3, 0), 0.7);
+    s += tinta(macchia(-510, 388, 1020, 12, r, 0), C.cMid);
+  } else if (id === 'salone_lampadari') {
+    s += campitura(macchia(-480, 50, 960, 338, r, 0), C.p2);
+    s += inchiostro(riga(-485, 63, 485, 63, r, 0.6, 2) + ' ' + riga(-480, 74, 480, 74, r, 0.4, 0), 1.5);
+    for (const x of [-420, -180, 60, 300]) {
+      s += campitura(macchia(x, 118, 120, 198, r, 0), C.sand, 0.8);
+      s += tinta(macchia(x + 8, 126, 104, 182, r, 0), C.cLight);
+      s += inchiostro(bordo(x + 8, 126, 104, 182, r, 0.3, 0), 0.8);
+    }
+    for (const x of [-466, -240, 0, 240, 464]) {
+      s += campitura(macchia(x - 9, 82, 18, 287, r, 0), C.bg, 0.9);
+      s += tinta(macchia(x - 16, 82, 32, 11, r, 0) + ' ' + macchia(x - 16, 362, 32, 9, r, 0), C.sand);
+    }
+    s += tinta(macchia(-480, 374, 960, 26, r, 0), C.sand);
+    let parquet = '';
+    for (let x = -480; x < 480; x += 38) parquet += riga(x, 375, x + 26, 399, r, 0.25, 0) + ' ';
+    s += inchiostro(parquet, 0.75, 0.7);
+    s += lampadario(-260, r, 1) + lampadario(0, r, 2) + lampadario(260, r, 3);
+    // Tavolo con pacchi di fogli senza scritte, separati dalla decorazione del salone.
+    s += campitura(macchia(88, 335, 270, 9, r, 0), C.sand);
+    s += inchiostro('M 106 345 L 106 398 M 340 345 L 340 398', 3);
+    for (const [x, y, w] of [[110, 323, 66], [187, 315, 72], [272, 324, 60]]) {
+      s += campitura(macchia(x, y, w, 335 - y, r, 0), C.bg, 0.7);
+      for (let yy = y + 4; yy < 333; yy += 4) s += inchiostro(riga(x + 1, yy, x + w - 1, yy, r, 0.15, 0), 0.5);
+    }
+  } else throw new Error('Ambiente sconosciuto: ' + id);
+  return `<g transform="translate(${ox} ${oy})">${s}</g>`;
+}
+
+function drawLuogo1917(id, ox = 0, oy = 0) {
+  if (id !== 'palazzo_tauride') throw new Error('Luogo sconosciuto: ' + id);
+  const r = rng(3301);
+  let s = '';
+  // Composizione orizzontale neoclassica: corpo centrale, gallerie e due padiglioni.
+  for (const [x, w, top] of [[-550, 210, 288], [-340, 200, 318], [-140, 280, 246], [140, 200, 318], [340, 210, 288]]) {
+    s += campitura(macchia(x, top, w, 388 - top, r, 0), C.cLight);
+    s += inchiostro(riga(x - 3, top - 4, x + w + 3, top - 4, r, 0.4, 0), 1.6);
+    for (let xx = x + 16; xx < x + w - 12; xx += 35) {
+      s += tinta(macchia(xx, top + 19, 13, 31, r, 0), C.cDark);
+      if (top < 300) s += tinta(macchia(xx, top + 63, 13, 29, r, 0), C.cDark);
+    }
+  }
+  // Cupola bassa su tamburo, senza bulbo o coronamento barocco.
+  s += campitura('M -72 220 Q -69 171 0 168 Q 69 171 72 220 Z', C.cMid);
+  s += campitura(macchia(-73, 218, 146, 25, r, 0), C.cLight);
+  s += inchiostro('M -73 225 L 73 225 M -50 232 L -50 242 M -25 232 L -25 242 M 0 232 L 0 242 M 25 232 L 25 242 M 50 232 L 50 242', 0.9);
+  s += tinta('M -100 298 L 100 298 L 100 377 L -100 377 Z', C.cDark);
+  // Portico dorico esastilo: sei colonne senza volute.
+  s += campitura('M -147 279 L 0 218 L 147 279 Z', C.p2);
+  s += inchiostro('M -126 273 L 0 229 L 126 273 Z', 0.9);
+  s += campitura(macchia(-147, 279, 294, 14, r, 0), C.cLight);
+  for (const x of [-115, -69, -23, 23, 69, 115]) {
+    s += campitura('M ' + (x - 7) + ' 300 L ' + (x + 7) + ' 300 L ' + (x + 9) + ' 377 L ' + (x - 9) + ' 377 Z', C.bg, 0.9);
+    s += tinta(macchia(x - 12, 293, 24, 7, r, 0), C.sand);
+    s += inchiostro(riga(x - 3, 303, x - 4, 373, r, 0.25, 0), 0.6, 0.65);
+  }
+  // Portici dei padiglioni laterali a quattro colonne, più bassi del centrale.
+  for (const cx of [-445, 445]) {
+    s += tinta(macchia(cx - 68, 312, 136, 65, r, 0), C.cDark);
+    s += campitura(macchia(cx - 76, 306, 152, 8, r, 0), C.p2, 0.9);
+    for (const dx of [-54, -18, 18, 54]) {
+      s += tinta(macchia(cx + dx - 6, 314, 12, 63, r, 0), C.bg);
+      s += inchiostro(bordo(cx + dx - 6, 314, 12, 63, r, 0.25, 0), 0.75);
+    }
+  }
+  s += campitura(macchia(-158, 377, 316, 11, r, 0), C.cMid);
+  s += tinta('M -560 388 L 560 388 L 560 400 L -560 400 Z', C.cMid);
+  s += inchiostro(riga(-550, 394, 550, 394, r, 0.35, 0), 1);
+  return `<g transform="translate(${ox} ${oy})">${s}</g>`;
+}
+// AVVIO
+(function () {
+  for (const [nome, valore] of Object.entries(C)) document.documentElement.style.setProperty('--' + nome, valore);
+  const griglia = document.getElementById('griglia');
+  ITEMS.forEach((v, i) => {
+    const draw = v.famiglia === 'oggetti' ? drawOggetto : v.famiglia === 'ambienti' ? drawAmbiente1917 : drawLuogo1917;
+    const fig = document.createElement('figure');
+    const markup = (`<defs>${getDefs()}</defs>` + draw(v.id)).replace(/id="([^"]+)"/g, (_, n) => `id="anteprima-${i}-${n}"`).replace(/url\(#([^)]+)\)/g, (_, n) => `url(#anteprima-${i}-${n})`);
+    fig.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${v.box.join(' ')}" role="img" aria-label="${v.label}">${markup}</svg><figcaption>${v.label}<small>${v.famiglia} / bozza</small></figcaption>`;
+    griglia.appendChild(fig);
+  });
+})();
+</script>
+</body>
+</html>
