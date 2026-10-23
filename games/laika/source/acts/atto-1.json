@@ -21,6 +21,24 @@
       "label": "Un osservatore della corte",
       "actorId": "corte",
       "mandate": "Guardare da vicino la corte e ricordare che cosa succede intanto nei villaggi."
+    },
+    {
+      "id": "famiglia-numerosa",
+      "label": "La famiglia con molte bocche",
+      "actorId": "famiglia",
+      "mandate": "Avere abbastanza terra per sfamare tutta la casa."
+    },
+    {
+      "id": "anziano",
+      "label": "L'anziano del lotto curato",
+      "actorId": "famiglia",
+      "mandate": "Non perdere il lotto che hai concimato e curato per anni."
+    },
+    {
+      "id": "figlio",
+      "label": "Il figlio in città",
+      "actorId": "famiglia",
+      "mandate": "Sopravvivere in città senza perdere il legame con il villaggio."
     }
   ],
   "metrics": [
@@ -53,6 +71,13 @@
       "min": 0,
       "max": 150,
       "start": 60
+    },
+    {
+      "id": "forze",
+      "label": "Forze del figlio",
+      "min": 0,
+      "max": 100,
+      "start": 50
     }
   ],
   "relations": [],
@@ -1703,6 +1728,346 @@
       },
       "text": "Una domanda sul 1861. Non valuta le scelte che hai fatto nella partita.",
       "stageId": "a1-u1-manifesto"
+    },
+    {
+      "id": "a1-u2-mir",
+      "type": "role_crisis",
+      "roleId": "famiglia-numerosa",
+      "roles": [
+        "famiglia-numerosa",
+        "anziano"
+      ],
+      "title": "L'assemblea del mir",
+      "context": {
+        "kind": "simulation",
+        "dateLabel": "1861–1904",
+        "placeLabel": "Un villaggio della Russia centrale"
+      },
+      "text": "Dopo il 1861 la terra si riscatta insieme e il villaggio risponde insieme dei pagamenti. In molti villaggi l'assemblea del mir si riunisce di tanto in tanto davanti alle isbe per decidere se rifare la divisione delle strisce.\n\nUna famiglia con molte bocche da sfamare vuole più terra. Un anziano che per anni ha concimato e curato il suo lotto non vuole perderlo. Tutti e due hanno una ragione. Puoi guardare la scena dall'una o dall'altra parte; poi l'assemblea decide.",
+      "stageId": "a1-u2-mir",
+      "motionId": "ingresso",
+      "exposes": [
+        "a1-mir"
+      ],
+      "visualExplanation": "Davanti alle isbe: a sinistra la famiglia con i bambini, a destra l'anziano; al centro chi guida la discussione. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
+      "choices": [
+        {
+          "id": "bocche",
+          "label": "Rifare la divisione in base al numero delle bocche",
+          "feedback": "La famiglia numerosa ottiene strisce in più e l'anziano ne perde. Il villaggio si sente più giusto; ma chi ha curato il suo lotto si chiede perché continuare a farlo.",
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "legami",
+              "delta": 6
+            },
+            {
+              "kind": "metric",
+              "id": "speranza",
+              "delta": 4
+            }
+          ]
+        },
+        {
+          "id": "lotti",
+          "label": "Lasciare a ciascuno il lotto che ha",
+          "feedback": "L'anziano tiene il suo lotto curato. La famiglia numerosa resta con la stessa terra e più bocche da sfamare: chi ha poco si sente messo da parte.",
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "legami",
+              "delta": -6
+            },
+            {
+              "kind": "metric",
+              "id": "speranza",
+              "delta": -2
+            }
+          ]
+        },
+        {
+          "id": "nuove",
+          "label": "Dividere soltanto le strisce nuove di prato e di bosco",
+          "feedback": "Nessuno perde ciò che ha e nessuno ottiene tutto ciò che chiede. La discussione si ripeterà l'anno dopo.",
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "legami",
+              "delta": 2
+            },
+            {
+              "kind": "metric",
+              "id": "speranza",
+              "delta": 1
+            }
+          ]
+        }
+      ],
+      "editorial": {
+        "sources": [
+          "I2-01",
+          "I2-02"
+        ],
+        "scheda": "I.2-e1"
+      }
+    },
+    {
+      "id": "a1-u2-citta",
+      "type": "narrative",
+      "roleId": "figlio",
+      "title": "In città",
+      "display": "cards",
+      "context": {
+        "kind": "documented",
+        "dateLabel": "1861–1904",
+        "placeLabel": "Pietroburgo"
+      },
+      "text": "Il figlio della famiglia lascia il villaggio e arriva a Pietroburgo. Lì lo aspetta una fabbrica.\n\nIl salario è basso. La polizia può essere violenta. Gli operai non hanno libertà di associarsi né di stampare ciò che pensano: la vita dell'operaio dipende dalla forza del padrone.\n\nIl figlio dorme in un angolo di stanza in affitto. Spesso la sera pensa al villaggio.\n\nAnche chi veste una divisa trova porte chiuse. Secondo Miéville i soldati di truppa non potevano prendere il tram né mangiare nei ristoranti: bastava l'uniforme a tenerli fuori.\n\nSi è più liberi in città che al villaggio? In città nessuno può venderti o regalarti. Ma ogni gradino della società ha le sue porte chiuse.",
+      "stageId": "a1-u2-citta",
+      "motionId": "ingresso",
+      "exposes": [
+        "a1-citta"
+      ],
+      "visualExplanation": "A sinistra il villaggio con le isbe; a destra la fabbrica. Il figlio (in rosso) attraversa lo spazio fra i due mondi. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
+      "editorial": {
+        "sources": [
+          "I2-03",
+          "I2-04",
+          "I2-05"
+        ],
+        "scheda": "I.2-e2"
+      }
+    },
+    {
+      "id": "a1-u2-salario",
+      "type": "resource_allocation",
+      "roleId": "figlio",
+      "title": "Il salario della settimana",
+      "budget": 6,
+      "context": {
+        "kind": "simulation",
+        "dateLabel": "1861–1904",
+        "placeLabel": "Pietroburgo"
+      },
+      "text": "È sabato. In tasca c'è il salario della settimana: sei pezzi e quattro modi di spenderli.\n\nIl pane ti tiene in forze per il lavoro. L'angolo di stanza ti dà un posto dove dormire. Il carbone scalda l'inverno. I soldi mandati al villaggio tengono vivo il legame con la famiglia.\n\nNon basta per tutto. Distribuisci tutti e sei i pezzi.",
+      "stageId": "a1-u2-stanza",
+      "motionId": "ingresso",
+      "visualExplanation": "Un angolo di stanza: sul tavolo il salario da dividere. Il disegno è una stanza contadina usata come immagine di un alloggio povero: non è una ricostruzione di una casa di Pietroburgo. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
+      "buckets": [
+        {
+          "id": "pane",
+          "label": "Pane",
+          "max": 4,
+          "perUnit": [
+            {
+              "kind": "resource",
+              "id": "forze",
+              "delta": 8
+            }
+          ]
+        },
+        {
+          "id": "stanza",
+          "label": "L'angolo di stanza",
+          "max": 2,
+          "perUnit": [
+            {
+              "kind": "resource",
+              "id": "forze",
+              "delta": 5
+            }
+          ]
+        },
+        {
+          "id": "carbone",
+          "label": "Carbone",
+          "max": 3,
+          "perUnit": [
+            {
+              "kind": "resource",
+              "id": "forze",
+              "delta": 5
+            }
+          ]
+        },
+        {
+          "id": "villaggio",
+          "label": "Soldi al villaggio",
+          "max": 4,
+          "perUnit": [
+            {
+              "kind": "metric",
+              "id": "legami",
+              "delta": 8
+            }
+          ]
+        }
+      ],
+      "effects": [
+        {
+          "kind": "resource",
+          "id": "forze",
+          "delta": -25
+        }
+      ],
+      "feedback": "La settimana di lavoro ti ha stancato. Ciò che hai scelto di pagare ha deciso come arrivi alla fine: più in forze oppure più vicino al villaggio. Gli indicatori sono indici della simulazione.",
+      "editorial": {
+        "sources": [],
+        "scheda": "I.2-e3",
+        "note": "Simulazione [S]: pezzi e coefficienti del modello."
+      }
+    },
+    {
+      "id": "a1-u2-razzo",
+      "type": "narrative",
+      "roleId": "osservatore",
+      "title": "Il razzo del condannato",
+      "display": "cards",
+      "context": {
+        "kind": "documented",
+        "dateLabel": "1881–1892",
+        "placeLabel": "Pietroburgo e Kaluga"
+      },
+      "text": "Nel 1881 lo zar Alessandro II, detto il liberatore perché ha firmato la fine della servitù, è ucciso a Pietroburgo da una bomba dei rivoluzionari.\n\nUno di loro, Nikolaj Kibalčič, è arrestato. In cella aspetta l'esecuzione; e intanto disegna una macchina volante a razzo. Il progetto finisce in un archivio di polizia.\n\nResta lì per anni. Solo dopo la rivoluzione uno studioso, Rynin, lo ritrova negli archivi e lo pubblica. Oggi un cratere sul lato nascosto della Luna porta il nome di Kibalčič.\n\nNegli stessi anni un maestro di scuola quasi sordo, Konstantin Ciolkovskij, comincia a fare i conti per uscire dalla Terra. Dal 1892 vive a Kaluga.\n\nPerché chi vuole cambiare il mondo sogna di volare? Tieni a mente questo foglio: il cielo tornerà.",
+      "stageId": "a1-u2-cella",
+      "motionId": "ingresso",
+      "exposes": [
+        "a1-razzo"
+      ],
+      "visualExplanation": "Una cella e un foglio: il disegno della cella e del razzo non esiste ancora nella bottega, per ora c'è solo la figura seduta con un foglio. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
+      "editorial": {
+        "sources": [
+          "I2-06",
+          "I2-07",
+          "I2-08",
+          "I2-09"
+        ],
+        "scheda": "I.2-e4"
+      }
+    },
+    {
+      "id": "a1-u2-corte",
+      "type": "narrative",
+      "roleId": "osservatore",
+      "title": "La corte dell'ultimo secolo",
+      "display": "cards",
+      "context": {
+        "kind": "documented",
+        "dateLabel": "1881–1903",
+        "placeLabel": "Mosca e Pietroburgo"
+      },
+      "text": "Alessandro III ha una forza fuori dal comune. Per divertire gli ospiti piega attizzatoi di ferro e strappa mazzi di carte. Considera troppo numerosa e costosa la famiglia dei Romanov: un granduca può ricevere 250.000 rubli l'anno e una granduchessa ha una dote di un milione. Restringe le regole su chi può avere certi titoli e privilegi.\n\nNel 1896 per l'incoronazione di Nicola II si promette a una folla immensa un piccolo dono: pane, dolci e una tazza smaltata. Sul campo di Chodynka l'organizzazione dei varchi e le condizioni del terreno provocano una calca mortale. Non è la follia della folla: la responsabilità sta nel modo in cui l'evento è stato preparato.\n\nIl ballo dell'ambasciatore francese si tiene lo stesso. La sorella di Nicola annota quanto è penoso sentire suonare l'inno mentre fuori portano ancora via i morti.\n\nNel 1903 la corte si traveste da Seicento: Nicola è lo zar Alessio e Aleksandra una zarina coperta di gemme. Il granduca Aleksandr Michajlovič ricorda che mentre la corte ballava gli operai scioperavano.\n\nChe cosa vede un sovrano dal suo palazzo? E che cosa non riesce più a vedere?",
+      "stageId": "a1-u2-corte",
+      "motionId": "ingresso",
+      "exposes": [
+        "a1-corte"
+      ],
+      "visualExplanation": "A sinistra il palazzo con la corte che balla; a destra la fabbrica con gli operai fermi. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
+      "editorial": {
+        "sources": [
+          "C30",
+          "C31",
+          "C34",
+          "C35",
+          "C37"
+        ],
+        "scheda": "I.2-e5"
+      }
+    },
+    {
+      "id": "a1-u2-volantini",
+      "type": "source_comparison",
+      "roleId": "figlio",
+      "title": "Tre volantini",
+      "context": {
+        "kind": "source",
+        "dateLabel": "1904",
+        "placeLabel": "Fabbrica e villaggio"
+      },
+      "text": "Nella fabbrica e al villaggio circolano tre fogli. Il primo parla di costituzione e di parlamento. Il secondo parla di terra. Il terzo parla di operai.\n\nDal 1903 i socialdemocratici sono divisi in due gruppi: i bolscevichi di Lenin vogliono un partito di pochi rivoluzionari di mestiere; i menscevichi vogliono un partito più largo. Un vecchio operaio (personaggio inventato) lo spiega al figlio con parole sue: «Quelli di Lenin vogliono pochi che facciano solo quello; gli altri vogliono tanta gente e più pazienza».\n\nApri tutti e tre i fogli e confrontali.",
+      "stageId": "a1-u2-volantini",
+      "motionId": "ingresso",
+      "exposes": [
+        "a1-volantini"
+      ],
+      "visualExplanation": "Tre persone leggono tre fogli diversi fra il villaggio e la fabbrica. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
+      "sources": [
+        {
+          "id": "cadetti",
+          "title": "Il foglio dei cadetti",
+          "text": "Una costituzione. Un parlamento eletto. La divisione dei poteri. La libertà di riunirsi e di associarsi.",
+          "provenance": "Testo ricostruito per il gioco dagli appunti «La Rivoluzione Russa» (sezione «La Russia alla vigilia della Rivoluzione»): non è un volantino d'epoca."
+        },
+        {
+          "id": "sr",
+          "title": "Il foglio dei socialrivoluzionari",
+          "text": "La terra a chi la lavora. Una vita meno dura per chi zappa. Un cambiamento che parte dalle campagne.",
+          "provenance": "Testo ricostruito per il gioco dagli appunti «La Rivoluzione Russa» (sezione «La Russia alla vigilia della Rivoluzione»): non è un volantino d'epoca."
+        },
+        {
+          "id": "sd",
+          "title": "Il foglio dei socialdemocratici",
+          "text": "Gli operai sono la forza che cambierà la storia. Un partito organizzato come quelli d'Occidente.",
+          "provenance": "Testo ricostruito per il gioco dagli appunti «La Rivoluzione Russa» (sezione «La Russia alla vigilia della Rivoluzione»): non è un volantino d'epoca."
+        }
+      ],
+      "choices": [
+        {
+          "id": "diversi",
+          "label": "Ogni foglio parla a un gruppo diverso e promette cose diverse",
+          "feedback": "I cadetti si rivolgono a chi vuole una costituzione; i socialrivoluzionari ai contadini; i socialdemocratici agli operai. Nessuno dei tre parla per tutti.",
+          "effects": []
+        },
+        {
+          "id": "uguali",
+          "label": "I tre fogli dicono la stessa cosa con parole diverse",
+          "feedback": "Non è così: chiedono cose diverse e si rivolgono a persone diverse. Costituzione e parlamento non sono la terra ai contadini né il potere degli operai.",
+          "effects": []
+        }
+      ],
+      "editorial": {
+        "sources": [
+          "I2-10",
+          "I2-11"
+        ],
+        "scheda": "I.2-e6"
+      }
+    },
+    {
+      "id": "a1-u2-ricorda",
+      "type": "narrative",
+      "roleId": "figlio",
+      "title": "Cosa ti devi ricordare",
+      "display": "cards",
+      "context": {
+        "kind": "documented",
+        "dateLabel": "1861–1904"
+      },
+      "text": "Tra il 1861 e il 1904 la Russia ha due volti. Nei villaggi il mir riscatta la terra insieme e ne ridistribuisce le strisce. In città le fabbriche crescono; ma gli operai non hanno la libertà di associarsi.\n\nIl mir non è un soviet né una democrazia moderna: è una comunità contadina con regole proprie. E molti operai restano legati al villaggio.\n\nLa corte vive come in un altro mondo. Nascono tre gruppi che parlano per persone diverse: i cadetti per una costituzione, i socialrivoluzionari per la terra e i socialdemocratici per gli operai.\n\nNel 1904 la sconfitta contro il Giappone si somma al malcontento che c'è già: salari bassi, mancanza di libertà e violenza della polizia.",
+      "stageId": "a1-u2-volantini",
+      "motionId": "ingresso",
+      "visualExplanation": "Il villaggio e la fabbrica nella stessa inquadratura. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
+      "editorial": {
+        "sources": [
+          "I2-01",
+          "I2-03",
+          "I2-10",
+          "I2-12"
+        ],
+        "scheda": "I.2 confronto"
+      }
+    },
+    {
+      "id": "a1-u2-e7",
+      "type": "assessment",
+      "roleId": "figlio",
+      "title": "Chi chiedeva che cosa",
+      "questionRef": "a1-v2",
+      "context": {
+        "kind": "assessment"
+      },
+      "text": "Una domanda sui tre gruppi del 1904. Non valuta le scelte che hai fatto nella partita.",
+      "stageId": "a1-u2-volantini"
     }
   ],
   "reconciliation": "Fine dell'unità I.1 (1700–1861). Per un secolo e mezzo la ricchezza si è contata in anime e il tempo di un servo apparteneva in parte al signore. La libertà del 1861 è vera, ma arriva senza la terra: la terra si paga per quarantanove anni e il villaggio risponde insieme dei debiti. Le tue scelte hanno cambiato soltanto la simulazione, non questi fatti. Le unità successive dell'Atto I (1861–1917) sono in preparazione: per ora il percorso si ferma qui.",

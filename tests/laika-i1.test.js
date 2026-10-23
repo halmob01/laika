@@ -30,6 +30,15 @@ function corvee(people, need) {
   }
   return best ? best.sel : people;
 }
+// Prossima mossa di un episodio che non è la partita: la più semplice che lo completa.
+function azione(e, a, answer) {
+  if (a.phase !== 'scene') return {type: 'advance'};
+  if (e.type === 'assessment') return {type: 'answer', answerId: e.question.id === 'a1-v1' ? answer : e.question.correctId};
+  if (e.type === 'choice' || e.type === 'role_crisis') return {type: 'select', choiceId: e.choices[0].id};
+  if (e.type === 'resource_allocation') { let left = e.budget; return {type: 'allocate', allocations: Object.fromEntries(e.buckets.map(b => { const n = Math.min(b.max, left); left -= n; return [b.id, n]; }))}; }
+  if (e.type === 'source_comparison') { const sv = e.sources.find(x => !a.viewedSources?.includes(e.id + ':' + x.id)) || null; return sv ? {type: 'inspect_source', sourceId: sv.id} : {type: 'select', choiceId: e.choices[0].id}; }
+  return {type: 'advance'};
+}
 function play(name, seed, {check = false, answer = 'liberta'} = {}) {
   let s = newSession(game, seed), k = seed.length, fame = 0;
   const T = (step, x = {}) => { s = transition(game, s, {type: 'turn', step, ...x}).nextState; };
@@ -58,7 +67,7 @@ function play(name, seed, {check = false, answer = 'liberta'} = {}) {
       else T('continue');
     } else {
       if (e.type === 'turn_game') fine = {...a.resources, ...a.metrics, fired: a.game.fired, built: a.game.built, fame};
-      s = transition(game, s, e.type === 'assessment' && a.phase === 'scene' ? {type: 'answer', answerId: answer} : {type: 'advance'}).nextState;
+      s = transition(game, s, azione(e, a, answer)).nextState;
     }
     if (check) { const back = restore(game, exportSave(game, s)); assert.equal(back.ok, true); assert.deepEqual(back.state, s); }
   }
@@ -86,8 +95,8 @@ test('I.1: cinque strategie arrivano tutte al 1861 e pagano prezzi diversi (ness
 
 test('I.1: salvataggio rigiocato identico a ogni mossa; verifica formativa raggiungibile', () => {
   const r = play('solidale', 'salvataggio', {check: true});
-  assert.equal(r.s.assessmentResults.length, 1);
-  const q = game.acts[0].episodes.find(e => e.type === 'assessment').question;
+  assert.equal(r.s.assessmentResults.length, 2, 'una verifica per unità: V1 e V2');
+  const q = game.acts[0].episodes.find(e => e.type === 'assessment' && e.question.id === 'a1-v1').question;
   assert.deepEqual(q.requiredExposureFlags, ['a1-manifesto']);
   assert.ok(play('furbo', 'sbagliata', {answer: 'terra'}).s.complete);
 });
@@ -107,4 +116,15 @@ test('I.1: i flag non compaiono nelle variazioni mostrate e Legami è un indicat
   const e = act.episodes.find(x => x.type === 'turn_game'), scena = JSON.parse(fs.readFileSync(new URL('../games/laika/source/scene/a1-u1-anno.json', import.meta.url), 'utf8'));
   const ids = new Set(scena.elementi.map(x => x.id));
   for (const p of e.projects) for (const id of Object.values(p.scene || {})) assert.ok(ids.has(id), 'disegno del lavoro mancante nella scena: ' + id);
+});
+
+test('I.2: la partita completa passa da mir, città, salario, razzo, corte e volantini fino alla V2', () => {
+  const r = play('solidale', 'i2', {check: true});
+  const ids = game.acts[0].episodes.filter(e => e.id.startsWith('a1-u2-')).map(e => e.id);
+  assert.deepEqual(ids, ['a1-u2-mir', 'a1-u2-citta', 'a1-u2-salario', 'a1-u2-razzo', 'a1-u2-corte', 'a1-u2-volantini', 'a1-u2-ricorda', 'a1-u2-e7']);
+  const v2 = game.acts[0].episodes.find(e => e.id === 'a1-u2-e7').question;
+  assert.deepEqual(v2.requiredExposureFlags, ['a1-volantini']);
+  assert.ok(r.s.complete);
+  const forze = game.acts[0].resources.find(x => x.id === 'forze');
+  assert.ok(forze && !forze.hidden, 'Forze del figlio è un indicatore visibile');
 });

@@ -1,0 +1,114 @@
+{
+  "viewBox": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "id": "a1-u2-citta",
+  "telefono": {
+    "centro": 0.6,
+    "zoom": 1.2
+  },
+  "etichetta": "Da sinistra a destra: il villaggio con le isbe e i campi, poi la città con la fabbrica e le ciminiere che fumano. Il figlio (in rosso) attraversa la soglia.",
+  "elementi": [
+    {
+      "id": "campi",
+      "simbolo": "luogo-pianura",
+      "x": 800,
+      "y": 900,
+      "scala": 2.9
+    },
+    {
+      "id": "villaggio",
+      "simbolo": "luogo-isbe",
+      "x": 280,
+      "y": 615,
+      "scala": 0.65
+    },
+    {
+      "id": "fabbrica",
+      "simbolo": "luogo-fabbrica",
+      "x": 1210,
+      "y": 645,
+      "scala": 0.45
+    }
+  ],
+  "figure": [
+    {
+      "id": "figlio",
+      "x": 420,
+      "y": 820,
+      "scala": 1.0,
+      "variante": "nessuna",
+      "posa": "cammina_1",
+      "ruolo": "protagonista"
+    },
+    {
+      "id": "operaio-1",
+      "x": 1090,
+      "y": 830,
+      "scala": 1.0,
+      "variante": "nessuna",
+      "posa": "in_piedi",
+      "abito": "cappotto",
+      "cappello": null,
+      "flip": true
+    },
+    {
+      "id": "operaio-2",
+      "x": 1190,
+      "y": 840,
+      "scala": 1.0,
+      "variante": "nessuna",
+      "posa": "in_piedi",
+      "abito": "cappotto",
+      "cappello": null,
+      "flip": true
+    },
+    {
+      "id": "operaia",
+      "x": 1290,
+      "y": 830,
+      "scala": 1.0,
+      "variante": "scialle",
+      "posa": "in_piedi",
+      "flip": true
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "Il figlio lascia il villaggio e arriva alla fabbrica.",
+      "passi": [
+        {
+          "azione": "walk",
+          "chi": "figlio",
+          "da": "sinistra",
+          "distanza": 420,
+          "a": 0,
+          "durata": 4200
+        }
+      ],
+      "battute": [
+        {
+          "a": 300,
+          "testo": "Il villaggio."
+        },
+        {
+          "a": 3800,
+          "testo": "La fabbrica."
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

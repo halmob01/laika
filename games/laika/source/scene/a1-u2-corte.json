@@ -1,0 +1,151 @@
+{
+  "viewBox": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "id": "a1-u2-corte",
+  "telefono": {
+    "centro": 0.45,
+    "zoom": 1.2
+  },
+  "etichetta": "Dentro il palazzo illuminato la corte danza in costume; fuori le ciminiere fumano e gli operai sono fermi.",
+  "elementi": [
+    {
+      "id": "campi",
+      "simbolo": "luogo-pianura",
+      "x": 800,
+      "y": 900,
+      "scala": 2.9
+    },
+    {
+      "id": "palazzo",
+      "simbolo": "luogo-palazzo",
+      "x": 430,
+      "y": 645,
+      "scala": 0.6
+    },
+    {
+      "id": "fabbrica",
+      "simbolo": "luogo-fabbrica",
+      "x": 1230,
+      "y": 645,
+      "scala": 0.42
+    }
+  ],
+  "figure": [
+    {
+      "id": "zar",
+      "x": 440,
+      "y": 780,
+      "scala": 1.0,
+      "variante": "mantello",
+      "posa": "in_piedi",
+      "cappello": null
+    },
+    {
+      "id": "zarina",
+      "x": 540,
+      "y": 780,
+      "scala": 1.0,
+      "variante": "vestito",
+      "posa": "in_piedi"
+    },
+    {
+      "id": "dama",
+      "x": 340,
+      "y": 790,
+      "scala": 0.95,
+      "variante": "vestito",
+      "posa": "gira"
+    },
+    {
+      "id": "cortigiano",
+      "x": 640,
+      "y": 790,
+      "scala": 0.95,
+      "variante": "mantello",
+      "posa": "saluta",
+      "cappello": null,
+      "flip": true
+    },
+    {
+      "id": "sciopero-1",
+      "x": 1090,
+      "y": 830,
+      "scala": 1.0,
+      "variante": "nessuna",
+      "posa": "in_piedi",
+      "abito": "cappotto",
+      "cappello": null,
+      "flip": true
+    },
+    {
+      "id": "sciopero-2",
+      "x": 1190,
+      "y": 840,
+      "scala": 1.0,
+      "variante": "nessuna",
+      "posa": "in_piedi",
+      "abito": "cappotto",
+      "cappello": null,
+      "flip": true
+    },
+    {
+      "id": "sciopero-3",
+      "x": 1300,
+      "y": 835,
+      "scala": 1.0,
+      "variante": "scialle",
+      "posa": "in_piedi",
+      "flip": true
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "La corte balla in costume; fuori gli operai non lavorano.",
+      "passi": [
+        {
+          "azione": "repeat",
+          "chi": [
+            "dama"
+          ],
+          "parti": {
+            "arm-near": -22,
+            "arm-far": -22
+          },
+          "a": 0,
+          "durata": 1200,
+          "cicli": 3
+        },
+        {
+          "azione": "speak",
+          "chi": "zar",
+          "a": 0,
+          "cicli": 3
+        }
+      ],
+      "battute": [
+        {
+          "a": 200,
+          "testo": "Dentro: il ballo."
+        },
+        {
+          "a": 2600,
+          "testo": "Fuori: lo sciopero."
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

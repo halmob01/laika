@@ -68,7 +68,7 @@ function render({motion=false,intro=false,sceneMotion=false,cue=null}={}) {
   if(e.context)panel.insertBefore(el('p',contextLabel(e.context),{class:'episode-context'}),panel.querySelector('h1'));
   if(s.phase==='outcome'){
     const outcome=el('div',undefined,{class:'outcome',role:'status'});outcome.append(el('p',s.last.feedback));
-    for(const c of s.last.changes)outcome.append(el('p',c.label+': '+c.before+' → '+c.after));panel.append(outcome);
+    for(const c of netChanges(s.last.changes))outcome.append(el('p',c.label+': '+c.before+' → '+c.after));panel.append(outcome);
   }else {const host=el('div',undefined,{id:'interaction'});panel.append(host);renderInteraction(e.type,{host,episode:e,act,state:s,seed:state.seed,dispatch,stageHost:$('stage'),stage});}
   if(s.phase==='outcome'||(e.type==='narrative'&&lastCard))(cards?panel.querySelector('.card-nav'):panel).append(button('Continua',()=>dispatch({type:'advance'}),{class:'primary','data-action':'advance'}));
 }

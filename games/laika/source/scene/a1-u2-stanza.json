@@ -1,0 +1,64 @@
+{
+  "viewBox": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "id": "a1-u2-stanza",
+  "telefono": {
+    "centro": 0.5,
+    "zoom": 1.2
+  },
+  "etichetta": "Un angolo di stanza in affitto: sul tavolo il salario della settimana, da dividere fra pane, stanza, carbone e soldi per il villaggio.",
+  "elementi": [
+    {
+      "id": "stanza",
+      "simbolo": "ambiente-isba-interno",
+      "x": 800,
+      "y": 860,
+      "scala": 1.05
+    },
+    {
+      "id": "cassa",
+      "simbolo": "oggetto-cassa",
+      "x": 1150,
+      "y": 830,
+      "scala": 0.9
+    }
+  ],
+  "figure": [
+    {
+      "id": "figlio",
+      "x": 700,
+      "y": 840,
+      "scala": 1.1,
+      "variante": "nessuna",
+      "posa": "in_piedi",
+      "ruolo": "protagonista"
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "Il salario della settimana è poco: bisogna scegliere.",
+      "passi": [
+        {
+          "azione": "speak",
+          "chi": "figlio",
+          "a": 0,
+          "cicli": 2
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "laika",
-  "contentVersion": "p3r-i1-3",
+  "contentVersion": "p3r-i2-1",
   "title": "LAIKA",
   "exposureFlags": [
     "a1-anime",
@@ -9,7 +9,12 @@
     "a1-inventari",
     "a1-anno",
     "a1-utopie",
-    "a1-manifesto"
+    "a1-manifesto",
+    "a1-mir",
+    "a1-citta",
+    "a1-razzo",
+    "a1-corte",
+    "a1-volantini"
   ],
   "acts": [
     {
@@ -26,7 +31,13 @@
     "source/scene/a1-u1-inverno-pieno.json",
     "source/scene/a1-u1-inverno-magro.json",
     "source/scene/a1-u1-utopie.json",
-    "source/scene/a1-u1-manifesto.json"
+    "source/scene/a1-u1-manifesto.json",
+    "source/scene/a1-u2-mir.json",
+    "source/scene/a1-u2-citta.json",
+    "source/scene/a1-u2-stanza.json",
+    "source/scene/a1-u2-cella.json",
+    "source/scene/a1-u2-corte.json",
+    "source/scene/a1-u2-volantini.json"
   ],
   "tema": "laika-grigio",
   "symbols": "assets/symbols.json",
@@ -36,6 +47,6 @@
   "editorial": {
     "status": "unit-i1-review",
     "sources": "sources.json",
-    "note": "Unità I.1 completa; I.2–I.5 da fare."
+    "note": "Unità I.1 e I.2 complete in bozza; I.3–I.5 da fare."
   }
 }
