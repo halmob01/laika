@@ -43,8 +43,7 @@
       "label": "Legami nel villaggio",
       "min": 0,
       "max": 100,
-      "start": 40,
-      "hidden": true
+      "start": 40
     }
   ],
   "resources": [
@@ -1560,7 +1559,11 @@
             "x": 0.09,
             "y": 0.84
           },
-          "short": "Orto"
+          "short": "Orto",
+          "scene": {
+            "cantiere": "orto-cantiere",
+            "finito": "orto-finito"
+          }
         },
         {
           "id": "bosco",
@@ -1581,7 +1584,11 @@
             "x": 0.53,
             "y": 0.74
           },
-          "short": "Bosco"
+          "short": "Bosco",
+          "scene": {
+            "cantiere": "bosco-cantiere",
+            "finito": "bosco-finito"
+          }
         },
         {
           "id": "stalla",
@@ -1607,7 +1614,11 @@
             "x": 0.38,
             "y": 0.75
           },
-          "short": "Stalla"
+          "short": "Stalla",
+          "scene": {
+            "cantiere": "stalla-cantiere",
+            "finito": "stalla-finita"
+          }
         },
         {
           "id": "sokha",
@@ -1633,7 +1644,10 @@
             "x": 0.21,
             "y": 0.97
           },
-          "short": "Sokha"
+          "short": "Sokha",
+          "scene": {
+            "finito": "sokha-finita"
+          }
         }
       ],
       "reserve": {

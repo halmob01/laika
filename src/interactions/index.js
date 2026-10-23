@@ -79,6 +79,9 @@ function board(stageHost,stage,episode,act,state,dispatch){
   for(const [k,list] of groups){const p=[...episode.places,...(episode.projects||[])].find(x=>x.id===k),pt=p.stand||{x:p.x,y:p.y};
     list.forEach((w,i)=>{const m=moves.find(x=>x.layer===w.figure);m.translateX=vb[0]+vb[2]*(pt.x+(i-(list.length-1)/2)*0.055);m.translateY=vb[1]+vb[3]*pt.y;});}
   for(const w of episode.workers||[])if(w.figure&&!workersOf(episode,g).some(x=>x.id===w.id)){const m=moves.find(x=>x.layer===w.figure);m.translateX=-9999;m.translateY=null;}
+  // Disegni dei lavori lunghi: il cantiere compare appena si comincia e lascia il posto all'opera finita.
+  for(const p of episode.projects||[]){if(!p.scene)continue;const done=g.built.includes(p.id),begun=!done&&(g.started.includes(p.id)||g.progress[p.id]>0);
+    if(p.scene.cantiere)moves.push({layer:p.scene.cantiere,opacity:begun?1:0});if(p.scene.finito)moves.push({layer:p.scene.finito,opacity:done?1:0});}
   const fresh=stage.generation!==seenGeneration;seenGeneration=stage.generation;stage.position(moves,{animate:!fresh});
 }
 const dots=n=>'●'.repeat(n);

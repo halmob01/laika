@@ -257,14 +257,14 @@ export function activeStage(e, g) {
   if (g?.phase === 'cards') { const c = e.turns[g.turn].cards[g.card]; if (c?.stageId) return { stageId: c.stageId, motionId: c.motionId }; }
   return { stageId: e.stageId, motionId: e.motionId };
 }
-// Variazione netta per metrica, nell'ordine in cui compare: niente elenchi ripetuti.
+// Variazione netta per metrica, nell'ordine in cui compare: niente elenchi ripetuti. I flag sono stato interno: non si mostrano.
 export function netChanges(changes) {
   const map = new Map();
   for (const c of changes) {
     const key = c.kind + ':' + c.id, prev = map.get(key);
     if (prev) prev.after = c.after; else map.set(key, { kind: c.kind, id: c.id, label: c.label, before: c.before, after: c.after });
   }
-  return [...map.values()].filter(c => c.before !== c.after);
+  return [...map.values()].filter(c => c.kind !== 'flag' && c.before !== c.after);
 }
 
 // ---------- mosse ----------

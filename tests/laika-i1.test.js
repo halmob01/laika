@@ -97,3 +97,14 @@ test('I.1: il manifesto resta leggero da trasferire (gzip)', async () => {
   const size = gzipSync(fs.readFileSync(new URL('../games/laika/game.json', import.meta.url))).length;
   assert.ok(size < 150 * 1024, 'game.json compresso: ' + Math.round(size / 1024) + ' KB');
 });
+
+test('I.1: i flag non compaiono nelle variazioni mostrate e Legami è un indicatore visibile', async () => {
+  const {netChanges} = await import('../src/core/turns.js');
+  const net = netChanges([{kind: 'flag', id: 'figlio_via', label: 'figlio_via', before: false, after: true}, {kind: 'metric', id: 'legami', label: 'Legami nel villaggio', before: 40, after: 44}]);
+  assert.deepEqual(net.map(c => c.id), ['legami']);
+  const act = JSON.parse(fs.readFileSync(new URL('../games/laika/source/acts/atto-1.json', import.meta.url), 'utf8'));
+  assert.ok(!act.metrics.find(m => m.id === 'legami').hidden, 'Legami nel villaggio deve essere mostrato');
+  const e = act.episodes.find(x => x.type === 'turn_game'), scena = JSON.parse(fs.readFileSync(new URL('../games/laika/source/scene/a1-u1-anno.json', import.meta.url), 'utf8'));
+  const ids = new Set(scena.elementi.map(x => x.id));
+  for (const p of e.projects) for (const id of Object.values(p.scene || {})) assert.ok(ids.has(id), 'disegno del lavoro mancante nella scena: ' + id);
+});
