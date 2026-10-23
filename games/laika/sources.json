@@ -1,5 +1,5 @@
 {
-  "status": "Unità I.1: ogni affermazione storica rimanda a una riga di docs/FONTI-MATRICE-LAIKA.md (sezione «Atto I — riscontri del 21 ottobre 2026»). Stato «localizzato», review di un'istanza distinta da fare.",
+  "status": "Unità I.1 e I.2: ogni affermazione storica rimanda a una riga di docs/FONTI-MATRICE-LAIKA.md (sezioni «Atto I»). I.2: bozza con voci «da riscontrare» elencate nella matrice; review di un'istanza distinta da fare.",
   "priority": "../../references/fonti/appunti/la-rivoluzione-russa.docx",
   "dossier": "../../docs/FONTI-LAIKA.md",
   "claims": [
@@ -62,6 +62,67 @@
       "ids": [
         "I1-09",
         "I1-10"
+      ]
+    },
+    {
+      "episode": "a1-u2-mir",
+      "ids": [
+        "I2-01",
+        "I2-02"
+      ]
+    },
+    {
+      "episode": "a1-u2-citta",
+      "ids": [
+        "I2-03",
+        "I2-04",
+        "I2-05"
+      ]
+    },
+    {
+      "episode": "a1-u2-salario",
+      "ids": [],
+      "note": "Simulazione [S]: pezzi e coefficienti del modello."
+    },
+    {
+      "episode": "a1-u2-razzo",
+      "ids": [
+        "I2-06",
+        "I2-07",
+        "I2-08",
+        "I2-09"
+      ]
+    },
+    {
+      "episode": "a1-u2-corte",
+      "ids": [
+        "C30",
+        "C31",
+        "C34",
+        "C35",
+        "C37"
+      ]
+    },
+    {
+      "episode": "a1-u2-volantini",
+      "ids": [
+        "I2-10",
+        "I2-11"
+      ]
+    },
+    {
+      "episode": "a1-u2-ricorda",
+      "ids": [
+        "I2-01",
+        "I2-03",
+        "I2-10",
+        "I2-12"
+      ]
+    },
+    {
+      "episode": "a1-u2-e7",
+      "ids": [
+        "I2-10"
       ]
     }
   ]

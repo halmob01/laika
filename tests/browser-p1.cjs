@@ -43,7 +43,8 @@ module.exports=async(browser,root,artifacts)=>{
    else if(e.type==='turn_game'){const g=s.currentAct.game,n=Object.values(g.placement).reduce((x,y)=>x+y,0);
     const free=e.workers?(e.workers.filter(w=>!g.rules.workers?.[w.id]?.away&&!g.assign[w.id])):null;
     a=g.phase==='cards'?{type:'turn',step:'card'}:g.phase==='market'?{type:'turn',step:'leave'}:g.phase==='place'&&free?(free.length?{type:'turn',step:'assign',workerId:free[0].id,placeId:'campo'}:{type:'turn',step:'confirm'}):g.phase==='place'?(n<g.rules.tokens?{type:'turn',step:'place',placeId:'campo',delta:1}:{type:'turn',step:'confirm'}):g.phase==='event'?{type:'turn',step:'choose',choiceId:e.turns[g.turn].event.choices.filter(c=>!c.when||c.when.value===s.currentAct.flags[c.when.id])[0].id}:{type:'turn',step:'continue'};}
-   else if(e.type==='resource_allocation')a={type:'allocate',allocations:Object.fromEntries(e.buckets.map((b,j)=>[b.id,j===0?e.budget:0]))};
+   else if(e.type==='choice'||e.type==='role_crisis')a={type:'select',choiceId:e.choices[0].id};
+   else if(e.type==='resource_allocation'){let left=e.budget;a={type:'allocate',allocations:Object.fromEntries(e.buckets.map(b=>{const n=Math.min(b.max,left);left-=n;return [b.id,n];}))};}
    else if(e.type==='source_comparison'){const x=e.sources.find(x=>!s.currentAct.viewedSources.includes(e.id+':'+x.id));a=x?{type:'inspect_source',sourceId:x.id}:{type:'select',choiceId:e.choices[0].id};}
    else if(e.type==='assessment')a={type:'answer',answerId:e.question.correctId};
    s=transition(game,s,a).nextState;}

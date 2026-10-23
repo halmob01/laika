@@ -26,7 +26,12 @@ module.exports=async(browser,root,artifacts)=>{
   for(let guard=0;guard<400;guard++){
    if(await page.locator('#summary-title').isVisible())break;
    assert.equal(await overflow(),true,'overflow orizzontale');
-   if(await page.locator('[data-answer]').count()){await page.locator('[data-answer=liberta]').click();await shot('90-verifica');await page.locator('[data-action=advance]').click();continue;}
+   if(await page.locator('[data-answer]').count()){const v=await page.locator('[data-answer=liberta]').count()?'liberta':'sr';await page.locator('[data-answer='+v+']').click();await shot('90-verifica-'+v);await page.locator('[data-action=advance]').click();continue;}
+   // Unità I.2: assemblea del mir, salario, tre volantini.
+   if(await page.locator('form input[name=pane]').count()){await page.locator('input[name=pane]').fill('3');await page.locator('input[name=stanza]').fill('1');await page.locator('input[name=carbone]').fill('1');await page.locator('input[name=villaggio]').fill('1');await shot('91-salario');await page.locator('form button[type=submit]').click();await page.locator('[data-action=advance]').waitFor();await shot('91-salario-esito');await page.locator('[data-action=advance]').click();continue;}
+   if(await page.locator('[data-role]').count()&&await page.locator('[data-choice]').count()){await shot('92-mir');await page.locator('[data-role]').last().click();await page.locator('[data-choice]').first().click();await page.locator('[data-action=advance]').waitFor();await shot('92-mir-esito');await page.locator('[data-action=advance]').click();continue;}
+   if(await page.locator('[data-source]').count()){const n=await page.locator('[data-source]').count();for(let i=0;i<n;i++){const b=page.locator('[data-source]').nth(i);if(await b.getAttribute('aria-expanded')==='false')await b.click();}
+    await shot('93-volantini');await page.locator('[data-choice]').first().click();await page.locator('[data-action=advance]').waitFor();await page.locator('[data-action=advance]').click();continue;}
    if(await page.locator('[data-card=next]').count()){await page.locator('[data-card=next]').click();continue;}
    if(!(await page.locator('.turn-label').count())){await page.locator('[data-action=advance]').click();continue;}
    const year=await page.locator('.turn-year').textContent();if(anni.at(-1)!==year){anni.push(year);anno++;}

@@ -122,3 +122,25 @@ Stato: «localizzato» = passo trovato e letto nel contesto da Opus 5.5; resta l
 | I.3-e1 · cannone alla benedizione delle acque | **Rettifica al §10 del piano:** l'episodio **è** in Montefiore. 6 gennaio 1905 (g.): una salva dalla fortezza di Pietro e Paolo, con proiettili veri, manda in frantumi le finestre del Palazzo d'Inverno; Nicola illeso | Montefiore, Act III, Scene 4 «Master of the Land», «a salvo from the guns of the Peter and Paul Fortress shattered the windows of the Winter Palace: they contained real shot» |
 | I.3-e1 · diario di Nicola | Confermato. Precisazione: «Mama arrived from town. Lunched with everyone»: arriva la madre e pranza **con tutti** | Montefiore, Act III, Scene 4, «‘A terrible day! Lord how painful and sad!’ wrote Nicholas». Montefiore dà «over a thousand» morti: cifra da confrontare (FONTI-MATRICE A1-02) |
 | I.4-e4 · battuta all'ambasciatore | Confermato: Buchanan; «Isn't it rather for my people to regain my confidence?» | Montefiore, Act III, Scene 6 «Emperor Michael II» (dicembre 1916). Nello stesso passo C43 (Rodzjanko: «as if it had never happened») |
+
+### Atto I — unità I.2, bozza del 23 ottobre 2026
+
+Stato: bozza scritta da Sonnet 5.5. **Nessuna voce è stata riscontrata da una seconda istanza**; le voci «da riscontrare» sono dichiarate sotto.
+
+| ID / episodio | Dettaglio nel testo | Fonte | Esito |
+|---|---|---|---|
+| I2-01 / mir, ricorda | Dopo il 1861 la terra si riscatta insieme e il villaggio risponde insieme dei pagamenti | Riscontri I1-09 e I1-10 (sezione I.1) | Localizzato in I.1 |
+| I2-02 / mir | In molti villaggi l'assemblea rifà ogni tanto la divisione delle strisce; ragioni opposte di una famiglia numerosa e di chi ha curato il suo lotto | Conoscenza generale (ridistribuzioni periodiche della terra nel mir); gli appunti citano il mir solo per la riforma Stolypin | **Da riscontrare** su Fitzpatrick o Lewin; la scena è una simulazione [S] |
+| I2-03 / città, ricorda | Salario basso, violenza della polizia, nessuna libertà di associazione e di stampa; vita dell'operaio assoggettata al padrone | Appunti «La Rivoluzione Russa», sezione «La Russia alla vigilia della Rivoluzione» | Localizzato negli appunti |
+| I2-04 / città | Fabbrica a Pietroburgo e angolo di stanza in affitto | Scheda I.2-e2 del piano; nessuna fonte consultata | **Da riscontrare**. Dal testo sono state tolte «metalmeccanica» e «undici ore», che nel piano non hanno fonte |
+| I2-05 / città | Soldati di truppa senza tram né ristoranti prima del 1917 | Atlante, R02 (Miéville), parafrasato; nessuna citazione fra virgolette | Localizzato nell'atlante; pagina di Miéville da verificare |
+| I2-06 / razzo | 1881: Alessandro II ucciso da una bomba; Kibalčič disegna un razzo in cella in attesa dell'esecuzione; il progetto finisce in un archivio di polizia | Stites, cap. 8, pp. 170–171 (riscontro già in questa matrice, sezione «Voci [verificare]») | Localizzato |
+| I2-07 / razzo | Il progetto è ritrovato negli archivi da Rynin dopo la rivoluzione e pubblicato | Stites p. 171 e nota 7 | Localizzato. Il testo dice «dopo la rivoluzione»; l'anno 1918 non è usato |
+| I2-08 / razzo | Cratere Kibal'chich sul lato nascosto della Luna | Fonti in rete già elencate nella matrice | Confermato in rete; da riscontrare sul Gazetteer UAI |
+| I2-09 / razzo | Ciolkovskij maestro quasi sordo; a Kaluga dal 1892 | Britannica (consultata 21/10/2026) | Confermato; Stites p. 170 dice solo «an obscure little Russian town» |
+| C30, C31, C34, C35, C37 / corte | Attizzatoi; appannaggi (250.000 rubli; dote di un milione); Chodynka con la tazza smaltata; ballo dell'ambasciatore francese; ballo in costume del 1903 | Atlante, schede C30–C37, che rimandano a Montefiore | Localizzati nell'atlante; passi di Montefiore da ricercare sul testo. Nessuna cifra sui morti di Chodynka nel testo. «Alessandro III» e il periodo 1881–1894 non sono nell'atlante |
+| I2-10 / volantini, V2 | Cadetti: costituzione, parlamento, associazione; socialrivoluzionari: terra e partito di ispirazione contadina; socialdemocratici: l'operaio come soggetto rivoluzionario | Appunti «La Rivoluzione Russa», stessa sezione | Localizzato. I tre testi dei fogli sono **ricostruiti** e dichiarati tali nella provenienza |
+| I2-11 / volantini | Dal 1903 i socialdemocratici si dividono in bolscevichi (pochi rivoluzionari di mestiere) e menscevichi (partito più largo) | Conoscenza generale del II Congresso del 1903; gli appunti descrivono bolscevichi e menscevichi (rivoluzione contro gradualismo) senza la data | **Da riscontrare**. Il vecchio operaio è un personaggio inventato e dichiarato tale |
+| I2-12 / ricorda | Nel 1904 la sconfitta contro il Giappone si somma al malcontento già presente | Appunti, stessa sezione («1904 sconfitta ... mari giapponesi») | Localizzato |
+
+Salario della settimana (a1-u2-salario): simulazione [S], senza dati storici.

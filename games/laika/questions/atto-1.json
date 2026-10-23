@@ -32,5 +32,39 @@
         "lotto": "scambia l'attesa contadina (lettere d'oro) per la legge"
       }
     }
+  },
+  {
+    "id": "a1-v2",
+    "prompt": "Nel 1904 circolano tre fogli. Quale gruppo chiede soprattutto di distribuire la terra a chi la lavora?",
+    "options": [
+      {
+        "id": "sr",
+        "label": "I socialrivoluzionari, un partito di ispirazione contadina"
+      },
+      {
+        "id": "cadetti",
+        "label": "I cadetti, che vogliono una costituzione e un parlamento eletto"
+      },
+      {
+        "id": "sd",
+        "label": "I socialdemocratici, che vedono negli operai la forza del cambiamento"
+      }
+    ],
+    "correctId": "sr",
+    "rationale": "I socialrivoluzionari sono un partito di ispirazione contadina: chiedono la distribuzione della terra e una condizione migliore per i contadini. I cadetti sono liberali e vogliono una monarchia costituzionale con un parlamento eletto. I socialdemocratici hanno come soggetto rivoluzionario l'operaio.",
+    "objectives": [
+      "Distinguere che cosa chiedevano e a chi si rivolgevano cadetti, socialrivoluzionari e socialdemocratici nel 1904"
+    ],
+    "source": "Episodio «Tre volantini»: appunti «La Rivoluzione Russa», sezione «La Russia alla vigilia della Rivoluzione»",
+    "requiredExposureFlags": [
+      "a1-volantini"
+    ],
+    "editorial": {
+      "verifica": "V2",
+      "distrattori": {
+        "cadetti": "confonde il programma liberale con quello contadino",
+        "sd": "confonde il soggetto operaio con quello contadino"
+      }
+    }
   }
 ]
