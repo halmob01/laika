@@ -36,8 +36,10 @@ export function compilaScena(scena, { libreria }) {
   }
   layers.push(world);
 
+  const nascosti = new Set();
   function elemento(e, gruppo) {
     nuovo(e.id, 'elemento');
+    if (e.nascosto) nascosti.add(e.id);
     let s;
     if (e.simbolo) s = usaSimbolo(e.simbolo);
     else if (e.markup) { s = { id: 'scena-' + scena.id + '-' + e.id, layers: markupToLayers(e.markup, { prefix: 'f' }) }; addSymbol(s); }
@@ -88,7 +90,6 @@ export function compilaScena(scena, { libreria }) {
     if (sel === undefined || !lista.length) throw errore(scena, 'passo senza "chi"');
     return [...new Set(lista.flatMap(n => { if (gruppi.has(n)) return gruppi.get(n); if (info.has(n)) return [n]; throw errore(scena, '"' + n + '" non è una figura, un elemento o un gruppo della scena'); }))];
   };
-  const nascosti = new Set();
   const ctx = {
     viewBox, camera,
     figure: sel => risolvi(sel).map(id => { const f = info.get(id); if (f.tipo !== 'figura') throw errore(scena, '"' + id + '" non è una figura: questa azione muove persone'); return f; }),

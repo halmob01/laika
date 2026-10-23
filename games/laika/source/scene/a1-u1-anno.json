@@ -47,6 +47,76 @@
       "x": 800,
       "y": 612,
       "scala": 0.75
+    },
+    {
+      "id": "orto-cantiere",
+      "simbolo": "campagna-orto-cantiere",
+      "x": 160,
+      "y": 650,
+      "scala": 0.85,
+      "nascosto": true
+    },
+    {
+      "id": "orto-finito",
+      "simbolo": "campagna-orto-finito",
+      "x": 160,
+      "y": 650,
+      "scala": 0.85,
+      "nascosto": true
+    },
+    {
+      "id": "stalla-cantiere",
+      "simbolo": "campagna-stalla-cantiere",
+      "x": 600,
+      "y": 590,
+      "scala": 0.8,
+      "nascosto": true
+    },
+    {
+      "id": "stalla-finita",
+      "simbolo": "campagna-stalla-finita",
+      "x": 600,
+      "y": 590,
+      "scala": 0.8,
+      "nascosto": true
+    },
+    {
+      "id": "bosco-cantiere",
+      "simbolo": "campagna-bosco-cantiere",
+      "x": 880,
+      "y": 585,
+      "scala": 0.75,
+      "nascosto": true
+    },
+    {
+      "id": "bosco-finito",
+      "simbolo": "campagna-bosco-finito",
+      "x": 880,
+      "y": 585,
+      "scala": 0.75,
+      "nascosto": true
+    },
+    {
+      "id": "sokha-finita",
+      "simbolo": "campagna-sokha",
+      "x": 340,
+      "y": 760,
+      "scala": 0.9,
+      "nascosto": true
+    },
+    {
+      "id": "granaio",
+      "simbolo": "campagna-granaio",
+      "x": 1040,
+      "y": 600,
+      "scala": 0.55
+    },
+    {
+      "id": "carro",
+      "simbolo": "campagna-carro",
+      "x": 1130,
+      "y": 700,
+      "scala": 0.7
     }
   ],
   "figure": [

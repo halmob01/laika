@@ -841,6 +841,123 @@
    "epoca": "Senza epoca (inverno russo): banco di neve in primo piano.",
    "fonte": "prototypes/kit-feste-di-corte/kit-feste-di-corte.html#cumulo_neve",
    "note": "Da usare con davanti: true; nasconde la base di chi o che cosa sprofonda. Approvato dall'utente il 22 ottobre 2026 (gate P2, unità I.1)."
+  },
+  {
+   "id": "campagna-orto-cantiere",
+   "famiglia": "campagna",
+   "nome": "Orto: cantiere",
+   "stato": "pronto",
+   "epoca": "Archetipo generico di villaggio contadino russo (XVIII-XIX sec.): legno, paglia, graticci; nessun elemento posteriore al 1861",
+   "fonte": "prototypes/kit-campagna-villaggio/kit-campagna-villaggio.html#orto_cantiere",
+   "note": "Scala del kit: adulto in piedi = 90 unità; base a 200; sulla tavola di I.1 si usa scala 0.55-0.9. Coppie cantiere/finito con stessa larghezza e centro."
+  },
+  {
+   "id": "campagna-orto-finito",
+   "famiglia": "campagna",
+   "nome": "Orto: finito",
+   "stato": "pronto",
+   "epoca": "Archetipo generico di villaggio contadino russo (XVIII-XIX sec.): legno, paglia, graticci; nessun elemento posteriore al 1861",
+   "fonte": "prototypes/kit-campagna-villaggio/kit-campagna-villaggio.html#orto_finito",
+   "note": "Scala del kit: adulto in piedi = 90 unità; base a 200; sulla tavola di I.1 si usa scala 0.55-0.9. Coppie cantiere/finito con stessa larghezza e centro."
+  },
+  {
+   "id": "campagna-stalla-cantiere",
+   "famiglia": "campagna",
+   "nome": "Stalla: cantiere",
+   "stato": "pronto",
+   "epoca": "Archetipo generico di villaggio contadino russo (XVIII-XIX sec.): legno, paglia, graticci; nessun elemento posteriore al 1861",
+   "fonte": "prototypes/kit-campagna-villaggio/kit-campagna-villaggio.html#stalla_cantiere",
+   "note": "Scala del kit: adulto in piedi = 90 unità; base a 200; sulla tavola di I.1 si usa scala 0.55-0.9. Coppie cantiere/finito con stessa larghezza e centro."
+  },
+  {
+   "id": "campagna-stalla-finita",
+   "famiglia": "campagna",
+   "nome": "Stalla: finita",
+   "stato": "pronto",
+   "epoca": "Archetipo generico di villaggio contadino russo (XVIII-XIX sec.): legno, paglia, graticci; nessun elemento posteriore al 1861",
+   "fonte": "prototypes/kit-campagna-villaggio/kit-campagna-villaggio.html#stalla_finita",
+   "note": "Scala del kit: adulto in piedi = 90 unità; base a 200; sulla tavola di I.1 si usa scala 0.55-0.9. Coppie cantiere/finito con stessa larghezza e centro."
+  },
+  {
+   "id": "campagna-bosco-cantiere",
+   "famiglia": "campagna",
+   "nome": "Bosco: disboscamento",
+   "stato": "pronto",
+   "epoca": "Archetipo generico di villaggio contadino russo (XVIII-XIX sec.): legno, paglia, graticci; nessun elemento posteriore al 1861",
+   "fonte": "prototypes/kit-campagna-villaggio/kit-campagna-villaggio.html#bosco_cantiere",
+   "note": "Scala del kit: adulto in piedi = 90 unità; base a 200; sulla tavola di I.1 si usa scala 0.55-0.9. Coppie cantiere/finito con stessa larghezza e centro."
+  },
+  {
+   "id": "campagna-bosco-finito",
+   "famiglia": "campagna",
+   "nome": "Bosco: campo nuovo",
+   "stato": "pronto",
+   "epoca": "Archetipo generico di villaggio contadino russo (XVIII-XIX sec.): legno, paglia, graticci; nessun elemento posteriore al 1861",
+   "fonte": "prototypes/kit-campagna-villaggio/kit-campagna-villaggio.html#bosco_finito",
+   "note": "Scala del kit: adulto in piedi = 90 unità; base a 200; sulla tavola di I.1 si usa scala 0.55-0.9. Coppie cantiere/finito con stessa larghezza e centro."
+  },
+  {
+   "id": "campagna-sokha",
+   "famiglia": "campagna",
+   "nome": "Sokha (aratro di legno)",
+   "stato": "pronto",
+   "epoca": "Archetipo generico di villaggio contadino russo (XVIII-XIX sec.): legno, paglia, graticci; nessun elemento posteriore al 1861",
+   "fonte": "prototypes/kit-campagna-villaggio/kit-campagna-villaggio.html#sokha",
+   "note": "Scala del kit: adulto in piedi = 90 unità; base a 200; sulla tavola di I.1 si usa scala 0.55-0.9. Coppie cantiere/finito con stessa larghezza e centro."
+  },
+  {
+   "id": "campagna-mucca",
+   "famiglia": "campagna",
+   "nome": "Mucca",
+   "stato": "pronto",
+   "epoca": "Archetipo generico di villaggio contadino russo (XVIII-XIX sec.): legno, paglia, graticci; nessun elemento posteriore al 1861",
+   "fonte": "prototypes/kit-campagna-villaggio/kit-campagna-villaggio.html#mucca",
+   "note": "Scala del kit: adulto in piedi = 90 unità; base a 200; sulla tavola di I.1 si usa scala 0.55-0.9. Coppie cantiere/finito con stessa larghezza e centro."
+  },
+  {
+   "id": "campagna-cavallo",
+   "famiglia": "campagna",
+   "nome": "Cavallo",
+   "stato": "pronto",
+   "epoca": "Archetipo generico di villaggio contadino russo (XVIII-XIX sec.): legno, paglia, graticci; nessun elemento posteriore al 1861",
+   "fonte": "prototypes/kit-campagna-villaggio/kit-campagna-villaggio.html#cavallo",
+   "note": "Scala del kit: adulto in piedi = 90 unità; base a 200; sulla tavola di I.1 si usa scala 0.55-0.9. Coppie cantiere/finito con stessa larghezza e centro."
+  },
+  {
+   "id": "campagna-sacchi",
+   "famiglia": "campagna",
+   "nome": "Sacchi di grano",
+   "stato": "pronto",
+   "epoca": "Archetipo generico di villaggio contadino russo (XVIII-XIX sec.): legno, paglia, graticci; nessun elemento posteriore al 1861",
+   "fonte": "prototypes/kit-campagna-villaggio/kit-campagna-villaggio.html#sacchi",
+   "note": "Scala del kit: adulto in piedi = 90 unità; base a 200; sulla tavola di I.1 si usa scala 0.55-0.9. Coppie cantiere/finito con stessa larghezza e centro."
+  },
+  {
+   "id": "campagna-granaio",
+   "famiglia": "campagna",
+   "nome": "Granaio su ceppi",
+   "stato": "pronto",
+   "epoca": "Archetipo generico di villaggio contadino russo (XVIII-XIX sec.): legno, paglia, graticci; nessun elemento posteriore al 1861",
+   "fonte": "prototypes/kit-campagna-villaggio/kit-campagna-villaggio.html#granaio",
+   "note": "Scala del kit: adulto in piedi = 90 unità; base a 200; sulla tavola di I.1 si usa scala 0.55-0.9. Coppie cantiere/finito con stessa larghezza e centro."
+  },
+  {
+   "id": "campagna-carro",
+   "famiglia": "campagna",
+   "nome": "Carro contadino",
+   "stato": "pronto",
+   "epoca": "Archetipo generico di villaggio contadino russo (XVIII-XIX sec.): legno, paglia, graticci; nessun elemento posteriore al 1861",
+   "fonte": "prototypes/kit-campagna-villaggio/kit-campagna-villaggio.html#carro",
+   "note": "Scala del kit: adulto in piedi = 90 unità; base a 200; sulla tavola di I.1 si usa scala 0.55-0.9. Coppie cantiere/finito con stessa larghezza e centro."
+  },
+  {
+   "id": "campagna-banco-fiera",
+   "famiglia": "campagna",
+   "nome": "Banco della fiera",
+   "stato": "pronto",
+   "epoca": "Archetipo generico di villaggio contadino russo (XVIII-XIX sec.): legno, paglia, graticci; nessun elemento posteriore al 1861",
+   "fonte": "prototypes/kit-campagna-villaggio/kit-campagna-villaggio.html#banco_fiera",
+   "note": "Scala del kit: adulto in piedi = 90 unità; base a 200; sulla tavola di I.1 si usa scala 0.55-0.9. Coppie cantiere/finito con stessa larghezza e centro."
   }
  ],
  "da_fare": [

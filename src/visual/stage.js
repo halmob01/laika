@@ -150,7 +150,8 @@ export function createStage(host,{reducedMotion=false,textures=true,raf=requestA
   function position(targets,{animate=true,duration=700}={}){
     const items=[];
     for(const t of targets){if(!nodes.has(t.layer))continue;const home=homes.get(t.layer);
-      for(const a of ['translateX','translateY']){const to=t[a]??home[a],from=read(t.layer,a);if(Math.abs(from-to)>0.5)items.push({layer:t.layer,attribute:a,from,to});}}
+      for(const a of ['translateX','translateY']){const to=t[a]??home[a],from=read(t.layer,a);if(Math.abs(from-to)>0.5)items.push({layer:t.layer,attribute:a,from,to});}
+      if(t.opacity!==undefined&&t.opacity!==null){const from=read(t.layer,'opacity');if(Math.abs(from-t.opacity)>0.01)items.push({layer:t.layer,attribute:'opacity',from,to:t.opacity});}}
     if(!items.length)return false;
     if(!animate||reducedMotion){skip();write(items);return true;}
     play(items.map(i=>({...i,duration})),{remember:false});return true;

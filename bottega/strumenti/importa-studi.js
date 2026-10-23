@@ -66,6 +66,14 @@ export const KIT = [
     ]
   },
   {
+    file: 'prototypes/kit-campagna-villaggio/kit-campagna-villaggio.html', palette: 'C',
+    token: { bg: 'paper', p2: 'paper2', ink: 'ink', red: 'red', sand: 'sand', cLight: 'concrete-light', cMid: 'concrete-mid', cDark: 'concrete-dark', sky: 'sky', tree: 'tree' },
+    definizioni: { funzione: 'getDefs', argomenti: [], texture: 'campagna', motivi: { grana: 'grana-campagna' } },
+    famiglie: [
+      { famiglia: 'campagna', prefisso: '', funzione: 'drawCampagna', voci: 'ITEMS', argomenti: ['$id', 0, 0], terra: 200 }
+    ]
+  },
+  {
     file: 'prototypes/kit-feste-di-corte/kit-feste-di-corte.html', palette: 'C',
     token: { bg: 'paper', p2: 'paper2', ink: 'ink', red: 'red', sand: 'sand', cLight: 'concrete-light', cMid: 'concrete-mid', cDark: 'concrete-dark', sky: 'sky', tree: 'tree' },
     definizioni: { funzione: 'getDefs', argomenti: [], texture: 'corte', motivi: { grana: 'grana-corte' } },

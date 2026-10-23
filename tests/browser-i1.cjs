@@ -59,7 +59,7 @@ module.exports=async(browser,root,artifacts)=>{
     if(anno===1)assert.ok(await page.locator('.turn-steps li').count()>=3,'l\'esito spiega da dove vengono le variazioni');
     // Il diario parla in italiano: nessun codice interno, una riga per indicatore.
     if(anno===3){const d=page.locator('#journal details');await d.evaluate(n=>n.open=true);const testo=await d.innerText();
-      assert.doesNotMatch(testo,/causa:|a1-u1|settimana:\d/,'codici interni nel diario');assert.doesNotMatch(testo,/Legami nel villaggio/,'indicatore nascosto nel diario');assert.match(testo,/1777: /);await shot('03-diario');await d.evaluate(n=>n.open=false);}
+      assert.doesNotMatch(testo,/causa:|a1-u1|settimana:\d/,'codici interni nel diario');assert.doesNotMatch(testo,/figlio_via|mucca_venduta|: (true|false)\b|(true|false) → /,'flag interni nel diario');assert.match(testo,/1777: /);await shot('03-diario');await d.evaluate(n=>n.open=false);}
     continue;}
    if(await page.locator('[data-turn=leave]').count()){if(!fiera){await shot('02-fiera');fiera=true;}const o=page.locator('[data-offer=punte]:not([disabled])');if(run.costruisce.length&&await o.count()){await o.click();await page.locator('.turn-market + .outcome').waitFor();}await page.locator('[data-turn=leave]').click();continue;}
    if(await page.locator('[data-built]').count()&&!costruito){costruito=true;await shot('migliorie');}
