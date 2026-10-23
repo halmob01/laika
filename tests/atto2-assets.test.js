@@ -62,8 +62,17 @@ test('kit nuovo: esecuzione senza browser, chiamate deterministiche e grammatica
       n.children.forEach(walk);
     }
     walk(parseMarkup(a));
-    assert(markupToLayers(a, { patterns: { grana: 'grana-primavera' } }).length > 1);
+    assert(markupToLayers(a, { patterns: { grana: 'grana-ambienti' } }).length > 1);
   }
+});
+
+test('kit nuovo: riusa la grana esistente senza duplicare i motivi nei pacchetti', () => {
+  const original = caricaKit({ file: 'prototypes/kit-ambienti-primo-novecento/kit-ambienti-primo-novecento.html', palette: 'C', token });
+  assert.equal(api.chiama('getDefs', []), original.chiama('getDefs', []));
+  assert.equal(new Set(studi.patterns.map(p => p.id)).size, studi.patterns.length);
+  const prima = JSON.parse(fs.readFileSync(new URL('../site/laika/hero.json', import.meta.url), 'utf8')).patterns;
+  assert.deepEqual(studi.patterns, prima);
+  assert(nuovi.some(s => s.layers.some(l => l.attrs?.fill === 'pattern:grana-ambienti')));
 });
 
 test('bare: varianti nera e rossa scambiabili con identici ingombro, ancoraggio e geometria', () => {

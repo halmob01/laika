@@ -1,10 +1,10 @@
 # Oggetti e ambienti per l'Atto II
 
-Base: `1c606f8` di `origin/main`. Ramo: `feat/atto-ii-asset`.
+Base del ramo: `1c606f8`. Ramo: `feat/atto-ii-asset`. La compatibilità con il successivo `main` a `2c50829`, che aggiunge l'unità I.2, è verificata applicando la patch in un worktree isolato.
 
 La consegna aggiunge 14 simboli: nove oggetti con una seconda variante della bara, tre ambienti e il Palazzo di Tauride. Tutte le nuove voci sono in stato `bozza`. Epoca, provenienza, scala delle figure e dettagli da rivedere sono nelle singole voci di `bottega/catalogo.json`.
 
-Gli originali già presenti in `prototypes/` e `references/` restano intatti. Il nuovo kit autonomo è `prototypes/kit-primavera-1917/kit-primavera-1917.html`. La produzione usa i layer a token rigenerati con l'importatore. Il nuovo motivo di grana richiede anche la rigenerazione di `games/laika/game.json` e `site/laika/hero.json`: in questi due pacchetti cambia soltanto `patterns`.
+Gli originali già presenti in `prototypes/` e `references/` restano intatti. Il nuovo kit autonomo è `prototypes/kit-primavera-1917/kit-primavera-1917.html`. La produzione usa i layer a token rigenerati con l'importatore. Il motivo di grana coincide esattamente con quello degli ambienti esistenti: viene riusato come `grana-ambienti`. L'importatore ammette il riuso solo se geometria e colori coincidono; rifiuta due definizioni diverse con lo stesso nome. Non ci sono modifiche proposte ai pacchetti generati del corso e della home.
 
 ## Prova riproducibile
 
@@ -28,8 +28,9 @@ Il prop `fiori` usa `hand-near`, con presa nella legatura e stesso markup del ma
 ## Risultati eseguiti
 
 - `npm test` sulla base aggiornata: 97 test superati prima delle modifiche.
-- `npm test` dopo l'integrazione: 102 test superati.
-- `node --test tests/atto2-assets.test.js`: cinque controlli mirati superati.
+- `npm test` sulla versione finale del ramo: 103 test superati.
+- `npm test` sulla patch applicata al nuovo `main` a `2c50829`: 104 test superati, incluso il nuovo test dell'unità I.2.
+- `node --test tests/atto2-assets.test.js`: sei controlli mirati superati.
 - `npm run bottega:importa` e `npm run bottega:verifica`: 118 simboli aggiornati.
 - `npm run scena -- bottega/esempi/primavera.json`: 165 layer; sequenze `arrivo` con 10 tracce e `osserva` con 6 tracce.
 - Verifica browser mirata `tests/browser-bottega.cjs`: 163 confronti al pixel a zero differenze e 11 scene di esempio superate.
@@ -37,11 +38,13 @@ Il prop `fiori` usa `hand-near`, con presa nella legatura e stesso markup del ma
 - `PLAYWRIGHT_BROWSERS_PATH=/tmp/laika-atto2-browsers npm run test:browser`: suite Chromium completa superata con Chromium 145.0.7632.6 e Playwright 1.58.2. Include giochi dimostrativi, home, contratti pubblici, motion, LAIKA, gestione I.1, rig e bottega.
 - `KIT_BROWSER=webkit PLAYWRIGHT_BROWSERS_PATH=/tmp/laika-atto2-browsers LD_LIBRARY_PATH=/tmp/laika-atto2-webkit-libs/usr/lib/x86_64-linux-gnu PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=1 npm run test:browser`: suite WebKit 26.0 completa superata, inclusi 163 confronti al pixel a zero differenze e 11 scene di esempio.
 
+Le due suite complete sono state ripetute con la patch finale nel worktree `/tmp/laika-atto2-integrazione`, basato su `2c50829`: entrambe superate. Il worktree è stato creato con `git worktree add --detach` e la patch applicata con `git apply`, senza merge o riscrittura della storia del ramo. La nuova unità I.2 è così inclusa nelle regressioni.
+
 Playwright 1.58.2 e i suoi browser sono stati installati con cache in `/tmp`. Le librerie WebKit mancanti sono state scaricate come pacchetti Debian ed estratte soltanto in `/tmp`, poi collegate nella directory `sys/lib` del browser scaricato. Il caricamento delle sette librerie richieste e le dipendenze del binario sono stati verificati prima di avviare WebKit. Il controllo preliminare di Playwright basato su `ldconfig` non vede `libGLESv2` fuori dalla cache di sistema: per questo è stata usata la variabile indicata sopra. Non è stata fatta un'installazione di sistema.
 
-Sul laboratorio motion già presente la misura di pacing è stata: Chromium mediana 16,7 ms, p95 33,2 ms; WebKit mediana 20 ms, p95 52 ms con 45 frame oltre 50 ms. Sono misure sulla macchina cloud, non su un telefono. I test funzionali passano; questa misura non certifica 60 fps su dispositivi reali. La prova manuale su telefono resta aperta.
+Sul laboratorio motion già presente la misura di pacing finale è stata: Chromium mediana 16,7 ms, p95 16,8 ms; WebKit mediana 22 ms, p95 55 ms con 48 frame oltre 50 ms. Sono misure sulla macchina cloud, non su un telefono. I test funzionali passano; questa misura non certifica 60 fps su dispositivi reali. La prova manuale su telefono resta aperta.
 
-Il primo giro di test ha rilevato i pacchetti generati da aggiornare e un falso positivo nel test di neutralità: l'ancora di provenienza `#caffe` veniva letta come colore esadecimale. Il controllo ora esamina i layer e i motivi separatamente dai metadati; nei moduli di disegno continua a rifiutare i colori letterali.
+Il test di neutralità aveva un falso positivo: l'ancora di provenienza `#caffe` veniva letta come colore esadecimale. Il controllo ora esamina i layer e i motivi separatamente dai metadati; nei moduli di disegno continua a rifiutare i colori letterali.
 
 ## Evidenze dalla galleria
 
