@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import vm from 'node:vm';
+import {createHash} from 'node:crypto';
 import {spawnSync} from 'node:child_process';
 import {composePack} from '../src/visual/compose.js';
 import {validateStage,createStage} from '../src/visual/stage.js';
@@ -44,6 +45,7 @@ test('bottega: i disegni sono neutri (solo token) e ogni tema definisce ogni tok
   const used = new Set();
   const collect = l => { for (const k of ['fill', 'stroke']) { const v = l.attrs?.[k]; if (v && v !== 'none' && !v.startsWith('pattern:')) used.add(v); } };
   studi.symbols.forEach(s => s.layers.forEach(collect)); studi.patterns.forEach(p => p.layers.forEach(collect));
+  for (const variant of Object.keys(VARIANTI)) figuraSymbol(variante({ variant })).layers.forEach(collect);
   for (const [nome, tema] of Object.entries(temi.temi)) for (const t of used) assert.ok(tema[t], nome + ': token mancante ' + t);
   for (const t of used) assert.ok(temi.token[t], 'token non documentato: ' + t);
 });
@@ -75,6 +77,50 @@ test('figura: ogni combinazione posa × variante × ruolo si compone entro gli i
   assert.deepEqual(Object.keys(s.rig.joints), GIUNTURE);
   assert.throws(() => figura({ id: 'f', pose: 'vola' }), /Posa sconosciuta/);
   assert.throws(() => figura({ id: 'f', variant: 'astronauta' }), /Variante sconosciuta/);
+});
+
+test('figura: le 13 varianti esistenti conservano esattamente output, pose e ruoli della baseline', () => {
+  // Acquisita prima di modificare il generatore. Non rigenerare per accettare differenze.
+  const baseline = read('tests/fixtures/figure-stabili.json');
+  for (const [variant, hash] of Object.entries(baseline.varianti)) {
+    const output = baseline.pose.flatMap(pose => baseline.ruoli.map(role => figura({ id: 'f', variant, pose, role, x: 100, y: 200, scale: 1.7, flip: true })));
+    assert.equal(createHash('sha256').update(JSON.stringify(output)).digest('hex'), hash, variant + ': aspetto o rig modificato');
+  }
+});
+
+test('figura: le nuove varianti sono registrate come bozze e gli abiti mancanti restano proposte', () => {
+  const nuove = ['marinaio', 'soldato_guarnigione', 'soldatessa', 'uomo_cappello'];
+  const baseline = read('tests/fixtures/figure-stabili.json');
+  assert.deepEqual(Object.keys(VARIANTI), [...Object.keys(baseline.varianti), ...nuove]);
+  assert.deepEqual(catalogo.figure.varianti.map(v => v.id), nuove);
+  for (const v of catalogo.figure.varianti) {
+    assert.equal(v.stato, 'bozza');
+    for (const campo of ['epoca', 'fonte', 'riscontro', 'limiti', 'verifica']) assert.ok(v[campo], v.id + ': manca ' + campo);
+    assert.ok(fs.existsSync(new URL('../' + v.verifica, import.meta.url)));
+  }
+  const proposte = catalogo.da_fare.find(d => d.famiglia === 'abiti della figura');
+  assert.equal(proposte.stato, 'da-fare');
+  for (const nome of ['domestica', 'lavandaia', 'vetturino']) {
+    assert.ok(proposte.voci.some(v => v.startsWith(nome + ':')));
+    assert.equal(VARIANTI[nome], undefined, nome + ': proposta non disegnata');
+  }
+});
+
+test('figura: tunica sul corpo donna senza gonna o chignon; cappelli e dettagli seguono testa e busto', () => {
+  const soldatessa = figuraSymbol(variante({ variant: 'soldatessa' }));
+  const soldato = figuraSymbol(variante({ variant: 'soldato_guarnigione' }));
+  assert.equal(variante({ variant: 'soldatessa' }).body, 'donna');
+  assert.equal(soldatessa.layers.some(l => l.id === 'chignon'), false);
+  assert.deepEqual(soldatessa.layers.filter(l => l.id.startsWith('torso')), soldato.layers.filter(l => l.id.startsWith('torso')));
+  assert.ok(soldatessa.layers.some(l => l.id === 'torso-cintura' && l.parent === 'root'));
+  for (const variant of ['marinaio', 'soldato_guarnigione', 'soldatessa']) {
+    const layers = figuraSymbol(variante({ variant })).layers;
+    assert.ok(layers.some(l => l.id === 'hat-crown'));
+    assert.ok(layers.filter(l => l.id.startsWith('hat-')).every(l => l.parent === 'head'));
+    assert.equal(layers.filter(l => l.id.startsWith('head-')).length, 1, 'nessun tratto del viso');
+  }
+  // Il civile riusa corpo e copricapo dello studio, senza una fisionomia aggiunta.
+  assert.deepEqual(figura({ id: 'f', variant: 'uomo_cappello' }), figura({ id: 'f', body: 'uomo', hat: 'berretto' }));
 });
 
 test('figura: piedi a terra nella posa in piedi, prese contro-ruotate, specchio', () => {

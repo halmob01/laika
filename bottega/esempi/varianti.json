@@ -1,0 +1,22 @@
+{
+  "id": "esempio-varianti",
+  "etichetta": "Quattro figure mostrano casacca, tunica su due corpi e cappello civile.",
+  "ruvido": true,
+  "figure": [
+    { "id": "marinaio", "x": 150, "y": 390, "scala": 2.3, "variante": "marinaio", "posa": "saluta" },
+    { "id": "soldato", "x": 350, "y": 390, "scala": 2.3, "variante": "soldato_guarnigione", "posa": "usa_fucile", "ruolo": "esercito" },
+    { "id": "soldatessa", "x": 650, "y": 390, "scala": 2.3, "variante": "soldatessa", "posa": "usa_fucile", "ruolo": "esercito", "flip": true },
+    { "id": "civile", "x": 830, "y": 390, "scala": 2.3, "variante": "uomo_cappello", "posa": "cammina_1", "flip": true }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "Le figure entrano e si fermano nelle pose di prova.",
+      "passi": [
+        { "azione": "walk", "chi": ["marinaio", "soldato"], "da": "sinistra", "a": 0, "durata": 2400, "sfalsa": 200 },
+        { "azione": "walk", "chi": ["soldatessa", "civile"], "da": "destra", "a": 0, "durata": 2400, "sfalsa": 200 }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

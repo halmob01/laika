@@ -67,7 +67,7 @@ Percorso comune: [atto0-study.json](../prototypes/laika-kit/atto0-study.json), a
 | `res-monete` | Obblighi/risorse, A0 | Riuso; non attribuire valuta o valori storici all'indice simulato |
 | `res-grano` | Sussistenza, A0 | Riuso; distinguere simbolo e dato produttivo |
 | `res-attrezzi` | Lavoro agricolo, A0 | Adattare forma a luogo/epoca |
-| `char-soldato-zarista` | Apparato militare, futuro Atto II | Conservare; uniforme ricostruita non verificata, non pronta per A1.2 |
+| `char-soldato-zarista` | Riferimento in archivio | Uniforme ricostruita non verificata. Per le nuove scene del 1917 usare la variante articolata `soldato_guarnigione`, in stato bozza: [fonti e limiti](FIGURE-ATTO-II.md) |
 | `env-coda-pane` | Crisi del 1917, Atto II | Conservare per seguito; non illustrare con questa scena il 1905 |
 | `char-persona-coda` | Civile in attesa, Atto II | Adattare; provenienza ricostruita e abiti da verificare |
 
