@@ -110,6 +110,8 @@ export function figuraSymbol(d) {
 // Oggetti agganciati. Markup copiato dallo studio, colori come token; 'presa' indica dove si aggancia.
 // tinta: l'oggetto prende il colore della figura (ricolorazione del ruolo).
 const P = {
+  // Mazzo nuovo, presa nel punto di legatura. Il disegno coincide con oggetto-fiori.
+  fiori: { presa: 'hand-near', fonte: 'kit-primavera-1917.html#fiori', markup: "<g transform=\"scale(0.55)\"><path d=\"M -4 9 L 5 -27 M 0 9 L -12 -24 M 3 9 L 17 -23 M -1 7 L -3 -34 M 1 3 Q -14 -2 -13 -11 Q -4 -11 1 -1 M 3 -5 Q 17 -13 19 -8 Q 16 -1 2 1\" fill=\"none\" stroke=\"ink\" stroke-width=\"1.6\" stroke-linecap=\"round\"/><path d=\"M -7 1 L 6 -1 L 5 4 L -5 5 Z\" fill=\"sand\" stroke=\"ink\" stroke-width=\"0.8\"/><path d=\"M -18 -26 Q -22 -35 -15 -35 Q -17 -43 -9 -40 Q -3 -43 -3 -35 Q 4 -30 -4 -25 Q -10 -21 -18 -26 Z M 9 -25 Q 2 -32 9 -36 Q 9 -44 16 -39 Q 24 -43 24 -35 Q 31 -30 23 -26 Q 18 -21 9 -25 Z\" fill=\"red\" stroke=\"ink\" stroke-width=\"0.8\"/><path d=\"M -7 -36 Q -15 -41 -9 -47 Q -6 -53 -1 -48 Q 8 -50 8 -43 Q 12 -36 4 -34 Z\" fill=\"sand\" stroke=\"ink\" stroke-width=\"0.8\"/><circle cx=\"-10\" cy=\"-32\" r=\"2\" fill=\"ink\"/><circle cx=\"16\" cy=\"-32\" r=\"2\" fill=\"ink\"/><circle cx=\"0\" cy=\"-42\" r=\"1.8\" fill=\"ink\"/></g>" },
   'bastone-mano':   { presa: 'wrist-near', markup: '<line x1="0" y1="13" x2="8" y2="42" stroke="ink" stroke-width="2.8" stroke-linecap="round"/>' },
   'borsa':          { presa: 'hand-near', tinta: true, markup: '<path d="M -6,4 L 6,4 L 8,18 L -8,18 Z" fill="ink"/><path d="M -4,4 C -4,-3 4,-3 4,4" fill="none" stroke="ink" stroke-width="2"/>' },
   'bandiera':       { presa: 'hand-near', markup: '<line x1="-14" y1="22" x2="10" y2="-36" stroke="ink" stroke-width="2.8" stroke-linecap="round"/><path d="M 10,-36 C 24,-38 36,-44 48,-46 L 46,-14 C 32,-18 18,-18 2,-18 Z" fill="red"/>', parti: { 'f-2': { id: 'telo', origin: [6, -27] } } },
@@ -133,7 +135,7 @@ export function oggettoSymbol(name) {
   const p = P[name];
   if (!p) throw new Error('Oggetto della figura sconosciuto: ' + name);
   const layers = markupToLayers(p.markup, { prefix: 'f' }).map(l => p.parti?.[l.id] ? { ...l, id: p.parti[l.id].id, origin: p.parti[l.id].origin } : l);
-  return { id: 'presa-' + name, meta: { label: name.replace(/-/g, ' '), family: 'oggetti-impugnati', source: 'studio personaggi.html#buildOminoSVG', presa: p.presa, tinta: Boolean(p.tinta) }, layers };
+  return { id: 'presa-' + name, meta: { label: name.replace(/-/g, ' '), family: 'oggetti-impugnati', source: p.fonte ?? 'studio personaggi.html#buildOminoSVG', presa: p.presa, tinta: Boolean(p.tinta) }, layers };
 }
 
 // Abbassamento del corpo nelle unità della figura, data la sua scala complessiva.

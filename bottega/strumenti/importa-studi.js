@@ -80,6 +80,16 @@ export const KIT = [
     famiglie: [
       { famiglia: 'corte', prefisso: 'corte-', funzione: 'drawCorte', voci: 'CORTE', argomenti: ['$id', 0, 0], terra: 400 }
     ]
+  },
+  {
+    file: 'prototypes/kit-primavera-1917/kit-primavera-1917.html', palette: 'C',
+    token: { bg: 'paper', p2: 'paper2', ink: 'ink', red: 'red', sand: 'sand', cLight: 'concrete-light', cMid: 'concrete-mid', cDark: 'concrete-dark', sky: 'sky', tree: 'tree' },
+    definizioni: { funzione: 'getDefs', argomenti: [], texture: 'primavera', motivi: { grana: 'grana-ambienti' } },
+    famiglie: [
+      { famiglia: 'oggetti', prefisso: 'oggetto-', funzione: 'drawOggetto', voci: "ITEMS.filter(v => v.famiglia === 'oggetti')", argomenti: ['$id', 0, 0], terra: 200 },
+      { famiglia: 'ambienti', prefisso: 'ambiente-', funzione: 'drawAmbiente1917', voci: "ITEMS.filter(v => v.famiglia === 'ambienti')", argomenti: ['$id', 0, 0], terra: 400 },
+      { famiglia: 'luoghi', prefisso: 'luogo-', funzione: 'drawLuogo1917', voci: "ITEMS.filter(v => v.famiglia === 'luoghi')", argomenti: ['$id', 0, 0], terra: 400 }
+    ]
   }
 ];
 // Colori scritti direttamente nel codice dei kit (fuori dalla palette).
@@ -97,7 +107,11 @@ export function importa() {
     const motivi = {};
     for (const m of defs.matchAll(/<pattern id="([\w-]+)" width="(\d+)" height="(\d+)"[^>]*>([\s\S]*?)<\/pattern>/g)) {
       const nome = d?.motivi?.[m[1]]; if (!nome) throw new Error(kit.file + ': motivo senza nome nella configurazione: ' + m[1]);
-      patterns.push({ id: nome, width: Number(m[2]), height: Number(m[3]), layers: markupToLayers(m[4], { prefix: 'p', colors }) }); motivi[m[1]] = nome;
+      const pattern = { id: nome, width: Number(m[2]), height: Number(m[3]), layers: markupToLayers(m[4], { prefix: 'p', colors }) };
+      const presente = patterns.find(p => p.id === nome);
+      if (presente && JSON.stringify(presente) !== JSON.stringify(pattern)) throw new Error(kit.file + ': motivo già definito con geometria diversa: ' + nome);
+      if (!presente) patterns.push(pattern);
+      motivi[m[1]] = nome;
     }
     for (const fam of kit.famiglie) {
       const voci = Array.isArray(fam.voci) ? fam.voci : api.valuta(fam.voci).map(v => [v.id, v.label]);
