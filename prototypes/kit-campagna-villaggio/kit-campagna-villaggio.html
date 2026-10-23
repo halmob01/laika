@@ -217,12 +217,12 @@ function paglia(punti, r) {
   const d = macchiaP(punti, r, 0);
   let segni = '';
   const [a, b, c, e] = punti;
-  for (let i = 0.04; i < 1; i += 0.045) {
+  for (let i = 0.05; i < 1; i += 0.075) {
     const x1 = a[0] + (b[0] - a[0]) * i, y1 = a[1] + (b[1] - a[1]) * i;
     const x2 = e[0] + (c[0] - e[0]) * i, y2 = e[1] + (c[1] - e[1]) * i;
     segni += linea([[x1, y1 + 2], [(x1 + x2) / 2, (y1 + y2) / 2], [x2, y2 - 1]], r, 0.6, 13) + ' ';
   }
-  return tinta(d, C.sand) + grana(d, 0.9) + inchiostro(segni, 0.65, 0.8) + inchiostro(d, 1.1);
+  return tinta(d, C.sand) + grana(d, 0.7) + inchiostro(segni, 0.6, 0.55) + inchiostro(d, 0.9);
 }
 function sacco(x, base, w, h, r) {
   const d = `M ${x - 4} ${base - h + 7} Q ${x - w / 2 - 1} ${base - h + 13} ${x - w / 2} ${base - 4} Q ${x - w / 2} ${base} ${x} ${base} Q ${x + w / 2} ${base} ${x + w / 2} ${base - 4} Q ${x + w / 2 + 1} ${base - h + 13} ${x + 4} ${base - h + 7} L ${x + 6} ${base - h} L ${x - 6} ${base - h} Z`;
@@ -295,7 +295,7 @@ function drawCampagna(id, ox = 0, oy = 0) {
     if (finita) {
       s += tinta('M -105 109 L -50 68 L 7 109 Z', C.sand);
       s += inchiostro(tratteggio(-70, 93, 39, 14, r, 4, 0.2), 0.65);
-      s += paglia([[-50, 61], [44, 73], [-21, 121], [-119, 110]], r) + paglia(falda, r);
+      s += paglia([[-50, 61], [44, 73], [20, 110], [-119, 110]], r) + paglia(falda, r);
     } else {
       // Metà falda già coperta da fasci di paglia, metà con correnti scoperti.
       for (const t of [0, 0.25, 0.5, 0.75, 1]) s += asse(-50 + 94 * t, 62 + 12 * t, 20 + 98 * t, 110 + 10 * t, r, 2.8);
@@ -304,7 +304,7 @@ function drawCampagna(id, ox = 0, oy = 0) {
       s += paglia([[-50, 61], [-3, 67], [69.5, 115], [20, 110]], r);
     }
     // Contorno identico, senza tremolio ai limiti laterali: x = -120 e x = 120.
-    s += inchiostro('M -119 110 L -50 61 L 44 73 L 119 120 L 20 110 L -50 61 M -119 110 L 20 110', 2);
+    s += inchiostro('M -119 110 L -50 61 L 44 73 L 119 120 L 20 110 L -50 61 M -119 110 L 20 110', 1.4);
     s += tinta('M -105 198 L 105 198 L 105 200 L -105 200 Z', C.sand);
   } else if (id === 'campagna_bosco_cantiere' || id === 'campagna_bosco_finito') {
     const r = rng(2303), finito = id === 'campagna_bosco_finito';
@@ -426,7 +426,7 @@ function drawCampagna(id, ox = 0, oy = 0) {
     s += inchiostro('M -55 111 L -12 84 M -30 111 L 0 90 M 30 111 L 9 91 M 54 111 L 20 91', 0.8);
     s += paglia([[0, 71], [10, 75], [84, 116], [0, 110]], r);
     s += paglia([[-8, 75], [0, 71], [0, 110], [-84, 116]], r);
-    s += inchiostro('M -84 116 L 0 71 L 84 116', 1.8);
+    s += inchiostro('M -84 116 L 0 71 L 84 116', 1.4);
     s += tinta('M -20 123 L 18 123 L 18 177 L -20 177 Z', C.ink);
     s += '<g id="porta" data-pivot="-20 123">';
     s += tinta(macchia(-20, 123, 38, 54, r, 0), C.sand) + grana(macchia(-20, 123, 38, 54, r, 0));
