@@ -79,7 +79,7 @@ export function createStage(host,{reducedMotion=false,textures=true,raf=requestA
   let beats=[],caption='',lastBeat=-1;
   let descriptor,nodes=new Map(),transforms=new Map(),frame=null,last=null,tracks=[],finals=[],elapsed=0,started=0,paused=false,endTime=0;
   let textured=[];
-  const dirty=new Set(),origins=new Map(),cache=new Map();
+  const dirty=new Set(),origins=new Map(),cache=new Map(),homes=new Map();let generation=0;
   function read(layer,attribute){if(TRANSFORMS.includes(attribute))return transforms.get(layer)[attribute];const v=nodes.get(layer).getAttribute(attribute);return v===null?(attribute==='opacity'?1:0):Number(v);}
   function flush(){
     for(const layer of dirty){const t=transforms.get(layer),origin=origins.get(layer);
@@ -121,7 +121,7 @@ export function createStage(host,{reducedMotion=false,textures=true,raf=requestA
   function mount(stage,state,{intro=false}={}){
     // La didascalia della scena precedente non deve ricomparire chiudendola: la nuova scena parte senza.
     caption='';beats=[];lastBeat=-1;skip();descriptor=stage;nodes=new Map();transforms=new Map();dirty.clear();origins.clear();cache.clear();host.replaceChildren();last=null;tracks=[];finals=[];endTime=0;
-    textured=[];
+    textured=[];homes.clear();generation++;
     const prefix='motion-'+(++instanceNumber)+'-';
     const svg=document.createElementNS(NS,'svg');svg.setAttribute('viewBox',(stage.viewBox||[0,0,640,360]).join(' '));svg.setAttribute('role','img');svg.setAttribute('aria-label',stage.label);
     const defs=document.createElementNS(NS,'defs');if(stage.layers.some(l=>DEFS.includes(l.tag)||l.texture))svg.append(defs);
@@ -133,7 +133,7 @@ export function createStage(host,{reducedMotion=false,textures=true,raf=requestA
       if(layer.texture){const key=JSON.stringify(layer.texture);let filterId=textureIds.get(key);if(!filterId){filterId=prefix+'texture-'+textureIds.size;textureIds.set(key,filterId);defs.append(makeTexture(layer.texture,filterId));}textured.push({node,id:filterId});if(textures)node.setAttribute('filter','url(#'+filterId+')');}
       if(layer.clip)node.setAttribute('clip-path','url(#'+prefix+layer.clip+')');
       (layer.parent?nodes.get(layer.parent):DEFS.includes(layer.tag)?defs:svg).append(node);nodes.set(layer.id,node);transforms.set(layer.id,{translateX:0,translateY:0,scale:1,scaleX:1,rotate:0,skewX:0,skewY:0,...layer.pose});
-      if(layer.origin)origins.set(layer.id,layer.origin);
+      if(layer.origin)origins.set(layer.id,layer.origin);homes.set(layer.id,{translateX:layer.pose?.translateX??0,translateY:layer.pose?.translateY??0});
       for(const [key,value] of Object.entries(layer.pose||{}))writeOne(layer.id,key,value);}
     host.append(svg);flush();write(values(state));
     if(intro&&stage.introSequence)sequence(stage.introSequence);
@@ -145,8 +145,18 @@ export function createStage(host,{reducedMotion=false,textures=true,raf=requestA
     if(cue){const seq=descriptor.sequences?.find(s=>s.id===cue);assert(seq,'Sequenza sconosciuta');play([...items,...seq.tracks],{caption:seq.caption,beats:seq.beats||[]});}
     else if(items.some(t=>t.from!==t.to))play(items);
   }
+  // Sposta livelli (per esempio figure) in un punto della scena, in unità del viewBox; null = posizione di partenza.
+  // Serve ai giochi che mettono persone nei posti: niente tracce scritte a mano, solo il punto d'arrivo.
+  function position(targets,{animate=true,duration=700}={}){
+    const items=[];
+    for(const t of targets){if(!nodes.has(t.layer))continue;const home=homes.get(t.layer);
+      for(const a of ['translateX','translateY']){const to=t[a]??home[a],from=read(t.layer,a);if(Math.abs(from-to)>0.5)items.push({layer:t.layer,attribute:a,from,to});}}
+    if(!items.length)return false;
+    if(!animate||reducedMotion){skip();write(items);return true;}
+    play(items.map(i=>({...i,duration})),{remember:false});return true;
+  }
   function pause(){if(frame===null)return;elapsed=Math.max(0,now()-started);paint(elapsed);cancel();paused=true;status('paused');}
   function resume(){if(!paused)return;paused=false;if(reducedMotion){skip();return;}started=now()-elapsed;status('playing');frame=raf(tick);}
   function seek(ms){if(reducedMotion){skip();return;}assert(Number.isFinite(ms),'Tempo non valido');cancel();elapsed=Math.max(0,Math.min(endTime,ms));paint(elapsed);paused=elapsed<endTime;status(paused?'paused':'finished');}
-  return {mount,update,sequence,skip,pause,resume,seek,setTexturesEnabled(value){textures=Boolean(value);for(const {node,id} of textured){if(textures)node.setAttribute('filter','url(#'+id+')');else node.removeAttribute('filter');}},replay(){if(last)play(last.items,{remember:false,caption:last.caption,beats:last.beats});},setReducedMotion(value){reducedMotion=value;if(value)skip();},destroy(){skip();host.replaceChildren();textured=[];},get active(){return frame!==null;},get paused(){return paused;}};
+  return {mount,update,sequence,skip,position,get generation(){return generation;},pause,resume,seek,setTexturesEnabled(value){textures=Boolean(value);for(const {node,id} of textured){if(textures)node.setAttribute('filter','url(#'+id+')');else node.removeAttribute('filter');}},replay(){if(last)play(last.items,{remember:false,caption:last.caption,beats:last.beats});},setReducedMotion(value){reducedMotion=value;if(value)skip();},destroy(){skip();host.replaceChildren();textured=[];},get active(){return frame!==null;},get paused(){return paused;}};
 }

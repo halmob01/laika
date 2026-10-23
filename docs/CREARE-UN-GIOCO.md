@@ -126,7 +126,22 @@ Un episodio `turn_game` è una partita di più turni dentro un solo episodio. Ca
 - `turns`: `{label, cards?, rules?, preview?, event?}`. Le `cards` hanno `text` e facoltativi `title`, `kind` (`documented`, `simulation`, `source`: etichetta mostrata sulla card), `stageId` e `motionId` (la card è illustrata da quella scena); l'`event` è «chi bussa»: `{who, text, choices}`, ogni risposta con `text` ed effetti o con `chance` ed esiti `success`/`failure`, che possono cambiare le regole;
 - `feedback`: testo finale.
 
-Le mosse sono azioni `{type:"turn", step}` con `step` fra `card`, `back`, `place` (`placeId`, `delta` ±1), `confirm`, `choose` (`choiceId`), `continue`. Il caso dipende dal seme della sessione: il salvataggio (registro delle mosse) rigioca la stessa partita. Il player mostra una riga per metrica con la variazione netta. Il codice sta in `src/core/turns.js`; la prova neutra in `tests/turns.test.js`.
+#### Gestione (facoltativa)
+
+Con questi campi la partita diventa una gestione: le pedine sono persone, alcuni posti sono lavori che restano, una risorsa si può investire e qualche anno c'è un mercato. Tutto è facoltativo e i giochi senza questi campi funzionano come prima.
+
+- `workers`: al posto di `tokens`, da 1 a 8 persone `{id, label, strength, figure?}`. `strength` (da 1 a 5) moltiplica gli effetti del posto e conta per gli obblighi `min`; `strengthLabel` dice come si chiama («braccia»). `figure` è l'id di una figura della scena del tabellone: il player la sposta nel posto scelto (`stage.position`) e la riporta al punto di partenza quando resta senza posto. Le regole possono cambiare una persona con `workers: {id: {strength?, label?, away?}}`; `away: true` la toglie dalla partita. Chi lavorava in un posto ci resta l'anno dopo, se il posto c'è ancora.
+- `places[]` accetta anche `when` (il posto compare solo se la condizione è vera), `short` (nome breve sul pulsante della scena) e `stand: {x, y}` (dove stanno le figure, se diverso dal pulsante).
+- `projects`: lavori lunghi `{id, label, short?, text, x, y, stand?, work, cost?, when?, done}`. Si scelgono come un posto; ogni anno avanzano della forza messa; il `cost` (solo effetti negativi) si paga il primo anno; finito il lavoro si applicano `done.effects` e `done.rules`, chi ci lavorava torna libero e il lavoro resta segnato sulla scena.
+- Nelle regole `boost: {posto: n}` si somma alla resa di un posto (0.2 = +20%, cumulabile) e `yearly` aggiunge effetti a ogni anno (cumulabili): così si scrivono le migliorie.
+- `reserve`: `{from, label, text?, step, start, full, floor, places}`. Prima dell'anno il giocatore mette da parte una quantità di `from` (a passi di `step`); quella quantità si toglie e la resa dei `places` vale `floor + (1 - floor) × min(1, riserva / full)`. È la semina: più si mette da parte meno si mangia.
+- `turns[].market`: `{who, text, offers}`. Dopo chi bussa si apre il mercato; ogni offerta `{id, label, text, when?, once?, effects, rules?}` si prende una volta per visita (`once`: una volta nella partita).
+- Le risposte di chi bussa accettano `when`: se la condizione è falsa la risposta resta visibile ma non si può scegliere.
+- `upkeepLabel`, `yearlyLabel`, `crisisLabel` e `control.label` danno il nome alle voci dell'esito: il player mostra, per ogni anno, da dove viene ogni variazione (`result.steps`) e poi il totale.
+
+Ordine di un anno: si pagano i lavori che cominciano e la riserva; si applica il mantenimento e si controllano le crisi (si può restare senza prima del raccolto); poi imprevisto e resa dei posti, rendite delle migliorie, avanzamento dei lavori, controllo degli obblighi e di nuovo le crisi.
+
+Le mosse sono azioni `{type:"turn", step}` con `step` fra `card`, `back`, `place` (`placeId`, `delta` ±1), `assign` (`workerId`, `placeId`), `reserve` (`delta` ±1), `confirm`, `choose` (`choiceId`), `continue`, `buy` (`offerId`) e `leave`. Il caso dipende dal seme della sessione: il salvataggio (registro delle mosse) rigioca la stessa partita. Il player mostra una riga per metrica con la variazione netta. Il codice sta in `src/core/turns.js`; la prova neutra in `tests/turns.test.js`.
 
 Un episodio può dichiarare `context: {"kind":"simulation","dateLabel":"1861","placeLabel":"Russia"}`. `kind` ammette `documented`, `simulation`, `source`, `assessment`; le etichette opzionali sono testo. Il cartiglio non cambia stato, punteggi o transizioni e non interpreta HTML.
 

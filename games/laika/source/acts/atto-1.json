@@ -52,13 +52,16 @@
       "id": "grano",
       "label": "Grano della famiglia",
       "min": 0,
-      "max": 100,
-      "start": 50
+      "max": 150,
+      "start": 60
     }
   ],
   "relations": [],
   "flags": [
-    "mucca_venduta"
+    "mucca_venduta",
+    "vomere",
+    "mucca_ricomprata",
+    "figlio_via"
   ],
   "episodes": [
     {
@@ -99,7 +102,7 @@
         "dateLabel": "1740–1861",
         "placeLabel": "un villaggio della Russia centrale"
       },
-      "text": "Una partita di otto anni, dal 1740 al 1861. Ogni anno arriva una notizia dall'alto, poi si dividono i sei giorni della settimana, poi qualcuno bussa alla porta.",
+      "text": "Una partita di otto anni, dal 1740 al 1861. Ogni anno arriva una notizia dall'alto. Poi decidi chi della famiglia va dove e quanto grano tenere per la semina. Poi qualcuno bussa alla porta.",
       "stageId": "a1-u1-anno",
       "resultMotionId": "raccolto",
       "exposes": [
@@ -109,41 +112,50 @@
         "a1-utopie",
         "a1-manifesto"
       ],
-      "visualExplanation": "Il tabellone è il villaggio: tocca i posti sulla scena oppure usa + e − qui sotto. Gli indicatori sono indici della simulazione: non sono dati storici né voti.",
-      "tokens": 6,
-      "tokenLabel": "giorni",
+      "visualExplanation": "Il tabellone è il villaggio. Tocca una persona e poi il posto dove la mandi: qui sotto oppure sulla scena. Ogni pallino è un paio di braccia. Gli indicatori sono indici della simulazione: non sono dati storici né voti.",
+      "tokenLabel": "persone",
       "places": [
         {
           "id": "campo",
           "label": "Il campo della famiglia",
-          "x": 0.27,
-          "y": 0.84,
+          "x": 0.31,
+          "y": 0.76,
           "perToken": [
             {
               "kind": "resource",
               "id": "grano",
-              "delta": 7
+              "delta": 8
             }
-          ]
+          ],
+          "stand": {
+            "x": 0.31,
+            "y": 0.93
+          },
+          "short": "Campo"
         },
         {
           "id": "corvee",
           "label": "I campi del signore (corvée)",
-          "x": 0.76,
-          "y": 0.84,
+          "x": 0.585,
+          "y": 0.78,
           "perToken": [
             {
               "kind": "metric",
               "id": "occhio",
               "delta": -5
             }
-          ]
+          ],
+          "stand": {
+            "x": 0.585,
+            "y": 0.95
+          },
+          "short": "Corvée"
         },
         {
           "id": "vicini",
           "label": "Il villaggio: aiutare i vicini",
-          "x": 0.27,
-          "y": 0.66,
+          "x": 0.17,
+          "y": 0.57,
           "perToken": [
             {
               "kind": "metric",
@@ -153,9 +165,14 @@
             {
               "kind": "resource",
               "id": "grano",
-              "delta": 3
+              "delta": 4
             }
-          ]
+          ],
+          "stand": {
+            "x": 0.17,
+            "y": 0.74
+          },
+          "short": "Vicini"
         }
       ],
       "rules": {
@@ -219,14 +236,15 @@
           {
             "kind": "resource",
             "id": "grano",
-            "delta": -5
+            "delta": -15
           },
           {
             "kind": "metric",
             "id": "occhio",
-            "delta": 3
+            "delta": 4
           }
-        ]
+        ],
+        "label": "Il registro dell'amministratore"
       },
       "crises": [
         {
@@ -251,16 +269,8 @@
             }
           ],
           "rules": {
-            "places": {
-              "campo": {
-                "perToken": [
-                  {
-                    "kind": "resource",
-                    "id": "grano",
-                    "delta": 6
-                  }
-                ]
-              }
+            "boost": {
+              "campo": -0.15
             }
           }
         },
@@ -318,6 +328,11 @@
                 "kind": "metric",
                 "id": "legami",
                 "value": 50
+              },
+              {
+                "op": "flag",
+                "id": "figlio_via",
+                "value": false
               }
             ]
           },
@@ -327,21 +342,84 @@
               "kind": "resource",
               "id": "grano",
               "delta": 10
+            },
+            {
+              "kind": "flag",
+              "id": "figlio_via",
+              "value": true
             }
           ],
           "rules": {
-            "tokensDelta": -1
+            "workers": {
+              "figlio": {
+                "away": true
+              }
+            }
           }
         },
         {
           "id": "insolenza",
           "when": {
-            "op": "gte",
-            "kind": "metric",
-            "id": "occhio",
-            "value": 85
+            "op": "all",
+            "items": [
+              {
+                "op": "gte",
+                "kind": "metric",
+                "id": "occhio",
+                "value": 85
+              },
+              {
+                "op": "flag",
+                "id": "figlio_via",
+                "value": false
+              }
+            ]
           },
           "text": "Il padrone manda il figlio in Siberia per «insolenza». Ha il diritto di farlo e nessuno può impedirglielo. Il figlio non tornerà.",
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "occhio",
+              "delta": -30
+            },
+            {
+              "kind": "metric",
+              "id": "speranza",
+              "delta": -15
+            },
+            {
+              "kind": "flag",
+              "id": "figlio_via",
+              "value": true
+            }
+          ],
+          "rules": {
+            "workers": {
+              "figlio": {
+                "away": true
+              }
+            }
+          }
+        },
+        {
+          "id": "insolenza-padre",
+          "when": {
+            "op": "all",
+            "items": [
+              {
+                "op": "gte",
+                "kind": "metric",
+                "id": "occhio",
+                "value": 85
+              },
+              {
+                "op": "flag",
+                "id": "figlio_via",
+                "value": true
+              }
+            ]
+          },
+          "text": "Il padrone manda il padre in Siberia per «insolenza». Ha il diritto di farlo e nessuno può impedirglielo.",
           "effects": [
             {
               "kind": "metric",
@@ -355,7 +433,11 @@
             }
           ],
           "rules": {
-            "tokensDelta": -1
+            "workers": {
+              "padre": {
+                "away": true
+              }
+            }
           }
         }
       ],
@@ -401,7 +483,12 @@
                     "id": "grano",
                     "delta": -6
                   }
-                ]
+                ],
+                "when": {
+                  "op": "flag",
+                  "id": "figlio_via",
+                  "value": false
+                }
               },
               {
                 "id": "grano",
@@ -531,6 +618,110 @@
                     "kind": "resource",
                     "id": "grano",
                     "delta": -6
+                  }
+                ]
+              }
+            ]
+          },
+          "rules": {
+            "workers": {
+              "figlio": {
+                "strength": 2
+              }
+            }
+          },
+          "market": {
+            "who": "La fiera d'autunno",
+            "text": "Al villaggio grande, dopo il raccolto, si scambia grano con ferro, sale e bestie. Si paga in grano.",
+            "offers": [
+              {
+                "id": "punte",
+                "label": "Punte di ferro per la sokha",
+                "text": "Il fabbro le monterà quando avrete tempo.",
+                "once": true,
+                "when": {
+                  "op": "gte",
+                  "kind": "resource",
+                  "id": "grano",
+                  "value": 15
+                },
+                "effects": [
+                  {
+                    "kind": "resource",
+                    "id": "grano",
+                    "delta": -15
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "vomere",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "mucca",
+                "label": "Una mucca giovane",
+                "text": "Torna il latte e torna il letame.",
+                "once": true,
+                "when": {
+                  "op": "all",
+                  "items": [
+                    {
+                      "op": "flag",
+                      "id": "mucca_venduta",
+                      "value": true
+                    },
+                    {
+                      "op": "gte",
+                      "kind": "resource",
+                      "id": "grano",
+                      "value": 30
+                    }
+                  ]
+                },
+                "effects": [
+                  {
+                    "kind": "resource",
+                    "id": "grano",
+                    "delta": -30
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "mucca_ricomprata",
+                    "value": true
+                  }
+                ],
+                "rules": {
+                  "boost": {
+                    "campo": 0.15
+                  }
+                }
+              },
+              {
+                "id": "festa",
+                "label": "Sale e un fazzoletto rosso per la festa",
+                "text": "Per una sera in casa si canta.",
+                "when": {
+                  "op": "gte",
+                  "kind": "resource",
+                  "id": "grano",
+                  "value": 6
+                },
+                "effects": [
+                  {
+                    "kind": "resource",
+                    "id": "grano",
+                    "delta": -6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "speranza",
+                    "delta": 5
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "legami",
+                    "delta": 2
                   }
                 ]
               }
@@ -713,7 +904,12 @@
                     "id": "grano",
                     "delta": -2
                   }
-                ]
+                ],
+                "when": {
+                  "op": "flag",
+                  "id": "figlio_via",
+                  "value": false
+                }
               },
               {
                 "id": "ridere",
@@ -729,6 +925,110 @@
                     "kind": "metric",
                     "id": "occhio",
                     "delta": 6
+                  }
+                ]
+              }
+            ]
+          },
+          "rules": {
+            "workers": {
+              "figlio": {
+                "strength": 3
+              }
+            }
+          },
+          "market": {
+            "who": "La fiera d'autunno",
+            "text": "Quest'anno alla fiera c'è anche un mercante di Mosca. I prezzi sono gli stessi.",
+            "offers": [
+              {
+                "id": "punte",
+                "label": "Punte di ferro per la sokha",
+                "text": "Il fabbro le monterà quando avrete tempo.",
+                "once": true,
+                "when": {
+                  "op": "gte",
+                  "kind": "resource",
+                  "id": "grano",
+                  "value": 15
+                },
+                "effects": [
+                  {
+                    "kind": "resource",
+                    "id": "grano",
+                    "delta": -15
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "vomere",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "mucca",
+                "label": "Una mucca giovane",
+                "text": "Torna il latte e torna il letame.",
+                "once": true,
+                "when": {
+                  "op": "all",
+                  "items": [
+                    {
+                      "op": "flag",
+                      "id": "mucca_venduta",
+                      "value": true
+                    },
+                    {
+                      "op": "gte",
+                      "kind": "resource",
+                      "id": "grano",
+                      "value": 30
+                    }
+                  ]
+                },
+                "effects": [
+                  {
+                    "kind": "resource",
+                    "id": "grano",
+                    "delta": -30
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "mucca_ricomprata",
+                    "value": true
+                  }
+                ],
+                "rules": {
+                  "boost": {
+                    "campo": 0.15
+                  }
+                }
+              },
+              {
+                "id": "festa",
+                "label": "Sale e un fazzoletto rosso per la festa",
+                "text": "Per una sera in casa si canta.",
+                "when": {
+                  "op": "gte",
+                  "kind": "resource",
+                  "id": "grano",
+                  "value": 6
+                },
+                "effects": [
+                  {
+                    "kind": "resource",
+                    "id": "grano",
+                    "delta": -6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "speranza",
+                    "delta": 5
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "legami",
+                    "delta": 2
                   }
                 ]
               }
@@ -780,10 +1080,24 @@
                     "kind": "metric",
                     "id": "speranza",
                     "delta": -8
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "figlio_via",
+                    "value": true
                   }
                 ],
                 "rules": {
-                  "tokensDelta": -1
+                  "workers": {
+                    "figlio": {
+                      "away": true
+                    }
+                  }
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "figlio_via",
+                  "value": false
                 }
               },
               {
@@ -811,6 +1125,103 @@
                   {
                     "kind": "metric",
                     "id": "speranza",
+                    "delta": 2
+                  }
+                ]
+              }
+            ]
+          },
+          "market": {
+            "who": "La fiera d'autunno",
+            "text": "Si parla della colonia militare. Al banco del ferro c'è la fila.",
+            "offers": [
+              {
+                "id": "punte",
+                "label": "Punte di ferro per la sokha",
+                "text": "Il fabbro le monterà quando avrete tempo.",
+                "once": true,
+                "when": {
+                  "op": "gte",
+                  "kind": "resource",
+                  "id": "grano",
+                  "value": 15
+                },
+                "effects": [
+                  {
+                    "kind": "resource",
+                    "id": "grano",
+                    "delta": -15
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "vomere",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "mucca",
+                "label": "Una mucca giovane",
+                "text": "Torna il latte e torna il letame.",
+                "once": true,
+                "when": {
+                  "op": "all",
+                  "items": [
+                    {
+                      "op": "flag",
+                      "id": "mucca_venduta",
+                      "value": true
+                    },
+                    {
+                      "op": "gte",
+                      "kind": "resource",
+                      "id": "grano",
+                      "value": 30
+                    }
+                  ]
+                },
+                "effects": [
+                  {
+                    "kind": "resource",
+                    "id": "grano",
+                    "delta": -30
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "mucca_ricomprata",
+                    "value": true
+                  }
+                ],
+                "rules": {
+                  "boost": {
+                    "campo": 0.15
+                  }
+                }
+              },
+              {
+                "id": "festa",
+                "label": "Sale e un fazzoletto rosso per la festa",
+                "text": "Per una sera in casa si canta.",
+                "when": {
+                  "op": "gte",
+                  "kind": "resource",
+                  "id": "grano",
+                  "value": 6
+                },
+                "effects": [
+                  {
+                    "kind": "resource",
+                    "id": "grano",
+                    "delta": -6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "speranza",
+                    "delta": 5
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "legami",
                     "delta": 2
                   }
                 ]
@@ -849,10 +1260,24 @@
                     "kind": "metric",
                     "id": "speranza",
                     "delta": 18
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "figlio_via",
+                    "value": true
                   }
                 ],
                 "rules": {
-                  "tokensDelta": -1
+                  "workers": {
+                    "figlio": {
+                      "away": true
+                    }
+                  }
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "figlio_via",
+                  "value": false
                 }
               },
               {
@@ -1076,7 +1501,156 @@
       "editorial": {
         "scheda": "I.1 (forma nuova, REPERTORIO-GIOCHI §5)",
         "nota": "Card [D] dalla matrice delle fonti; chi bussa, regole e numeri sono simulazione."
-      }
+      },
+      "strengthLabel": "braccia",
+      "workers": [
+        {
+          "id": "padre",
+          "label": "Il padre",
+          "strength": 3,
+          "figure": "padre"
+        },
+        {
+          "id": "madre",
+          "label": "La madre",
+          "strength": 2,
+          "figure": "madre"
+        },
+        {
+          "id": "nonno",
+          "label": "Il nonno",
+          "strength": 1,
+          "figure": "nonno"
+        },
+        {
+          "id": "figlio",
+          "label": "Il figlio",
+          "strength": 1,
+          "figure": "figlio"
+        }
+      ],
+      "projects": [
+        {
+          "id": "orto",
+          "label": "L'orto dietro l'isba",
+          "text": "Cavoli e rape non temono il gelo di maggio.",
+          "x": 0.095,
+          "y": 0.67,
+          "work": 1,
+          "cost": [
+            {
+              "kind": "resource",
+              "id": "grano",
+              "delta": -5
+            }
+          ],
+          "done": {
+            "text": "L'orto è pronto: ogni anno qualche sacco in più, qualunque tempo faccia.",
+            "rules": {
+              "yearly": [
+                {
+                  "kind": "resource",
+                  "id": "grano",
+                  "delta": 8
+                }
+              ]
+            }
+          },
+          "stand": {
+            "x": 0.09,
+            "y": 0.84
+          },
+          "short": "Orto"
+        },
+        {
+          "id": "bosco",
+          "label": "Un campo nel bosco",
+          "text": "Tagliare, bruciare, togliere le radici: un campo nuovo, ma ci vogliono anni.",
+          "x": 0.54,
+          "y": 0.57,
+          "work": 4,
+          "done": {
+            "text": "Il bosco è diventato campo. La terra bruciata rende molto.",
+            "rules": {
+              "boost": {
+                "campo": 0.4
+              }
+            }
+          },
+          "stand": {
+            "x": 0.53,
+            "y": 0.74
+          },
+          "short": "Bosco"
+        },
+        {
+          "id": "stalla",
+          "label": "La stalla rifatta",
+          "text": "Pali di betulla e paglia nuova: la mucca passa l'inverno al riparo e il letame resta nel campo.",
+          "x": 0.37,
+          "y": 0.58,
+          "work": 2,
+          "when": {
+            "op": "flag",
+            "id": "mucca_venduta",
+            "value": false
+          },
+          "done": {
+            "text": "La stalla regge. In primavera c'è più letame per il campo.",
+            "rules": {
+              "boost": {
+                "campo": 0.2
+              }
+            }
+          },
+          "stand": {
+            "x": 0.38,
+            "y": 0.75
+          },
+          "short": "Stalla"
+        },
+        {
+          "id": "sokha",
+          "label": "La sokha rimessa a nuovo",
+          "text": "Il fabbro monta le punte di ferro comprate alla fiera: si ara più a fondo.",
+          "x": 0.21,
+          "y": 0.8,
+          "work": 1,
+          "when": {
+            "op": "flag",
+            "id": "vomere",
+            "value": true
+          },
+          "done": {
+            "text": "La sokha ara più a fondo. Il campo rende di più.",
+            "rules": {
+              "boost": {
+                "campo": 0.25
+              }
+            }
+          },
+          "stand": {
+            "x": 0.21,
+            "y": 0.97
+          },
+          "short": "Sokha"
+        }
+      ],
+      "reserve": {
+        "from": "grano",
+        "label": "Grano per la semina",
+        "text": "Il grano messo da parte non si mangia: torna nel campo. Se ne metti poco il campo rende poco.",
+        "step": 5,
+        "start": 15,
+        "full": 15,
+        "floor": 0.25,
+        "places": [
+          "campo"
+        ]
+      },
+      "upkeepLabel": "Ogni anno: si mangia e il padrone guarda",
+      "yearlyLabel": "Dall'orto",
+      "crisisLabel": "Quello che non si è potuto evitare"
     },
     {
       "id": "a1-u1-ricorda",

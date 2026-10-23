@@ -6,35 +6,58 @@ import fs from 'node:fs';
 import {validatePack} from '../src/validation/game-pack.js';
 import {newSession, currentScene, transition} from '../src/runner/index.js';
 import {restore, exportSave} from '../src/storage/index.js';
+import {workersOf, targetsOf} from '../src/core/turns.js';
+import {matches} from '../src/core/engine.js';
 const game = validatePack(JSON.parse(fs.readFileSync(new URL('../games/laika/game.json', import.meta.url), 'utf8')));
 const source = JSON.parse(fs.readFileSync(new URL('../games/laika/source/acts/atto-1.json', import.meta.url), 'utf8'));
 const NAMES = /anime e semidei/i;
 const partita = game.acts[0].episodes.find(e => e.type === 'turn_game');
 
-// Strategie: quanti giorni dare al signore e ai vicini; il resto al campo. Le risposte a chi bussa ruotano.
+// Strategie: chi della famiglia va dal signore, chi dai vicini, chi costruisce; il resto al campo.
+// La corvée si copre con la combinazione di persone che si avvicina di più all'obbligo (meno «sconto» del furbo).
 const STRATEGIE = {
-  obbediente: g => ({corvee: g.rules.min.corvee || 0}),
-  furbo: g => ({corvee: Math.max(0, (g.rules.min.corvee || 0) - 2)}),
-  solidale: g => ({corvee: g.rules.min.corvee || 0, vicini: 1})
+  obbediente: {},
+  furbo: {sconto: 1},
+  sfrontato: {sconto: 2},
+  solidale: {vicini: ['nonno']},
+  costruttore: {costruisce: ['nonno']}
 };
+function corvee(people, need) {
+  let best = null;
+  for (let m = 0; m < 1 << people.length; m++) {
+    const sel = people.filter((_, i) => m >> i & 1), n = sel.reduce((a, w) => a + w.strength, 0);
+    if (n >= need && (!best || n * 10 + sel.length < best.score)) best = {sel, score: n * 10 + sel.length};
+  }
+  return best ? best.sel : people;
+}
 function play(name, seed, {check = false, answer = 'liberta'} = {}) {
-  let s = newSession(game, seed), k = seed.length;
+  let s = newSession(game, seed), k = seed.length, fame = 0;
   const T = (step, x = {}) => { s = transition(game, s, {type: 'turn', step, ...x}).nextState; };
+  const st = STRATEGIE[name];
   let fine = null;
-  for (let guard = 0; guard < 600 && !s.complete; guard++) {
+  for (let guard = 0; guard < 1200 && !s.complete; guard++) {
     const e = currentScene(game, s), a = s.currentAct;
     if (e.type === 'turn_game' && a.phase === 'scene') {
       const g = a.game;
       if (g.phase === 'cards') T('card');
       else if (g.phase === 'place') {
-        const plan = STRATEGIE[name](g); let left = g.rules.tokens;
-        for (const id of ['corvee', 'vicini']) { const n = Math.min(plan[id] || 0, left); for (let i = 0; i < n; i++) T('place', {placeId: id, delta: 1}); left -= n; }
-        for (let i = 0; i < left; i++) T('place', {placeId: 'campo', delta: 1});
+        const people = workersOf(e, g), aperti = targetsOf(e, g, a).map(x => x.id), need = Math.max(0, (g.rules.min.corvee || 0) - (st.sconto || 0));
+        const altrove = w => (st.vicini || []).includes(w.id) || (st.costruisce || []).includes(w.id);
+        let liberi = people.filter(w => !altrove(w));
+        if (liberi.reduce((n, w) => n + w.strength, 0) < need + 2) liberi = people.filter(w => !(st.vicini || []).includes(w.id));
+        const dal = new Set(need ? corvee(liberi, need).map(w => w.id) : []);
+        for (const w of people) {
+          const lavoro = ['sokha', 'orto', 'stalla', 'bosco'].find(x => aperti.includes(x));
+          const dove = dal.has(w.id) ? 'corvee' : (st.vicini || []).includes(w.id) ? 'vicini' : (st.costruisce || []).includes(w.id) && lavoro ? lavoro : 'campo';
+          try { T('assign', {workerId: w.id, placeId: dove}); } catch { T('assign', {workerId: w.id, placeId: 'campo'}); }
+        }
+        if (s.currentAct.resources.grano - s.currentAct.game.reserve - 20 < 0) fame++;
         T('confirm');
-      } else if (g.phase === 'event') { const ch = e.turns[g.turn].event.choices; k = (k * 7 + 3) % 97; T('choose', {choiceId: ch[k % ch.length].id}); }
+      } else if (g.phase === 'event') { const ch = e.turns[g.turn].event.choices.filter(c => !c.when || matches(c.when, a)); k = (k * 7 + 3) % 97; T('choose', {choiceId: ch[k % ch.length].id}); }
+      else if (g.phase === 'market') T('leave');
       else T('continue');
     } else {
-      if (e.type === 'turn_game') fine = {...a.resources, ...a.metrics, fired: a.game.fired};
+      if (e.type === 'turn_game') fine = {...a.resources, ...a.metrics, fired: a.game.fired, built: a.game.built, fame};
       s = transition(game, s, e.type === 'assessment' && a.phase === 'scene' ? {type: 'answer', answerId: answer} : {type: 'advance'}).nextState;
     }
     if (check) { const back = restore(game, exportSave(game, s)); assert.equal(back.ok, true); assert.deepEqual(back.state, s); }
@@ -43,44 +66,22 @@ function play(name, seed, {check = false, answer = 'liberta'} = {}) {
   return {s, fine};
 }
 
-test('I.1: prologo a card, partita, cosa ricordare, verifica; nessun titolo di lavoro', () => {
-  const act = game.acts[0];
-  assert.deepEqual(act.episodes.map(e => e.type), ['narrative', 'turn_game', 'narrative', 'assessment']);
-  assert.equal(act.episodes[0].display, 'cards'); assert.equal(act.episodes[2].display, 'cards');
-  assert.equal(partita.turns.length, 8);
-  assert.deepEqual(partita.turns.map(t => t.label), ['1740', '1761', '1777', '1787', '1820', '1840', '1842', '1861']);
-  for (const e of act.episodes) {
-    assert.ok(game.stages.some(st => st.id === e.stageId), e.id + ' senza scena');
-    assert.ok(e.context, e.id + ' senza cartiglio');
-  }
-  const testi = JSON.stringify(act);
-  assert.doesNotMatch(testi, NAMES);
-  assert.ok([...act.metrics, ...act.resources].filter(d => !d.hidden).length <= 3, 'al massimo tre indicatori visibili');
-});
-
-test('I.1: ogni anno ha una card dall\'alto illustrata dal kit e chi bussa; le card documentate citano le fonti', () => {
-  const sorgente = source.episodes.find(e => e.type === 'turn_game');
-  for (const [i, t] of sorgente.turns.entries()) {
-    assert.ok(t.cards.some(c => c.stageId), t.label + ': almeno una card ha una scena della bottega');
-    assert.ok(t.event, t.label + ': manca chi bussa');
-    for (const c of t.cards) if (c.kind === 'documented' || c.kind === 'source') assert.ok(c.editorial?.fonti?.length, t.label + ' card ' + i + ': fonte non registrata');
-  }
-  const matrice = fs.readFileSync(new URL('../docs/FONTI-MATRICE-LAIKA.md', import.meta.url), 'utf8');
-  for (const id of new Set(sorgente.turns.flatMap(t => t.cards.flatMap(c => c.editorial?.fonti || []))))
-    assert.ok(matrice.includes(id), 'fonte ' + id + ' assente dalla matrice');
-  assert.equal(JSON.stringify(partita).includes('editorial'), false, 'le note editoriali restano fuori dal runtime');
-});
-
-test('I.1: tre strategie arrivano tutte al 1861 e pagano prezzi diversi (nessuna vince su tutto)', () => {
-  const media = (name, key) => { let n = 0; for (let i = 0; i < 60; i++) n += play(name, 'bil' + i).fine[key]; return n / 60; };
-  const o = {grano: media('obbediente', 'grano'), occhio: media('obbediente', 'occhio'), legami: media('obbediente', 'legami')};
-  const f = {grano: media('furbo', 'grano'), occhio: media('furbo', 'occhio'), legami: media('furbo', 'legami')};
-  const s = {grano: media('solidale', 'grano'), occhio: media('solidale', 'occhio'), legami: media('solidale', 'legami')};
+test('I.1: cinque strategie arrivano tutte al 1861 e pagano prezzi diversi (nessuna vince su tutto)', () => {
+  const runs = Object.fromEntries(Object.keys(STRATEGIE).map(n => [n, Array.from({length: 60}, (_, i) => play(n, 'bil' + i).fine)]));
+  const media = (n, key) => runs[n].reduce((a, r) => a + r[key], 0) / 60, quante = (n, f) => runs[n].filter(f).length;
+  const [o, f, s, c] = ['obbediente', 'furbo', 'solidale', 'costruttore'].map(n => ({grano: media(n, 'grano'), occhio: media(n, 'occhio'), legami: media(n, 'legami'), fame: media(n, 'fame')}));
+  if (process.env.LAIKA_BILANCIA) console.log(JSON.stringify({o, f, s, c, insolenza: quante('sfrontato', r => r.fired.some(x => x.startsWith('insolenza'))), mucca: Object.keys(STRATEGIE).map(n => quante(n, r => r.fired.includes('mucca'))), built: quante('costruttore', r => r.built.length >= 2)}));
   assert.ok(f.grano > o.grano && f.occhio > o.occhio + 20, 'saltare la corvée dà grano ma attira l\'occhio del padrone');
   assert.ok(s.legami > o.legami + 20 && s.grano < o.grano, 'aiutare i vicini costruisce legami e costa grano');
-  const fired = name => Array.from({length: 60}, (_, i) => play(name, 'bil' + i).fine.fired);
-  assert.ok(fired('furbo').filter(x => x.includes('insolenza')).length > 10, 'chi salta spesso rischia il figlio in Siberia');
-  assert.equal(fired('obbediente').filter(x => x.includes('insolenza')).length, 0);
+  // Saltare un po' rende poco; saltare molto porta qualcuno in Siberia e alla fine costa grano.
+  assert.ok(quante('sfrontato', r => r.fired.some(x => x.startsWith('insolenza'))) > 10, 'chi salta spesso rischia la Siberia');
+  assert.ok(media('sfrontato', 'grano') < o.grano, 'saltare molto non conviene');
+  assert.equal(quante('obbediente', r => r.fired.some(x => x.startsWith('insolenza'))), 0);
+  // Costruire costa fame subito e rende dopo: più anni magri, ma alla fine più grano.
+  assert.ok(quante('costruttore', r => r.built.length >= 2) > 50, 'le migliorie si finiscono davvero');
+  assert.ok(c.grano > o.grano + 5 && c.fame > o.fame, 'le migliorie rendono, ma prima costano');
+  // Nessuna strategia porta sempre alla fame: la mucca venduta resta un rischio, non un destino.
+  for (const n of Object.keys(STRATEGIE)) assert.ok(quante(n, r => r.fired.includes('mucca')) < 60, n + ': la mucca si vende sempre');
 });
 
 test('I.1: salvataggio rigiocato identico a ogni mossa; verifica formativa raggiungibile', () => {

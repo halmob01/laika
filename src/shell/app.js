@@ -69,7 +69,7 @@ function render({motion=false,intro=false,sceneMotion=false,cue=null}={}) {
   if(s.phase==='outcome'){
     const outcome=el('div',undefined,{class:'outcome',role:'status'});outcome.append(el('p',s.last.feedback));
     for(const c of s.last.changes)outcome.append(el('p',c.label+': '+c.before+' → '+c.after));panel.append(outcome);
-  }else {const host=el('div',undefined,{id:'interaction'});panel.append(host);renderInteraction(e.type,{host,episode:e,act,state:s,seed:state.seed,dispatch,stageHost:$('stage')});}
+  }else {const host=el('div',undefined,{id:'interaction'});panel.append(host);renderInteraction(e.type,{host,episode:e,act,state:s,seed:state.seed,dispatch,stageHost:$('stage'),stage});}
   if(s.phase==='outcome'||(e.type==='narrative'&&lastCard))(cards?panel.querySelector('.card-nav'):panel).append(button('Continua',()=>dispatch({type:'advance'}),{class:'primary','data-action':'advance'}));
 }
 function dispatch(action){
@@ -79,6 +79,9 @@ function dispatch(action){
     else if(action.type==='inspect_source')$('panel').querySelector('[data-source="'+action.sourceId+'"]')?.focus();
     // Partita a turni: il fuoco resta sul comando appena usato, così da tastiera si piazza senza ripartire dal titolo.
     else if(action.type==='turn'&&action.step==='place')($('panel').querySelector('[data-place="'+action.placeId+'"][data-delta="'+action.delta+'"]:not(:disabled)')||$('panel').querySelector('[data-turn=confirm]:not(:disabled)')||$('scene-title'))?.focus({preventScroll:true});
+    else if(action.type==='turn'&&action.step==='assign')($('panel').querySelector('[data-worker][aria-pressed=true]')||$('panel').querySelector('[data-turn=confirm]:not(:disabled)')||$('scene-title'))?.focus({preventScroll:true});
+    else if(action.type==='turn'&&action.step==='reserve')($('panel').querySelector('[data-reserve="'+action.delta+'"]:not(:disabled)')||$('panel').querySelector('[data-reserve]:not(:disabled)'))?.focus({preventScroll:true});
+    else if(action.type==='turn'&&action.step==='buy')($('panel').querySelector('[data-offer]:not(:disabled)')||$('panel').querySelector('[data-turn=leave]'))?.focus({preventScroll:true});
     else if(action.type==='turn'&&['card','back'].includes(action.step))($('panel').querySelector('[data-turn=card]')||$('scene-title'))?.focus({preventScroll:true});
     else ($(state.complete?'summary-title':'scene-title'))?.focus({preventScroll:true});
   }catch(error){notice(error.message);}
