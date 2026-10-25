@@ -133,6 +133,47 @@ Le card non sono un gioco: sono il modo di raccontare tra un gioco e l'altro, co
 | VI (1945–1964) | la corsa (Sputnik, Laika, Gagarin); fiducia (il dopoguerra) | credenza (il prestigio) |
 | VII (1964–1991) | quanto serve e quanto c'è (l'economia parallela, il *blat*); code (1989); fiducia (il samizdat); punti azione (Černobyl', agosto 1991); decisioni sui gruppi (le repubbliche) | — |
 
+### 5.1 Il gioco di ogni unità
+
+Questa tabella è il riferimento unico per il gioco di un'unità: **prevale sul tipo di episodio scritto nelle schede di PIANO-ATTI** (che dicono i contenuti). Colonna «Stato»: *approvato* = scritto per l'unità nella tabella §5 o deciso dal docente; *da confermare* = la tabella §5 lo indica per l'atto e qui è attribuito all'unità che tratta quell'argomento (attribuzione del 23 ottobre 2026, da approvare); *da assegnare* = il repertorio non dice nulla per quell'unità.
+
+| Unità | Periodo | Gioco | Stato |
+|---|---|---|---|
+| I.1 Anime e semidei | 1700–1861 | gestione (la settimana del servo) con decisioni sui gruppi | approvato; in `main` (#13), da provare dal telefono |
+| I.2 Le due Russie | 1861–1904 | gestione (il salario) e decisioni sui gruppi (il mir) | approvato; in `main` (#18) c'è una **bozza non conforme**: salario come distribuzione unica, mir come scelta semplice. Da rifare |
+| I.3 Il 1905 | 1905–1907 | punti azione (le giornate del soviet) | approvato |
+| I.4 Pane e guerra | 1914–1916 | quanto serve e quanto c'è (grano, treni, città), prime code | approvato |
+| I.5 Otto giorni | marzo 1917 | code che diventano corteo, poi punti azione (il soldato che non spara) | approvato |
+| II.1 Il paese più libero del mondo | marzo–aprile 1917 | — | da assegnare |
+| II.2 Due poteri in un palazzo | marzo–maggio 1917 | decisioni sui gruppi (governo provvisorio e soviet davanti a operai, soldati, contadini, ceti medi) | da confermare |
+| II.3 Ogni angolo di strada una tribuna | marzo–giugno 1917 | — | da assegnare |
+| II.4 Pane, pace, terra | aprile–giugno 1917 | — | da assegnare |
+| II.5 Le giornate di luglio | luglio 1917 | punti azione | da confermare |
+| III.1 La terra e i palazzi | luglio–settembre 1917 | gestione (le occupazioni delle terre) | da confermare |
+| III.2 Kornilov e la svolta | agosto–ottobre 1917 | punti azione con informazioni incomplete | da confermare |
+| III.3 La notte del palazzo | 6–8 novembre 1917 | punti azione con informazioni incomplete | da confermare |
+| III.4 Le promesse decretate | novembre–dicembre 1917 | — | da assegnare |
+| III.5 Il primo prezzo | dicembre 1917–marzo 1918 | — | da assegnare |
+| IV.1 Il prezzo della sopravvivenza | 1918–1920 | quanto serve e quanto c'è (comunismo di guerra); città che resiste (Pietrogrado) | da confermare |
+| IV.2 Kronštadt e la svolta | 1921 | quanto serve e quanto c'è (NEP) | da confermare |
+| IV.3 L'assalto al cielo | 1918–1927 | — | da assegnare |
+| IV.4 La vita nuova e i bambini di strada | 1921–1927 | fiducia (il bambino di strada nella banda) | da confermare |
+| IV.5 Dopo Lenin | 1922–1927 | — (indicatore: credenza, il culto di Lenin) | da assegnare |
+| V.1 La grande svolta | 1928–1933 | decisioni sui gruppi (il kolchoz) | da confermare |
+| V.2 Costruire il socialismo | 1928–1937 | quanto serve e quanto c'è (il piano quinquennale) | da confermare |
+| V.3 La paura | 1934–1938 | fiducia (le purghe) | da confermare |
+| V.4 La guerra | 1939–1945 | città che resiste (Leningrado) | da confermare |
+| V.5 Il prezzo e il mito | 1945 | solo confronto di fine atto | — |
+| VI.1 Dopo la vittoria | 1945–1953 | fiducia (il dopoguerra) | da confermare |
+| VI.2 Il disgelo | 1953–1957 | — | da assegnare |
+| VI.3 Il bip | 1957 | la corsa (Sputnik, Laika) | da confermare |
+| VI.4 «Pojechali!» | 1961–1963 | la corsa (Gagarin) | da confermare |
+| VI.5 La guerra dei simboli | 1959–1964 | — (indicatore: credenza, il prestigio) | da assegnare |
+| VII.1 Tutto era per sempre | 1964–1982 | quanto serve e quanto c'è (economia parallela, *blat*); fiducia (il samizdat) | da confermare |
+| VII.2 Afghanistan e Černobyl' | 1979–1986 | punti azione (Černobyl') | da confermare |
+| VII.3 Perestrojka e glasnost | 1985–1990 | code (1989); decisioni sui gruppi (le repubbliche) | da confermare |
+| VII.4 La fine | 1991 | punti azione (agosto 1991) | da confermare |
+
 ### I.1 nella nuova forma
 
 Una partita di otto-dieci anni dal 1740 al 1861. Ogni anno:
@@ -143,6 +184,8 @@ Una partita di otto-dieci anni dal 1740 al 1861. Ogni anno:
 4. **La stagione:** raccolto e inverno; sulla scena i sacchi accanto alla stufa o la stufa vuota; l'avviso dell'anno dopo.
 
 **Gestione (decisione del docente del 23 ottobre 2026, «facciamola diventare una gestione vera»).** Le pedine non sono più giorni ma persone: il padre (●●●), la madre (●●), il nonno (●) e il figlio, che cresce (● nel 1740, ●●● dal 1787) e può partire. Si tocca una persona e poi il posto; la figura sulla scena si sposta lì. Oltre al campo, alla corvée e ai vicini ci sono quattro lavori lunghi che restano: l'orto (rendita fissa che il gelo non tocca), la stalla rifatta, un campo nel bosco e la sokha con le punte di ferro (che si comprano alla fiera). Prima di ogni anno si decide quanto grano tenere per la semina: si mangia prima del raccolto, quindi troppo seme porta alla fame e poco seme a un campo che rende poco. Tre anni (1761, 1787, 1820) hanno la fiera d'autunno, dove si paga in grano. L'esito spiega voce per voce da dove viene ogni variazione. Bilanciamento provato in `tests/laika-i1.test.js` su cinque strategie: obbedire tiene in vita ma non arricchisce; saltare poco rende poco e alza l'occhio; saltare molto porta qualcuno in Siberia; aiutare i vicini costa grano e crea legami; costruire costa fame subito e alla fine rende di più. Tutti i numeri sono simulazione.
+
+**Generazioni (decisione del docente del 25 ottobre 2026, scelta A).** Dal 1740 al 1861 passano cinque generazioni: i quattro posti della casa (padre, madre, nonno, figlio) restano, le persone cambiano. Nel 1761, 1787, 1820, 1840 e 1861 una card racconta il passaggio con i nomi (Foma, Ivan, Pëtr, Stepan, Grigorij, Mikita, Vasilij, Fëdor; famiglia inventata [S]) e la forza del figlio riparte da quella di un ragazzo. Se il figlio o il padre sono stati mandati via, la card ha una variante. Lo studente vede che servi si nasce.
 
 Metriche: Grano, Occhio del padrone, Speranza, Legami nel villaggio. Nel 1861 il Manifesto si legge in card; l'ultimo anno si gioca con la rata al posto della corvée. Chiusura: «Cosa ti devi ricordare» e la verifica V1. Fonti: le stesse della matrice (I1-01…I1-21).
 

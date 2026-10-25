@@ -1,0 +1,126 @@
+
+> learning-game-kit@0.1.0 test
+> npm run validate && node --test tests/*.test.js tests/legacy/*.test.cjs
+
+
+> learning-game-kit@0.1.0 validate
+> node scripts/validate-games.js
+
+OK biblioteca 2 atti 1 scenografie
+OK quartiere 2 atti 1 scenografie
+OK messaggio 3 atti 2 scenografie
+OK laika 1 atti 14 scenografie
+PASS composition scopes symbols, preserves input and resolves rest poses (6.076254ms)
+PASS presets cannot bypass SVG restrictions, collisions or timing limits (4.190684ms)
+PASS new pack command registers a playable pack and refuses overwrite/path traversal (1.579357ms)
+PASS different branches converge before cross-act assessments, without numeric metrics (3.120196ms)
+PASS bottega: studi.json è aggiornato e deterministico rispetto agli originali (185.324098ms)
+PASS bottega: catalogo e simboli generati coincidono; esempi elencati esistono (1.116557ms)
+PASS bottega: i disegni sono neutri (solo token) e ogni tema definisce ogni token usato (9.182399ms)
+PASS bottega: ogni simbolo importato si compone e si valida in ogni tema (130.800254ms)
+PASS bottega: le tabelle delle pose coincidono con lo studio originale (2.459617ms)
+PASS figura: ogni combinazione posa × variante × ruolo si compone entro gli intervalli del rig (1056.220266ms)
+PASS figura: le 13 varianti esistenti conservano esattamente output, pose e ruoli della baseline (120.627429ms)
+PASS figura: le nuove varianti sono registrate come bozze e gli abiti mancanti restano proposte (0.582571ms)
+PASS figura: tunica sul corpo donna senza gonna o chignon; cappelli e dettagli seguono testa e busto (1.047593ms)
+PASS figura: piedi a terra nella posa in piedi, prese contro-ruotate, specchio (1.52861ms)
+PASS formazioni: deterministiche, con ID e figure valide (1.319635ms)
+PASS scene di esempio: compilano, si validano e terminano nella composizione dichiarata (78.880943ms)
+PASS scene: errori leggibili che indicano dove correggere (4.329804ms)
+PASS motore: palette a token, ricolorazione, pose del rig sulle istanze, motivi, specchio, opacità (3.364615ms)
+PASS LAIKA: il build compone le schede scena con il tema del corso (210.752031ms)
+PASS kit futuri: id semantici e data-pivot diventano parti animabili, anche negli elementi (1.324903ms)
+PASS articulated crowd compiles deterministically, keeps art in pack, obeys channel budget (31.154017ms)
+PASS keyframes and finite cycles sample absolute time, including waits and final boundaries (0.227755ms)
+PASS choreography refuses malformed keys, unbounded loops, clip recursion and invalid targets (24.478167ms)
+PASS SVG import preserves original geometry and rejects executable or unhandled markup (126.021992ms)
+PASS home: hero.json rigenerato dalle schede scena, deterministico e aggiornato (143.212805ms)
+PASS home: schede del hero senza colori esadecimali e con epoca compatibile (0.947963ms)
+PASS home: denominazione approvata riprodotta esattamente, nessun riferimento esterno (0.242397ms)
+PASS home: il build del hero è generico (configurazione nel progetto, nessun contenuto nel codice) (0.209156ms)
+PASS biblioteca: same public contract completes and restores at every boundary (30.756255ms)
+PASS quartiere: same public contract completes and restores at every boundary (27.060891ms)
+PASS messaggio: same public contract completes and restores at every boundary (15.147624ms)
+PASS laika: same public contract completes and restores at every boundary (2355.564111ms)
+PASS delayed entry exactly once; perspective is not a simulation turn; act resets (1.531404ms)
+PASS false delayed conditions expire or are discarded; turn triggers do not run on views (2.211202ms)
+PASS turn-delayed effects replay once and retry a false condition within the window (1.414568ms)
+PASS invalid actions cannot bypass roles, sources, allocation or assessment (2.60041ms)
+PASS clamped deltas are actual changes and no zero-resource game over (0.960492ms)
+PASS malformed data and unreachable assessment prerequisites fail before play (5.678252ms)
+PASS save namespaces, version incompatibility, corrupted commands and storage failures are explicit (2.610726ms)
+PASS assessment score independent from simulation; stable option positions vary by seed (1.212142ms)
+PASS shared modules have no content imports or domain branching; legacy isolated (1.989046ms)
+PASS LAIKA Atto 0: 14 simboli e quattro studi storici (1.171781ms)
+PASS LAIKA Atto 0: scene composabili e valide nel motore reale (5.440934ms)
+PASS LAIKA Atto 0: ogni simbolo è istanziabile e validabile da solo (1.858979ms)
+PASS LAIKA Atto 0: metrica dimostrativa e scene non si spacciano per un gioco (0.133622ms)
+PASS LAIKA: le cinque figure organiche sono conservate come SVG standalone (0.278602ms)
+PASS LAIKA: i due prototipi originali sono conservati (0.85385ms)
+PASS I.1: cinque strategie arrivano tutte al 1861 e pagano prezzi diversi (nessuna vince su tutto) (6503.72516ms)
+PASS I.1: salvataggio rigiocato identico a ogni mossa; verifica formativa raggiungibile (891.787352ms)
+PASS I.1: il manifesto resta leggero da trasferire (gzip) (18.62005ms)
+PASS I.1: i flag non compaiono nelle variazioni mostrate e Legami è un indicatore visibile (1.114629ms)
+PASS I.2: la partita completa passa da mir, città, salario, razzo, corte e volantini fino alla V2 (860.601194ms)
+PASS LAIKA: originali identici ai blob forniti dall’utente nella PR12 (2.407369ms)
+PASS LAIKA: tutte le 157 voci dell’atlante sono localizzabili nell’originale (3.228891ms)
+PASS LAIKA: nessuna virgola prima di e, o, né nei testi per lo studente (1.749815ms)
+PASS le due storie utilizzano il medesimo schema, senza regole medievali (2.638979ms)
+PASS le card narrative non consentono scelte (0.582901ms)
+PASS non si possono saltare decisioni non risolte (0.38378ms)
+PASS il turno applica effetti della scelta + costo dell’assedio, senza mutare lo stato originale (0.54921ms)
+PASS l’esito può essere mostrato una sola volta e non consente una seconda scelta (0.327946ms)
+PASS il riepilogo non tratta le barre come punteggi (1.368248ms)
+PASS la storia di Achille si conclude senza dipendere da Troia o dal feudo (0.199392ms)
+PASS un salvataggio in fase di decisione o di conseguenza si ripristina (0.582621ms)
+PASS salvataggi vecchi, alterati o di un altro episodio vengono scartati (0.478643ms)
+PASS gli indicatori sono limitati fra zero e cento con delta reali (0.386895ms)
+PASS i contenuti errati sono rifiutati prima di giocare (0.343158ms)
+PASS registry presentation is optional and only accepts canonical local paths (1.747431ms)
+PASS context accepts documented metadata and rejects malformed context without changing legacy packs (7.822745ms)
+PASS progress reuses replay, preserves saves byte for byte and distinguishes new/outcome/complete/invalid (10.470077ms)
+PASS LAIKA assembly is deterministic, validated and projects editorial metadata out (286.753458ms)
+PASS LAIKA build rejects missing references, duplicate IDs, unresolved questions and invalid schema before writing (96.510693ms)
+PASS LAIKA resolves external stage/symbol/question data and keeps nested editorial notes out of runtime (170.327453ms)
+PASS presentazione: homeLabel e standalone opzionali e controllati (1.263514ms)
+PASS scenografia: inquadratura per telefono valida o rifiutata (0.672574ms)
+PASS bottega: "telefono" della scheda scena diventa mobile della scenografia (16.889896ms)
+PASS episodi: display "cards" solo per racconti con almeno due paragrafi (248.120671ms)
+PASS 24 detailed figures compile within existing budget, share clips and preserve parentage (27.539286ms)
+PASS poses outside declared limits, bad origins and unresolved actions are rejected (3.375678ms)
+PASS rig clips still obey binding ownership, static final poses and overlap rules (3.19193ms)
+PASS same authoring works for a mechanical hinge, without animal-specific code (0.425632ms)
+PASS texture IDs are mount-scoped, definitions shared, toggle does not change pose or clock (4.070765ms)
+PASS texture contract rejects external graphs, excessive octaves and missing bounds (4.382866ms)
+PASS SVG preparation preserves geometry and is deterministic; unsafe input fails (35.177909ms)
+PASS turni: validazione del contratto (4.980717ms)
+PASS turni: una partita completa, card, piazzamento, imprevisto, controllo, crisi, chi bussa (4.610078ms)
+PASS turni: il caso è deterministico e il salvataggio rigiocato dà la stessa partita (2.257773ms)
+PASS turni: crisi, probabilità scritte e variazioni nette (1.630868ms)
+PASS gestione: validazione di persone, lavori, riserva e mercato (1.714183ms)
+PASS gestione: le persone portano la loro forza, i lavori finiscono e restano, la riserva rende (6.333897ms)
+PASS persistent SVG geometry has actual initial/intermediate/final states, replay and skip (3.351732ms)
+PASS consecutive/interrupted transitions end at latest state; reduced motion and reload identical (0.785725ms)
+PASS SVG rejects external links, scripts, event attributes and non-numeric bindings (2.612477ms)
+PASS multitrack narrative: stagger, pause/resume, final state, replay and interruption (1.206178ms)
+PASS sequences reject overlap, missing groups, bound-state collisions and unknown easing (2.659999ms)
+PASS timeline final pose equals reload; non-restorable poses fail authoring validation (4.430888ms)
+PASS groups without explicit attributes can be animated and validated (1.044494ms)
+PASS composed poses survive animation, skip, reload and reduced motion (5.431297ms)
+PASS excursion and emphasis presets restore their declared pose (1.444518ms)
+PASS crowd, camera and clipping seek backwards, pause, resume, replay and restore static state (18.023183ms)
+PASS clip IDs are isolated per mount and transforms write once per node per frame (11.598621ms)
+PASS position moves a layer to a point and back to its starting pose; a mount bumps the generation (0.905635ms)
+INFO tests 101
+INFO suites 0
+INFO pass 101
+INFO fail 0
+INFO cancelled 0
+INFO skipped 0
+INFO todo 0
+INFO duration_ms 15030.093677
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice

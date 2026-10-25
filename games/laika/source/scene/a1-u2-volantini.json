@@ -1,0 +1,110 @@
+{
+  "viewBox": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "id": "a1-u2-volantini",
+  "telefono": {
+    "centro": 0.5,
+    "zoom": 1.2
+  },
+  "etichetta": "Tre fogli circolano fra la fabbrica e il villaggio: ciascuno raggiunge una persona diversa.",
+  "elementi": [
+    {
+      "id": "campi",
+      "simbolo": "luogo-pianura",
+      "x": 800,
+      "y": 900,
+      "scala": 2.9
+    },
+    {
+      "id": "villaggio",
+      "simbolo": "luogo-isbe",
+      "x": 260,
+      "y": 615,
+      "scala": 0.6
+    },
+    {
+      "id": "fabbrica",
+      "simbolo": "luogo-fabbrica",
+      "x": 1230,
+      "y": 645,
+      "scala": 0.42
+    }
+  ],
+  "figure": [
+    {
+      "id": "contadino",
+      "x": 420,
+      "y": 830,
+      "scala": 1.0,
+      "variante": "nessuna",
+      "posa": "legge",
+      "abito": "cappotto",
+      "cappello": null
+    },
+    {
+      "id": "figlio",
+      "x": 800,
+      "y": 830,
+      "scala": 1.0,
+      "variante": "nessuna",
+      "posa": "legge",
+      "ruolo": "protagonista"
+    },
+    {
+      "id": "operaio",
+      "x": 1180,
+      "y": 835,
+      "scala": 1.0,
+      "variante": "nessuna",
+      "posa": "legge",
+      "abito": "cappotto",
+      "cappello": null,
+      "flip": true
+    },
+    {
+      "id": "studente",
+      "x": 640,
+      "y": 860,
+      "scala": 0.95,
+      "variante": "nessuna",
+      "posa": "legge",
+      "abito": "cappotto",
+      "cappello": null
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "I fogli passano di mano in mano.",
+      "passi": [
+        {
+          "azione": "walk",
+          "chi": "studente",
+          "da": "sinistra",
+          "distanza": 200,
+          "a": 0,
+          "durata": 2200
+        }
+      ],
+      "battute": [
+        {
+          "a": 300,
+          "testo": "Tre fogli, tre promesse."
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

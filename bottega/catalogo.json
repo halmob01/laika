@@ -13,14 +13,57 @@
   "bottega/esempi/inverno.json",
   "bottega/esempi/pane.json",
   "bottega/esempi/isba.json",
-  "bottega/esempi/primavera.json"
+  "bottega/esempi/primavera.json",
+  "bottega/esempi/varianti.json"
  ],
  "figure": {
   "stato": "pronto",
   "generatore": "bottega/figura/figura.js",
   "dati": "bottega/figura/pose.js",
   "fonte": "prototypes/laika-studi-originali/studio personaggi.html#buildOminoSVG",
-  "descrizione": "Figura articolata con 14 giunture, 24 pose/azioni, 13 varianti, 3 corpi, 4 ruoli. Oggetti in mano agganciati a prese.",
+  "descrizione": "Figura articolata con 14 giunture, 25 pose/azioni, 17 varianti, 3 corpi, 4 ruoli. Oggetti in mano agganciati a prese. Le quattro varianti aggiuntive sono bozze registrate qui sotto.",
+  "varianti": [
+   {
+    "id": "marinaio",
+    "nome": "Marinaio",
+    "stato": "bozza",
+    "epoca": "Archetipo navale russo di inizio Novecento; destinazione Kronstadt, 1917.",
+    "fonte": "https://www.loc.gov/pictures/item/2016804335/",
+    "riscontro": "Library of Congress, LC-DIG-det-4a14901: marinai della Rynda, 1893. Scheda indicizzata e fotografia digitale consultate il 23 ottobre 2026. Riferimento di foggia per casacca con colletto e berretto senza visiera; nastri semplificati da verificare.",
+    "limiti": "La fonte precede il 1917 e non verifica l'equipaggiamento di Kronstadt nel marzo-luglio 1917. Taglio, numero delle righe e nastri sono semplificati. Nessuna scritta di nave, coccarda o insegna; colori affidati al tema. Da riscontrare con una fotografia locale datata prima dell'uso storico definitivo.",
+    "verifica": "docs/FIGURE-ATTO-II.md"
+   },
+   {
+    "id": "soldato_guarnigione",
+    "nome": "Soldato di guarnigione",
+    "stato": "bozza",
+    "epoca": "Archetipo di fanteria russa, marzo-luglio 1917.",
+    "fonte": "https://www.loc.gov/pictures/item/2009631821/",
+    "riscontro": "Library of Congress, LC-USZ62-2186: folla prevalentemente di soldati a Pietrogrado, 1917. Testo indicizzato della scheda consultato il 23 ottobre 2026; immagine non controllata per HTTP 403. La foggia proposta riusa tunica e berretto dell'archetipo militare.",
+    "limiti": "Non identifica un reparto di guarnigione né verifica una dotazione uniforme per tutti i mesi. Serve un controllo iconografico diretto. Colletto, chiusura e fibbia sono schematizzati; spalline, gradi, coccarde e simboli politici omessi. Il ruolo esercito scambia token e non certifica il colore del tessuto.",
+    "verifica": "docs/FIGURE-ATTO-II.md"
+   },
+   {
+    "id": "soldatessa",
+    "nome": "Soldatessa",
+    "stato": "bozza",
+    "epoca": "Archetipo dei battaglioni femminili russi, estate 1917; non usare prima della loro formazione.",
+    "fonte": "https://www.londonmuseum.org.uk/collections/v/object-968959/emmeline-pankhurst-and-the-russia-women-soldiers/",
+    "riscontro": "London Museum, NN30312, fotografia del 1917: tunica con cintura, pantaloni e berretto con visiera. Corpo donna, senza gonna o chignon esposto sotto il berretto. Consultato il 23 ottobre 2026.",
+    "limiti": "Il museo indica Pietrogrado come luogo probabile. La scheda non identifica con certezza il reparto di Bočkarëva o una data entro luglio. Nessun ritratto della comandante. Nessuna insegna o emblema di battaglione; particolari della tunica e colori non verificati.",
+    "verifica": "docs/FIGURE-ATTO-II.md"
+   },
+   {
+    "id": "uomo_cappello",
+    "nome": "Uomo senza barba con cappello",
+    "stato": "bozza",
+    "epoca": "Archetipo civile di inizio Novecento, compatibilità puntuale con il 1917 da verificare.",
+    "fonte": "prototypes/laika-studi-originali/studio personaggi.html#buildOminoSVG",
+    "riscontro": "Combinazione del corpo uomo con il berretto già presente nello studio. Testa circolare senza barba, baffi o dettagli del viso; nessun tratto di persone reali.",
+    "limiti": "Il berretto è un archetipo grafico. Non riproduce un travestimento documentato né la fisionomia di una persona; la sua foggia specifica nel 1917 non è verificata.",
+    "verifica": "docs/FIGURE-ATTO-II.md"
+   }
+  ],
   "giunture": [
    "root",
    "head",
@@ -1088,6 +1131,20 @@
   }
  ],
  "da_fare": [
+  {
+   "famiglia": "abiti della figura",
+   "priorita": "alta",
+   "stato": "da-fare",
+   "epoca": "Archetipi civili di inizio Novecento; fogge locali nel 1917 da verificare.",
+   "fonte": "Ricognizione di bottega/figura/pose.js e bottega/figura/figura.js; nessuna fonte iconografica acquisita per questi tre abiti.",
+   "voci": [
+    "domestica: corpo donna, abito da lavoro con grembiule",
+    "lavandaia: corpo donna, gonna da lavoro con grembiule e fazzoletto",
+    "vetturino: soprabito da lavoro con cintura e copricapo da verificare"
+   ],
+   "gia_presenti": ["donna", "vestito", "scialle", "cappotto", "bastone"],
+   "note": "Proposte senza disegni. Gli abiti esistenti sono generici: mancano grembiule, fazzoletto e soprabito con cintura. Non certificano questi mestieri. Verificare fogge e accessori prima di disegnarli."
+  },
   {
    "famiglia": "ambienti",
    "priorita": "alta",

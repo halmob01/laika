@@ -70,7 +70,17 @@ export function figuraSymbol(d) {
   if (d.acc === 'zaino') L.push(path('zaino', 'root', 'M -13 -24 C -19 -24 -20 -4 -13 -3 Z'));
   // Busto e abiti
   const coat = d.coat;
-  if (coat === 'mantello') {
+  if (coat === 'casacca') {
+    L.push(path('torso', 'root', 'M -8 -27 L -10 7 L 10 7 L 8 -27 Z'));
+    L.push(path('torso-colletto', 'root', 'M -6 -25 L 0 -15 L 6 -25', 'none', { stroke: 'paper', 'stroke-width': 2 }));
+    L.push(path('torso-maglia', 'root', 'M -2 -23 L 2 -23 M -1 -20 L 1 -20', 'none', { stroke: 'paper', 'stroke-width': 1 }));
+  } else if (coat === 'tunica') {
+    // Tunica sopra i pantaloni anche sul corpo donna; nessuna insegna di reparto.
+    L.push(path('torso', 'root', 'M -7.5 -27 L -10 10 L 10 10 L 7.5 -27 Z'));
+    L.push(path('torso-colletto', 'root', 'M -4 -25 L 0 -22 L 4 -25 M 0 -22 L 0 -10', 'none', { stroke: 'paper', 'stroke-width': 1.2 }));
+    L.push(path('torso-cintura', 'root', 'M -9 -3 L 9 -3', 'none', { stroke: 'paper', 'stroke-width': 2 }));
+    L.push({ id: 'torso-fibbia', tag: 'rect', parent: 'root', attrs: { x: -2, y: -5, width: 4, height: 4, fill: 'ink', stroke: 'paper', 'stroke-width': 1 } });
+  } else if (coat === 'mantello') {
     L.push(path('torso', 'root', 'M -7 -27 C -18 -10 -24 16 -20 24 L 20 24 C 24 16 18 -10 7 -27 Z'));
     L.push(path('torso-pieghe', 'root', 'M -5 -18 L -9 18 M 4 -18 L 8 18', 'none', { stroke: 'paper', 'stroke-width': 1.5, 'stroke-linecap': 'round' }));
   } else if (coat === 'clero') {
@@ -90,11 +100,20 @@ export function figuraSymbol(d) {
   // Testa e copricapo (pivot sul collo)
   L.push(group('head', 'root', { translateX: 0, translateY: -40, rotate: 0 }, [0, 7]));
   L.push({ id: 'head-skin', tag: 'circle', parent: 'head', attrs: { cx: 0, cy: 0, r: 8.5, fill: 'ink' } });
-  if (d.body === 'donna' || d.hat === 'chignon') L.push({ id: 'chignon', tag: 'circle', parent: 'head', attrs: { cx: -8.5, cy: -2, r: 3.8, fill: 'ink' } });
+  if ((d.body === 'donna' && d.hat !== 'visiera') || d.hat === 'chignon') L.push({ id: 'chignon', tag: 'circle', parent: 'head', attrs: { cx: -8.5, cy: -2, r: 3.8, fill: 'ink' } });
   if (d.hat === 'fedora') { L.push({ id: 'hat-brim', tag: 'ellipse', parent: 'head', attrs: { cx: 0, cy: -6.5, rx: 13, ry: 2.6, fill: 'ink' } }); L.push(path('hat-crown', 'head', 'M -7 -6.5 L -5 -14 L 5 -14 L 7 -6.5 Z')); }
   else if (d.hat === 'largo') { L.push({ id: 'hat-brim', tag: 'ellipse', parent: 'head', attrs: { cx: 0, cy: -6, rx: 16.5, ry: 3, fill: 'ink' } }); L.push(path('hat-crown', 'head', 'M -8 -6 C -8 -14 8 -14 8 -6 Z')); }
   else if (d.hat === 'saturno') { L.push({ id: 'hat-brim', tag: 'ellipse', parent: 'head', attrs: { cx: 0, cy: -6.5, rx: 14, ry: 2.4, fill: 'ink' } }); L.push(path('hat-crown', 'head', 'M -6.5 -6.5 C -6.5 -13 6.5 -13 6.5 -6.5 Z')); }
   else if (d.hat === 'berretto') L.push(path('hat-crown', 'head', 'M -8 -5 C -8 -12 6 -12 11 -5 Z'));
+  else if (d.hat === 'marinaio') {
+    L.push(path('hat-crown', 'head', 'M -11 -8 Q -11 -14 0 -14 Q 11 -14 11 -8 Z'));
+    L.push(path('hat-band', 'head', 'M -9 -8 L 9 -8', 'none', { stroke: 'paper', 'stroke-width': 1.2 }));
+    L.push(path('hat-ribbons', 'head', 'M -8 -8 L -12 2 L -10 3 L -6 -7 Z'));
+  } else if (d.hat === 'visiera') {
+    L.push(path('hat-crown', 'head', 'M -9 -6 L -10 -11 Q 0 -15 10 -11 L 9 -6 Z'));
+    L.push(path('hat-brim', 'head', 'M -1 -6 L 14 -6 L 11 -3 L -1 -4 Z'));
+    L.push(path('hat-band', 'head', 'M -8 -7 L 9 -7', 'none', { stroke: 'paper', 'stroke-width': 1.2 }));
+  }
   // Braccio davanti, con prese per gli oggetti
   joint('arm-near', 'root', 5, -24); L.push(path('arm-near-skin', 'arm-near', limbPath(7.5, 6.2, 16)));
   if (d.fascia) L.push({ id: 'fascia', tag: 'rect', parent: 'arm-near', attrs: { x: -4.1, y: 5, width: 8.2, height: 4.5, fill: 'red' } });
@@ -104,7 +123,8 @@ export function figuraSymbol(d) {
   joint('grip-near', 'forearm-near', 0, 12);
   L.push({ id: 'slot-front', tag: 'g', parent: 'root' });
   const poses = Object.fromEntries(Object.entries(POSE).map(([name, p]) => [name, jointsFor(p)]));
-  return { id: figuraId(d), meta: { label: 'Figura ' + figuraId(d).slice(4).replace(/-/g, ' '), family: 'figure', source: 'studio personaggi.html#buildOminoSVG' }, layers: L, rig: { joints: RANGES, poses } };
+  const aggiunta = ['casacca', 'tunica'].includes(coat) || ['marinaio', 'visiera'].includes(d.hat);
+  return { id: figuraId(d), meta: { label: 'Figura ' + figuraId(d).slice(4).replace(/-/g, ' '), family: 'figure', source: aggiunta ? 'bottega/figura/figura.js#figuraSymbol' : 'studio personaggi.html#buildOminoSVG' }, layers: L, rig: { joints: RANGES, poses } };
 }
 
 // Oggetti agganciati. Markup copiato dallo studio, colori come token; 'presa' indica dove si aggancia.

@@ -128,13 +128,13 @@ A ogni avvio: verificare branch e modifiche locali, leggere eventuali AGENTS.md 
 
 **Modello:** Claude Sonnet 5.5 o GPT-6.1 Sol medium; Opus 5.5 o Sol high solo per scene difficili. Review storica: modello dell'altra famiglia (Astra high o Opus 5.5). **Dipendenza:** P3.
 
-**Leggere:** schede I.2 e I.3 di PIANO-ATTI, brief (sezioni 4–5 per la regia), dossier fonti, schema dei sei tipi e unità I.1 approvata.
+**Leggere:** [repertorio dei giochi](REPERTORIO-GIOCHI-LAIKA.md) §3 e §5.1 (il gioco di I.2 e I.3: **prevale sul tipo scritto nelle schede**), schede I.2 e I.3 di PIANO-ATTI (contenuti), brief (sezioni 4–5 per la regia), dossier fonti, unità I.1 in `main`.
 
-**File ammessi:** sorgenti/asset/domande/fonti LAIKA, manifest generato, test di percorso; documenti di stato. Non aggiungere tipi di interazione.
+**File ammessi:** sorgenti/asset/domande/fonti LAIKA, manifest generato, test di percorso; documenti di stato. Meccaniche nuove solo se il repertorio le prevede per l'unità, nel motore generico (`src/`) con test; i contenuti restano in `games/laika/`.
 
 **Azioni:**
 
-1. Implementare le unità I.2 e I.3 secondo le schede. Per ogni unità produrre una scheda breve obiettivo → fonti → attività → effetti → trasformazione visiva → limiti.
+1. Implementare le unità I.2 e I.3 con il gioco del repertorio §5.1 (I.2: gestione del salario e decisioni sui gruppi nel mir; I.3: punti azione nelle giornate del soviet); le schede danno contenuti, fonti e regia. Per ogni unità produrre una scheda breve obiettivo → fonti → attività → effetti → trasformazione visiva → limiti.
 2. Calibrare i parametri del modello in una tabella, provare priorità sussistenza e priorità investimento. Almeno una conseguenza differita deve maturare e risultare comprensibile; non provocare dead end.
 3. Completare sei domande formative totali, esposizioni e feedback. Applicare la skill didattica se realmente disponibile; in alternativa fare review esplicita degli item senza dichiarare quel controllo eseguito.
 4. Preparare gli effetti differiti verso I.4 e I.5 senza simulare il completamento dell'atto.

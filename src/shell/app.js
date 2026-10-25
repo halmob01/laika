@@ -48,11 +48,19 @@ function render({motion=false,intro=false,sceneMotion=false,cue=null}={}) {
   $('workspace').classList.toggle('text-only',!descriptor&&!hasMetrics);
   for(const node of [$('stage'),$('caption'),$('replay').parentElement])node.hidden=!descriptor;
   
-  $('metrics').hidden=![...(act.metrics||[]),...(act.resources||[])].some(d=>!d.hidden);
+  // Indicatori: solo quelli dell'episodio (se li dichiara), con il verso detto a parole e non solo con il colore.
+  const shown=d=>!d.hidden&&(!e.shows||e.shows.includes(d.id));
+  $('metrics').hidden=![...(act.metrics||[]),...(act.resources||[])].some(shown);
   $('metrics').replaceChildren(el('p','Indicatori di simulazione · non sono voti',{class:'eyebrow'}));
-  for(const [group,definitions] of [['metrics',act.metrics],['resources',act.resources]])for(const d of definitions||[]){if(d.hidden)continue;
-    const row=el('div',undefined,{class:'metric'}),title=el('span'),meter=el('div',undefined,{class:'meter'}),fill=el('i');
-    title.append(el('span',d.label),el('b',String(s[group][d.id])));fill.style.width=(100*(s[group][d.id]-d.min)/(d.max-d.min))+'%';meter.append(fill);row.append(title,meter);$('metrics').append(row);}
+  for(const [group,definitions] of [['metrics',act.metrics],['resources',act.resources]])for(const d of definitions||[]){if(!shown(d))continue;
+    const v=s[group][d.id],share=(v-d.min)/(d.max-d.min),level=share<1/3?'basso':share<2/3?'medio':'alto',ok=d.good?(level==='medio'?'mid':String(d.good==='high'?level==='alto':level==='basso')):null;
+    const row=el('div',undefined,{class:'metric',...(ok===null?{}:{'data-ok':String(ok)})}),title=el('span'),meter=el('div',undefined,{class:'meter'}),fill=el('i');
+    title.append(el('span',d.label),el('b',String(v)));if(d.good)title.append(el('small',level+' · meglio '+(d.good==='high'?'alto':'basso'),{class:'metric-dir'}));
+    fill.style.width=(100*share)+'%';meter.append(fill);row.append(title,meter);$('metrics').append(row);}
+  // Obiettivo dell'episodio, sempre visibile accanto alla scena; stato della partita per l'impaginazione.
+  let goal=document.querySelector('.visual-column .goal');if(!goal){goal=el('p','',{class:'goal'});$('stage').after(goal);}
+  goal.hidden=!e.goal;goal.textContent=e.goal?'Obiettivo: '+e.goal:'';
+  if(e.type==='turn_game'&&s.game&&s.phase==='scene')$('workspace').dataset.play=s.game.phase;else delete $('workspace').dataset.play;
   const panel=$('panel');panel.dataset.type=e.type;panel.replaceChildren(el('p',act.title+' · '+(act.episodes.indexOf(e)+1)+' / '+act.episodes.length,{class:'eyebrow'}),el('h1',e.title,{id:'scene-title',tabindex:'-1'}));
   // Racconto a card: un paragrafo alla volta; il testo intero resta nell'episodio e nel salvataggio non cambia nulla.
   if(cardEpisode!==e.id){cardEpisode=e.id;cardIndex=0;}
@@ -68,7 +76,7 @@ function render({motion=false,intro=false,sceneMotion=false,cue=null}={}) {
   if(e.context)panel.insertBefore(el('p',contextLabel(e.context),{class:'episode-context'}),panel.querySelector('h1'));
   if(s.phase==='outcome'){
     const outcome=el('div',undefined,{class:'outcome',role:'status'});outcome.append(el('p',s.last.feedback));
-    for(const c of s.last.changes)outcome.append(el('p',c.label+': '+c.before+' → '+c.after));panel.append(outcome);
+    for(const c of netChanges(s.last.changes))outcome.append(el('p',c.label+': '+c.before+' → '+c.after));panel.append(outcome);
   }else {const host=el('div',undefined,{id:'interaction'});panel.append(host);renderInteraction(e.type,{host,episode:e,act,state:s,seed:state.seed,dispatch,stageHost:$('stage'),stage});}
   if(s.phase==='outcome'||(e.type==='narrative'&&lastCard))(cards?panel.querySelector('.card-nav'):panel).append(button('Continua',()=>dispatch({type:'advance'}),{class:'primary','data-action':'advance'}));
 }

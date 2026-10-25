@@ -1,0 +1,181 @@
+{
+  "viewBox": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "id": "a1-u2-mir",
+  "telefono": {
+    "centro": 0.5,
+    "zoom": 1.25
+  },
+  "etichetta": "Davanti alle isbe l'assemblea del villaggio: a sinistra la famiglia con molte bocche da sfamare, a destra l'anziano con il suo lotto curato, al centro chi guida la discussione.",
+  "elementi": [
+    {
+      "id": "campi",
+      "simbolo": "luogo-pianura",
+      "x": 800,
+      "y": 900,
+      "scala": 2.9
+    },
+    {
+      "id": "villaggio",
+      "simbolo": "luogo-isbe",
+      "x": 330,
+      "y": 615,
+      "scala": 0.7
+    },
+    {
+      "id": "betulle",
+      "simbolo": "luogo-betulle",
+      "x": 800,
+      "y": 615,
+      "scala": 0.75
+    },
+    {
+      "id": "chiesa",
+      "simbolo": "luogo-chiesa",
+      "x": 1280,
+      "y": 640,
+      "scala": 0.6
+    }
+  ],
+  "figure": [
+    {
+      "id": "starosta",
+      "x": 800,
+      "y": 760,
+      "scala": 1.0,
+      "variante": "bastone",
+      "posa": "parla",
+      "cappello": null
+    },
+    {
+      "id": "padre",
+      "x": 540,
+      "y": 800,
+      "scala": 1.05,
+      "variante": "nessuna",
+      "posa": "in_piedi",
+      "abito": "cappotto",
+      "cappello": null
+    },
+    {
+      "id": "madre",
+      "x": 640,
+      "y": 815,
+      "scala": 1.05,
+      "variante": "scialle",
+      "posa": "in_piedi"
+    },
+    {
+      "id": "bimbo-1",
+      "x": 470,
+      "y": 830,
+      "scala": 0.7,
+      "variante": "bambino",
+      "posa": "in_piedi"
+    },
+    {
+      "id": "bimbo-2",
+      "x": 580,
+      "y": 845,
+      "scala": 0.62,
+      "variante": "bambino",
+      "posa": "in_piedi"
+    },
+    {
+      "id": "bimbo-3",
+      "x": 700,
+      "y": 845,
+      "scala": 0.58,
+      "variante": "bambino",
+      "posa": "in_piedi"
+    },
+    {
+      "id": "anziano",
+      "x": 1060,
+      "y": 800,
+      "scala": 1.0,
+      "variante": "bastone",
+      "posa": "in_piedi",
+      "flip": true
+    },
+    {
+      "id": "vicino-1",
+      "x": 940,
+      "y": 820,
+      "scala": 1.0,
+      "variante": "nessuna",
+      "posa": "in_piedi",
+      "abito": "cappotto",
+      "cappello": null,
+      "flip": true
+    },
+    {
+      "id": "vicino-2",
+      "x": 1180,
+      "y": 810,
+      "scala": 1.0,
+      "variante": "scialle",
+      "posa": "in_piedi",
+      "flip": true
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "Si discute di rifare la divisione delle strisce: ciascuno guarda il proprio lotto.",
+      "passi": [
+        {
+          "azione": "speak",
+          "chi": "starosta",
+          "a": 0,
+          "cicli": 4
+        },
+        {
+          "azione": "listen",
+          "chi": [
+            "padre",
+            "madre",
+            "vicino-1",
+            "vicino-2",
+            "anziano"
+          ],
+          "a": 200,
+          "sfalsa": 150
+        },
+        {
+          "azione": "raise",
+          "chi": [
+            "padre",
+            "anziano"
+          ],
+          "da": "in_piedi",
+          "a": 3600,
+          "sfalsa": 600
+        }
+      ],
+      "battute": [
+        {
+          "a": 200,
+          "testo": "Chi ha più bocche vuole più terra."
+        },
+        {
+          "a": 3600,
+          "testo": "Chi ha curato il suo lotto non vuole perderlo."
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}
