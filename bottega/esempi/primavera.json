@@ -1,0 +1,35 @@
+{
+  "id": "esempio-primavera",
+  "etichetta": "Tavola di prova con un interno, un'aquila bicipite, un ritratto, un manifesto vuoto e due mazzi di fiori. La disposizione serve a controllare gli asset e non ricostruisce un episodio.",
+  "ruvido": true,
+  "elementi": [
+    { "id": "caffe", "simbolo": "ambiente-caffe", "x": 480, "y": 480, "scala": 1.05 },
+    { "id": "aquila", "simbolo": "oggetto-aquila-imperiale", "x": 145, "y": 195, "scala": 0.8 },
+    { "id": "ritratto", "simbolo": "oggetto-ritratto-zar", "x": 600, "y": 265, "scala": 1.1 },
+    { "id": "manifesto", "simbolo": "oggetto-manifesto-prestito", "x": 800, "y": 280, "scala": 1 },
+    { "id": "mazzo", "simbolo": "oggetto-fiori", "x": 480, "y": 406, "scala": 1 }
+  ],
+  "figure": [
+    { "id": "visitatore", "x": 325, "y": 500, "scala": 1.2, "variante": "cappotto", "posa": "in_piedi", "oggetti": ["fiori"] },
+    { "id": "ospite", "x": 630, "y": 500, "scala": 1.2, "variante": "nessuna", "posa": "parla", "flip": true }
+  ],
+  "sequenze": [
+    {
+      "id": "arrivo",
+      "didascalia": "Una figura entra con il mazzo agganciato alla mano; le cornici restano vuote di scritte.",
+      "passi": [
+        { "azione": "walk", "chi": "visitatore", "da": "sinistra", "distanza": 150, "durata": 3200 },
+        { "azione": "speak", "chi": "ospite", "a": 3400, "durata": 1800 }
+      ]
+    },
+    {
+      "id": "osserva",
+      "didascalia": "Gli oggetti compaiono nelle loro posizioni finali. Il mazzo segue il braccio della figura.",
+      "passi": [
+        { "azione": "reveal", "chi": ["aquila", "ritratto", "manifesto", "mazzo"], "modo": "dissolvenza", "durata": 1600 },
+        { "azione": "speak", "chi": "visitatore", "a": 1800, "durata": 2200 }
+      ]
+    }
+  ],
+  "ingresso": "arrivo"
+}

@@ -40,7 +40,10 @@ test('bottega: catalogo e simboli generati coincidono; esempi elencati esistono'
 
 test('bottega: i disegni sono neutri (solo token) e ogni tema definisce ogni token usato', () => {
   const hex = /#[0-9a-f]{3,8}\b/i;
-  for (const f of ['bottega/generati/studi.json', 'bottega/figura/figura.js', 'bottega/formazioni.js', 'bottega/movimenti.js', 'bottega/scena.js'])
+  // Le ancore di provenienza (es. #caffe) possono sembrare colori: si controllano i layer.
+  assert.equal(hex.test(JSON.stringify(studi.symbols.map(s => s.layers))), false, 'Esadecimale nei layer');
+  assert.equal(hex.test(JSON.stringify(studi.patterns)), false, 'Esadecimale nei motivi');
+  for (const f of ['bottega/figura/figura.js', 'bottega/formazioni.js', 'bottega/movimenti.js', 'bottega/scena.js'])
     assert.equal(hex.test(fs.readFileSync(new URL('../' + f, import.meta.url), 'utf8')), false, 'Esadecimale nei disegni: ' + f);
   const used = new Set();
   const collect = l => { for (const k of ['fill', 'stroke']) { const v = l.attrs?.[k]; if (v && v !== 'none' && !v.startsWith('pattern:')) used.add(v); } };

@@ -13,6 +13,7 @@
   "bottega/esempi/inverno.json",
   "bottega/esempi/pane.json",
   "bottega/esempi/isba.json",
+  "bottega/esempi/primavera.json",
   "bottega/esempi/varianti.json"
  ],
  "figure": {
@@ -1001,6 +1002,132 @@
    "epoca": "Archetipo generico di villaggio contadino russo (XVIII-XIX sec.): legno, paglia, graticci; nessun elemento posteriore al 1861",
    "fonte": "prototypes/kit-campagna-villaggio/kit-campagna-villaggio.html#banco_fiera",
    "note": "Scala del kit: adulto in piedi = 90 unità; base a 200; sulla tavola di I.1 si usa scala 0.55-0.9. Coppie cantiere/finito con stessa larghezza e centro."
+  },
+  {
+   "id": "oggetto-aquila-imperiale",
+   "famiglia": "oggetti",
+   "nome": "Aquila bicipite",
+   "stato": "bozza",
+   "epoca": "Russia imperiale, XIX secolo-marzo 1917; come simbolo rimosso nelle scene della primavera 1917.",
+   "fonte": "prototypes/kit-primavera-1917/kit-primavera-1917.html#aquila_imperiale",
+   "note": "Archetipo generico bicipite senza blasone leggibile. Non riproduce un manufatto identificato; materiali e ornati da rivedere. Riferimenti: docs/PIANO-ATTI-LAIKA.md, II.1-e1; references/fonti/atlanti/LAIKA_NUOVI_ANEDDOTI_48.md, N007 (scheda su Stites, cap. 3, p. 67). Scala figura 1."
+  },
+  {
+   "id": "oggetto-ritratto-zar",
+   "famiglia": "oggetti",
+   "nome": "Ritratto in cornice",
+   "stato": "bozza",
+   "epoca": "Russia, fine XIX secolo-marzo 1917; conservazione o rimozione dei ritratti dopo febbraio.",
+   "fonte": "prototypes/kit-primavera-1917/kit-primavera-1917.html#ritratto_zar",
+   "note": "Cornice e busto generici senza volto riconoscibile, monogrammi o distintivi. Non si identifica un dipinto o un'uniforme. Riferimenti: piano II.1-e1; atlante nuovi aneddoti N006 (scheda su Stites, cap. 3, p. 65). Scala figura 1."
+  },
+  {
+   "id": "oggetto-statua-zar",
+   "famiglia": "oggetti",
+   "nome": "Statua su piedistallo",
+   "stato": "bozza",
+   "epoca": "Russia, marzo 1917; effigie effimera nelle feste descritte dal piano.",
+   "fonte": "prototypes/kit-primavera-1917/kit-primavera-1917.html#statua_zar",
+   "note": "Archetipo generico su piedistallo; non è il rilievo di un monumento né un ritratto. Abito ridotto a drappeggio senza gradi: dettaglio non verificato. Parte effigie con perno 0 151 nelle coordinate del kit. Riferimenti: piano II.1-e1; references/fonti/atlanti/LAIKA_ATLANTE_ANEDDOTI_E_FRASI_COMPLETO.md, R05. Scala figura 1."
+  },
+  {
+   "id": "oggetto-bara",
+   "famiglia": "oggetti",
+   "nome": "Bara nera",
+   "stato": "bozza",
+   "epoca": "Mosca, marzo 1917; bara nera del corteo satirico descritto dal piano.",
+   "fonte": "prototypes/kit-primavera-1917/kit-primavera-1917.html#bara",
+   "note": "Variante nera, priva della scritta attestata nelle fonti. Archetipo generico; forma e maniglie non documentate per la specifica bara. Stesso ingombro e appoggio di oggetto-bara-rossa. Riferimenti: piano II.1-e1; atlante completo R06, scheda da Miéville. Scala figura 1."
+  },
+  {
+   "id": "oggetto-bara-rossa",
+   "famiglia": "oggetti",
+   "nome": "Bara rossa",
+   "stato": "bozza",
+   "epoca": "Pietrogrado, primavera 1917; bare rosse dei funerali dei caduti di febbraio.",
+   "fonte": "prototypes/kit-primavera-1917/kit-primavera-1917.html#bara_rossa",
+   "note": "Variante rossa di oggetto-bara; nessuna croce o scritta. Archetipo generico: rivestimento e maniglie da rivedere. La data precisa del funerale resta da fissare secondo il piano, II.1-e2. Scala figura 1."
+  },
+  {
+   "id": "oggetto-elefante-circo",
+   "famiglia": "oggetti",
+   "nome": "Elefante del circo",
+   "stato": "bozza",
+   "epoca": "Mosca, marzo 1917; elefante del circo nel corteo descritto dal piano.",
+   "fonte": "prototypes/kit-primavera-1917/kit-primavera-1917.html#elefante_circo",
+   "note": "Nuovo disegno: nessun riuso dei due elefanti settecenteschi, nessuna gabbia, baldacchino o gemma. Morfologia generica; specie, attrezzatura e ornamenti del singolo animale non verificati. Parti coda e proboscide con perni nel kit. Riferimenti: piano II.1-e1; atlante completo R06. Scala figura 1-1,2."
+  },
+  {
+   "id": "oggetto-fiori",
+   "famiglia": "oggetti",
+   "nome": "Mazzo di fiori",
+   "stato": "bozza",
+   "epoca": "Russia, inizio XX secolo; per l'accoglienza della primavera 1917.",
+   "fonte": "prototypes/kit-primavera-1917/kit-primavera-1917.html#fiori",
+   "note": "Archetipo generico; specie floreali non identificate dalla fonte. Oggetto autonomo e prop fiori in figura/figura.js: presa hand-near in corrispondenza della legatura (0 0 nel prop). Stesso markup a token; la scena di esempio lo mostra sia sul tavolo sia nella mano. Riferimento narrativo: piano II.4-e1, scheda da Miéville. Scala figura 1."
+  },
+  {
+   "id": "oggetto-manifesto-prestito",
+   "famiglia": "oggetti",
+   "nome": "Manifesto vuoto",
+   "stato": "bozza",
+   "epoca": "Russia, 1914-1917; uso previsto nei confronti di fonti della primavera 1917.",
+   "fonte": "prototypes/kit-primavera-1917/kit-primavera-1917.html#manifesto_prestito",
+   "note": "Riquadro completamente vuoto. Non riproduce un manifesto del prestito identificato: carta, cornice e proporzioni sono archetipi generici. Il documento e il testo vanno scelti nella scheda dell'episodio. Riferimento: piano II.4-e2. Scala figura 1."
+  },
+  {
+   "id": "oggetto-mitragliatrice",
+   "famiglia": "oggetti",
+   "nome": "Mitragliatrice su affusto",
+   "stato": "bozza",
+   "epoca": "Russia, 1910-1917; sagoma compatibile con la prima guerra mondiale.",
+   "fonte": "prototypes/kit-primavera-1917/kit-primavera-1917.html#mitragliatrice",
+   "note": "Archetipo generico ispirato alla Maxim PM 1910: camicia di raffreddamento, scudo e affusto a ruote. Nessuna marcatura, ottica moderna o dettaglio interno. Non è un disegno tecnico; geometria dei comandi e affusto restano da rivedere. Fonte tipologica: Royal Armouries, Arms of the First World War, sezione Russia / Maxim PM 1910, https://royalarmouries.org/objects-and-stories/stories/arms-of-the-first-world-war (consultata il 23 ottobre 2026). Uso narrativo: piano II.5-e1. Scala figura 1."
+  },
+  {
+   "id": "oggetto-carriola",
+   "famiglia": "oggetti",
+   "nome": "Carriola vuota",
+   "stato": "bozza",
+   "epoca": "Russia, inizio XX secolo; uso narrativo nella primavera 1917.",
+   "fonte": "prototypes/kit-primavera-1917/kit-primavera-1917.html#carriola",
+   "note": "Archetipo generico ligneo, vuoto e senza occupante. Solo per un fatto riportato: mai come opzione di gioco o azione da premiare. Riferimento: piano II.3-e1, scheda che rimanda a Miéville e Stites cap. 3. Non verificati sagoma della carriola del fatto specifico e particolari costruttivi. Scala figura 1."
+  },
+  {
+   "id": "ambiente-caffe",
+   "famiglia": "ambienti",
+   "nome": "Interno di caffè",
+   "stato": "bozza",
+   "epoca": "Pietrogrado, circa 1900-1917; interno per la primavera 1917.",
+   "fonte": "prototypes/kit-primavera-1917/kit-primavera-1917.html#caffe",
+   "note": "Archetipo generico con tre tavolini, sedie e cartello a parete completamente vuoto. Non rappresenta un locale identificato: arredi e disposizione da rivedere. Riferimento narrativo: piano II.1-e1, scheda su Reed. Scala figure 1-1,2; piano dei tavoli a 323-330, pavimento a 400."
+  },
+  {
+   "id": "ambiente-teatro-palco",
+   "famiglia": "ambienti",
+   "nome": "Teatro con palco in primo piano",
+   "stato": "bozza",
+   "epoca": "Pietrogrado, 1860-1917; teatro imperiale per le scene della primavera 1917.",
+   "fonte": "prototypes/kit-primavera-1917/kit-primavera-1917.html#teatro_palco",
+   "note": "Sala con palco in primo piano e boccascena sul lato opposto. Ricostruzione generica: non verificati planimetria, tessuti e decorazione del palco del Mariinskij nel 1917. Nessuna aquila incorporata: si può comporre o rimuovere oggetto-aquila-imperiale. Parte sipario animabile. Riferimenti: piano II.1-e1/e4; atlante nuovi aneddoti N007. Scala figure 1-1,2 nel palco; 0,4-0,6 sulla scena lontana."
+  },
+  {
+   "id": "ambiente-salone-lampadari",
+   "famiglia": "ambienti",
+   "nome": "Salone con lampadari",
+   "stato": "bozza",
+   "epoca": "Pietrogrado, circa 1900-1917; interno di palazzo per la primavera 1917.",
+   "fonte": "prototypes/kit-primavera-1917/kit-primavera-1917.html#salone_lampadari",
+   "note": "Archetipo generico con tre lampadari, pannelli e un tavolo con pacchi di fogli senza scritte. Non è un rilievo del palazzo Kšesinskaja; lampadari, rivestimenti e collocazione degli arredi non verificati. Riferimento: piano II.4-e1. Parti lampadario-1, lampadario-2 e lampadario-3. Scala figure 1,2-1,5."
+  },
+  {
+   "id": "luogo-palazzo-tauride",
+   "famiglia": "luoghi",
+   "nome": "Palazzo di Tauride",
+   "stato": "bozza",
+   "epoca": "San Pietroburgo/Pietrogrado, dal 1789; esterno adatto al 1906-1917.",
+   "fonte": "prototypes/kit-primavera-1917/kit-primavera-1917.html#palazzo_tauride",
+   "note": "Facciata neoclassica dedicata: portico centrale dorico a sei colonne, timpano triangolare, cupola bassa e ali collegate da gallerie. Non riusa luogo-palazzo barocco. Fonte tipologica: portale del Ministero della cultura, https://www.culture.ru/institutes/13668/tavricheskii-dvorec; Saint Petersburg Encyclopaedia, https://www.encspb.ru/object/2804004262?lc=en (risultati consultati il 23 ottobre 2026). Proporzioni, finestre e dettagli del 1917 non rilevati metricamente; manca confronto con una fotografia datata. Riferimenti narrativi: piano II.1-e3 e II.2/II.5. Scala figure 0,35-0,6."
   }
  ],
  "da_fare": [
@@ -1036,7 +1163,10 @@
     "ambiente-caserma",
     "ambiente-sala",
     "ambiente-trincea",
-    "ambiente-parapetto"
+    "ambiente-parapetto",
+    "ambiente-caffe",
+    "ambiente-teatro-palco",
+    "ambiente-salone-lampadari"
    ],
    "note": "Fatti nel kit ambienti primo Novecento (P2b): strada, panetteria, interno di isba, ufficio, caserma, sala a colonne, trincea, parapetto. Resta l'appartamento (kommunalka, anni Venti): serve all'Atto III."
   },
@@ -1085,7 +1215,19 @@
     "macchina da scrivere",
     "televisore"
    ],
-   "note": "Nella foto era visibile solo la fine della riga: completare l'elenco."
+   "note": "Nella foto era visibile solo la fine della riga: completare l'elenco.",
+   "gia_presenti": [
+    "oggetto-aquila-imperiale",
+    "oggetto-ritratto-zar",
+    "oggetto-statua-zar",
+    "oggetto-bara",
+    "oggetto-bara-rossa",
+    "oggetto-elefante-circo",
+    "oggetto-fiori",
+    "oggetto-manifesto-prestito",
+    "oggetto-mitragliatrice",
+    "oggetto-carriola"
+   ]
   }
  ],
  "archivio": [
