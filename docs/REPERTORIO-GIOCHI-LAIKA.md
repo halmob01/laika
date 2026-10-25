@@ -133,6 +133,47 @@ Le card non sono un gioco: sono il modo di raccontare tra un gioco e l'altro, co
 | VI (1945–1964) | la corsa (Sputnik, Laika, Gagarin); fiducia (il dopoguerra) | credenza (il prestigio) |
 | VII (1964–1991) | quanto serve e quanto c'è (l'economia parallela, il *blat*); code (1989); fiducia (il samizdat); punti azione (Černobyl', agosto 1991); decisioni sui gruppi (le repubbliche) | — |
 
+### 5.1 Il gioco di ogni unità
+
+Questa tabella è il riferimento unico per il gioco di un'unità: **prevale sul tipo di episodio scritto nelle schede di PIANO-ATTI** (che dicono i contenuti). Colonna «Stato»: *approvato* = scritto per l'unità nella tabella §5 o deciso dal docente; *da confermare* = la tabella §5 lo indica per l'atto e qui è attribuito all'unità che tratta quell'argomento (attribuzione del 23 ottobre 2026, da approvare); *da assegnare* = il repertorio non dice nulla per quell'unità.
+
+| Unità | Periodo | Gioco | Stato |
+|---|---|---|---|
+| I.1 Anime e semidei | 1700–1861 | gestione (la settimana del servo) con decisioni sui gruppi | approvato; in `main` (#13), da provare dal telefono |
+| I.2 Le due Russie | 1861–1904 | gestione (il salario) e decisioni sui gruppi (il mir) | approvato; in `main` (#18) c'è una **bozza non conforme**: salario come distribuzione unica, mir come scelta semplice. Da rifare |
+| I.3 Il 1905 | 1905–1907 | punti azione (le giornate del soviet) | approvato |
+| I.4 Pane e guerra | 1914–1916 | quanto serve e quanto c'è (grano, treni, città), prime code | approvato |
+| I.5 Otto giorni | marzo 1917 | code che diventano corteo, poi punti azione (il soldato che non spara) | approvato |
+| II.1 Il paese più libero del mondo | marzo–aprile 1917 | — | da assegnare |
+| II.2 Due poteri in un palazzo | marzo–maggio 1917 | decisioni sui gruppi (governo provvisorio e soviet davanti a operai, soldati, contadini, ceti medi) | da confermare |
+| II.3 Ogni angolo di strada una tribuna | marzo–giugno 1917 | — | da assegnare |
+| II.4 Pane, pace, terra | aprile–giugno 1917 | — | da assegnare |
+| II.5 Le giornate di luglio | luglio 1917 | punti azione | da confermare |
+| III.1 La terra e i palazzi | luglio–settembre 1917 | gestione (le occupazioni delle terre) | da confermare |
+| III.2 Kornilov e la svolta | agosto–ottobre 1917 | punti azione con informazioni incomplete | da confermare |
+| III.3 La notte del palazzo | 6–8 novembre 1917 | punti azione con informazioni incomplete | da confermare |
+| III.4 Le promesse decretate | novembre–dicembre 1917 | — | da assegnare |
+| III.5 Il primo prezzo | dicembre 1917–marzo 1918 | — | da assegnare |
+| IV.1 Il prezzo della sopravvivenza | 1918–1920 | quanto serve e quanto c'è (comunismo di guerra); città che resiste (Pietrogrado) | da confermare |
+| IV.2 Kronštadt e la svolta | 1921 | quanto serve e quanto c'è (NEP) | da confermare |
+| IV.3 L'assalto al cielo | 1918–1927 | — | da assegnare |
+| IV.4 La vita nuova e i bambini di strada | 1921–1927 | fiducia (il bambino di strada nella banda) | da confermare |
+| IV.5 Dopo Lenin | 1922–1927 | — (indicatore: credenza, il culto di Lenin) | da assegnare |
+| V.1 La grande svolta | 1928–1933 | decisioni sui gruppi (il kolchoz) | da confermare |
+| V.2 Costruire il socialismo | 1928–1937 | quanto serve e quanto c'è (il piano quinquennale) | da confermare |
+| V.3 La paura | 1934–1938 | fiducia (le purghe) | da confermare |
+| V.4 La guerra | 1939–1945 | città che resiste (Leningrado) | da confermare |
+| V.5 Il prezzo e il mito | 1945 | solo confronto di fine atto | — |
+| VI.1 Dopo la vittoria | 1945–1953 | fiducia (il dopoguerra) | da confermare |
+| VI.2 Il disgelo | 1953–1957 | — | da assegnare |
+| VI.3 Il bip | 1957 | la corsa (Sputnik, Laika) | da confermare |
+| VI.4 «Pojechali!» | 1961–1963 | la corsa (Gagarin) | da confermare |
+| VI.5 La guerra dei simboli | 1959–1964 | — (indicatore: credenza, il prestigio) | da assegnare |
+| VII.1 Tutto era per sempre | 1964–1982 | quanto serve e quanto c'è (economia parallela, *blat*); fiducia (il samizdat) | da confermare |
+| VII.2 Afghanistan e Černobyl' | 1979–1986 | punti azione (Černobyl') | da confermare |
+| VII.3 Perestrojka e glasnost | 1985–1990 | code (1989); decisioni sui gruppi (le repubbliche) | da confermare |
+| VII.4 La fine | 1991 | punti azione (agosto 1991) | da confermare |
+
 ### I.1 nella nuova forma
 
 Una partita di otto-dieci anni dal 1740 al 1861. Ogni anno:
