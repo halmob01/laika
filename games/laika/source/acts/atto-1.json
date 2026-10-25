@@ -2062,7 +2062,8 @@
             "value": 40
           },
           "tone": "good",
-          "text": "Si mangia fino al raccolto e avanza qualcosa."
+          "text": "Si mangia fino al raccolto e avanza qualcosa.",
+          "stamp": "Si mangia"
         },
         {
           "when": {
@@ -2072,11 +2073,13 @@
             "value": 20
           },
           "tone": "neutral",
-          "text": "Si mangia fino al raccolto, ma non avanza niente."
+          "text": "Si mangia fino al raccolto, ma non avanza niente.",
+          "stamp": "Si tira avanti"
         },
         {
           "tone": "bad",
-          "text": "Il grano non basta: quest'inverno si fa la fame."
+          "text": "Il grano non basta: quest'inverno si fa la fame.",
+          "stamp": "Fame"
         }
       ],
       "shows": [
@@ -2085,7 +2088,8 @@
         "speranza",
         "legami"
       ],
-      "strengthOne": "braccio"
+      "strengthOne": "braccio",
+      "previewLabel": "Si dice in giro"
     },
     {
       "id": "a1-u1-ricorda",

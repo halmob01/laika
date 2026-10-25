@@ -99,7 +99,8 @@ export function validateTurnGame(e, act, stages) {
   assert(text(e.tokenLabel), 'Nome delle pedine mancante');
   // Nomi delle fasi per la barra dei passi e giudizi dell'anno (il primo che vale).
   if (e.phaseLabels !== undefined) { assert(e.phaseLabels && typeof e.phaseLabels === 'object' && Object.entries(e.phaseLabels).every(([k, v]) => STEP_PHASES.includes(k) && text(v)), 'Nomi delle fasi non validi'); }
-  if (e.verdicts !== undefined) { assert(Array.isArray(e.verdicts) && e.verdicts.length <= 8, 'Giudizi non validi'); for (const v of e.verdicts) { assert(v && text(v.text) && ['good', 'bad', 'neutral'].includes(v.tone ?? 'neutral'), 'Giudizio non valido'); if (v.when !== undefined) condition(v.when, act); } }
+  if (e.previewLabel !== undefined) assert(text(e.previewLabel) && e.previewLabel.length <= 40, 'Etichetta delle voci non valida');
+  if (e.verdicts !== undefined) { assert(Array.isArray(e.verdicts) && e.verdicts.length <= 8, 'Giudizi non validi'); for (const v of e.verdicts) { assert(v && text(v.text) && ['good', 'bad', 'neutral'].includes(v.tone ?? 'neutral') && (v.stamp === undefined || (text(v.stamp) && v.stamp.length <= 24)), 'Giudizio non valido'); if (v.when !== undefined) condition(v.when, act); } }
   for (const k of ['upkeepLabel', 'yearlyLabel', 'crisisLabel']) if (e[k] !== undefined) assert(text(e[k]), 'Etichetta vuota: ' + k);
   // Lavori lunghi: si scelgono come un posto, avanzano con la forza messa e alla fine cambiano le regole.
   const targets = new Set(places);
@@ -385,7 +386,7 @@ export function turnAction(act, e, previous, action, seed) {
       const c = fireCrises(act, e, state, g, cause); changes.push(...c.changes); crisisStep(c.changes);
       const crises = [...early.crises, ...c.crises];
       const verdict = (e.verdicts || []).find(v => !v.when || matches(v.when, state));
-      g.result = { luck: { id: luck.id, label: luck.label }, control, crises, built, steps, changes: netChanges(changes), preview: t.preview || null, ...(verdict ? { verdict: { text: verdict.text, tone: verdict.tone || 'neutral' } } : {}) };
+      g.result = { luck: { id: luck.id, label: luck.label }, control, crises, built, steps, changes: netChanges(changes), preview: t.preview || null, ...(verdict ? { verdict: { text: verdict.text, tone: verdict.tone || 'neutral', ...(verdict.stamp ? { stamp: verdict.stamp } : {}) } } : {}) };
       feedback = [t.label + ': ' + luck.label + '.', ...built.map(x => x.text), control?.caught ? e.control.text : null, ...crises.map(x => x.text)].filter(Boolean).join(' ');
       g.phase = 'result'; break;
     }
