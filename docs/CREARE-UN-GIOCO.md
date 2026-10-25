@@ -139,6 +139,19 @@ Con questi campi la partita diventa una gestione: le pedine sono persone, alcuni
 - Le risposte di chi bussa accettano `when`: se la condizione è falsa la risposta resta visibile ma non si può scegliere.
 - `upkeepLabel`, `yearlyLabel`, `crisisLabel` e `control.label` danno il nome alle voci dell'esito: il player mostra, per ogni anno, da dove viene ogni variazione (`result.steps`) e poi il totale.
 
+#### Capire il gioco: obiettivo, passi, verso degli indicatori, esito (facoltativi)
+
+- `goal` (ogni episodio): una riga, al massimo 140 caratteri, mostrata sempre accanto alla scena («Obiettivo: …»). Dice perché si gioca, non come.
+- `shows` (ogni episodio): gli id degli indicatori da mostrare in quell'episodio (al massimo cinque). Senza `shows` si vedono tutti quelli non `hidden`. Serve perché ogni unità mostri solo i propri.
+- Nelle definizioni di `metrics` e `resources`, `good: "high" | "low"`: il player scrive il livello e il verso («basso · meglio basso») e colora la barra; il colore non porta mai da solo il significato.
+- `phaseLabels`: nomi dei passi dell'anno nella barra in alto (`cards`, `place`, `result`, `event`, `market`), per esempio «Notizie», «La settimana», «L'anno», «Chi bussa», «La fiera». Si mostrano solo i passi presenti in quel turno.
+- `verdicts`: `[{when?, tone: "good"|"neutral"|"bad", text}]`. Dopo l'anno vale il primo la cui condizione è vera: è la frase di giudizio in cima all'esito («Si mangia fino al raccolto»). Sotto, il perché in elenco; i numeri stanno in un «I numeri dell'anno» da aprire.
+- `strengthOne`: il singolare di `strengthLabel` («braccio»), per scrivere «per ogni braccio» e «1 braccio».
+- Card condizionate: `turns[].cards[].when`. La card si legge solo se all'inizio del turno la condizione è vera; servono a scrivere varianti del racconto (per esempio un passaggio di generazione quando qualcuno è stato mandato via).
+- `turns[].effects`: effetti applicati all'inizio del turno, dopo aver scelto le card (per esempio azzerare un flag a ogni generazione). Con `rules.workers.{id}` (`strength`, `label`, `away`) si cambia chi c'è in casa.
+
+Sul telefono, durante la partita, scena, obiettivo e indicatori restano fissi in alto mentre si sceglie sotto (tema LAIKA); i pulsanti sulla scena sono piccoli ma con un'area di tocco più grande.
+
 Ordine di un anno: si pagano i lavori che cominciano e la riserva; si applica il mantenimento e si controllano le crisi (si può restare senza prima del raccolto); poi imprevisto e resa dei posti, rendite delle migliorie, avanzamento dei lavori, controllo degli obblighi e di nuovo le crisi.
 
 Le mosse sono azioni `{type:"turn", step}` con `step` fra `card`, `back`, `place` (`placeId`, `delta` ±1), `assign` (`workerId`, `placeId`), `reserve` (`delta` ±1), `confirm`, `choose` (`choiceId`), `continue`, `buy` (`offerId`) e `leave`. Il caso dipende dal seme della sessione: il salvataggio (registro delle mosse) rigioca la stessa partita. Il player mostra una riga per metrica con la variazione netta. Il codice sta in `src/core/turns.js`; la prova neutra in `tests/turns.test.js`.

@@ -41447,21 +41447,24 @@
           "label": "Occhio del padrone",
           "min": 0,
           "max": 100,
-          "start": 30
+          "start": 30,
+          "good": "low"
         },
         {
           "id": "speranza",
           "label": "Speranza",
           "min": 0,
           "max": 100,
-          "start": 10
+          "start": 10,
+          "good": "high"
         },
         {
           "id": "legami",
           "label": "Legami nel villaggio",
           "min": 0,
           "max": 100,
-          "start": 40
+          "start": 40,
+          "good": "high"
         }
       ],
       "resources": [
@@ -41470,14 +41473,16 @@
           "label": "Grano della famiglia",
           "min": 0,
           "max": 150,
-          "start": 60
+          "start": 60,
+          "good": "high"
         },
         {
           "id": "forze",
           "label": "Forze del figlio",
           "min": 0,
           "max": 100,
-          "start": 50
+          "start": 50,
+          "good": "high"
         }
       ],
       "relations": [],
@@ -41485,7 +41490,8 @@
         "mucca_venduta",
         "vomere",
         "mucca_ricomprata",
-        "figlio_via"
+        "figlio_via",
+        "padre_via"
       ],
       "reconciliation": "Fine dell'unità I.1 (1700–1861). Per un secolo e mezzo la ricchezza si è contata in anime e il tempo di un servo apparteneva in parte al signore. La libertà del 1861 è vera, ma arriva senza la terra: la terra si paga per quarantanove anni e il villaggio risponde insieme dei debiti. Le tue scelte hanno cambiato soltanto la simulazione, non questi fatti. Le unità successive dell'Atto I (1861–1917) sono in preparazione: per ora il percorso si ferma qui.",
       "episodes": [
@@ -41493,7 +41499,7 @@
           "id": "a1-u1-e1",
           "type": "narrative",
           "title": "Le anime",
-          "text": "Nel registro di una tenuta il villaggio non ha nomi. Ha un numero.\n\nLa ricchezza di un nobile russo non si misura in campi ma in «anime». Si contano soltanto i maschi: le donne valgono meno e nei conti non entrano. Dal tempo dell'imperatrice Elisabetta, a metà del Settecento, il padrone può comprare e vendere i suoi servi e mandarli in Siberia per «insolenza» senza chiedere il permesso a nessuno.\n\nLe anime si regalano. Nel 1700 il nobile più ricco di Russia ne possiede trentatremila; vent'anni dopo il principe Menšikov, favorito di Pietro il Grande e poi di sua moglie Caterina I, arriva a trecentomila. Nel 1777 Caterina II congeda un favorito, Zorič, con una tenuta di settemila anime. Un villaggio intero cambia padrone per un dono. Chi ci vive continua a zappare lo stesso campo.\n\nIn uno di questi villaggi vive la famiglia che seguirai fino al 1861: il padre, la madre, il nonno, un figlio. È inventata. Il mondo intorno a lei no.",
+          "text": "Nel registro di una tenuta il villaggio non ha nomi. Ha un numero.\n\nLa ricchezza di un nobile russo non si misura in campi ma in «anime». Si contano soltanto i maschi: le donne valgono meno e nei conti non entrano. Dal tempo dell'imperatrice Elisabetta, a metà del Settecento, il padrone può comprare e vendere i suoi servi e mandarli in Siberia per «insolenza» senza chiedere il permesso a nessuno.\n\nLe anime si regalano. Nel 1700 il nobile più ricco di Russia ne possiede trentatremila; vent'anni dopo il principe Menšikov, favorito di Pietro il Grande e poi di sua moglie Caterina I, arriva a trecentomila. Nel 1777 Caterina II congeda un favorito, Zorič, con una tenuta di settemila anime. Un villaggio intero cambia padrone per un dono. Chi ci vive continua a zappare lo stesso campo.\n\nIn uno di questi villaggi vive la famiglia che seguirai fino al 1861: cinque generazioni di servi nella stessa isba. Nel 1740 sono il nonno Foma, il padre Ivan, la madre Marfa e un bambino, Pëtr. In casa i posti restano quattro ma le persone cambiano. I figli nascono servi come i padri. La famiglia è inventata. Il mondo intorno a lei no.",
           "roleId": "antenati",
           "stageId": "a1-u1-anime",
           "motionId": "ingresso",
@@ -41506,7 +41512,13 @@
           "exposes": [
             "a1-anime"
           ],
-          "display": "cards"
+          "display": "cards",
+          "shows": [
+            "grano",
+            "occhio",
+            "speranza",
+            "legami"
+          ]
         },
         {
           "id": "a1-u1-settimana",
@@ -41516,7 +41528,7 @@
           "roleId": "antenati",
           "stageId": "a1-u1-anno",
           "resultMotionId": "raccolto",
-          "visualExplanation": "Il tabellone è il villaggio. Tocca una persona e poi il posto dove la mandi: qui sotto oppure sulla scena. Ogni pallino è un paio di braccia. Gli indicatori sono indici della simulazione: non sono dati storici né voti.",
+          "visualExplanation": "Il tabellone è il villaggio. Tocca una persona e poi il posto dove la mandi, sulla mappa oppure nell'elenco. Il padre conta per tre braccia, il nonno per uno. Gli indicatori sono indici della simulazione: non sono dati storici né voti.",
           "context": {
             "kind": "simulation",
             "dateLabel": "1740–1861",
@@ -41570,8 +41582,8 @@
             {
               "id": "vicini",
               "label": "Il villaggio: aiutare i vicini",
-              "x": 0.17,
-              "y": 0.57,
+              "x": 0.25,
+              "y": 0.6,
               "perToken": [
                 {
                   "kind": "metric",
@@ -41800,7 +41812,7 @@
             }
           ],
           "control": {
-            "text": "L'amministratore segna nel registro i giorni che mancano e si prende una parte del raccolto, un tanto per ogni giorno.",
+            "text": "L'amministratore segna nel registro le braccia che non sono venute ai campi del signore e si prende una parte del raccolto, un tanto per ognuna.",
             "chance": {
               "base": 0.15,
               "metric": "occhio",
@@ -42011,6 +42023,11 @@
                   "kind": "metric",
                   "id": "speranza",
                   "delta": -15
+                },
+                {
+                  "kind": "flag",
+                  "id": "padre_via",
+                  "value": true
                 }
               ],
               "rules": {
@@ -42094,11 +42111,56 @@
                     ]
                   }
                 ]
+              },
+              "rules": {
+                "workers": {
+                  "figlio": {
+                    "strength": 1
+                  }
+                }
               }
             },
             {
               "label": "1761",
               "cards": [
+                {
+                  "kind": "simulation",
+                  "title": "Vent'anni dopo",
+                  "text": "Il nonno Foma è morto. Ivan, il padre del 1740, adesso è il nonno: lavora poco, ma lavora.",
+                  "when": {
+                    "op": "flag",
+                    "id": "padre_via",
+                    "value": false
+                  }
+                },
+                {
+                  "kind": "simulation",
+                  "title": "Vent'anni dopo",
+                  "text": "Il nonno Foma è morto e Ivan, il padre, non è mai tornato dalla Siberia. Il più vecchio di casa è suo fratello Kuz'ma: il nonno adesso è lui.",
+                  "when": {
+                    "op": "flag",
+                    "id": "padre_via",
+                    "value": true
+                  }
+                },
+                {
+                  "kind": "simulation",
+                  "text": "Pëtr, il bambino del 1740, è diventato il padre. Ha sposato Avdot'ja e hanno un figlio di dieci anni, Stepan. Stepan è nato servo come suo padre e come suo nonno: nessuno gliel'ha chiesto.",
+                  "when": {
+                    "op": "flag",
+                    "id": "figlio_via",
+                    "value": false
+                  }
+                },
+                {
+                  "kind": "simulation",
+                  "text": "Pëtr, il bambino del 1740, non è più tornato. Il posto del padre lo prende Semën, che ha sposato sua sorella Avdot'ja. Il loro figlio Stepan ha dieci anni ed è nato servo come tutti in casa.",
+                  "when": {
+                    "op": "flag",
+                    "id": "figlio_via",
+                    "value": true
+                  }
+                },
                 {
                   "kind": "documented",
                   "text": "Muore l'imperatrice Elisabetta. Nel suo guardaroba si contano quindicimila abiti. I suoi palazzi però sono costruiti in fretta: negli anni Quaranta una residenza di legno sprofonda mentre dentro ci sono i granduchi. Loro si salvano a stento; sedici servitori muoiono.",
@@ -42188,7 +42250,17 @@
               "rules": {
                 "workers": {
                   "figlio": {
-                    "strength": 2
+                    "strength": 2,
+                    "away": false
+                  },
+                  "padre": {
+                    "away": false
+                  },
+                  "madre": {
+                    "away": false
+                  },
+                  "nonno": {
+                    "away": false
                   }
                 }
               },
@@ -42288,7 +42360,19 @@
                     ]
                   }
                 ]
-              }
+              },
+              "effects": [
+                {
+                  "kind": "flag",
+                  "id": "figlio_via",
+                  "value": false
+                },
+                {
+                  "kind": "flag",
+                  "id": "padre_via",
+                  "value": false
+                }
+              ]
             },
             {
               "label": "1777",
@@ -42307,6 +42391,11 @@
               "rules": {
                 "min": {
                   "corvee": 4
+                },
+                "workers": {
+                  "figlio": {
+                    "strength": 3
+                  }
                 }
               },
               "preview": "il nuovo amministratore vuole anche il fieno.",
@@ -42404,6 +42493,44 @@
               "label": "1787",
               "cards": [
                 {
+                  "kind": "simulation",
+                  "title": "Un'altra generazione",
+                  "text": "Il nonno è morto. Chi era il padre nel 1761 adesso è il nonno.",
+                  "when": {
+                    "op": "flag",
+                    "id": "padre_via",
+                    "value": false
+                  }
+                },
+                {
+                  "kind": "simulation",
+                  "title": "Un'altra generazione",
+                  "text": "Il nonno è morto e il padre non è tornato dalla Siberia. Il più vecchio di casa è uno zio: il nonno adesso è lui.",
+                  "when": {
+                    "op": "flag",
+                    "id": "padre_via",
+                    "value": true
+                  }
+                },
+                {
+                  "kind": "simulation",
+                  "text": "Stepan, il bambino del 1761, adesso è il padre. Sua moglie è Praskov'ja; il figlio Grigorij ha quindici anni e lavora già nei campi.",
+                  "when": {
+                    "op": "flag",
+                    "id": "figlio_via",
+                    "value": false
+                  }
+                },
+                {
+                  "kind": "simulation",
+                  "text": "Stepan non è più tornato. Il posto del padre lo prende il marito di sua sorella Praskov'ja. Il figlio Grigorij ha quindici anni e lavora già nei campi.",
+                  "when": {
+                    "op": "flag",
+                    "id": "figlio_via",
+                    "value": true
+                  }
+                },
+                {
                   "kind": "documented",
                   "text": "Caterina scende verso la Crimea. A corte si racconta che Potëmkin abbia fatto montare lungo il fiume facciate di villaggi finti. I testimoni diranno di no; gli storici ne discutono ancora. Ma la voce resta: da lassù un villaggio può sembrare una scenografia."
                 },
@@ -42479,7 +42606,17 @@
               "rules": {
                 "workers": {
                   "figlio": {
-                    "strength": 3
+                    "strength": 2,
+                    "away": false
+                  },
+                  "padre": {
+                    "away": false
+                  },
+                  "madre": {
+                    "away": false
+                  },
+                  "nonno": {
+                    "away": false
                   }
                 }
               },
@@ -42579,11 +42716,61 @@
                     ]
                   }
                 ]
-              }
+              },
+              "effects": [
+                {
+                  "kind": "flag",
+                  "id": "figlio_via",
+                  "value": false
+                },
+                {
+                  "kind": "flag",
+                  "id": "padre_via",
+                  "value": false
+                }
+              ]
             },
             {
               "label": "1820",
               "cards": [
+                {
+                  "kind": "simulation",
+                  "title": "Più di trent'anni dopo",
+                  "text": "Il nonno è morto. Chi era il padre nel 1787 adesso è il nonno.",
+                  "when": {
+                    "op": "flag",
+                    "id": "padre_via",
+                    "value": false
+                  }
+                },
+                {
+                  "kind": "simulation",
+                  "title": "Più di trent'anni dopo",
+                  "text": "Il nonno è morto e il padre non è tornato dalla Siberia. Il più vecchio di casa è uno zio: il nonno adesso è lui.",
+                  "when": {
+                    "op": "flag",
+                    "id": "padre_via",
+                    "value": true
+                  }
+                },
+                {
+                  "kind": "simulation",
+                  "text": "Grigorij è diventato il padre. Con sua moglie Ul'jana ha un figlio di vent'anni, Mikita, che lavora come un uomo fatto.",
+                  "when": {
+                    "op": "flag",
+                    "id": "figlio_via",
+                    "value": false
+                  }
+                },
+                {
+                  "kind": "simulation",
+                  "text": "Grigorij non è più tornato. Il posto del padre lo prende il marito di sua sorella Ul'jana. Il figlio Mikita ha vent'anni e lavora come un uomo fatto.",
+                  "when": {
+                    "op": "flag",
+                    "id": "figlio_via",
+                    "value": true
+                  }
+                },
                 {
                   "kind": "documented",
                   "title": "Anni Venti dell'Ottocento",
@@ -42761,11 +42948,78 @@
                     ]
                   }
                 ]
-              }
+              },
+              "rules": {
+                "workers": {
+                  "figlio": {
+                    "strength": 3,
+                    "away": false
+                  },
+                  "padre": {
+                    "away": false
+                  },
+                  "madre": {
+                    "away": false
+                  },
+                  "nonno": {
+                    "away": false
+                  }
+                }
+              },
+              "effects": [
+                {
+                  "kind": "flag",
+                  "id": "figlio_via",
+                  "value": false
+                },
+                {
+                  "kind": "flag",
+                  "id": "padre_via",
+                  "value": false
+                }
+              ]
             },
             {
               "label": "1840",
               "cards": [
+                {
+                  "kind": "simulation",
+                  "title": "Vent'anni dopo",
+                  "text": "Il nonno è morto. Chi era il padre nel 1820 adesso è il nonno.",
+                  "when": {
+                    "op": "flag",
+                    "id": "padre_via",
+                    "value": false
+                  }
+                },
+                {
+                  "kind": "simulation",
+                  "title": "Vent'anni dopo",
+                  "text": "Il nonno è morto e il padre non è tornato dalla Siberia. Il più vecchio di casa è uno zio: il nonno adesso è lui.",
+                  "when": {
+                    "op": "flag",
+                    "id": "padre_via",
+                    "value": true
+                  }
+                },
+                {
+                  "kind": "simulation",
+                  "text": "Mikita adesso è il padre; sua moglie è Fëkla. Il figlio Vasilij ha diciotto anni.",
+                  "when": {
+                    "op": "flag",
+                    "id": "figlio_via",
+                    "value": false
+                  }
+                },
+                {
+                  "kind": "simulation",
+                  "text": "Mikita non è più tornato. Il posto del padre lo prende il marito di sua sorella Fëkla. Il figlio Vasilij ha diciotto anni.",
+                  "when": {
+                    "op": "flag",
+                    "id": "figlio_via",
+                    "value": true
+                  }
+                },
                 {
                   "kind": "documented",
                   "title": "Anni Trenta e Quaranta",
@@ -42843,7 +43097,36 @@
                     ]
                   }
                 ]
-              }
+              },
+              "rules": {
+                "workers": {
+                  "figlio": {
+                    "strength": 3,
+                    "away": false
+                  },
+                  "padre": {
+                    "away": false
+                  },
+                  "madre": {
+                    "away": false
+                  },
+                  "nonno": {
+                    "away": false
+                  }
+                }
+              },
+              "effects": [
+                {
+                  "kind": "flag",
+                  "id": "figlio_via",
+                  "value": false
+                },
+                {
+                  "kind": "flag",
+                  "id": "padre_via",
+                  "value": false
+                }
+              ]
             },
             {
               "label": "1842",
@@ -42912,11 +43195,56 @@
                     ]
                   }
                 ]
+              },
+              "rules": {
+                "workers": {
+                  "figlio": {
+                    "strength": 3
+                  }
+                }
               }
             },
             {
               "label": "1861",
               "cards": [
+                {
+                  "kind": "simulation",
+                  "title": "L'ultima generazione di servi",
+                  "text": "Il nonno è morto durante l'inverno. Chi era il padre nel 1840 adesso è il nonno.",
+                  "when": {
+                    "op": "flag",
+                    "id": "padre_via",
+                    "value": false
+                  }
+                },
+                {
+                  "kind": "simulation",
+                  "title": "L'ultima generazione di servi",
+                  "text": "Il nonno è morto durante l'inverno e il padre non è tornato dalla Siberia. Il più vecchio di casa è uno zio: il nonno adesso è lui.",
+                  "when": {
+                    "op": "flag",
+                    "id": "padre_via",
+                    "value": true
+                  }
+                },
+                {
+                  "kind": "simulation",
+                  "text": "Vasilij è diventato il padre; il figlio Fëdor ha quindici anni. In questa isba sono la quinta generazione di servi. Forse l'ultima.",
+                  "when": {
+                    "op": "flag",
+                    "id": "figlio_via",
+                    "value": false
+                  }
+                },
+                {
+                  "kind": "simulation",
+                  "text": "Vasilij non è più tornato. Il posto del padre lo prende il marito di sua sorella; il figlio Fëdor ha quindici anni. In questa isba sono la quinta generazione di servi. Forse l'ultima.",
+                  "when": {
+                    "op": "flag",
+                    "id": "figlio_via",
+                    "value": true
+                  }
+                },
                 {
                   "kind": "documented",
                   "title": "3 marzo 1861 (g. 19 febbraio)",
@@ -42961,7 +43289,22 @@
                     "id": "grano",
                     "delta": -8
                   }
-                ]
+                ],
+                "workers": {
+                  "figlio": {
+                    "strength": 2,
+                    "away": false
+                  },
+                  "padre": {
+                    "away": false
+                  },
+                  "madre": {
+                    "away": false
+                  },
+                  "nonno": {
+                    "away": false
+                  }
+                }
               },
               "event": {
                 "who": "Un uomo con una carta d'oro",
@@ -43002,9 +43345,62 @@
                     ]
                   }
                 ]
-              }
+              },
+              "effects": [
+                {
+                  "kind": "flag",
+                  "id": "figlio_via",
+                  "value": false
+                },
+                {
+                  "kind": "flag",
+                  "id": "padre_via",
+                  "value": false
+                }
+              ]
             }
-          ]
+          ],
+          "goal": "Arriva al 1861 con il grano fino al raccolto e l'occhio del padrone basso.",
+          "shows": [
+            "grano",
+            "occhio",
+            "speranza",
+            "legami"
+          ],
+          "phaseLabels": {
+            "cards": "Notizie",
+            "place": "La settimana",
+            "result": "L'anno",
+            "event": "Chi bussa",
+            "market": "La fiera"
+          },
+          "verdicts": [
+            {
+              "when": {
+                "op": "gte",
+                "kind": "resource",
+                "id": "grano",
+                "value": 40
+              },
+              "tone": "good",
+              "text": "Si mangia fino al raccolto e avanza qualcosa."
+            },
+            {
+              "when": {
+                "op": "gte",
+                "kind": "resource",
+                "id": "grano",
+                "value": 20
+              },
+              "tone": "neutral",
+              "text": "Si mangia fino al raccolto, ma non avanza niente."
+            },
+            {
+              "tone": "bad",
+              "text": "Il grano non basta: quest'inverno si fa la fame."
+            }
+          ],
+          "strengthOne": "braccio"
         },
         {
           "id": "a1-u1-ricorda",
@@ -43019,7 +43415,13 @@
             "kind": "documented",
             "dateLabel": "1700–1861"
           },
-          "display": "cards"
+          "display": "cards",
+          "shows": [
+            "grano",
+            "occhio",
+            "speranza",
+            "legami"
+          ]
         },
         {
           "id": "a1-u1-e7",
@@ -43031,6 +43433,12 @@
           "context": {
             "kind": "assessment"
           },
+          "shows": [
+            "grano",
+            "occhio",
+            "speranza",
+            "legami"
+          ],
           "question": {
             "id": "a1-v1",
             "prompt": "Nel 1861 che cosa ottiene una famiglia di servi come quella che hai seguito? E che cosa no?",
@@ -43132,6 +43540,10 @@
           "roles": [
             "famiglia-numerosa",
             "anziano"
+          ],
+          "shows": [
+            "legami",
+            "speranza"
           ]
         },
         {
@@ -43151,7 +43563,12 @@
           "exposes": [
             "a1-citta"
           ],
-          "display": "cards"
+          "display": "cards",
+          "shows": [
+            "forze",
+            "legami",
+            "speranza"
+          ]
         },
         {
           "id": "a1-u2-salario",
@@ -43225,6 +43642,11 @@
               "id": "forze",
               "delta": -25
             }
+          ],
+          "shows": [
+            "forze",
+            "legami",
+            "speranza"
           ]
         },
         {
@@ -43244,7 +43666,12 @@
           "exposes": [
             "a1-razzo"
           ],
-          "display": "cards"
+          "display": "cards",
+          "shows": [
+            "forze",
+            "legami",
+            "speranza"
+          ]
         },
         {
           "id": "a1-u2-corte",
@@ -43263,7 +43690,12 @@
           "exposes": [
             "a1-corte"
           ],
-          "display": "cards"
+          "display": "cards",
+          "shows": [
+            "forze",
+            "legami",
+            "speranza"
+          ]
         },
         {
           "id": "a1-u2-volantini",
@@ -43315,6 +43747,11 @@
               "text": "Gli operai sono la forza che cambierà la storia. Un partito organizzato come quelli d'Occidente.",
               "provenance": "Testo ricostruito per il gioco dagli appunti «La Rivoluzione Russa» (sezione «La Russia alla vigilia della Rivoluzione»): non è un volantino d'epoca."
             }
+          ],
+          "shows": [
+            "forze",
+            "legami",
+            "speranza"
           ]
         },
         {
@@ -43330,7 +43767,12 @@
             "kind": "documented",
             "dateLabel": "1861–1904"
           },
-          "display": "cards"
+          "display": "cards",
+          "shows": [
+            "forze",
+            "legami",
+            "speranza"
+          ]
         },
         {
           "id": "a1-u2-e7",
@@ -43342,6 +43784,11 @@
           "context": {
             "kind": "assessment"
           },
+          "shows": [
+            "forze",
+            "legami",
+            "speranza"
+          ],
           "question": {
             "id": "a1-v2",
             "prompt": "Nel 1904 circolano tre fogli. Quale gruppo chiede soprattutto di distribuire la terra a chi la lavora?",

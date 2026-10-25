@@ -128,3 +128,30 @@ test('I.2: la partita completa passa da mir, città, salario, razzo, corte e vol
   const forze = game.acts[0].resources.find(x => x.id === 'forze');
   assert.ok(forze && !forze.hidden, 'Forze del figlio è un indicatore visibile');
 });
+
+test('I.1: cinque generazioni, card di passaggio senza varianti sbagliate, giudizio dell\'anno, indicatori dell\'unità', () => {
+  const a = game.acts[0], e = a.episodes.find(x => x.type === 'turn_game');
+  assert.deepEqual(e.turns.filter(t => t.effects).map(t => t.label), ['1761', '1787', '1820', '1840', '1861'], 'passaggi di generazione');
+  for (const ep of a.episodes.filter(x => x.id.startsWith('a1-u1-'))) assert.deepEqual(ep.shows, ['grano', 'occhio', 'speranza', 'legami']);
+  assert.match(a.episodes[0].text, /cinque generazioni/);
+  let s = newSession(game, 'gen');
+  const T = (step, x = {}) => { s = transition(game, s, {type: 'turn', step, ...x}).nextState; };
+  while (currentScene(game, s).type !== 'turn_game') s = transition(game, s, {type: 'advance'}).nextState;
+  const g = () => s.currentAct.game;
+  for (let year = 0; year < 1; year++) {
+    while (g().phase === 'cards') T('card');
+    for (const [w, p] of [['padre', 'corvee'], ['madre', 'corvee'], ['nonno', 'campo'], ['figlio', 'campo']]) T('assign', {workerId: w, placeId: p});
+    T('confirm');
+    assert.ok(g().result.verdict && ['good', 'neutral', 'bad'].includes(g().result.verdict.tone), 'giudizio dell\'anno');
+    while (g().turn === year && g().phase !== 'done') {
+      const ph = g().phase, t = e.turns[g().turn];
+      if (ph === 'event') T('choose', {choiceId: t.event.choices.find(c => !c.when)?.id || t.event.choices[0].id});
+      else if (ph === 'market') T('leave'); else T('continue');
+    }
+  }
+  // Nel 1761 nessuno è stato mandato via: si leggono le due card «normali», non le varianti.
+  const t1 = e.turns[1], list = g().cardList.map(i => t1.cards[i]);
+  assert.equal(g().turn, 1);
+  assert.ok(list.every(c => !c.when || c.when.value === false), 'solo le card della famiglia al completo');
+  assert.ok(list.some(c => /Pëtr, il bambino del 1740, è diventato il padre/.test(c.text)));
+});

@@ -4,7 +4,7 @@ const assert=require('node:assert/strict'),path=require('node:path'),fs=require(
 module.exports=async(browser,root,artifacts)=>{
  const origin='http://127.0.0.1:4173',out=path.join(artifacts,'i1');fs.mkdirSync(out,{recursive:true});
  // Chi va dove: il costruttore manda il nonno a costruire; l'obbediente tiene tutti tra signore e campo.
- const runs=[{nome:'costruttore',viewport:{width:1440,height:900},costruisce:['nonno']},
+ const runs=process.env.SOLO390?[{nome:'obbediente',viewport:{width:390,height:844},costruisce:[],touch:true}]:[{nome:'costruttore',viewport:{width:1440,height:900},costruisce:['nonno']},
   {nome:'obbediente',viewport:{width:390,height:844},costruisce:[],touch:true}];
  for(const run of runs){
   const context=await browser.newContext({viewport:run.viewport,hasTouch:Boolean(run.touch)}),page=await context.newPage(),errors=[];

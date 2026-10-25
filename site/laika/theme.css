@@ -41,12 +41,12 @@ main{max-width:none;margin:0;padding:0}
 #stage[data-motion=paused]{outline:0;box-shadow:inset 0 -4px 0 var(--red)}
 
 /* Lastra scura: didascalia e comandi a sinistra, indicatori come le date della home a destra. */
-#caption{grid-column:1/8;grid-row:2;margin:0;padding:24px 0 8px;min-height:0;max-width:62ch;font-size:1.02rem;line-height:1.45;color:var(--on-slab)}
-.motion-controls{grid-column:1/8;grid-row:3;align-self:start;gap:1.6rem;padding:0 0 24px}
+#caption{grid-column:1/8;grid-row:3;margin:0;padding:24px 0 8px;min-height:0;max-width:62ch;font-size:1.02rem;line-height:1.45;color:var(--on-slab)}
+.motion-controls{grid-column:1/8;grid-row:4;align-self:start;gap:1.6rem;padding:0 0 24px}
 .motion-controls button{min-height:36px;padding:0;border:0;background:none;color:var(--concrete);font-family:var(--mono);font-size:.8rem;text-decoration:underline;text-underline-offset:4px}
 .motion-controls button:hover,.motion-controls button[aria-pressed=true]{background:none;color:var(--on-slab)}
 .motion-controls button:disabled{opacity:.45}
-#metrics{grid-column:8/13;grid-row:2/4;display:flex;flex-wrap:wrap;align-content:stretch;margin:0 calc(var(--gut) * -1) 0 0}
+#metrics{grid-column:8/13;grid-row:2/5;display:flex;flex-wrap:wrap;align-content:stretch;margin:0 calc(var(--gut) * -1) 0 0}
 #metrics .eyebrow{flex:0 0 100%;max-width:none;margin:0;padding:18px 0 0 20px;border-left:1px solid var(--slab2);font-family:var(--mono);font-size:.72rem;font-weight:400;letter-spacing:.06em;color:var(--concrete)}
 .metric{flex:1 1 0;margin:0;padding:14px 20px 22px;border-left:1px solid var(--slab2);display:grid;align-content:start;gap:10px}
 .metric>span{display:grid;gap:8px;font-size:inherit}
@@ -237,9 +237,72 @@ main{max-width:none;margin:0;padding:0}
  #panel>*,#scene-title,.lead,#interaction,.outcome{animation:none}
 }
 
-@media (max-width:640px){.turn-overlay button{min-width:34px;min-height:34px;font-size:12px!important;padding:0 6px!important;border-width:2px}.turn-overlay .turn-stamp{font-size:9px;padding:1px 5px;border-width:2px}
+@media (max-width:640px){.turn-overlay button{min-width:0;min-height:28px;font-size:11px!important;padding:0 6px!important;border-width:2px}.turn-overlay button::after{content:"";position:absolute;inset:-8px -4px}.turn-overlay .turn-stamp{font-size:9px;padding:1px 5px;border-width:2px}
  .turn-workers{grid-template-columns:1fr 1fr;gap:8px}#panel .turn-workers button{min-height:64px}}
 .turn-steps{margin:14px 0 0;padding:0;list-style:none;font-family:var(--mono);font-size:.8rem;border-top:1px solid #ffffff33}
 .turn-steps li{display:flex;justify-content:space-between;gap:16px;padding:6px 0;border-bottom:1px solid #ffffff22}.turn-steps b{font-weight:400;text-align:right}
 /* Nel corso il progresso resta nel browser: niente esporta/importa e niente nota sul file. */
 #export,#tools .import,.privacy{display:none}
+
+/* Obiettivo dell'unità: una riga sempre accanto alla scena. */
+.visual-column .goal{grid-column:1/8;grid-row:2;margin:20px 0 0;padding:0;font-family:var(--sans);font-weight:700;font-size:1.08rem;line-height:1.35;color:var(--on-slab)}
+/* Verso dell'indicatore: a parole, il colore della barra lo conferma. */
+.metric-dir{order:3;font-family:var(--mono);font-size:.68rem;line-height:1.3;color:var(--concrete)}
+.metric[data-ok=true] .meter i{background:var(--on-slab)}
+.metric[data-ok=false] .meter i{background:var(--red)}
+.metric[data-ok=mid] .meter i{background:var(--concrete)}
+/* Barra dei passi dell'anno */
+.turn-steps-bar{display:flex;gap:4px;margin:0 0 20px;padding:0;list-style:none;font-family:var(--mono);font-size:.72rem;letter-spacing:.02em;color:var(--mute)}
+.turn-steps-bar li{flex:1 1 0;padding-top:8px;border-top:4px solid var(--line);min-width:0;overflow-wrap:anywhere}
+.turn-steps-bar li.done{border-color:var(--ink)}
+.turn-steps-bar li.now{border-color:var(--red);color:var(--ink);font-weight:700}
+/* Persone e posti: forza in parole, obbligo del signore distinto dall'effetto. */
+.turn-force{font-family:var(--mono);font-size:.78rem}
+#panel .turn-workers button[aria-pressed=true] .turn-dots{color:var(--paper)}
+#panel .turn-target .turn-due{display:block;margin-top:2px;color:var(--ink)}
+#panel button.primary:disabled{background:var(--paper2);color:var(--ink);opacity:1;font-weight:400}
+/* Esito: prima il giudizio, poi il perché, i numeri a richiesta. */
+.turn-verdict{margin:0 0 12px;font-family:var(--sans);font-weight:700;font-size:1.35rem;line-height:1.25}
+.turn-verdict[data-tone=bad]{padding-left:22px;position:relative}
+.turn-verdict[data-tone=bad]::before{content:"";position:absolute;left:0;top:.35em;width:12px;height:12px;background:var(--red)}
+.turn-why{margin:0;padding:0 0 0 1.1em;font-size:1rem;line-height:1.45}
+.turn-why li+li{margin-top:6px}
+.turn-numbers{margin-top:16px;border-top:1px solid #ffffff33;padding-top:10px}
+.turn-numbers summary{font-family:var(--mono);font-size:.8rem;cursor:pointer;min-height:44px;display:flex;align-items:center}
+@media (max-width:980px){
+ /* Durante la partita la scena resta in vista mentre si sceglie: scena, obiettivo e indicatori compatti in alto. */
+ #workspace[data-play] .visual-column{position:sticky;top:0;z-index:30}
+ #workspace[data-play] #stage{height:min(calc(100vw * var(--stage-zoom,1.4) * 9 / 16),36vh)}
+ #workspace[data-play]:not([data-play=cards]) #caption,#workspace[data-play]:not([data-play=cards]) .motion-controls,#workspace[data-play] #metrics .eyebrow{display:none}
+ #workspace[data-play] .metric{padding:6px 8px 8px var(--gut);gap:4px}
+ #workspace[data-play] .metric+.metric{padding-left:8px}
+ #workspace[data-play] .metric>span{gap:2px}
+ #workspace[data-play] .metric>span>b{font-size:22px}
+ #workspace[data-play] .metric>span>span,#workspace[data-play] .metric-dir{font-size:.6rem}
+ .visual-column .goal{order:1;grid-column:1/-1;grid-row:auto;margin:0 calc(var(--gut) * -1);padding:8px var(--gut);border-top:1px solid var(--slab2);font-size:.92rem}
+ #workspace[data-play] .goal{font-size:.84rem;padding:6px var(--gut)}
+ #metrics{order:2}
+ :root:has(#workspace[data-play]){scroll-padding-top:calc(36vh + 120px)}
+}
+@media (max-width:980px){
+ /* In partita il racconto dell'episodio è già passato: titolo e anno più compatti, si arriva prima alla mossa. */
+ #workspace[data-play] #panel{padding-top:18px}
+ #workspace[data-play] #panel>.episode-context{display:none}
+ #workspace[data-play] #panel>h1{margin:8px 0 12px;font-size:1.5rem}
+ #workspace[data-play] .turn-year{font-size:40px}
+ #workspace[data-play] .turn-label{margin-bottom:10px}
+}
+@media (min-width:981px){
+ /* Sul computer, durante la partita, mappa a sinistra (ferma) e mosse a destra: si vedono insieme. */
+ #workspace[data-play]{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(380px,1fr);align-items:start}
+ #workspace[data-play] .visual-column{position:sticky;top:0;grid-template-columns:minmax(0,1fr);max-height:100vh;overflow:auto}
+ #workspace[data-play] #stage{height:auto;aspect-ratio:16/9}
+ #workspace[data-play] .goal,#workspace[data-play] #caption,#workspace[data-play] .motion-controls,#workspace[data-play] #metrics{grid-column:1/-1;grid-row:auto}
+ #workspace[data-play] #metrics{margin:0 calc(var(--gut) * -1)}
+ #workspace[data-play] #metrics .eyebrow,#workspace[data-play] .metric:first-of-type{border-left:0}
+ #workspace[data-play] #caption{display:none}
+ #workspace[data-play] #panel{padding:28px var(--gut) 40px}
+ #workspace[data-play] #panel>.eyebrow,#workspace[data-play] #panel>.episode-context,#workspace[data-play] #panel>h1{float:none;max-width:100%}
+ #workspace[data-play] #panel>:not(.eyebrow):not(.episode-context):not(h1){margin-left:0}
+ #workspace[data-play] #panel>h1{font-size:2rem;margin:12px 0 16px;width:fit-content}
+}

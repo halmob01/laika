@@ -8,7 +8,7 @@ import {componiScene} from '../bottega/strumenti/libreria.js';
 const pick=(object,keys)=>Object.fromEntries(keys.filter(k=>object[k]!==undefined).map(k=>[k,object[k]]));
 // `editorial` is reserved for authoring notes at every depth. Runtime `source`/`sources` stay intact.
 const runtimeData=value=>Array.isArray(value)?value.map(runtimeData):value&&typeof value==='object'?Object.fromEntries(Object.entries(value).filter(([key])=>key!=='editorial').map(([key,child])=>[key,runtimeData(child)])):value;
-const episodeFields=['id','type','title','text','roleId','stageId','motionId','resultMotionId','visualExplanation','context','exposes','choices','roles','budget','buckets','feedback','effects','delayed','sources','branches','next','display','places','tokens','tokenLabel','strengthLabel','upkeepLabel','yearlyLabel','crisisLabel','workers','projects','reserve','rules','upkeep','luck','control','crises','turns'];
+const episodeFields=['id','type','title','text','roleId','stageId','motionId','resultMotionId','visualExplanation','context','exposes','choices','roles','budget','buckets','feedback','effects','delayed','sources','branches','next','display','places','tokens','tokenLabel','strengthLabel','upkeepLabel','yearlyLabel','crisisLabel','workers','projects','reserve','rules','upkeep','luck','control','crises','turns','goal','shows','phaseLabels','verdicts','strengthOne'];
 export function buildLaika(root=fileURLToPath(new URL('../games/laika/',import.meta.url)),{write=true}={}){
  const read=ref=>{
   assert(typeof ref==='string'&&/^[a-zA-Z0-9_-]+(?:\/[a-zA-Z0-9_-]+)*\.json$/.test(ref),'Riferimento authoring non valido');
