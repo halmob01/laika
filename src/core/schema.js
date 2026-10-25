@@ -73,6 +73,8 @@ export function validateGame(game) {
       unique(defs(act,kind),kind);
       for (const d of defs(act,kind)) {
         assert(text(d.label)&&[d.min,d.max,d.start].every(Number.isFinite)&&d.min<d.max&&d.start>=d.min&&d.start<=d.max,'Range non valido');
+        // Verso dell'indicatore: se è meglio alto o basso (il player lo dice a parole, non solo con il colore).
+        if(d.good!==undefined)assert(['high','low'].includes(d.good),'Verso dell\'indicatore non valido: '+d.id);
         if(kind==='relation') assert(act.actors.some(a=>a.id===d.from)&&act.actors.some(a=>a.id===d.to),'Attori della relazione non validi');
       }
     }
@@ -84,6 +86,9 @@ export function validateGame(game) {
       try {
       assert(TYPES.includes(e.type)&&text(e.title)&&text(e.text)&&roles.has(e.roleId),'Episodio non valido');
       if(e.context!==undefined)validateContext(e.context);
+      // Obiettivo dell'episodio (una riga sempre visibile) e indicatori da mostrare: solo quelli dell'unità.
+      if(e.goal!==undefined)assert(text(e.goal)&&e.goal.length<=140,'Obiettivo non valido');
+      if(e.shows!==undefined){assert(Array.isArray(e.shows)&&e.shows.length<=5,'Indicatori da mostrare non validi');for(const m of e.shows)assert([...(act.metrics||[]),...(act.resources||[])].some(d=>d.id===m),'Indicatore sconosciuto: '+m);}
       // Racconto a card: un paragrafo per card, solo per episodi narrativi con almeno due paragrafi.
       if(e.display!==undefined)assert(e.display==='cards'&&e.type==='narrative'&&e.text.split(/\n\s*\n/).filter(x=>x.trim()).length>=2,'Presentazione a card non valida: '+e.id);
       if(e.stageId) assert(stages.has(e.stageId),'Scenografia sconosciuta');

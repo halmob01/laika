@@ -17,3 +17,9 @@
 .turn-reserve{margin:14px 0 0;padding:12px 14px;border:2px solid var(--ink)}.turn-reserve-ctl{display:flex;align-items:center;gap:12px;margin:8px 0}.turn-reserve-ctl b{min-width:3ch;text-align:center;font-size:1.4rem}
 .turn-market{display:grid;gap:8px;margin:12px 0}.turn-market button{display:grid;gap:2px;text-align:left;padding:10px 12px}
 .turn-steps{list-style:none;padding:0}.turn-steps li{display:flex;justify-content:space-between;gap:12px}
+/* Partita a turni: obiettivo, barra dei passi, verso degli indicatori (stile neutro; i temi lo ridisegnano). */
+.goal{margin:.5rem 0;font-weight:700}
+.turn-steps-bar{display:flex;gap:4px;margin:0 0 1rem;padding:0;list-style:none;font-size:.8rem}
+.turn-steps-bar li{flex:1 1 0;padding-top:6px;border-top:4px solid #ccc}
+.turn-steps-bar li.done{border-color:var(--ink)}.turn-steps-bar li.now{border-color:var(--accent);font-weight:700}
+.metric-dir{display:block;font-size:.75rem}

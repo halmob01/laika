@@ -56,18 +56,21 @@ function rulesSpec(r, act, places, where, workers = new Set()) {
   }
   if (r.upkeep !== undefined) mutations(r.upkeep, act);
 }
-function cardsSpec(cards, stages, where) {
+function cardsSpec(cards, stages, where, act) {
   if (cards === undefined) return;
   assert(Array.isArray(cards) && cards.length <= 12, where + ': card non valide');
   for (const c of cards) {
     assert(c && text(c.text), where + ': card senza testo');
     if (c.title !== undefined) assert(text(c.title), where + ': titolo della card vuoto');
+    // Card condizionata: si legge solo se, all'inizio del turno, la condizione è vera (varianti del racconto).
+    if (c.when !== undefined) condition(c.when, act);
     // Etichetta facoltativa: distingue nella stessa sequenza fatto documentato, simulazione e fonte.
     if (c.kind !== undefined) assert(Object.prototype.hasOwnProperty.call(CONTEXT_LABELS, c.kind), where + ': tipo della card non valido');
     if (c.stageId !== undefined) assert(stages.has(c.stageId), where + ': scenografia della card sconosciuta');
     if (c.motionId !== undefined) assert(typeof c.motionId === 'string' && c.stageId, where + ': movimento della card senza scenografia');
   }
 }
+export const STEP_PHASES = ['cards', 'place', 'result', 'event', 'market'];
 const point = (x, y) => Number.isFinite(x) && Number.isFinite(y) && x >= 0 && x <= 1 && y >= 0 && y <= 1;
 export function validateTurnGame(e, act, stages) {
   const places = unique(e.places, 'Posti', 2);
@@ -91,8 +94,12 @@ export function validateTurnGame(e, act, stages) {
     }
     assert(e.tokens === undefined, 'Con le persone il numero di pedine non si dichiara');
     assert(text(e.strengthLabel), 'Nome della forza mancante');
+    if (e.strengthOne !== undefined) assert(text(e.strengthOne), 'Nome della forza al singolare vuoto');
   } else assert(Number.isInteger(e.tokens) && e.tokens >= 1 && e.tokens <= 12, 'Pedine non valide');
   assert(text(e.tokenLabel), 'Nome delle pedine mancante');
+  // Nomi delle fasi per la barra dei passi e giudizi dell'anno (il primo che vale).
+  if (e.phaseLabels !== undefined) { assert(e.phaseLabels && typeof e.phaseLabels === 'object' && Object.entries(e.phaseLabels).every(([k, v]) => STEP_PHASES.includes(k) && text(v)), 'Nomi delle fasi non validi'); }
+  if (e.verdicts !== undefined) { assert(Array.isArray(e.verdicts) && e.verdicts.length <= 8, 'Giudizi non validi'); for (const v of e.verdicts) { assert(v && text(v.text) && ['good', 'bad', 'neutral'].includes(v.tone ?? 'neutral'), 'Giudizio non valido'); if (v.when !== undefined) condition(v.when, act); } }
   for (const k of ['upkeepLabel', 'yearlyLabel', 'crisisLabel']) if (e[k] !== undefined) assert(text(e[k]), 'Etichetta vuota: ' + k);
   // Lavori lunghi: si scelgono come un posto, avanzano con la forza messa e alla fine cambiano le regole.
   const targets = new Set(places);
@@ -136,7 +143,9 @@ export function validateTurnGame(e, act, stages) {
   e.turns.forEach((t, i) => {
     const where = 'Turno ' + (i + 1);
     assert(t && text(t.label), where + ': etichetta mancante');
-    cardsSpec(t.cards, stages, where); rulesSpec(t.rules, act, places, where, workers);
+    cardsSpec(t.cards, stages, where, act); rulesSpec(t.rules, act, places, where, workers);
+    // Effetti d'inizio turno (per esempio un passaggio di generazione che azzera un flag): si applicano dopo aver scelto le card.
+    if (t.effects !== undefined) mutations(t.effects, act);
     if (t.preview !== undefined) assert(text(t.preview), where + ': avviso vuoto');
     if (t.event !== undefined) {
       const ev = t.event; assert(text(ev.who) && text(ev.text), where + ': chi bussa senza testo');
@@ -196,8 +205,11 @@ function recount(e, g) {
   for (const [w, p] of Object.entries(g.assign)) out[p] += strengthOf(e, g, w);
   g.placement = out;
 }
-function enterTurn(e, g, state) {
+function enterTurn(e, g, state, act) {
   const t = e.turns[g.turn];
+  // Card da leggere quest'anno: quelle senza condizione e quelle la cui condizione vale adesso.
+  g.cardList = (t.cards || []).map((c, i) => (!c.when || (state && matches(c.when, state)) ? i : -1)).filter(i => i >= 0);
+  if (t.effects && act && state) applyEffects(act, state, t.effects, e.id + ':' + g.turn + ':inizio');
   g.rules = mergeRules(g.rules, t.rules);
   if (e.workers) {
     // Chi lavorava in un posto l'anno scorso ci resta, se il posto c'è ancora e la persona pure.
@@ -207,12 +219,12 @@ function enterTurn(e, g, state) {
   } else g.placement = Object.fromEntries(e.places.map(p => [p.id, 0]));
   if (e.reserve && state) g.reserve = Math.min(g.reserve, state.resources[e.reserve.from]);
   g.card = 0; g.result = null; g.eventResult = null; g.market = null;
-  g.phase = t.cards?.length ? 'cards' : 'place';
+  g.phase = g.cardList.length ? 'cards' : 'place';
 }
-export function initGame(e, state) {
+export function initGame(e, state, act) {
   const g = { episodeId: e.id, turn: 0, phase: 'place', card: 0, placement: {}, assign: {}, progress: {}, started: [], built: [], reserve: e.reserve?.start ?? 0, bought: [], market: null,
     rules: mergeRules({ tokens: e.tokens ?? 0, min: {}, places: {}, upkeep: [] }, e.rules), fired: [], result: null, eventResult: null };
-  enterTurn(e, g, state);
+  enterTurn(e, g, state, act);
   return g;
 }
 
@@ -252,9 +264,13 @@ export function shortfalls(e, g) {
   return Object.entries(g.rules.min).filter(([p, n]) => (g.placement[p] || 0) < n).map(([p, n]) => ({ placeId: p, required: n, given: g.placement[p] || 0 }));
 }
 export function offerOpen(e, g, o, state) { return !g.market?.bought.includes(o.id) && !(o.once && g.bought.includes(o.id)) && (!o.when || matches(o.when, state)); }
+// Card del turno in lettura. I salvataggi precedenti alle card condizionate non hanno cardList: valgono tutte.
+const cardIndexes = (e, g) => g.cardList || (e.turns[g.turn].cards || []).map((_, i) => i);
+export const cardCount = (e, g) => cardIndexes(e, g).length;
+export const cardAt = (e, g) => e.turns[g.turn].cards?.[cardIndexes(e, g)[g.card]];
 // Quale scena mostrare: durante le card quella della card, altrimenti quella del tabellone.
 export function activeStage(e, g) {
-  if (g?.phase === 'cards') { const c = e.turns[g.turn].cards[g.card]; if (c?.stageId) return { stageId: c.stageId, motionId: c.motionId }; }
+  if (g?.phase === 'cards') { const c = cardAt(e, g); if (c?.stageId) return { stageId: c.stageId, motionId: c.motionId }; }
   return { stageId: e.stageId, motionId: e.motionId };
 }
 // Variazione netta per metrica, nell'ordine in cui compare: niente elenchi ripetuti. I flag sono stato interno: non si mostrano.
@@ -279,12 +295,12 @@ function fireCrises(act, e, state, g, cause) {
   }
   return { crises: out, changes };
 }
-function nextTurn(e, state, g) {
+function nextTurn(e, state, g, act) {
   g.turn++;
   if (g.turn >= e.turns.length) { g.phase = 'done'; return true; }
-  enterTurn(e, g, state); return false;
+  enterTurn(e, g, state, act); return false;
 }
-function afterEvent(e, state, g, t) { if (t.market) { g.phase = 'market'; g.market = { bought: [], log: [], changes: [] }; } else nextTurn(e, state, g); }
+function afterEvent(e, state, g, t, act) { if (t.market) { g.phase = 'market'; g.market = { bought: [], log: [], changes: [] }; } else nextTurn(e, state, g, act); }
 
 export function turnAction(act, e, previous, action, seed) {
   assert(previous.phase === 'scene' && previous.game && previous.game.episodeId === e.id, 'Partita non attiva');
@@ -294,7 +310,7 @@ export function turnAction(act, e, previous, action, seed) {
   switch (action.step) {
     case 'card':
       assert(g.phase === 'cards', 'Non ci sono card da leggere');
-      g.card++; if (g.card >= t.cards.length) { g.phase = 'place'; g.card = t.cards.length - 1; }
+      g.card++; if (g.card >= cardCount(e, g)) { g.phase = 'place'; g.card = cardCount(e, g) - 1; }
       break;
     case 'back':
       assert(g.phase === 'cards' && g.card > 0, 'Nessuna card precedente');
@@ -368,13 +384,14 @@ export function turnAction(act, e, previous, action, seed) {
       }
       const c = fireCrises(act, e, state, g, cause); changes.push(...c.changes); crisisStep(c.changes);
       const crises = [...early.crises, ...c.crises];
-      g.result = { luck: { id: luck.id, label: luck.label }, control, crises, built, steps, changes: netChanges(changes), preview: t.preview || null };
+      const verdict = (e.verdicts || []).find(v => !v.when || matches(v.when, state));
+      g.result = { luck: { id: luck.id, label: luck.label }, control, crises, built, steps, changes: netChanges(changes), preview: t.preview || null, ...(verdict ? { verdict: { text: verdict.text, tone: verdict.tone || 'neutral' } } : {}) };
       feedback = [t.label + ': ' + luck.label + '.', ...built.map(x => x.text), control?.caught ? e.control.text : null, ...crises.map(x => x.text)].filter(Boolean).join(' ');
       g.phase = 'result'; break;
     }
     case 'continue':
-      if (g.phase === 'result') { if (t.event) g.phase = 'event'; else afterEvent(e, state, g, t); }
-      else if (g.phase === 'eventResult') afterEvent(e, state, g, t);
+      if (g.phase === 'result') { if (t.event) g.phase = 'event'; else afterEvent(e, state, g, t, act); }
+      else if (g.phase === 'eventResult') afterEvent(e, state, g, t, act);
       else throw new Error('Niente da far proseguire');
       break;
     case 'choose': {
@@ -403,7 +420,7 @@ export function turnAction(act, e, previous, action, seed) {
     }
     case 'leave':
       assert(g.phase === 'market', 'Nessun mercato');
-      nextTurn(e, state, g); break;
+      nextTurn(e, state, g, act); break;
   }
   if (g.phase === 'done') {
     state.turn++; state.events.push(e.id); state.phase = 'outcome';
