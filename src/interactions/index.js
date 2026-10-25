@@ -98,7 +98,7 @@ function managePlace(host,episode,act,state,go){
   // 1. Le persone
   const crew=el('div',undefined,{class:'turn-workers',role:'group','aria-label':'Le persone della casa'});
   for(const w of people){const b=button('',()=>{pick.worker=w.id;go(null);},{'data-worker':w.id,'data-at':g.assign[w.id]||'','aria-pressed':String(w.id===chosen)});
-    const force=el('span',undefined,{class:'turn-force'});force.append(el('i',dots(w.strength),{class:'turn-dots','aria-hidden':'true'}),document.createTextNode(' '+amount(episode,w.strength)));
+    const force=el('span',undefined,{class:'turn-force'});force.append(el('i',dots(w.strength),{class:'turn-dots','aria-hidden':'true',style:'--n:'+w.strength}),document.createTextNode(' '+amount(episode,w.strength)));
     b.append(el('strong',w.label),force,el('small',g.assign[w.id]?'→ '+nameOf(g.assign[w.id]):'senza posto'));crew.append(b);}
   host.append(crew);
   // 2. I posti: una riga ciascuno, l'effetto in parole.
@@ -187,7 +187,7 @@ function turnGame(ctx){
   if(g.phase==='result'){
     const r=g.result,box=el('div',undefined,{class:'outcome turn-result',role:'status'});
     // Prima il giudizio in una frase, poi il perché; i numeri si aprono a parte.
-    if(r.verdict)box.append(el('p',r.verdict.text,{class:'turn-verdict','data-tone':r.verdict.tone}));
+    if(r.verdict){if(r.verdict.stamp)box.append(el('p',r.verdict.stamp,{class:'turn-stamp-verdict','data-tone':r.verdict.tone,'aria-hidden':'true'}));box.append(el('p',r.verdict.text,{class:'turn-verdict','data-tone':r.verdict.tone}));}
     const why=el('ul',undefined,{class:'turn-why'});
     why.append(el('li','Il tempo: '+r.luck.label+'.'));
     if(r.control)why.append(el('li',r.control.caught?r.control.text:'Al signore mancava qualcosa, ma questa volta nessuno se ne accorge.'));
@@ -199,7 +199,7 @@ function turnGame(ctx){
       for(const st of r.steps){const vis=st.changes.filter(c=>!hidden.has(c.id));if(!vis.length)continue;const li=el('li');li.append(el('span',st.label),el('b',vis.map(c=>sign(c.delta)+' '+c.label).join(' · ')));tbl.append(li);}
       det.append(tbl);}
     det.append(changeList(act,r.changes));box.append(det);host.append(box);
-    if(r.preview)host.append(el('p','Si dice in giro: '+r.preview,{class:'turn-preview'}));
+    if(r.preview){const note=el('aside',undefined,{class:'turn-preview','aria-label':episode.previewLabel||'Si dice in giro'});note.append(el('p',episode.previewLabel||'Si dice in giro',{class:'turn-preview-k'}),el('p',r.preview,{class:'turn-preview-t'}));host.append(note);}
     host.append(button(t.event?((episode.phaseLabels||{}).event||'Qualcuno bussa'):t.market?((episode.phaseLabels||{}).market||'Al mercato'):'Avanti',()=>go('continue'),{'data-turn':'continue',class:'primary'}));return;
   }
   if(g.phase==='event'){

@@ -17,17 +17,17 @@
     "a1-volantini"
   ],
   "palette": {
-    "paper": "#e9e8e4",
-    "paper2": "#dcdbd6",
-    "ink": "#1b1c1c",
-    "red": "#c22a22",
-    "blue": "#7f8a8d",
-    "sand": "#d3c39d",
-    "concrete-light": "#c5c8c7",
-    "concrete-mid": "#8f9594",
-    "concrete-dark": "#555c5d",
-    "sky": "#cbcecd",
-    "tree": "#9ba19f"
+    "paper": "#ece3cf",
+    "paper2": "#e0d5bd",
+    "ink": "#1d1b17",
+    "red": "#cf2a1f",
+    "blue": "#6f7774",
+    "sand": "#d9c18f",
+    "concrete-light": "#cdc4b0",
+    "concrete-mid": "#958b78",
+    "concrete-dark": "#57503f",
+    "sky": "#e4dac4",
+    "tree": "#a39a86"
   },
   "patterns": [
     {
@@ -43383,7 +43383,8 @@
                 "value": 40
               },
               "tone": "good",
-              "text": "Si mangia fino al raccolto e avanza qualcosa."
+              "text": "Si mangia fino al raccolto e avanza qualcosa.",
+              "stamp": "Si mangia"
             },
             {
               "when": {
@@ -43393,14 +43394,17 @@
                 "value": 20
               },
               "tone": "neutral",
-              "text": "Si mangia fino al raccolto, ma non avanza niente."
+              "text": "Si mangia fino al raccolto, ma non avanza niente.",
+              "stamp": "Si tira avanti"
             },
             {
               "tone": "bad",
-              "text": "Il grano non basta: quest'inverno si fa la fame."
+              "text": "Il grano non basta: quest'inverno si fa la fame.",
+              "stamp": "Fame"
             }
           ],
-          "strengthOne": "braccio"
+          "strengthOne": "braccio",
+          "previewLabel": "Si dice in giro"
         },
         {
           "id": "a1-u1-ricorda",

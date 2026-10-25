@@ -3,18 +3,29 @@
    testo su una colonna di lettura. Il rosso è un piano e un segnale, mai una sfumatura.
    Questo file lavora solo sul DOM generico del player: nessuna regola del gioco sta qui. */
 @font-face{font-family:"Propaganda";src:url("./fonts/propaganda.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:"Roboto Condensed";src:url("./fonts/roboto-condensed-400.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:"Roboto Condensed";src:url("./fonts/roboto-condensed-700.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Oswald";src:url("./fonts/oswald-latin-400-normal.woff2") format("woff2");font-weight:400;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Oswald";src:url("./fonts/oswald-latin-ext-400-normal.woff2") format("woff2");font-weight:400;font-display:swap;unicode-range:U+0100-02AF,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Oswald";src:url("./fonts/oswald-latin-600-normal.woff2") format("woff2");font-weight:600 700;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Oswald";src:url("./fonts/oswald-latin-ext-600-normal.woff2") format("woff2");font-weight:600 700;font-display:swap;unicode-range:U+0100-02AF,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"PT Serif";src:url("./fonts/pt-serif-latin-400-normal.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"PT Serif";src:url("./fonts/pt-serif-latin-ext-400-normal.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0100-02AF,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"PT Serif";src:url("./fonts/pt-serif-latin-400-italic.woff2") format("woff2");font-weight:400;font-style:italic;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"PT Serif";src:url("./fonts/pt-serif-latin-ext-400-italic.woff2") format("woff2");font-weight:400;font-style:italic;font-display:swap;unicode-range:U+0100-02AF,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"PT Serif";src:url("./fonts/pt-serif-latin-700-normal.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"PT Serif";src:url("./fonts/pt-serif-latin-ext-700-normal.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap;unicode-range:U+0100-02AF,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"PT Mono";src:url("./fonts/pt-mono-latin-400-normal.woff2") format("woff2");font-weight:400;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"PT Mono";src:url("./fonts/pt-mono-latin-ext-400-normal.woff2") format("woff2");font-weight:400;font-display:swap;unicode-range:U+0100-02AF,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 
 :root{
- --paper:#e6e5e1;--paper2:#dcdbd6;--foglio:#f1f0ec;--ink:#1b1c1c;--slab:#26292a;--slab2:#3b3f40;
- --concrete:#8f9594;--mute:#5a5f60;--line:#b6b9b7;--red:#c22a22;--on-slab:#dcddda;
- --accent:var(--red);--highlight:#dcddda;
- --display:"Propaganda","Roboto Condensed","Arial Narrow",sans-serif;
- --sans:"Roboto Condensed","Arial Narrow",Arial,sans-serif;
- --mono:"Courier New",Courier,ui-monospace,monospace;
+ --paper:#ece3cf;--paper2:#e0d5bd;--foglio:#f5efe1;--ink:#1d1b17;--slab:#201e1b;--slab2:#3a3630;
+ --concrete:#a09684;--mute:#5d5649;--line:#c4b9a3;--red:#cf2a1f;--on-slab:#ece3cf;
+ --accent:var(--red);--highlight:#ece3cf;
+ --display:"Propaganda","Oswald","Arial Narrow",sans-serif;
+ --sans:"Oswald","Arial Narrow",Arial,sans-serif;
+ --serif:"PT Serif",Georgia,"Times New Roman",serif;
+ --mono:"PT Mono",ui-monospace,Menlo,monospace;
  --gut:clamp(16px,4vw,64px);
- font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.55
+ font-family:var(--serif);color:var(--ink);background:var(--paper);line-height:1.55
 }
 body{background:var(--paper);font-size:1.0625rem;overflow-x:hidden}
 a{color:inherit}
@@ -271,8 +282,8 @@ main{max-width:none;margin:0;padding:0}
 .turn-numbers summary{font-family:var(--mono);font-size:.8rem;cursor:pointer;min-height:44px;display:flex;align-items:center}
 @media (max-width:980px){
  /* Durante la partita la scena resta in vista mentre si sceglie: scena, obiettivo e indicatori compatti in alto. */
- #workspace[data-play] .visual-column{position:sticky;top:0;z-index:30}
- #workspace[data-play] #stage{height:min(calc(100vw * var(--stage-zoom,1.4) * 9 / 16),36vh)}
+ #workspace[data-play]:not([data-play=cards]) .visual-column{position:sticky;top:0;z-index:30}
+ #workspace[data-play]:not([data-play=cards]) #stage{height:min(calc(100vw * var(--stage-zoom,1.4) * 9 / 16),36vh)}
  #workspace[data-play]:not([data-play=cards]) #caption,#workspace[data-play]:not([data-play=cards]) .motion-controls,#workspace[data-play] #metrics .eyebrow{display:none}
  #workspace[data-play] .metric{padding:6px 8px 8px var(--gut);gap:4px}
  #workspace[data-play] .metric+.metric{padding-left:8px}
@@ -282,7 +293,7 @@ main{max-width:none;margin:0;padding:0}
  .visual-column .goal{order:1;grid-column:1/-1;grid-row:auto;margin:0 calc(var(--gut) * -1);padding:8px var(--gut);border-top:1px solid var(--slab2);font-size:.92rem}
  #workspace[data-play] .goal{font-size:.84rem;padding:6px var(--gut)}
  #metrics{order:2}
- :root:has(#workspace[data-play]){scroll-padding-top:calc(36vh + 120px)}
+ :root:has(#workspace[data-play]:not([data-play=cards])){scroll-padding-top:calc(36vh + 120px)}
 }
 @media (max-width:980px){
  /* In partita il racconto dell'episodio è già passato: titolo e anno più compatti, si arriva prima alla mossa. */
@@ -305,4 +316,128 @@ main{max-width:none;margin:0;padding:0}
  #workspace[data-play] #panel>.eyebrow,#workspace[data-play] #panel>.episode-context,#workspace[data-play] #panel>h1{float:none;max-width:100%}
  #workspace[data-play] #panel>:not(.eyebrow):not(.episode-context):not(h1){margin-left:0}
  #workspace[data-play] #panel>h1{font-size:2rem;margin:12px 0 16px;width:fit-content}
+}
+
+/* ======================================================================
+   Carta stampata (25 ottobre 2026). Riferimenti del docente: la prima pagina
+   delle «Izvestija» del 27 ottobre 1917 e le etichette di fiammiferi degli anni
+   Sessanta. Crema, nero, un solo rosso; titoli condensati, testo da giornale,
+   numeri come timbri; dettagli di stampa: doppio filetto, registro sfasato,
+   timbri, ritagli, piccolo testo di servizio sui bordi.
+   ====================================================================== */
+:root{
+ --ease:cubic-bezier(.16,1,.3,1);
+ --grana:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .28 0 0 0 0 .18 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+ --retino:radial-gradient(circle at 1px 1px,#ffffff14 1px,transparent 1.4px) 0 0/6px 6px;
+}
+body{background:var(--paper) var(--grana);text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+::selection{background:var(--red);color:var(--foglio)}
+
+/* Testata da giornale: marchio, doppio filetto (spesso + sottile), riga di servizio. */
+header{border-bottom:0;box-shadow:inset 0 -1px 0 var(--ink),inset 0 -5px 0 var(--paper),inset 0 -8px 0 var(--ink)}
+header::after{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);border-left:1px solid var(--ink)}
+#home-link{letter-spacing:.04em}
+
+/* Lastre scure: retino tipografico appena visibile, come la stampa a mezzatinta. */
+.visual-column,.outcome,.turn-reserve{background:var(--slab) var(--retino)}
+
+/* Titolo dell'episodio: fascia nera con il rosso fuori registro dietro, come una stampa a due colori. */
+#panel>h1{font-family:var(--sans);font-weight:600;letter-spacing:.005em;box-shadow:6px 6px 0 var(--red)}
+#panel>.eyebrow{font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase;font-size:.72rem;color:var(--ink)}
+#panel>.eyebrow::before{content:"№ ";color:var(--red)}
+#panel>.episode-context{font-family:var(--mono);font-size:.78rem}
+#panel .lead,#panel .card-text{font-family:var(--serif)}
+/* Piccolo testo di servizio sul bordo, come sulle etichette dei fiammiferi. */
+#panel{position:relative}
+#panel::after{content:"MOD. 1917-S · FOGLIO DI SIMULAZIONE · NON È UN DOCUMENTO D'EPOCA";position:absolute;top:clamp(40px,5vw,80px);right:10px;writing-mode:vertical-rl;font-family:var(--mono);font-size:.58rem;letter-spacing:.16em;color:var(--mute);opacity:.75;pointer-events:none}
+
+/* Racconto a card: capolettera rosso in Propaganda, colonna di giornale. */
+#panel .card-text::first-letter{float:left;margin:.06em .12em 0 0;font-family:var(--display);font-size:3.3em;line-height:.8;color:var(--red)}
+.card-kind{font-family:var(--mono);text-transform:uppercase;letter-spacing:.1em;border-left:0;padding:2px 6px;border:1px solid currentColor;width:fit-content}
+.card-kind[data-kind=documented]{color:var(--ink)}
+.card-kind[data-kind=simulation]{color:var(--red)}
+.card-title{font-family:var(--sans);font-weight:600;font-size:1.25rem;letter-spacing:.01em}
+
+/* Pulsanti: blocco nero, maiuscolo condensato, freccia; il rosso entra da sinistra. */
+#panel button.primary,#panel button[data-action=advance],#interaction form button{position:relative;overflow:hidden;font-family:var(--sans);font-weight:600;text-transform:uppercase;letter-spacing:.06em;background:linear-gradient(var(--red),var(--red)) 0 0/0% 100% no-repeat var(--ink);transition:background-size .4s var(--ease),transform .15s var(--ease)}
+#panel button.primary:not(:disabled)::after,#panel button[data-action=advance]::after{content:"→";margin-left:.7em;display:inline-block;transition:transform .4s var(--ease)}
+#panel button.primary:hover:not(:disabled),#panel button[data-action=advance]:hover,#interaction form button:hover{background-size:100% 100%}
+#panel button.primary:hover:not(:disabled)::after,#panel button[data-action=advance]:hover::after{transform:translateX(5px)}
+#panel button.primary:active:not(:disabled),#panel button[data-action=advance]:active{transform:scale(.98)}
+#panel button.primary:disabled{font-family:var(--mono);text-transform:none;letter-spacing:0;font-size:.85rem;border:1px dashed var(--mute);background:transparent}
+
+/* Barra dei passi: numerati come le serie di etichette. */
+.turn-steps-bar{counter-reset:passo}
+.turn-steps-bar li{counter-increment:passo;font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-size:.66rem}
+.turn-steps-bar li::before{content:counter(passo,decimal-leading-zero)" ";color:var(--mute)}
+.turn-steps-bar li.now::before{color:var(--red)}
+.turn-year{letter-spacing:.02em}
+.turn-count{font-family:var(--mono);text-transform:uppercase;letter-spacing:.1em;font-size:.7rem}
+
+/* Persone come etichette: doppio bordo, nome condensato, forza in quadrati rossi. */
+#panel .turn-workers button{background:var(--foglio);box-shadow:inset 0 0 0 3px var(--foglio),inset 0 0 0 4px var(--ink);text-align:left;transition:transform .15s var(--ease),background-color .2s}
+#panel .turn-workers button strong{font-family:var(--sans);font-weight:600;text-transform:uppercase;letter-spacing:.03em}
+#panel .turn-workers button:active{transform:scale(.97)}
+#panel .turn-workers button[aria-pressed=true]{box-shadow:inset 0 0 0 3px var(--ink),inset 0 0 0 4px var(--foglio),5px 5px 0 var(--red)}
+.turn-dots{font-size:0;letter-spacing:0}
+.turn-dots::before{content:"";display:inline-block;vertical-align:-1px;width:calc(var(--n,1) * 12px);height:9px;background:repeating-linear-gradient(90deg,var(--red) 0 9px,transparent 9px 12px)}
+#panel .turn-workers button[aria-pressed=true] .turn-dots::before{background:repeating-linear-gradient(90deg,var(--foglio) 0 9px,transparent 9px 12px)}
+.turn-force{font-family:var(--mono);font-size:.74rem}
+#panel .turn-target strong,#panel .turn-market button strong{font-family:var(--sans);font-weight:600;letter-spacing:.01em}
+#panel .turn-target span{font-family:var(--mono)}
+
+/* Indicatori come le tabelline delle etichette: numeri tondi, barra a dieci tacche. */
+.meter{position:relative;height:7px;background:var(--slab2)}
+.meter i{display:block;height:100%}
+.meter::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 calc(10% - 3px),var(--slab) calc(10% - 3px) 10%)}
+.metric>span>span{font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-size:.64rem}
+.metric-dir{font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-size:.6rem}
+.visual-column .goal{font-family:var(--sans);font-weight:600;letter-spacing:.01em}
+
+/* Esito: il timbro dell'anno, inchiostrato e storto; poi la frase e il perché. */
+.outcome::before{font-family:var(--mono);text-transform:uppercase;letter-spacing:.12em}
+.turn-stamp-verdict{display:inline-block;margin:2px 0 16px;padding:.16em .5em .1em;border:3px solid currentColor;outline:1px solid currentColor;outline-offset:3px;font-family:var(--sans);font-weight:600;font-size:clamp(1.6rem,4vw,2.2rem);line-height:1;text-transform:uppercase;letter-spacing:.06em;transform:rotate(-3deg);transform-origin:left center;animation:timbro .45s var(--ease) both}
+.turn-stamp-verdict[data-tone=good]{color:var(--on-slab)}
+.turn-stamp-verdict[data-tone=neutral]{color:var(--concrete)}
+.turn-stamp-verdict[data-tone=bad]{color:#ff5a4c}
+@keyframes timbro{0%{transform:rotate(-3deg) scale(1.6);opacity:0}60%{opacity:1}100%{transform:rotate(-3deg) scale(1)}}
+.outcome p.turn-verdict{margin:0 0 10px;font-family:var(--serif);font-weight:700;font-size:1.25rem;line-height:1.3;color:var(--on-slab)}
+.turn-verdict[data-tone=bad]{padding-left:0}.turn-verdict[data-tone=bad]::before{display:none}
+.turn-why{font-family:var(--serif)}
+.turn-why li::marker{color:var(--red)}
+.turn-numbers summary{font-family:var(--mono);text-transform:uppercase;letter-spacing:.08em;font-size:.72rem}
+.turn-numbers summary::marker{color:var(--red)}
+
+/* «Si dice in giro»: un ritaglio di carta, storto, fermato con un pezzo di nastro rosso; bordo strappato in basso. */
+.turn-preview{position:relative;max-width:30rem;margin:30px 0 8px 6px;padding:22px 22px 30px;border:0;background:var(--foglio) var(--grana);color:var(--ink);transform:rotate(-1.2deg);box-shadow:0 1px 0 #0000000d,0 10px 22px -12px #3b2a1466;
+ -webkit-mask:linear-gradient(#000 0 0) top/100% calc(100% - 9px) no-repeat,conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) bottom/14px 9px repeat-x;
+ mask:linear-gradient(#000 0 0) top/100% calc(100% - 9px) no-repeat,conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) bottom/14px 9px repeat-x;animation:ritaglio .6s var(--ease) .15s both}
+.turn-preview::before{content:"";position:absolute;top:-6px;left:28px;width:78px;height:20px;background:var(--red);opacity:.88;transform:rotate(-6deg)}
+.turn-preview-k{margin:0 0 8px;font-family:var(--sans);font-weight:600;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.turn-preview-k::after{content:"";display:block;height:0;margin-top:6px;border-top:2px solid var(--ink);border-bottom:1px solid var(--ink);padding-top:2px}
+.turn-preview-t{margin:0;font-family:var(--serif);font-style:italic;font-size:1.12rem;line-height:1.45}
+.turn-preview-t::before{content:"— "}
+@keyframes ritaglio{from{opacity:0;transform:rotate(2deg) translateY(10px)}to{opacity:1;transform:rotate(-1.2deg)}}
+
+/* Chi bussa: l'intestazione come una scheda d'archivio. */
+.turn-who{font-family:var(--mono);letter-spacing:.1em;color:var(--red)}
+.turn-who::before{content:"■ "}
+
+/* Fonti: fogli con filetto doppio in alto e provenienza come nota a piè di pagina. */
+.source{border-top:0;box-shadow:inset 0 3px 0 var(--ink),inset 0 6px 0 var(--foglio),inset 0 7px 0 var(--ink)}
+.source p{font-family:var(--serif)}
+#interaction button[data-source],#interaction button[data-choice],#interaction button[data-answer],#interaction button[data-role]{font-family:var(--serif)}
+#interaction button[data-source]{font-family:var(--sans);font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+
+/* Etichette sulla mappa: cartellini di carta con filetto, il rosso solo per i posti dove si può andare. */
+.turn-overlay button{font-family:var(--sans)!important;font-weight:600;text-transform:uppercase;letter-spacing:.04em;border-width:2px}
+.turn-overlay .turn-stamp{font-family:var(--mono)}
+
+@media (prefers-reduced-motion:reduce){
+ .turn-stamp-verdict,.turn-preview{animation:none}
+ #panel button.primary,#panel button[data-action=advance]{transition:none}
+}
+@media (max-width:640px){
+ #panel::after{display:none}
+ .turn-preview{margin-left:2px;margin-right:6px}
 }

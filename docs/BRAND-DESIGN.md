@@ -104,6 +104,15 @@ Richiesta del docente: il player non deve più somigliare al gioco del feudo né
 
 **Dove sta.** `site/laika/theme.css` (identità), `config.json` (`presentation.homeLabel`, `presentation.standalone`); nel motore solo i meccanismi generici (centro e zoom per il telefono, card, etichetta del marchio, menu nascosto), con test.
 
+## 5quater. Carta stampata (25 ottobre 2026)
+
+Decisione del docente: la direzione visiva è quella delle sue due immagini di riferimento, la prima pagina delle *Izvestija* del 27 ottobre 1917 (Decreto sulla pace) e le etichette di fiammiferi sovietiche degli anni Sessanta. Crema, nero caldo, un solo rosso; titoli condensati; testo da giornale; numeri come timbri.
+
+- **Caratteri** (tutti nel tema, self-hosted): Propaganda solo per marchio e numeri grandi (anno, indicatori); **Oswald** 400/600 (OFL) per titoli, etichette e pulsanti; **PT Serif** 400/700/corsivo (OFL, ParaType) per il testo da leggere; **PT Mono** (OFL) per le righe di servizio. Roboto Condensed e Courier New sono stati tolti.
+- **Palette**: carta `#ece3cf`, carta 2 `#e0d5bd`, foglio `#f5efe1`, inchiostro `#1d1b17`, lastra `#201e1b`, rosso `#cf2a1f`. Le scene usano il nuovo tema della bottega `laika-carta` (stessi toni caldi); `laika-grigio` resta disponibile.
+- **Dettagli di stampa**: grana della carta; testata con doppio filetto; titolo su fascia nera con il rosso fuori registro dietro; capolettera rosso nelle card; barra dei passi numerata; persone come etichette con doppio bordo; indicatori con barra a dieci tacche; esito con un timbro inchiostrato e storto; «Si dice in giro» come ritaglio di carta storto, fermato da un nastro rosso, con il bordo strappato; riga di servizio verticale sul bordo del pannello («Mod. 1917-S · Foglio di simulazione · Non è un documento d'epoca»).
+- **Movimento**: solo timbro e ritaglio entrano con un movimento breve; con movimento ridotto non si muove niente.
+
 ## 5bis. Homepage: prototipo iniziale (storico)
 
 1. **Testata** con marchio LAIKA e navigazione.

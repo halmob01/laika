@@ -39,7 +39,7 @@
     "source/scene/a1-u2-corte.json",
     "source/scene/a1-u2-volantini.json"
   ],
-  "tema": "laika-grigio",
+  "tema": "laika-carta",
   "symbols": "assets/symbols.json",
   "questions": [
     "questions/atto-1.json"

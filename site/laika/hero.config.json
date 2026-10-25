@@ -1,6 +1,6 @@
 {
   "nota": "Configurazione del hero della home LAIKA, letta da scripts/build-home.js. Un altro progetto crea site/<progetto>/hero.config.json con le proprie scene e il proprio tema.",
   "scene": ["hero-1861", "hero-1905", "hero-1917"],
-  "tema": "laika-grigio",
+  "tema": "laika-carta",
   "uscita": "hero.json"
 }

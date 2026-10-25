@@ -1,34 +1,83 @@
 {
-  "nota": "Token colore della bottega. Ogni tema assegna un esadecimale a ogni token. 'studi' riproduce esattamente gli studi originali; 'laika' usa i token del brand; 'laika-grigio' è la variante cemento della home. Un nuovo progetto aggiunge qui il proprio tema: i disegni non cambiano.",
-  "token": {
-    "paper": "fondo carta",
-    "paper2": "seconda carta, blocchi chiari",
-    "ink": "inchiostro: figure, contorni, testo",
-    "red": "accento: bandiere, protagonisti",
-    "blue": "azzurro: mezzi, barricate, esercito",
-    "sand": "sabbia: sfondi d'ambiente, legno",
-    "concrete-light": "cemento illuminato",
-    "concrete-mid": "cemento in mezz'ombra",
-    "concrete-dark": "cemento in ombra",
-    "sky": "cielo",
-    "tree": "alberi"
+ "nota": "Token colore della bottega. Ogni tema assegna un esadecimale a ogni token. 'studi' riproduce esattamente gli studi originali; 'laika' usa i token del brand; 'laika-grigio' è la variante cemento della home. Un nuovo progetto aggiunge qui il proprio tema: i disegni non cambiano.",
+ "token": {
+  "paper": "fondo carta",
+  "paper2": "seconda carta, blocchi chiari",
+  "ink": "inchiostro: figure, contorni, testo",
+  "red": "accento: bandiere, protagonisti",
+  "blue": "azzurro: mezzi, barricate, esercito",
+  "sand": "sabbia: sfondi d'ambiente, legno",
+  "concrete-light": "cemento illuminato",
+  "concrete-mid": "cemento in mezz'ombra",
+  "concrete-dark": "cemento in ombra",
+  "sky": "cielo",
+  "tree": "alberi"
+ },
+ "temi": {
+  "studi": {
+   "paper": "#f6f1e3",
+   "paper2": "#ece5d3",
+   "ink": "#161614",
+   "red": "#e02a1b",
+   "blue": "#6b92a4",
+   "sand": "#decba8",
+   "concrete-light": "#c9d6df",
+   "concrete-mid": "#8ea8b8",
+   "concrete-dark": "#4f6b7c",
+   "sky": "#b8cbd8",
+   "tree": "#97b0c0"
   },
-  "temi": {
-    "studi": {
-      "paper": "#f6f1e3", "paper2": "#ece5d3", "ink": "#161614", "red": "#e02a1b", "blue": "#6b92a4", "sand": "#decba8",
-      "concrete-light": "#c9d6df", "concrete-mid": "#8ea8b8", "concrete-dark": "#4f6b7c", "sky": "#b8cbd8", "tree": "#97b0c0"
-    },
-    "laika": {
-      "paper": "#f3ebdb", "paper2": "#e9e0cf", "ink": "#1c1c1b", "red": "#cc2a25", "blue": "#93abb7", "sand": "#decba8",
-      "concrete-light": "#c9d6df", "concrete-mid": "#8ea8b8", "concrete-dark": "#4f6b7c", "sky": "#b8cbd8", "tree": "#97b0c0"
-    },
-    "laika-grigio": {
-      "paper": "#e9e8e4", "paper2": "#dcdbd6", "ink": "#1b1c1c", "red": "#c22a22", "blue": "#7f8a8d", "sand": "#d3c39d",
-      "concrete-light": "#c5c8c7", "concrete-mid": "#8f9594", "concrete-dark": "#555c5d", "sky": "#cbcecd", "tree": "#9ba19f"
-    },
-    "neutro": {
-      "paper": "#ffffff", "paper2": "#f0f0f0", "ink": "#222222", "red": "#2a6fdb", "blue": "#8c8c8c", "sand": "#d9d4c7",
-      "concrete-light": "#d8d8d8", "concrete-mid": "#a8a8a8", "concrete-dark": "#5a5a5a", "sky": "#cfd8dc", "tree": "#9fb39a"
-    }
+  "laika": {
+   "paper": "#f3ebdb",
+   "paper2": "#e9e0cf",
+   "ink": "#1c1c1b",
+   "red": "#cc2a25",
+   "blue": "#93abb7",
+   "sand": "#decba8",
+   "concrete-light": "#c9d6df",
+   "concrete-mid": "#8ea8b8",
+   "concrete-dark": "#4f6b7c",
+   "sky": "#b8cbd8",
+   "tree": "#97b0c0"
+  },
+  "laika-grigio": {
+   "paper": "#e9e8e4",
+   "paper2": "#dcdbd6",
+   "ink": "#1b1c1c",
+   "red": "#c22a22",
+   "blue": "#7f8a8d",
+   "sand": "#d3c39d",
+   "concrete-light": "#c5c8c7",
+   "concrete-mid": "#8f9594",
+   "concrete-dark": "#555c5d",
+   "sky": "#cbcecd",
+   "tree": "#9ba19f"
+  },
+  "neutro": {
+   "paper": "#ffffff",
+   "paper2": "#f0f0f0",
+   "ink": "#222222",
+   "red": "#2a6fdb",
+   "blue": "#8c8c8c",
+   "sand": "#d9d4c7",
+   "concrete-light": "#d8d8d8",
+   "concrete-mid": "#a8a8a8",
+   "concrete-dark": "#5a5a5a",
+   "sky": "#cfd8dc",
+   "tree": "#9fb39a"
+  },
+  "laika-carta": {
+   "paper": "#ece3cf",
+   "paper2": "#e0d5bd",
+   "ink": "#1d1b17",
+   "red": "#cf2a1f",
+   "blue": "#6f7774",
+   "sand": "#d9c18f",
+   "concrete-light": "#cdc4b0",
+   "concrete-mid": "#958b78",
+   "concrete-dark": "#57503f",
+   "sky": "#e4dac4",
+   "tree": "#a39a86"
   }
+ }
 }
