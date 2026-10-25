@@ -53,7 +53,12 @@ export const VARIANTI = {
   borsa:          { label: 'Borsa',          body: 'donna',   hat: 'chignon',  coat: 'gonna',    acc: 'borsa' },
   bastone:        { label: 'Bastone',        body: 'uomo',    hat: 'berretto', coat: 'cappotto', acc: 'bastone' },
   mantello:       { label: 'Mantello',       body: 'uomo',    hat: 'fedora',   coat: 'mantello', acc: null },
-  clero:          { label: 'Clero',          body: 'uomo',    hat: 'saturno',  coat: 'clero',    acc: null }
+  clero:          { label: 'Clero',          body: 'uomo',    hat: 'saturno',  coat: 'clero',    acc: null },
+  // Archetipi aggiuntivi: epoca, fonti e limiti nel registro figure del catalogo.
+  marinaio:       { label: 'Marinaio',       body: 'uomo',    hat: 'marinaio', coat: 'casacca',  acc: null },
+  soldato_guarnigione: { label: 'Soldato di guarnigione', body: 'uomo', hat: 'visiera', coat: 'tunica', acc: null },
+  soldatessa:     { label: 'Soldatessa',     body: 'donna',   hat: 'visiera',  coat: 'tunica',   acc: null },
+  uomo_cappello:  { label: 'Uomo senza barba con cappello', body: 'uomo', hat: 'berretto', coat: null, acc: null }
 };
 
 // Ruoli: colore della figura come scambio di token, più eventuali segni.
