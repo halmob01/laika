@@ -32,8 +32,9 @@ function journal(){
     for(const e of entry.events)p.append(el('p',(e.type==='delayed'?'Conseguenza differita: ':e.type==='discarded'?'Effetto chiuso senza applicazione: ':e.type==='expired'?'Effetto scaduto: ':'Nuovo quadro: ')+e.text));details.append(p);}
   $('journal').append(details);
 }
+function focusPlay(){($(state.complete?'summary-title':'scene-title'))?.focus({preventScroll:true});}
 function hubActions(){return {
-  go(){if(view==='act'){view='unit';}else if(view==='unit'){view='play';render({intro:pendingIntro});pendingIntro=false;return;}else{const nextUnit=!state.complete&&closed&&state.actIndex===closed.act&&closedNext()!==null;view=nextUnit?'unit':state.complete||state.actIndex!==closed?.act?'play':'act';closed=null;}render();},
+  go(){if(view==='act'){view='unit';}else if(view==='unit'){view='play';render({intro:pendingIntro,sceneMotion:true});pendingIntro=false;focusPlay();return;}else{const nextUnit=!state.complete&&closed&&state.actIndex===closed.act&&closedNext()!==null;view=nextUnit?'unit':state.complete||state.actIndex!==closed?.act?'play':'act';closed=null;}render();if(view==='play')focusPlay();},
   back(){view='act';closed=null;render();}
 };}
 function closedNext(){const act=game.acts[state.actIndex],i=act.units.findIndex(u=>u.episodes.includes(state.currentAct.episodeId));return i<0?null:i;}

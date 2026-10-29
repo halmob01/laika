@@ -7,11 +7,15 @@ module.exports=async function(browser,root,artifacts){
  for(const {item,game} of readPacks(root))for(let variant=0;variant<2;variant++){
   const context=await browser.newContext({viewport:{width:variant?1280:390,height:850},reducedMotion:variant?'reduce':'no-preference'});
   const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
-  await page.goto('http://127.0.0.1:4173/?game='+encodeURIComponent(item.id));await page.locator('#scene-title').waitFor();
+  await page.goto('http://127.0.0.1:4173/?game='+encodeURIComponent(item.id));
+  // Corsi a unità: si attraversano le pagine dell'atto, dell'unità e di chiusura.
+  const hub=async()=>{await page.locator('#hub-title:visible,#scene-title:visible,#summary-title:visible').first().waitFor();let n=0;while(await page.locator('[data-hub=go]:visible').count()&&n++<4){await page.locator('[data-hub=go]:visible').click();await page.locator('#hub-title:visible,#scene-title:visible,#summary-title:visible').first().waitFor();}};
+  await hub();await page.locator('#scene-title').waitFor();
   const read=()=>page.evaluate(id=>localStorage.getItem('learning-kit:'+id+':save-v1'),game.id);
   async function activate(locator){await locator.focus();await page.keyboard.press('Enter');}
   let guard=0,previousStage=null;
   while(await page.locator('#summary').isHidden()&&guard++<400){
+    await hub();if(await page.locator('#summary').isVisible())break;
    const restored=restore(game,await read());assert.equal(restored.ok,true,restored.error);
    const state=restored.state,e=game.acts[state.actIndex].episodes.find(e=>e.id===state.currentAct.episodeId);
    const shown=e.type==='turn_game'&&state.currentAct.game?activeStage(e,state.currentAct.game).stageId:e.stageId;
@@ -53,7 +57,7 @@ module.exports=async function(browser,root,artifacts){
     if(e.type==='source_comparison')for(const source of e.sources){await activate(page.locator('[data-source="'+source.id+'"]'));assert.equal(await page.evaluate(()=>document.activeElement.dataset.source),source.id);}
     const choices=e.choices.filter(c=>available(c,state.currentAct));await activate(page.locator('[data-choice="'+choices[variant%choices.length].id+'"]'));
    }
-   assert.equal(await page.evaluate(()=>/^(scene-title|summary-title)$/.test(document.activeElement.id)||['place','turn','worker','reserve','offer'].some(k=>k in document.activeElement.dataset)),true,'focus retained after interaction');
+   assert.equal(await page.evaluate(()=>/^(scene-title|summary-title|hub-title)$/.test(document.activeElement.id)||['place','turn','worker','reserve','offer'].some(k=>k in document.activeElement.dataset)),true,'focus retained after interaction');
   }
   assert.ok(guard<400);assert.equal(await page.evaluate(()=>document.activeElement.id),'summary-title');
   const final=await read();await page.reload();await page.locator('#summary h1').waitFor();assert.equal(await read(),final);
