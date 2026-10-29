@@ -61,7 +61,7 @@ Anche questo è un indicatore.
 
 - **Logica:** il potere dipende da quanto la gente ci crede.
 - **Modello:** Black & White ([openblack](https://github.com/openblack/openblack)).
-- **In LAIKA:** il credito del trono (I.3–I.5), il culto di Lenin e di Stalin, il prestigio del simbolo nell'Atto VI.
+- **In LAIKA:** il credito del trono (I.4–I.6), il culto di Lenin e di Stalin, il prestigio del simbolo nell'Atto VI.
 
 ### 3.5 Le code
 
@@ -69,7 +69,7 @@ Anche questo è un indicatore.
 - **Logica:** ogni gruppo in coda ha una pazienza che scende; prima di andarsene manda segnali visibili a soglie fisse; il gelo e le voci accelerano la discesa; chi lascia la coda porta il malcontento altrove (in fabbrica, nel corteo). Il giocatore vede la crisi arrivare e ha il tempo di intervenire.
 - **Modelli:** Theme Hospital ([CorsixTH](https://github.com/CorsixTH/CorsixTH), file letti con licenza MIT: `CorsixTH/Lua/queue.lua`, `CorsixTH/Lua/entities/humanoids/patient.lua`); SimTower ([tower-together](https://github.com/phulin/tower-together), TypeScript, MIT).
 - **Scheda di lettura (CorsixTH):** conto alla rovescia dell'attesa che scende di uno al giorno; segnali a 30, 20 e 10 giorni dalla fine (guarda l'orologio, sbadiglia, batte il piede); a zero se ne va; in più la contentezza cala ogni giorno per l'ambiente e, quando la salute peggiora, c'è una piccola probabilità di andarsene prima. Contratto dati proposto per il kit: `{ "attesa": 30, "segnali": [{ "a": 20, "posa": "…" }, { "a": 0, "effetto": "lascia_la_coda" }] }`.
-- **In LAIKA:** il pane del 1917 (I.5), le razioni del 1919, il pane di Leningrado, i negozi vuoti del 1989. La coda davanti al carcere del 1937 resta un'immagine, non un gioco.
+- **In LAIKA:** il pane del 1917 (I.6), le razioni del 1919, il pane di Leningrado, i negozi vuoti del 1989. La coda davanti al carcere del 1937 resta un'immagine, non un gioco.
 
 ### 3.6 Le merci che camminano
 
@@ -125,7 +125,7 @@ Le card non sono un gioco: sono il modo di raccontare tra un gioco e l'altro, co
 
 | Atto | Giochi principali | Indicatori aggiunti |
 |---|---|---|
-| I (1700–marzo 1917) | I.1 gestione (la settimana del servo) con decisioni sui gruppi; I.2 gestione (il salario) e decisioni (il mir); I.3 punti azione (le giornate del soviet); I.4 quanto serve e quanto c'è (grano, treni, città), prime code; I.5 code che diventano corteo, poi punti azione (il soldato che non spara) | Speranza (3.3); credito del trono (3.4) |
+| I (1700–marzo 1917) | I.1 gestione (la settimana del servo) con decisioni sui gruppi; I.2 decisioni sui gruppi (il mir); I.3 gestione (il salario, più settimane); I.4 punti azione (le giornate del soviet); I.5 quanto serve e quanto c'è (grano, treni, città), prime code; I.6 code che diventano corteo, poi punti azione (il soldato che non spara) | Speranza (3.3); credito del trono (3.4) |
 | II (marzo–luglio 1917) | decisioni sui gruppi (governo provvisorio e soviet davanti a operai, soldati, contadini, ceti medi); punti azione (le giornate di luglio) | — |
 | III (luglio 1917–marzo 1918) | punti azione con informazioni incomplete (Kornilov, la notte del palazzo); gestione (le occupazioni delle terre) | — |
 | IV (1918–1927) | quanto serve e quanto c'è (comunismo di guerra e NEP); città che resiste (Pietrogrado); fiducia (il bambino di strada nella banda); il treno, se confermato | credenza (il culto di Lenin) |
@@ -217,7 +217,7 @@ La scelta che abbassa il costo è **un solo motore a turni** in cui ogni gioco �
 | 2. Prototipo della settimana | piccolo | tre anni della settimana del servo in una pagina da buttare, per capire se diverte, prima di toccare il motore |
 | 3. Motore a turni con gestione e decisioni | grande | fasi del turno, piazzamento «tocca e tocca», metriche-gruppi, avvisi, salvataggio a metà turno compatibile con i salvataggi esistenti, nuove pose e pedine nella bottega, test |
 | 4. I.1 ricostruita | medio | testi, regole e bilanciamento (nessuna strategia vince sempre, nessun vicolo cieco), verifica V1 |
-| 5. Punti azione e code | medio ciascuno | per I.3 e I.5, riusano il turno |
+| 5. Punti azione e code | medio ciascuno | per I.4 e I.6, riusano il turno |
 | 6. Altre forme | medio-piccolo ciascuna | fiducia, città che resiste, corsa, redazione e sportello quando l'atto le chiede |
 
 Ogni passo è una PR con evidenze; il docente prova dal telefono prima del passo successivo.

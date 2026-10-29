@@ -2251,7 +2251,7 @@
           "I2-04",
           "I2-05"
         ],
-        "scheda": "I.2-e2"
+        "scheda": "I.3-e1"
       },
       "shows": [
         "forze",
@@ -2334,7 +2334,7 @@
       "feedback": "La settimana di lavoro ti ha stancato. Ciò che hai scelto di pagare ha deciso come arrivi alla fine: più in forze oppure più vicino al villaggio. Gli indicatori sono indici della simulazione.",
       "editorial": {
         "sources": [],
-        "scheda": "I.2-e3",
+        "scheda": "I.3-e2",
         "note": "Simulazione [S]: pezzi e coefficienti del modello."
       },
       "shows": [
@@ -2368,7 +2368,7 @@
           "I2-08",
           "I2-09"
         ],
-        "scheda": "I.2-e4"
+        "scheda": "I.3-e3"
       },
       "shows": [
         "forze",
@@ -2402,7 +2402,7 @@
           "C35",
           "C37"
         ],
-        "scheda": "I.2-e5"
+        "scheda": "I.3-e4"
       },
       "shows": [
         "forze",
@@ -2466,7 +2466,7 @@
           "I2-10",
           "I2-11"
         ],
-        "scheda": "I.2-e6"
+        "scheda": "I.3-e5"
       },
       "shows": [
         "forze",
@@ -2495,7 +2495,7 @@
           "I2-10",
           "I2-12"
         ],
-        "scheda": "I.2 confronto"
+        "scheda": "I.3 confronto"
       },
       "shows": [
         "forze",
