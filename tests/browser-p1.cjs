@@ -51,9 +51,9 @@ module.exports=async(browser,root,artifacts)=>{
   assert.equal(s.complete,true);await setSave(exportSave(game,s));await page.reload();await page.locator('#summary-title').waitFor();}
  const complete=await read();await page.goto(origin+'/');await page.locator('#progress').filter({hasText:'completata'}).waitFor();assert.equal(await page.locator('#resume').isHidden(),true);assert.equal(await read(),complete);
  for(const raw of ['invalid JSON',JSON.stringify({saveSchemaVersion:1,gameId:'laika',contentVersion:'old',commands:[]})]){
-  await setSave(raw);const before=await read();await page.reload();await page.locator('#progress').filter({hasText:'non utilizzabile'}).waitFor();assert.equal(await page.locator('#resume').isHidden(),true);assert.equal(await read(),before);
-  await page.goto(origin+'/play.html?game=laika');await page.locator('#scene-title').waitFor();assert.equal(await page.locator('#raw').isVisible(),true);assert.equal(await read(),before);
-  await page.goto(origin+'/');await page.locator('#progress').filter({hasText:'non utilizzabile'}).waitFor();
+  await setSave(raw);const before=await read();await page.reload();await page.locator('#progress').filter({hasText:'non è più utilizzabile'}).waitFor();assert.equal(await page.locator('#resume').isHidden(),true);assert.equal(await read(),before);
+  await page.goto(origin+'/play.html?game=laika');await page.locator('#scene-title').waitFor();assert.equal(await page.locator('#raw').isVisible(),false);assert.match(await page.locator('#notice').innerText(),/Ricomincia/);assert.equal(await read(),before);
+  await page.goto(origin+'/');await page.locator('#progress').filter({hasText:'non è più utilizzabile'}).waitFor();
  }
  await page.goto(origin+'/play.html?game=biblioteca');await page.locator('#scene-title').waitFor();
  assert.equal(await page.locator('#pack-theme').count(),0);assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).getPropertyValue('--accent').trim()),'#355e59');
@@ -68,6 +68,6 @@ module.exports=async(browser,root,artifacts)=>{
  assert.match(await page.locator('.episode-context').innerText(),/<img/);assert.equal(await page.locator('.episode-context img').count(),0);
  await page.setViewportSize({width:1440,height:900});await page.goto(origin+'/');await page.locator('#resume').waitFor();await page.screenshot({path:path.join(artifacts,'p1-home-desktop.png'),fullPage:true});
  assert.deepEqual(errors,[]);await context.close();
- const noJs=await browser.newContext({javaScriptEnabled:false});const staticPage=await noJs.newPage();await staticPage.goto(origin+'/');assert.ok(await staticPage.getByRole('link',{name:'Esplora i laboratori dimostrativi'}).isVisible());await noJs.close();
+ const noJs=await browser.newContext({javaScriptEnabled:false});const staticPage=await noJs.newPage();await staticPage.goto(origin+'/');assert.ok(await staticPage.getByRole('link',{name:'Inizia il percorso'}).isVisible());await noJs.close();
  console.log('P1 PASS: routing, themes, text context, home read-only, resume/complete/incompatible, no-JS home.');
 };

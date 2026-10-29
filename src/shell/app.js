@@ -13,7 +13,8 @@ const media=matchMedia('(prefers-reduced-motion: reduce)');
 const stage=createStage($('stage'),{reducedMotion:media.matches,onCaption:message=>{$('caption').textContent=message;},onStatus:value=>{$('pause').textContent=value==='paused'?'Riprendi':'Pausa';$('pause').setAttribute('aria-pressed',String(value==='paused'));$('pause').disabled=value==='finished';}});
 media.addEventListener('change',e=>stage.setReducedMotion(e.matches));
 function notice(message){$('notice').textContent=message;}
-function persist(){if(blocked){notice('Il backup incompatibile è conservato. Questa sessione non viene salvata: esportala oppure scegli Ricomincia.');return;}const r=save(game,state,storage);if(!r.ok)notice(r.error);}
+const STALE='Il progresso salvato non è più utilizzabile perché il percorso è stato aggiornato. Premi Ricomincia per proseguire.';
+function persist(){if(blocked){notice(STALE);return;}const r=save(game,state,storage);if(!r.ok)notice(r.error);}
 function download(value,name){const url=URL.createObjectURL(new Blob([value],{type:'application/json'}));const a=el('a',undefined,{href:url,download:name});a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 function journal(){
   $('journal').replaceChildren();if(!state.journal.length)return;
@@ -116,7 +117,7 @@ async function start(){
   else for(const g of config.games){const a=el('a',g.label,{href:'?game='+encodeURIComponent(g.id)});if(g.id===selected)a.setAttribute('aria-current','page');$('packs').append(a);}
   const result=load(game,storage);blocked=!result.ok;
   state=result.ok&&result.state?result.state:newSession(game,crypto.randomUUID());
-  if(blocked){notice(result.error+' Il backup originale resta conservato; questa prova non lo sovrascrive.');$('raw').hidden=false;}
+  if(blocked){notice(/^Archivio locale/.test(result.error)?result.error:STALE);$('raw').hidden=false;}
   else if(result.state)notice('Progresso ripreso. Nel diario trovi le decisioni che spiegano la situazione attuale.');
   render({intro:!result.state});if(!blocked)persist();
 }
