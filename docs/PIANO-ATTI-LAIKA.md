@@ -1042,6 +1042,8 @@ Tutto con `CONTRATTO-KIT` e con l'epoca registrata. Rispetto alla v4.1 si aggiun
 - R56 (le ventiquattro portate del 1939) è confermato in Montefiore, *Stalin*: tolto il «da verificare».
 - I menscevichi e i socialrivoluzionari diventano posizioni vissute: II.2-e2, II.4-e1, II.5-e1, III.3-e4, III.5-e2, IV.2-e2.
 
+- **29 ottobre 2026: I.2 spezzata in due unità.** I.2 resta «La terra dopo il Manifesto» (solo l'assemblea del mir, I.2-e1). Le altre schede di I.2 (e2–e6) formano la nuova I.3 «In città». Le vecchie I.3, I.4 e I.5 diventano I.4, I.5 e I.6: l'Atto I ha sei unità. I codici degli episodi nelle schede qui sotto restano quelli vecchi finché non si rinumera in un incarico a parte; la tabella di [REPERTORIO](REPERTORIO-GIOCHI-LAIKA.md) §5.1 è il riferimento per i numeri.
+
 **Rettifiche agli appunti da verificare.** Restano valide quelle della v4.1 (scissione del 1903, guerra col Giappone, Duma, Stolypin, kulaki, calendario di febbraio, data dei funerali del Campo di Marte, composizione del governo provvisorio, Kerenskij socialrivoluzionario, Kornilov, vittime di ottobre, Brest-Litovsk, cifre della Costituente, Costituzione del 1924, NEP, Trockij, piani e carestia, arte, perdite di guerra), da registrare come revisioni motivate secondo `FONTI-LAIKA`.
 
 **Decisioni aperte.**

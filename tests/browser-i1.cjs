@@ -13,7 +13,7 @@ module.exports=async(browser,root,artifacts)=>{
   const shot=async n=>{await fine();await page.screenshot({path:path.join(out,run.nome+'-'+n+'.png'),fullPage:true});};
   const save=()=>page.evaluate(()=>localStorage.getItem('learning-kit:laika:save-v1'));
   const overflow=()=>page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1);
-  await page.goto(origin+'/');await page.locator('#inizia').click();await page.locator('#scene-title').waitFor();
+  await page.goto(origin+'/');await page.locator('#inizia').click();await page.locator('#hub-title').waitFor();await shot('00-atto');await page.locator('[data-hub=go]:visible').click();await shot('00-unita');await page.locator('[data-hub=go]:visible').click();await page.locator('#scene-title').waitFor();
   // Redesign: gioco autonomo, marchio del progetto, scena ingrandita su schermi stretti.
   assert.equal(await page.locator('#packs').isVisible(),false,'menu dei laboratori nascosto');
   assert.equal((await page.locator('#home-link').innerText()).trim(),'LAIKA');
@@ -26,6 +26,8 @@ module.exports=async(browser,root,artifacts)=>{
   for(let guard=0;guard<400;guard++){
    if(await page.locator('#summary-title').isVisible())break;
    assert.equal(await overflow(),true,'overflow orizzontale');
+   // Pagine di passaggio fra unità: chiusura e pagina dell'unità successiva.
+   if(await page.locator('[data-hub=go]:visible').count()){await shot('89-passaggio-'+guard);await page.locator('[data-hub=go]:visible').click();continue;}
    if(await page.locator('[data-answer]').count()){const v=await page.locator('[data-answer=liberta]').count()?'liberta':'sr';await page.locator('[data-answer='+v+']').click();await shot('90-verifica-'+v);await page.locator('[data-action=advance]').click();continue;}
    // Unità I.2: assemblea del mir, salario, tre volantini.
    if(await page.locator('form input[name=pane]').count()){await page.locator('input[name=pane]').fill('3');await page.locator('input[name=stanza]').fill('1');await page.locator('input[name=carbone]').fill('1');await page.locator('input[name=villaggio]').fill('1');await shot('91-salario');await page.locator('form button[type=submit]').click();await page.locator('[data-action=advance]').waitFor();await shot('91-salario-esito');await page.locator('[data-action=advance]').click();continue;}
@@ -84,7 +86,7 @@ module.exports=async(browser,root,artifacts)=>{
   console.log('I.1 PASS ('+run.nome+', '+run.viewport.width+'px): partita di '+anni.length+' anni, figura spostata toccando la scena, granaio, fiera, reload a metà anno, home in sola lettura.');
  }
  const rc=await browser.newContext({reducedMotion:'reduce',viewport:{width:390,height:844}}),rp=await rc.newPage();
- await rp.goto(origin+'/play.html?game=laika');await rp.locator('#scene-title').waitFor();
+ await rp.goto(origin+'/play.html?game=laika');await rp.locator('[data-hub=go]:visible').click();await rp.locator('[data-hub=go]:visible').click();await rp.locator('#scene-title').waitFor();
  assert.notEqual(await rp.locator('#stage').getAttribute('data-motion'),'playing');await rp.screenshot({path:path.join(out,'ridotto.png'),fullPage:true});await rc.close();
  console.log('I.1 PASS: movimento ridotto.');
 };

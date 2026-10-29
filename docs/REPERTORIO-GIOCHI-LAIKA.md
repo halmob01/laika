@@ -140,10 +140,11 @@ Questa tabella è il riferimento unico per il gioco di un'unità: **prevale sul 
 | Unità | Periodo | Gioco | Stato |
 |---|---|---|---|
 | I.1 Anime e semidei | 1700–1861 | gestione (la settimana del servo) con decisioni sui gruppi | approvato; in `main` (#13), da provare dal telefono |
-| I.2 Le due Russie | 1861–1904 | gestione (il salario) e decisioni sui gruppi (il mir) | approvato; in `main` (#18) c'è una **bozza non conforme**: salario come distribuzione unica, mir come scelta semplice. Da rifare |
-| I.3 Il 1905 | 1905–1907 | punti azione (le giornate del soviet) | approvato |
-| I.4 Pane e guerra | 1914–1916 | quanto serve e quanto c'è (grano, treni, città), prime code | approvato |
-| I.5 Otto giorni | marzo 1917 | code che diventano corteo, poi punti azione (il soldato che non spara) | approvato |
+| I.2 La terra dopo il Manifesto | 1861–1904 | decisioni sui gruppi (l'assemblea del mir) | approvato il 29 ottobre 2026 (I.2 spezzata in due: la terra e il villaggio). In `main` c'è una **bozza non conforme**: il mir è una scelta semplice. Da rifare |
+| I.3 In città | fine Ottocento–1904 | gestione (il salario, più settimane) | approvato il 29 ottobre 2026. Raccoglie «In città», il salario, il razzo del condannato, la corte e i tre volantini. In `main` c'è una **bozza non conforme**: salario come distribuzione unica. Da rifare |
+| I.4 Il 1905 | 1905–1907 | punti azione (le giornate del soviet) | approvato (prima si chiamava I.3) |
+| I.5 Pane e guerra | 1914–1916 | quanto serve e quanto c'è (grano, treni, città), prime code | approvato (prima I.4) |
+| I.6 Otto giorni | marzo 1917 | code che diventano corteo, poi punti azione (il soldato che non spara) | approvato (prima I.5) |
 | II.1 Il paese più libero del mondo | marzo–aprile 1917 | — | da assegnare |
 | II.2 Due poteri in un palazzo | marzo–maggio 1917 | decisioni sui gruppi (governo provvisorio e soviet davanti a operai, soldati, contadini, ceti medi) | da confermare |
 | II.3 Ogni angolo di strada una tribuna | marzo–giugno 1917 | — | da assegnare |

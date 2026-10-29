@@ -135,9 +135,32 @@ export function validateGame(game) {
       } catch(error) {throw new Error('Atto '+act.id+' / episodio '+e.id+': '+error.message);}
     });
     assert(exits.length,'Atto senza uscita');
+    validateUnits(act);
     for(const f of [...exits[0]].filter(f=>exits.every(s=>s.has(f)))) guaranteed.add(f);
   }
   return game;
+}
+
+// Unità: tappe dell'atto con una pagina propria. Raggruppano episodi contigui, nell'ordine dell'atto; ogni episodio sta in una sola unità.
+export function validateUnits(act){
+ for(const key of ['period','question'])if(act[key]!==undefined)assert(text(act[key]),'Campo dell\'atto non valido: '+key);
+ if(act.units===undefined)return;
+ assert(act.units.length>=1,'Atto senza unità');unique(act.units,'Unità',1);
+ const order=act.episodes.map(e=>e.id);let cursor=0,ended=false;
+ for(const u of act.units){
+  try{
+   for(const key of ['title','period','question','summary','game'])assert(text(u[key]),'Campo mancante: '+key);
+   assert(Array.isArray(u.concepts)&&u.concepts.length<=8&&u.concepts.every(text),'Concetti non validi');
+   if(u.carries!==undefined)assert(text(u.carries),'«Porti con te» non valido');
+   assert(!u.episodes.length||(u.closing&&typeof u.closing==='object'&&['did','fact','simulation'].every(k=>text(u.closing[k]))),'Chiusura incompleta');
+   // Un'unità senza episodi è una tappa del percorso non ancora giocabile: può stare solo in coda.
+   assert(Array.isArray(u.episodes)&&u.episodes.every(text),'Episodi dell\'unità non validi');
+   assert(!(ended&&u.episodes.length),'Le unità non ancora giocabili vanno in coda');
+   if(!u.episodes.length)ended=true;
+   for(const epId of u.episodes){assert(order[cursor]===epId,'Gli episodi delle unità devono seguire l\'ordine dell\'atto: '+epId);cursor++;}
+  }catch(error){throw new Error('Atto '+act.id+' / unità '+u.id+': '+error.message);}
+ }
+ assert(cursor===order.length,'Ogni episodio deve stare in una unità');
 }
 
 export const CONTEXT_LABELS={documented:'Contesto documentato',simulation:'Simulazione',source:'Fonte',assessment:'Verifica formativa'};

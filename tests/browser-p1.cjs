@@ -52,7 +52,7 @@ module.exports=async(browser,root,artifacts)=>{
  const complete=await read();await page.goto(origin+'/');await page.locator('#progress').filter({hasText:'completata'}).waitFor();assert.equal(await page.locator('#resume').isHidden(),true);assert.equal(await read(),complete);
  for(const raw of ['invalid JSON',JSON.stringify({saveSchemaVersion:1,gameId:'laika',contentVersion:'old',commands:[]})]){
   await setSave(raw);const before=await read();await page.reload();await page.locator('#progress').filter({hasText:'non è più utilizzabile'}).waitFor();assert.equal(await page.locator('#resume').isHidden(),true);assert.equal(await read(),before);
-  await page.goto(origin+'/play.html?game=laika');await page.locator('#scene-title').waitFor();assert.equal(await page.locator('#raw').isVisible(),false);assert.match(await page.locator('#notice').innerText(),/Ricomincia/);assert.equal(await read(),before);
+  await page.goto(origin+'/play.html?game=laika');await page.locator('#hub-title').waitFor();assert.equal(await page.locator('#raw').isVisible(),false);assert.match(await page.locator('#notice').innerText(),/Ricomincia/);assert.equal(await read(),before);
   await page.goto(origin+'/');await page.locator('#progress').filter({hasText:'non è più utilizzabile'}).waitFor();
  }
  await page.goto(origin+'/play.html?game=biblioteca');await page.locator('#scene-title').waitFor();

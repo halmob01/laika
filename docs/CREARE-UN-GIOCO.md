@@ -162,6 +162,12 @@ Un episodio può dichiarare `context: {"kind":"simulation","dateLabel":"1861","p
 
 LAIKA usa un [assemblatore di sorgenti separati](../games/laika/README.md), facoltativo per gli altri giochi. Il CLI di validazione controlla anche i contratti del registro prima di caricare i pacchetti.
 
+## Unità dentro l'atto (opzionale)
+
+Un atto può dichiarare `period` e `question` (una riga ciascuno) e `units`: tappe con una pagina propria. Se ci sono, il player mostra prima la **pagina dell'atto** (le unità in fila con il loro stato), poi la **pagina dell'unità** e solo dopo il gioco; a fine unità compare la **pagina di chiusura**. Senza `units` il corso funziona come prima.
+
+Ogni unità: `id`, `title`, `period`, `question`, `summary`, `game` (che cosa farà il giocatore), `concepts` (fino a 8), `carries` (facoltativo: che cosa porta dall'unità precedente), `episodes` (id, contigui e nell'ordine dell'atto; ogni episodio sta in una sola unità) e `closing` con `did`, `fact` e `simulation`. Un'unità con `episodes: []` è una tappa non ancora giocabile: compare come «Più avanti» e può stare solo in coda. Lo stato (finita, in corso, più avanti) si ricava dall'episodio corrente: nessun dato nuovo nel salvataggio. Codice: `src/core/units.js` (funzioni pure), `src/shell/hub.js` (pagine), validazione in `src/core/schema.js`.
+
 ## Scene con la bottega
 
 Un gioco può descrivere le scenografie con schede scena invece di scrivere layer e tracce: vedere [bottega/README.md](../bottega/README.md). `node bottega/strumenti/componi.js scene... --out frammento.json` produce `palette`, `patterns`, `symbols` e `stages` da unire al manifest; LAIKA lo fa nel suo build. Per un progetto con un'altra identità basta aggiungere un tema in `bottega/temi.json`.
