@@ -59,7 +59,7 @@ module.exports=async(browser,root,artifacts)=>{
     // Il granaio: un clic in meno e uno in più tornano allo stesso seme.
     if(anno===2){const v=()=>page.locator('.turn-reserve-ctl b').textContent();const a0=await v();await page.locator('[data-reserve="-1"]').click();assert.notEqual(await v(),a0);await page.locator('[data-reserve="1"]').click();assert.equal(await v(),a0);}
     // Reload a metà anno: chi è stato mandato resta dove era.
-    if(!reloaded){const prima=await save();await page.reload();await page.locator('.turn-label').waitFor();
+    if(!reloaded){const prima=await save();await page.reload();for(let i=0;i<2;i++)await page.locator('[data-hub=go]:visible').click();await page.locator('.turn-label').waitFor();
       assert.equal(await save(),prima);reloaded=true;}
     if(await page.locator('[data-turn=confirm]:disabled').count())throw new Error('qualcuno senza posto nel '+year);
     await page.locator('[data-turn=confirm]').click();if(anno===1||anno===3)await shot(String(anno).padStart(2,'0')+'-esito');
