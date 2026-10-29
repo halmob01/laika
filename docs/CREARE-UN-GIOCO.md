@@ -97,7 +97,7 @@ Il controller conserva i nodi fra episodi che usano la stessa scenografia, inter
 
 `runner`: `newSession`, `currentScene`, `transition`, `select`, `advance`, `recap`, `replay`. `transition` restituisce `{nextState,appliedChanges,events,feedback}` e non modifica l'input. La sessione è un valore runtime affidabile; un JSON esterno deve sempre passare da `storage.restore`.
 
-`storage`: `exportSave`, `restore`, `load`, `save`, `storageKey`. `restore` restituisce `{ok,state}` oppure `{ok:false,error}`. Conserva il backup incompatibile: niente reset silenziosi, migrazioni implicite o sincronizzazione cloud. Le versioni differenti richiedono una migrazione esplicita, da implementare con test quando sarà necessaria. Non è un registro antifrode.
+`storage`: `exportSave`, `restore`, `load`, `save`, `storageKey`. `restore` restituisce `{ok,state}` oppure `{ok:false,error}`. Conserva il backup incompatibile: niente reset silenziosi, migrazioni implicite o sincronizzazione cloud. Le versioni differenti richiedono una migrazione esplicita, da implementare con test quando sarà necessaria. Non è un registro antifrode. Il player non mostra il messaggio tecnico: dice che il progresso salvato non è più utilizzabile e propone «Ricomincia»; il backup resta nel browser finché non si ricomincia. Un tema può nascondere il pulsante «Scarica backup originale» (`#raw`), come fa quello di LAIKA.
 
 Il motore originale è preservato in `src/core/legacy.cjs` con i test originali: compatibilità della sua API pura, non promessa di compatibilità automatica tra la vecchia UI e il nuovo manifest. Le fixture delle vecchie storie sono solo nei test, non vengono caricate dal sito.
 

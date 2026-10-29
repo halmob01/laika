@@ -40,6 +40,15 @@ Per illustrare un episodio si scrive una **scheda scena** JSON (`bottega/README.
 
 Fonte prioritaria: gli appunti «La Rivoluzione Russa» in `references/fonti/`. Distingui fatti documentati, simulazione e ipotesi; non inventare citazioni, pagine o dati; registra le fonti secondo `docs/FONTI-LAIKA.md`. Le metriche del gioco sono indici della simulazione, non statistiche storiche.
 
+## Documenti: ogni PR li aggiorna
+
+Una PR non è finita finché i documenti non dicono la verità. Insieme al codice si aggiornano, nello stesso commit o in un commit della stessa PR:
+- **tutte le scelte fatte dal docente** (struttura, numerazione delle unità, font, testi, regole) nel documento che le governa: `docs/PIANO-ATTI-LAIKA.md` (contenuti e unità), `docs/REPERTORIO-GIOCHI-LAIKA.md` (gioco di ogni unità), `docs/BRAND-DESIGN.md` (aspetto, font, testi), `docs/BRIEF-HOME-ATTI.md` (home);
+- **ogni novità del motore o del contratto dati** in `docs/CREARE-UN-GIOCO.md`;
+- **lo stato** (fase, che cosa è in `main`, che cosa resta da rifare) in `docs/PIANO-LAIKA.md` §4 e `docs/INCARICHI-LAIKA.md`, con le evidenze;
+- i `README` e la tabella delle cartelle sopra se cambia ciò che descrivono.
+Se due documenti si contraddicono si correggono entrambi nella stessa PR: non si lascia la contraddizione. La descrizione della PR elenca i documenti toccati; una PR che cambia una scelta senza toccare il documento non si unisce.
+
 ## Verifiche e consegna
 
 - `npm test` (Node) e, se tocchi visual, bottega o pagine, `npm run test:browser` (Chromium/WebKit; in CI entrambi).

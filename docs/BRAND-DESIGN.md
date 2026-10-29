@@ -24,7 +24,7 @@ Tono: istituzione sovietica fittizia, burocratica, ufficiale, grigia e involonta
 
 - **Propaganda di Otto Lerma**: display/wordmark, titoli monumentali e numeri principali. **Aggiornamento 20 ottobre 2026:** l'utente ne ha autorizzato l'uso e ha fornito il file; la home usa un sottoinsieme latino in `site/laika/fonts/propaganda.woff2`, con la licenza dell'autore accanto (`LICENZA-propaganda.txt`). Il carattere non disegna gli accenti (È, À, Ò hanno lo stesso glifo della lettera semplice): nei titoli il segno si aggiunge con la classe `grave`, il testo resta corretto per lettori di schermo e copia.
 - Nel prototipo il wordmark `LAIKA` è riprodotto con contorni vettoriali SVG derivati dal carattere fornito per la valutazione del concept. **Verificare i diritti di incorporamento/pubblicazione e ridistribuzione dei contorni prima di usare questa soluzione in un sito pubblico definitivo**. Licenza presente nell'archivio dell'autore: *Free for Personal Use*; uso commerciale su autorizzazione. L'uso scolastico non implica automaticamente il diritto a redistribuire il font.
-- Testi, navigazione, didattica: il piano recente sceglie `Roboto Condensed` locale; nei prototipi è soltanto dichiarato con fallback, non caricato. IBM Plex Sans Condensed era una candidata precedente, non una famiglia aggiuntiva autorizzata. File e licenza restano da acquisire; vedere [ASSET-MANIFEST](ASSET-MANIFEST.md).
+- Testi, navigazione, didattica: **superato il 29 ottobre 2026.** I caratteri sono tre (Propaganda per marchio e numeri, PT Serif per testi e titoli, PT Mono per timbri e date); si veda §5quater. Roboto Condensed, Oswald e IBM Plex Sans Condensed non si usano.
 - Dati, date, etichette archivistiche: monospace.
 - **Separazione tassativa:** font, contorni del marchio, palette e illustrazioni di LAIKA appartengono al **tema del progetto**, mai a `src/core`, `src/shell` o alle demo generiche del kit. Un nuovo gioco non deve ereditare l'identità LAIKA.
 
@@ -95,7 +95,7 @@ Richiesta del docente: il player non deve più somigliare al gioco del feudo né
 1. **Testata** come la home: marchio LAIKA, riga di protocollo in monospazio, ritorno all'archivio. Nessun menu dei giochi dimostrativi.
 2. **Scena a tutta larghezza**, in proporzione 16:9, ritagliata al centro quando lo schermo è basso. È l'elemento principale della pagina.
 3. **Lastra scura sotto la scena**, come la linea del tempo della home: a sinistra didascalia e comandi del movimento (sottolineati, in monospazio); a destra gli indicatori come celle con il numero grande in Propaganda e l'etichetta in monospazio. L'avvertenza «indici della simulazione, non voti» resta sempre visibile.
-4. **Titolo dell'episodio** in Roboto Condensed nero, maiuscolo, su fascia nera (Propaganda non ha gli accenti e i titoli sono dinamici). Contesto ed etichetta [D] [S] [F] [V] in monospazio.
+4. **Titolo dell'episodio** in PT Serif grassetto, maiuscolo, su fascia nera (dal 29 ottobre 2026; prima Roboto Condensed e poi Oswald). Contesto ed etichetta [D] [S] [F] [V] in monospazio.
 5. **Testo** su una colonna di lettura larga al massimo 62 caratteri, corpo grande. Scelte come righe numerate con il quadrato rosso degli articoli della home; «Continua» come il pulsante nero della home.
 6. **Documenti** come fogli di carta chiara con la provenienza in monospazio; **esito** su lastra scura con l'etichetta «Esito della simulazione».
 7. **Card** per i racconti che lo chiedono: un paragrafo per card, avanzamento con barre come nei prologhi del gioco del feudo, «Indietro» e «Avanti».
@@ -112,6 +112,16 @@ Decisione del docente: la direzione visiva è quella delle sue due immagini di r
 - **Palette**: carta `#ece3cf`, carta 2 `#e0d5bd`, foglio `#f5efe1`, inchiostro `#1d1b17`, lastra `#201e1b`, rosso `#cf2a1f`. Le scene usano il nuovo tema della bottega `laika-carta` (stessi toni caldi); `laika-grigio` resta disponibile.
 - **Dettagli di stampa**: grana della carta; testata con doppio filetto; titolo su fascia nera con il rosso fuori registro dietro; capolettera rosso nelle card; barra dei passi numerata; persone come etichette con doppio bordo; indicatori con barra a dieci tacche; esito con un timbro inchiostrato e storto; «Si dice in giro» come ritaglio di carta storto, fermato da un nastro rosso, con il bordo strappato; riga di servizio verticale sul bordo del pannello («Mod. 1917-S · Foglio di simulazione · Non è un documento d'epoca»).
 - **Movimento**: solo timbro e ritaglio entrano con un movimento breve; con movimento ridotto non si muove niente.
+
+## 5quinquies. Pagine dell'atto, dell'unità e di chiusura (29 ottobre 2026)
+
+Decisione del docente: il giocatore deve sentire che un'unità finisce e un'altra comincia. Prima del gioco ci sono due pagine, dopo una.
+- **Pagina dell'atto:** titolo e periodo dell'atto, la sua domanda, una barra a segmenti e «n unità finite su N», un pulsante («Inizia» o «Riprendi») e l'elenco delle unità con numero (I.1…), titolo, periodo, riga di sintesi e timbro di stato: *Finita*, *In corso*, *Più avanti*. Su schermo largo titolo e pulsante stanno a sinistra e l'elenco a destra.
+- **Pagina dell'unità:** domanda, «Dove siamo», «Che cosa farai» (il gioco), «Che cosa incontrerai» (concetti), «Da prima porti con te», pulsante e «Torna all'atto». Niente durate finché non sono misurate.
+- **Chiusura:** timbro «Unità conclusa», «Che cosa hai fatto», fatto documentato e simulazione affiancati, che cosa viene dopo, pulsante per l'unità successiva.
+- Durante il gioco il collegamento «‹ Atto I · I.2 · 1 / 7» riporta alla pagina dell'atto.
+- **Regola dei testi:** nessuna scritta di lavoro rivolta all'utente («in preparazione», «prova tecnica», «backup», «migrazione», nomi di file o di flag). Un'unità non ancora giocabile si dice «Più avanti». Il corso non mostra pulsanti di esportazione, importazione o backup: se il salvataggio non è più utilizzabile compare una frase semplice con il solo «Ricomincia».
+- Le pagine usano le stesse famiglie e la stessa palette del player (§5quater). Contratto dati in [CREARE-UN-GIOCO](CREARE-UN-GIOCO.md); schermate di prova approvate nel file `schermate-unita.html` (bozza fuori repository).
 
 ## 5bis. Homepage: prototipo iniziale (storico)
 

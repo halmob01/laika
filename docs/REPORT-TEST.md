@@ -60,7 +60,7 @@ Revisione semantica: riscritti i distrattori iniziali per eliminare un'alternati
 - Nessun editor visuale, morphing dei tracciati o simulatore geografico. Le primitive sono forme SVG e binding numerici; scene complesse richiederanno ulteriori componenti generici.
 - La crisi multiruolo implementa mandati e azioni lecite, non un sistema di informazioni segrete o negoziazione tra utenti.
 - Registro locale di tentativi corrente: Ricomincia sostituisce il salvataggio dopo conferma; esportare per conservare altri tentativi. Non c'è archivio automatico di più partite o sincronizzazione.
-- Migrazioni non implementate finché non esiste una seconda versione: incompatibilità visibile, backup originale conservato.
+- Migrazioni non implementate finché non esiste una seconda versione: incompatibilità visibile con una frase semplice, backup originale conservato nel browser (pulsante di scarico nascosto nel corso LAIKA dal 29 ottobre 2026).
 - Sono presenti verifica formativa e punteggio finale delle demo, non criteri sommativi approvati per il corso storico.
 - Le due demo condividono deliberatamente l'archetipo; dimostrano configurabilità, non che qualunque futuro gioco richieda soltanto JSON.
 - Compatibilità legacy limitata all'API pura originale; la nuova shell richiede il contratto manifest v1.

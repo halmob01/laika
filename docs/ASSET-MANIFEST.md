@@ -88,8 +88,8 @@ Composizioni presenti: `scena-terra`, `scena-mir`, `scena-fabbrica800`, `scena-p
 | Risorsa | Presenza / licenza osservata | Decisione e azione successiva |
 |---|---|---|
 | Propaganda, Otto Lerma | File font assente. Il brand registra licenza «Free for Personal Use» nell'archivio dell'autore, non esaminabile qui. Contorni LAIKA incorporati nei due prototipi | Conservare prototipi; verificare incorporamento e ridistribuzione dei contorni prima del rilascio. Fino ad allora wordmark testuale provvisorio come da piano |
-| Roboto Condensed | Dichiarato nel CSS; nessun font locale, `@font-face` o licenza allegata | Direzione lettura/UI del piano. Acquisire distribuzione ufficiale e licenza effettiva in P1/P3; non dichiararlo già caricato |
-| IBM Plex Sans Condensed | Solo candidata nel vecchio brand, nessun file | Il piano recente sceglie Roboto Condensed: non aggiungere una seconda famiglia per preferenza dell'agente |
+| Roboto Condensed | **Superato il 25 ottobre 2026**: tolto | Sostituito da PT Serif e PT Mono; oggi i caratteri in uso sono Propaganda, PT Serif e PT Mono (OFL le ultime due, file e licenze in `site/laika/fonts/`). Oswald è stato usato dal 25 al 29 ottobre e poi tolto |
+| IBM Plex Sans Condensed | Solo candidata nel vecchio brand, nessun file | Non si usa: le famiglie in uso sono quelle elencate sopra; non aggiungerne altre per preferenza dell'agente |
 | Monospace e fallback di sistema | Stack CSS, nessun file distribuito | Conservare fallback; verificare leggibilità, misure e caricamento del font scelto nella home di produzione |
 
 Gli originali visuali restano consultabili; le immagini raster sono solo materiale di lavoro. Nessun asset/font LAIKA deve entrare nei moduli generici di `src/`.
