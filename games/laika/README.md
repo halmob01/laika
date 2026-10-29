@@ -10,7 +10,7 @@ npm test
 npm run serve
 ```
 
-Aprire `/` per la home essenziale, `/play.html?game=laika` per la prova tecnica. I laboratori dimostrativi restano su `/play.html?game=biblioteca` e analoghi; gli URL `/?game=...` vengono inoltrati preservando query e frammento.
+Aprire `/` per la home, `/play.html?game=laika` per il corso: si entra dalla pagina dell'atto I (sei unità; le prime tre giocabili). I laboratori dimostrativi restano su `/play.html?game=biblioteca` e analoghi; gli URL `/?game=...` vengono inoltrati preservando query e frammento.
 
 - `course.json`: ordine degli atti, elenco dei file di domande, scene e simboli.
 - `source/acts/`: atti sorgente. `questionRef` risolve un ID globale dalle banche domande; `stageId` riferisce le scene indicizzate.

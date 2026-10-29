@@ -60,7 +60,7 @@ Revisione semantica: riscritti i distrattori iniziali per eliminare un'alternati
 - Nessun editor visuale, morphing dei tracciati o simulatore geografico. Le primitive sono forme SVG e binding numerici; scene complesse richiederanno ulteriori componenti generici.
 - La crisi multiruolo implementa mandati e azioni lecite, non un sistema di informazioni segrete o negoziazione tra utenti.
 - Registro locale di tentativi corrente: Ricomincia sostituisce il salvataggio dopo conferma; esportare per conservare altri tentativi. Non c'è archivio automatico di più partite o sincronizzazione.
-- Migrazioni non implementate finché non esiste una seconda versione: incompatibilità visibile, backup originale conservato.
+- Migrazioni non implementate finché non esiste una seconda versione: incompatibilità visibile con una frase semplice, backup originale conservato nel browser (pulsante di scarico nascosto nel corso LAIKA dal 29 ottobre 2026).
 - Sono presenti verifica formativa e punteggio finale delle demo, non criteri sommativi approvati per il corso storico.
 - Le due demo condividono deliberatamente l'archetipo; dimostrano configurabilità, non che qualunque futuro gioco richieda soltanto JSON.
 - Compatibilità legacy limitata all'API pura originale; la nuova shell richiede il contratto manifest v1.
@@ -82,3 +82,5 @@ Aggiunte sequenze multitraccia, gruppi annidati, trasformazioni, pausa/ripresa e
 36 test Node superati localmente su tre pacchetti. Aggiunti namespace dei simboli, pose non neutre, preset, rifiuto di input errati, creazione senza sovrascrittura e verifica di entrambi i rami della terza demo. Pipeline estesa a Chromium e WebKit; risultato sul commit esatto nella PR del consolidamento. Focus, tastiera e visibilità dei pannelli controllati nel contratto browser generico. Nessuna prova su telefono reale o con lettore di schermo dichiarata.
 
 La demo messaggio contiene due quesiti formativi: audit della skill verifiche-didattiche, 0 errori e 0 avvisi, nessuna corretta unica più lunga. Chiavi nel sorgente in prima posizione, rimescolamento affidato al runtime. Revisione semantica: primo item distingue contraddizione osservabile e intenzione presunta; secondo distingue ripetizione e conferma indipendente. Campione tecnico limitato, nessuna stima di affidabilità sommativa.
+
+**Diagnostica in CI (29 ottobre 2026).** Se un test del browser fallisce, `tests/browser.cjs` scrive l'errore anche come annotazione del controllo («Test del browser (chromium|webkit)»): si legge con `gh api repos/…/check-runs/ID/annotations` anche quando i log non sono scaricabili.

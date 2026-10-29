@@ -13,7 +13,7 @@ module.exports=async(browser,root,artifacts)=>{
   const shot=async n=>{await fine();await page.screenshot({path:path.join(out,run.nome+'-'+n+'.png'),fullPage:true});};
   const save=()=>page.evaluate(()=>localStorage.getItem('learning-kit:laika:save-v1'));
   const overflow=()=>page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1);
-  await page.goto(origin+'/');await page.locator('#inizia').click();await page.locator('#scene-title').waitFor();
+  await page.goto(origin+'/');await page.locator('#inizia').click();await page.locator('#hub-title').waitFor();await shot('00-atto');await page.locator('[data-hub=go]:visible').click();await shot('00-unita');await page.locator('[data-hub=go]:visible').click();await page.locator('#scene-title').waitFor();
   // Redesign: gioco autonomo, marchio del progetto, scena ingrandita su schermi stretti.
   assert.equal(await page.locator('#packs').isVisible(),false,'menu dei laboratori nascosto');
   assert.equal((await page.locator('#home-link').innerText()).trim(),'LAIKA');
@@ -26,6 +26,8 @@ module.exports=async(browser,root,artifacts)=>{
   for(let guard=0;guard<400;guard++){
    if(await page.locator('#summary-title').isVisible())break;
    assert.equal(await overflow(),true,'overflow orizzontale');
+   // Pagine di passaggio fra unità: chiusura e pagina dell'unità successiva.
+   if(await page.locator('[data-hub=go]:visible').count()){await shot('89-passaggio-'+guard);await page.locator('[data-hub=go]:visible').click();continue;}
    if(await page.locator('[data-answer]').count()){const v=await page.locator('[data-answer=liberta]').count()?'liberta':'sr';await page.locator('[data-answer='+v+']').click();await shot('90-verifica-'+v);await page.locator('[data-action=advance]').click();continue;}
    // Unità I.2: assemblea del mir, salario, tre volantini.
    if(await page.locator('form input[name=pane]').count()){await page.locator('input[name=pane]').fill('3');await page.locator('input[name=stanza]').fill('1');await page.locator('input[name=carbone]').fill('1');await page.locator('input[name=villaggio]').fill('1');await shot('91-salario');await page.locator('form button[type=submit]').click();await page.locator('[data-action=advance]').waitFor();await shot('91-salario-esito');await page.locator('[data-action=advance]').click();continue;}
@@ -55,9 +57,11 @@ module.exports=async(browser,root,artifacts)=>{
       await page.locator('[data-worker="'+w+'"]').click();const t=page.locator('[data-target="'+dove+'"]:not([disabled])');if(await t.count())await t.click();}
     if(anno===1)await shot('01-settimana');
     // Il granaio: un clic in meno e uno in più tornano allo stesso seme.
-    if(anno===2){const v=()=>page.locator('.turn-reserve-ctl b').textContent();const a0=await v();await page.locator('[data-reserve="-1"]').click();assert.notEqual(await v(),a0);await page.locator('[data-reserve="1"]').click();assert.equal(await v(),a0);}
+    if(anno===2){const v=()=>page.locator('.turn-reserve-ctl b').textContent();const a0=await v();await page.locator('[data-reserve="-1"]').click();assert.notEqual(await v(),a0);
+     // Il seme della sessione è casuale: se il raccolto è stato scarso il granaio non può risalire e «+» resta spento (è il comportamento giusto).
+     if(await page.locator('[data-reserve="1"]').isEnabled()){await page.locator('[data-reserve="1"]').click();assert.equal(await v(),a0);}}
     // Reload a metà anno: chi è stato mandato resta dove era.
-    if(!reloaded){const prima=await save();await page.reload();await page.locator('.turn-label').waitFor();
+    if(!reloaded){const prima=await save();await page.reload();for(let i=0;i<2;i++)await page.locator('[data-hub=go]:visible').click();await page.locator('.turn-label').waitFor();
       assert.equal(await save(),prima);reloaded=true;}
     if(await page.locator('[data-turn=confirm]:disabled').count())throw new Error('qualcuno senza posto nel '+year);
     await page.locator('[data-turn=confirm]').click();if(anno===1||anno===3)await shot(String(anno).padStart(2,'0')+'-esito');
@@ -84,7 +88,7 @@ module.exports=async(browser,root,artifacts)=>{
   console.log('I.1 PASS ('+run.nome+', '+run.viewport.width+'px): partita di '+anni.length+' anni, figura spostata toccando la scena, granaio, fiera, reload a metà anno, home in sola lettura.');
  }
  const rc=await browser.newContext({reducedMotion:'reduce',viewport:{width:390,height:844}}),rp=await rc.newPage();
- await rp.goto(origin+'/play.html?game=laika');await rp.locator('#scene-title').waitFor();
+ await rp.goto(origin+'/play.html?game=laika');await rp.locator('[data-hub=go]:visible').click();await rp.locator('[data-hub=go]:visible').click();await rp.locator('#scene-title').waitFor();
  assert.notEqual(await rp.locator('#stage').getAttribute('data-motion'),'playing');await rp.screenshot({path:path.join(out,'ridotto.png'),fullPage:true});await rc.close();
  console.log('I.1 PASS: movimento ridotto.');
 };

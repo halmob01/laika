@@ -29,7 +29,7 @@ export function buildLaika(root=fileURLToPath(new URL('../games/laika/',import.m
    }
    return episode;
   });
-  return {...pick(act,['id','title','actors','roles','metrics','resources','relations','flags','reconciliation']),episodes};
+  return {...pick(act,['id','title','actors','roles','metrics','resources','relations','flags','reconciliation','period','question','units']),episodes};
  });
  unique(allEpisodes,'Episodi authoring');
  // Schede scena della bottega (facoltative): composte con il tema del corso.

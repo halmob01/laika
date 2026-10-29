@@ -124,7 +124,9 @@ A ogni avvio: verificare branch e modifiche locali, leggere eventuali AGENTS.md 
 
 **Accettazione:** il docente gioca I.1 dal telefono e la approva. Nessun merge senza la sua richiesta.
 
-## P4 — Atto I, prima parte: unità I.2 e I.3
+## P4 — Atto I, prima parte: unità I.2, I.3 e I.4
+
+> **29 ottobre 2026.** I.2 è stata spezzata: I.2 «La terra dopo il Manifesto» (mir), I.3 «In città» (salario) e I.4 «Il 1905» (punti azione). Il livello delle unità (pagina dell'atto, dell'unità e chiusura) è nel player (#25). Le istruzioni sotto che dicono «I.2 e I.3» vanno lette con questa numerazione; i codici degli episodi nelle schede restano quelli vecchi.
 
 **Modello:** Claude Sonnet 5.5 o GPT-6.1 Sol medium; Opus 5.5 o Sol high solo per scene difficili. Review storica: modello dell'altra famiglia (Astra high o Opus 5.5). **Dipendenza:** P3.
 
@@ -134,7 +136,7 @@ A ogni avvio: verificare branch e modifiche locali, leggere eventuali AGENTS.md 
 
 **Azioni:**
 
-1. Implementare le unità I.2 e I.3 con il gioco del repertorio §5.1 (I.2: gestione del salario e decisioni sui gruppi nel mir; I.3: punti azione nelle giornate del soviet); le schede danno contenuti, fonti e regia. Per ogni unità produrre una scheda breve obiettivo → fonti → attività → effetti → trasformazione visiva → limiti.
+1. Implementare le unità I.2, I.3 e I.4 con il gioco del repertorio §5.1 (I.2: decisioni sui gruppi nel mir; I.3: gestione del salario in più settimane; I.4: punti azione nelle giornate del soviet); le schede danno contenuti, fonti e regia. Per ogni unità produrre una scheda breve obiettivo → fonti → attività → effetti → trasformazione visiva → limiti.
 2. Calibrare i parametri del modello in una tabella, provare priorità sussistenza e priorità investimento. Almeno una conseguenza differita deve maturare e risultare comprensibile; non provocare dead end.
 3. Completare sei domande formative totali, esposizioni e feedback. Applicare la skill didattica se realmente disponibile; in alternativa fare review esplicita degli item senza dichiarare quel controllo eseguito.
 4. Preparare gli effetti differiti verso I.4 e I.5 senza simulare il completamento dell'atto.
@@ -142,7 +144,9 @@ A ogni avvio: verificare branch e modifiche locali, leggere eventuali AGENTS.md 
 
 **Accettazione:** unità I.1–I.3 complete, item formativi delle tre unità, asset coerenti, due itinerari provati, reload e diario funzionanti, nessun placeholder pubblico. Review storica Astra high su fonti/testo/item, non su una descrizione riassunta dall'autore.
 
-## P5 — Atto I, seconda parte: I.4, I.5, confronto finale e demo di folla
+## P5 — Atto I, seconda parte: I.5, I.6, confronto finale e demo di folla
+
+> **29 ottobre 2026.** Numerazione nuova: I.5 «Pane e guerra» (ex I.4) e I.6 «Otto giorni» (ex I.5).
 
 **Modello:** Claude Sonnet 5.5 o GPT-6.1 Sol medium per dati e testi; Opus 5.5 o Sol high per il corteo del 1905 (I.3-e1), il soviet (I.3-e3) e il confronto finale (I.5-e5). **Dipendenza:** P4.
 

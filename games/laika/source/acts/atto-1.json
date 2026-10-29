@@ -2525,5 +2525,118 @@
   "editorial": {
     "unita": "I.1",
     "piano": "docs/PIANO-ATTI-LAIKA.md §7"
-  }
+  },
+  "period": "1700 – marzo 1917",
+  "question": "Si può possedere un essere umano? Che cosa tiene in piedi un potere che si crede sacro?",
+  "units": [
+    {
+      "id": "i1",
+      "title": "Anime e semidei",
+      "period": "1700 – 1861",
+      "question": "Che cosa diventa un uomo quando il suo nome è una cifra in un registro?",
+      "summary": "Un villaggio di servi contati in «anime» e una corte che vive come in un altro mondo. Arriva il Manifesto del 1861.",
+      "game": "Gestisci la settimana di una famiglia di servi: chi lavora il campo del signore e chi il proprio. Cinque generazioni nello stesso villaggio.",
+      "concepts": [
+        "anima",
+        "servitù della gleba",
+        "corvée",
+        "vicini",
+        "Manifesto del 1861"
+      ],
+      "episodes": [
+        "a1-u1-e1",
+        "a1-u1-settimana",
+        "a1-u1-ricorda",
+        "a1-u1-e7"
+      ],
+      "closing": {
+        "did": "Hai guidato una famiglia di servi per cinque generazioni.",
+        "fact": "Fino al 1861 un servo era contato in «anime» e si poteva vendere con la terra o senza. Il Manifesto del 19 febbraio 1861 abolì la servitù della gleba.",
+        "simulation": "Gli indicatori della settimana sono indici della simulazione. Non sono statistiche storiche."
+      }
+    },
+    {
+      "id": "i2",
+      "title": "La terra dopo il Manifesto",
+      "period": "1861 – 1904",
+      "question": "Che cos'è giusto: dare a ciascuno lo stesso o a ciascuno secondo il bisogno?",
+      "summary": "Libertà sulla carta. Il villaggio deve decidere come dividere la terra.",
+      "game": "Siedi nell'assemblea del mir e scegli come ridistribuire le strisce di terra.",
+      "concepts": [
+        "mir",
+        "riscatto",
+        "strisce di terra",
+        "uguale o secondo il bisogno"
+      ],
+      "carries": "La famiglia dell'ultima generazione di I.1. Se un figlio era stato mandato via la famiglia pesa di meno.",
+      "episodes": [
+        "a1-u2-mir"
+      ],
+      "closing": {
+        "did": "Hai deciso con l'assemblea come ridistribuire le strisce di terra.",
+        "fact": "Dopo il Manifesto la terra non passò ai contadini gratis: andava riscattata. Il villaggio restò la cornice della vita contadina.",
+        "simulation": "Le tue scelte hanno cambiato come il villaggio ha diviso la terra. Non hanno cambiato la legge."
+      }
+    },
+    {
+      "id": "i3",
+      "title": "In città",
+      "period": "fine Ottocento – 1904",
+      "question": "Si è più liberi in città che al villaggio?",
+      "summary": "La terra non basta per tutti. Il figlio parte per Pietroburgo: fabbrica, una stanza in affitto e un salario da dividere.",
+      "game": "Dividi il salario della settimana fra pane, stanza, carbone e soldi per il villaggio. Poi leggi tre volantini e decidi di chi fidarti.",
+      "concepts": [
+        "fabbrica",
+        "salario",
+        "stanza in affitto",
+        "corte e fabbriche",
+        "partiti e volantini"
+      ],
+      "carries": "Il figlio della famiglia di I.2: è lui che parte.",
+      "episodes": [
+        "a1-u2-citta",
+        "a1-u2-salario",
+        "a1-u2-razzo",
+        "a1-u2-corte",
+        "a1-u2-volantini",
+        "a1-u2-ricorda",
+        "a1-u2-e7"
+      ],
+      "closing": {
+        "did": "Hai diviso un salario di fabbrica e hai letto che cosa promettevano i partiti.",
+        "fact": "Gli operai di Pietroburgo lavoravano turni lunghissimi e non avevano sindacati legali. Le promesse dei partiti arrivavano in fabbrica sotto forma di volantini.",
+        "simulation": "Il salario e le scelte sono simulazione. I numeri servono a capire i vincoli."
+      }
+    },
+    {
+      "id": "i4",
+      "title": "Il 1905",
+      "period": "1905 – 1907",
+      "question": "Che cosa muore quella domenica oltre alle persone?",
+      "summary": "La domenica di sangue e le giornate del soviet.",
+      "game": "Le giornate del soviet: ogni giorno hai pochi punti azione e molte cose da fare.",
+      "concepts": [],
+      "episodes": []
+    },
+    {
+      "id": "i5",
+      "title": "Pane e guerra",
+      "period": "1914 – 1916",
+      "question": "Il grano c'è. Ma arriva in città?",
+      "summary": "La guerra, i treni e le code per il pane.",
+      "game": "Quanto serve e quanto c'è: grano, treni e città.",
+      "concepts": [],
+      "episodes": []
+    },
+    {
+      "id": "i6",
+      "title": "Otto giorni",
+      "period": "marzo 1917",
+      "question": "Chi fa davvero una rivoluzione?",
+      "summary": "Le code diventano un corteo.",
+      "game": "La coda che si scioglie in corteo e il soldato che non spara.",
+      "concepts": [],
+      "episodes": []
+    }
+  ]
 }

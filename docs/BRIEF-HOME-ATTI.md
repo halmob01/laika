@@ -11,6 +11,7 @@ Parte del [piano operativo](PIANO-LAIKA.md). Stato: decisioni per il prossimo in
 > - **Impaginazione costruttivista:** titolo a fasce, piano rosso in diagonale, denominazione in verticale, disco rosso che cambia posto a ogni data. Le regole sono in [BRAND-DESIGN](BRAND-DESIGN.md) §5.
 > - **Testi:** ironia burocratica solo in etichette, titoli di sezione e claim; i testi da leggere sono storico-divulgativi e sobri.
 > - **Piede:** la sezione con fonti, accessibilità e crediti è eliminata; resta una riga tecnica. Le fonti vanno nelle unità, non nella home.
+> - **Aggiornamento 29 ottobre 2026:** niente scritte di lavoro nella home («in preparazione», link ai laboratori dimostrativi, «protocollo in corso di verifica»); il piede è una riga sola. L'atto I dice quali unità sono aperte con una frase normale. Regola completa in [BRAND-DESIGN](BRAND-DESIGN.md) §5quinquies.
 > I punti 2 e 6 e la sezione «Scena del hero» qui sotto restano come storia della decisione.
 
 ### Gerarchia e comportamento

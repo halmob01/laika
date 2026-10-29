@@ -97,7 +97,7 @@ Il controller conserva i nodi fra episodi che usano la stessa scenografia, inter
 
 `runner`: `newSession`, `currentScene`, `transition`, `select`, `advance`, `recap`, `replay`. `transition` restituisce `{nextState,appliedChanges,events,feedback}` e non modifica l'input. La sessione è un valore runtime affidabile; un JSON esterno deve sempre passare da `storage.restore`.
 
-`storage`: `exportSave`, `restore`, `load`, `save`, `storageKey`. `restore` restituisce `{ok,state}` oppure `{ok:false,error}`. Conserva il backup incompatibile: niente reset silenziosi, migrazioni implicite o sincronizzazione cloud. Le versioni differenti richiedono una migrazione esplicita, da implementare con test quando sarà necessaria. Non è un registro antifrode.
+`storage`: `exportSave`, `restore`, `load`, `save`, `storageKey`. `restore` restituisce `{ok,state}` oppure `{ok:false,error}`. Conserva il backup incompatibile: niente reset silenziosi, migrazioni implicite o sincronizzazione cloud. Le versioni differenti richiedono una migrazione esplicita, da implementare con test quando sarà necessaria. Non è un registro antifrode. Il player non mostra il messaggio tecnico: dice che il progresso salvato non è più utilizzabile e propone «Ricomincia»; il backup resta nel browser finché non si ricomincia. Un tema può nascondere il pulsante «Scarica backup originale» (`#raw`), come fa quello di LAIKA.
 
 Il motore originale è preservato in `src/core/legacy.cjs` con i test originali: compatibilità della sua API pura, non promessa di compatibilità automatica tra la vecchia UI e il nuovo manifest. Le fixture delle vecchie storie sono solo nei test, non vengono caricate dal sito.
 
@@ -161,6 +161,12 @@ Un episodio può dichiarare `context: {"kind":"simulation","dateLabel":"1861","p
 `readProgress(game, storage)` in `src/storage/index.js` restituisce `status` uguale a `new`, `resumable`, `complete` o `incompatible`. Per una ripresa restituisce ID/titoli di atto/episodio e fase corrente. Legge e ricostruisce il ledger con `load`/`restore`; non scrive, inizializza o cancella salvataggi. La home non deve interpretare direttamente chiavi o JSON di localStorage.
 
 LAIKA usa un [assemblatore di sorgenti separati](../games/laika/README.md), facoltativo per gli altri giochi. Il CLI di validazione controlla anche i contratti del registro prima di caricare i pacchetti.
+
+## Unità dentro l'atto (opzionale)
+
+Un atto può dichiarare `period` e `question` (una riga ciascuno) e `units`: tappe con una pagina propria. Se ci sono, il player mostra prima la **pagina dell'atto** (le unità in fila con il loro stato), poi la **pagina dell'unità** e solo dopo il gioco; a fine unità compare la **pagina di chiusura**. Senza `units` il corso funziona come prima.
+
+Ogni unità: `id`, `title`, `period`, `question`, `summary`, `game` (che cosa farà il giocatore), `concepts` (fino a 8), `carries` (facoltativo: che cosa porta dall'unità precedente), `episodes` (id, contigui e nell'ordine dell'atto; ogni episodio sta in una sola unità) e `closing` con `did`, `fact` e `simulation`. Un'unità con `episodes: []` è una tappa non ancora giocabile: compare come «Più avanti» e può stare solo in coda. Lo stato (finita, in corso, più avanti) si ricava dall'episodio corrente: nessun dato nuovo nel salvataggio. Codice: `src/core/units.js` (funzioni pure), `src/shell/hub.js` (pagine), validazione in `src/core/schema.js`.
 
 ## Scene con la bottega
 

@@ -28,14 +28,14 @@ module.exports=async(browser,root,artifacts)=>{
  const setSave=async raw=>{await page.evaluate(({key,raw})=>localStorage.setItem(key,raw),{key,raw});};
  await setSave(exportSave(game,newSession(game,'browser-p1')));
  const valid=await read();await page.goto(origin+'/');await page.locator('#resume').waitFor();assert.equal(await read(),valid);
- await page.locator('#resume').click();await page.locator('#scene-title').waitFor();
+ await page.locator('#resume').click();for(let i=0;i<2;i++)await page.locator('[data-hub=go]:visible').click();await page.locator('#scene-title').waitFor();
  assert.equal(await page.locator('#pack-theme').getAttribute('href'),'./site/laika/theme.css');
  assert.match(await page.locator('.episode-context').innerText(),/1700/);
  await page.evaluate(()=>Promise.all(document.getAnimations().map(a=>a.finished.catch(()=>{}))));
  await page.screenshot({path:path.join(artifacts,'p1-player-mobile.png'),fullPage:true});
  while(await page.locator('[data-card=next]').count())await page.locator('[data-card=next]').click();
  await page.locator('[data-action=advance]').click();assert.match(await page.locator('#panel').innerText(),/Atto I/i);
- const saved=await read();await page.reload();await page.locator('#scene-title').waitFor();assert.equal(await read(),saved);
+ const saved=await read();await page.reload();for(let i=0;i<2;i++)await page.locator('[data-hub=go]:visible').click();await page.locator('#scene-title').waitFor();assert.equal(await read(),saved);
  // Salvataggio completo costruito con il runner pubblico (l'unità I.1 è percorsa per intero in browser-i1).
  {let s=newSession(game,'browser-p1');const {currentScene}=await import('../src/runner/index.js');
   for(let i=0;i<400&&!s.complete;i++){const e=currentScene(game,s);let a;
@@ -51,9 +51,9 @@ module.exports=async(browser,root,artifacts)=>{
   assert.equal(s.complete,true);await setSave(exportSave(game,s));await page.reload();await page.locator('#summary-title').waitFor();}
  const complete=await read();await page.goto(origin+'/');await page.locator('#progress').filter({hasText:'completata'}).waitFor();assert.equal(await page.locator('#resume').isHidden(),true);assert.equal(await read(),complete);
  for(const raw of ['invalid JSON',JSON.stringify({saveSchemaVersion:1,gameId:'laika',contentVersion:'old',commands:[]})]){
-  await setSave(raw);const before=await read();await page.reload();await page.locator('#progress').filter({hasText:'non utilizzabile'}).waitFor();assert.equal(await page.locator('#resume').isHidden(),true);assert.equal(await read(),before);
-  await page.goto(origin+'/play.html?game=laika');await page.locator('#scene-title').waitFor();assert.equal(await page.locator('#raw').isVisible(),true);assert.equal(await read(),before);
-  await page.goto(origin+'/');await page.locator('#progress').filter({hasText:'non utilizzabile'}).waitFor();
+  await setSave(raw);const before=await read();await page.reload();await page.locator('#progress').filter({hasText:'non è più utilizzabile'}).waitFor();assert.equal(await page.locator('#resume').isHidden(),true);assert.equal(await read(),before);
+  await page.goto(origin+'/play.html?game=laika');await page.locator('#hub-title').waitFor();assert.equal(await page.locator('#raw').isVisible(),false);assert.match(await page.locator('#notice').innerText(),/Ricomincia/);assert.equal(await read(),before);
+  await page.goto(origin+'/');await page.locator('#progress').filter({hasText:'non è più utilizzabile'}).waitFor();
  }
  await page.goto(origin+'/play.html?game=biblioteca');await page.locator('#scene-title').waitFor();
  assert.equal(await page.locator('#pack-theme').count(),0);assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).getPropertyValue('--accent').trim()),'#355e59');
@@ -64,10 +64,10 @@ module.exports=async(browser,root,artifacts)=>{
   await route.fulfill({json:raw});
  });
  await page.evaluate(key=>localStorage.removeItem(key),key);
- await page.goto(origin+'/play.html?game=laika');await page.locator('.episode-context').waitFor();
+ await page.goto(origin+'/play.html?game=laika');for(let i=0;i<2;i++)await page.locator('[data-hub=go]:visible').click();await page.locator('.episode-context').waitFor();
  assert.match(await page.locator('.episode-context').innerText(),/<img/);assert.equal(await page.locator('.episode-context img').count(),0);
  await page.setViewportSize({width:1440,height:900});await page.goto(origin+'/');await page.locator('#resume').waitFor();await page.screenshot({path:path.join(artifacts,'p1-home-desktop.png'),fullPage:true});
  assert.deepEqual(errors,[]);await context.close();
- const noJs=await browser.newContext({javaScriptEnabled:false});const staticPage=await noJs.newPage();await staticPage.goto(origin+'/');assert.ok(await staticPage.getByRole('link',{name:'Esplora i laboratori dimostrativi'}).isVisible());await noJs.close();
+ const noJs=await browser.newContext({javaScriptEnabled:false});const staticPage=await noJs.newPage();await staticPage.goto(origin+'/');assert.ok(await staticPage.getByRole('link',{name:'Inizia il percorso'}).isVisible());await noJs.close();
  console.log('P1 PASS: routing, themes, text context, home read-only, resume/complete/incompatible, no-JS home.');
 };

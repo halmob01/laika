@@ -97,7 +97,7 @@ L'auditor analizza le domande nel formato descritto dalla skill: il manifest run
 
 ## P1 — collegamento tecnico LAIKA
 
-`index.html` è ora una home essenziale che dichiara gli atti in preparazione; il player generico è in `play.html`. I vecchi URL `index.html?game=...` e `/?game=...` inoltrano al player preservando query e frammento. I tre laboratori restano disponibili.
+`index.html` è la home LAIKA; il player generico è in `play.html`. Nei corsi con unità il player passa da pagina dell'atto, pagina dell'unità e chiusura (`docs/CREARE-UN-GIOCO.md`). I vecchi URL `index.html?game=...` e `/?game=...` inoltrano al player preservando query e frammento. I tre laboratori restano disponibili.
 
 `npm run build:laika` rigenera un pacchetto interno con due atti di prova, senza lezioni storiche. [Struttura authoring e comando di build](games/laika/README.md); [evidenze e handoff P1](docs/archivio/HANDOFF-P1.md). Il tema opzionale appartiene al registro; il riepilogo pubblico dei progressi non modifica i salvataggi. Grafica e contenuti restano alle fasi successive.
 

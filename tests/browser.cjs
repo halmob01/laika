@@ -60,4 +60,7 @@ const server=http.createServer((req,res)=>{const pathname=new URL(req.url,'http:
  await page.locator('#replay').click();assert.equal(Number(await page.locator('[data-layer=stock]').getAttribute('width')),72);
  console.log('Browser PASS: 2 pacchetti completi, geometria iniziale/intermedia/finale, identità DOM, reload, touch, 320/390/1280px, reduced motion.');
  }finally{if(browser)await browser.close();await new Promise(r=>server.close(r));}
-})().catch(e=>{console.error(e);process.exitCode=1});
+})().catch(e=>{console.error(e);
+ // In CI il messaggio compare anche come annotazione del controllo, leggibile senza scaricare i log.
+ if(process.env.GITHUB_ACTIONS)console.log('::error title=Test del browser ('+(process.env.KIT_BROWSER||'chromium')+')::'+String(e&&e.stack||e).slice(0,1500).replace(/%/g,'%25').replace(/\r/g,'%0D').replace(/\n/g,'%0A'));
+ process.exitCode=1;});
