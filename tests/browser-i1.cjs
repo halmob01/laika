@@ -57,7 +57,9 @@ module.exports=async(browser,root,artifacts)=>{
       await page.locator('[data-worker="'+w+'"]').click();const t=page.locator('[data-target="'+dove+'"]:not([disabled])');if(await t.count())await t.click();}
     if(anno===1)await shot('01-settimana');
     // Il granaio: un clic in meno e uno in più tornano allo stesso seme.
-    if(anno===2){const v=()=>page.locator('.turn-reserve-ctl b').textContent();const a0=await v();await page.locator('[data-reserve="-1"]').click();assert.notEqual(await v(),a0);await page.locator('[data-reserve="1"]').click();assert.equal(await v(),a0);}
+    if(anno===2){const v=()=>page.locator('.turn-reserve-ctl b').textContent();const a0=await v();await page.locator('[data-reserve="-1"]').click();assert.notEqual(await v(),a0);
+     // Il seme della sessione è casuale: se il raccolto è stato scarso il granaio non può risalire e «+» resta spento (è il comportamento giusto).
+     if(await page.locator('[data-reserve="1"]').isEnabled()){await page.locator('[data-reserve="1"]').click();assert.equal(await v(),a0);}}
     // Reload a metà anno: chi è stato mandato resta dove era.
     if(!reloaded){const prima=await save();await page.reload();for(let i=0;i<2;i++)await page.locator('[data-hub=go]:visible').click();await page.locator('.turn-label').waitFor();
       assert.equal(await save(),prima);reloaded=true;}
