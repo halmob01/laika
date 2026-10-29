@@ -28,7 +28,7 @@ module.exports=async(browser,root,artifacts)=>{
  const setSave=async raw=>{await page.evaluate(({key,raw})=>localStorage.setItem(key,raw),{key,raw});};
  await setSave(exportSave(game,newSession(game,'browser-p1')));
  const valid=await read();await page.goto(origin+'/');await page.locator('#resume').waitFor();assert.equal(await read(),valid);
- await page.locator('#resume').click();await page.locator('#scene-title').waitFor();
+ await page.locator('#resume').click();for(let i=0;i<2;i++)await page.locator('[data-hub=go]:visible').click();await page.locator('#scene-title').waitFor();
  assert.equal(await page.locator('#pack-theme').getAttribute('href'),'./site/laika/theme.css');
  assert.match(await page.locator('.episode-context').innerText(),/1700/);
  await page.evaluate(()=>Promise.all(document.getAnimations().map(a=>a.finished.catch(()=>{}))));
@@ -64,7 +64,7 @@ module.exports=async(browser,root,artifacts)=>{
   await route.fulfill({json:raw});
  });
  await page.evaluate(key=>localStorage.removeItem(key),key);
- await page.goto(origin+'/play.html?game=laika');await page.locator('.episode-context').waitFor();
+ await page.goto(origin+'/play.html?game=laika');for(let i=0;i<2;i++)await page.locator('[data-hub=go]:visible').click();await page.locator('.episode-context').waitFor();
  assert.match(await page.locator('.episode-context').innerText(),/<img/);assert.equal(await page.locator('.episode-context img').count(),0);
  await page.setViewportSize({width:1440,height:900});await page.goto(origin+'/');await page.locator('#resume').waitFor();await page.screenshot({path:path.join(artifacts,'p1-home-desktop.png'),fullPage:true});
  assert.deepEqual(errors,[]);await context.close();
