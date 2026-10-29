@@ -35,7 +35,7 @@ module.exports=async(browser,root,artifacts)=>{
  await page.screenshot({path:path.join(artifacts,'p1-player-mobile.png'),fullPage:true});
  while(await page.locator('[data-card=next]').count())await page.locator('[data-card=next]').click();
  await page.locator('[data-action=advance]').click();assert.match(await page.locator('#panel').innerText(),/Atto I/i);
- const saved=await read();await page.reload();await page.locator('#scene-title').waitFor();assert.equal(await read(),saved);
+ const saved=await read();await page.reload();for(let i=0;i<2;i++)await page.locator('[data-hub=go]:visible').click();await page.locator('#scene-title').waitFor();assert.equal(await read(),saved);
  // Salvataggio completo costruito con il runner pubblico (l'unità I.1 è percorsa per intero in browser-i1).
  {let s=newSession(game,'browser-p1');const {currentScene}=await import('../src/runner/index.js');
   for(let i=0;i<400&&!s.complete;i++){const e=currentScene(game,s);let a;
