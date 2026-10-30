@@ -1028,6 +1028,7 @@ Una mappa per chi scrive le scene. Le copie sono fuori dalla repository; si cerc
 
 Tutto con `CONTRATTO-KIT` e con l'epoca registrata. Rispetto alla v4.1 si aggiungono quelli degli Atti V–VII.
 
+- **I (aggiunti il 30 ottobre 2026, prompt in [PROMPT-ASSET-I2-I3](PROMPT-ASSET-I2-I3.md)):** per I.2 piazzale del villaggio con l'assemblea del mir, isba di chi presiede, pozzo, strisce di terra prima e dopo la divisione, registro dei pagamenti, covone; per I.3 angolo di stanza in affitto, dormitorio, cella, foglio con il razzo, pane, carbone, lettera con moneta.
 - **I:** interno di isba; dormitorio di fabbrica; sala da ballo; sala di San Giorgio; caserma; vagone imperiale; cella con finestrella; colonia militare con case in fila. Pose: in ginocchio; figura con icona; samovar; telegrafo; tazza smaltata.
 - **II:** Palazzo di Tauride in due ali; tribuna di strada; cancello di fabbrica; stazione di Finlandia; salone Kšesinskaja; palco di teatro; marinaio; bara rossa; carriola.
 - **III:** tenuta padronale; Smol'nyj; incrociatore generico; circo con poche lampadine; sala del Congresso; cupole di Mosca; vagone della delegazione; orologio di bronzo.
