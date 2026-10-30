@@ -139,7 +139,7 @@ A ogni avvio: verificare branch e modifiche locali, leggere eventuali AGENTS.md 
 1. Implementare le unità I.2, I.3 e I.4 con il gioco del repertorio §5.1 (I.2: decisioni sui gruppi nel mir; I.3: gestione del salario in più settimane; I.4: punti azione nelle giornate del soviet); le schede danno contenuti, fonti e regia. Per ogni unità produrre una scheda breve obiettivo → fonti → attività → effetti → trasformazione visiva → limiti.
 2. Calibrare i parametri del modello in una tabella, provare priorità sussistenza e priorità investimento. Almeno una conseguenza differita deve maturare e risultare comprensibile; non provocare dead end.
 3. Completare sei domande formative totali, esposizioni e feedback. Applicare la skill didattica se realmente disponibile; in alternativa fare review esplicita degli item senza dichiarare quel controllo eseguito.
-4. Preparare gli effetti differiti verso I.4 e I.5 senza simulare il completamento dell'atto.
+4. Preparare gli effetti differiti verso I.5 e I.6 senza simulare il completamento dell'atto.
 5. Controllare cronologia, anacronismi e fonti con reviewer distinto. Ogni feedback storico importante ha una fonte verificabile, non solo consenso fra modelli.
 
 **Accettazione:** unità I.1–I.3 complete, item formativi delle tre unità, asset coerenti, due itinerari provati, reload e diario funzionanti, nessun placeholder pubblico. Review storica Astra high su fonti/testo/item, non su una descrizione riassunta dall'autore.
@@ -148,13 +148,13 @@ A ogni avvio: verificare branch e modifiche locali, leggere eventuali AGENTS.md 
 
 > **29 ottobre 2026.** Numerazione nuova: I.5 «Pane e guerra» (ex I.4) e I.6 «Otto giorni» (ex I.5).
 
-**Modello:** Claude Sonnet 5.5 o GPT-6.1 Sol medium per dati e testi; Opus 5.5 o Sol high per il corteo del 1905 (I.3-e1), il soviet (I.3-e3) e il confronto finale (I.5-e5). **Dipendenza:** P4.
+**Modello:** Claude Sonnet 5.5 o GPT-6.1 Sol medium per dati e testi; Opus 5.5 o Sol high per il corteo del 1905 (I.4-e1), il soviet (I.4-e3) e il confronto finale (I.6-e5). **Dipendenza:** P4.
 
-**Leggere:** schede I.4 e I.5 di PIANO-ATTI, brief sezione 5 per la regia del corteo, fonti verificate, rig approvato e contratto del compositore.
+**Leggere:** schede I.5 e I.6 di PIANO-ATTI, brief sezione 5 per la regia del corteo, fonti verificate, rig approvato e contratto del compositore.
 
 **Azioni:**
 
-1. Realizzare le unità I.4 e I.5, le verifiche V5–V6 e il confronto finale dell'atto. Separare rigorosamente fatti, fonti e simulazione; controllare calendario, Duma e riforme.
+1. Realizzare le unità I.5 e I.6, le verifiche V5–V6 e il confronto finale dell'atto. Separare rigorosamente fatti, fonti e simulazione; controllare calendario, Duma e riforme.
 2. Creare il corteo del 1905 e l'assemblea come schede scena con le formazioni della bottega (`marcia`, `discorso`, `gruppo`) e le pose approvate. Usare dettagli pertinenti, non adattare una parata sovietica con una didascalia diversa.
 3. A1.2 deve avere aggregazione, coordinamento dei passi, gesto, cambio d'inquadratura e arresto narrativo; A1.3 ha almeno due composizioni finali corrispondenti agli esiti. Versioni statiche per reduced motion e reload.
 4. Testare il passaggio fra le unità e la fine dell'atto: reset delle variabili dove previsto, mantenimento diario/esposizioni secondo il contratto, nessuna eredità controfattuale spacciata per storia. Provare refresh prima e dopo l'avanzamento.

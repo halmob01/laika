@@ -98,7 +98,7 @@ La datazione di eventi russi deve dichiarare la convenzione adottata. Usare data
 
 Le sei domande per atto si distribuiscono 1+2+1+2 nelle quattro unità. Misurano nessi e limiti, non memoria di un numero modellistico. Ogni item ha obiettivo, esposizioni richieste, risposta, motivazione e spiegazione dei distrattori. Le domande sono esterne ai testi del motore e vengono assemblate dal build nel contratto esistente.
 
-## 4. Atto 0 — La terra e lo zar (ora Atto I, unità I.1–I.2)
+## 4. Atto 0 — La terra e lo zar (ora Atto I, unità I.1–I.3)
 
 Obiettivo complessivo: capire perché emancipazione giuridica, distribuzione della terra, istituzioni rurali e industrializzazione producono trasformazioni e tensioni differenti. Non raccontare una rivoluzione inevitabile.
 
@@ -115,7 +115,7 @@ L'esito di A0.1 deve ricomparire almeno una volta in A0.3 o A0.4. I due itinerar
 
 Terminare con un episodio `narrative` esplicito di confronto storico prima dell'avanzamento all'atto successivo: la proprietà `reconciliation` da sola non garantisce la pausa editoriale desiderata. Mostrare i fatti documentati accanto al riepilogo simulato; poi far avanzare il motore con il suo reset.
 
-## 5. Atto I — L'impero in crisi, 1904–1907 (ora Atto I, unità I.3)
+## 5. Atto I — L'impero in crisi, 1904–1907 (ora Atto I, unità I.4)
 
 Obiettivo: collegare guerra e crisi politica senza ridurre tutto alla guerra; distinguere petizione, protesta, sciopero, soviet, concessione costituzionale e limiti dell'autocrazia.
 

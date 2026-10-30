@@ -118,7 +118,7 @@ test('I.1: i flag non compaiono nelle variazioni mostrate e Legami è un indicat
   for (const p of e.projects) for (const id of Object.values(p.scene || {})) assert.ok(ids.has(id), 'disegno del lavoro mancante nella scena: ' + id);
 });
 
-test('I.2: la partita completa passa da mir, città, salario, razzo, corte e volantini fino alla V2', () => {
+test('I.2 e I.3: la partita completa passa da mir, città, salario, razzo, corte e volantini fino alla V2', () => {
   const r = play('solidale', 'i2', {check: true});
   const ids = game.acts[0].episodes.filter(e => e.id.startsWith('a1-u2-')).map(e => e.id);
   assert.deepEqual(ids, ['a1-u2-mir', 'a1-u2-citta', 'a1-u2-salario', 'a1-u2-razzo', 'a1-u2-corte', 'a1-u2-volantini', 'a1-u2-ricorda', 'a1-u2-e7']);
