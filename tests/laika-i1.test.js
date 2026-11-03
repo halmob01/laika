@@ -101,7 +101,7 @@ test('I.1: cinque strategie arrivano tutte al 1861 e pagano prezzi diversi (ness
 
 test('I.1: salvataggio rigiocato identico a ogni mossa; verifica formativa raggiungibile', () => {
   const r = play('solidale', 'salvataggio', {check: true});
-  assert.equal(r.s.assessmentResults.length, 2, 'una verifica per unità: V1 e V2');
+  assert.equal(r.s.assessmentResults.length, 4, 'una verifica per quesito: V1, V2, V3 e V4');
   const q = game.acts[0].episodes.find(e => e.type === 'assessment' && e.question.id === 'a1-v1').question;
   assert.deepEqual(q.requiredExposureFlags, ['a1-manifesto']);
   assert.ok(play('furbo', 'sbagliata', {answer: 'terra'}).s.complete);

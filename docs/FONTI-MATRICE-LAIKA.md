@@ -161,3 +161,5 @@ Non riscontrate: il testo per lo studente le tratta come simulazione.
 - Cronologia di dettaglio dei giorni dello sciopero di ottobre 1905 (17-19 ottobre usati solo come cornice).
 - Che cosa fecero i delegati del soviet giorno per giorno: personaggi e notizie sono inventati.
 - Domenica di sangue: data (22 gennaio 1905, 9 gennaio g.), petizione di Gapon e assenza dello zar dalla città. La scheda di PIANO-ATTI chiede di verificare ancora il passo del diario di Nicola, qui non usato.
+- Manifesto di ottobre, Leggi fondamentali del 1906 e scioglimento delle due Dume (e4): sintesi dagli appunti, dettagli e date da riscontrare.
+- Decreto di Stolypin del 1906: contenuto e data da riscontrare; la «cravatta di Stolypin» è nominata nella scheda di PIANO-ATTI.
