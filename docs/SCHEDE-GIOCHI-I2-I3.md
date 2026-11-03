@@ -1,6 +1,6 @@
 # Schede dei giochi di I.2 e I.3
 
-Versione 1 · 30 ottobre 2026 · **da approvare dal docente prima di scrivere il codice**.
+Versione 1 · 30 ottobre 2026 · **approvata dal docente il 3 novembre 2026** con le risposte in fondo.
 
 Regola di processo (29 ottobre 2026): una scheda di una pagina per ogni gioco, approvata prima della costruzione. Le due schede applicano [REPERTORIO](REPERTORIO-GIOCHI-LAIKA.md) §2 (regole comuni), §3.1 (gestione), §3.2 (decisioni sui gruppi) e §5.1 (tabella delle unità). Le schede degli episodi restano in [PIANO-ATTI](PIANO-ATTI-LAIKA.md).
 
@@ -90,7 +90,16 @@ Tutti i numeri sono indici della simulazione, non statistiche storiche. I fatti 
 
 ---
 
-## Domande aperte per il docente
+## Scelte del docente (3 novembre 2026)
+
+1. **Il mir:** il giocatore è il capofamiglia più ascoltato del villaggio, non lo starosta (ruolo non ancora riscontrato).
+2. **Il razzo e la corte:** restano episodi narrativi dopo il salario.
+3. **Il disegno dell'angolo di stanza:** lo disegna l'agente secondo il contratto dei kit, insieme agli altri pezzi di [PROMPT-ASSET-I2-I3](PROMPT-ASSET-I2-I3.md).
+4. **Il corso serale:** sì, come premio piccolo: sblocca una riga in più nei volantini, nessun punto.
+
+Il docente ha chiesto anche di lavorare in autonomia: l'agente unisce da solo le PR con test e CI verdi e prosegue con le unità successive secondo il piano approvato.
+
+## Domande aperte per il docente (chiuse il 3 novembre)
 
 1. **Il mir:** il giocatore è lo starosta (da riscontrare) o il capofamiglia più ascoltato?
 2. **Il razzo e la corte:** restano episodi narrativi dopo il salario (come oggi) o diventano «notizie» del gioco? La seconda scelta li lega a una sola data e li accorcia: la proposta è lasciarli come sono.
