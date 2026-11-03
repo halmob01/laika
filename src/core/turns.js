@@ -73,8 +73,14 @@ function cardsSpec(cards, stages, where, act) {
 export const STEP_PHASES = ['cards', 'place', 'result', 'event', 'market'];
 const point = (x, y) => Number.isFinite(x) && Number.isFinite(y) && x >= 0 && x <= 1 && y >= 0 && y <= 1;
 export function validateTurnGame(e, act, stages) {
-  const places = unique(e.places, 'Posti', 2);
-  for (const p of e.places) {
+  // Partita di sole decisioni (nessun posto): ogni turno è una richiesta con le sue risposte, niente pedine né sorte dei posti.
+  const decisioni = e.places === undefined;
+  if (decisioni) {
+    for (const k of ['tokens', 'tokensDelta', 'workers', 'projects', 'reserve', 'control', 'luck', 'upkeep', 'rules']) assert(e[k] === undefined, 'Una partita di sole decisioni non usa: ' + k);
+    assert(Array.isArray(e.turns) && e.turns.every(t => t && t.event), 'Ogni turno di una partita di sole decisioni ha una richiesta (event)');
+  }
+  const places = decisioni ? new Set() : unique(e.places, 'Posti', 2);
+  for (const p of e.places || []) {
     assert(text(p.label) && point(p.x, p.y), 'Posto non valido: ' + p.id);
     mutations(p.perToken, act); assert(p.perToken.every(m => m.kind !== 'flag'), 'Effetti per pedina solo numerici');
     if (p.max !== undefined) assert(Number.isInteger(p.max) && p.max >= 0, 'Massimo del posto non valido');
@@ -95,8 +101,10 @@ export function validateTurnGame(e, act, stages) {
     assert(e.tokens === undefined, 'Con le persone il numero di pedine non si dichiara');
     assert(text(e.strengthLabel), 'Nome della forza mancante');
     if (e.strengthOne !== undefined) assert(text(e.strengthOne), 'Nome della forza al singolare vuoto');
-  } else assert(Number.isInteger(e.tokens) && e.tokens >= 1 && e.tokens <= 12, 'Pedine non valide');
-  assert(text(e.tokenLabel), 'Nome delle pedine mancante');
+  } else if (!decisioni) assert(Number.isInteger(e.tokens) && e.tokens >= 1 && e.tokens <= 12, 'Pedine non valide');
+  if (!decisioni) assert(text(e.tokenLabel), 'Nome delle pedine mancante');
+  // Parole della partita: come si chiama un turno («anno», «assemblea», «settimana») e i testi dei pulsanti.
+  for (const k of ['turnWord', 'confirmLabel', 'nextLabel', 'luckLabel', 'luckResultLabel', 'upkeepHint']) if (e[k] !== undefined) assert(text(e[k]) && e[k].length <= 40, 'Parola della partita non valida: ' + k);
   // Nomi delle fasi per la barra dei passi e giudizi dell'anno (il primo che vale).
   if (e.phaseLabels !== undefined) { assert(e.phaseLabels && typeof e.phaseLabels === 'object' && Object.entries(e.phaseLabels).every(([k, v]) => STEP_PHASES.includes(k) && text(v)), 'Nomi delle fasi non validi'); }
   if (e.previewLabel !== undefined) assert(text(e.previewLabel) && e.previewLabel.length <= 40, 'Etichetta delle voci non valida');
@@ -124,13 +132,13 @@ export function validateTurnGame(e, act, stages) {
     if (r.text !== undefined) assert(text(r.text), 'Testo della riserva vuoto');
   }
   mutations(e.upkeep || [], act);
-  unique(e.luck, 'Imprevisti', 1);
-  for (const l of e.luck) {
+  if (!decisioni) unique(e.luck, 'Imprevisti', 1);
+  for (const l of e.luck || []) {
     assert(text(l.label) && Number.isFinite(l.weight) && l.weight > 0, 'Imprevisto non valido');
     for (const [p, m] of Object.entries(l.yield || {})) assert(places.has(p) && Number.isFinite(m) && m >= 0, 'Resa dell\'imprevisto non valida');
   }
   if (e.control !== undefined) {
-    assert(text(e.control.text) && (e.control.label === undefined || text(e.control.label)), 'Controllo senza testo'); chanceSpec(e.control.chance, act, 'Controllo'); mutations(e.control.effects || [], act);
+    assert(text(e.control.text) && (e.control.label === undefined || text(e.control.label)), 'Controllo senza testo'); if (e.control.escaped !== undefined) assert(text(e.control.escaped), 'Testo del controllo mancato vuoto'); chanceSpec(e.control.chance, act, 'Controllo'); mutations(e.control.effects || [], act);
     // Effetti moltiplicati per ogni pedina mancante rispetto agli obblighi: chi salta di più paga di più.
     if (e.control.perMissing !== undefined) { mutations(e.control.perMissing, act); assert(e.control.perMissing.every(m => m.kind !== 'flag'), 'Controllo: effetti per pedina mancante solo numerici'); }
   }
@@ -196,7 +204,7 @@ export function workersOf(e, g) {
 const strengthOf = (e, g, workerId) => workersOf(e, g).find(w => w.id === workerId)?.strength || 0;
 // Dove si può mandare qualcuno quest'anno: posti disponibili e lavori aperti.
 export function targetsOf(e, g, state) {
-  const places = e.places.filter(p => !p.when || matches(p.when, state)).map(p => ({ ...p, kind: 'place' }));
+  const places = (e.places || []).filter(p => !p.when || matches(p.when, state)).map(p => ({ ...p, kind: 'place' }));
   const projects = (e.projects || []).filter(p => !g.built.includes(p.id) && (g.started.includes(p.id) || !p.when || matches(p.when, state))).map(p => ({ ...p, kind: 'project' }));
   return [...places, ...projects];
 }
@@ -217,11 +225,13 @@ function enterTurn(e, g, state, act) {
     const ok = new Set(targetsOf(e, g, state).map(x => x.id)), here = new Set(workersOf(e, g).map(w => w.id));
     g.assign = Object.fromEntries(Object.entries(g.assign).filter(([w, p]) => here.has(w) && ok.has(p)));
     recount(e, g);
-  } else g.placement = Object.fromEntries(e.places.map(p => [p.id, 0]));
+  } else g.placement = Object.fromEntries((e.places || []).map(p => [p.id, 0]));
   if (e.reserve && state) g.reserve = Math.min(g.reserve, state.resources[e.reserve.from]);
   g.card = 0; g.result = null; g.eventResult = null; g.market = null;
-  g.phase = g.cardList.length ? 'cards' : 'place';
+  g.phase = g.cardList.length ? 'cards' : afterCards(e);
 }
+// Dopo le card: si piazza (con i posti) oppure si risponde alla richiesta (partita di sole decisioni).
+const afterCards = e => (e.places ? 'place' : 'event');
 export function initGame(e, state, act) {
   const g = { episodeId: e.id, turn: 0, phase: 'place', card: 0, placement: {}, assign: {}, progress: {}, started: [], built: [], reserve: e.reserve?.start ?? 0, bought: [], market: null,
     rules: mergeRules({ tokens: e.tokens ?? 0, min: {}, places: {}, upkeep: [] }, e.rules), fired: [], result: null, eventResult: null };
@@ -311,7 +321,7 @@ export function turnAction(act, e, previous, action, seed) {
   switch (action.step) {
     case 'card':
       assert(g.phase === 'cards', 'Non ci sono card da leggere');
-      g.card++; if (g.card >= cardCount(e, g)) { g.phase = 'place'; g.card = cardCount(e, g) - 1; }
+      g.card++; if (g.card >= cardCount(e, g)) { g.phase = afterCards(e); g.card = cardCount(e, g) - 1; }
       break;
     case 'back':
       assert(g.phase === 'cards' && g.card > 0, 'Nessuna card precedente');

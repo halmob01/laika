@@ -140,8 +140,8 @@ Questa tabella è il riferimento unico per il gioco di un'unità: **prevale sul 
 | Unità | Periodo | Gioco | Stato |
 |---|---|---|---|
 | I.1 Anime e semidei | 1700–1861 | gestione (la settimana del servo) con decisioni sui gruppi | approvato; in `main` (#13), da provare dal telefono |
-| I.2 La terra dopo il Manifesto | 1861–1904 | decisioni sui gruppi (l'assemblea del mir) | approvato il 29 ottobre 2026 (I.2 spezzata in due: la terra e il villaggio). In `main` c'è una **bozza non conforme**: il mir è una scelta semplice. Da rifare |
-| I.3 In città | fine Ottocento–1904 | gestione (il salario, più settimane) | approvato il 29 ottobre 2026. Raccoglie «In città», il salario, il razzo del condannato, la corte e i tre volantini. In `main` c'è una **bozza non conforme**: salario come distribuzione unica. Da rifare |
+| I.2 La terra dopo il Manifesto | 1861–1904 | decisioni sui gruppi (l'assemblea del mir) | approvato il 29 ottobre 2026 (I.2 spezzata in due: la terra e il villaggio). **costruito il 3 novembre 2026** secondo la [scheda](SCHEDE-GIOCHI-I2-I3.md): otto assemblee, quattro gruppi, partita di sole decisioni; giocatore: il capofamiglia più ascoltato (lo starosta resta da riscontrare) |
+| I.3 In città | fine Ottocento–1904 | gestione (il salario, più settimane) | approvato il 29 ottobre 2026. Raccoglie «In città», il salario, il razzo del condannato, la corte e i tre volantini. salario **costruito il 3 novembre 2026**: otto settimane, otto monete, quattro indicatori, corso serale che sblocca una riga nei volantini; il razzo e la corte restano episodi narrativi dopo il gioco |
 | I.4 Il 1905 | 1905–1907 | punti azione (le giornate del soviet) | approvato (prima si chiamava I.3) |
 | I.5 Pane e guerra | 1914–1916 | quanto serve e quanto c'è (grano, treni, città), prime code | approvato (prima I.4) |
 | I.6 Otto giorni | marzo 1917 | code che diventano corteo, poi punti azione (il soldato che non spara) | approvato (prima I.5) |

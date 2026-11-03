@@ -139,6 +139,12 @@ Con questi campi la partita diventa una gestione: le pedine sono persone, alcuni
 - Le risposte di chi bussa accettano `when`: se la condizione è falsa la risposta resta visibile ma non si può scegliere.
 - `upkeepLabel`, `yearlyLabel`, `crisisLabel` e `control.label` danno il nome alle voci dell'esito: il player mostra, per ogni anno, da dove viene ogni variazione (`result.steps`) e poi il totale.
 
+#### Partita di sole decisioni e parole della partita (facoltative)
+
+- **Sole decisioni.** Un `turn_game` senza `places` è una partita di decisioni sui gruppi: ogni turno è una richiesta (`event`) con le sue risposte; non ci sono pedine, posti, sorte dei posti, controllo né mantenimento. Dopo le card si passa subito alla richiesta, poi all'esito della risposta (con le crisi, che scattano una sola volta ciascuna) e al turno dopo. Il contratto rifiuta `tokens`, `workers`, `projects`, `reserve`, `control`, `luck`, `upkeep` e `rules` in questa forma, e un turno senza `event`. Le metriche sono i gruppi; le crisi (`when`, `effects`) sono le soglie. Una risposta può avere una `chance` con `success` e `failure`: la probabilità è scritta nel pulsante prima di scegliere.
+- **Parole.** `turnWord` (come si chiama un turno: «anno», «assemblea», «settimana»; il player scrive «assemblea 3 di 8»), `confirmLabel` (il pulsante che chiude la mossa), `nextLabel` (dopo l'esito di chi bussa), `luckLabel` e `luckResultLabel` (come si chiama l'imprevisto prima e dopo), `upkeepHint` (la riga del mantenimento) e `control.escaped` (il testo quando il controllo non scatta). Tutti facoltativi, al massimo 40 caratteri; senza di loro vale il testo di I.1.
+- Provata in `tests/turns.test.js` («decisioni: …»).
+
 #### Capire il gioco: obiettivo, passi, verso degli indicatori, esito (facoltativi)
 
 - `goal` (ogni episodio): una riga, al massimo 140 caratteri, mostrata sempre accanto alla scena («Obiettivo: …»). Dice perché si gioca, non come.

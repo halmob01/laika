@@ -144,3 +144,12 @@ Stato: bozza scritta da Sonnet 5.5. **Nessuna voce è stata riscontrata da una s
 | I2-12 / ricorda | Nel 1904 la sconfitta contro il Giappone si somma al malcontento già presente | Appunti, stessa sezione («1904 sconfitta ... mari giapponesi») | Localizzato |
 
 Salario della settimana (a1-u2-salario): simulazione [S], senza dati storici.
+
+## Voci aperte dai giochi di I.2 e I.3 (3 novembre 2026)
+
+Nessuna è stata riscontrata: i giochi le trattano come simulazione e il testo per lo studente non le dà come dati.
+
+- Ridistribuzione periodica delle strisce nel mir e poteri dello starosta (I.2).
+- Multe del caposquadra in fabbrica (I.3).
+- Negozio della fabbrica che vende a credito (I.3).
+- Stanza in affitto a Pietroburgo e relativo costo (I.3).

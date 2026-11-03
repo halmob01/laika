@@ -1,6 +1,6 @@
 # Schede dei giochi di I.2 e I.3
 
-Versione 1 · 30 ottobre 2026 · **approvata dal docente il 3 novembre 2026** con le risposte in fondo.
+Versione 1 · 30 ottobre 2026 · **approvata dal docente il 3 novembre 2026** con le risposte in fondo · **costruita lo stesso giorno** (motore: partita di sole decisioni; contenuti in `games/laika/source/acts/atto-1.json`). Scostamenti dalla scheda: il giocatore del mir è il capofamiglia; i dati marcati [da riscontrare] (strisce ridistribuite, multe, negozio a credito) non compaiono come fatti nel testo per lo studente.
 
 Regola di processo (29 ottobre 2026): una scheda di una pagina per ogni gioco, approvata prima della costruzione. Le due schede applicano [REPERTORIO](REPERTORIO-GIOCHI-LAIKA.md) §2 (regole comuni), §3.1 (gestione), §3.2 (decisioni sui gruppi) e §5.1 (tabella delle unità). Le schede degli episodi restano in [PIANO-ATTI](PIANO-ATTI-LAIKA.md).
 

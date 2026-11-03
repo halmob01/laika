@@ -221,3 +221,54 @@ test('gestione: le persone portano la loro forza, i lavori finiscono e restano, 
   assert.equal(s.currentAct.phase, 'outcome');
   assert.deepEqual(replay(g, s.ledger, 'seme-g').currentAct, s.currentAct);
 });
+
+// ---------- partita di sole decisioni (nessun posto): ogni turno è una richiesta con le sue risposte ----------
+const decisioni = () => ({
+  id: 'd', type: 'turn_game', roleId: 'r', title: 'Assemblea di prova', text: 'Decidi.', stageId: 'tavola', turnWord: 'riunione', nextLabel: 'La riunione dopo',
+  feedback: 'Fine delle riunioni.',
+  crises: [{ id: 'rottura', when: { op: 'lte', kind: 'metric', id: 'pazienza', value: 10 }, text: 'Qualcuno se ne va.', effects: [{ kind: 'resource', id: 'cibo', delta: -10 }] }],
+  turns: [
+    { label: 'Prima', cards: [{ text: 'Una notizia.' }], event: { who: 'Una madre', text: 'Chiede più terra.', choices: [
+      { id: 'si', label: 'Darle ragione', text: 'Ha più terra.', effects: [{ kind: 'metric', id: 'pazienza', delta: -45 }] },
+      { id: 'rischio', label: 'Un campo in comune', chance: { base: 0.5 }, success: { text: 'Rende bene.', effects: [{ kind: 'resource', id: 'cibo', delta: 10 }] }, failure: { text: 'Rende poco.', effects: [{ kind: 'metric', id: 'pazienza', delta: -5 }] } }
+    ] } },
+    { label: 'Seconda', event: { who: 'Un anziano', text: 'Teme di perdere il lotto.', choices: [{ id: 'no', label: 'Lasciare com’è', text: 'Resta com’è.' }, { id: 'meta', label: 'A metà', text: 'Metà e metà.' }] } }
+  ]
+});
+const giocoDecisioni = () => { const g = gioco(); g.acts[0].episodes[0] = decisioni(); return g; };
+
+test('decisioni: una partita senza posti passa da card a richiesta a esito e finisce', () => {
+  const g = giocoDecisioni(); validateGame(g);
+  let s = newSession(g, 'seme-d');
+  assert.equal(s.currentAct.game.phase, 'cards');
+  s = t(g, s, 'card');
+  assert.equal(s.currentAct.game.phase, 'event', 'dopo le card si va alla richiesta, non al piazzamento');
+  assert.throws(() => t(g, s, 'place', { placeId: 'orto', delta: 1 }), /piazzare|momento/);
+  assert.throws(() => t(g, s, 'confirm'), /Non|momento|tutte/);
+  s = t(g, s, 'choose', { choiceId: 'si' });
+  assert.equal(s.currentAct.game.eventResult.text, 'Ha più terra.');
+  assert.ok(s.currentAct.game.eventResult.crises.some(c => c.id === 'rottura'), 'la crisi scatta dopo la risposta');
+  s = t(g, s, 'continue');
+  assert.equal(s.currentAct.game.turn, 1);
+  assert.equal(s.currentAct.game.phase, 'event', 'senza card si va subito alla richiesta');
+  s = t(g, s, 'choose', { choiceId: 'meta' }); s = t(g, s, 'continue');
+  assert.equal(s.currentAct.phase, 'outcome'); assert.equal(s.currentAct.last.feedback, 'Fine delle riunioni.');
+});
+
+test('decisioni: salvataggio rigiocato e contratto', () => {
+  const g = giocoDecisioni();
+  let s = newSession(g, 'seme-e');
+  s = t(g, s, 'card'); s = t(g, s, 'choose', { choiceId: 'rischio' });
+  const prima = JSON.stringify(s.currentAct.game.eventResult);
+  const back = restore(g, exportSave(g, s));
+  assert.equal(back.ok, true);
+  assert.equal(JSON.stringify(replay(g, s.ledger, 'seme-e').currentAct.game.eventResult), prima);
+  const casi = [
+    x => { x.acts[0].episodes[0].tokens = 3; },
+    x => { x.acts[0].episodes[0].luck = [{ id: 'l', label: 'L', weight: 1 }]; },
+    x => { delete x.acts[0].episodes[0].turns[1].event; },
+    x => { x.acts[0].episodes[0].turnWord = ''; },
+    x => { x.acts[0].episodes[0].nextLabel = 'x'.repeat(41); }
+  ];
+  for (const c of casi) { const x = giocoDecisioni(); c(x); assert.throws(() => validateGame(x)); }
+});
