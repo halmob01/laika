@@ -1128,6 +1128,132 @@
    "epoca": "San Pietroburgo/Pietrogrado, dal 1789; esterno adatto al 1906-1917.",
    "fonte": "prototypes/kit-primavera-1917/kit-primavera-1917.html#palazzo_tauride",
    "note": "Facciata neoclassica dedicata: portico centrale dorico a sei colonne, timpano triangolare, cupola bassa e ali collegate da gallerie. Non riusa luogo-palazzo barocco. Fonte tipologica: portale del Ministero della cultura, https://www.culture.ru/institutes/13668/tavricheskii-dvorec; Saint Petersburg Encyclopaedia, https://www.encspb.ru/object/2804004262?lc=en (risultati consultati il 23 ottobre 2026). Proporzioni, finestre e dettagli del 1917 non rilevati metricamente; manca confronto con una fotografia datata. Riferimenti narrativi: piano II.1-e3 e II.2/II.5. Scala figure 0,35-0,6."
+  },
+  {
+   "id": "mir-piazzale",
+   "famiglia": "villaggio-mir",
+   "nome": "Piazzale del villaggio",
+   "stato": "bozza",
+   "epoca": "Russia europea centrale, 1861-1904: isbe di tronchi con tetto di assicelle o di paglia, chiesa di legno lontana, campi a strisce; archetipo generico, nessuna scritta.",
+   "fonte": "prototypes/kit-villaggio-mir/kit-villaggio-mir.html#mir_piazzale",
+   "note": "Larghezza 1240, figure a scala 1-1,2 nella fascia y 330-400, centro libero per il cerchio dell'assemblea. Parti con id: fumo-1, fumo-2, betulla-1, betulla-2. Disegnato dall'agente il 3 novembre 2026; da approvare dal docente."
+  },
+  {
+   "id": "mir-isba-presidente",
+   "famiglia": "villaggio-mir",
+   "nome": "Isba di chi presiede",
+   "stato": "bozza",
+   "epoca": "Russia europea centrale, 1861-1904: isba piu' grande con portico rialzato; l'assemblea all'aperto davanti alla casa di chi presiede e' da riscontrare (Fitzpatrick, Lewin).",
+   "fonte": "prototypes/kit-villaggio-mir/kit-villaggio-mir.html#mir_isba_presidente",
+   "note": "Parti con id: porta, fumo. Da approvare dal docente."
+  },
+  {
+   "id": "mir-pozzo",
+   "famiglia": "villaggio-mir",
+   "nome": "Pozzo a bilanciere",
+   "stato": "bozza",
+   "epoca": "Campagna russa dell'Ottocento: pozzo a bilanciere; archetipo.",
+   "fonte": "prototypes/kit-villaggio-mir/kit-villaggio-mir.html#mir_pozzo",
+   "note": "Parti con id: bilanciere, secchio. Da approvare dal docente."
+  },
+  {
+   "id": "mir-strisce-prima",
+   "famiglia": "villaggio-mir",
+   "nome": "Strisce prima della divisione",
+   "stato": "bozza",
+   "epoca": "Illustrazione di un campo diviso in strisce di larghezza diversa; la ridistribuzione periodica nel mir e' da riscontrare.",
+   "fonte": "prototypes/kit-villaggio-mir/kit-villaggio-mir.html#mir_strisce_prima",
+   "note": "Stessa inquadratura di mir-strisce-dopo. Da approvare dal docente."
+  },
+  {
+   "id": "mir-strisce-dopo",
+   "famiglia": "villaggio-mir",
+   "nome": "Strisce dopo la divisione",
+   "stato": "bozza",
+   "epoca": "Lo stesso campo dopo una nuova divisione; i paletti spostati sono rossi.",
+   "fonte": "prototypes/kit-villaggio-mir/kit-villaggio-mir.html#mir_strisce_dopo",
+   "note": "Stessa inquadratura di mir-strisce-prima. Da approvare dal docente."
+  },
+  {
+   "id": "mir-registro",
+   "famiglia": "villaggio-mir",
+   "nome": "Registro dei pagamenti",
+   "stato": "bozza",
+   "epoca": "Villaggio russo dopo il 1861: registro e cassetta dei pagamenti dovuti dal villaggio; nessun testo leggibile.",
+   "fonte": "prototypes/kit-villaggio-mir/kit-villaggio-mir.html#mir_registro",
+   "note": "Oggetto piccolo; rappresenta la cassa del riscatto. Da approvare dal docente."
+  },
+  {
+   "id": "mir-covone",
+   "famiglia": "villaggio-mir",
+   "nome": "Covone",
+   "stato": "bozza",
+   "epoca": "Archetipo agricolo.",
+   "fonte": "prototypes/kit-villaggio-mir/kit-villaggio-mir.html#mir_covone",
+   "note": "Oggetto piccolo. Da approvare dal docente."
+  },
+  {
+   "id": "citta-angolo-stanza",
+   "famiglia": "interni-citta",
+   "nome": "Angolo di stanza in affitto",
+   "stato": "bozza",
+   "epoca": "Pietroburgo, 1890-1904: stanza in affitto con letto di ferro, baule, lampada a petrolio, stufetta a legna e tenda di tela; fuori le ciminiere; archetipo.",
+   "fonte": "prototypes/kit-interni-citta/kit-interni-citta.html#citta_angolo_stanza",
+   "note": "Interno per figure a scala 2,2-2,4. Parti con id: fiamma, fumo, tenda. Disegnato dall'agente il 3 novembre 2026; da approvare dal docente."
+  },
+  {
+   "id": "citta-dormitorio",
+   "famiglia": "interni-citta",
+   "nome": "Dormitorio di fabbrica",
+   "stato": "bozza",
+   "epoca": "Citta' industriale russa, 1890-1904: cuccette a due piani, lampada a petrolio; archetipo.",
+   "fonte": "prototypes/kit-interni-citta/kit-interni-citta.html#citta_dormitorio",
+   "note": "Parti con id: lampada, fiamma. Da approvare dal docente."
+  },
+  {
+   "id": "citta-cella",
+   "famiglia": "interni-citta",
+   "nome": "Cella con finestrella",
+   "stato": "bozza",
+   "epoca": "Prigione russa dell'Ottocento: muro di blocchi, finestrella con sbarre, porta con spioncino; nessuna scritta.",
+   "fonte": "prototypes/kit-interni-citta/kit-interni-citta.html#citta_cella",
+   "note": "Parti con id: cielo, luce. Per la scena del razzo del condannato (I.3). Da approvare dal docente."
+  },
+  {
+   "id": "citta-foglio-razzo",
+   "famiglia": "interni-citta",
+   "nome": "Foglio con il disegno di un razzo",
+   "stato": "bozza",
+   "epoca": "Ricostruzione di fantasia dello stile di un disegno ottocentesco; NON e' una copia del progetto di Kibalcic ne' di altri documenti.",
+   "fonte": "prototypes/kit-interni-citta/kit-interni-citta.html#citta_foglio_razzo",
+   "note": "Parti con id: foglio, razzo. Seme del filo «il cielo». Da approvare dal docente."
+  },
+  {
+   "id": "citta-pane",
+   "famiglia": "interni-citta",
+   "nome": "Tavolo con il pane",
+   "stato": "bozza",
+   "epoca": "Archetipo domestico: pane nero, ciotola, cucchiaio di legno.",
+   "fonte": "prototypes/kit-interni-citta/kit-interni-citta.html#citta_pane",
+   "note": "Icona del posto «Pane» del gioco del salario. Da approvare dal docente."
+  },
+  {
+   "id": "citta-carbone",
+   "famiglia": "interni-citta",
+   "nome": "Stufetta e secchio di carbone",
+   "stato": "bozza",
+   "epoca": "Archetipo domestico: stufetta bassa e secchio di carbone.",
+   "fonte": "prototypes/kit-interni-citta/kit-interni-citta.html#citta_carbone",
+   "note": "Icona del posto «Carbone». Parte con id: fumo. Da approvare dal docente."
+  },
+  {
+   "id": "citta-lettera",
+   "famiglia": "interni-citta",
+   "nome": "Lettera con moneta",
+   "stato": "bozza",
+   "epoca": "Archetipo: busta con sigillo rosso e una moneta.",
+   "fonte": "prototypes/kit-interni-citta/kit-interni-citta.html#citta_lettera",
+   "note": "Icona del posto «Villaggio» (soldi a casa). Da approvare dal docente."
   }
  ],
  "da_fare": [
@@ -1142,7 +1268,13 @@
     "lavandaia: corpo donna, gonna da lavoro con grembiule e fazzoletto",
     "vetturino: soprabito da lavoro con cintura e copricapo da verificare"
    ],
-   "gia_presenti": ["donna", "vestito", "scialle", "cappotto", "bastone"],
+   "gia_presenti": [
+    "donna",
+    "vestito",
+    "scialle",
+    "cappotto",
+    "bastone"
+   ],
    "note": "Proposte senza disegni. Gli abiti esistenti sono generici: mancano grembiule, fazzoletto e soprabito con cintura. Non certificano questi mestieri. Verificare fogge e accessori prima di disegnarli."
   },
   {

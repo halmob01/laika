@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit villaggio e assemblea del mir (bottega)</title>
+<style>
+  body { margin: 0; font-family: monospace; background: #dcdcd8; color: #161614; }
+  h1 { font-size: 14px; margin: 12px 16px; }
+  #griglia { display: grid; grid-template-columns: repeat(auto-fill, minmax(520px, 1fr)); gap: 12px; padding: 0 16px 16px; }
+  figure { margin: 0; border: 1px solid #b4b6b3; background: #f6f1e3; }
+  figcaption { font-size: 12px; padding: 4px 8px; border-top: 1px solid #b4b6b3; }
+  svg { display: block; width: 100%; height: 300px; }
+</style>
+</head>
+<body>
+<h1>Kit villaggio e assemblea del mir (bottega): anteprima</h1>
+<div id="griglia"></div>
+<script>
+// Kit per la bottega: villaggio contadino e assemblea del mir per l'unita' I.2 di LAIKA (1861-1904).
+// Rispetta bottega/CONTRATTO-KIT.md. Tutti i pezzi poggiano su GROUND_Y e sono centrati in x = 0.
+// Stile: lo stesso tratto a mano dei kit ambienti e luoghi monumentali, generato in modo deterministico.
+// Scala: mir_piazzale (1240 di larghezza) accoglie figure a scala 1-1,2 nella fascia y 330-400;
+// gli oggetti sono piu' piccoli e dichiarano la larghezza nella voce (campo width).
+// Coerenza storica (epoca e luogo nel catalogo di bottega):
+// - mir_piazzale: villaggio della Russia europea centrale fra 1861 e 1904; isbe di tronchi con tetto
+//   di assicelle o di paglia, chiesa di legno lontana con cupola a cipolla, campi a strisce;
+//   archetipo generico, nessuna insegna, nessuna scritta, nessun simbolo.
+// - mir_isba_presidente: isba piu' grande con portico rialzato dove si colloca chi presiede
+//   l'assemblea; la scelta di far parlare l'assemblea all'aperto davanti alla casa di chi presiede
+//   e' una semplificazione da riscontrare sulle fonti (Fitzpatrick, Lewin). Archetipo.
+// - mir_pozzo: pozzo a bilanciere (zhuravl'), tipico della campagna russa dell'Ottocento.
+// - mir_strisce_prima e mir_strisce_dopo: lo stesso campo visto obliquamente prima e dopo una
+//   nuova divisione delle strisce; i paletti spostati sono in rosso. Disegno illustrativo, non una
+//   mappa catastale; la ridistribuzione periodica delle strisce nel mir e' da riscontrare.
+// - mir_registro: registro e cassetta per i pagamenti dovuti dal villaggio; nessun testo leggibile.
+// - mir_covone: covone legato; archetipo agricolo.
+
+const C = {
+  bg: '#f6f1e3', p2: '#ece5d3', ink: '#161614', red: '#e02a1b', sand: '#decba8',
+  cLight: '#c9d6df', cMid: '#8ea8b8', cDark: '#4f6b7c', sky: '#b8cbd8', tree: '#97b0c0'
+};
+const GROUND_Y = 400;
+const f1 = n => (Math.round(n * 10) / 10).toString();
+const arco = (x, w, top, base) => `M ${f1(x - w / 2)} ${base} L ${f1(x - w / 2)} ${f1(top + w / 2)} A ${f1(w / 2)} ${f1(w / 2)} 0 0 1 ${f1(x + w / 2)} ${f1(top + w / 2)} L ${f1(x + w / 2)} ${base} Z`;
+// Generatore pseudo-casuale deterministico (mulberry32).
+function rng(seed) {
+  let a = seed >>> 0;
+  return function () {
+    a = (a + 0x6D2B79F5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+// --- Strumenti del tratto (gli stessi del kit luoghi monumentali) ------------------------
+function linea(pts, r, amp = 0.8, passo = 22) {
+  let d = '';
+  for (let i = 0; i < pts.length - 1; i++) {
+    const [x1, y1] = pts[i], [x2, y2] = pts[i + 1];
+    const L = Math.hypot(x2 - x1, y2 - y1) || 1, n = Math.max(1, Math.round(L / passo));
+    const nx = -(y2 - y1) / L, ny = (x2 - x1) / L;
+    for (let k = i === 0 ? 0 : 1; k <= n; k++) {
+      const t = k / n, j = (r() - 0.5) * 2 * amp * (k === 0 || k === n ? 0.5 : 1);
+      d += (d ? ' L ' : 'M ') + f1(x1 + (x2 - x1) * t + nx * j) + ' ' + f1(y1 + (y2 - y1) * t + ny * j);
+    }
+  }
+  return d;
+}
+function riga(x1, y1, x2, y2, r, amp = 0.8, sborda = 3) {
+  const L = Math.hypot(x2 - x1, y2 - y1) || 1, ux = (x2 - x1) / L, uy = (y2 - y1) / L;
+  const a = sborda * r(), b = sborda * r();
+  return linea([[x1 - ux * a, y1 - uy * a], [x2 + ux * b, y2 + uy * b]], r, amp);
+}
+function bordo(x, y, w, h, r, amp = 0.8, sborda = 3) {
+  return [riga(x, y, x + w, y, r, amp, sborda), riga(x + w, y, x + w, y + h, r, amp, sborda),
+    riga(x + w, y + h, x, y + h, r, amp, sborda), riga(x, y + h, x, y, r, amp, sborda)].join(' ');
+}
+function macchia(x, y, w, h, r, sp = 1.6) {
+  const j = () => (r() - 0.5) * 2 * sp;
+  return `M ${f1(x + sp + j())} ${f1(y - sp * 0.6 + j())} L ${f1(x + w + sp + j())} ${f1(y - sp * 0.6 + j())} L ${f1(x + w + sp + j())} ${f1(y + h + j())} L ${f1(x + sp + j())} ${f1(y + h + j())} Z`;
+}
+function macchiaP(pts, r, sp = 1.6) {
+  return 'M ' + pts.map(([x, y]) => f1(x + sp + (r() - 0.5) * 2 * sp) + ' ' + f1(y - sp * 0.6 + (r() - 0.5) * 2 * sp)).join(' L ') + ' Z';
+}
+function tratteggio(x, y, w, h, r, passo = 5, amp = 0.5) {
+  let d = '';
+  for (let c = x - h; c < x + w; c += passo) {
+    let x1 = c, y1 = y + h, x2 = c + h, y2 = y;
+    if (x1 < x) { y1 -= x - x1; x1 = x; }
+    if (x2 > x + w) { y2 += x2 - (x + w); x2 = x + w; }
+    if (x2 - x1 < 1) continue;
+    d += ' ' + linea([[x1, y1], [x2, y2]], r, amp, 40);
+  }
+  return d.trim();
+}
+function puntiArco(cx, cy, rx, ry, a0, a1, n = 18) {
+  const p = [];
+  for (let i = 0; i <= n; i++) { const a = a0 + (a1 - a0) * i / n; p.push([cx + Math.cos(a) * rx, cy + Math.sin(a) * ry]); }
+  return p;
+}
+const inchiostro = (d, w = 1.4, op = 1) => `<path d="${d}" fill="none" stroke="${C.ink}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"${op < 1 ? ` opacity="${op}"` : ''}/>`;
+const tinta = (d, fill, op = 1) => `<path d="${d}" fill="${fill}"${op < 1 ? ` opacity="${op}"` : ''}/>`;
+const grana = (d, op = 1) => `<path d="${d}" fill="url(#grana)"${op < 1 ? ` opacity="${op}"` : ''}/>`;
+// Rettangolo arrotondato come tracciato (sacchi, pagnotte).
+const tondo = (x, y, w, h, q) => `M ${f1(x + q)} ${f1(y)} L ${f1(x + w - q)} ${f1(y)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x + w)} ${f1(y + q)} L ${f1(x + w)} ${f1(y + h - q)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x + w - q)} ${f1(y + h)} L ${f1(x + q)} ${f1(y + h)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x)} ${f1(y + h - q)} L ${f1(x)} ${f1(y + q)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x + q)} ${f1(y)} Z`;
+// Ellisse come tracciato.
+const ovale = (cx, cy, rx, ry) => `M ${f1(cx - rx)} ${f1(cy)} A ${f1(rx)} ${f1(ry)} 0 1 0 ${f1(cx + rx)} ${f1(cy)} A ${f1(rx)} ${f1(ry)} 0 1 0 ${f1(cx - rx)} ${f1(cy)} Z`;
+
+function getDefs() {
+  const r = rng(6);
+  let punti = '', chiari = '', segni = '';
+  for (let i = 0; i < 14; i++) { const x = r() * 46 + 1, y = r() * 46 + 1, q = 0.5 + r() * 0.7; punti += `M ${f1(x - q)} ${f1(y)} L ${f1(x + q)} ${f1(y + 0.3)} `; }
+  for (let i = 0; i < 10; i++) { const x = r() * 44 + 2, y = r() * 44 + 2, q = 1.5 + r() * 2.5; chiari += `M ${f1(x)} ${f1(y)} L ${f1(x + q)} ${f1(y - q * 0.4)} `; }
+  for (let i = 0; i < 3; i++) { const x = r() * 44 + 2, y = r() * 30 + 2; segni += `M ${f1(x)} ${f1(y)} L ${f1(x + 0.3)} ${f1(y + 8 + r() * 6)} `; }
+  return `<pattern id="grana" width="48" height="48" patternUnits="userSpaceOnUse">` +
+    `<path d="${punti.trim()}" fill="none" stroke="${C.ink}" stroke-width="1.1" stroke-linecap="round" opacity="0.32"/>` +
+    `<path d="${chiari.trim()}" fill="none" stroke="${C.bg}" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>` +
+    `<path d="${segni.trim()}" fill="none" stroke="${C.cDark}" stroke-width="0.7" opacity="0.35"/>` +
+    `</pattern>`;
+}
+
+const MIR = [
+  { id: 'mir_piazzale', label: 'Piazzale del villaggio', width: 1240 },
+  { id: 'mir_isba_presidente', label: 'Isba di chi presiede', width: 260 },
+  { id: 'mir_pozzo', label: 'Pozzo a bilanciere', width: 110 },
+  { id: 'mir_strisce_prima', label: 'Strisce prima della divisione', width: 520 },
+  { id: 'mir_strisce_dopo', label: 'Strisce dopo la divisione', width: 520 },
+  { id: 'mir_registro', label: 'Registro dei pagamenti', width: 90 },
+  { id: 'mir_covone', label: 'Covone', width: 70 }
+];
+// Facciata di isba: x sinistra, larghezza, altezza del muro, altezza del tetto, camino (id fumo) e finestre.
+function isba(x, w, h, rt, r, o = {}) {
+  let s = '';
+  const top = 388 - h, cx = x + w / 2;
+  s += tinta(macchia(x, top, w, h, r, 1.4), C.sand, 0.8) + grana(macchia(x, top, w, h, r, 0), 0.8);
+  let tr = '';
+  for (let y = top + 14; y < 386; y += 14) tr += riga(x, y, x + w, y, r, 0.7, 2) + ' ';
+  s += inchiostro(tr.trim(), 0.8, 0.5);
+  s += inchiostro(bordo(x, top, w, h, r, 0.7, 2), 1.4);
+  // Tetto a due falde, in assicelle.
+  const tetto = [[x - 14, top + 2], [cx, top - rt], [x + w + 14, top + 2]];
+  s += tinta(macchiaP(tetto, r, 1.2), o.paglia ? C.sand : C.cDark) + grana(macchiaP(tetto, r, 0), 0.9);
+  s += inchiostro(linea(tetto.concat([tetto[0]]), r, 0.7, 26), 1.5);
+  s += inchiostro(tratteggio(x, top - rt + 6, w, rt - 6, r, 7, 0.4), 0.6, 0.35);
+  // Finestre con cornice e, a scelta, una tenda rossa.
+  const fin = o.finestre || [0.3, 0.7];
+  fin.forEach((f, i) => {
+    const fx = x + w * f - 15, fy = top + 22;
+    s += tinta(macchia(fx, fy, 30, 32, r, 0.6), C.sky);
+    s += inchiostro(bordo(fx, fy, 30, 32, r, 0.4, 1) + ' ' + riga(fx + 15, fy, fx + 15, fy + 32, r, 0.2, 0) + ' ' + riga(fx, fy + 16, fx + 30, fy + 16, r, 0.2, 0), 1.1);
+    s += tinta(macchia(fx - 5, fy - 4, 40, 5, r, 0.4), C.cDark);
+    if (o.tenda === i) s += tinta(macchiaP([[fx + 1, fy + 1], [fx + 11, fy + 1], [fx + 8, fy + 20], [fx + 1, fy + 18]], r, 0.4), C.red, 0.95);
+  });
+  if (o.porta !== false) {
+    const px = x + w * (o.portaX || 0.5) - 14;
+    s += tinta(macchia(px, 388 - 62, 28, 62, r, 0.6), C.cDark);
+    s += inchiostro(bordo(px, 388 - 62, 28, 62, r, 0.4, 1), 1.2);
+  }
+  if (o.camino) {
+    const kx = x + w * o.camino - 9;
+    s += tinta(macchia(kx, top - rt + 8, 18, 26, r, 0.6), C.bg);
+    s += inchiostro(bordo(kx, top - rt + 8, 18, 26, r, 0.4, 1), 1.2);
+    const fx = kx + 9, fy = top - rt + 4;
+    s += `<g id="${o.fumo}" data-pivot="${f1(fx)} ${f1(fy)}">` +
+      `<path d="M ${f1(fx)} ${f1(fy)} C ${f1(fx - 12)} ${f1(fy - 10)} ${f1(fx + 8)} ${f1(fy - 18)} ${f1(fx - 4)} ${f1(fy - 30)} C ${f1(fx + 14)} ${f1(fy - 26)} ${f1(fx + 24)} ${f1(fy - 12)} ${f1(fx + 10)} ${f1(fy - 4)} Z" fill="${C.p2}" stroke="${C.ink}" stroke-width="1" opacity="0.8"/></g>`;
+  }
+  return s;
+}
+function betulla(x, base, h, r, id) {
+  let s = '';
+  s += tinta(macchia(x - 4, base - h, 8, h, r, 0.6), C.bg);
+  let seg = '';
+  for (let y = base - h + 14; y < base - 6; y += 16 + r() * 8) seg += riga(x - 4, y, x + 1 + r() * 3, y + 1, r, 0.2, 0) + ' ';
+  s += inchiostro(bordo(x - 4, base - h, 8, h, r, 0.4, 1), 1) + inchiostro(seg.trim(), 1.4, 0.8);
+  const chioma = [[x - 30, base - h + 30], [x - 22, base - h - 10], [x, base - h - 34], [x + 24, base - h - 8], [x + 32, base - h + 28], [x, base - h + 40]];
+  s += `<g id="${id}" data-pivot="${f1(x)} ${f1(base - h + 20)}">` +
+    tinta(macchiaP(chioma, r, 1.4), C.tree, 0.9) + grana(macchiaP(chioma, r, 0), 0.7) +
+    inchiostro(linea(chioma.concat([chioma[0]]), r, 1, 14), 1.1, 0.8) + `</g>`;
+  return s;
+}
+function staccionata(x0, x1, y, r) {
+  let s = '', pali = '';
+  for (let x = x0; x <= x1; x += 26) pali += riga(x, y, x, y + 34, r, 0.4, 2) + ' ';
+  s += inchiostro(pali.trim(), 2.2) + inchiostro(riga(x0 - 4, y + 9, x1 + 4, y + 9, r, 0.5, 2) + ' ' + riga(x0 - 4, y + 22, x1 + 4, y + 22, r, 0.5, 2), 1.5);
+  return s;
+}
+function drawMir(id, ox = 0, oy = 0) {
+  let s = '';
+  if (id === 'mir_piazzale') {
+    const r = rng(2101);
+    // Lontananza: campi a strisce sotto un orizzonte basso.
+    s += tinta(macchia(-620, 236, 1240, 110, r, 1.2), C.cLight, 0.9) + grana(macchia(-620, 236, 1240, 110, r, 0), 0.5);
+    let col = '';
+    for (let x = -600; x < 620; x += 38) col += riga(x, 246, x - 20 + r() * 40, 340, r, 0.5, 0) + ' ';
+    s += inchiostro(col.trim(), 0.7, 0.35);
+    s += inchiostro(linea([[-620, 237], [-300, 232], [0, 236], [300, 231], [620, 237]], r, 1, 30), 1.2);
+    // Chiesa di legno lontana, con cupola a cipolla.
+    s += tinta(macchia(-26, 188, 52, 52, r, 0.8), C.p2) + inchiostro(bordo(-26, 188, 52, 52, r, 0.5, 1), 1.2);
+    s += tinta(macchiaP([[-16, 188], [16, 188], [10, 168], [-10, 168]], r, 0.6), C.cDark);
+    s += tinta('M -9 168 C -14 156 -4 148 0 138 C 4 148 14 156 9 168 Z', C.cMid) + inchiostro('M -9 168 C -14 156 -4 148 0 138 C 4 148 14 156 9 168 Z', 1.1);
+    s += inchiostro('M 0 138 L 0 128 M -4 132 L 4 132', 1.4);
+    s += tinta(macchia(-6, 212, 12, 28, r, 0.3), C.ink);
+    // Isbe ai lati, in due piani di distanza.
+    s += isba(-610, 190, 84, 54, r, { finestre: [0.28, 0.72], tenda: 1, camino: 0.3, fumo: 'fumo-1', portaX: 0.5, paglia: true });
+    s += isba(-390, 150, 70, 46, r, { finestre: [0.5], camino: 0.75, fumo: 'fumo-2', porta: false });
+    s += isba(410, 150, 74, 48, r, { finestre: [0.3, 0.7], portaX: 0.5 });
+    s += isba(572, 150, 66, 44, r, { finestre: [0.5], porta: false, paglia: true });
+    // Staccionata e betulle.
+    s += staccionata(-230, 230, 296, r);
+    s += betulla(-250, 340, 96, r, 'betulla-1');
+    s += betulla(270, 340, 84, r, 'betulla-2');
+    // Terra battuta e due solchi di carro.
+    s += tinta(macchia(-640, 340, 1280, 60, r, 1.6), C.sand, 0.85) + grana(macchia(-640, 340, 1280, 60, r, 0), 0.9);
+    s += inchiostro(linea([[-640, 346], [-300, 342], [0, 346], [300, 342], [640, 346]], r, 1.2, 28), 1.3);
+    s += inchiostro(tratteggio(-640, 360, 1280, 40, r, 9, 0.5), 0.6, 0.35);
+    s += inchiostro(linea([[-560, 372], [-120, 366], [140, 369], [560, 364]], r, 1, 30) + ' ' + linea([[-560, 381], [-120, 376], [140, 379], [560, 374]], r, 1, 30), 1.2, 0.5);
+  } else if (id === 'mir_isba_presidente') {
+    const r = rng(2102);
+    s += isba(-120, 240, 100, 62, r, { finestre: [0.18, 0.82], tenda: 0, porta: false, camino: 0.78, fumo: 'fumo' });
+    // Portico rialzato con tre gradini e parapetto; la porta si apre verso l'interno.
+    s += tinta(macchia(-46, 312, 92, 76, r, 0.8), C.cMid) + inchiostro(bordo(-46, 312, 92, 76, r, 0.5, 2), 1.3);
+    s += tinta(macchia(-30, 326, 60, 62, r, 0.6), C.cDark);
+    s += `<g id="porta" data-pivot="-30 326">` + tinta(macchia(-30, 326, 30, 62, r, 0.4), C.sand) + inchiostro(bordo(-30, 326, 30, 62, r, 0.3, 1), 1.2) + `</g>`;
+    s += tinta(macchia(-58, 376, 116, 12, r, 0.5), C.sand) + inchiostro(bordo(-58, 376, 116, 12, r, 0.4, 1), 1.2);
+    s += tinta(macchia(-70, 388, 140, 12, r, 0.5), C.sand) + inchiostro(bordo(-70, 388, 140, 12, r, 0.4, 1), 1.2);
+    s += inchiostro(riga(-62, 336, -62, 380, r, 0.3, 0) + ' ' + riga(62, 336, 62, 380, r, 0.3, 0) + ' ' + riga(-62, 336, -46, 336, r, 0.3, 0) + ' ' + riga(62, 336, 46, 336, r, 0.3, 0), 2);
+    // Panchetto per chi aspetta il proprio turno.
+    s += tinta(macchia(80, 372, 44, 7, r, 0.4), C.cDark);
+    s += inchiostro(riga(80, 372, 124, 372, r, 0.3, 1) + ' ' + riga(86, 379, 86, 400, r, 0.2, 0) + ' ' + riga(118, 379, 118, 400, r, 0.2, 0), 1.3);
+  } else if (id === 'mir_pozzo') {
+    const r = rng(2103);
+    s += tinta(macchia(-26, 356, 52, 36, r, 0.8), C.sand) + grana(macchia(-26, 356, 52, 36, r, 0), 0.8);
+    s += inchiostro(bordo(-26, 356, 52, 36, r, 0.5, 1) + ' ' + riga(-26, 368, 26, 368, r, 0.3, 0) + ' ' + riga(-26, 380, 26, 380, r, 0.3, 0), 1.2);
+    s += tinta(macchia(-6, 232, 10, 126, r, 0.4), C.cDark) + inchiostro(bordo(-6, 232, 10, 126, r, 0.3, 1), 1.2);
+    s += `<g id="bilanciere" data-pivot="-1 236">` +
+      tinta(macchiaP([[-52, 232], [-52, 238], [58, 242], [58, 236]], r, 0.5), C.cDark) +
+      inchiostro(riga(-52, 235, 58, 239, r, 0.3, 1), 1.4) +
+      tinta('M 52 242 L 66 242 L 66 256 L 52 256 Z', C.cMid) + inchiostro('M 52 242 L 66 242 L 66 256 L 52 256 Z', 1.2) + `</g>`;
+    s += `<g id="secchio" data-pivot="-50 236">` + inchiostro('M -50 238 L -50 300', 1.1) + tinta('M -58 300 L -42 300 L -45 316 L -55 316 Z', C.sand) + inchiostro('M -58 300 L -42 300 L -45 316 L -55 316 Z', 1.2) + `</g>`;
+  } else if (id === 'mir_strisce_prima' || id === 'mir_strisce_dopo') {
+    const prima = id === 'mir_strisce_prima', r = rng(prima ? 2104 : 2105);
+    const B = prima ? [-260, -225, -185, -90, -70, -5, 70, 260] : [-260, -186, -112, -38, 36, 110, 186, 260];
+    const yb = 396, yt = 252, k = 0.76;
+    const alto = x => x * k;
+    s += tinta(macchiaP([[-260, yb], [-260 * k, yt], [260 * k, yt], [260, yb]], r, 1.2), C.sand, 0.8) + grana(macchiaP([[-260, yb], [-260 * k, yt], [260 * k, yt], [260, yb]], r, 0), 0.9);
+    let solchi = '';
+    for (let i = 0; i < B.length - 1; i++) {
+      const wd = B[i + 1] - B[i], n = Math.max(2, Math.round(wd / 14));
+      const cura = prima ? (wd > 150 ? 0 : 1) : 0;
+      for (let j = 1; j < n; j++) {
+        const t = j / n, xb = B[i] + wd * t, xt = alto(B[i]) + (alto(B[i + 1]) - alto(B[i])) * t;
+        solchi += linea([[xb, yb - 4], [(xb + xt) / 2 + (cura ? (r() - 0.5) * 5 : 0), (yb + yt) / 2], [xt, yt + 2]], r, cura ? 1.2 : 0.4, 30) + ' ';
+      }
+    }
+    s += inchiostro(solchi.trim(), 0.9, 0.5);
+    // Confini: righe piu' marcate e paletti; dopo la divisione i paletti spostati sono rossi.
+    let conf = '', paletti = '';
+    B.forEach((x, i) => {
+      conf += riga(x, yb, alto(x), yt, r, 0.6, 1) + ' ';
+      paletti += riga(x, yb - 2, x, yb - 18, r, 0.2, 0) + ' ';
+    });
+    s += inchiostro(conf.trim(), 1.5);
+    if (prima) s += inchiostro(paletti.trim(), 2.6);
+    else {
+      s += inchiostro(paletti.trim(), 2.6);
+      let rossi = '';
+      [B[1], B[3], B[5]].forEach(x => { rossi += riga(x, yb - 2, x, yb - 18, r, 0.2, 0) + ' '; });
+      s += `<path d="${rossi.trim()}" fill="none" stroke="${C.red}" stroke-width="3.4" stroke-linecap="round"/>`;
+    }
+    s += inchiostro(linea([[-262, yb], [0, yb + 2], [262, yb]], r, 0.8, 30), 1.3);
+  } else if (id === 'mir_registro') {
+    const r = rng(2106);
+    s += tinta(macchia(-40, 352, 80, 8, r, 0.5), C.cDark) + inchiostro(riga(-40, 352, 40, 352, r, 0.3, 1) + ' ' + riga(-32, 360, -32, 400, r, 0.2, 0) + ' ' + riga(32, 360, 32, 400, r, 0.2, 0), 1.4);
+    // Registro aperto: due pagine con righe stilizzate, nessun testo leggibile.
+    s += tinta('M -34 352 L -34 336 L -2 340 L -2 352 Z', C.bg) + tinta('M 2 352 L 2 340 L 34 336 L 34 352 Z', C.bg);
+    s += inchiostro('M -34 352 L -34 336 L -2 340 L -2 352 M 2 352 L 2 340 L 34 336 L 34 352', 1.2);
+    let rr = '';
+    for (let y = 343; y < 351; y += 4) rr += riga(-30, y, -6, y + 1, r, 0.2, 0) + ' ' + riga(6, y + 1, 30, y, r, 0.2, 0) + ' ';
+    s += inchiostro(rr.trim(), 0.6, 0.6);
+    // Cassetta di ferro con serratura rossa e un pugno di monete.
+    s += tinta(macchia(-36, 322, 34, 30, r, 0.5), C.cDark) + inchiostro(bordo(-36, 322, 34, 30, r, 0.3, 1), 1.3);
+    s += tinta(macchia(-23, 332, 8, 10, r, 0.2), C.red);
+    [[10, 349], [20, 351], [26, 347]].forEach(([x, y]) => { s += tinta(ovale(x, y, 5, 2.2), C.sand) + inchiostro(ovale(x, y, 5, 2.2), 0.8); });
+  } else if (id === 'mir_covone') {
+    const r = rng(2107);
+    const paglia = [[-18, 398], [-26, 372], [-16, 334], [-6, 322], [0, 316], [6, 322], [16, 334], [26, 372], [18, 398]];
+    s += tinta(macchiaP(paglia, r, 1), C.sand) + grana(macchiaP(paglia, r, 0), 0.8);
+    let st = '';
+    for (let x = -14; x <= 14; x += 4.5) st += riga(x * 0.5, 396, x * 1.7, 326, r, 0.6, 0) + ' ';
+    s += inchiostro(st.trim(), 0.8, 0.6);
+    s += inchiostro(linea(paglia.concat([paglia[0]]), r, 0.8, 14), 1.3);
+    s += tinta(macchia(-20, 358, 40, 7, r, 0.4), C.cDark) + inchiostro(bordo(-20, 358, 40, 7, r, 0.3, 1), 1.1);
+  }
+  return `<g transform="translate(${ox} ${oy})">${s}</g>`;
+}
+// AVVIO
+(function () {
+  const griglia = document.getElementById('griglia');
+  const defs = `<defs>${getDefs()}</defs>`;
+  MIR.forEach(v => {
+    const fig = document.createElement('figure');
+    fig.innerHTML = `<svg viewBox="-640 0 1280 420">${defs}${drawMir(v.id)}</svg><figcaption>${v.label}</figcaption>`;
+    griglia.appendChild(fig);
+  });
+})();
+</script>
+</body>
+</html>

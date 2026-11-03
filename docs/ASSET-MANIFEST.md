@@ -94,6 +94,15 @@ Composizioni presenti: `scena-terra`, `scena-mir`, `scena-fabbrica800`, `scena-p
 
 Gli originali visuali restano consultabili; le immagini raster sono solo materiale di lavoro. Nessun asset/font LAIKA deve entrare nei moduli generici di `src/`.
 
+## Kit disegnati dall'agente il 3 novembre 2026
+
+| Kit | Contenuto | Stato |
+|---|---|---|
+| [kit-villaggio-mir](../prototypes/kit-villaggio-mir/kit-villaggio-mir.html) | 7 simboli per I.2: piazzale del villaggio, isba di chi presiede, pozzo, strisce prima e dopo la divisione, registro dei pagamenti, covone | bozza, da approvare dal docente; l'assemblea all'aperto davanti alla casa di chi presiede è da riscontrare |
+| [kit-interni-citta](../prototypes/kit-interni-citta/kit-interni-citta.html) | 7 simboli per I.3: angolo di stanza in affitto, dormitorio, cella, foglio con il disegno di un razzo (ricostruzione di fantasia, non copia di un documento), pane, carbone, lettera | bozza, da approvare dal docente |
+
+Tutti usano la palette del tema «studi» e il motivo `grana-ambienti`; anteprime in [docs/evidence/asset-i2-i3](evidence/asset-i2-i3/).
+
 ## Studi originali aggiunti il 20 ottobre 2026
 
 Tre nuovi HTML integrali, forniti dall'utente nella PR #12 e conservati con gli stessi blob Git in [prototypes/laika-studi-originali](../prototypes/laika-studi-originali/README.md). Il [manifest di authoring](../prototypes/laika-studi-originali/manifest.json) registra nomi originali, provenienza, dimensioni, SHA-256 e catalogo: 21 elementi Fase A, 15 edifici/varianti Fase B, studio personaggi con 13 pose, 13 varianti, 11 azioni e 12 oggetti, oltre a folle/ambienti/mezzi.
