@@ -61,7 +61,7 @@ Serve una modalità generica del motore: **giornata a punti azione** (azioni con
 
 ## Scostamenti dalla scheda (costruzione del 3 novembre 2026)
 
-- **Nessuna modalità nuova del motore.** Per la prima versione ogni punto azione è un turno della partita di sole decisioni (15 turni: 3 giornate da 5 azioni), con le cinque azioni come risposte e le due letture della notizia nel testo di «Indagare». Mancano quindi la barra dei punti di una giornata e la notte come evento a parte: la pressione cresce con i giorni e ogni azione costa qualcosa. Una modalità generica a punti azione resta da fare (serve anche a I.6).
+- **Modalità a punti azione del motore (3 novembre 2026):** il gioco usa il `market` con `points`: tre giornate da cinque punti, azioni toccabili sulla scena (le due letture opposte si vedono indagando, un punto ciascuna), delegato ripetibile e incerto (la probabilità cresce con le notizie capite), la notte come effetti di inizio giornata. Sostituisce la prima versione a 15 turni di scelte.
 - **Disegni:** nessun disegno nuovo. Scena della sala con `ambiente-sala` e figure del catalogo; il tavolo dei delegati e il telegrafo non ci sono.
 - **Episodi di I.4 costruiti:** tutti e sei (e1 domenica di sangue, e2 petizione a cinque righe, e3 giornate del soviet, e4 confronto sul Manifesto di ottobre, e5 Stolypin, e6 verifiche V3 e V4) più la pagina «Cosa ti devi ricordare». Le fonti di e4 sono sintesi per il gioco dagli appunti, non testi originali; la scelta di Stolypin (`uscita_dal_mir`, `stolypin_resta`, `stolypin_vende`) non ha ancora effetti a valle.
 - **Taratura:** simulazioni su sei strategie fisse e venti partite ciascuna: nessuna strategia vince senza costi, ma «mandare sempre un delegato» rende molto. Da ritoccare.

@@ -54,7 +54,11 @@ function overlay(stageHost){stageHost?.querySelector('.turn-overlay')?.remove();
   fit();if(typeof ResizeObserver==='function'){fitObserver=new ResizeObserver(fit);fitObserver.observe(stageHost);}return {layer,svg};}
 const at=(node,x,y)=>{node.style.left=(x*100)+'%';node.style.top=(y*100)+'%';return node;};
 function clearOverlay(stageHost){stageHost?.querySelector('.turn-overlay')?.remove();fitObserver?.disconnect();fitObserver=null;}
-function hotspots(stageHost,episode,game,dispatch){
+function hotspots(stageHost,episode,game,dispatch,state){
+  // Giornata a punti: le azioni con un punto sulla scena (at) si toccano sulla scena.
+  if(game.phase==='market'&&state?.phase==='scene'){const t=episode.turns[game.turn],o=overlay(stageHost);if(!o)return;
+    for(const f of t.market.offers.filter(x=>x.at)){const n=game.market.bought.filter(x=>x===f.id).length,b=button((f.short||f.label)+(f.cost>1?' · '+f.cost:'')+(n&&f.repeat?' ×'+n:''),()=>dispatch({type:'turn',step:'buy',offerId:f.id}),{tabindex:'-1','data-hotspot':f.id,title:f.label});
+      at(b,f.at.x,f.at.y);b.disabled=!offerOpen(episode,game,f,state);o.layer.append(b);}return;}
   const o=game.phase==='place'?overlay(stageHost):(clearOverlay(stageHost),null);if(!o)return;
   for(const p of episode.places||[]){const b=button(String(game.placement[p.id]),()=>dispatch({type:'turn',step:'place',placeId:p.id,delta:1}),{tabindex:'-1','data-hotspot':p.id,title:placeLabel(episode,game,p)});
     at(b,p.x,p.y);b.disabled=placed(game)>=game.rules.tokens;o.layer.append(b);}
@@ -150,14 +154,14 @@ function turnGame(ctx){
   // go(null): cambia solo la persona scelta, che non è una mossa della partita: si ridisegna il pannello sul posto.
   const go=(step,extra={})=>{if(step==='assign'){const next=workersOf(episode,g).find(w=>w.id!==extra.workerId&&!g.assign[w.id]);pick.worker=next?.id||null;}
     if(step!==null)return dispatch({type:'turn',step,...extra});host.replaceChildren();turnGame(ctx);(host.querySelector('[data-worker][aria-pressed=true]')||host.querySelector('[data-worker]'))?.focus({preventScroll:true});};
-  if(episode.workers)board(stageHost,stage,episode,act,state,dispatch);else hotspots(stageHost,episode,g,dispatch);
+  if(episode.workers)board(stageHost,stage,episode,act,state,dispatch);else hotspots(stageHost,episode,g,dispatch,state);
   if(state.phase!=='scene')return;
   const head=el('p',undefined,{class:'turn-label'});head.append(el('span',t.label,{class:'turn-year'}),el('span',(episode.turnWord||'anno')+' '+(g.turn+1)+' di '+episode.turns.length,{class:'turn-count'}));host.append(head,stepper(episode,g));
   if(g.phase==='cards'){
     const c=cardAt(episode,g),n=cardCount(episode,g),box=el('div',undefined,{class:'cards turn-cards'}),bar=el('div',undefined,{class:'card-bar','aria-hidden':'true'}),nav=el('div',undefined,{class:'card-nav'});
     for(let i=0;i<n;i++)bar.append(el('i',undefined,{class:i<g.card?'done':i===g.card?'now':''}));
     const prev=button('Indietro',()=>go('back'),{'data-turn':'back'});prev.disabled=g.card===0;
-    nav.append(prev,button(g.card>=n-1?(episode.places?'Alla '+((episode.phaseLabels||{}).place||'mossa').toLowerCase().replace(/^la /,''):'Alla richiesta'):'Avanti',()=>go('card'),{'data-turn':'card',class:'primary'}));
+    nav.append(prev,button(g.card>=n-1?(episode.places?'Alla '+((episode.phaseLabels||{}).place||'mossa').toLowerCase().replace(/^la /,''):(episode.turns[g.turn].event?'Alla richiesta':'Alle azioni')):'Avanti',()=>go('card'),{'data-turn':'card',class:'primary'}));
     if(c.kind)box.append(el('p',CONTEXT_LABELS[c.kind],{class:'card-kind','data-kind':c.kind}));
     if(c.title)box.append(el('h2',c.title,{class:'card-title'}));
     box.append(el('p',c.text,{class:'lead card-text',tabindex:'-1'}),bar,nav);host.append(box);return;
@@ -218,11 +222,15 @@ function turnGame(ctx){
   if(g.phase==='market'){
     const m=t.market;host.append(el('p',m.who,{class:'turn-who'}),el('p',m.text,{class:'lead'}));
     const shop=el('div',undefined,{class:'turn-market'});
-    for(const o of m.offers){const b=button('',()=>go('buy',{offerId:o.id}),{'data-offer':o.id});b.append(el('strong',o.label));if(o.effects?.length)b.append(el('span',effectsText(act,o.effects.filter(x=>x.kind!=='flag'))));
-      b.disabled=!offerOpen(episode,g,o,state);if(g.market.bought.includes(o.id))b.append(el('small','preso'));shop.append(b);}
+    if(g.market.left!=null){const pts=el('div',undefined,{class:'turn-tokens','aria-label':(episode.pointsLabel||'Punti azione')+': '+g.market.left+' su '+m.points});for(let i=0;i<m.points;i++)pts.append(el('i',undefined,{class:i<m.points-g.market.left?'used':''}));host.append(el('p',(episode.pointsLabel||'Punti azione')+': '+g.market.left+' su '+m.points,{class:'turn-pool',role:'status'}),pts);}
+    for(const o of m.offers){const b=button('',()=>go('buy',{offerId:o.id}),{'data-offer':o.id});b.append(el('strong',o.label));
+      if(o.cost>1)b.append(el('span','Costa '+o.cost+' punti'));
+      if(o.chance){const pc=Math.round(chanceOf(o.chance,act,state)*100);b.append(el('span','riesce nel '+pc+'% dei casi'));}
+      else if(o.effects?.length)b.append(el('span',effectsText(act,o.effects.filter(x=>x.kind!=='flag'))));
+      b.disabled=!offerOpen(episode,g,o,state);const n=g.market.bought.filter(x=>x===o.id).length;if(n)b.append(el('small',o.repeat?'fatto '+n+(n===1?' volta':' volte'):'preso'));shop.append(b);}
     host.append(shop);
     if(g.market.log.length){const box=el('div',undefined,{class:'outcome turn-result',role:'status'});for(const line of g.market.log)box.append(el('p',line));box.append(changeList(act,g.market.changes));host.append(box);}
-    host.append(button(g.turn>=episode.turns.length-1?'Fine della partita':'Torna a casa',()=>go('leave'),{'data-turn':'leave',class:'primary'}));
+    host.append(button(g.turn>=episode.turns.length-1?'Fine della partita':(episode.leaveLabel||'Torna a casa'),()=>go('leave'),{'data-turn':'leave',class:'primary'}));
   }
 }
 registerInteraction('turn_game',turnGame);

@@ -145,6 +145,20 @@ Con questi campi la partita diventa una gestione: le pedine sono persone, alcuni
 - **Parole.** `turnWord` (come si chiama un turno: «anno», «assemblea», «settimana»; il player scrive «assemblea 3 di 8»), `confirmLabel` (il pulsante che chiude la mossa), `nextLabel` (dopo l'esito di chi bussa), `luckLabel` e `luckResultLabel` (come si chiama l'imprevisto prima e dopo), `upkeepHint` (la riga del mantenimento) e `control.escaped` (il testo quando il controllo non scatta). Tutti facoltativi, al massimo 40 caratteri; senza di loro vale il testo di I.1.
 - Provata in `tests/turns.test.js` («decisioni: …»).
 
+
+#### Giornata a punti azione (facoltativa)
+
+In una partita di sole decisioni un turno può avere un `market` al posto (o dopo) la richiesta `event`. Con `market.points` (1–9) diventa una giornata a punti azione:
+
+- ogni offerta costa `cost` punti (default 1) e non si può comprare se non bastano i punti rimasti;
+- `repeat: true` permette di ripetere l'azione nella stessa giornata (senza, una volta sola);
+- `chance` (come nelle risposte di una richiesta, con `metric` e `factor` facoltativi) rende l'esito incerto con `success` e `failure`; la probabilità è scritta sul pulsante;
+- `at: {x, y}` (0–1) e `short` (fino a 16 caratteri) mettono l'azione come punto da toccare sulla scena;
+- `leaveLabel` e `pointsLabel` dànno i nomi del pulsante di fine giornata e dei punti. I punti si rinnovano a ogni turno;
+- la notte si scrive con `effects` all'inizio del turno dopo.
+
+Test: `tests/turns.test.js` («punti azione»). Scheda di lettura: `docs/meccaniche/punti-azione.md`.
+
 #### Capire il gioco: obiettivo, passi, verso degli indicatori, esito (facoltativi)
 
 - `goal` (ogni episodio): una riga, al massimo 140 caratteri, mostrata sempre accanto alla scena («Obiettivo: …»). Dice perché si gioca, non come.

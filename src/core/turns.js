@@ -77,7 +77,7 @@ export function validateTurnGame(e, act, stages) {
   const decisioni = e.places === undefined;
   if (decisioni) {
     for (const k of ['tokens', 'tokensDelta', 'workers', 'projects', 'reserve', 'control', 'luck', 'upkeep', 'rules']) assert(e[k] === undefined, 'Una partita di sole decisioni non usa: ' + k);
-    assert(Array.isArray(e.turns) && e.turns.every(t => t && t.event), 'Ogni turno di una partita di sole decisioni ha una richiesta (event)');
+    assert(Array.isArray(e.turns) && e.turns.every(t => t && (t.event || t.market)), 'Ogni turno di una partita di sole decisioni ha una richiesta (event) o una giornata a punti (market)');
   }
   const places = decisioni ? new Set() : unique(e.places, 'Posti', 2);
   for (const p of e.places || []) {
@@ -104,7 +104,7 @@ export function validateTurnGame(e, act, stages) {
   } else if (!decisioni) assert(Number.isInteger(e.tokens) && e.tokens >= 1 && e.tokens <= 12, 'Pedine non valide');
   if (!decisioni) assert(text(e.tokenLabel), 'Nome delle pedine mancante');
   // Parole della partita: come si chiama un turno («anno», «assemblea», «settimana») e i testi dei pulsanti.
-  for (const k of ['turnWord', 'confirmLabel', 'nextLabel', 'luckLabel', 'luckResultLabel', 'upkeepHint']) if (e[k] !== undefined) assert(text(e[k]) && e[k].length <= 40, 'Parola della partita non valida: ' + k);
+  for (const k of ['turnWord', 'confirmLabel', 'nextLabel', 'luckLabel', 'luckResultLabel', 'upkeepHint', 'leaveLabel', 'pointsLabel']) if (e[k] !== undefined) assert(text(e[k]) && e[k].length <= 40, 'Parola della partita non valida: ' + k);
   // Nomi delle fasi per la barra dei passi e giudizi dell'anno (il primo che vale).
   if (e.phaseLabels !== undefined) { assert(e.phaseLabels && typeof e.phaseLabels === 'object' && Object.entries(e.phaseLabels).every(([k, v]) => STEP_PHASES.includes(k) && text(v)), 'Nomi delle fasi non validi'); }
   if (e.previewLabel !== undefined) assert(text(e.previewLabel) && e.previewLabel.length <= 40, 'Etichetta delle voci non valida');
@@ -171,12 +171,22 @@ export function validateTurnGame(e, act, stages) {
     // Mercato: si possono prendere più offerte, ognuna una volta per visita (once: una volta in tutta la partita).
     if (t.market !== undefined) {
       const m = t.market; assert(text(m.who) && text(m.text), where + ': mercato senza testo');
+      // Giornata a punti azione (facoltativa): un budget di punti, offerte con un costo, azioni ripetibili e azioni che possono riuscire o fallire.
+      if (m.points !== undefined) { assert(Number.isInteger(m.points) && m.points >= 1 && m.points <= 9, where + ': punti non validi'); assert(decisioni, where + ': i punti azione solo nelle partite di sole decisioni'); }
       unique(m.offers, where + ': offerte', 1);
       for (const o of m.offers) {
-        assert(text(o.label) && text(o.text), where + ': offerta senza testo');
+        assert(text(o.label), where + ': offerta senza testo');
         if (o.when !== undefined) condition(o.when, act);
         if (o.once !== undefined) assert(typeof o.once === 'boolean', where + ': once non valido');
-        mutations(o.effects || [], act); rulesSpec(o.rules, act, places, where, workers);
+        if (o.cost !== undefined) { assert(m.points !== undefined && Number.isInteger(o.cost) && o.cost >= 1 && o.cost <= m.points, where + ': costo non valido'); }
+        if (o.at !== undefined) { assert(o.at && Number.isFinite(o.at.x) && Number.isFinite(o.at.y) && o.at.x >= 0 && o.at.x <= 1 && o.at.y >= 0 && o.at.y <= 1, where + ': punto della scena non valido'); assert(m.points !== undefined, where + ': punto della scena solo con i punti azione'); }
+        if (o.short !== undefined) assert(text(o.short) && o.short.length <= 16, where + ': nome breve non valido');
+        if (o.repeat !== undefined) assert(m.points !== undefined && typeof o.repeat === 'boolean', where + ': repeat non valido');
+        if (o.chance) {
+          assert(m.points !== undefined, where + ': esito incerto solo con i punti');
+          chanceSpec(o.chance, act, where);
+          for (const k of ['success', 'failure']) { assert(o[k] && text(o[k].text), where + ': esito ' + k + ' mancante'); mutations(o[k].effects || [], act); }
+        } else { assert(text(o.text), where + ': offerta senza testo'); mutations(o.effects || [], act); rulesSpec(o.rules, act, places, where, workers); }
       }
     }
   });
@@ -228,10 +238,10 @@ function enterTurn(e, g, state, act) {
   } else g.placement = Object.fromEntries((e.places || []).map(p => [p.id, 0]));
   if (e.reserve && state) g.reserve = Math.min(g.reserve, state.resources[e.reserve.from]);
   g.card = 0; g.result = null; g.eventResult = null; g.market = null;
-  g.phase = g.cardList.length ? 'cards' : afterCards(e);
+  g.phase = g.cardList.length ? 'cards' : afterCards(e, g); if (g.phase === 'market') openMarket(e, g);
 }
 // Dopo le card: si piazza (con i posti) oppure si risponde alla richiesta (partita di sole decisioni).
-const afterCards = e => (e.places ? 'place' : 'event');
+const afterCards = (e, g) => (e.places ? 'place' : e.turns[g.turn].event ? 'event' : 'market');
 export function initGame(e, state, act) {
   const g = { episodeId: e.id, turn: 0, phase: 'place', card: 0, placement: {}, assign: {}, progress: {}, started: [], built: [], reserve: e.reserve?.start ?? 0, bought: [], market: null,
     rules: mergeRules({ tokens: e.tokens ?? 0, min: {}, places: {}, upkeep: [] }, e.rules), fired: [], result: null, eventResult: null };
@@ -274,7 +284,7 @@ export function luckOdds(e) {
 export function shortfalls(e, g) {
   return Object.entries(g.rules.min).filter(([p, n]) => (g.placement[p] || 0) < n).map(([p, n]) => ({ placeId: p, required: n, given: g.placement[p] || 0 }));
 }
-export function offerOpen(e, g, o, state) { return !g.market?.bought.includes(o.id) && !(o.once && g.bought.includes(o.id)) && (!o.when || matches(o.when, state)); }
+export function offerOpen(e, g, o, state) { return (o.repeat || !g.market?.bought.includes(o.id)) && !(o.once && g.bought.includes(o.id)) && (!o.when || matches(o.when, state)) && (g.market?.left == null || (o.cost ?? 1) <= g.market.left); }
 // Card del turno in lettura. I salvataggi precedenti alle card condizionate non hanno cardList: valgono tutte.
 const cardIndexes = (e, g) => g.cardList || (e.turns[g.turn].cards || []).map((_, i) => i);
 export const cardCount = (e, g) => cardIndexes(e, g).length;
@@ -311,7 +321,8 @@ function nextTurn(e, state, g, act) {
   if (g.turn >= e.turns.length) { g.phase = 'done'; return true; }
   enterTurn(e, g, state, act); return false;
 }
-function afterEvent(e, state, g, t, act) { if (t.market) { g.phase = 'market'; g.market = { bought: [], log: [], changes: [] }; } else nextTurn(e, state, g, act); }
+function openMarket(e, g) { g.phase = 'market'; g.market = { bought: [], log: [], changes: [], left: e.turns[g.turn].market.points ?? null }; }
+function afterEvent(e, state, g, t, act) { if (t.market) openMarket(e, g); else nextTurn(e, state, g, act); }
 
 export function turnAction(act, e, previous, action, seed) {
   assert(previous.phase === 'scene' && previous.game && previous.game.episodeId === e.id, 'Partita non attiva');
@@ -321,7 +332,7 @@ export function turnAction(act, e, previous, action, seed) {
   switch (action.step) {
     case 'card':
       assert(g.phase === 'cards', 'Non ci sono card da leggere');
-      g.card++; if (g.card >= cardCount(e, g)) { g.phase = afterCards(e); g.card = cardCount(e, g) - 1; }
+      g.card++; if (g.card >= cardCount(e, g)) { g.phase = afterCards(e, g); g.card = cardCount(e, g) - 1; if (g.phase === 'market') openMarket(e, g); }
       break;
     case 'back':
       assert(g.phase === 'cards' && g.card > 0, 'Nessuna card precedente');
@@ -420,13 +431,17 @@ export function turnAction(act, e, previous, action, seed) {
     case 'buy': {
       assert(g.phase === 'market', 'Nessun mercato');
       const o = t.market.offers.find(x => x.id === action.offerId);
-      assert(o && !g.market.bought.includes(o.id) && !(o.once && g.bought.includes(o.id)) && (!o.when || matches(o.when, previous)), 'Offerta non disponibile');
+      assert(o && offerOpen(e, g, o, previous), 'Offerta non disponibile');
+      const nth = g.market.bought.filter(x => x === o.id).length;
       g.market.bought.push(o.id); if (o.once) g.bought.push(o.id);
-      g.rules = mergeRules(g.rules, o.rules);
-      changes.push(...applyEffects(act, state, o.effects || [], cause + ':' + o.id));
+      if (g.market.left != null) g.market.left -= o.cost ?? 1;
+      let r = o, success = null, p = null;
+      if (o.chance) { p = chanceOf(o.chance, act, previous); success = draw(seed, e.id, g.turn, 'azione', o.id, nth) < p; r = success ? o.success : o.failure; }
+      g.rules = mergeRules(g.rules, r.rules);
+      changes.push(...applyEffects(act, state, r.effects || [], cause + ':' + o.id + ':' + nth));
       const cr = fireCrises(act, e, state, g, cause); changes.push(...cr.changes);
-      g.market.log.push(o.text, ...cr.crises.map(x => x.text)); g.market.changes = netChanges([...g.market.changes, ...changes]);
-      feedback = [t.label + ' · ' + t.market.who + ': «' + o.label + '».', o.text, ...cr.crises.map(x => x.text)].join(' ');
+      g.market.log.push(r.text, ...cr.crises.map(x => x.text)); g.market.changes = netChanges([...g.market.changes, ...changes]);
+      feedback = [t.label + ' · ' + t.market.who + ': «' + o.label + '».', r.text, ...cr.crises.map(x => x.text)].join(' ');
       break;
     }
     case 'leave':
