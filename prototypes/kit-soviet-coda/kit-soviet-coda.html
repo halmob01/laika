@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit soviet e coda (bottega)</title>
+<style>
+  body { margin: 0; font-family: monospace; background: #dcdcd8; color: #161614; }
+  h1 { font-size: 14px; margin: 12px 16px; }
+  #griglia { display: grid; grid-template-columns: repeat(auto-fill, minmax(520px, 1fr)); gap: 12px; padding: 0 16px 16px; }
+  figure { margin: 0; border: 1px solid #b4b6b3; background: #f6f1e3; }
+  figcaption { font-size: 12px; padding: 4px 8px; border-top: 1px solid #b4b6b3; }
+  svg { display: block; width: 100%; height: 300px; }
+</style>
+</head>
+<body>
+<h1>Kit soviet e coda (bottega): anteprima</h1>
+<div id="griglia"></div>
+<script>
+// Kit per la bottega: oggetti del soviet e della coda per le unita' I.4-I.6 di LAIKA (1905-1917).
+// Rispetta bottega/CONTRATTO-KIT.md. Tutti i pezzi poggiano su GROUND_Y e sono centrati in x = 0.
+// Stile: lo stesso tratto a mano dei kit interni, generato in modo deterministico.
+// Coerenza storica (epoca e luogo nel catalogo di bottega):
+// - soviet_tavolo: tavolo lungo di sala con fogli, lampada a petrolio e due sgabelli; archetipo di tavolo
+//   di comitato di inizio Novecento; nessuna scritta.
+// - soviet_telegrafo: apparecchio telegrafico a nastro su un piccolo banco; archetipo generico.
+// - coda_tessera: cartoncino quadrettato con riquadri da staccare; archetipo di tessera di razionamento,
+//   senza scritte ne' numeri. Le tessere del pane in Russia sono piu' tarde del 1917: l'oggetto e'
+//   un simbolo per il gioco, non una ricostruzione.
+// - soviet_bandiera: asta con drappo rosso senza scritte; archetipo di bandiera di corteo.
+
+const C = {
+  bg: '#f6f1e3', p2: '#ece5d3', ink: '#161614', red: '#e02a1b', sand: '#decba8',
+  cLight: '#c9d6df', cMid: '#8ea8b8', cDark: '#4f6b7c', sky: '#b8cbd8', tree: '#97b0c0'
+};
+const GROUND_Y = 400;
+const f1 = n => (Math.round(n * 10) / 10).toString();
+const arco = (x, w, top, base) => `M ${f1(x - w / 2)} ${base} L ${f1(x - w / 2)} ${f1(top + w / 2)} A ${f1(w / 2)} ${f1(w / 2)} 0 0 1 ${f1(x + w / 2)} ${f1(top + w / 2)} L ${f1(x + w / 2)} ${base} Z`;
+// Generatore pseudo-casuale deterministico (mulberry32).
+function rng(seed) {
+  let a = seed >>> 0;
+  return function () {
+    a = (a + 0x6D2B79F5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+// --- Strumenti del tratto (gli stessi del kit luoghi monumentali) ------------------------
+function linea(pts, r, amp = 0.8, passo = 22) {
+  let d = '';
+  for (let i = 0; i < pts.length - 1; i++) {
+    const [x1, y1] = pts[i], [x2, y2] = pts[i + 1];
+    const L = Math.hypot(x2 - x1, y2 - y1) || 1, n = Math.max(1, Math.round(L / passo));
+    const nx = -(y2 - y1) / L, ny = (x2 - x1) / L;
+    for (let k = i === 0 ? 0 : 1; k <= n; k++) {
+      const t = k / n, j = (r() - 0.5) * 2 * amp * (k === 0 || k === n ? 0.5 : 1);
+      d += (d ? ' L ' : 'M ') + f1(x1 + (x2 - x1) * t + nx * j) + ' ' + f1(y1 + (y2 - y1) * t + ny * j);
+    }
+  }
+  return d;
+}
+function riga(x1, y1, x2, y2, r, amp = 0.8, sborda = 3) {
+  const L = Math.hypot(x2 - x1, y2 - y1) || 1, ux = (x2 - x1) / L, uy = (y2 - y1) / L;
+  const a = sborda * r(), b = sborda * r();
+  return linea([[x1 - ux * a, y1 - uy * a], [x2 + ux * b, y2 + uy * b]], r, amp);
+}
+function bordo(x, y, w, h, r, amp = 0.8, sborda = 3) {
+  return [riga(x, y, x + w, y, r, amp, sborda), riga(x + w, y, x + w, y + h, r, amp, sborda),
+    riga(x + w, y + h, x, y + h, r, amp, sborda), riga(x, y + h, x, y, r, amp, sborda)].join(' ');
+}
+function macchia(x, y, w, h, r, sp = 1.6) {
+  const j = () => (r() - 0.5) * 2 * sp;
+  return `M ${f1(x + sp + j())} ${f1(y - sp * 0.6 + j())} L ${f1(x + w + sp + j())} ${f1(y - sp * 0.6 + j())} L ${f1(x + w + sp + j())} ${f1(y + h + j())} L ${f1(x + sp + j())} ${f1(y + h + j())} Z`;
+}
+function macchiaP(pts, r, sp = 1.6) {
+  return 'M ' + pts.map(([x, y]) => f1(x + sp + (r() - 0.5) * 2 * sp) + ' ' + f1(y - sp * 0.6 + (r() - 0.5) * 2 * sp)).join(' L ') + ' Z';
+}
+function tratteggio(x, y, w, h, r, passo = 5, amp = 0.5) {
+  let d = '';
+  for (let c = x - h; c < x + w; c += passo) {
+    let x1 = c, y1 = y + h, x2 = c + h, y2 = y;
+    if (x1 < x) { y1 -= x - x1; x1 = x; }
+    if (x2 > x + w) { y2 += x2 - (x + w); x2 = x + w; }
+    if (x2 - x1 < 1) continue;
+    d += ' ' + linea([[x1, y1], [x2, y2]], r, amp, 40);
+  }
+  return d.trim();
+}
+function puntiArco(cx, cy, rx, ry, a0, a1, n = 18) {
+  const p = [];
+  for (let i = 0; i <= n; i++) { const a = a0 + (a1 - a0) * i / n; p.push([cx + Math.cos(a) * rx, cy + Math.sin(a) * ry]); }
+  return p;
+}
+const inchiostro = (d, w = 1.4, op = 1) => `<path d="${d}" fill="none" stroke="${C.ink}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"${op < 1 ? ` opacity="${op}"` : ''}/>`;
+const tinta = (d, fill, op = 1) => `<path d="${d}" fill="${fill}"${op < 1 ? ` opacity="${op}"` : ''}/>`;
+const grana = (d, op = 1) => `<path d="${d}" fill="url(#grana)"${op < 1 ? ` opacity="${op}"` : ''}/>`;
+// Rettangolo arrotondato come tracciato (sacchi, pagnotte).
+const tondo = (x, y, w, h, q) => `M ${f1(x + q)} ${f1(y)} L ${f1(x + w - q)} ${f1(y)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x + w)} ${f1(y + q)} L ${f1(x + w)} ${f1(y + h - q)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x + w - q)} ${f1(y + h)} L ${f1(x + q)} ${f1(y + h)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x)} ${f1(y + h - q)} L ${f1(x)} ${f1(y + q)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x + q)} ${f1(y)} Z`;
+// Ellisse come tracciato.
+const ovale = (cx, cy, rx, ry) => `M ${f1(cx - rx)} ${f1(cy)} A ${f1(rx)} ${f1(ry)} 0 1 0 ${f1(cx + rx)} ${f1(cy)} A ${f1(rx)} ${f1(ry)} 0 1 0 ${f1(cx - rx)} ${f1(cy)} Z`;
+
+function getDefs() {
+  const r = rng(6);
+  let punti = '', chiari = '', segni = '';
+  for (let i = 0; i < 14; i++) { const x = r() * 46 + 1, y = r() * 46 + 1, q = 0.5 + r() * 0.7; punti += `M ${f1(x - q)} ${f1(y)} L ${f1(x + q)} ${f1(y + 0.3)} `; }
+  for (let i = 0; i < 10; i++) { const x = r() * 44 + 2, y = r() * 44 + 2, q = 1.5 + r() * 2.5; chiari += `M ${f1(x)} ${f1(y)} L ${f1(x + q)} ${f1(y - q * 0.4)} `; }
+  for (let i = 0; i < 3; i++) { const x = r() * 44 + 2, y = r() * 30 + 2; segni += `M ${f1(x)} ${f1(y)} L ${f1(x + 0.3)} ${f1(y + 8 + r() * 6)} `; }
+  return `<pattern id="grana" width="48" height="48" patternUnits="userSpaceOnUse">` +
+    `<path d="${punti.trim()}" fill="none" stroke="${C.ink}" stroke-width="1.1" stroke-linecap="round" opacity="0.32"/>` +
+    `<path d="${chiari.trim()}" fill="none" stroke="${C.bg}" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>` +
+    `<path d="${segni.trim()}" fill="none" stroke="${C.cDark}" stroke-width="0.7" opacity="0.35"/>` +
+    `</pattern>`;
+}
+
+function fiamma(x, y, id) {
+  return `<g id="${id}" data-pivot="${f1(x)} ${f1(y)}"><path d="M ${f1(x - 3)} ${f1(y)} C ${f1(x - 5)} ${f1(y - 6)} ${f1(x)} ${f1(y - 8)} ${f1(x)} ${f1(y - 13)} C ${f1(x + 5)} ${f1(y - 8)} ${f1(x + 5)} ${f1(y - 4)} ${f1(x + 3)} ${f1(y)} Z" fill="${C.red}" stroke="${C.ink}" stroke-width="0.8"/></g>`;
+}
+const SOVIET = [
+  { id: 'soviet_tavolo', label: 'Tavolo del comitato con fogli e lampada', width: 300 },
+  { id: 'soviet_telegrafo', label: 'Apparecchio telegrafico', width: 140 },
+  { id: 'coda_tessera', label: 'Tessera quadrettata del pane', width: 90 },
+  { id: 'soviet_bandiera', label: 'Bandiera di corteo senza scritte', width: 120 }
+];
+function drawSoviet(id, ox = 0, oy = 0) {
+  let s = '';
+  if (id === 'soviet_tavolo') {
+    const r = rng(4101);
+    s += tinta(macchia(-140, 300, 280, 12, r, 0.6), C.cDark) + inchiostro(bordo(-140, 300, 280, 12, r, 0.3, 1), 1.5);
+    s += inchiostro(riga(-124, 312, -124, 400, r, 0.2, 0) + ' ' + riga(124, 312, 124, 400, r, 0.2, 0) + ' ' + riga(-124, 340, 124, 340, r, 0.3, 0), 2.6);
+    s += tinta(macchiaP([[-110, 300], [-60, 298], [-56, 286], [-104, 288]], r, 0.5), C.bg) + inchiostro(linea([[-110, 300], [-60, 298], [-56, 286], [-104, 288], [-110, 300]], r, 0.3, 14), 1.1);
+    s += tinta(macchiaP([[-40, 300], [10, 299], [16, 288], [-34, 289]], r, 0.5), C.bg) + inchiostro(linea([[-40, 300], [10, 299], [16, 288], [-34, 289], [-40, 300]], r, 0.3, 14), 1.1);
+    s += inchiostro(riga(-96, 294, -66, 293, r, 0.2, 0) + ' ' + riga(-28, 295, 4, 294, r, 0.2, 0), 0.9, 0.7);
+    s += tinta(macchia(72, 276, 26, 24, r, 0.4), C.sky) + inchiostro(bordo(72, 276, 26, 24, r, 0.3, 1), 1.2) + tinta(macchia(66, 298, 38, 4, r, 0.3), C.cDark);
+    s += fiamma(85, 288, 'fiamma');
+    s += tinta(macchia(-120, 350, 36, 8, r, 0.3), C.sand) + inchiostro(bordo(-120, 350, 36, 8, r, 0.3, 1) + ' ' + riga(-114, 358, -114, 400, r, 0.2, 0) + ' ' + riga(-90, 358, -90, 400, r, 0.2, 0), 1.4);
+    s += tinta(macchia(84, 350, 36, 8, r, 0.3), C.sand) + inchiostro(bordo(84, 350, 36, 8, r, 0.3, 1) + ' ' + riga(90, 358, 90, 400, r, 0.2, 0) + ' ' + riga(114, 358, 114, 400, r, 0.2, 0), 1.4);
+  } else if (id === 'soviet_telegrafo') {
+    const r = rng(4102);
+    s += tinta(macchia(-60, 340, 120, 10, r, 0.5), C.cDark) + inchiostro(bordo(-60, 340, 120, 10, r, 0.3, 1) + ' ' + riga(-50, 350, -50, 400, r, 0.2, 0) + ' ' + riga(50, 350, 50, 400, r, 0.2, 0), 1.6);
+    s += tinta(macchia(-38, 308, 76, 32, r, 0.6), C.sand) + inchiostro(bordo(-38, 308, 76, 32, r, 0.4, 1), 1.4);
+    s += tinta(ovale(-14, 302, 14, 6), C.cMid) + inchiostro(ovale(-14, 302, 14, 6), 1.1);
+    s += inchiostro(riga(18, 308, 18, 286, r, 0.2, 0) + ' ' + riga(10, 286, 34, 286, r, 0.2, 0), 2.4);
+    s += tinta(ovale(24, 276, 12, 12), C.bg) + inchiostro(ovale(24, 276, 12, 12), 1.2);
+    s += inchiostro('M 38 322 C 52 322 52 336 44 338 C 38 340 36 334 42 332', 1.1);
+    s += tinta(ovale(-24, 322, 4, 4), C.red) + inchiostro(ovale(-24, 322, 4, 4), 0.8);
+  } else if (id === 'coda_tessera') {
+    const r = rng(4103);
+    s += tinta(macchia(-30, 330, 60, 70, r, 1), C.sand) + grana(macchia(-30, 330, 60, 70, r, 0), 0.6) + inchiostro(bordo(-30, 330, 60, 70, r, 0.5, 2), 1.4);
+    for (let i = 0; i < 4; i++) for (let k = 0; k < 3; k++) s += inchiostro(bordo(-24 + k * 18, 336 + i * 15, 14, 11, r, 0.2, 0), 0.9);
+    s += tinta(ovale(18, 350, 4, 4), C.red) + inchiostro(ovale(18, 350, 4, 4), 0.8);
+  } else if (id === 'soviet_bandiera') {
+    const r = rng(4104);
+    s += inchiostro(riga(-40, 400, -40, 230, r, 0.4, 0), 3.2);
+    s += `<g id="drappo" data-pivot="-40 240"><path d="M -40 240 C -10 232 10 250 40 240 L 40 292 C 10 302 -10 284 -40 292 Z" fill="${C.red}"/><path d="M -40 240 C -10 232 10 250 40 240 L 40 292 C 10 302 -10 284 -40 292 Z" fill="none" stroke="${C.ink}" stroke-width="1.5" stroke-linejoin="round"/></g>`;
+    s += tinta(ovale(-40, 228, 5, 5), C.cDark) + inchiostro(ovale(-40, 228, 5, 5), 1);
+  }
+  return `<g transform="translate(${ox} ${oy})">${s}</g>`;
+}
+// AVVIO
+(function () {
+  const griglia = document.getElementById('griglia');
+  const defs = `<defs>${getDefs()}</defs>`;
+  SOVIET.forEach(v => {
+    const fig = document.createElement('figure');
+    fig.innerHTML = `<svg viewBox="-640 0 1280 420">${defs}${drawSoviet(v.id)}</svg><figcaption>${v.label}</figcaption>`;
+    griglia.appendChild(fig);
+  });
+})();
+</script>
+</body>
+</html>

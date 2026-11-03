@@ -100,6 +100,7 @@ Gli originali visuali restano consultabili; le immagini raster sono solo materia
 |---|---|---|
 | [kit-villaggio-mir](../prototypes/kit-villaggio-mir/kit-villaggio-mir.html) | 7 simboli per I.2: piazzale del villaggio, isba di chi presiede, pozzo, strisce prima e dopo la divisione, registro dei pagamenti, covone | bozza, da approvare dal docente; l'assemblea all'aperto davanti alla casa di chi presiede è da riscontrare |
 | [kit-interni-citta](../prototypes/kit-interni-citta/kit-interni-citta.html) | 7 simboli per I.3: angolo di stanza in affitto, dormitorio, cella, foglio con il disegno di un razzo (ricostruzione di fantasia, non copia di un documento), pane, carbone, lettera | bozza, da approvare dal docente |
+| [kit-soviet-coda](../prototypes/kit-soviet-coda/kit-soviet-coda.html) | 4 simboli per I.4-I.6: tavolo del comitato con fogli e lampada, apparecchio telegrafico, tessera quadrettata (simbolo del gioco: le tessere del pane russe sono più tarde del 1917), bandiera di corteo senza scritte | bozza, da approvare dal docente; non ancora usati nelle schede scena |
 
 Tutti usano la palette del tema «studi» e il motivo `grana-ambienti`; anteprime in [docs/evidence/asset-i2-i3](evidence/asset-i2-i3/).
 
