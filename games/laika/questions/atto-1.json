@@ -134,5 +134,73 @@
         "gratis": "confonde con la distribuzione della terra"
       }
     }
+  },
+  {
+    "id": "a1-v5",
+    "prompt": "Perché le città russe restano senza pane nel 1916 anche se il grano non manca del tutto?",
+    "options": [
+      {
+        "id": "arriva",
+        "label": "Il grano c'è ma non arriva dove serve: treni ingolfati e prezzi fissati"
+      },
+      {
+        "id": "manca",
+        "label": "Perché i contadini hanno smesso di coltivare ovunque"
+      },
+      {
+        "id": "zar",
+        "label": "Perché lo zar ha vietato di vendere il pane"
+      }
+    ],
+    "correctId": "arriva",
+    "rationale": "Con la guerra i treni sono pochi e il prezzo fissato scoraggia chi vende. Il grano non scompare del tutto: non arriva in città.",
+    "objectives": [
+      "Spiegare perché il pane manca anche se il grano esiste"
+    ],
+    "source": "Episodio «Quanto serve e quanto c'è»: appunti «La Rivoluzione Russa»",
+    "requiredExposureFlags": [
+      "a1-guerra-pane"
+    ],
+    "editorial": {
+      "verifica": "V5",
+      "distrattori": {
+        "manca": "semplifica la causa",
+        "zar": "attribuisce a un divieto un problema di trasporti"
+      }
+    }
+  },
+  {
+    "id": "a1-v6",
+    "prompt": "Che cosa trasforma la protesta di marzo 1917 in una rivoluzione?",
+    "options": [
+      {
+        "id": "soldati",
+        "label": "I soldati si rifiutano di sparare e passano con gli operai"
+      },
+      {
+        "id": "partito",
+        "label": "Un partito dà l'ordine di prendere il potere"
+      },
+      {
+        "id": "zar",
+        "label": "Lo zar firma una nuova costituzione"
+      }
+    ],
+    "correctId": "soldati",
+    "rationale": "La protesta per il pane diventa rivoluzione quando i soldati rifiutano di sparare e si uniscono agli operai. Nessun partito aveva previsto quel giorno.",
+    "objectives": [
+      "Dire che cosa fa passare dalla protesta alla rivoluzione"
+    ],
+    "source": "Episodio «Il soldato che non spara»: appunti «La Rivoluzione Russa»",
+    "requiredExposureFlags": [
+      "a1-soldato"
+    ],
+    "editorial": {
+      "verifica": "V6",
+      "distrattori": {
+        "partito": "attribuisce a un partito ciò che fu spontaneo",
+        "zar": "confonde con il 1905"
+      }
+    }
   }
 ]

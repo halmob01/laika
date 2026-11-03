@@ -101,7 +101,7 @@ test('I.1: cinque strategie arrivano tutte al 1861 e pagano prezzi diversi (ness
 
 test('I.1: salvataggio rigiocato identico a ogni mossa; verifica formativa raggiungibile', () => {
   const r = play('solidale', 'salvataggio', {check: true});
-  assert.equal(r.s.assessmentResults.length, 4, 'una verifica per quesito: V1, V2, V3 e V4');
+  assert.equal(r.s.assessmentResults.length, 6, 'una verifica per quesito: da V1 a V6');
   const q = game.acts[0].episodes.find(e => e.type === 'assessment' && e.question.id === 'a1-v1').question;
   assert.deepEqual(q.requiredExposureFlags, ['a1-manifesto']);
   assert.ok(play('furbo', 'sbagliata', {answer: 'terra'}).s.complete);
@@ -110,7 +110,7 @@ test('I.1: salvataggio rigiocato identico a ogni mossa; verifica formativa raggi
 test('I.1: il manifesto resta leggero da trasferire (gzip)', async () => {
   const {gzipSync} = await import('node:zlib');
   const size = gzipSync(fs.readFileSync(new URL('../games/laika/game.json', import.meta.url))).length;
-  assert.ok(size < 200 * 1024, 'game.json compresso: ' + Math.round(size / 1024) + ' KB');
+  assert.ok(size < 260 * 1024, 'game.json compresso: ' + Math.round(size / 1024) + ' KB');
 });
 
 test('I.1: i flag non compaiono nelle variazioni mostrate e Legami è un indicatore visibile', async () => {

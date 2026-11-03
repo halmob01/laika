@@ -19,7 +19,13 @@
     "a1-soviet",
     "a1-petizione",
     "a1-manifesto-ott",
-    "a1-stolypin"
+    "a1-stolypin",
+    "a1-ginocchio",
+    "a1-guerra-pane",
+    "a1-voci",
+    "a1-donna",
+    "a1-soldato",
+    "a1-treno"
   ],
   "acts": [
     {
@@ -44,7 +50,11 @@
     "source/scene/a1-u2-corte.json",
     "source/scene/a1-u2-volantini.json",
     "source/scene/a1-u4-domenica.json",
-    "source/scene/a1-u4-soviet.json"
+    "source/scene/a1-u4-soviet.json",
+    "source/scene/a1-u5-ginocchio.json",
+    "source/scene/a1-u5-pane.json",
+    "source/scene/a1-u6-coda.json",
+    "source/scene/a1-u6-caserma.json"
   ],
   "tema": "laika-carta",
   "symbols": "assets/symbols.json",

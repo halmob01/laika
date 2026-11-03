@@ -163,3 +163,12 @@ Non riscontrate: il testo per lo studente le tratta come simulazione.
 - Domenica di sangue: data (22 gennaio 1905, 9 gennaio g.), petizione di Gapon e assenza dello zar dalla città. La scheda di PIANO-ATTI chiede di verificare ancora il passo del diario di Nicola, qui non usato.
 - Manifesto di ottobre, Leggi fondamentali del 1906 e scioglimento delle due Dume (e4): sintesi dagli appunti, dettagli e date da riscontrare.
 - Decreto di Stolypin del 1906: contenuto e data da riscontrare; la «cravatta di Stolypin» è nominata nella scheda di PIANO-ATTI.
+
+## Voci aperte dai giochi di I.5 e I.6 (3 novembre 2026)
+
+Non riscontrate: il testo per lo studente le dà come sintesi degli appunti o come voci.
+
+- Gioielliere della corte, ballerina e commesse d'artiglieria, «stupidità o tradimento», imperatrice spia (I.5-e3): voci e passi di Trockij da localizzare.
+- Rasputin ucciso nel dicembre 1916 e la proposta contro l'imperatrice (I.5-e4).
+- Giornate di marzo 1917: date in doppio calendario, tessili di Vyborg, reparto che rifiuta di sparare, Comitato della Duma e soviet lo stesso giorno, treno a Pskov, diario di Nicola (I.6).
+- Prezzi fissati e trasporti come causa della mancanza di pane (quesito V5).

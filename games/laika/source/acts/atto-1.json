@@ -163,6 +163,62 @@
       "max": 100,
       "start": 0,
       "good": "high"
+    },
+    {
+      "id": "pane_citta",
+      "label": "Pane in città",
+      "min": 0,
+      "max": 100,
+      "start": 50,
+      "good": "high"
+    },
+    {
+      "id": "treni",
+      "label": "Treni utili",
+      "min": 0,
+      "max": 100,
+      "start": 50,
+      "good": "high"
+    },
+    {
+      "id": "grano_stato",
+      "label": "Grano in mano allo Stato",
+      "min": 0,
+      "max": 100,
+      "start": 50,
+      "good": "high"
+    },
+    {
+      "id": "scarto",
+      "label": "Scarto fra carta e realtà",
+      "min": 0,
+      "max": 100,
+      "start": 10,
+      "good": "low"
+    },
+    {
+      "id": "soldati",
+      "label": "Soldati con gli operai",
+      "min": 0,
+      "max": 100,
+      "start": 20,
+      "good": "high"
+    },
+    {
+      "id": "operai",
+      "label": "Operai in piazza",
+      "min": 0,
+      "max": 100,
+      "start": 40,
+      "good": "high"
+    },
+    {
+      "id": "ordine",
+      "label": "Forza del vecchio ordine",
+      "min": 0,
+      "max": 100,
+      "start": 70,
+      "good": "low"
     }
   ],
   "resources": [
@@ -196,7 +252,10 @@
     "tratta_prefetto",
     "uscita_dal_mir",
     "stolypin_resta",
-    "stolypin_vende"
+    "stolypin_vende",
+    "coda_lunga",
+    "arsenale_aperto",
+    "verso_tauride"
   ],
   "episodes": [
     {
@@ -6505,6 +6564,999 @@
       },
       "text": "Una domanda su Stolypin. Non valuta le scelte che hai fatto nella partita.",
       "stageId": "a1-u2-mir"
+    },
+    {
+      "id": "a1-u5-ginocchio",
+      "type": "narrative",
+      "roleId": "capofamiglia",
+      "title": "In ginocchio sulla stessa piazza",
+      "display": "cards",
+      "context": {
+        "kind": "documented",
+        "dateLabel": "agosto 1914",
+        "placeLabel": "Pietroburgo"
+      },
+      "text": "Il 2 agosto 1914 (20 luglio nel calendario russo) lo zar annuncia la guerra dal Palazzo d'Inverno e la folla si inginocchia sulla piazza. È la stessa piazza del 22 gennaio 1905.\n\nPoi vengono la sconfitta di Tannenberg e la ritirata. Nicola prende il comando supremo dell'esercito.\n\nPerché una folla che dieci anni prima è stata colpita torna a inginocchiarsi?",
+      "stageId": "a1-u5-ginocchio",
+      "motionId": "ingresso",
+      "exposes": [
+        "a1-ginocchio"
+      ],
+      "visualExplanation": "Una folla si inginocchia sulla piazza. La scena riprende l'inquadratura della domenica del 1905 con il gesto opposto."
+    },
+    {
+      "id": "a1-u5-grano",
+      "type": "turn_game",
+      "roleId": "capofamiglia",
+      "title": "Quanto serve e quanto c'è",
+      "context": {
+        "kind": "simulation",
+        "dateLabel": "1915–1917",
+        "placeLabel": "Russia"
+      },
+      "text": "Il grano è lo stesso. I treni sono meno. Le città sono più affamate. Per cinque stagioni decidi come lo Stato usa quello che ha.\n\nSulla carta il grano può bastare. Nella realtà conta solo quello che arriva in città.",
+      "goal": "Fai arrivare il pane in città senza che lo scarto fra carta e realtà esploda.",
+      "stageId": "a1-u5-pane",
+      "motionId": "ingresso",
+      "exposes": [
+        "a1-guerra-pane"
+      ],
+      "visualExplanation": "Davanti a una panetteria la fila aspetta il pane. Gli indicatori sono indici della simulazione e non dati storici né voti.",
+      "turnWord": "stagione",
+      "nextLabel": "La stagione dopo",
+      "phaseLabels": {
+        "cards": "Il quadro",
+        "event": "Una decisione"
+      },
+      "shows": [
+        "pane_citta",
+        "treni",
+        "grano_stato",
+        "scarto"
+      ],
+      "crises": [
+        {
+          "id": "code",
+          "when": {
+            "op": "lte",
+            "kind": "metric",
+            "id": "pane_citta",
+            "value": 10
+          },
+          "text": "Il pane manca: le code cominciano di notte e non si sciolgono più.",
+          "effects": [
+            {
+              "kind": "flag",
+              "id": "coda_lunga",
+              "value": true
+            },
+            {
+              "kind": "metric",
+              "id": "pane_citta",
+              "delta": 20
+            }
+          ]
+        },
+        {
+          "id": "smentita",
+          "when": {
+            "op": "gte",
+            "kind": "metric",
+            "id": "scarto",
+            "value": 70
+          },
+          "text": "Un giornale smentisce il rapporto ufficiale: nessuno crede più ai numeri dello Stato.",
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "scarto",
+              "delta": -30
+            },
+            {
+              "kind": "metric",
+              "id": "grano_stato",
+              "delta": -10
+            }
+          ]
+        },
+        {
+          "id": "treni-fermi",
+          "when": {
+            "op": "lte",
+            "kind": "metric",
+            "id": "treni",
+            "value": 10
+          },
+          "text": "I treni sono fermi: il grano c'è ma non arriva.",
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "pane_citta",
+              "delta": -15
+            },
+            {
+              "kind": "metric",
+              "id": "treni",
+              "delta": 25
+            }
+          ]
+        }
+      ],
+      "feedback": "Hai deciso cinque stagioni. Sulla carta il grano bastava: in città contava solo quello che arrivava. Le code per il pane sono l'inizio delle giornate di febbraio.",
+      "turns": [
+        {
+          "label": "Autunno 1915",
+          "cards": [
+            {
+              "kind": "simulation",
+              "title": "Quanto serve e quanto c'è",
+              "text": "Con gli uomini al fronte la campagna rende meno. Lo Stato compra il grano a prezzo fissato e lo manda ai soldati e alle città. Le persone e le richieste sono inventate per far vedere i vincoli."
+            }
+          ],
+          "event": {
+            "who": "Un funzionario dell'approvvigionamento",
+            "text": "I contadini vendono poco grano al prezzo fissato: con i rubli di oggi non comprano più niente. Lo Stato deve scegliere.",
+            "choices": [
+              {
+                "id": "alzare",
+                "label": "Alzare il prezzo fissato",
+                "text": "Più grano arriva agli ammassi ma la moneta vale ancora meno.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "grano_stato",
+                    "delta": 12
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "treni",
+                    "delta": -3
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "scarto",
+                    "delta": 5
+                  }
+                ]
+              },
+              {
+                "id": "lasciare",
+                "label": "Lasciare il prezzo fissato",
+                "text": "I contadini tengono il grano o lo vendono altrove.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "grano_stato",
+                    "delta": -10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "scarto",
+                    "delta": 6
+                  }
+                ]
+              },
+              {
+                "id": "requisire",
+                "label": "Requisire con la forza",
+                "text": "Arriva più grano ma i contadini ricordano il gesto.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "grano_stato",
+                    "delta": 15
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "scarto",
+                    "delta": 12
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "Inverno 1915",
+          "event": {
+            "who": "Un capostazione",
+            "text": "I treni sono pochi e la ferrovia è ingolfata. Il grano e le munizioni per il fronte viaggiano sugli stessi binari.",
+            "choices": [
+              {
+                "id": "grano",
+                "label": "Dare la precedenza ai treni di grano",
+                "text": "Il grano arriva in città ma il fronte aspetta.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "treni",
+                    "delta": 10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": 12
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "scarto",
+                    "delta": 4
+                  }
+                ]
+              },
+              {
+                "id": "munizioni",
+                "label": "Dare la precedenza alle munizioni",
+                "text": "Il fronte riceve ma in città il pane tarda.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "treni",
+                    "delta": 8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": -12
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "grano_stato",
+                    "delta": -4
+                  }
+                ]
+              },
+              {
+                "id": "misto",
+                "label": "Dividere i convogli a metà",
+                "chance": {
+                  "base": 0.6
+                },
+                "success": {
+                  "text": "I convogli misti arrivano quasi tutti.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "treni",
+                      "delta": 6
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "pane_citta",
+                      "delta": 5
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "I convogli misti si bloccano a metà strada.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "treni",
+                      "delta": -8
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "pane_citta",
+                      "delta": -6
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "scarto",
+                      "delta": 6
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "label": "Inverno 1916",
+          "event": {
+            "who": "Un ministro",
+            "text": "Vuole un rapporto con numeri buoni da mostrare alla Duma. Sulla carta il grano basta. In realtà non arriva dove serve.",
+            "choices": [
+              {
+                "id": "aggiusta",
+                "label": "Aggiustare i numeri del rapporto",
+                "text": "La carta dice che va bene. Nei fatti il pane non arriva.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "scarto",
+                    "delta": 18
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": -4
+                  }
+                ]
+              },
+              {
+                "id": "vero",
+                "label": "Scrivere i numeri veri",
+                "text": "Il ministro si arrabbia ma ora si vede dove manca il pane.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "scarto",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "treni",
+                    "delta": 4
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "grano_stato",
+                    "delta": 3
+                  }
+                ]
+              },
+              {
+                "id": "tace",
+                "label": "Non scrivere niente",
+                "text": "Il problema resta senza nome.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "scarto",
+                    "delta": 8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": -3
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "Gennaio 1917",
+          "event": {
+            "who": "Un sindaco di città",
+            "text": "La gente fa la fila per il pane fin dalla notte. Le città chiedono una regola.",
+            "choices": [
+              {
+                "id": "tessere",
+                "label": "Distribuire il pane con le tessere",
+                "text": "Meno caos ma si vede quanto poco c'è.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": 8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "grano_stato",
+                    "delta": -6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "scarto",
+                    "delta": -3
+                  }
+                ]
+              },
+              {
+                "id": "libero",
+                "label": "Lasciare il mercato libero",
+                "text": "Chi ha soldi mangia: gli altri aspettano.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": -10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "grano_stato",
+                    "delta": 5
+                  }
+                ]
+              },
+              {
+                "id": "prestito",
+                "label": "Chiedere grano ai villaggi vicini",
+                "chance": {
+                  "base": 0.5
+                },
+                "success": {
+                  "text": "Arriva grano dai villaggi vicini.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "pane_citta",
+                      "delta": 12
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "grano_stato",
+                      "delta": -6
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "I villaggi non mandano niente.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "pane_citta",
+                      "delta": -6
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "scarto",
+                      "delta": 5
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "label": "Febbraio 1917",
+          "event": {
+            "who": "Il capo della ferrovia",
+            "text": "Gelo e neve fermano i treni. Il grano c'è ma non si muove.",
+            "choices": [
+              {
+                "id": "spazzare",
+                "label": "Mandare squadre a liberare i binari",
+                "chance": {
+                  "base": 0.6
+                },
+                "success": {
+                  "text": "Le squadre liberano i binari.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "treni",
+                      "delta": 10
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "pane_citta",
+                      "delta": 8
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "La neve ricopre i binari: lavoro perso.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "treni",
+                      "delta": -6
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "pane_citta",
+                      "delta": -8
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "scorte",
+                "label": "Aprire le scorte della città",
+                "text": "Si mangia un po' per qualche giorno.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": 8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "grano_stato",
+                    "delta": -10
+                  }
+                ]
+              },
+              {
+                "id": "aspetta",
+                "label": "Aspettare il disgelo",
+                "text": "Aspettare costa il pane di oggi.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": -12
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "treni",
+                    "delta": -4
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "a1-u5-gioielli",
+      "type": "source_comparison",
+      "roleId": "capofamiglia",
+      "title": "Gioielli e pane",
+      "context": {
+        "kind": "source",
+        "dateLabel": "inverno 1915–1916",
+        "placeLabel": "Pietroburgo"
+      },
+      "text": "Nell'inverno 1915–1916 in città mancano pane e combustibile. Intorno alla corte circolano voci. Apri le tre schede e confrontale.",
+      "stageId": "a1-u5-pane",
+      "motionId": "ingresso",
+      "exposes": [
+        "a1-voci"
+      ],
+      "visualExplanation": "Una coda per il pane e le voci che circolano. Gli indicatori sono indici della simulazione.",
+      "sources": [
+        {
+          "id": "gioielli",
+          "title": "I gioielli",
+          "text": "Secondo gli appunti il gioielliere della corte non ha mai venduto tanto mentre in città mancano pane e combustibile.",
+          "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa» (da Trockij): da riscontrare."
+        },
+        {
+          "id": "ballerina",
+          "title": "La ballerina",
+          "text": "Si mormora che una ballerina famosa decida le commesse d'artiglieria. È una voce.",
+          "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa» (da Trockij): voce da riscontrare."
+        },
+        {
+          "id": "duma",
+          "title": "La domanda alla Duma",
+          "text": "Un deputato chiede dalla tribuna: stupidità o tradimento? Intanto circola la voce che l'imperatrice sia una spia.",
+          "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa»: da riscontrare."
+        }
+      ],
+      "choices": [
+        {
+          "id": "fatto",
+          "label": "Il fatto vero è che manca il pane: le voci vengono dopo",
+          "feedback": "Il pane che manca è il fatto. Le voci lo riempiono di colpevoli e questo è ciò che le rende più forti.",
+          "effects": []
+        },
+        {
+          "id": "voci",
+          "label": "Le voci contano come i fatti perché la gente ci crede",
+          "feedback": "Una voce falsa può pesare quanto un fatto vero se spiega una sofferenza reale. Resta una voce.",
+          "effects": []
+        },
+        {
+          "id": "distinguere",
+          "label": "Bisogna distinguere ciò che si sa da ciò che si mormora",
+          "feedback": "La risposta più utile: separare i fatti dalle voci è il lavoro dello storico.",
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "a1-u5-semidei",
+      "type": "narrative",
+      "roleId": "capofamiglia",
+      "title": "La fine dei semidei comincia in famiglia",
+      "display": "cards",
+      "context": {
+        "kind": "documented",
+        "dateLabel": "dicembre 1916",
+        "placeLabel": "Pietrogrado"
+      },
+      "text": "Nel dicembre 1916 Rasputin viene ucciso da un principe e da un granduca. Secondo gli appunti una granduchessa propone di eliminare l'imperatrice.\n\nLo zar sembra non fidarsi più nemmeno di chi lo circonda. Il palazzo è isolato e attorno c'è il vuoto.\n\nPuò sopravvivere un potere sacro quando non ci crede più nemmeno la sua famiglia? Le fonti precise vanno ancora riscontrate.",
+      "stageId": "a1-u5-ginocchio",
+      "motionId": "ingresso"
+    },
+    {
+      "id": "a1-u5-v5",
+      "type": "assessment",
+      "roleId": "capofamiglia",
+      "title": "Perché manca il pane",
+      "questionRef": "a1-v5",
+      "context": {
+        "kind": "assessment"
+      },
+      "text": "Una domanda sul pane nelle città. Non valuta le scelte che hai fatto nella partita.",
+      "stageId": "a1-u5-pane"
+    },
+    {
+      "id": "a1-u6-donna",
+      "type": "narrative",
+      "roleId": "figlio",
+      "title": "La Giornata della donna",
+      "display": "cards",
+      "context": {
+        "kind": "documented",
+        "dateLabel": "8 marzo 1917",
+        "placeLabel": "Pietrogrado"
+      },
+      "text": "Neve e gelo fermano i treni e le code per il pane cominciano di notte. L'8 marzo (23 febbraio nel calendario russo) le tessili del quartiere di Vyborg escono dalle fabbriche e chiamano i metallurgici.\n\nNessun partito aveva previsto che quel giorno aprisse una rivoluzione.\n\nChi fa davvero una rivoluzione? La coda si scioglie e le stesse persone diventano un corteo.",
+      "stageId": "a1-u6-coda",
+      "motionId": "ingresso",
+      "exposes": [
+        "a1-donna"
+      ],
+      "visualExplanation": "Una coda per il pane si scioglie e diventa un corteo: stesse figure e nuova formazione."
+    },
+    {
+      "id": "a1-u6-soldato",
+      "type": "turn_game",
+      "roleId": "figlio",
+      "title": "Il soldato che non spara",
+      "context": {
+        "kind": "simulation",
+        "dateLabel": "marzo 1917",
+        "placeLabel": "Pietrogrado"
+      },
+      "text": "Fra l'8 e il 16 marzo 1917 una protesta per il pane diventa una rivoluzione. Il punto di svolta è il soldato che non spara. Qui scegli che cosa viene dopo.",
+      "goal": "Trasforma un gesto di disobbedienza in qualcosa che regge: soldati con gli operai e il vecchio ordine che perde forza.",
+      "stageId": "a1-u6-caserma",
+      "motionId": "ingresso",
+      "exposes": [
+        "a1-soldato"
+      ],
+      "visualExplanation": "In una caserma un soldato abbassa il fucile davanti agli operai. Gli indicatori sono indici della simulazione e non dati storici né voti.",
+      "turnWord": "giorno",
+      "nextLabel": "Il giorno dopo",
+      "phaseLabels": {
+        "cards": "Il quadro",
+        "event": "Una decisione"
+      },
+      "shows": [
+        "soldati",
+        "operai",
+        "ordine"
+      ],
+      "crises": [
+        {
+          "id": "disperso",
+          "when": {
+            "op": "lte",
+            "kind": "metric",
+            "id": "operai",
+            "value": 10
+          },
+          "text": "Gli operai in piazza sono pochi e si disperdono.",
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "operai",
+              "delta": 20
+            },
+            {
+              "kind": "metric",
+              "id": "ordine",
+              "delta": -5
+            }
+          ]
+        },
+        {
+          "id": "spara",
+          "when": {
+            "op": "gte",
+            "kind": "metric",
+            "id": "ordine",
+            "value": 95
+          },
+          "text": "Il vecchio ordine riprende il controllo della piazza.",
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "ordine",
+              "delta": -25
+            },
+            {
+              "kind": "metric",
+              "id": "soldati",
+              "delta": -10
+            }
+          ]
+        }
+      ],
+      "feedback": "Hai deciso tre giorni. Disobbedire è un gesto: diventa una rivoluzione quando altri lo seguono e quando nasce qualcosa che regge. Nessuna scelta riguardava lo sparare.",
+      "turns": [
+        {
+          "label": "12 marzo, sera",
+          "cards": [
+            {
+              "kind": "simulation",
+              "title": "Il soldato che non spara",
+              "text": "Il 12 marzo (27 febbraio nel calendario russo) un reparto si rifiuta di sparare sulla folla. La scelta riguarda il dopo. Le persone e le scelte sono simulazione."
+            }
+          ],
+          "event": {
+            "who": "Un caporale",
+            "text": "Il reparto ha abbassato i fucili. Gli ufficiali minacciano. Che cosa fai adesso?",
+            "choices": [
+              {
+                "id": "caserma",
+                "label": "Tornare in caserma e aspettare",
+                "text": "Il reparto resta unito ma da solo.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "soldati",
+                    "delta": 5
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "ordine",
+                    "delta": 5
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "operai",
+                    "delta": -4
+                  }
+                ]
+              },
+              {
+                "id": "convincere",
+                "label": "Convincere le altre caserme",
+                "chance": {
+                  "base": 0.6
+                },
+                "success": {
+                  "text": "Altri reggimenti passano con voi.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "soldati",
+                      "delta": 14
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "ordine",
+                      "delta": -10
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Gli ufficiali sorvegliano e nessuno si muove.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "soldati",
+                      "delta": -4
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "ordine",
+                      "delta": 4
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "arsenale",
+                "label": "Aprire l'arsenale agli operai",
+                "text": "Gli operai si armano e il rischio cresce.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "operai",
+                    "delta": 10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "ordine",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "soldati",
+                    "delta": 4
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "arsenale_aperto",
+                    "value": true
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "13 marzo",
+          "event": {
+            "who": "Una operaia",
+            "text": "Gli operai aspettano in piazza. Hanno visto i soldati abbassare i fucili.",
+            "choices": [
+              {
+                "id": "piazza",
+                "label": "Restare in piazza con gli operai",
+                "text": "La piazza si riempie.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "operai",
+                    "delta": 10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "soldati",
+                    "delta": 5
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "ordine",
+                    "delta": -5
+                  }
+                ]
+              },
+              {
+                "id": "tauride",
+                "label": "Marciare verso il Palazzo di Tauride",
+                "text": "Il corteo cerca la Duma.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "operai",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "soldati",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "ordine",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "verso_tauride",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "tornare",
+                "label": "Tornare ai reparti",
+                "text": "I reparti si riorganizzano.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "soldati",
+                    "delta": 4
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "operai",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "ordine",
+                    "delta": 3
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "14 marzo",
+          "event": {
+            "who": "Un deputato",
+            "text": "Alla Duma arrivano soldati e operai insieme. Il deputato chiede che cosa devono fare.",
+            "choices": [
+              {
+                "id": "duma",
+                "label": "Chiedere alla Duma di prendere il potere",
+                "text": "La Duma esita.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "ordine",
+                    "delta": -10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "soldati",
+                    "delta": 3
+                  }
+                ]
+              },
+              {
+                "id": "soviet",
+                "label": "Eleggere un consiglio di delegati dei soldati e degli operai",
+                "text": "Nasce un'altra autorità accanto alla Duma.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "soldati",
+                    "delta": 8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "operai",
+                    "delta": 8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "ordine",
+                    "delta": -10
+                  }
+                ]
+              },
+              {
+                "id": "aspettare",
+                "label": "Aspettare ordini dai generali",
+                "text": "Gli ordini non arrivano mai.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "ordine",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "soldati",
+                    "delta": -6
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "a1-u6-treno",
+      "type": "narrative",
+      "roleId": "figlio",
+      "title": "Il treno fermo nella neve",
+      "display": "cards",
+      "context": {
+        "kind": "documented",
+        "dateLabel": "marzo 1917",
+        "placeLabel": "Pskov"
+      },
+      "text": "Al Palazzo di Tauride nascono lo stesso giorno il Comitato della Duma e il soviet. Il treno dello zar è deviato a Pskov.\n\nNicola abdica. Secondo gli appunti annota nel diario la vita del treno mentre arrivano i telegrammi. Le fonti precise vanno riscontrate.\n\nChe cosa resta di un semidio quando smette di esserlo? Un uomo con un'abitudine.",
+      "stageId": "a1-u4-soviet",
+      "motionId": "ingresso",
+      "exposes": [
+        "a1-treno"
+      ]
+    },
+    {
+      "id": "a1-u6-v6",
+      "type": "assessment",
+      "roleId": "figlio",
+      "title": "Dalla protesta alla rivoluzione",
+      "questionRef": "a1-v6",
+      "context": {
+        "kind": "assessment"
+      },
+      "text": "Una domanda sul passaggio dalla protesta alla rivoluzione. Non valuta le scelte che hai fatto nella partita.",
+      "stageId": "a1-u6-caserma"
+    },
+    {
+      "id": "a1-u6-confronto",
+      "type": "narrative",
+      "roleId": "figlio",
+      "title": "Confronto di fine atto",
+      "display": "cards",
+      "context": {
+        "kind": "documented",
+        "dateLabel": "1861–1917",
+        "placeLabel": "Russia"
+      },
+      "text": "La terra aveva preparato il villaggio e il mir. La fabbrica aveva preparato gli operai. Il 1905 aveva mostrato il soviet. La guerra aveva tolto il pane. Alla fine decisero la piazza e i soldati.\n\nIl potere dello zar cadde perché nessuno più lo difese. Quello che veniva dopo era ancora da decidere.",
+      "stageId": "a1-u4-soviet",
+      "motionId": "ingresso"
     }
   ],
   "reconciliation": "Fine dell'unità I.1 (1700–1861). Per un secolo e mezzo la ricchezza si è contata in anime e il tempo di un servo apparteneva in parte al signore. La libertà del 1861 è vera, ma arriva senza la terra: la terra si paga per quarantanove anni e il villaggio risponde insieme dei debiti. Le tue scelte hanno cambiato soltanto la simulazione, non questi fatti. Le unità successive dell'Atto I (1861–1917) sono in preparazione: per ora il percorso si ferma qui.",
@@ -6634,8 +7686,25 @@
       "question": "Il grano c'è. Ma arriva in città?",
       "summary": "La guerra, i treni e le code per il pane.",
       "game": "Quanto serve e quanto c'è: grano, treni e città.",
-      "concepts": [],
-      "episodes": []
+      "concepts": [
+        "guerra",
+        "grano",
+        "treni",
+        "code per il pane",
+        "voci"
+      ],
+      "episodes": [
+        "a1-u5-ginocchio",
+        "a1-u5-grano",
+        "a1-u5-gioielli",
+        "a1-u5-semidei",
+        "a1-u5-v5"
+      ],
+      "closing": {
+        "did": "Hai deciso come lo Stato usava grano e treni in cinque stagioni di guerra.",
+        "fact": "Nella guerra le città restarono senza pane anche se il grano non mancava del tutto: contavano i trasporti e i prezzi fissati. Le code per il pane precedettero le giornate di febbraio.",
+        "simulation": "Le persone e i numeri sono simulazione. Le scelte non hanno cambiato la storia."
+      }
     },
     {
       "id": "i6",
@@ -6644,8 +7713,25 @@
       "question": "Chi fa davvero una rivoluzione?",
       "summary": "Le code diventano un corteo.",
       "game": "La coda che si scioglie in corteo e il soldato che non spara.",
-      "concepts": [],
-      "episodes": []
+      "concepts": [
+        "8 marzo 1917",
+        "soldato che non spara",
+        "Comitato della Duma",
+        "soviet",
+        "abdicazione"
+      ],
+      "episodes": [
+        "a1-u6-donna",
+        "a1-u6-soldato",
+        "a1-u6-treno",
+        "a1-u6-v6",
+        "a1-u6-confronto"
+      ],
+      "closing": {
+        "did": "Hai guidato il passaggio dalla coda per il pane alla fine dello zar.",
+        "fact": "Fra l'8 e il 16 marzo 1917 una protesta per il pane diventò una rivoluzione quando i soldati si rifiutarono di sparare. Lo zar abdicò e nacquero la Duma e il soviet.",
+        "simulation": "I giorni, i personaggi e le scelte sono simulazione."
+      }
     }
   ]
 }
