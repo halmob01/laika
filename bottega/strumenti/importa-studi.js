@@ -66,6 +66,22 @@ export const KIT = [
     ]
   },
   {
+    file: 'prototypes/kit-villaggio-mir/kit-villaggio-mir.html', palette: 'C',
+    token: { bg: 'paper', p2: 'paper2', ink: 'ink', red: 'red', sand: 'sand', cLight: 'concrete-light', cMid: 'concrete-mid', cDark: 'concrete-dark', sky: 'sky', tree: 'tree' },
+    definizioni: { funzione: 'getDefs', argomenti: [], texture: 'villaggio-mir', motivi: { grana: 'grana-ambienti' } },
+    famiglie: [
+      { famiglia: 'villaggio-mir', prefisso: '', funzione: 'drawMir', voci: 'MIR', argomenti: ['$id', 0, 0], terra: 400 }
+    ]
+  },
+  {
+    file: 'prototypes/kit-interni-citta/kit-interni-citta.html', palette: 'C',
+    token: { bg: 'paper', p2: 'paper2', ink: 'ink', red: 'red', sand: 'sand', cLight: 'concrete-light', cMid: 'concrete-mid', cDark: 'concrete-dark', sky: 'sky', tree: 'tree' },
+    definizioni: { funzione: 'getDefs', argomenti: [], texture: 'interni-citta', motivi: { grana: 'grana-ambienti' } },
+    famiglie: [
+      { famiglia: 'interni-citta', prefisso: '', funzione: 'drawCitta', voci: 'CITTA', argomenti: ['$id', 0, 0], terra: 400 }
+    ]
+  },
+  {
     file: 'prototypes/kit-campagna-villaggio/kit-campagna-villaggio.html', palette: 'C',
     token: { bg: 'paper', p2: 'paper2', ink: 'ink', red: 'red', sand: 'sand', cLight: 'concrete-light', cMid: 'concrete-mid', cDark: 'concrete-dark', sky: 'sky', tree: 'tree' },
     definizioni: { funzione: 'getDefs', argomenti: [], texture: 'campagna', motivi: { grana: 'grana-campagna' } },
