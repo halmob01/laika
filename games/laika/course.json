@@ -25,7 +25,8 @@
     "a1-voci",
     "a1-donna",
     "a1-soldato",
-    "a1-treno"
+    "a1-treno",
+    "a1-coda"
   ],
   "acts": [
     {

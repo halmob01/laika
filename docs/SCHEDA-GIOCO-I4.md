@@ -66,3 +66,5 @@ Serve una modalità generica del motore: **giornata a punti azione** (azioni con
 - **Episodi di I.4 costruiti:** tutti e sei (e1 domenica di sangue, e2 petizione a cinque righe, e3 giornate del soviet, e4 confronto sul Manifesto di ottobre, e5 Stolypin, e6 verifiche V3 e V4) più la pagina «Cosa ti devi ricordare». Le fonti di e4 sono sintesi per il gioco dagli appunti, non testi originali; la scelta di Stolypin (`uscita_dal_mir`, `stolypin_resta`, `stolypin_vende`) non ha ancora effetti a valle.
 - **Taratura:** simulazioni su sei strategie fisse e venti partite ciascuna: nessuna strategia vince senza costi, ma «mandare sempre un delegato» rende molto. Da ritoccare.
 - **Fatti da riscontrare:** la cronologia dei giorni è indicativa; i personaggi e le notizie sono inventati e dichiarati simulazione.
+
+I.6 usa la stessa modalità per «La coda per il pane» e «Il soldato che non spara» (episodi `a1-u6-coda-gioco` e `a1-u6-soldato`).
