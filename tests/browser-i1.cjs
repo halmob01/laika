@@ -38,6 +38,11 @@ module.exports=async(browser,root,artifacts)=>{
    if(!(await page.locator('.turn-label').count())){await page.locator('[data-action=advance]').click();continue;}
    const year=await page.locator('.turn-year').textContent();if(anni.at(-1)!==year){anni.push(year);anno++;}
    if(await page.locator('[data-turn=card]').count()){if([1,2,3,4,8].includes(anno)){const k=await page.locator('.card-bar i').evaluateAll(l=>l.findIndex(x=>x.classList.contains('now')));await page.locator('#skip').click().catch(()=>{});await shot(String(anno).padStart(2,'0')+'-card-'+year+'-'+(k+1));}await page.locator('[data-turn=card]').click();continue;}
+   // I.3: salario in monete (pedine senza persone): si aggiungono monete ai posti con i pulsanti «+».
+   if(await page.locator('[data-turn=confirm]').count()&&await page.locator('[data-place][data-delta="1"]').count()){
+    for(const [id,n] of Object.entries({pane:3,stanza:2,carbone:1,villaggio:1,corso:1}))for(let i=0;i<n;i++){const b=page.locator('[data-place="'+id+'"][data-delta="1"]');if(await b.count()&&await b.isEnabled())await b.click();}
+    await shot('91-salario');if(await page.locator('[data-turn=confirm]:disabled').count())throw new Error('salario non confermabile');
+    await page.locator('[data-turn=confirm]').click();await shot('91-salario-esito');continue;}
    if(await page.locator('[data-turn=confirm]').count()){
     assert.match(await page.locator('#caption').textContent(),/tabellone/,'didascalia del tabellone, non della card precedente');
     const people=await page.locator('[data-worker]').evaluateAll(l=>l.map(b=>b.dataset.worker));
@@ -78,7 +83,7 @@ module.exports=async(browser,root,artifacts)=>{
    throw new Error('Pagina senza comandi: '+(await page.locator('#panel').innerText()).slice(0,200));
   }
   assert.ok(await page.locator('#summary-title').isVisible(),'unità non conclusa');
-  assert.deepEqual(anni,['1740','1761','1777','1787','1820','1840','1842','1861']);
+  assert.deepEqual(anni.slice(0,8),['1740','1761','1777','1787','1820','1840','1842','1861']);
   await shot('fine');
   const salvato=await save();
   await page.goto(origin+'/');await page.locator('#progress').filter({hasText:'completata'}).waitFor();

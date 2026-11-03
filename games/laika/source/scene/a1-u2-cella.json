@@ -21,37 +21,27 @@
   "etichetta": "Una cella: un uomo seduto disegna su un foglio; sopra di lui una finestrella lascia vedere un pezzo di cielo.",
   "elementi": [
     {
-      "id": "suolo",
-      "simbolo": "suolo",
+      "id": "cella",
+      "simbolo": "citta-cella",
       "x": 800,
       "y": 900,
-      "scala": 2.4
+      "scala": 1.85
     },
     {
       "id": "foglio",
-      "simbolo": "oggetto-cartello-vuoto",
-      "x": 1050,
-      "y": 800,
-      "scala": 1.8
-    },
-    {
-      "id": "foschia",
-      "simbolo": "atmo-foschia",
-      "x": 800,
-      "y": 600,
-      "scala": 1.2
+      "simbolo": "citta-foglio-razzo",
+      "x": 1040,
+      "y": 900,
+      "scala": 1.5
     }
   ],
   "figure": [
     {
       "id": "detenuto",
-      "x": 800,
-      "y": 850,
-      "scala": 1.5,
-      "variante": "nessuna",
-      "posa": "seduto",
-      "abito": "cappotto",
-      "cappello": null
+      "x": 560,
+      "y": 880,
+      "scala": 2.8,
+      "posa": "seduto"
     }
   ],
   "sequenze": [

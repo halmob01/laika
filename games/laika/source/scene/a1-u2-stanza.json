@@ -18,32 +18,37 @@
     "centro": 0.5,
     "zoom": 1.2
   },
-  "etichetta": "Un angolo di stanza in affitto: sul tavolo il salario della settimana, da dividere fra pane, stanza, carbone e soldi per il villaggio.",
+  "etichetta": "Un angolo di stanza in affitto: il letto di ferro, il baule, la stufetta. Sul tavolo il pane e una lettera da mandare al villaggio; il salario è poco e bisogna scegliere.",
   "elementi": [
     {
       "id": "stanza",
-      "simbolo": "ambiente-isba-interno",
+      "simbolo": "citta-angolo-stanza",
       "x": 800,
-      "y": 860,
-      "scala": 1.05
+      "y": 900,
+      "scala": 1.85
     },
     {
-      "id": "cassa",
-      "simbolo": "oggetto-cassa",
-      "x": 1150,
-      "y": 830,
-      "scala": 0.9
+      "id": "pane",
+      "simbolo": "citta-pane",
+      "x": 1000,
+      "y": 900,
+      "scala": 2.4
+    },
+    {
+      "id": "lettera",
+      "simbolo": "citta-lettera",
+      "x": 450,
+      "y": 900,
+      "scala": 1.8
     }
   ],
   "figure": [
     {
       "id": "figlio",
       "x": 700,
-      "y": 840,
-      "scala": 1.1,
-      "variante": "nessuna",
-      "posa": "in_piedi",
-      "ruolo": "protagonista"
+      "y": 880,
+      "scala": 2.8,
+      "posa": "in_piedi"
     }
   ],
   "sequenze": [

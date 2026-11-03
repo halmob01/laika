@@ -56,7 +56,7 @@ const at=(node,x,y)=>{node.style.left=(x*100)+'%';node.style.top=(y*100)+'%';ret
 function clearOverlay(stageHost){stageHost?.querySelector('.turn-overlay')?.remove();fitObserver?.disconnect();fitObserver=null;}
 function hotspots(stageHost,episode,game,dispatch){
   const o=game.phase==='place'?overlay(stageHost):(clearOverlay(stageHost),null);if(!o)return;
-  for(const p of episode.places){const b=button(String(game.placement[p.id]),()=>dispatch({type:'turn',step:'place',placeId:p.id,delta:1}),{tabindex:'-1','data-hotspot':p.id,title:placeLabel(episode,game,p)});
+  for(const p of episode.places||[]){const b=button(String(game.placement[p.id]),()=>dispatch({type:'turn',step:'place',placeId:p.id,delta:1}),{tabindex:'-1','data-hotspot':p.id,title:placeLabel(episode,game,p)});
     at(b,p.x,p.y);b.disabled=placed(game)>=game.rules.tokens;o.layer.append(b);}
 }
 // Gestione: la persona scelta (stato dell'interfaccia, non della partita) e le figure sulla scena.
@@ -130,7 +130,7 @@ function managePlace(host,episode,act,state,go){
     if(left<0)box.append(el('p','Non basta: il grano finirà prima del raccolto.',{class:'turn-warning'}));host.append(box);}
   // 4. Il rischio, scritto prima di scegliere.
   const risk=el('div',undefined,{class:'turn-risk'});
-  risk.append(el('p','Il tempo che farà: '+luckOdds(episode).map(l=>l.label+' '+l.p+'%').join(' · ')+'.'));
+  risk.append(el('p',(episode.luckLabel||'Il tempo che farà')+': '+luckOdds(episode).map(l=>l.label+' '+l.p+'%').join(' · ')+'.'));
   for(const s of shortfalls(episode,g))if(episode.control)risk.append(el('p','Al signore mancano '+amount(episode,s.required-s.given)+': qualcuno se ne accorge nel '+Math.round(chanceOf(episode.control.chance,act,state)*100)+'% dei casi.',{class:'turn-warning'}));
   host.append(risk);
   // Un solo pulsante principale; se è spento, dice perché.
@@ -140,7 +140,7 @@ function managePlace(host,episode,act,state,go){
 const PHASE_NAMES={cards:'Notizie',place:'La mossa',result:'L’esito',event:'Incontro',market:'Mercato'};
 function stepper(episode,g){
   const t=episode.turns[g.turn],now=g.phase==='eventResult'?'event':g.phase;
-  const list=['cards','place','result','event','market'].filter(k=>k==='cards'?cardCount(episode,g)>0:k==='event'?!!t.event:k==='market'?!!t.market:true);
+  const list=['cards','place','result','event','market'].filter(k=>k==='cards'?cardCount(episode,g)>0:k==='event'?!!t.event:k==='market'?!!t.market:!!episode.places);
   const nav=el('ol',undefined,{class:'turn-steps-bar','aria-label':'Passi dell’anno'}),at=list.indexOf(now);
   list.forEach((k,i)=>{const li=el('li',(episode.phaseLabels||{})[k]||PHASE_NAMES[k],{class:i<at?'done':i===at?'now':''});if(i===at)li.setAttribute('aria-current','step');nav.append(li);});
   return nav;
@@ -152,12 +152,12 @@ function turnGame(ctx){
     if(step!==null)return dispatch({type:'turn',step,...extra});host.replaceChildren();turnGame(ctx);(host.querySelector('[data-worker][aria-pressed=true]')||host.querySelector('[data-worker]'))?.focus({preventScroll:true});};
   if(episode.workers)board(stageHost,stage,episode,act,state,dispatch);else hotspots(stageHost,episode,g,dispatch);
   if(state.phase!=='scene')return;
-  const head=el('p',undefined,{class:'turn-label'});head.append(el('span',t.label,{class:'turn-year'}),el('span','anno '+(g.turn+1)+' di '+episode.turns.length,{class:'turn-count'}));host.append(head,stepper(episode,g));
+  const head=el('p',undefined,{class:'turn-label'});head.append(el('span',t.label,{class:'turn-year'}),el('span',(episode.turnWord||'anno')+' '+(g.turn+1)+' di '+episode.turns.length,{class:'turn-count'}));host.append(head,stepper(episode,g));
   if(g.phase==='cards'){
     const c=cardAt(episode,g),n=cardCount(episode,g),box=el('div',undefined,{class:'cards turn-cards'}),bar=el('div',undefined,{class:'card-bar','aria-hidden':'true'}),nav=el('div',undefined,{class:'card-nav'});
     for(let i=0;i<n;i++)bar.append(el('i',undefined,{class:i<g.card?'done':i===g.card?'now':''}));
     const prev=button('Indietro',()=>go('back'),{'data-turn':'back'});prev.disabled=g.card===0;
-    nav.append(prev,button(g.card>=n-1?'Alla '+((episode.phaseLabels||{}).place||'mossa').toLowerCase().replace(/^la /,''):'Avanti',()=>go('card'),{'data-turn':'card',class:'primary'}));
+    nav.append(prev,button(g.card>=n-1?(episode.places?'Alla '+((episode.phaseLabels||{}).place||'mossa').toLowerCase().replace(/^la /,''):'Alla richiesta'):'Avanti',()=>go('card'),{'data-turn':'card',class:'primary'}));
     if(c.kind)box.append(el('p',CONTEXT_LABELS[c.kind],{class:'card-kind','data-kind':c.kind}));
     if(c.title)box.append(el('h2',c.title,{class:'card-title'}));
     box.append(el('p',c.text,{class:'lead card-text',tabindex:'-1'}),bar,nav);host.append(box);return;
@@ -178,19 +178,19 @@ function turnGame(ctx){
     }
     host.append(list);
     const risk=el('div',undefined,{class:'turn-risk'});
-    risk.append(el('p','Il tempo che farà: '+luckOdds(episode).map(l=>l.label+' '+l.p+'%').join(' · ')+'.'));
-    const upkeep=[...(episode.upkeep||[]),...g.rules.upkeep].filter(m=>m.delta);if(upkeep.length)risk.append(el('p','Ogni anno, comunque: '+upkeep.map(m=>sign(m.delta)+' '+metricLabel(act,m)).join(', ')+'.'));
+    risk.append(el('p',(episode.luckLabel||'Il tempo che farà')+': '+luckOdds(episode).map(l=>l.label+' '+l.p+'%').join(' · ')+'.'));
+    const upkeep=[...(episode.upkeep||[]),...g.rules.upkeep].filter(m=>m.delta);if(upkeep.length)risk.append(el('p',(episode.upkeepHint||'Ogni anno, comunque')+': '+upkeep.map(m=>sign(m.delta)+' '+metricLabel(act,m)).join(', ')+'.'));
     for(const s of shortfalls(episode,g))if(episode.control)risk.append(el('p','Meno di '+s.required+' a «'+placeLabel(episode,g,episode.places.find(p=>p.id===s.placeId))+'»: qualcuno se ne accorge nel '+Math.round(chanceOf(episode.control.chance,act,state)*100)+'% dei casi.',{class:'turn-warning'}));
     host.append(risk);
-    const ok=button('Comincia l’anno',()=>go('confirm'),{'data-turn':'confirm',class:'primary'});ok.disabled=!!left;host.append(ok);return;
+    const ok=button(episode.confirmLabel||'Comincia l’anno',()=>go('confirm'),{'data-turn':'confirm',class:'primary'});ok.disabled=!!left;host.append(ok);return;
   }
   if(g.phase==='result'){
     const r=g.result,box=el('div',undefined,{class:'outcome turn-result',role:'status'});
     // Prima il giudizio in una frase, poi il perché; i numeri si aprono a parte.
     if(r.verdict){if(r.verdict.stamp)box.append(el('p',r.verdict.stamp,{class:'turn-stamp-verdict','data-tone':r.verdict.tone,'aria-hidden':'true'}));box.append(el('p',r.verdict.text,{class:'turn-verdict','data-tone':r.verdict.tone}));}
     const why=el('ul',undefined,{class:'turn-why'});
-    why.append(el('li','Il tempo: '+r.luck.label+'.'));
-    if(r.control)why.append(el('li',r.control.caught?r.control.text:'Al signore mancava qualcosa, ma questa volta nessuno se ne accorge.'));
+    why.append(el('li',(episode.luckResultLabel||'Il tempo')+': '+r.luck.label+'.'));
+    if(r.control)why.append(el('li',r.control.caught?r.control.text:(episode.control.escaped||'Al signore mancava qualcosa, ma questa volta nessuno se ne accorge.')));
     for(const b of r.built||[])why.append(el('li',b.label+': '+b.text,{class:'turn-built'}));
     for(const c of r.crises)why.append(el('li',c.text,{class:'turn-crisis'}));
     box.append(why);
@@ -213,7 +213,7 @@ function turnGame(ctx){
     if(r.p!==null)box.append(el('p',(r.success?'Riuscito':'Non riuscito')+' ('+r.p+'%).'));
     box.append(el('p',r.text));for(const c of r.crises)box.append(el('p',c.text,{class:'turn-crisis'}));
     if(r.changes.length)box.append(changeList(act,r.changes));host.append(box);
-    host.append(button(t.market?'Alla fiera':g.turn>=episode.turns.length-1?'Fine della partita':'L’anno dopo',()=>go('continue'),{'data-turn':'continue',class:'primary'}));return;
+    host.append(button(t.market?'Alla fiera':g.turn>=episode.turns.length-1?'Fine della partita':(episode.nextLabel||'L’anno dopo'),()=>go('continue'),{'data-turn':'continue',class:'primary'}));return;
   }
   if(g.phase==='market'){
     const m=t.market;host.append(el('p',m.who,{class:'turn-who'}),el('p',m.text,{class:'lead'}));

@@ -23,22 +23,16 @@
       "mandate": "Guardare da vicino la corte e ricordare che cosa succede intanto nei villaggi."
     },
     {
-      "id": "famiglia-numerosa",
-      "label": "La famiglia con molte bocche",
-      "actorId": "famiglia",
-      "mandate": "Avere abbastanza terra per sfamare tutta la casa."
-    },
-    {
-      "id": "anziano",
-      "label": "L'anziano del lotto curato",
-      "actorId": "famiglia",
-      "mandate": "Non perdere il lotto che hai concimato e curato per anni."
-    },
-    {
       "id": "figlio",
       "label": "Il figlio in città",
       "actorId": "famiglia",
       "mandate": "Sopravvivere in città senza perdere il legame con il villaggio."
+    },
+    {
+      "id": "capofamiglia",
+      "label": "Il capofamiglia ascoltato",
+      "actorId": "famiglia",
+      "mandate": "Tenere insieme il villaggio senza che nessuno resti senza terra o senza pane."
     }
   ],
   "metrics": [
@@ -64,6 +58,54 @@
       "min": 0,
       "max": 100,
       "start": 40,
+      "good": "high"
+    },
+    {
+      "id": "numerose",
+      "label": "Le famiglie numerose",
+      "min": 0,
+      "max": 100,
+      "start": 50,
+      "good": "high"
+    },
+    {
+      "id": "curato",
+      "label": "Chi ha curato il proprio lotto",
+      "min": 0,
+      "max": 100,
+      "start": 50,
+      "good": "high"
+    },
+    {
+      "id": "soli",
+      "label": "Le vedove e gli anziani soli",
+      "min": 0,
+      "max": 100,
+      "start": 50,
+      "good": "high"
+    },
+    {
+      "id": "cassa",
+      "label": "La cassa del riscatto",
+      "min": 0,
+      "max": 100,
+      "start": 50,
+      "good": "high"
+    },
+    {
+      "id": "debito",
+      "label": "Debito",
+      "min": 0,
+      "max": 20,
+      "start": 0,
+      "good": "low"
+    },
+    {
+      "id": "lettura",
+      "label": "Quanto sai leggere i fogli",
+      "min": 0,
+      "max": 100,
+      "start": 0,
       "good": "high"
     }
   ],
@@ -91,7 +133,9 @@
     "vomere",
     "mucca_ricomprata",
     "figlio_via",
-    "padre_via"
+    "padre_via",
+    "figlio_in_citta",
+    "mir_diviso"
   ],
   "episodes": [
     {
@@ -2143,76 +2187,772 @@
     },
     {
       "id": "a1-u2-mir",
-      "type": "role_crisis",
-      "roleId": "famiglia-numerosa",
-      "roles": [
-        "famiglia-numerosa",
-        "anziano"
-      ],
+      "type": "turn_game",
+      "roleId": "capofamiglia",
       "title": "L'assemblea del mir",
       "context": {
         "kind": "simulation",
         "dateLabel": "1861–1904",
         "placeLabel": "Un villaggio della Russia centrale"
       },
-      "text": "Dopo il 1861 la terra si riscatta insieme e il villaggio risponde insieme dei pagamenti. In molti villaggi l'assemblea del mir si riunisce di tanto in tanto davanti alle isbe per decidere se rifare la divisione delle strisce.\n\nUna famiglia con molte bocche da sfamare vuole più terra. Un anziano che per anni ha concimato e curato il suo lotto non vuole perderlo. Tutti e due hanno una ragione. Puoi guardare la scena dall'una o dall'altra parte; poi l'assemblea decide.",
+      "text": "Dopo il 1861 la terra si riscatta insieme e il villaggio risponde insieme dei pagamenti. Sei il capofamiglia che l'assemblea ascolta di più.\n\nOgni assemblea una persona si alza e chiede qualcosa. Tu rispondi. Ogni risposta contenta qualcuno e ne scontenta un altro: tieni d'occhio i quattro gruppi del villaggio.",
+      "goal": "Tieni insieme il villaggio: nessun gruppo deve scendere troppo e la cassa del riscatto deve reggere.",
       "stageId": "a1-u2-mir",
       "motionId": "ingresso",
       "exposes": [
         "a1-mir"
       ],
-      "visualExplanation": "Davanti alle isbe: a sinistra la famiglia con i bambini, a destra l'anziano; al centro chi guida la discussione. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
-      "choices": [
+      "visualExplanation": "Davanti alle isbe l'assemblea del villaggio. Ogni volta una persona si alza e chiede qualcosa: scegli la risposta. Le barre sono i gruppi del villaggio: sono indici della simulazione e non dati storici né voti.",
+      "turnWord": "assemblea",
+      "nextLabel": "L'assemblea dopo",
+      "phaseLabels": {
+        "cards": "Notizie",
+        "event": "Una richiesta"
+      },
+      "shows": [
+        "numerose",
+        "curato",
+        "soli",
+        "cassa"
+      ],
+      "crises": [
         {
-          "id": "bocche",
-          "label": "Rifare la divisione in base al numero delle bocche",
-          "feedback": "La famiglia numerosa ottiene strisce in più e l'anziano ne perde. Il villaggio si sente più giusto; ma chi ha curato il suo lotto si chiede perché continuare a farlo.",
+          "id": "figlio-parte",
+          "when": {
+            "op": "lte",
+            "kind": "metric",
+            "id": "numerose",
+            "value": 10
+          },
+          "text": "Una famiglia numerosa non ce la fa più: il figlio maggiore parte per la città in cerca di lavoro.",
           "effects": [
             {
-              "kind": "metric",
-              "id": "legami",
-              "delta": 6
+              "kind": "flag",
+              "id": "figlio_in_citta",
+              "value": true
             },
             {
               "kind": "metric",
-              "id": "speranza",
-              "delta": 4
+              "id": "numerose",
+              "delta": 25
             }
           ]
         },
         {
-          "id": "lotti",
-          "label": "Lasciare a ciascuno il lotto che ha",
-          "feedback": "L'anziano tiene il suo lotto curato. La famiglia numerosa resta con la stessa terra e più bocche da sfamare: chi ha poco si sente messo da parte.",
+          "id": "lotto-trascurato",
+          "when": {
+            "op": "lte",
+            "kind": "metric",
+            "id": "curato",
+            "value": 10
+          },
+          "text": "Chi aveva curato il proprio lotto smette di migliorarlo: concimare non vale più la fatica.",
           "effects": [
             {
               "kind": "metric",
-              "id": "legami",
-              "delta": -6
+              "id": "cassa",
+              "delta": -10
             },
             {
               "kind": "metric",
-              "id": "speranza",
-              "delta": -2
+              "id": "curato",
+              "delta": 25
             }
           ]
         },
         {
-          "id": "nuove",
-          "label": "Dividere soltanto le strisce nuove di prato e di bosco",
-          "feedback": "Nessuno perde ciò che ha e nessuno ottiene tutto ciò che chiede. La discussione si ripeterà l'anno dopo.",
+          "id": "soli-mantenuti",
+          "when": {
+            "op": "lte",
+            "kind": "metric",
+            "id": "soli",
+            "value": 10
+          },
+          "text": "Le vedove e gli anziani soli restano senza aiuto: il villaggio li mantiene a spese di tutti.",
           "effects": [
             {
               "kind": "metric",
-              "id": "legami",
-              "delta": 2
+              "id": "cassa",
+              "delta": -10
             },
             {
               "kind": "metric",
-              "id": "speranza",
-              "delta": 1
+              "id": "soli",
+              "delta": 25
             }
           ]
+        },
+        {
+          "id": "esattore",
+          "when": {
+            "op": "lte",
+            "kind": "metric",
+            "id": "cassa",
+            "value": 10
+          },
+          "text": "La cassa è vuota: l'esattore sequestra il bestiame di tutti e ogni gruppo ci rimette.",
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "numerose",
+              "delta": -10
+            },
+            {
+              "kind": "metric",
+              "id": "curato",
+              "delta": -10
+            },
+            {
+              "kind": "metric",
+              "id": "soli",
+              "delta": -10
+            },
+            {
+              "kind": "metric",
+              "id": "cassa",
+              "delta": 30
+            }
+          ]
+        }
+      ],
+      "feedback": "Otto assemblee sono passate. Il mir non è una democrazia moderna né un soviet: decide la comunità dei capifamiglia e ogni decisione ha pesato su qualcuno. Intanto la terra non basta per tutti e i figli cominciano a guardare verso la città.",
+      "turns": [
+        {
+          "label": "1862",
+          "event": {
+            "who": "Una madre con sei figli",
+            "text": "Si alza e dice che il suo lotto non basta più a sfamare la casa. Chiede di rifare la divisione delle strisce.",
+            "choices": [
+              {
+                "id": "dividere",
+                "label": "Rifare la divisione ora",
+                "text": "Le strisce vengono misurate di nuovo. La famiglia numerosa ha più terra. Chi aveva concimato la sua ne perde un pezzo.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "numerose",
+                    "delta": 20
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "curato",
+                    "delta": -20
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "mir_diviso",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "rimandare",
+                "label": "Rimandare di tre anni",
+                "text": "Si rimanda. La madre torna a casa a mani vuote.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "numerose",
+                    "delta": -10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "curato",
+                    "delta": 5
+                  }
+                ]
+              },
+              {
+                "id": "comune",
+                "label": "Un campo in comune da lavorare a metà",
+                "chance": {
+                  "base": 0.6
+                },
+                "success": {
+                  "text": "Il campo in comune rende bene: ne mangiano in tanti.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "numerose",
+                      "delta": 8
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "soli",
+                      "delta": 5
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "cassa",
+                      "delta": -5
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Il campo rende poco e nessuno è contento.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "numerose",
+                      "delta": -3
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "cassa",
+                      "delta": -10
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "cards": [
+            {
+              "kind": "simulation",
+              "title": "Le assemblee del mir",
+              "text": "Dopo il 1861 la terra si riscatta insieme e il villaggio risponde insieme dei pagamenti. In molti villaggi l'assemblea rifà ogni tanto la divisione delle strisce di terra. Le persone e le richieste che seguono sono inventate per far vedere le ragioni di ciascuno."
+            }
+          ]
+        },
+        {
+          "label": "1868",
+          "event": {
+            "who": "Un anziano del lotto curato",
+            "text": "Per anni ha concimato e drenato il suo lotto. Dice che se si rifà la divisione perderà il frutto della sua fatica.",
+            "choices": [
+              {
+                "id": "riconoscere",
+                "label": "Il lotto resta suo: se l’è guadagnato",
+                "text": "L’anziano torna a casa tranquillo. Le famiglie con più bocche mormorano.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "curato",
+                    "delta": 15
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "numerose",
+                    "delta": -10
+                  }
+                ]
+              },
+              {
+                "id": "compenso",
+                "label": "Chiedergli una striscia in cambio di grano dalla cassa",
+                "text": "Accetta a malincuore. La cassa si alleggerisce.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "curato",
+                    "delta": -5
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "numerose",
+                    "delta": 10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "cassa",
+                    "delta": -10
+                  }
+                ]
+              },
+              {
+                "id": "terra",
+                "label": "Rispondere che la terra è del villaggio",
+                "text": "Nessuno osa replicare. L’anziano non concimerà più allo stesso modo.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "curato",
+                    "delta": -20
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "numerose",
+                    "delta": 10
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "1874",
+          "event": {
+            "who": "Un raccolto scarso",
+            "text": "L’esattore chiede la quota dei pagamenti della terra. Il villaggio risponde insieme: se qualcuno non paga devono pagare gli altri.",
+            "choices": [
+              {
+                "id": "uguale",
+                "label": "Far pagare a ogni famiglia la stessa quota",
+                "text": "La cassa si riempie. Per chi ha poco la quota pesa il doppio.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "cassa",
+                    "delta": 20
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "numerose",
+                    "delta": -15
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "soli",
+                    "delta": -5
+                  }
+                ]
+              },
+              {
+                "id": "terra",
+                "label": "Far pagare in proporzione alla terra",
+                "text": "Pagano di più i lotti più grandi. Chi ha curato il proprio lotto protesta.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "cassa",
+                    "delta": 10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "curato",
+                    "delta": -15
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "numerose",
+                    "delta": 5
+                  }
+                ]
+              },
+              {
+                "id": "dilazione",
+                "label": "Chiedere all’esattore una dilazione",
+                "chance": {
+                  "base": 0.5
+                },
+                "success": {
+                  "text": "L’esattore concede un anno di tempo: la cassa respira.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "cassa",
+                      "delta": 5
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "L’esattore rifiuta e aggiunge gli interessi.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "cassa",
+                      "delta": -20
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "soli",
+                      "delta": -5
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "label": "1880",
+          "event": {
+            "who": "Una vedova senza braccia",
+            "text": "Dice che il marito è morto e che da sola non riesce a lavorare il suo lotto. Chiede aiuto al villaggio.",
+            "choices": [
+              {
+                "id": "turno",
+                "label": "Far lavorare il suo lotto a turno dalle altre famiglie",
+                "text": "Il lotto della vedova viene lavorato a turno. Le altre famiglie perdono giornate di lavoro.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "soli",
+                    "delta": 20
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "numerose",
+                    "delta": -10
+                  }
+                ]
+              },
+              {
+                "id": "ridurre",
+                "label": "Ridurle il lotto e dare il resto a chi ha più bisogno",
+                "text": "Le tolgono una parte del lotto. Le famiglie numerose ringraziano.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "soli",
+                    "delta": -15
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "numerose",
+                    "delta": 10
+                  }
+                ]
+              },
+              {
+                "id": "grano",
+                "label": "Darle grano dalla cassa",
+                "text": "La vedova mangia fino al raccolto. La cassa si svuota un poco.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "soli",
+                    "delta": 15
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "cassa",
+                    "delta": -15
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "1887",
+          "event": {
+            "who": "Un giovane che vuole partire",
+            "text": "Chiede di andare in città a lavorare in fabbrica e di mandare qualche soldo a casa.",
+            "choices": [
+              {
+                "id": "andare",
+                "label": "Lasciarlo partire",
+                "text": "Il giovane parte. Le prime monete arrivano a primavera. In casa c’è una bocca di meno.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "numerose",
+                    "delta": 10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "cassa",
+                    "delta": 10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "soli",
+                    "delta": -5
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "figlio_in_citta",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "restare",
+                "label": "Chiedergli di restare per il lavoro dei campi",
+                "text": "Il giovane resta. Sul lotto c’è un paio di braccia in più.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "numerose",
+                    "delta": -10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "curato",
+                    "delta": 5
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "soli",
+                    "delta": 5
+                  }
+                ]
+              },
+              {
+                "id": "inverno",
+                "label": "Farlo partire solo per l’inverno",
+                "chance": {
+                  "base": 0.6
+                },
+                "success": {
+                  "text": "Torna a primavera con qualche moneta e le braccia per la semina.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "numerose",
+                      "delta": 5
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "cassa",
+                      "delta": 5
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Non trova lavoro e torna a mani vuote.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "numerose",
+                      "delta": -5
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "curato",
+                      "delta": -5
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "label": "1893",
+          "event": {
+            "who": "Un concime in comune",
+            "text": "Alcune famiglie propongono di drenare insieme il terreno più basso: lavoro di tutti e frutto di tutti.",
+            "choices": [
+              {
+                "id": "insieme",
+                "label": "Farlo insieme",
+                "chance": {
+                  "base": 0.6
+                },
+                "success": {
+                  "text": "Il terreno drenato rende per tutti.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "curato",
+                      "delta": 10
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "numerose",
+                      "delta": 10
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "cassa",
+                      "delta": 5
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Il lavoro è tanto e il frutto poco: si litiga su chi ha lavorato di meno.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "numerose",
+                      "delta": -5
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "curato",
+                      "delta": -5
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "cassa",
+                      "delta": -5
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "chipuo",
+                "label": "Lasciar fare a chi ha i mezzi",
+                "text": "Fanno in pochi sul proprio lotto. Chi ha di meno resta indietro.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "curato",
+                    "delta": 15
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "numerose",
+                    "delta": -5
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "soli",
+                    "delta": -5
+                  }
+                ]
+              },
+              {
+                "id": "niente",
+                "label": "Non fare niente",
+                "text": "Il terreno resta com’è.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "numerose",
+                    "delta": -5
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "1898",
+          "event": {
+            "who": "Una famiglia in arretrato",
+            "text": "Da due anni non riesce a pagare la sua parte. L’esattore ricorda che il villaggio risponde insieme.",
+            "choices": [
+              {
+                "id": "cassa",
+                "label": "Coprire l’arretrato con la cassa",
+                "text": "La famiglia respira. La cassa perde una parte delle sue monete.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "cassa",
+                    "delta": -20
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "soli",
+                    "delta": 5
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "numerose",
+                    "delta": 5
+                  }
+                ]
+              },
+              {
+                "id": "tutti",
+                "label": "Dividere l’arretrato fra tutte le famiglie",
+                "text": "Ciascuno paga un poco. Nessuno è contento.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "cassa",
+                    "delta": 10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "curato",
+                    "delta": -10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "numerose",
+                    "delta": -10
+                  }
+                ]
+              },
+              {
+                "id": "lasciare",
+                "label": "Lasciare che se la veda con l’esattore",
+                "text": "La famiglia resta sola. Gli altri non dimenticheranno.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "numerose",
+                    "delta": -15
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "soli",
+                    "delta": -10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "cassa",
+                    "delta": 5
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "1903",
+          "event": {
+            "who": "Il figlio che manda soldi",
+            "text": "Un figlio che lavora in città manda denaro e chiede che la sua parte nella divisione non venga data ad altri.",
+            "choices": [
+              {
+                "id": "tenere",
+                "label": "Tenere il suo posto nella divisione",
+                "text": "Il suo posto resta suo. Chi lavora la terra ogni giorno storce il naso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "numerose",
+                    "delta": 10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "soli",
+                    "delta": -5
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "curato",
+                    "delta": -5
+                  }
+                ]
+              },
+              {
+                "id": "dare",
+                "label": "Dare la sua parte a chi è rimasto",
+                "text": "La terra va a chi la lavora. Il figlio in città si sente tagliato fuori.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "curato",
+                    "delta": 5
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "numerose",
+                    "delta": -10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "cassa",
+                    "delta": 5
+                  }
+                ]
+              },
+              {
+                "id": "quota",
+                "label": "Chiedergli una parte dei guadagni per la cassa",
+                "text": "Il figlio paga una quota. La cassa si riempie.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "cassa",
+                    "delta": 15
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "numerose",
+                    "delta": -10
+                  }
+                ]
+              }
+            ]
+          }
         }
       ],
       "editorial": {
@@ -2220,12 +2960,9 @@
           "I2-01",
           "I2-02"
         ],
-        "scheda": "I.2-e1"
-      },
-      "shows": [
-        "legami",
-        "speranza"
-      ]
+        "scheda": "I.2-e1",
+        "nota": "Le persone e le richieste sono simulazione; ridistribuzione periodica delle strisce e poteri di chi presiede da riscontrare (vedi FONTI-MATRICE I2-02)."
+      }
     },
     {
       "id": "a1-u2-citta",
@@ -2261,25 +2998,49 @@
     },
     {
       "id": "a1-u2-salario",
-      "type": "resource_allocation",
+      "type": "turn_game",
       "roleId": "figlio",
-      "title": "Il salario della settimana",
-      "budget": 6,
+      "title": "Il salario",
       "context": {
         "kind": "simulation",
         "dateLabel": "1861–1904",
         "placeLabel": "Pietroburgo"
       },
-      "text": "È sabato. In tasca c'è il salario della settimana: sei pezzi e quattro modi di spenderli.\n\nIl pane ti tiene in forze per il lavoro. L'angolo di stanza ti dà un posto dove dormire. Il carbone scalda l'inverno. I soldi mandati al villaggio tengono vivo il legame con la famiglia.\n\nNon basta per tutto. Distribuisci tutti e sei i pezzi.",
+      "text": "Sei il figlio e lavori in fabbrica a Pietroburgo. Ogni sabato arriva il salario: otto monete (un indice della simulazione).\n\nNon bastano per tutto: pane per le forze, un angolo di stanza in affitto, carbone per l'inverno e soldi da mandare al villaggio. C'è anche un corso serale per imparare a leggere i fogli. Giochi otto settimane e il debito si porta dietro da una all'altra.",
+      "goal": "Arriva alla fine dell'ottava settimana con le forze intere e il debito basso.",
       "stageId": "a1-u2-stanza",
       "motionId": "ingresso",
-      "visualExplanation": "Un angolo di stanza: sul tavolo il salario da dividere. Il disegno è una stanza contadina usata come immagine di un alloggio povero: non è una ricostruzione di una casa di Pietroburgo. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
-      "buckets": [
+      "visualExplanation": "Un angolo di stanza in affitto: il letto di ferro, il baule e la stufetta. Tocca una moneta e poi il posto dove la spendi. Gli indicatori sono indici della simulazione e non dati storici né voti.",
+      "tokens": 8,
+      "tokenLabel": "monete",
+      "turnWord": "settimana",
+      "confirmLabel": "Chiudi la settimana",
+      "nextLabel": "La settimana dopo",
+      "luckLabel": "Che cosa può succedere",
+      "luckResultLabel": "La settimana",
+      "upkeepHint": "Ogni settimana, comunque",
+      "phaseLabels": {
+        "cards": "Notizie",
+        "place": "Il salario",
+        "result": "La settimana",
+        "event": "Chi bussa",
+        "market": "Il negozio"
+      },
+      "previewLabel": "Si dice in fabbrica",
+      "shows": [
+        "forze",
+        "debito",
+        "legami",
+        "lettura"
+      ],
+      "places": [
         {
           "id": "pane",
           "label": "Pane",
-          "max": 4,
-          "perUnit": [
+          "short": "Pane",
+          "x": 0.62,
+          "y": 0.8,
+          "perToken": [
             {
               "kind": "resource",
               "id": "forze",
@@ -2290,20 +3051,25 @@
         {
           "id": "stanza",
           "label": "L'angolo di stanza",
-          "max": 2,
-          "perUnit": [
+          "short": "Stanza",
+          "x": 0.15,
+          "y": 0.72,
+          "max": 3,
+          "perToken": [
             {
               "kind": "resource",
               "id": "forze",
-              "delta": 5
+              "delta": 2
             }
           ]
         },
         {
           "id": "carbone",
           "label": "Carbone",
-          "max": 3,
-          "perUnit": [
+          "short": "Carbone",
+          "x": 0.82,
+          "y": 0.78,
+          "perToken": [
             {
               "kind": "resource",
               "id": "forze",
@@ -2314,33 +3080,555 @@
         {
           "id": "villaggio",
           "label": "Soldi al villaggio",
-          "max": 4,
-          "perUnit": [
+          "short": "Villaggio",
+          "x": 0.28,
+          "y": 0.88,
+          "perToken": [
             {
               "kind": "metric",
               "id": "legami",
               "delta": 8
             }
           ]
+        },
+        {
+          "id": "corso",
+          "label": "Il corso serale",
+          "short": "Corso",
+          "x": 0.5,
+          "y": 0.38,
+          "max": 2,
+          "perToken": [
+            {
+              "kind": "metric",
+              "id": "lettura",
+              "delta": 10
+            },
+            {
+              "kind": "resource",
+              "id": "forze",
+              "delta": -3
+            }
+          ]
         }
       ],
-      "effects": [
+      "rules": {
+        "min": {
+          "stanza": 2
+        }
+      },
+      "upkeep": [
         {
           "kind": "resource",
           "id": "forze",
-          "delta": -25
+          "delta": -24
         }
       ],
-      "feedback": "La settimana di lavoro ti ha stancato. Ciò che hai scelto di pagare ha deciso come arrivi alla fine: più in forze oppure più vicino al villaggio. Gli indicatori sono indici della simulazione.",
-      "editorial": {
-        "sources": [],
-        "scheda": "I.3-e2",
-        "note": "Simulazione [S]: pezzi e coefficienti del modello."
+      "luck": [
+        {
+          "id": "normale",
+          "label": "settimana normale",
+          "weight": 5
+        },
+        {
+          "id": "pane-caro",
+          "label": "pane più caro",
+          "weight": 3,
+          "yield": {
+            "pane": 0.67
+          }
+        },
+        {
+          "id": "freddo",
+          "label": "freddo forte",
+          "weight": 2,
+          "yield": {
+            "carbone": 0.4
+          }
+        }
+      ],
+      "control": {
+        "label": "La padrona di casa",
+        "text": "La padrona di casa bussa: l'affitto è in arretrato e le monete che mancano diventano debito.",
+        "escaped": "L'affitto è in ritardo ma questa volta la padrona di casa non se ne accorge.",
+        "chance": {
+          "base": 0.8
+        },
+        "effects": [
+          {
+            "kind": "metric",
+            "id": "debito",
+            "delta": 2
+          }
+        ],
+        "perMissing": [
+          {
+            "kind": "metric",
+            "id": "debito",
+            "delta": 3
+          }
+        ]
       },
-      "shows": [
-        "forze",
-        "legami",
-        "speranza"
+      "crises": [
+        {
+          "id": "a-letto",
+          "when": {
+            "op": "lte",
+            "kind": "resource",
+            "id": "forze",
+            "value": 10
+          },
+          "text": "Non ti reggi più in piedi: resti a letto qualche giorno e da qui in poi guadagni di meno.",
+          "effects": [
+            {
+              "kind": "resource",
+              "id": "forze",
+              "delta": 30
+            }
+          ],
+          "rules": {
+            "tokensDelta": -1
+          }
+        },
+        {
+          "id": "dormitorio",
+          "when": {
+            "op": "gte",
+            "kind": "metric",
+            "id": "debito",
+            "value": 8
+          },
+          "text": "Il debito è troppo: perdi l'angolo di stanza e ti sistemi in un dormitorio di fabbrica. Non paghi più la stanza ma dormi male.",
+          "effects": [
+            {
+              "kind": "resource",
+              "id": "forze",
+              "delta": -10
+            },
+            {
+              "kind": "metric",
+              "id": "debito",
+              "delta": -4
+            }
+          ],
+          "rules": {
+            "min": {
+              "stanza": 0
+            },
+            "places": {
+              "stanza": {
+                "label": "Il dormitorio",
+                "perToken": [
+                  {
+                    "kind": "resource",
+                    "id": "forze",
+                    "delta": 0
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "id": "silenzio",
+          "when": {
+            "op": "lte",
+            "kind": "metric",
+            "id": "legami",
+            "value": 0
+          },
+          "text": "A casa non rispondono più alle tue lettere.",
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "legami",
+              "delta": 10
+            },
+            {
+              "kind": "resource",
+              "id": "forze",
+              "delta": -5
+            }
+          ]
+        }
+      ],
+      "verdicts": [
+        {
+          "when": {
+            "op": "lte",
+            "kind": "resource",
+            "id": "forze",
+            "value": 25
+          },
+          "tone": "bad",
+          "text": "Sei allo stremo.",
+          "stamp": "Allo stremo"
+        },
+        {
+          "when": {
+            "op": "gte",
+            "kind": "resource",
+            "id": "forze",
+            "value": 55
+          },
+          "tone": "good",
+          "text": "Hai mangiato e dormito: la settimana tiene.",
+          "stamp": "Si regge"
+        },
+        {
+          "tone": "neutral",
+          "text": "Si tira avanti.",
+          "stamp": "Si tira avanti"
+        }
+      ],
+      "feedback": "Otto settimane sono passate. In città nessuno può venderti o regalarti. Ma il salario e l'affitto decidono ogni sabato che cosa puoi permetterti: la libertà costa il suo prezzo.",
+      "editorial": {
+        "sources": [
+          "I2-03",
+          "I2-04"
+        ],
+        "scheda": "I.3-e2",
+        "nota": "Salario in monete: indice della simulazione. Multe in fabbrica e negozio a credito da riscontrare (FONTI-MATRICE)."
+      },
+      "turns": [
+        {
+          "label": "Settimana 1",
+          "cards": [
+            {
+              "kind": "simulation",
+              "title": "Il sabato",
+              "text": "Il salario è poco e le spese sono tante. In fabbrica si racconta che il caposquadra segna i ritardi e che la padrona di casa non aspetta."
+            }
+          ],
+          "event": {
+            "who": "Il compagno di stanza",
+            "text": "Ha la febbre e chiede se puoi dargli un po' del tuo pane.",
+            "choices": [
+              {
+                "id": "dare",
+                "label": "Dividere il pane con lui",
+                "text": "Mangia e si rimette. Non si dimenticherà.",
+                "effects": [
+                  {
+                    "kind": "resource",
+                    "id": "forze",
+                    "delta": -6
+                  }
+                ]
+              },
+              {
+                "id": "no",
+                "label": "Dire che hai bisogno del tuo",
+                "text": "Se la sbriga da solo.",
+                "effects": []
+              }
+            ]
+          }
+        },
+        {
+          "label": "Settimana 2",
+          "preview": "Nel negozio della fabbrica si può prendere a credito.",
+          "market": {
+            "who": "Il negozio della fabbrica",
+            "text": "Il bottegaio segna tutto sul quaderno: si salda al sabato.",
+            "offers": [
+              {
+                "id": "pane-credito",
+                "label": "Pane a credito",
+                "text": "Mangi oggi e paghi più avanti.",
+                "effects": [
+                  {
+                    "kind": "resource",
+                    "id": "forze",
+                    "delta": 10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "debito",
+                    "delta": 3
+                  }
+                ]
+              },
+              {
+                "id": "carbone-credito",
+                "label": "Carbone a credito",
+                "text": "Stanza calda stasera. Il conto cresce.",
+                "effects": [
+                  {
+                    "kind": "resource",
+                    "id": "forze",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "debito",
+                    "delta": 2
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "Settimana 3",
+          "event": {
+            "who": "Tua sorella dal villaggio",
+            "text": "Scrive che il raccolto è stato scarso e che servirebbe qualche moneta.",
+            "choices": [
+              {
+                "id": "mandare",
+                "label": "Mandare una parte del salario",
+                "text": "A casa sanno che ci sei.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "legami",
+                    "delta": 10
+                  },
+                  {
+                    "kind": "resource",
+                    "id": "forze",
+                    "delta": -6
+                  }
+                ]
+              },
+              {
+                "id": "scrivere",
+                "label": "Rispondere che non puoi",
+                "text": "La lettera arriva senza monete.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "legami",
+                    "delta": -8
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "Settimana 4",
+          "preview": "Un operaio presta fogli da leggere la sera.",
+          "event": {
+            "who": "Un operaio della fabbrica",
+            "text": "Offre un foglio stampato da leggere insieme dopo il turno.",
+            "choices": [
+              {
+                "id": "leggere",
+                "label": "Fermarti a leggere con lui",
+                "text": "Le parole difficili cominciano ad avere un senso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "lettura",
+                    "delta": 10
+                  },
+                  {
+                    "kind": "resource",
+                    "id": "forze",
+                    "delta": -3
+                  }
+                ]
+              },
+              {
+                "id": "rifiutare",
+                "label": "Tornare subito a casa",
+                "text": "Hai bisogno di dormire.",
+                "effects": [
+                  {
+                    "kind": "resource",
+                    "id": "forze",
+                    "delta": 3
+                  }
+                ]
+              }
+            ]
+          },
+          "market": {
+            "who": "Il negozio della fabbrica",
+            "text": "Il bottegaio segna ancora sul quaderno.",
+            "offers": [
+              {
+                "id": "pane-credito-2",
+                "label": "Pane a credito",
+                "text": "Mangi oggi e paghi più avanti.",
+                "effects": [
+                  {
+                    "kind": "resource",
+                    "id": "forze",
+                    "delta": 10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "debito",
+                    "delta": 3
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "Settimana 5",
+          "event": {
+            "who": "Il caposquadra",
+            "text": "Segna un ritardo sul quaderno: sarà una multa.",
+            "choices": [
+              {
+                "id": "accettare",
+                "label": "Accettare la multa",
+                "text": "La multa si porta via qualche moneta.",
+                "effects": [
+                  {
+                    "kind": "resource",
+                    "id": "forze",
+                    "delta": -5
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "debito",
+                    "delta": 2
+                  }
+                ]
+              },
+              {
+                "id": "protestare",
+                "label": "Protestare",
+                "chance": {
+                  "base": 0.4
+                },
+                "success": {
+                  "text": "Il caposquadra cancella la riga.",
+                  "effects": []
+                },
+                "failure": {
+                  "text": "Il caposquadra si irrita e raddoppia la multa.",
+                  "effects": [
+                    {
+                      "kind": "resource",
+                      "id": "forze",
+                      "delta": -5
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "debito",
+                      "delta": 4
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "label": "Settimana 6",
+          "market": {
+            "who": "Il negozio della fabbrica",
+            "text": "Il bottegaio ti guarda: il conto è già lungo.",
+            "offers": [
+              {
+                "id": "pane-credito-3",
+                "label": "Pane a credito",
+                "text": "Mangi oggi e paghi più avanti.",
+                "effects": [
+                  {
+                    "kind": "resource",
+                    "id": "forze",
+                    "delta": 10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "debito",
+                    "delta": 3
+                  }
+                ]
+              },
+              {
+                "id": "carbone-credito-2",
+                "label": "Carbone a credito",
+                "text": "Stanza calda stasera. Il conto cresce.",
+                "effects": [
+                  {
+                    "kind": "resource",
+                    "id": "forze",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "debito",
+                    "delta": 2
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "Settimana 7",
+          "event": {
+            "who": "Un vecchio operaio",
+            "text": "Ti invita a una serata in cui si discute di quello che succede in fabbrica.",
+            "choices": [
+              {
+                "id": "andare",
+                "label": "Andare ad ascoltare",
+                "text": "Ascolti molte voci e capisci poco. Torni più tardi del solito.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "lettura",
+                    "delta": 10
+                  },
+                  {
+                    "kind": "resource",
+                    "id": "forze",
+                    "delta": -5
+                  }
+                ]
+              },
+              {
+                "id": "riposare",
+                "label": "Restare a riposare",
+                "text": "Dormi una notte intera.",
+                "effects": [
+                  {
+                    "kind": "resource",
+                    "id": "forze",
+                    "delta": 5
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "Settimana 8",
+          "event": {
+            "who": "Una lettera da casa",
+            "text": "La madre scrive che aspetta tue notizie.",
+            "choices": [
+              {
+                "id": "rispondere",
+                "label": "Rispondere subito",
+                "text": "La lettera parte con una moneta dentro.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "legami",
+                    "delta": 5
+                  }
+                ]
+              },
+              {
+                "id": "dopo",
+                "label": "Rispondere un'altra volta",
+                "text": "La lettera resta sul tavolo.",
+                "effects": []
+              }
+            ]
+          }
+        }
       ]
     },
     {
@@ -2459,6 +3747,18 @@
           "label": "I tre fogli dicono la stessa cosa con parole diverse",
           "feedback": "Non è così: chiedono cose diverse e si rivolgono a persone diverse. Costituzione e parlamento non sono la terra ai contadini né il potere degli operai.",
           "effects": []
+        },
+        {
+          "id": "letto",
+          "label": "Leggo il foglio dei socialdemocratici fino in fondo e capisco perché il partito si divide",
+          "feedback": "Con il corso serale le parole difficili non ti fermano più. I bolscevichi vogliono pochi rivoluzionari di mestiere; i menscevichi un partito più largo. La divisione nasce da un modo diverso di immaginare chi fa la rivoluzione.",
+          "effects": [],
+          "when": {
+            "op": "gte",
+            "kind": "metric",
+            "id": "lettura",
+            "value": 20
+          }
         }
       ],
       "editorial": {
@@ -2471,7 +3771,7 @@
       "shows": [
         "forze",
         "legami",
-        "speranza"
+        "lettura"
       ]
     },
     {
@@ -2560,22 +3860,23 @@
       "title": "La terra dopo il Manifesto",
       "period": "1861 – 1904",
       "question": "Che cos'è giusto: dare a ciascuno lo stesso o a ciascuno secondo il bisogno?",
-      "summary": "Libertà sulla carta. Il villaggio deve decidere come dividere la terra.",
-      "game": "Siedi nell'assemblea del mir e scegli come ridistribuire le strisce di terra.",
+      "summary": "Libertà sulla carta. Il villaggio deve decidere chi ha diritto a quale terra e chi paga che cosa.",
+      "game": "Sei il capofamiglia che l'assemblea ascolta: otto richieste, quattro gruppi da non scontentare troppo.",
       "concepts": [
         "mir",
         "riscatto",
         "strisce di terra",
-        "uguale o secondo il bisogno"
+        "uguale o secondo il bisogno",
+        "figli che partono"
       ],
-      "carries": "La famiglia dell'ultima generazione di I.1. Se un figlio era stato mandato via la famiglia pesa di meno.",
+      "carries": "La famiglia dell'ultima generazione di I.1.",
       "episodes": [
         "a1-u2-mir"
       ],
       "closing": {
-        "did": "Hai deciso con l'assemblea come ridistribuire le strisce di terra.",
-        "fact": "Dopo il Manifesto la terra non passò ai contadini gratis: andava riscattata. Il villaggio restò la cornice della vita contadina.",
-        "simulation": "Le tue scelte hanno cambiato come il villaggio ha diviso la terra. Non hanno cambiato la legge."
+        "did": "Hai risposto alle richieste dell'assemblea e hai visto che ogni risposta contentava qualcuno e ne scontentava un altro.",
+        "fact": "Dopo il Manifesto la terra non passò ai contadini gratis: andava riscattata e il villaggio rispondeva insieme dei pagamenti. La terra non bastava per tutti e molti figli partirono per la città.",
+        "simulation": "Le persone, le richieste e i numeri sono simulazione. Le tue scelte hanno cambiato come il villaggio ha diviso la terra: non hanno cambiato la legge."
       }
     },
     {
@@ -2583,11 +3884,12 @@
       "title": "In città",
       "period": "fine Ottocento – 1904",
       "question": "Si è più liberi in città che al villaggio?",
-      "summary": "La terra non basta per tutti. Il figlio parte per Pietroburgo: fabbrica, una stanza in affitto e un salario da dividere.",
-      "game": "Dividi il salario della settimana fra pane, stanza, carbone e soldi per il villaggio. Poi leggi tre volantini e decidi di chi fidarti.",
+      "summary": "La terra non basta per tutti. Il figlio parte per Pietroburgo: fabbrica, una stanza in affitto e un salario da far durare otto settimane.",
+      "game": "Fai durare il salario per otto settimane fra pane, stanza, carbone e soldi al villaggio. Poi leggi tre volantini e decidi di chi fidarti.",
       "concepts": [
         "fabbrica",
         "salario",
+        "debito",
         "stanza in affitto",
         "corte e fabbriche",
         "partiti e volantini"
@@ -2603,9 +3905,9 @@
         "a1-u2-e7"
       ],
       "closing": {
-        "did": "Hai diviso un salario di fabbrica e hai letto che cosa promettevano i partiti.",
+        "did": "Hai fatto durare un salario di fabbrica per otto settimane e hai letto che cosa promettevano i partiti.",
         "fact": "Gli operai di Pietroburgo lavoravano turni lunghissimi e non avevano sindacati legali. Le promesse dei partiti arrivavano in fabbrica sotto forma di volantini.",
-        "simulation": "Il salario e le scelte sono simulazione. I numeri servono a capire i vincoli."
+        "simulation": "Il salario, le monete e le scelte sono simulazione. I numeri servono a capire i vincoli."
       }
     },
     {
