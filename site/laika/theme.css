@@ -125,7 +125,7 @@ main{max-width:none;margin:0;padding:0}
 #panel .card-nav button[data-card=prev]{min-height:52px;padding:0 1.2rem;margin-top:6px}
 
 /* Partita a turni: l'anno in grande, i posti come timbri rossi sulla scena, rischi e scelte come gli articoli. */
-.turn-label{display:flex;align-items:baseline;gap:14px;margin:0 0 18px}
+.turn-label{display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;margin:0 0 18px}
 .turn-year{font-family:var(--display);font-size:clamp(44px,5vw,72px);line-height:.85;color:var(--ink)}
 .turn-count{font-family:var(--mono);font-size:.78rem;color:var(--mute)}
 .card-kind{margin:0;padding-left:.6rem;border-left:3px solid var(--concrete);font-family:var(--mono);font-size:.74rem;color:var(--mute)}
