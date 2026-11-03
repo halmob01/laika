@@ -43,7 +43,7 @@ I libri sono in `references/fonti/` solo come elenco: le copie si tengono fuori 
 | VI | Il cielo è vuoto? | 1945–1964 | Il cielo raggiunto mantiene la promessa? Quanto vale una vita accanto a un simbolo? |
 | VII | Cemento e silenzio | 1964–1991 | Come finisce una cosa che sembrava eterna? |
 
-Quattro movimenti: il mondo da rovesciare (I), la promessa (II e III), l'assalto al cielo e il prezzo (IV e V), il cielo raggiunto e la promessa esaurita (VI e VII). La rivoluzione occupa due atti: dieci unità su trentaquattro coprono appena dodici mesi. Le domande degli appunti restano: «rivoluzione o colpo di stato?» si vive nell'Atto III, «la violenza era l'unica via?» nell'Atto V.
+Quattro movimenti: il mondo da rovesciare (I), la promessa (II e III), l'assalto al cielo e il prezzo (IV e V), il cielo raggiunto e la promessa esaurita (VI e VII). La rivoluzione occupa due atti: dieci unità su trentacinque coprono appena dodici mesi. Le domande degli appunti restano: «rivoluzione o colpo di stato?» si vive nell'Atto III, «la violenza era l'unica via?» nell'Atto V.
 
 ## 4. I fili che attraversano gli atti
 
@@ -71,7 +71,7 @@ Il diario delle scelte è il ponte: all'inizio di ogni atto l'episodio breve «C
 
 ## 6. Vincoli del motore che il piano rispetta
 
-- Sette tipi di episodio: i sei originari e `turn_game`, il motore a turni su cui si innestano i giochi del repertorio. Quattro o cinque unità per atto, da tre a sei episodi ciascuna.
+- Sette tipi di episodio: i sei originari e `turn_game`, il motore a turni su cui si innestano i giochi del repertorio. Da quattro a sei unità per atto (l'Atto I ne ha sei); da uno a sette episodi per unità.
 - Pochi indicatori visibili **per unità** (in I.1 quattro: grano, occhio del padrone, speranza, legami nel villaggio), etichettati «indice della simulazione»; ogni unità mostra solo i propri. Regola del docente (23 ottobre 2026): **se un'azione del gioco serve a far crescere qualcosa, quel qualcosa è un indicatore visibile** (in I.1 aiutare i vicini muoveva i legami, che erano nascosti: l'azione sembrava senza motivo). Flag e relazioni restano nascosti dove servono.
 - Almeno un effetto differito per atto, spiegato nel diario.
 - Fine atto: un episodio narrative di confronto prima del reset; il diario resta consultabile.
@@ -87,8 +87,8 @@ Il diario delle scelte è il ponte: all'inizio di ogni atto l'episodio breve «C
 
 **Che cosa deve restare.** La distanza da cui parte il 1917. Da una parte milioni di persone contate in «anime», regalate a migliaia ai favoriti; dall'altra una corte che vive come un Olimpo. In mezzo, già allora, i sogni degli umili: un regno dove nessuno comanda, una lettera dello zar che manda i signori a coltivare la palude. Lo studente esce dall'atto sapendo perché, nel 1917, entrare nel Palazzo d'Inverno avrà il valore di un rovesciamento del cielo. Il crollo non è inevitabile né guidato da un partito.
 
-**Stato della simulazione.** Sussistenza della famiglia (risorsa); Tensione sociale (metrica); Credito del trono (metrica, da I.3). Relazione nascosta: cooperazione fra i gruppi. Flag: `figlio_in_citta`, `petizione_politica`, `fronte_comune`, `uscita_dal_mir`, `grano_trattenuto`.
-**Effetti differiti.** La sussistenza di I.1 decide se in I.2 un figlio va in città; la scelta nel soviet di I.3 apre o chiude un'opzione sul Manifesto; il raccolto diviso in I.4 decide la lunghezza della coda in I.5.
+**Stato della simulazione.** Sussistenza della famiglia (risorsa); Tensione sociale (metrica); Credito del trono (metrica, da I.4). Relazione nascosta: cooperazione fra i gruppi. Flag: `figlio_in_citta`, `petizione_politica`, `fronte_comune`, `uscita_dal_mir`, `grano_trattenuto`.
+**Effetti differiti.** La sussistenza di I.1 e le decisioni sul mir di I.2 decidono se un figlio parte per la città (I.3); la scelta nel soviet di I.4 apre o chiude un'opzione sul Manifesto; il raccolto diviso in I.5 decide la lunghezza della coda in I.6.
 
 #### I.1 — Anime e semidei (1700–1861)
 Ruoli: gli antenati della famiglia; un osservatore della corte. Fili: anime e semidei; la terra; il cielo.
@@ -137,139 +137,142 @@ Ruoli: gli antenati della famiglia; un osservatore della corte. Fili: anime e se
 
 **Che cosa non fare.** Le follie di corte non sono un catalogo di curiosità: ognuna va accostata a ciò che accade nello stesso momento nelle campagne. I «villaggi Potëmkin» si raccontano come leggenda (C20). Il dessert di diamanti (C21) non si usa: non è attestato. Per la Saltykova le cifre divergono: se si usa, con fonte.
 
-#### I.2 — Le due Russie (1861–1904)
-Ruoli: la famiglia nel mir; il figlio emigrato a Pietroburgo; un osservatore della corte. Fili: chi rappresenta chi; anime e semidei; il cielo.
+#### I.2 — La terra dopo il Manifesto (1861–1904)
+Unità di un solo episodio giocato: il villaggio dopo il riscatto. Gioco di decisioni sui gruppi (REPERTORIO §3.2 e §5.1): il mir. Ruoli: la famiglia nel mir; le altre famiglie dell'assemblea. Fili: la terra; chi rappresenta chi.
 
-**I.2-e1 · role_crisis [S] · L'assemblea del mir** (ex A0.3)
+**I.2-e1 · turn_game [S] · Il mir** (ex «L'assemblea del mir» A0.3; gioco di decisioni sui gruppi, vedi REPERTORIO §5.1)
 - **Scena.** Si decide la ridistribuzione delle strisce. La famiglia numerosa e l'anziano che ha migliorato il proprio lotto vedono cose diverse.
 - **Sotto la scena.** Che cos'è giusto: dare a ciascuno lo stesso o a ciascuno secondo il bisogno?
 - **Chi la sviluppa.** Sonnet.
 
-**I.2-e2 · narrative [D] · In città** (ex A0.4)
+#### I.3 — In città (fine Ottocento–1904)
+Gioco di gestione a più settimane (REPERTORIO §3.1 e §5.1): il salario. Ruoli: il figlio emigrato a Pietroburgo; un operaio anziano; un osservatore della corte. Fili: chi rappresenta chi; anime e semidei; il cielo.
+
+**I.3-e1 · narrative [D] · In città** (ex A0.4)
 - **Scena.** Il figlio arriva a Pietroburgo: fabbrica metalmeccanica, turni di undici ore e più, un angolo di stanza in affitto, nessun sindacato legale. I soldati di truppa non possono salire sul tram né entrare nei ristoranti (R02).
 - **Sotto la scena.** Si è più liberi in città che al villaggio?
 - **Materiali.** R02 (Miéville, «Non potevano mangiare nei ristoranti»).
 - **Regia.** Panorama villaggio-città; la figura attraversa la soglia, cambiano densità e ritmo.
 - **Chi la sviluppa.** Sonnet.
 
-**I.2-e3 · resource_allocation [S] · Il salario della settimana**
+**I.3-e2 · turn_game [S] · Il salario** (ex «Il salario della settimana»; gioco di gestione, vedi REPERTORIO §5.1)
 - **Scena.** Il salario va diviso fra pane, angolo di stanza, carbone e soldi per il villaggio.
 - **Chi la sviluppa.** Sonnet.
 
-**I.2-e4 · narrative [D] · Il razzo del condannato**
+**I.3-e3 · narrative [D] · Il razzo del condannato**
 - **Scena.** 1881: lo zar liberatore Alessandro II è ucciso da una bomba dei rivoluzionari. Uno di loro, Nikolaj Kibalčič, aspettando l'esecuzione, disegna in cella una macchina volante a propulsione a razzo. La lettera con il progetto finisce in un archivio di polizia. Negli stessi anni, in provincia (dal 1892 a Kaluga), un maestro di scuola quasi sordo, Ciolkovskij, comincia a fare i conti per uscire dalla Terra.
 - **Sotto la scena.** Perché chi vuole cambiare il mondo sogna di volare?
 - **Materiali.** Stites, cap. 7 («Kibalchich», «waiting for his execution in 1881»). Destino del progetto in archivio e cratere lunare dedicato a Kibalčič: [verificare].
 - **Regia.** Una cella; un foglio con un disegno; la finestrella in alto con un pezzo di cielo. Seme del filo «il cielo», da richiamare nell'Atto VI.
 - **Chi la sviluppa.** Sonnet, con verifica dei dati segnati.
 
-**I.2-e5 · narrative [D] · La corte dell'ultimo secolo**
+**I.3-e4 · narrative [D] · La corte dell'ultimo secolo**
 - **Scena.** Alessandro III piega attizzatoi per divertire la famiglia (C30) e taglia gli appannaggi dei granduchi (C31). All'incoronazione del 1896 la promessa di una tazza smaltata provoca la calca di Chodynka; la sera il ballo dell'ambasciatore francese si tiene comunque (C34–C35). Nel 1903 la corte si traveste da Seicento mentre gli operai scioperano (C37).
 - **Sotto la scena.** Che cosa vede un sovrano dal suo palazzo? Che cosa non riesce più a vedere?
 - **Materiali.** C30, C31, C34, C35, C37.
 - **Regia.** Interno illuminato; fuori, le ciminiere fumano. La tazza smaltata in primo piano, poi a terra.
 - **Chi la sviluppa.** Sonnet.
 
-**I.2-e6 · source_comparison [F] · Tre volantini**
+**I.3-e5 · source_comparison [F] · Tre volantini**
 - **Scena.** Nella fabbrica e al villaggio circolano tre fogli: i cadetti (costituzione, parlamento, libertà), i socialrivoluzionari (la terra a chi la lavora), i socialdemocratici, che dal 1903 sono divisi in bolscevichi e menscevichi (gli operai come forza che cambierà la storia). Un operaio anziano spiega al figlio la differenza fra i due tipi di socialdemocratici con parole sue: «Quelli di Lenin vogliono pochi rivoluzionari di mestiere; gli altri vogliono un partito come quelli tedeschi, largo, e aspettano che prima venga la borghesia».
 - **Sotto la scena.** Chi parla per chi?
 - **Regia.** Tre volantini, ciascuno raggiunge una figura diversa.
 - **Chi la sviluppa.** Sonnet.
 
-**I.2-e7 · assessment [V] · Verifica V2.**
+**I.3-e6 · assessment [V] · Verifica V2.**
 
 **Confronto obbligatorio.** Il mir non è un soviet né una democrazia moderna. Molti operai restano legati al villaggio.
 
-#### I.3 — Il 1905 (gennaio 1905–giugno 1907)
+#### I.4 — Il 1905 (gennaio 1905–giugno 1907)
 Ruoli: l'operaio della Putilov; i delegati del soviet; la famiglia davanti a Stolypin. Fili: chi rappresenta chi; la promessa e il suo prezzo.
 
-**I.3-e1 · narrative [D] · La domenica di sangue**
+**I.4-e1 · narrative [D] · La domenica di sangue**
 - **Scena.** La guerra con il Giappone va male. Il 6 gennaio (g.), alla benedizione delle acque sulla Neva, un cannone spara una carica vera verso il palazzo: un incidente, dicono [verificare: non in Montefiore, cercare altra fonte]. Domenica 22 gennaio (g. 9) il corteo di padre Gapon porta allo zar una petizione e le icone; lo zar è partito di nascosto per Carskoe Selo. La fanteria spara. Nel diario Nicola scrive «Giornata terribile!» e subito dopo annota il pranzo con la madre.
 - **Sotto la scena.** Che cosa muore quella domenica, oltre alle persone? La fiducia nello zar-padre.
 - **Materiali.** R01 (Serge, «Treat them like rebels»: Serge non è in archivio, solo citato dall'atlante); diario di Nicola: Montefiore [verificare il passo].
 - **Regia.** Il corteo si aggrega attorno al foglio e alle icone; lo sparo non si vede: il suono cessa, le figure si disperdono, il foglio resta nella neve.
 - **Chi la sviluppa.** Sonnet.
 
-**I.3-e2 · resource_allocation [S] · La petizione**
+**I.4-e2 · resource_allocation [S] · La petizione**
 - **Scena.** Prima del corteo: cinque righe da scrivere fra richieste economiche, politiche e di pace.
 - **Chi la sviluppa.** Sonnet.
 
-**I.3-e3 · role_crisis [S] · Il primo soviet**
+**I.4-e3 · role_crisis [S] · Il primo soviet**
 - **Scena.** Ottobre 1905: sciopero generale, nasce il soviet di Pietroburgo. Un ferroviere, una delegata tessile e un militante vedono parti diverse; lo studente decide come continuare lo sciopero.
 - **Sotto la scena.** Che cosa succede quando le persone comuni scoprono di poter fermare un impero incrociando le braccia?
 - **Regia.** Le ciminiere si spengono una a una, i binari si svuotano.
 - **Chi la sviluppa.** Sonnet.
 
-**I.3-e4 · source_comparison [F] · Che cosa concede lo zar**
+**I.4-e4 · source_comparison [F] · Che cosa concede lo zar**
 - **Scena.** Il granduca Nikolaj minaccia di spararsi se lo zar non firma il Manifesto di ottobre. Accanto: il Manifesto del 30 ottobre (g. 17); le Leggi fondamentali del 1906, che chiamano ancora «autocratico» il potere dello zar; la cronologia delle due Dume sciolte. Dopo Tsushima, a teatro, il pubblico grida alla ballerina Baletta, amante del capo della Marina, che porta addosso le corazzate perdute (C36).
 - **Sotto la scena.** Una concessione strappata è un diritto o una tregua?
 - **Materiali.** Montefiore: «mi sparerò», C36 («Baletta»).
 - **Regia.** Due blocchi di figure nella sala di San Giorgio: uniformi da una parte, giacche dall'altra.
 - **Chi la sviluppa.** Sonnet.
 
-**I.3-e5 · choice [S] · Stolypin**
+**I.4-e5 · choice [S] · Stolypin**
 - **Scena.** Novembre 1906: la famiglia può uscire dal mir e unire le strisce in un podere. Restare, uscire e consolidare, vendere e partire. Intanto il cappio dei tribunali militari si chiama «la cravatta di Stolypin».
 - **Materiali.** Montefiore, «cravatta di Stolypin».
 - **Chi la sviluppa.** Sonnet.
 
-**I.3-e6 · assessment [V] · Verifiche V3 e V4.**
+**I.4-e6 · assessment [V] · Verifiche V3 e V4.**
 
 **Confronto obbligatorio.** Nessuna scelta riguarda lo sparare. Il soviet del 1905 è un contropotere, non un governo. La Duma non nasce a suffragio universale né con pieni poteri. Stolypin consente di uscire dal mir, non lo abolisce.
 
-#### I.4 — Pane e guerra (agosto 1914–dicembre 1916)
+#### I.5 — Pane e guerra (agosto 1914–dicembre 1916)
 Ruoli: la famiglia con il figlio richiamato; un ministro, un deputato, un ufficiale. Fili: la promessa e il suo prezzo; anime e semidei.
 
-**I.4-e1 · narrative [D] · In ginocchio sulla stessa piazza**
+**I.5-e1 · narrative [D] · In ginocchio sulla stessa piazza**
 - **Scena.** 2 agosto 1914 (g. 20 luglio): la folla si inginocchia davanti al Palazzo d'Inverno mentre lo zar annuncia la guerra. È la stessa piazza del 1905. Poi Tannenberg, la ritirata, Nicola al comando supremo.
 - **Sotto la scena.** Perché una folla che dieci anni prima è stata colpita torna a inginocchiarsi?
-- **Regia.** Stessa inquadratura di I.3-e1, gesto opposto.
+- **Regia.** Stessa inquadratura di I.4-e1, gesto opposto.
 - **Chi la sviluppa.** Sonnet.
 
-**I.4-e2 · resource_allocation [S] · Il raccolto della guerra**
+**I.5-e2 · resource_allocation [S] · Il raccolto della guerra**
 - **Scena.** Con gli uomini al fronte la famiglia divide il raccolto fra consumo, vendita allo Stato a prezzo fissato, scorta e seme. In città non c'è niente da comprare con rubli che valgono sempre meno.
 - **Chi la sviluppa.** Sonnet.
 
-**I.4-e3 · source_comparison [F] · Gioielli e pane**
+**I.5-e3 · source_comparison [F] · Gioielli e pane**
 - **Scena.** Nell'inverno 1915–1916 Fabergé, gioielliere della corte, non ha mai venduto tanto, mentre nella capitale mancano pane e combustibile (C39). La ballerina Kšesinskaja, si mormora, decide le commesse d'artiglieria (C42). Alla Duma Miljukov chiede «stupidità o tradimento?». Circola la voce dell'imperatrice spia.
 - **Sotto la scena.** Quando una voce falsa diventa più forte di un fatto vero?
 - **Materiali.** C39, C42 (Trockij, «gioielliere Fabergé», «faccende dell'artiglieria della ballerina»).
 - **Regia.** Le voci si propagano come fumo fra le figure; la vetrina di gioielli e la coda nella stessa strada.
 - **Chi la sviluppa.** Sonnet.
 
-**I.4-e4 · narrative [D] · La fine dei semidei comincia in famiglia**
+**I.5-e4 · narrative [D] · La fine dei semidei comincia in famiglia**
 - **Scena.** Dicembre 1916: Rasputin è ucciso da un principe e un granduca. Una granduchessa propone di «eliminare» l'imperatrice; Rodzjanko chiede di considerare la frase come non detta (C43). All'ambasciatore britannico che lo invita a riconquistare la fiducia del popolo, lo zar chiede se non sia il popolo a dover riconquistare la sua.
 - **Sotto la scena.** Un potere sacro può sopravvivere quando non ci crede più nemmeno la sua famiglia?
 - **Materiali.** C43 (Trockij, «granduchessa Maria Pavlovna»); battuta all'ambasciatore: Montefiore [verificare].
 - **Regia.** Il palazzo isolato, il vuoto attorno.
 - **Chi la sviluppa.** Sonnet.
 
-**I.4-e5 · assessment [V] · Verifica V5.**
+**I.5-e5 · assessment [V] · Verifica V5.**
 
-#### I.5 — Otto giorni (8–16 marzo 1917, g. 23 febbraio–3 marzo)
+#### I.6 — Otto giorni (8–16 marzo 1917, g. 23 febbraio–3 marzo)
 Ruoli: la figlia operaia tessile; un soldato del reggimento Volynskij; un deputato. Fili: la promessa e il suo prezzo; chi rappresenta chi.
 
-**I.5-e1 · narrative [D] · La Giornata della donna**
+**I.6-e1 · narrative [D] · La Giornata della donna**
 - **Scena.** Neve e gelo fermano i treni, le code iniziano di notte. L'8 marzo le tessili di Vyborg escono dalle fabbriche e chiamano i metallurgici. Nessun partito aveva previsto che quel giorno aprisse una rivoluzione (R88).
 - **Sotto la scena.** Chi fa davvero una rivoluzione?
 - **Materiali.** R88 (Trockij, «inaugurare la rivoluzione»).
-- **Regia.** La coda, lunga quanto dice la scelta di I.4, si scioglie e diventa corteo: stesse figure, nuova formazione.
+- **Regia.** La coda, lunga quanto dice la scelta di I.5, si scioglie e diventa corteo: stesse figure, nuova formazione.
 - **Chi la sviluppa.** Sonnet.
 
-**I.5-e2 · role_crisis [S] · Il soldato che non spara**
+**I.6-e2 · role_crisis [S] · Il soldato che non spara**
 - **Scena.** 12 marzo (g. 27 febbraio): il reparto si è rifiutato di sparare [D]. La scelta riguarda il dopo: tornare in caserma, convincere le altre caserme, aprire l'arsenale agli operai, marciare verso il Palazzo di Tauride.
 - **Sotto la scena.** Disobbedire è un gesto o l'inizio di qualcosa? Che cosa trasforma un ammutinamento in una rivoluzione?
 - **Chi la sviluppa.** Sonnet.
 
-**I.5-e3 · narrative [D] · Il treno fermo nella neve**
+**I.6-e3 · narrative [D] · Il treno fermo nella neve**
 - **Scena.** Al Palazzo di Tauride nascono lo stesso giorno il Comitato della Duma e il soviet. Il treno dello zar è deviato a Pskov. Mentre arrivano i telegrammi, Nicola annota nel diario la vita del treno (R15). Abdica; dopo, si tocca i baffi come al solito e torna nel vagone (R08). Frederiks lo annuncia in francese e poi piange.
 - **Sotto la scena.** Che cosa resta di un semidio quando smette di esserlo? Un uomo con un'abitudine.
 - **Materiali.** R08, R15 (Miéville).
 - **Regia.** Il treno fermo nella neve; il palazzo diviso in due ali.
 - **Chi la sviluppa.** Sonnet.
 
-**I.5-e4 · assessment [V] · Verifica V6.**
+**I.6-e4 · assessment [V] · Verifica V6.**
 
-**I.5-e5 · narrative [D] · Confronto di fine atto**
+**I.6-e5 · narrative [D] · Confronto di fine atto**
 - **Scena.** Che cosa aveva preparato la terra, che cosa la fabbrica, che cosa il 1905, che cosa la guerra, che cosa decisero piazza, soldati e generali. Poi il diario.
 - **Regia.** Il disco rosso lascia il Palazzo d'Inverno e si posa sul Palazzo di Tauride.
 - **Chi la sviluppa.** Opus (raccordo d'atto).
@@ -865,7 +868,7 @@ Ruoli: la pronipote che studia ingegneria; un tecnico del poligono; un giornalis
 **VI.3-e1 · narrative [D] · Una sfera lucida**
 - **Scena.** 4 ottobre 1957: lo Sputnik, una sfera lucida con quattro antenne, entra in orbita. Il suo segnale, *bip… bip…*, si sente sulle radio di tutto il mondo. Il giorno dopo la *Pravda* lo annuncia con un piccolo comunicato TASS a margine della pagina, sotto un titolo sui preparativi per l'inverno; solo quando l'Occidente reagisce con stupore e paura il satellite diventa la notizia del secolo, e Chruščëv ne chiede un altro per l'anniversario della rivoluzione. La pronipote guarda passare un puntino di luce da un palazzo di cemento.
 - **Sotto la scena.** Perché un oggetto che non fa quasi niente spaventa e incanta il mondo intero?
-- **Materiali.** The Moscow Times, «Space race started with a cosmic blunder» (annuncio sulla *Pravda* del 5 ottobre, prima pagina piena il 9). Richiamo: il razzo di Kibalčič (I.2-e4), Ciolkovskij e la culla (IV.3-e1), gli aerei sopra i campanili (IV.3-e2).
+- **Materiali.** The Moscow Times, «Space race started with a cosmic blunder» (annuncio sulla *Pravda* del 5 ottobre, prima pagina piena il 9). Richiamo: il razzo di Kibalčič (I.3-e3), Ciolkovskij e la culla (IV.3-e1), gli aerei sopra i campanili (IV.3-e2).
 - **Regia.** Il cielo notturno sopra la città di cemento; un puntino si muove; in sovrimpressione, per un istante, il disegno della cella del 1881.
 - **Chi la sviluppa.** Opus (scena d'apertura dell'atto che dà il nome al gioco).
 
@@ -1025,6 +1028,7 @@ Una mappa per chi scrive le scene. Le copie sono fuori dalla repository; si cerc
 
 Tutto con `CONTRATTO-KIT` e con l'epoca registrata. Rispetto alla v4.1 si aggiungono quelli degli Atti V–VII.
 
+- **I (aggiunti il 30 ottobre 2026, prompt in [PROMPT-ASSET-I2-I3](PROMPT-ASSET-I2-I3.md)):** per I.2 piazzale del villaggio con l'assemblea del mir, isba di chi presiede, pozzo, strisce di terra prima e dopo la divisione, registro dei pagamenti, covone; per I.3 angolo di stanza in affitto, dormitorio, cella, foglio con il razzo, pane, carbone, lettera con moneta.
 - **I:** interno di isba; dormitorio di fabbrica; sala da ballo; sala di San Giorgio; caserma; vagone imperiale; cella con finestrella; colonia militare con case in fila. Pose: in ginocchio; figura con icona; samovar; telegrafo; tazza smaltata.
 - **II:** Palazzo di Tauride in due ali; tribuna di strada; cancello di fabbrica; stazione di Finlandia; salone Kšesinskaja; palco di teatro; marinaio; bara rossa; carriola.
 - **III:** tenuta padronale; Smol'nyj; incrociatore generico; circo con poche lampadine; sala del Congresso; cupole di Mosca; vagone della delegazione; orologio di bronzo.
@@ -1042,7 +1046,8 @@ Tutto con `CONTRATTO-KIT` e con l'epoca registrata. Rispetto alla v4.1 si aggiun
 - R56 (le ventiquattro portate del 1939) è confermato in Montefiore, *Stalin*: tolto il «da verificare».
 - I menscevichi e i socialrivoluzionari diventano posizioni vissute: II.2-e2, II.4-e1, II.5-e1, III.3-e4, III.5-e2, IV.2-e2.
 
-- **29 ottobre 2026: I.2 spezzata in due unità.** I.2 resta «La terra dopo il Manifesto» (solo l'assemblea del mir, I.2-e1). Le altre schede di I.2 (e2–e6) formano la nuova I.3 «In città». Le vecchie I.3, I.4 e I.5 diventano I.4, I.5 e I.6: l'Atto I ha sei unità. I codici degli episodi nelle schede qui sotto restano quelli vecchi finché non si rinumera in un incarico a parte; la tabella di [REPERTORIO](REPERTORIO-GIOCHI-LAIKA.md) §5.1 è il riferimento per i numeri.
+- **30 ottobre 2026: schede dei giochi di I.2 e I.3** in [SCHEDE-GIOCHI-I2-I3](SCHEDE-GIOCHI-I2-I3.md), da approvare prima del codice.
+- **29 ottobre 2026: I.2 spezzata in due unità.** I.2 resta «La terra dopo il Manifesto» (solo l'assemblea del mir, I.2-e1). Le altre schede di I.2 (e2–e6) formano la nuova I.3 «In città». Le vecchie I.3, I.4 e I.5 diventano I.4, I.5 e I.6: l'Atto I ha sei unità. Le schede qui sotto sono già rinumerate (30 ottobre 2026): I.2-e1 è il mir, I.3-e1..e6 sono le vecchie I.2-e2..e7. Gli identificatori degli episodi nel gioco (`a1-u2-*`) restano quelli storici: i codici di queste schede sono nomi di lavoro, non identificatori. Il tipo di episodio di I.2-e2 e I.3-e2 segue la tabella di [REPERTORIO](REPERTORIO-GIOCHI-LAIKA.md) §5.1, che prevale sulle schede.
 
 **Rettifiche agli appunti da verificare.** Restano valide quelle della v4.1 (scissione del 1903, guerra col Giappone, Duma, Stolypin, kulaki, calendario di febbraio, data dei funerali del Campo di Marte, composizione del governo provvisorio, Kerenskij socialrivoluzionario, Kornilov, vittime di ottobre, Brest-Litovsk, cifre della Costituente, Costituzione del 1924, NEP, Trockij, piani e carestia, arte, perdite di guerra), da registrare come revisioni motivate secondo `FONTI-LAIKA`.
 
