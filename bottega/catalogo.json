@@ -1254,6 +1254,42 @@
    "epoca": "Archetipo: busta con sigillo rosso e una moneta.",
    "fonte": "prototypes/kit-interni-citta/kit-interni-citta.html#citta_lettera",
    "note": "Icona del posto «Villaggio» (soldi a casa). Da approvare dal docente."
+  },
+  {
+   "id": "soviet-tavolo",
+   "famiglia": "soviet-coda",
+   "nome": "Tavolo del comitato",
+   "stato": "bozza",
+   "epoca": "Sala di un comitato di inizio Novecento: tavolo lungo con fogli e lampada a petrolio e due sgabelli; archetipo, nessuna scritta.",
+   "fonte": "prototypes/kit-soviet-coda/kit-soviet-coda.html#soviet_tavolo",
+   "note": "Parti con id: fiamma. Disegnato dall'agente il 3 novembre 2026; da approvare dal docente."
+  },
+  {
+   "id": "soviet-telegrafo",
+   "famiglia": "soviet-coda",
+   "nome": "Apparecchio telegrafico",
+   "stato": "bozza",
+   "epoca": "Telegrafo a nastro su un piccolo banco; archetipo generico di inizio Novecento.",
+   "fonte": "prototypes/kit-soviet-coda/kit-soviet-coda.html#soviet_telegrafo",
+   "note": "Oggetto piccolo. Disegnato dall'agente il 3 novembre 2026; da approvare dal docente."
+  },
+  {
+   "id": "coda-tessera",
+   "famiglia": "soviet-coda",
+   "nome": "Tessera quadrettata",
+   "stato": "bozza",
+   "epoca": "Cartoncino con riquadri da staccare: simbolo di razionamento. Le tessere del pane russe sono piu' tarde del 1917: simbolo del gioco, non ricostruzione; nessuna scritta.",
+   "fonte": "prototypes/kit-soviet-coda/kit-soviet-coda.html#coda_tessera",
+   "note": "Oggetto piccolo. Disegnato dall'agente il 3 novembre 2026; da approvare dal docente."
+  },
+  {
+   "id": "soviet-bandiera",
+   "famiglia": "soviet-coda",
+   "nome": "Bandiera di corteo",
+   "stato": "bozza",
+   "epoca": "Asta con drappo rosso senza scritte; archetipo di bandiera di corteo.",
+   "fonte": "prototypes/kit-soviet-coda/kit-soviet-coda.html#soviet_bandiera",
+   "note": "Parti con id: drappo. Disegnato dall'agente il 3 novembre 2026; da approvare dal docente."
   }
  ],
  "da_fare": [
