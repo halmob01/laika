@@ -24,14 +24,15 @@ test('LAIKA atto I: sei unità, la terra e la città separate',()=>{
   assert.deepEqual(act.units[1].episodes,['a1-u2-mir']);
   assert.equal(act.units[2].episodes[0],'a1-u2-citta');
   assert.equal(actNumber(act),'Atto I');assert.equal(actName(act),'La terra e lo zar');
-  assert.ok(act.units.slice(3).every(u=>!u.episodes.length),'le unità future non hanno ancora episodi');
+  assert.deepEqual(act.units[3].episodes,['a1-u4-domenica','a1-u4-soviet','a1-u4-ricorda']);
+  assert.ok(act.units.slice(4).every(u=>!u.episodes.length),'le unità future non hanno ancora episodi');
 });
 test('stato delle unità dall\'episodio corrente',()=>{
   const first=unitStates(act,'a1-u1-settimana');
   assert.deepEqual(first.map(s=>s.status),['current','later','later','later','later','later']);
   const second=unitStates(act,'a1-u2-salario');
   assert.deepEqual(second.map(s=>s.status),['done','done','current','later','later','later']);
-  assert.deepEqual(unitStates(act,'a1-u2-e7',true).map(s=>s.status),['done','done','done','later','later','later']);
+  assert.deepEqual(unitStates(act,'a1-u2-e7',true).map(s=>s.status),['done','done','done','done','later','later']);
   assert.equal(unitIndexOf(act,'a1-u2-mir'),1);assert.deepEqual(positionInUnit(act,'a1-u2-salario'),{index:2,total:7});
 });
 test('unità iniziata o da iniziare',()=>{

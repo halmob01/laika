@@ -107,6 +107,38 @@
       "max": 100,
       "start": 0,
       "good": "high"
+    },
+    {
+      "id": "sciopero",
+      "label": "Estensione dello sciopero",
+      "min": 0,
+      "max": 100,
+      "start": 50,
+      "good": "high"
+    },
+    {
+      "id": "fondi",
+      "label": "Cassa di sciopero",
+      "min": 0,
+      "max": 100,
+      "start": 50,
+      "good": "high"
+    },
+    {
+      "id": "fiducia",
+      "label": "Fiducia dei delegati",
+      "min": 0,
+      "max": 100,
+      "start": 50,
+      "good": "high"
+    },
+    {
+      "id": "repressione",
+      "label": "Rischio di repressione",
+      "min": 0,
+      "max": 100,
+      "start": 40,
+      "good": "low"
     }
   ],
   "resources": [
@@ -135,7 +167,9 @@
     "figlio_via",
     "padre_via",
     "figlio_in_citta",
-    "mir_diviso"
+    "mir_diviso",
+    "linea_soviet",
+    "tratta_prefetto"
   ],
   "episodes": [
     {
@@ -3819,6 +3853,2429 @@
         "legami",
         "speranza"
       ]
+    },
+    {
+      "id": "a1-u4-domenica",
+      "type": "narrative",
+      "roleId": "figlio",
+      "title": "La domenica di sangue",
+      "display": "cards",
+      "context": {
+        "kind": "documented",
+        "dateLabel": "22 gennaio 1905",
+        "placeLabel": "Pietroburgo"
+      },
+      "text": "La guerra contro il Giappone va male. Domenica 22 gennaio 1905 (9 gennaio nel calendario russo) un corteo guidato da padre Gapon porta allo zar una petizione e le icone. Lo zar non è in città. La truppa spara sulla folla.\n\nChe cosa muore quella domenica oltre alle persone? La fiducia nello zar come padre.",
+      "stageId": "a1-u4-domenica",
+      "motionId": "ingresso",
+      "exposes": [
+        "a1-domenica"
+      ],
+      "visualExplanation": "Il corteo avanza con un foglio e le icone. Lo sparo non si vede: le figure si disperdono e il foglio resta nella neve."
+    },
+    {
+      "id": "a1-u4-soviet",
+      "type": "turn_game",
+      "roleId": "figlio",
+      "title": "Le giornate del soviet",
+      "context": {
+        "kind": "simulation",
+        "dateLabel": "ottobre 1905",
+        "placeLabel": "Pietroburgo"
+      },
+      "text": "Ottobre 1905: sciopero generale. Nasce a Pietroburgo il soviet, un consiglio di delegati degli scioperanti.\n\nSei fra i delegati. Ogni giorno hai cinque azioni. Ogni azione costa qualcosa: nessuna è gratis. Le notizie arrivano a pezzi e ognuno le legge a modo suo.",
+      "goal": "Tieni lo sciopero senza che la cassa si svuoti o il soviet si spacchi.",
+      "stageId": "a1-u4-soviet",
+      "motionId": "ingresso",
+      "exposes": [
+        "a1-soviet"
+      ],
+      "visualExplanation": "Nella sala i delegati del soviet portano notizie. Ogni azione cambia gli indicatori: sono indici della simulazione e non dati storici né voti.",
+      "turnWord": "azione",
+      "nextLabel": "L'azione dopo",
+      "phaseLabels": {
+        "cards": "La giornata",
+        "event": "Che cosa fai"
+      },
+      "shows": [
+        "sciopero",
+        "fondi",
+        "fiducia",
+        "repressione"
+      ],
+      "crises": [
+        {
+          "id": "cassa-vuota",
+          "when": {
+            "op": "lte",
+            "kind": "metric",
+            "id": "fondi",
+            "value": 10
+          },
+          "text": "La cassa è vuota: in alcune fabbriche si torna al lavoro.",
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "sciopero",
+              "delta": -15
+            },
+            {
+              "kind": "metric",
+              "id": "fondi",
+              "delta": 20
+            }
+          ]
+        },
+        {
+          "id": "soviet-diviso",
+          "when": {
+            "op": "lte",
+            "kind": "metric",
+            "id": "fiducia",
+            "value": 10
+          },
+          "text": "Il soviet si spacca in due linee: i moderati e i radicali non si parlano più.",
+          "effects": [
+            {
+              "kind": "flag",
+              "id": "linea_soviet",
+              "value": true
+            },
+            {
+              "kind": "metric",
+              "id": "fiducia",
+              "delta": 25
+            },
+            {
+              "kind": "metric",
+              "id": "sciopero",
+              "delta": -8
+            }
+          ]
+        },
+        {
+          "id": "arresti",
+          "when": {
+            "op": "gte",
+            "kind": "metric",
+            "id": "repressione",
+            "value": 90
+          },
+          "text": "La polizia arresta una parte dei delegati.",
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "fiducia",
+              "delta": -10
+            },
+            {
+              "kind": "metric",
+              "id": "repressione",
+              "delta": -30
+            },
+            {
+              "kind": "metric",
+              "id": "sciopero",
+              "delta": -10
+            }
+          ]
+        },
+        {
+          "id": "sciopero-fermo",
+          "when": {
+            "op": "lte",
+            "kind": "metric",
+            "id": "sciopero",
+            "value": 10
+          },
+          "text": "Lo sciopero si sgonfia: restano pochi fermi.",
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "sciopero",
+              "delta": 25
+            },
+            {
+              "kind": "metric",
+              "id": "fiducia",
+              "delta": -10
+            }
+          ]
+        }
+      ],
+      "feedback": "Tre giornate sono passate. Il soviet del 1905 è un contropotere: coordina lo sciopero ma non governa. Con le notizie a pezzi ogni scelta dipende da chi te le racconta.",
+      "turns": [
+        {
+          "label": "Giorno 1",
+          "cards": [
+            {
+              "kind": "simulation",
+              "title": "Primo giorno · 17 ottobre",
+              "text": "Notizia a pezzi, personaggi inventati."
+            }
+          ],
+          "event": {
+            "who": "Un telegrafista",
+            "text": "Dal telegrafo arriva la voce che i ferrovieri di Mosca hanno smesso di lavorare.",
+            "choices": [
+              {
+                "id": "indagare",
+                "label": "Indagare: chiedere ai delegati che cosa ne pensano",
+                "text": "Il delegato moderato: è uno sciopero per le otto ore e per i diritti; conviene sostenerlo senza irrigidirsi. Il delegato radicale: è solo l'inizio; se ci fermiamo adesso lo zar ci aspetta. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 3
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 1
+                  }
+                ]
+              },
+              {
+                "id": "delegato",
+                "label": "Mandare un delegato dove lo sciopero esita",
+                "chance": {
+                  "base": 0.65
+                },
+                "success": {
+                  "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": 9
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 3
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fondi",
+                      "delta": -2
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": -3
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fiducia",
+                      "delta": -4
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 2
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "distribuire",
+                "label": "Distribuire pane e fondi della cassa",
+                "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": 2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 1
+                  }
+                ]
+              },
+              {
+                "id": "trattare",
+                "label": "Trattare con le autorità",
+                "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": -6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -3
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "tratta_prefetto",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "aspettare",
+                "label": "Aspettare: non fare niente",
+                "text": "Non fai niente. Intanto il tempo lavora per chi ha la forza.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 4
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -3
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "Giorno 1",
+          "event": {
+            "who": "Una tessitrice",
+            "text": "Nella sua fabbrica metà delle operaie ha paura di perdere il posto.",
+            "choices": [
+              {
+                "id": "indagare",
+                "label": "Indagare: chiedere ai delegati che cosa ne pensano",
+                "text": "Il delegato moderato: chi ha paura va rassicurata; la cassa le tiene dentro. Il delegato radicale: la paura passa se vedono gli altri fermi; serve un delegato che parli. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 3
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 1
+                  }
+                ]
+              },
+              {
+                "id": "delegato",
+                "label": "Mandare un delegato dove lo sciopero esita",
+                "chance": {
+                  "base": 0.65
+                },
+                "success": {
+                  "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": 9
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 3
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fondi",
+                      "delta": -2
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": -3
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fiducia",
+                      "delta": -4
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 2
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "distribuire",
+                "label": "Distribuire pane e fondi della cassa",
+                "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": 2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 1
+                  }
+                ]
+              },
+              {
+                "id": "trattare",
+                "label": "Trattare con le autorità",
+                "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": -6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -3
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "tratta_prefetto",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "aspettare",
+                "label": "Aspettare: non fare niente",
+                "text": "Non fai niente. Intanto il tempo lavora per chi ha la forza.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 4
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -3
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "Giorno 1",
+          "event": {
+            "who": "Un garzone",
+            "text": "Racconta che in caserma si prepara qualcosa; non sa dire che cosa.",
+            "choices": [
+              {
+                "id": "indagare",
+                "label": "Indagare: chiedere ai delegati che cosa ne pensano",
+                "text": "Il delegato moderato: voci di caserma; meglio parlare col prefetto per non provocare. Il delegato radicale: vogliono fermarci con la forza; non si tratta con chi spara. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 3
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 1
+                  }
+                ]
+              },
+              {
+                "id": "delegato",
+                "label": "Mandare un delegato dove lo sciopero esita",
+                "chance": {
+                  "base": 0.65
+                },
+                "success": {
+                  "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": 9
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 3
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fondi",
+                      "delta": -2
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": -3
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fiducia",
+                      "delta": -4
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 2
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "distribuire",
+                "label": "Distribuire pane e fondi della cassa",
+                "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": 2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 1
+                  }
+                ]
+              },
+              {
+                "id": "trattare",
+                "label": "Trattare con le autorità",
+                "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": -6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -3
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "tratta_prefetto",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "aspettare",
+                "label": "Aspettare: non fare niente",
+                "text": "Non fai niente. Intanto il tempo lavora per chi ha la forza.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 4
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -3
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "Giorno 1",
+          "event": {
+            "who": "Un fornaio",
+            "text": "Il pane in quartiere sta finendo e la gente comincia a guardare chi sciopera.",
+            "choices": [
+              {
+                "id": "indagare",
+                "label": "Indagare: chiedere ai delegati che cosa ne pensano",
+                "text": "Il delegato moderato: se la gente ha fame ci volta le spalle; distribuiamo pane. Il delegato radicale: la fame serve a vedere da che parte stanno; non ci si ferma per questo. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 3
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 1
+                  }
+                ]
+              },
+              {
+                "id": "delegato",
+                "label": "Mandare un delegato dove lo sciopero esita",
+                "chance": {
+                  "base": 0.65
+                },
+                "success": {
+                  "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": 9
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 3
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fondi",
+                      "delta": -2
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": -3
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fiducia",
+                      "delta": -4
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 2
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "distribuire",
+                "label": "Distribuire pane e fondi della cassa",
+                "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": 2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 1
+                  }
+                ]
+              },
+              {
+                "id": "trattare",
+                "label": "Trattare con le autorità",
+                "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": -6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -3
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "tratta_prefetto",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "aspettare",
+                "label": "Aspettare: non fare niente",
+                "text": "Non fai niente. Intanto il tempo lavora per chi ha la forza.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 4
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -3
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "Giorno 1",
+          "event": {
+            "who": "Un cassiere",
+            "text": "Dice che la cassa regge ancora, ma non per molto. Poi arriva la notte: freddo e fame.",
+            "choices": [
+              {
+                "id": "indagare",
+                "label": "Indagare: chiedere ai delegati che cosa ne pensano",
+                "text": "Il delegato moderato: contiamo ogni moneta e facciamo durare lo sciopero. Il delegato radicale: chi ha soldi deve darli; la cassa si riempie scioperando in tanti. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 3
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 1
+                  }
+                ]
+              },
+              {
+                "id": "delegato",
+                "label": "Mandare un delegato dove lo sciopero esita",
+                "chance": {
+                  "base": 0.65
+                },
+                "success": {
+                  "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": 9
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 3
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fondi",
+                      "delta": -2
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": -3
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fiducia",
+                      "delta": -4
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 2
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "distribuire",
+                "label": "Distribuire pane e fondi della cassa",
+                "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": 2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 1
+                  }
+                ]
+              },
+              {
+                "id": "trattare",
+                "label": "Trattare con le autorità",
+                "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": -6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -3
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "tratta_prefetto",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "aspettare",
+                "label": "Aspettare: non fare niente",
+                "text": "Non fai niente. Intanto il tempo lavora per chi ha la forza.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 4
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -3
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "Giorno 2",
+          "cards": [
+            {
+              "kind": "simulation",
+              "title": "Secondo giorno · 18 ottobre",
+              "text": "Notizia a pezzi, personaggi inventati."
+            }
+          ],
+          "event": {
+            "who": "Uno studente",
+            "text": "Porta un foglio che parla di una concessione dello zar; nessuno sa se è vera.",
+            "choices": [
+              {
+                "id": "indagare",
+                "label": "Indagare: chiedere ai delegati che cosa ne pensano",
+                "text": "Il delegato moderato: se è vera si può trattare; se è falsa si perde tempo. Il delegato radicale: le concessioni si strappano scioperando; non si legge, si sciopera. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 3
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 3
+                  }
+                ]
+              },
+              {
+                "id": "delegato",
+                "label": "Mandare un delegato dove lo sciopero esita",
+                "chance": {
+                  "base": 0.65
+                },
+                "success": {
+                  "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": 9
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 5
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fondi",
+                      "delta": -2
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": -3
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fiducia",
+                      "delta": -4
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 4
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "distribuire",
+                "label": "Distribuire pane e fondi della cassa",
+                "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": 2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 3
+                  }
+                ]
+              },
+              {
+                "id": "trattare",
+                "label": "Trattare con le autorità",
+                "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": -6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -3
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "tratta_prefetto",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "aspettare",
+                "label": "Aspettare: non fare niente",
+                "text": "Non fai niente. Intanto il tempo lavora per chi ha la forza.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -3
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "Giorno 2",
+          "event": {
+            "who": "Un ferroviere",
+            "text": "Il suo deposito ha deciso di fermarsi, ma i treni militari passano lo stesso.",
+            "choices": [
+              {
+                "id": "indagare",
+                "label": "Indagare: chiedere ai delegati che cosa ne pensano",
+                "text": "Il delegato moderato: non tocchiamo i treni militari; sarebbe provocazione. Il delegato radicale: un treno che passa è uno sciopero che perde; fermare tutto. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 3
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 3
+                  }
+                ]
+              },
+              {
+                "id": "delegato",
+                "label": "Mandare un delegato dove lo sciopero esita",
+                "chance": {
+                  "base": 0.65
+                },
+                "success": {
+                  "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": 9
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 5
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fondi",
+                      "delta": -2
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": -3
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fiducia",
+                      "delta": -4
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 4
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "distribuire",
+                "label": "Distribuire pane e fondi della cassa",
+                "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": 2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 3
+                  }
+                ]
+              },
+              {
+                "id": "trattare",
+                "label": "Trattare con le autorità",
+                "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": -6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -3
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "tratta_prefetto",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "aspettare",
+                "label": "Aspettare: non fare niente",
+                "text": "Non fai niente. Intanto il tempo lavora per chi ha la forza.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -3
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "Giorno 2",
+          "event": {
+            "who": "Una levatrice",
+            "text": "La polizia ferma due delegati per strada e li rilascia la sera.",
+            "choices": [
+              {
+                "id": "indagare",
+                "label": "Indagare: chiedere ai delegati che cosa ne pensano",
+                "text": "Il delegato moderato: serve prudenza; chi viene fermato non deve dire dove ci si riunisce. Il delegato radicale: ogni arresto deve avere una risposta. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 3
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 3
+                  }
+                ]
+              },
+              {
+                "id": "delegato",
+                "label": "Mandare un delegato dove lo sciopero esita",
+                "chance": {
+                  "base": 0.65
+                },
+                "success": {
+                  "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": 9
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 5
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fondi",
+                      "delta": -2
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": -3
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fiducia",
+                      "delta": -4
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 4
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "distribuire",
+                "label": "Distribuire pane e fondi della cassa",
+                "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": 2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 3
+                  }
+                ]
+              },
+              {
+                "id": "trattare",
+                "label": "Trattare con le autorità",
+                "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": -6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -3
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "tratta_prefetto",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "aspettare",
+                "label": "Aspettare: non fare niente",
+                "text": "Non fai niente. Intanto il tempo lavora per chi ha la forza.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -3
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "Giorno 2",
+          "event": {
+            "who": "Un operaio anziano",
+            "text": "Dice che non ha mai visto tanta gente ferma e tanta gente ascoltarsi.",
+            "choices": [
+              {
+                "id": "indagare",
+                "label": "Indagare: chiedere ai delegati che cosa ne pensano",
+                "text": "Il delegato moderato: la fiducia fra i delegati vale quanto la cassa. Il delegato radicale: finché ci ascoltiamo siamo più forti dello zar. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 3
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 3
+                  }
+                ]
+              },
+              {
+                "id": "delegato",
+                "label": "Mandare un delegato dove lo sciopero esita",
+                "chance": {
+                  "base": 0.65
+                },
+                "success": {
+                  "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": 9
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 5
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fondi",
+                      "delta": -2
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": -3
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fiducia",
+                      "delta": -4
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 4
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "distribuire",
+                "label": "Distribuire pane e fondi della cassa",
+                "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": 2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 3
+                  }
+                ]
+              },
+              {
+                "id": "trattare",
+                "label": "Trattare con le autorità",
+                "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": -6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -3
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "tratta_prefetto",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "aspettare",
+                "label": "Aspettare: non fare niente",
+                "text": "Non fai niente. Intanto il tempo lavora per chi ha la forza.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -3
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "Giorno 2",
+          "event": {
+            "who": "Un prete di quartiere",
+            "text": "Chiede di aprire la chiesa per distribuire pane e acqua. Poi arriva la notte: freddo e fame.",
+            "choices": [
+              {
+                "id": "indagare",
+                "label": "Indagare: chiedere ai delegati che cosa ne pensano",
+                "text": "Il delegato moderato: accettare; la chiesa rende lo sciopero meno spaventoso. Il delegato radicale: la chiesa sta con lo zar; ci si può fidare poco. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 3
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 3
+                  }
+                ]
+              },
+              {
+                "id": "delegato",
+                "label": "Mandare un delegato dove lo sciopero esita",
+                "chance": {
+                  "base": 0.65
+                },
+                "success": {
+                  "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": 9
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 5
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fondi",
+                      "delta": -2
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": -3
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fiducia",
+                      "delta": -4
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 4
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "distribuire",
+                "label": "Distribuire pane e fondi della cassa",
+                "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": 2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 3
+                  }
+                ]
+              },
+              {
+                "id": "trattare",
+                "label": "Trattare con le autorità",
+                "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": -6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -3
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "tratta_prefetto",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "aspettare",
+                "label": "Aspettare: non fare niente",
+                "text": "Non fai niente. Intanto il tempo lavora per chi ha la forza.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -3
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "Giorno 3",
+          "cards": [
+            {
+              "kind": "simulation",
+              "title": "Terzo giorno · 19 ottobre",
+              "text": "Notizia a pezzi, personaggi inventati."
+            }
+          ],
+          "event": {
+            "who": "Un telegrafista",
+            "text": "Arriva la voce che lo zar firmerà un manifesto: libertà e una Duma.",
+            "choices": [
+              {
+                "id": "indagare",
+                "label": "Indagare: chiedere ai delegati che cosa ne pensano",
+                "text": "Il delegato moderato: è una concessione vera e va accolta. Il delegato radicale: è una tregua per fermarci; la Duma non basta. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 3
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 5
+                  }
+                ]
+              },
+              {
+                "id": "delegato",
+                "label": "Mandare un delegato dove lo sciopero esita",
+                "chance": {
+                  "base": 0.65
+                },
+                "success": {
+                  "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": 9
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 7
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fondi",
+                      "delta": -2
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": -3
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fiducia",
+                      "delta": -4
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 6
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "distribuire",
+                "label": "Distribuire pane e fondi della cassa",
+                "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": 2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 5
+                  }
+                ]
+              },
+              {
+                "id": "trattare",
+                "label": "Trattare con le autorità",
+                "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": -6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -3
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "tratta_prefetto",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "aspettare",
+                "label": "Aspettare: non fare niente",
+                "text": "Non fai niente. Intanto il tempo lavora per chi ha la forza.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -3
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "Giorno 3",
+          "event": {
+            "who": "Una tessitrice",
+            "text": "La fabbrica vuole riaprire; metà delle operaie è stanca.",
+            "choices": [
+              {
+                "id": "indagare",
+                "label": "Indagare: chiedere ai delegati che cosa ne pensano",
+                "text": "Il delegato moderato: riaprire con una garanzia è meglio che perdere il posto. Il delegato radicale: riaprire ora vuol dire regalare la vittoria. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 3
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 5
+                  }
+                ]
+              },
+              {
+                "id": "delegato",
+                "label": "Mandare un delegato dove lo sciopero esita",
+                "chance": {
+                  "base": 0.65
+                },
+                "success": {
+                  "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": 9
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 7
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fondi",
+                      "delta": -2
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": -3
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fiducia",
+                      "delta": -4
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 6
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "distribuire",
+                "label": "Distribuire pane e fondi della cassa",
+                "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": 2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 5
+                  }
+                ]
+              },
+              {
+                "id": "trattare",
+                "label": "Trattare con le autorità",
+                "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": -6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -3
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "tratta_prefetto",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "aspettare",
+                "label": "Aspettare: non fare niente",
+                "text": "Non fai niente. Intanto il tempo lavora per chi ha la forza.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -3
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "Giorno 3",
+          "event": {
+            "who": "Un garzone",
+            "text": "Dice di aver visto cosacchi nelle strade attorno alla sala.",
+            "choices": [
+              {
+                "id": "indagare",
+                "label": "Indagare: chiedere ai delegati che cosa ne pensano",
+                "text": "Il delegato moderato: meglio non farsi trovare tutti insieme. Il delegato radicale: restare insieme è l'unica difesa. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 3
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 5
+                  }
+                ]
+              },
+              {
+                "id": "delegato",
+                "label": "Mandare un delegato dove lo sciopero esita",
+                "chance": {
+                  "base": 0.65
+                },
+                "success": {
+                  "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": 9
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 7
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fondi",
+                      "delta": -2
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": -3
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fiducia",
+                      "delta": -4
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 6
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "distribuire",
+                "label": "Distribuire pane e fondi della cassa",
+                "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": 2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 5
+                  }
+                ]
+              },
+              {
+                "id": "trattare",
+                "label": "Trattare con le autorità",
+                "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": -6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -3
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "tratta_prefetto",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "aspettare",
+                "label": "Aspettare: non fare niente",
+                "text": "Non fai niente. Intanto il tempo lavora per chi ha la forza.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -3
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "Giorno 3",
+          "event": {
+            "who": "Un cassiere",
+            "text": "La cassa è quasi vuota e le richieste di aiuto crescono.",
+            "choices": [
+              {
+                "id": "indagare",
+                "label": "Indagare: chiedere ai delegati che cosa ne pensano",
+                "text": "Il delegato moderato: serve una pausa per ripartire dopo. Il delegato radicale: pausa vuol dire sconfitta. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 3
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 5
+                  }
+                ]
+              },
+              {
+                "id": "delegato",
+                "label": "Mandare un delegato dove lo sciopero esita",
+                "chance": {
+                  "base": 0.65
+                },
+                "success": {
+                  "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": 9
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 7
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fondi",
+                      "delta": -2
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": -3
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fiducia",
+                      "delta": -4
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 6
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "distribuire",
+                "label": "Distribuire pane e fondi della cassa",
+                "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": 2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 5
+                  }
+                ]
+              },
+              {
+                "id": "trattare",
+                "label": "Trattare con le autorità",
+                "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": -6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -3
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "tratta_prefetto",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "aspettare",
+                "label": "Aspettare: non fare niente",
+                "text": "Non fai niente. Intanto il tempo lavora per chi ha la forza.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -3
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "Giorno 3",
+          "event": {
+            "who": "Un operaio anziano",
+            "text": "Chiede che cosa vuol dire, per un soviet, fermare un impero incrociando le braccia. Poi arriva la notte: freddo e fame.",
+            "choices": [
+              {
+                "id": "indagare",
+                "label": "Indagare: chiedere ai delegati che cosa ne pensano",
+                "text": "Il delegato moderato: vuol dire coordinare lo sciopero senza governare. Il delegato radicale: vuol dire che il potere sta cambiando mano. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 3
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 5
+                  }
+                ]
+              },
+              {
+                "id": "delegato",
+                "label": "Mandare un delegato dove lo sciopero esita",
+                "chance": {
+                  "base": 0.65
+                },
+                "success": {
+                  "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": 9
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 7
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fondi",
+                      "delta": -2
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": -3
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fiducia",
+                      "delta": -4
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 6
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "distribuire",
+                "label": "Distribuire pane e fondi della cassa",
+                "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": 2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 5
+                  }
+                ]
+              },
+              {
+                "id": "trattare",
+                "label": "Trattare con le autorità",
+                "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": -6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -3
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "tratta_prefetto",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "aspettare",
+                "label": "Aspettare: non fare niente",
+                "text": "Non fai niente. Intanto il tempo lavora per chi ha la forza.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -3
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "a1-u4-ricorda",
+      "type": "narrative",
+      "roleId": "figlio",
+      "title": "Cosa ti devi ricordare",
+      "display": "cards",
+      "context": {
+        "kind": "documented",
+        "dateLabel": "1905"
+      },
+      "text": "Il 22 gennaio 1905 la truppa spara su un corteo pacifico e la fiducia nello zar come padre si spezza. Nell'ottobre 1905 uno sciopero generale ferma il paese e a Pietroburgo nasce il soviet.\n\nIl soviet del 1905 è un contropotere: coordina uno sciopero e non governa. Lo zar concede il Manifesto di ottobre sotto la pressione dello sciopero: una concessione strappata può essere un diritto o una tregua.",
+      "stageId": "a1-u4-soviet",
+      "motionId": "ingresso"
     }
   ],
   "reconciliation": "Fine dell'unità I.1 (1700–1861). Per un secolo e mezzo la ricchezza si è contata in anime e il tempo di un servo apparteneva in parte al signore. La libertà del 1861 è vera, ma arriva senza la terra: la terra si paga per quarantanove anni e il villaggio risponde insieme dei debiti. Le tue scelte hanno cambiato soltanto la simulazione, non questi fatti. Le unità successive dell'Atto I (1861–1917) sono in preparazione: per ora il percorso si ferma qui.",
@@ -3916,9 +6373,25 @@
       "period": "1905 – 1907",
       "question": "Che cosa muore quella domenica oltre alle persone?",
       "summary": "La domenica di sangue e le giornate del soviet.",
-      "game": "Le giornate del soviet: ogni giorno hai pochi punti azione e molte cose da fare.",
-      "concepts": [],
-      "episodes": []
+      "game": "Tre giornate del soviet nell'ottobre 1905: cinque azioni al giorno e notizie a pezzi.",
+      "concepts": [
+        "domenica di sangue",
+        "soviet",
+        "sciopero generale",
+        "contropotere",
+        "Manifesto di ottobre"
+      ],
+      "episodes": [
+        "a1-u4-domenica",
+        "a1-u4-soviet",
+        "a1-u4-ricorda"
+      ],
+      "carries": "Il figlio della famiglia di I.3: ora è fra i delegati.",
+      "closing": {
+        "did": "Hai speso le azioni di tre giornate di sciopero fra pane, delegati e trattative.",
+        "fact": "Nell'ottobre 1905 uno sciopero generale fermò la Russia e a Pietroburgo nacque il soviet dei delegati. Lo zar concesse il Manifesto di ottobre.",
+        "simulation": "Le persone, le notizie e i numeri sono simulazione. Il soviet del 1905 coordinò uno sciopero e non governò."
+      }
     },
     {
       "id": "i5",

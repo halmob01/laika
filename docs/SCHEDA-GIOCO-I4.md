@@ -1,6 +1,6 @@
 # Scheda del gioco di I.4 — Il 1905: le giornate del soviet
 
-Versione 1 · 3 novembre 2026 · **da approvare dal docente** prima della costruzione (regola di processo del 29 ottobre 2026). Applica [REPERTORIO](REPERTORIO-GIOCHI-LAIKA.md) §2 (regole comuni) e §3.8 (la giornata a punti azione). I contenuti degli episodi restano in [PIANO-ATTI](PIANO-ATTI-LAIKA.md) (I.4-e1…e6).
+Versione 1 · 3 novembre 2026 · **approvata dal docente il 3 novembre 2026** con le impostazioni proposte (tre giornate da cinque azioni; due letture date da un delegato moderato e uno radicale senza nome di partito; il gioco sostituisce la scelta di ruolo di I.4-e3) · **costruita lo stesso giorno** (vedi «Scostamenti dalla scheda»). Applica [REPERTORIO](REPERTORIO-GIOCHI-LAIKA.md) §2 (regole comuni) e §3.8 (la giornata a punti azione). I contenuti degli episodi restano in [PIANO-ATTI](PIANO-ATTI-LAIKA.md) (I.4-e1…e6).
 
 I numeri sono indici della simulazione. I fatti non riscontrati sono segnati **[da riscontrare]** e non entrano nel testo per lo studente come dati.
 
@@ -58,3 +58,11 @@ Serve una modalità generica del motore: **giornata a punti azione** (azioni con
 1. Tre giornate e cinque punti sono giuste o preferisci una giornata sola più lunga?
 2. Le due letture della stessa notizia le dà un delegato moderato e uno radicale (come nel REPERTORIO §3.8): va bene tenerli senza nome di partito nel testo dello studente?
 3. Il gioco sostituisce la scelta di ruolo di I.4-e3 oppure la precede?
+
+## Scostamenti dalla scheda (costruzione del 3 novembre 2026)
+
+- **Nessuna modalità nuova del motore.** Per la prima versione ogni punto azione è un turno della partita di sole decisioni (15 turni: 3 giornate da 5 azioni), con le cinque azioni come risposte e le due letture della notizia nel testo di «Indagare». Mancano quindi la barra dei punti di una giornata e la notte come evento a parte: la pressione cresce con i giorni e ogni azione costa qualcosa. Una modalità generica a punti azione resta da fare (serve anche a I.6).
+- **Disegni:** nessun disegno nuovo. Scena della sala con `ambiente-sala` e figure del catalogo; il tavolo dei delegati e il telegrafo non ci sono.
+- **Episodi di I.4 costruiti:** la domenica di sangue (e1), le giornate del soviet (e3). Mancano la petizione (e2), il Manifesto (e4), Stolypin (e5) e le verifiche (e6).
+- **Taratura:** simulazioni su sei strategie fisse e venti partite ciascuna: nessuna strategia vince senza costi, ma «mandare sempre un delegato» rende molto. Da ritoccare.
+- **Fatti da riscontrare:** la cronologia dei giorni è indicativa; i personaggi e le notizie sono inventati e dichiarati simulazione.
