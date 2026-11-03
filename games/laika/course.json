@@ -14,7 +14,9 @@
     "a1-citta",
     "a1-razzo",
     "a1-corte",
-    "a1-volantini"
+    "a1-volantini",
+    "a1-domenica",
+    "a1-soviet"
   ],
   "acts": [
     {
@@ -37,7 +39,9 @@
     "source/scene/a1-u2-stanza.json",
     "source/scene/a1-u2-cella.json",
     "source/scene/a1-u2-corte.json",
-    "source/scene/a1-u2-volantini.json"
+    "source/scene/a1-u2-volantini.json",
+    "source/scene/a1-u4-domenica.json",
+    "source/scene/a1-u4-soviet.json"
   ],
   "tema": "laika-carta",
   "symbols": "assets/symbols.json",

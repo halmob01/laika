@@ -14,7 +14,9 @@
     "a1-citta",
     "a1-razzo",
     "a1-corte",
-    "a1-volantini"
+    "a1-volantini",
+    "a1-domenica",
+    "a1-soviet"
   ],
   "palette": {
     "paper": "#ece3cf",
@@ -24278,6 +24280,1020 @@
           "parent": "f-2"
         }
       ]
+    },
+    {
+      "id": "ambiente-piazza",
+      "meta": {
+        "label": "Piazza",
+        "family": "ambienti",
+        "source": "studio personaggi.html#piazza",
+        "size": [
+          490,
+          180
+        ],
+        "anchor": "base",
+        "origine": {
+          "file": "prototypes/laika-studi-originali/studio personaggi.html",
+          "funzione": "drawEnvironmentSVG",
+          "argomenti": [
+            "piazza",
+            "none",
+            false
+          ],
+          "rimuoviPrimo": true,
+          "definizioni": null
+        }
+      },
+      "layers": [
+        {
+          "id": "opera",
+          "tag": "g",
+          "pose": {
+            "translateX": -275,
+            "translateY": -242
+          }
+        },
+        {
+          "id": "f-1",
+          "tag": "g",
+          "attrs": {
+            "fill": "sand",
+            "opacity": 0.55
+          },
+          "parent": "opera"
+        },
+        {
+          "id": "f-2",
+          "tag": "rect",
+          "attrs": {
+            "x": 35,
+            "y": 95,
+            "width": 95,
+            "height": 147
+          },
+          "parent": "f-1"
+        },
+        {
+          "id": "f-3",
+          "tag": "path",
+          "attrs": {
+            "d": "M30 95 L82 62 L135 95 Z"
+          },
+          "parent": "f-1"
+        },
+        {
+          "id": "f-4",
+          "tag": "rect",
+          "attrs": {
+            "x": 145,
+            "y": 115,
+            "width": 120,
+            "height": 127
+          },
+          "parent": "f-1"
+        },
+        {
+          "id": "f-5",
+          "tag": "rect",
+          "attrs": {
+            "x": 410,
+            "y": 88,
+            "width": 110,
+            "height": 154
+          },
+          "parent": "f-1"
+        }
+      ]
+    },
+    {
+      "id": "presa-bandiera",
+      "meta": {
+        "label": "bandiera",
+        "family": "oggetti-impugnati",
+        "source": "studio personaggi.html#buildOminoSVG",
+        "presa": "hand-near",
+        "tinta": false
+      },
+      "layers": [
+        {
+          "id": "f-1",
+          "tag": "line",
+          "attrs": {
+            "x1": -14,
+            "y1": 22,
+            "x2": 10,
+            "y2": -36,
+            "stroke": "ink",
+            "stroke-width": 2.8,
+            "stroke-linecap": "round"
+          }
+        },
+        {
+          "id": "telo",
+          "tag": "path",
+          "attrs": {
+            "d": "M 10 -36 C 24 -38 36 -44 48 -46 L 46 -14 C 32 -18 18 -18 2 -18 Z",
+            "fill": "red"
+          },
+          "origin": [
+            6,
+            -27
+          ]
+        }
+      ]
+    },
+    {
+      "id": "presa-bastone-lungo",
+      "meta": {
+        "label": "bastone lungo",
+        "family": "oggetti-impugnati",
+        "source": "studio personaggi.html#buildOminoSVG",
+        "presa": "hand-near",
+        "tinta": false
+      },
+      "layers": [
+        {
+          "id": "f-1",
+          "tag": "line",
+          "attrs": {
+            "x1": -22,
+            "y1": 22,
+            "x2": 32,
+            "y2": -28,
+            "stroke": "ink",
+            "stroke-width": 3,
+            "stroke-linecap": "round"
+          }
+        }
+      ]
+    },
+    {
+      "id": "fig-uomo-nudo-base-fascia",
+      "meta": {
+        "label": "Figura uomo nudo base fascia",
+        "family": "figure",
+        "source": "studio personaggi.html#buildOminoSVG"
+      },
+      "layers": [
+        {
+          "id": "corpo",
+          "tag": "g",
+          "pose": {
+            "translateY": -42,
+            "scale": 1
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "root",
+          "tag": "g",
+          "parent": "corpo",
+          "pose": {
+            "rotate": 0,
+            "translateY": 0
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "slot-back",
+          "tag": "g",
+          "parent": "root"
+        },
+        {
+          "id": "arm-far",
+          "tag": "g",
+          "parent": "root",
+          "pose": {
+            "translateX": -5,
+            "translateY": -24,
+            "rotate": 22
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "arm-far-skin",
+          "tag": "path",
+          "parent": "arm-far",
+          "attrs": {
+            "d": "M -3.75 0 A 3.75 3.75 0 1 1 3.75 0 L 3.1 16 A 3.1 3.1 0 1 1 -3.1 16 Z",
+            "fill": "ink"
+          }
+        },
+        {
+          "id": "forearm-far",
+          "tag": "g",
+          "parent": "arm-far",
+          "pose": {
+            "translateX": 0,
+            "translateY": 16,
+            "rotate": 5
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "forearm-far-skin",
+          "tag": "path",
+          "parent": "forearm-far",
+          "attrs": {
+            "d": "M -3.1 0 A 3.1 3.1 0 1 1 3.1 0 L 2.5 15 A 2.5 2.5 0 1 1 -2.5 15 Z",
+            "fill": "ink"
+          }
+        },
+        {
+          "id": "hand-far",
+          "tag": "g",
+          "parent": "forearm-far",
+          "pose": {
+            "translateX": 0,
+            "translateY": 14,
+            "rotate": -27
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "leg-far",
+          "tag": "g",
+          "parent": "root",
+          "pose": {
+            "translateX": -4.5,
+            "translateY": 2,
+            "rotate": 10
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "leg-far-skin",
+          "tag": "path",
+          "parent": "leg-far",
+          "attrs": {
+            "d": "M -4.6 0 A 4.6 4.6 0 1 1 4.6 0 L 3.6 19 A 3.6 3.6 0 1 1 -3.6 19 Z",
+            "fill": "ink"
+          }
+        },
+        {
+          "id": "shin-far",
+          "tag": "g",
+          "parent": "leg-far",
+          "pose": {
+            "translateX": 0,
+            "translateY": 19,
+            "rotate": 0
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "shin-far-skin",
+          "tag": "path",
+          "parent": "shin-far",
+          "attrs": {
+            "d": "M -3.6 0 A 3.6 3.6 0 1 1 3.6 0 L 2.8 19 A 2.8 2.8 0 1 1 -2.8 19 Z",
+            "fill": "ink"
+          }
+        },
+        {
+          "id": "leg-near",
+          "tag": "g",
+          "parent": "root",
+          "pose": {
+            "translateX": 4.5,
+            "translateY": 2,
+            "rotate": -10
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "leg-near-skin",
+          "tag": "path",
+          "parent": "leg-near",
+          "attrs": {
+            "d": "M -4.6 0 A 4.6 4.6 0 1 1 4.6 0 L 3.6 19 A 3.6 3.6 0 1 1 -3.6 19 Z",
+            "fill": "ink"
+          }
+        },
+        {
+          "id": "shin-near",
+          "tag": "g",
+          "parent": "leg-near",
+          "pose": {
+            "translateX": 0,
+            "translateY": 19,
+            "rotate": 0
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "shin-near-skin",
+          "tag": "path",
+          "parent": "shin-near",
+          "attrs": {
+            "d": "M -3.6 0 A 3.6 3.6 0 1 1 3.6 0 L 2.8 19 A 2.8 2.8 0 1 1 -2.8 19 Z",
+            "fill": "ink"
+          }
+        },
+        {
+          "id": "torso",
+          "tag": "path",
+          "parent": "root",
+          "attrs": {
+            "d": "M -7 -27 C -9 -14 -9 4 -8 6 L 8 6 C 9 4 9 -14 7 -27 Z",
+            "fill": "ink"
+          }
+        },
+        {
+          "id": "head",
+          "tag": "g",
+          "parent": "root",
+          "pose": {
+            "translateX": 0,
+            "translateY": -40,
+            "rotate": 0
+          },
+          "origin": [
+            0,
+            7
+          ]
+        },
+        {
+          "id": "head-skin",
+          "tag": "circle",
+          "parent": "head",
+          "attrs": {
+            "cx": 0,
+            "cy": 0,
+            "r": 8.5,
+            "fill": "ink"
+          }
+        },
+        {
+          "id": "arm-near",
+          "tag": "g",
+          "parent": "root",
+          "pose": {
+            "translateX": 5,
+            "translateY": -24,
+            "rotate": -22
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "arm-near-skin",
+          "tag": "path",
+          "parent": "arm-near",
+          "attrs": {
+            "d": "M -3.75 0 A 3.75 3.75 0 1 1 3.75 0 L 3.1 16 A 3.1 3.1 0 1 1 -3.1 16 Z",
+            "fill": "ink"
+          }
+        },
+        {
+          "id": "fascia",
+          "tag": "rect",
+          "parent": "arm-near",
+          "attrs": {
+            "x": -4.1,
+            "y": 5,
+            "width": 8.2,
+            "height": 4.5,
+            "fill": "red"
+          }
+        },
+        {
+          "id": "forearm-near",
+          "tag": "g",
+          "parent": "arm-near",
+          "pose": {
+            "translateX": 0,
+            "translateY": 16,
+            "rotate": -5
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "forearm-near-skin",
+          "tag": "path",
+          "parent": "forearm-near",
+          "attrs": {
+            "d": "M -3.1 0 A 3.1 3.1 0 1 1 3.1 0 L 2.5 15 A 2.5 2.5 0 1 1 -2.5 15 Z",
+            "fill": "ink"
+          }
+        },
+        {
+          "id": "wrist-near",
+          "tag": "g",
+          "parent": "forearm-near",
+          "pose": {
+            "translateX": 0,
+            "translateY": 0,
+            "rotate": 27
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "hand-near",
+          "tag": "g",
+          "parent": "forearm-near",
+          "pose": {
+            "translateX": 0,
+            "translateY": 14,
+            "rotate": 27
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "grip-near",
+          "tag": "g",
+          "parent": "forearm-near",
+          "pose": {
+            "translateX": 0,
+            "translateY": 12,
+            "rotate": 27
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "slot-front",
+          "tag": "g",
+          "parent": "root"
+        }
+      ],
+      "rig": {
+        "joints": {
+          "root": [
+            -129,
+            69
+          ],
+          "head": [
+            -45,
+            45
+          ],
+          "arm-far": [
+            -95,
+            193
+          ],
+          "forearm-far": [
+            -110,
+            90
+          ],
+          "hand-far": [
+            -210,
+            130
+          ],
+          "leg-far": [
+            -130,
+            93
+          ],
+          "shin-far": [
+            -80,
+            135
+          ],
+          "leg-near": [
+            -125,
+            70
+          ],
+          "shin-near": [
+            -50,
+            140
+          ],
+          "arm-near": [
+            -193,
+            77
+          ],
+          "forearm-near": [
+            -100,
+            110
+          ],
+          "wrist-near": [
+            -90,
+            210
+          ],
+          "hand-near": [
+            -90,
+            210
+          ],
+          "grip-near": [
+            -90,
+            210
+          ]
+        },
+        "poses": {
+          "in_piedi": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 22,
+            "forearm-far": 5,
+            "hand-far": -27,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -22,
+            "forearm-near": -5,
+            "wrist-near": 27,
+            "hand-near": 27,
+            "grip-near": 27
+          },
+          "cammina_1": {
+            "root": {
+              "rotate": 5,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 35,
+            "forearm-far": 15,
+            "hand-far": -50,
+            "leg-far": 26,
+            "shin-far": -8,
+            "leg-near": -24,
+            "shin-near": 18,
+            "arm-near": -30,
+            "forearm-near": 20,
+            "wrist-near": 10,
+            "hand-near": 10,
+            "grip-near": 10
+          },
+          "cammina_2": {
+            "root": {
+              "rotate": 5,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -28,
+            "forearm-far": 15,
+            "hand-far": 13,
+            "leg-far": -22,
+            "shin-far": 15,
+            "leg-near": 25,
+            "shin-near": -5,
+            "arm-near": 32,
+            "forearm-near": 10,
+            "wrist-near": -42,
+            "hand-near": -42,
+            "grip-near": -42
+          },
+          "corre": {
+            "root": {
+              "rotate": 18,
+              "translateY": 2
+            },
+            "head": 0,
+            "arm-far": 55,
+            "forearm-far": 45,
+            "hand-far": -100,
+            "leg-far": 48,
+            "shin-far": -35,
+            "leg-near": -45,
+            "shin-near": 45,
+            "arm-near": -55,
+            "forearm-near": 50,
+            "wrist-near": 5,
+            "hand-near": 5,
+            "grip-near": 5
+          },
+          "braccia_alzate": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 145,
+            "forearm-far": 15,
+            "hand-far": -160,
+            "leg-far": 12,
+            "shin-far": 0,
+            "leg-near": -12,
+            "shin-near": 0,
+            "arm-near": -145,
+            "forearm-near": -15,
+            "wrist-near": 160,
+            "hand-near": 160,
+            "grip-near": 160
+          },
+          "gira": {
+            "root": {
+              "rotate": -4,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 48,
+            "forearm-far": 10,
+            "hand-far": -58,
+            "leg-far": 28,
+            "shin-far": 10,
+            "leg-near": -18,
+            "shin-near": 25,
+            "arm-near": -35,
+            "forearm-near": -10,
+            "wrist-near": 45,
+            "hand-near": 45,
+            "grip-near": 45
+          },
+          "indica": {
+            "root": {
+              "rotate": 2,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 25,
+            "forearm-far": 5,
+            "hand-far": -30,
+            "leg-far": 12,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -82,
+            "forearm-near": 0,
+            "wrist-near": 82,
+            "hand-near": 82,
+            "grip-near": 82
+          },
+          "saluta": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 22,
+            "forearm-far": 5,
+            "hand-far": -27,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -135,
+            "forearm-near": -15,
+            "wrist-near": 150,
+            "hand-near": 150,
+            "grip-near": 150
+          },
+          "parla": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 20,
+            "forearm-far": 10,
+            "hand-far": -30,
+            "leg-far": 8,
+            "shin-far": 0,
+            "leg-near": -8,
+            "shin-near": 0,
+            "arm-near": -45,
+            "forearm-near": -55,
+            "wrist-near": 100,
+            "hand-near": 100,
+            "grip-near": 100
+          },
+          "mani_fianchi": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 42,
+            "forearm-far": -65,
+            "hand-far": 23,
+            "leg-far": 14,
+            "shin-far": 0,
+            "leg-near": -14,
+            "shin-near": 0,
+            "arm-near": -42,
+            "forearm-near": 65,
+            "wrist-near": -23,
+            "hand-near": -23,
+            "grip-near": -23
+          },
+          "seduto": {
+            "root": {
+              "rotate": 4,
+              "translateY": 18
+            },
+            "head": 0,
+            "arm-far": -15,
+            "forearm-far": -45,
+            "hand-far": 60,
+            "leg-far": -85,
+            "shin-far": 85,
+            "leg-near": -80,
+            "shin-near": 80,
+            "arm-near": -25,
+            "forearm-near": -50,
+            "wrist-near": 75,
+            "hand-near": 75,
+            "grip-near": 75
+          },
+          "inginocchiato": {
+            "root": {
+              "rotate": 12,
+              "translateY": 22
+            },
+            "head": 0,
+            "arm-far": -10,
+            "forearm-far": -40,
+            "hand-far": 50,
+            "leg-far": -75,
+            "shin-far": 90,
+            "leg-near": 25,
+            "shin-near": 95,
+            "arm-near": -25,
+            "forearm-near": -55,
+            "wrist-near": 80,
+            "hand-near": 80,
+            "grip-near": 80
+          },
+          "a_terra": {
+            "root": {
+              "rotate": -84,
+              "translateY": 44
+            },
+            "head": 0,
+            "arm-far": 15,
+            "forearm-far": -25,
+            "hand-far": 10,
+            "leg-far": 8,
+            "shin-far": 0,
+            "leg-near": -12,
+            "shin-near": 10,
+            "arm-near": -110,
+            "forearm-near": 40,
+            "wrist-near": 70,
+            "hand-near": 70,
+            "grip-near": 70
+          },
+          "porta_bandiera": {
+            "root": {
+              "rotate": 6,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 28,
+            "forearm-far": -10,
+            "hand-far": -18,
+            "leg-far": 20,
+            "shin-far": 0,
+            "leg-near": -18,
+            "shin-near": 8,
+            "arm-near": -65,
+            "forearm-near": -25,
+            "wrist-near": 90,
+            "hand-near": 90,
+            "grip-near": 90
+          },
+          "manifesta": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 148,
+            "forearm-far": 15,
+            "hand-far": -163,
+            "leg-far": 12,
+            "shin-far": 0,
+            "leg-near": -12,
+            "shin-near": 0,
+            "arm-near": -148,
+            "forearm-near": -15,
+            "wrist-near": 163,
+            "hand-near": 163,
+            "grip-near": 163
+          },
+          "lancia": {
+            "root": {
+              "rotate": 14,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 45,
+            "forearm-far": 15,
+            "hand-far": -60,
+            "leg-far": 28,
+            "shin-far": -5,
+            "leg-near": -28,
+            "shin-near": 18,
+            "arm-near": -115,
+            "forearm-near": -10,
+            "wrist-near": 125,
+            "hand-near": 125,
+            "grip-near": 125
+          },
+          "sbarra": {
+            "root": {
+              "rotate": 5,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 25,
+            "forearm-far": -20,
+            "hand-far": -5,
+            "leg-far": 18,
+            "shin-far": 0,
+            "leg-near": -18,
+            "shin-near": 5,
+            "arm-near": -55,
+            "forearm-near": -15,
+            "wrist-near": 70,
+            "hand-near": 70,
+            "grip-near": 70
+          },
+          "tiene_cartello": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 145,
+            "forearm-far": 20,
+            "hand-far": -165,
+            "leg-far": 12,
+            "shin-far": 0,
+            "leg-near": -12,
+            "shin-near": 0,
+            "arm-near": -145,
+            "forearm-near": -20,
+            "wrist-near": 165,
+            "hand-near": 165,
+            "grip-near": 165
+          },
+          "usa_fucile": {
+            "root": {
+              "rotate": 6,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -45,
+            "forearm-far": -35,
+            "hand-far": 80,
+            "leg-far": 16,
+            "shin-far": 0,
+            "leg-near": -16,
+            "shin-near": 5,
+            "arm-near": -72,
+            "forearm-near": -15,
+            "wrist-near": 87,
+            "hand-near": 87,
+            "grip-near": 87
+          },
+          "spara": {
+            "root": {
+              "rotate": 12,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -50,
+            "forearm-far": -35,
+            "hand-far": 85,
+            "leg-far": 24,
+            "shin-far": 5,
+            "leg-near": -24,
+            "shin-near": 12,
+            "arm-near": -78,
+            "forearm-near": -10,
+            "wrist-near": 88,
+            "hand-near": 88,
+            "grip-near": 88
+          },
+          "con_megafono": {
+            "root": {
+              "rotate": 2,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 20,
+            "forearm-far": 10,
+            "hand-far": -30,
+            "leg-far": 14,
+            "shin-far": 0,
+            "leg-near": -14,
+            "shin-near": 0,
+            "arm-near": -75,
+            "forearm-near": -35,
+            "wrist-near": 110,
+            "hand-near": 110,
+            "grip-near": 110
+          },
+          "costruisce": {
+            "root": {
+              "rotate": 15,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -35,
+            "forearm-far": -20,
+            "hand-far": 55,
+            "leg-far": 18,
+            "shin-far": 5,
+            "leg-near": -18,
+            "shin-near": 5,
+            "arm-near": 30,
+            "forearm-near": 15,
+            "wrist-near": -45,
+            "hand-near": -45,
+            "grip-near": -45
+          },
+          "lavora": {
+            "root": {
+              "rotate": 10,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 20,
+            "forearm-far": 15,
+            "hand-far": -35,
+            "leg-far": 18,
+            "shin-far": 5,
+            "leg-near": -16,
+            "shin-near": 5,
+            "arm-near": -95,
+            "forearm-near": -25,
+            "wrist-near": 120,
+            "hand-near": 120,
+            "grip-near": 120
+          },
+          "legge": {
+            "root": {
+              "rotate": 4,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -45,
+            "forearm-far": -30,
+            "hand-far": 75,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -55,
+            "forearm-near": -35,
+            "wrist-near": 90,
+            "hand-near": 90,
+            "grip-near": 90
+          },
+          "zappa": {
+            "root": {
+              "rotate": 24,
+              "translateY": 2
+            },
+            "head": 0,
+            "arm-far": -30,
+            "forearm-far": -35,
+            "hand-far": 65,
+            "leg-far": 24,
+            "shin-far": 10,
+            "leg-near": -20,
+            "shin-near": 12,
+            "arm-near": -50,
+            "forearm-near": -20,
+            "wrist-near": 70,
+            "hand-near": 70,
+            "grip-near": 70
+          }
+        }
+      }
     }
   ],
   "stages": [
@@ -44407,6 +45423,2577 @@
         "center": 0.5,
         "zoom": 1.2
       }
+    },
+    {
+      "id": "a1-u4-domenica",
+      "label": "Un corteo di operai sale verso il palazzo con un foglio e le icone; il foglio resta nella neve.",
+      "viewBox": [
+        0,
+        0,
+        1600,
+        900
+      ],
+      "duration": 700,
+      "layers": [
+        {
+          "id": "sfondo",
+          "tag": "rect",
+          "attrs": {
+            "x": 0,
+            "y": 0,
+            "width": 1600,
+            "height": 900,
+            "fill": "none"
+          }
+        },
+        {
+          "id": "world",
+          "tag": "g",
+          "pose": {
+            "scale": 1,
+            "translateX": 0,
+            "translateY": 0
+          }
+        }
+      ],
+      "components": [
+        {
+          "id": "piazza",
+          "symbol": "ambiente-piazza",
+          "parent": "world",
+          "pose": {
+            "translateX": 800,
+            "translateY": 900,
+            "scale": 2
+          }
+        },
+        {
+          "id": "neve",
+          "symbol": "atmo-neve",
+          "parent": "world",
+          "pose": {
+            "translateX": 800,
+            "translateY": 300,
+            "scale": 2
+          }
+        },
+        {
+          "id": "corteo-1",
+          "symbol": "fig-uomo-nudo-base",
+          "rigPose": "cammina_1",
+          "pose": {
+            "translateX": -3.0000000000000284,
+            "translateY": 860.2639999999999,
+            "scale": 1.8920000000000001
+          },
+          "parent": "world"
+        },
+        {
+          "id": "corteo-2",
+          "symbol": "fig-uomo-nudo-base",
+          "rigPose": "porta_bandiera",
+          "pose": {
+            "translateX": 74,
+            "translateY": 847.0639999999999,
+            "scale": 1.8920000000000001
+          },
+          "parent": "world"
+        },
+        {
+          "id": "corteo-2-bandiera",
+          "symbol": "presa-bandiera",
+          "parent": "corteo-2-hand-near"
+        },
+        {
+          "id": "corteo-3",
+          "symbol": "fig-uomo-nudo-base",
+          "rigPose": "cammina_1",
+          "pose": {
+            "translateX": 151,
+            "translateY": 860.2639999999999,
+            "scale": 1.8920000000000001
+          },
+          "parent": "world"
+        },
+        {
+          "id": "corteo-4",
+          "symbol": "fig-uomo-nudo-base",
+          "rigPose": "sbarra",
+          "pose": {
+            "translateX": 228,
+            "translateY": 847.0639999999999,
+            "scale": 1.8920000000000001
+          },
+          "parent": "world"
+        },
+        {
+          "id": "corteo-4-bastone-lungo",
+          "symbol": "presa-bastone-lungo",
+          "parent": "corteo-4-hand-near"
+        },
+        {
+          "id": "corteo-5",
+          "symbol": "fig-uomo-nudo-base-fascia",
+          "rigPose": "porta_bandiera",
+          "pose": {
+            "translateX": 305,
+            "translateY": 860.2639999999999,
+            "scale": 1.8920000000000001
+          },
+          "parent": "world"
+        },
+        {
+          "id": "corteo-5-bandiera",
+          "symbol": "presa-bandiera",
+          "parent": "corteo-5-hand-near"
+        },
+        {
+          "id": "corteo-6",
+          "symbol": "fig-uomo-nudo-base",
+          "rigPose": "sbarra",
+          "pose": {
+            "translateX": 382,
+            "translateY": 847.0639999999999,
+            "scale": 1.8920000000000001
+          },
+          "parent": "world"
+        },
+        {
+          "id": "corteo-6-bastone-lungo",
+          "symbol": "presa-bastone-lungo",
+          "parent": "corteo-6-hand-near"
+        },
+        {
+          "id": "corteo-7",
+          "symbol": "fig-uomo-nudo-base",
+          "rigPose": "cammina_1",
+          "pose": {
+            "translateX": 459,
+            "translateY": 860.2639999999999,
+            "scale": 1.8920000000000001
+          },
+          "parent": "world"
+        }
+      ],
+      "sequences": [
+        {
+          "id": "ingresso",
+          "caption": "Il corteo avanza; poi si disperde e il foglio resta nella neve.",
+          "tracks": [],
+          "clips": [
+            {
+              "targets": [
+                "corteo-1",
+                "corteo-2",
+                "corteo-3",
+                "corteo-4",
+                "corteo-5",
+                "corteo-6",
+                "corteo-7"
+              ],
+              "relative": true,
+              "ease": "linear",
+              "at": 0,
+              "duration": 2600,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateX": -420,
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateX": 0,
+                    "translateY": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-1",
+                "corteo-2",
+                "corteo-3",
+                "corteo-4",
+                "corteo-5",
+                "corteo-6",
+                "corteo-7"
+              ],
+              "part": "arm-far",
+              "relative": true,
+              "ease": "linear",
+              "at": 0,
+              "duration": 867,
+              "iterations": 3,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "rotate": 17
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "rotate": 29.44
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "rotate": 34
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "rotate": 29.44
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "rotate": 17
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "rotate": -17
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "rotate": -29.44
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "rotate": -34
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "rotate": -29.44
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "rotate": -17
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-1",
+                "corteo-3",
+                "corteo-7"
+              ],
+              "part": "arm-near",
+              "relative": true,
+              "ease": "linear",
+              "at": 0,
+              "duration": 867,
+              "iterations": 3,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "rotate": -17
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "rotate": -29.44
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "rotate": -34
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "rotate": -29.44
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "rotate": -17
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "rotate": 17
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "rotate": 29.44
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "rotate": 34
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "rotate": 29.44
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "rotate": 17
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-1",
+                "corteo-2",
+                "corteo-3",
+                "corteo-4",
+                "corteo-5",
+                "corteo-6",
+                "corteo-7"
+              ],
+              "part": "leg-far",
+              "relative": true,
+              "ease": "linear",
+              "at": 0,
+              "duration": 867,
+              "iterations": 3,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "rotate": -15
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "rotate": -25.98
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "rotate": -30
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "rotate": -25.98
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "rotate": -15
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "rotate": 15
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "rotate": 25.98
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "rotate": 30
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "rotate": 25.98
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "rotate": 15
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-1",
+                "corteo-2",
+                "corteo-3",
+                "corteo-4",
+                "corteo-5",
+                "corteo-6",
+                "corteo-7"
+              ],
+              "part": "leg-near",
+              "relative": true,
+              "ease": "linear",
+              "at": 0,
+              "duration": 867,
+              "iterations": 3,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "rotate": 15
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "rotate": 25.98
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "rotate": 30
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "rotate": 25.98
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "rotate": 15
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "rotate": -15
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "rotate": -25.98
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "rotate": -30
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "rotate": -25.98
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "rotate": -15
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-1",
+                "corteo-2",
+                "corteo-3",
+                "corteo-4",
+                "corteo-5",
+                "corteo-6",
+                "corteo-7"
+              ],
+              "part": "shin-far",
+              "relative": true,
+              "ease": "linear",
+              "at": 0,
+              "duration": 867,
+              "iterations": 3,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "rotate": 14
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "rotate": 24.25
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "rotate": 28
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "rotate": 24.25
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "rotate": 14
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-1",
+                "corteo-2",
+                "corteo-3",
+                "corteo-4",
+                "corteo-5",
+                "corteo-6",
+                "corteo-7"
+              ],
+              "part": "shin-near",
+              "relative": true,
+              "ease": "linear",
+              "at": 0,
+              "duration": 867,
+              "iterations": 3,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "rotate": 14
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "rotate": 24.25
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "rotate": 28
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "rotate": 24.25
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "rotate": 14
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-1",
+                "corteo-2",
+                "corteo-3",
+                "corteo-4",
+                "corteo-5",
+                "corteo-6",
+                "corteo-7"
+              ],
+              "part": "root",
+              "relative": true,
+              "ease": "linear",
+              "at": 0,
+              "duration": 867,
+              "iterations": 3,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "translateY": 0.79
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "translateY": 1.37
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "translateY": 1.59
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "translateY": 1.37
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "translateY": 0.79
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "translateY": 0.79
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "translateY": 1.37
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "translateY": 1.59
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "translateY": 1.37
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "translateY": 0.79
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateY": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-1"
+              ],
+              "relative": true,
+              "ease": "linear",
+              "at": 3000,
+              "duration": 1400,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateX": 161.7,
+                    "translateY": -3.96
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateX": 0,
+                    "translateY": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-1",
+                "corteo-2",
+                "corteo-3",
+                "corteo-4",
+                "corteo-5",
+                "corteo-6",
+                "corteo-7"
+              ],
+              "part": "arm-far",
+              "relative": true,
+              "ease": "linear",
+              "at": 3000,
+              "duration": 1400,
+              "iterations": 1,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "rotate": 14
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "rotate": 24.25
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "rotate": 28
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "rotate": 24.25
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "rotate": 14
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "rotate": -14
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "rotate": -24.25
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "rotate": -28
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "rotate": -24.25
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "rotate": -14
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-1",
+                "corteo-3",
+                "corteo-7"
+              ],
+              "part": "arm-near",
+              "relative": true,
+              "ease": "linear",
+              "at": 3000,
+              "duration": 1400,
+              "iterations": 1,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "rotate": -14
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "rotate": -24.25
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "rotate": -28
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "rotate": -24.25
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "rotate": -14
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "rotate": 14
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "rotate": 24.25
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "rotate": 28
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "rotate": 24.25
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "rotate": 14
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-1",
+                "corteo-2",
+                "corteo-3",
+                "corteo-4",
+                "corteo-5",
+                "corteo-6",
+                "corteo-7"
+              ],
+              "part": "leg-far",
+              "relative": true,
+              "ease": "linear",
+              "at": 3000,
+              "duration": 1400,
+              "iterations": 1,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "rotate": -13
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "rotate": -22.52
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "rotate": -26
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "rotate": -22.52
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "rotate": -13
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "rotate": 13
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "rotate": 22.52
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "rotate": 26
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "rotate": 22.52
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "rotate": 13
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-1",
+                "corteo-2",
+                "corteo-3",
+                "corteo-4",
+                "corteo-5",
+                "corteo-6",
+                "corteo-7"
+              ],
+              "part": "leg-near",
+              "relative": true,
+              "ease": "linear",
+              "at": 3000,
+              "duration": 1400,
+              "iterations": 1,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "rotate": 13
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "rotate": 22.52
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "rotate": 26
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "rotate": 22.52
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "rotate": 13
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "rotate": -13
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "rotate": -22.52
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "rotate": -26
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "rotate": -22.52
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "rotate": -13
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-1",
+                "corteo-2",
+                "corteo-3",
+                "corteo-4",
+                "corteo-5",
+                "corteo-6",
+                "corteo-7"
+              ],
+              "part": "shin-far",
+              "relative": true,
+              "ease": "linear",
+              "at": 3000,
+              "duration": 1400,
+              "iterations": 1,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "rotate": 11
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "rotate": 19.05
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "rotate": 22
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "rotate": 19.05
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "rotate": 11
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-1",
+                "corteo-2",
+                "corteo-3",
+                "corteo-4",
+                "corteo-5",
+                "corteo-6",
+                "corteo-7"
+              ],
+              "part": "shin-near",
+              "relative": true,
+              "ease": "linear",
+              "at": 3000,
+              "duration": 1400,
+              "iterations": 1,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "rotate": 11
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "rotate": 19.05
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "rotate": 22
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "rotate": 19.05
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "rotate": 11
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-1",
+                "corteo-2",
+                "corteo-3",
+                "corteo-4",
+                "corteo-5",
+                "corteo-6",
+                "corteo-7"
+              ],
+              "part": "root",
+              "relative": true,
+              "ease": "linear",
+              "at": 3000,
+              "duration": 1400,
+              "iterations": 1,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "translateY": 0.66
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "translateY": 1.14
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "translateY": 1.32
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "translateY": 1.14
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "translateY": 0.66
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "translateY": 0.66
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "translateY": 1.14
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "translateY": 1.32
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "translateY": 1.14
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "translateY": 0.66
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateY": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-2"
+              ],
+              "relative": true,
+              "ease": "linear",
+              "at": 3000,
+              "duration": 1400,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateX": 107.8,
+                    "translateY": 5.28
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateX": 0,
+                    "translateY": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-3"
+              ],
+              "relative": true,
+              "ease": "linear",
+              "at": 3000,
+              "duration": 1400,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateX": 53.9,
+                    "translateY": -3.96
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateX": 0,
+                    "translateY": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-4"
+              ],
+              "relative": true,
+              "ease": "linear",
+              "at": 3000,
+              "duration": 1400,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateX": 0,
+                    "translateY": 5.28
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateX": 0,
+                    "translateY": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-5"
+              ],
+              "relative": true,
+              "ease": "linear",
+              "at": 3000,
+              "duration": 1400,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateX": -53.9,
+                    "translateY": -3.96
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateX": 0,
+                    "translateY": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-6"
+              ],
+              "relative": true,
+              "ease": "linear",
+              "at": 3000,
+              "duration": 1400,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateX": -107.8,
+                    "translateY": 5.28
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateX": 0,
+                    "translateY": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-7"
+              ],
+              "relative": true,
+              "ease": "linear",
+              "at": 3000,
+              "duration": 1400,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateX": -161.7,
+                    "translateY": -3.96
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateX": 0,
+                    "translateY": 0
+                  }
+                }
+              ]
+            }
+          ],
+          "shots": [],
+          "beats": [
+            {
+              "at": 200,
+              "text": "22 gennaio 1905."
+            }
+          ]
+        }
+      ],
+      "introSequence": "ingresso",
+      "mobile": {
+        "center": 0.5,
+        "zoom": 1.2
+      }
+    },
+    {
+      "id": "a1-u4-soviet",
+      "label": "Nella sala a colonne i delegati del soviet discutono attorno a un tavolo; fuori le ciminiere sono spente.",
+      "viewBox": [
+        0,
+        0,
+        1600,
+        900
+      ],
+      "duration": 700,
+      "layers": [
+        {
+          "id": "sfondo",
+          "tag": "rect",
+          "attrs": {
+            "x": 0,
+            "y": 0,
+            "width": 1600,
+            "height": 900,
+            "fill": "none"
+          }
+        },
+        {
+          "id": "world",
+          "tag": "g",
+          "pose": {
+            "scale": 1,
+            "translateX": 0,
+            "translateY": 0
+          }
+        }
+      ],
+      "components": [
+        {
+          "id": "sala",
+          "symbol": "ambiente-sala",
+          "parent": "world",
+          "pose": {
+            "translateX": 800,
+            "translateY": 900,
+            "scale": 2.2
+          }
+        },
+        {
+          "id": "oratore",
+          "symbol": "fig-uomo-nudo-cappotto",
+          "rigPose": "in_piedi",
+          "pose": {
+            "translateX": 800,
+            "translateY": 860,
+            "scale": 2.4
+          },
+          "parent": "world"
+        },
+        {
+          "id": "operaia",
+          "symbol": "fig-donna-chignon-scialle",
+          "rigPose": "in_piedi",
+          "pose": {
+            "translateX": 480,
+            "translateY": 860,
+            "scale": 2.4
+          },
+          "parent": "world"
+        },
+        {
+          "id": "ferroviere",
+          "symbol": "fig-uomo-nudo-cappotto",
+          "rigPose": "in_piedi",
+          "pose": {
+            "translateX": 1120,
+            "translateY": 860,
+            "scale": 2.4,
+            "scaleX": -1
+          },
+          "parent": "world"
+        },
+        {
+          "id": "figlio",
+          "symbol": "fig-uomo-nudo-base",
+          "rigPose": "in_piedi",
+          "pose": {
+            "translateX": 250,
+            "translateY": 860,
+            "scale": 2.4
+          },
+          "recolor": {
+            "ink": "red"
+          },
+          "parent": "world"
+        }
+      ],
+      "sequences": [
+        {
+          "id": "ingresso",
+          "caption": "I delegati prendono posto: ognuno porta notizie diverse.",
+          "tracks": [],
+          "clips": [
+            {
+              "targets": [
+                "figlio"
+              ],
+              "relative": true,
+              "ease": "linear",
+              "at": 0,
+              "duration": 2000,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateX": -220,
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateX": 0,
+                    "translateY": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "figlio"
+              ],
+              "part": "arm-far",
+              "relative": true,
+              "ease": "linear",
+              "at": 0,
+              "duration": 2000,
+              "iterations": 1,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "rotate": 14
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "rotate": 24.25
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "rotate": 28
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "rotate": 24.25
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "rotate": 14
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "rotate": -14
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "rotate": -24.25
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "rotate": -28
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "rotate": -24.25
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "rotate": -14
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "figlio"
+              ],
+              "part": "arm-near",
+              "relative": true,
+              "ease": "linear",
+              "at": 0,
+              "duration": 2000,
+              "iterations": 1,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "rotate": -14
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "rotate": -24.25
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "rotate": -28
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "rotate": -24.25
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "rotate": -14
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "rotate": 14
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "rotate": 24.25
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "rotate": 28
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "rotate": 24.25
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "rotate": 14
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "figlio"
+              ],
+              "part": "leg-far",
+              "relative": true,
+              "ease": "linear",
+              "at": 0,
+              "duration": 2000,
+              "iterations": 1,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "rotate": -13
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "rotate": -22.52
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "rotate": -26
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "rotate": -22.52
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "rotate": -13
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "rotate": 13
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "rotate": 22.52
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "rotate": 26
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "rotate": 22.52
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "rotate": 13
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "figlio"
+              ],
+              "part": "leg-near",
+              "relative": true,
+              "ease": "linear",
+              "at": 0,
+              "duration": 2000,
+              "iterations": 1,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "rotate": 13
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "rotate": 22.52
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "rotate": 26
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "rotate": 22.52
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "rotate": 13
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "rotate": -13
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "rotate": -22.52
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "rotate": -26
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "rotate": -22.52
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "rotate": -13
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "figlio"
+              ],
+              "part": "shin-far",
+              "relative": true,
+              "ease": "linear",
+              "at": 0,
+              "duration": 2000,
+              "iterations": 1,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "rotate": 11
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "rotate": 19.05
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "rotate": 22
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "rotate": 19.05
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "rotate": 11
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "figlio"
+              ],
+              "part": "shin-near",
+              "relative": true,
+              "ease": "linear",
+              "at": 0,
+              "duration": 2000,
+              "iterations": 1,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "rotate": 11
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "rotate": 19.05
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "rotate": 22
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "rotate": 19.05
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "rotate": 11
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "figlio"
+              ],
+              "part": "root",
+              "relative": true,
+              "ease": "linear",
+              "at": 0,
+              "duration": 2000,
+              "iterations": 1,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "translateY": 0.52
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "translateY": 0.9
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "translateY": 1.04
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "translateY": 0.9
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "translateY": 0.52
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "translateY": 0.52
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "translateY": 0.9
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "translateY": 1.04
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "translateY": 0.9
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "translateY": 0.52
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateY": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "oratore"
+              ],
+              "part": "arm-near",
+              "relative": true,
+              "at": 300,
+              "duration": 1100,
+              "iterations": 3,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.35,
+                  "values": {
+                    "rotate": -28
+                  }
+                },
+                {
+                  "offset": 0.7,
+                  "values": {
+                    "rotate": -12
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "oratore"
+              ],
+              "part": "head",
+              "relative": true,
+              "at": 300,
+              "duration": 1100,
+              "iterations": 3,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "rotate": -5
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            }
+          ],
+          "shots": [],
+          "beats": [
+            {
+              "at": 300,
+              "text": "Cinque cose da fare."
+            }
+          ]
+        }
+      ],
+      "introSequence": "ingresso",
+      "mobile": {
+        "center": 0.5,
+        "zoom": 1.2
+      }
     }
   ],
   "acts": [
@@ -44519,6 +48106,38 @@
           "max": 100,
           "start": 0,
           "good": "high"
+        },
+        {
+          "id": "sciopero",
+          "label": "Estensione dello sciopero",
+          "min": 0,
+          "max": 100,
+          "start": 50,
+          "good": "high"
+        },
+        {
+          "id": "fondi",
+          "label": "Cassa di sciopero",
+          "min": 0,
+          "max": 100,
+          "start": 50,
+          "good": "high"
+        },
+        {
+          "id": "fiducia",
+          "label": "Fiducia dei delegati",
+          "min": 0,
+          "max": 100,
+          "start": 50,
+          "good": "high"
+        },
+        {
+          "id": "repressione",
+          "label": "Rischio di repressione",
+          "min": 0,
+          "max": 100,
+          "start": 40,
+          "good": "low"
         }
       ],
       "resources": [
@@ -44547,7 +48166,9 @@
         "figlio_via",
         "padre_via",
         "figlio_in_citta",
-        "mir_diviso"
+        "mir_diviso",
+        "linea_soviet",
+        "tratta_prefetto"
       ],
       "reconciliation": "Fine dell'unità I.1 (1700–1861). Per un secolo e mezzo la ricchezza si è contata in anime e il tempo di un servo apparteneva in parte al signore. La libertà del 1861 è vera, ma arriva senza la terra: la terra si paga per quarantanove anni e il villaggio risponde insieme dei debiti. Le tue scelte hanno cambiato soltanto la simulazione, non questi fatti. Le unità successive dell'Atto I (1861–1917) sono in preparazione: per ora il percorso si ferma qui.",
       "period": "1700 – marzo 1917",
@@ -44640,9 +48261,25 @@
           "period": "1905 – 1907",
           "question": "Che cosa muore quella domenica oltre alle persone?",
           "summary": "La domenica di sangue e le giornate del soviet.",
-          "game": "Le giornate del soviet: ogni giorno hai pochi punti azione e molte cose da fare.",
-          "concepts": [],
-          "episodes": []
+          "game": "Tre giornate del soviet nell'ottobre 1905: cinque azioni al giorno e notizie a pezzi.",
+          "concepts": [
+            "domenica di sangue",
+            "soviet",
+            "sciopero generale",
+            "contropotere",
+            "Manifesto di ottobre"
+          ],
+          "episodes": [
+            "a1-u4-domenica",
+            "a1-u4-soviet",
+            "a1-u4-ricorda"
+          ],
+          "carries": "Il figlio della famiglia di I.3: ora è fra i delegati.",
+          "closing": {
+            "did": "Hai speso le azioni di tre giornate di sciopero fra pane, delegati e trattative.",
+            "fact": "Nell'ottobre 1905 uno sciopero generale fermò la Russia e a Pietroburgo nacque il soviet dei delegati. Lo zar concesse il Manifesto di ottobre.",
+            "simulation": "Le persone, le notizie e i numeri sono simulazione. Il soviet del 1905 coordinò uno sciopero e non governò."
+          }
         },
         {
           "id": "i5",
@@ -48243,6 +51880,2429 @@
               "a1-volantini"
             ]
           }
+        },
+        {
+          "id": "a1-u4-domenica",
+          "type": "narrative",
+          "title": "La domenica di sangue",
+          "text": "La guerra contro il Giappone va male. Domenica 22 gennaio 1905 (9 gennaio nel calendario russo) un corteo guidato da padre Gapon porta allo zar una petizione e le icone. Lo zar non è in città. La truppa spara sulla folla.\n\nChe cosa muore quella domenica oltre alle persone? La fiducia nello zar come padre.",
+          "roleId": "figlio",
+          "stageId": "a1-u4-domenica",
+          "motionId": "ingresso",
+          "visualExplanation": "Il corteo avanza con un foglio e le icone. Lo sparo non si vede: le figure si disperdono e il foglio resta nella neve.",
+          "context": {
+            "kind": "documented",
+            "dateLabel": "22 gennaio 1905",
+            "placeLabel": "Pietroburgo"
+          },
+          "exposes": [
+            "a1-domenica"
+          ],
+          "display": "cards"
+        },
+        {
+          "id": "a1-u4-soviet",
+          "type": "turn_game",
+          "title": "Le giornate del soviet",
+          "text": "Ottobre 1905: sciopero generale. Nasce a Pietroburgo il soviet, un consiglio di delegati degli scioperanti.\n\nSei fra i delegati. Ogni giorno hai cinque azioni. Ogni azione costa qualcosa: nessuna è gratis. Le notizie arrivano a pezzi e ognuno le legge a modo suo.",
+          "roleId": "figlio",
+          "stageId": "a1-u4-soviet",
+          "motionId": "ingresso",
+          "visualExplanation": "Nella sala i delegati del soviet portano notizie. Ogni azione cambia gli indicatori: sono indici della simulazione e non dati storici né voti.",
+          "context": {
+            "kind": "simulation",
+            "dateLabel": "ottobre 1905",
+            "placeLabel": "Pietroburgo"
+          },
+          "exposes": [
+            "a1-soviet"
+          ],
+          "feedback": "Tre giornate sono passate. Il soviet del 1905 è un contropotere: coordina lo sciopero ma non governa. Con le notizie a pezzi ogni scelta dipende da chi te le racconta.",
+          "crises": [
+            {
+              "id": "cassa-vuota",
+              "when": {
+                "op": "lte",
+                "kind": "metric",
+                "id": "fondi",
+                "value": 10
+              },
+              "text": "La cassa è vuota: in alcune fabbriche si torna al lavoro.",
+              "effects": [
+                {
+                  "kind": "metric",
+                  "id": "sciopero",
+                  "delta": -15
+                },
+                {
+                  "kind": "metric",
+                  "id": "fondi",
+                  "delta": 20
+                }
+              ]
+            },
+            {
+              "id": "soviet-diviso",
+              "when": {
+                "op": "lte",
+                "kind": "metric",
+                "id": "fiducia",
+                "value": 10
+              },
+              "text": "Il soviet si spacca in due linee: i moderati e i radicali non si parlano più.",
+              "effects": [
+                {
+                  "kind": "flag",
+                  "id": "linea_soviet",
+                  "value": true
+                },
+                {
+                  "kind": "metric",
+                  "id": "fiducia",
+                  "delta": 25
+                },
+                {
+                  "kind": "metric",
+                  "id": "sciopero",
+                  "delta": -8
+                }
+              ]
+            },
+            {
+              "id": "arresti",
+              "when": {
+                "op": "gte",
+                "kind": "metric",
+                "id": "repressione",
+                "value": 90
+              },
+              "text": "La polizia arresta una parte dei delegati.",
+              "effects": [
+                {
+                  "kind": "metric",
+                  "id": "fiducia",
+                  "delta": -10
+                },
+                {
+                  "kind": "metric",
+                  "id": "repressione",
+                  "delta": -30
+                },
+                {
+                  "kind": "metric",
+                  "id": "sciopero",
+                  "delta": -10
+                }
+              ]
+            },
+            {
+              "id": "sciopero-fermo",
+              "when": {
+                "op": "lte",
+                "kind": "metric",
+                "id": "sciopero",
+                "value": 10
+              },
+              "text": "Lo sciopero si sgonfia: restano pochi fermi.",
+              "effects": [
+                {
+                  "kind": "metric",
+                  "id": "sciopero",
+                  "delta": 25
+                },
+                {
+                  "kind": "metric",
+                  "id": "fiducia",
+                  "delta": -10
+                }
+              ]
+            }
+          ],
+          "turns": [
+            {
+              "label": "Giorno 1",
+              "cards": [
+                {
+                  "kind": "simulation",
+                  "title": "Primo giorno · 17 ottobre",
+                  "text": "Notizia a pezzi, personaggi inventati."
+                }
+              ],
+              "event": {
+                "who": "Un telegrafista",
+                "text": "Dal telegrafo arriva la voce che i ferrovieri di Mosca hanno smesso di lavorare.",
+                "choices": [
+                  {
+                    "id": "indagare",
+                    "label": "Indagare: chiedere ai delegati che cosa ne pensano",
+                    "text": "Il delegato moderato: è uno sciopero per le otto ore e per i diritti; conviene sostenerlo senza irrigidirsi. Il delegato radicale: è solo l'inizio; se ci fermiamo adesso lo zar ci aspetta. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": 3
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 1
+                      }
+                    ]
+                  },
+                  {
+                    "id": "delegato",
+                    "label": "Mandare un delegato dove lo sciopero esita",
+                    "chance": {
+                      "base": 0.65
+                    },
+                    "success": {
+                      "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "sciopero",
+                          "delta": 9
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "repressione",
+                          "delta": 3
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "fondi",
+                          "delta": -2
+                        }
+                      ]
+                    },
+                    "failure": {
+                      "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "sciopero",
+                          "delta": -3
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "fiducia",
+                          "delta": -4
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "repressione",
+                          "delta": 2
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "distribuire",
+                    "label": "Distribuire pane e fondi della cassa",
+                    "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "fondi",
+                        "delta": -10
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": 6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": 2
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 1
+                      }
+                    ]
+                  },
+                  {
+                    "id": "trattare",
+                    "label": "Trattare con le autorità",
+                    "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": -8
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": -6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": -3
+                      },
+                      {
+                        "kind": "flag",
+                        "id": "tratta_prefetto",
+                        "value": true
+                      }
+                    ]
+                  },
+                  {
+                    "id": "aspettare",
+                    "label": "Aspettare: non fare niente",
+                    "text": "Non fai niente. Intanto il tempo lavora per chi ha la forza.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 4
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": -2
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fondi",
+                        "delta": -3
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Giorno 1",
+              "event": {
+                "who": "Una tessitrice",
+                "text": "Nella sua fabbrica metà delle operaie ha paura di perdere il posto.",
+                "choices": [
+                  {
+                    "id": "indagare",
+                    "label": "Indagare: chiedere ai delegati che cosa ne pensano",
+                    "text": "Il delegato moderato: chi ha paura va rassicurata; la cassa le tiene dentro. Il delegato radicale: la paura passa se vedono gli altri fermi; serve un delegato che parli. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": 3
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 1
+                      }
+                    ]
+                  },
+                  {
+                    "id": "delegato",
+                    "label": "Mandare un delegato dove lo sciopero esita",
+                    "chance": {
+                      "base": 0.65
+                    },
+                    "success": {
+                      "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "sciopero",
+                          "delta": 9
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "repressione",
+                          "delta": 3
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "fondi",
+                          "delta": -2
+                        }
+                      ]
+                    },
+                    "failure": {
+                      "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "sciopero",
+                          "delta": -3
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "fiducia",
+                          "delta": -4
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "repressione",
+                          "delta": 2
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "distribuire",
+                    "label": "Distribuire pane e fondi della cassa",
+                    "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "fondi",
+                        "delta": -10
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": 6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": 2
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 1
+                      }
+                    ]
+                  },
+                  {
+                    "id": "trattare",
+                    "label": "Trattare con le autorità",
+                    "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": -8
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": -6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": -3
+                      },
+                      {
+                        "kind": "flag",
+                        "id": "tratta_prefetto",
+                        "value": true
+                      }
+                    ]
+                  },
+                  {
+                    "id": "aspettare",
+                    "label": "Aspettare: non fare niente",
+                    "text": "Non fai niente. Intanto il tempo lavora per chi ha la forza.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 4
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": -2
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fondi",
+                        "delta": -3
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Giorno 1",
+              "event": {
+                "who": "Un garzone",
+                "text": "Racconta che in caserma si prepara qualcosa; non sa dire che cosa.",
+                "choices": [
+                  {
+                    "id": "indagare",
+                    "label": "Indagare: chiedere ai delegati che cosa ne pensano",
+                    "text": "Il delegato moderato: voci di caserma; meglio parlare col prefetto per non provocare. Il delegato radicale: vogliono fermarci con la forza; non si tratta con chi spara. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": 3
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 1
+                      }
+                    ]
+                  },
+                  {
+                    "id": "delegato",
+                    "label": "Mandare un delegato dove lo sciopero esita",
+                    "chance": {
+                      "base": 0.65
+                    },
+                    "success": {
+                      "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "sciopero",
+                          "delta": 9
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "repressione",
+                          "delta": 3
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "fondi",
+                          "delta": -2
+                        }
+                      ]
+                    },
+                    "failure": {
+                      "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "sciopero",
+                          "delta": -3
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "fiducia",
+                          "delta": -4
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "repressione",
+                          "delta": 2
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "distribuire",
+                    "label": "Distribuire pane e fondi della cassa",
+                    "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "fondi",
+                        "delta": -10
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": 6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": 2
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 1
+                      }
+                    ]
+                  },
+                  {
+                    "id": "trattare",
+                    "label": "Trattare con le autorità",
+                    "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": -8
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": -6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": -3
+                      },
+                      {
+                        "kind": "flag",
+                        "id": "tratta_prefetto",
+                        "value": true
+                      }
+                    ]
+                  },
+                  {
+                    "id": "aspettare",
+                    "label": "Aspettare: non fare niente",
+                    "text": "Non fai niente. Intanto il tempo lavora per chi ha la forza.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 4
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": -2
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fondi",
+                        "delta": -3
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Giorno 1",
+              "event": {
+                "who": "Un fornaio",
+                "text": "Il pane in quartiere sta finendo e la gente comincia a guardare chi sciopera.",
+                "choices": [
+                  {
+                    "id": "indagare",
+                    "label": "Indagare: chiedere ai delegati che cosa ne pensano",
+                    "text": "Il delegato moderato: se la gente ha fame ci volta le spalle; distribuiamo pane. Il delegato radicale: la fame serve a vedere da che parte stanno; non ci si ferma per questo. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": 3
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 1
+                      }
+                    ]
+                  },
+                  {
+                    "id": "delegato",
+                    "label": "Mandare un delegato dove lo sciopero esita",
+                    "chance": {
+                      "base": 0.65
+                    },
+                    "success": {
+                      "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "sciopero",
+                          "delta": 9
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "repressione",
+                          "delta": 3
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "fondi",
+                          "delta": -2
+                        }
+                      ]
+                    },
+                    "failure": {
+                      "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "sciopero",
+                          "delta": -3
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "fiducia",
+                          "delta": -4
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "repressione",
+                          "delta": 2
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "distribuire",
+                    "label": "Distribuire pane e fondi della cassa",
+                    "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "fondi",
+                        "delta": -10
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": 6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": 2
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 1
+                      }
+                    ]
+                  },
+                  {
+                    "id": "trattare",
+                    "label": "Trattare con le autorità",
+                    "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": -8
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": -6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": -3
+                      },
+                      {
+                        "kind": "flag",
+                        "id": "tratta_prefetto",
+                        "value": true
+                      }
+                    ]
+                  },
+                  {
+                    "id": "aspettare",
+                    "label": "Aspettare: non fare niente",
+                    "text": "Non fai niente. Intanto il tempo lavora per chi ha la forza.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 4
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": -2
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fondi",
+                        "delta": -3
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Giorno 1",
+              "event": {
+                "who": "Un cassiere",
+                "text": "Dice che la cassa regge ancora, ma non per molto. Poi arriva la notte: freddo e fame.",
+                "choices": [
+                  {
+                    "id": "indagare",
+                    "label": "Indagare: chiedere ai delegati che cosa ne pensano",
+                    "text": "Il delegato moderato: contiamo ogni moneta e facciamo durare lo sciopero. Il delegato radicale: chi ha soldi deve darli; la cassa si riempie scioperando in tanti. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": 3
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 1
+                      }
+                    ]
+                  },
+                  {
+                    "id": "delegato",
+                    "label": "Mandare un delegato dove lo sciopero esita",
+                    "chance": {
+                      "base": 0.65
+                    },
+                    "success": {
+                      "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "sciopero",
+                          "delta": 9
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "repressione",
+                          "delta": 3
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "fondi",
+                          "delta": -2
+                        }
+                      ]
+                    },
+                    "failure": {
+                      "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "sciopero",
+                          "delta": -3
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "fiducia",
+                          "delta": -4
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "repressione",
+                          "delta": 2
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "distribuire",
+                    "label": "Distribuire pane e fondi della cassa",
+                    "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "fondi",
+                        "delta": -10
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": 6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": 2
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 1
+                      }
+                    ]
+                  },
+                  {
+                    "id": "trattare",
+                    "label": "Trattare con le autorità",
+                    "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": -8
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": -6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": -3
+                      },
+                      {
+                        "kind": "flag",
+                        "id": "tratta_prefetto",
+                        "value": true
+                      }
+                    ]
+                  },
+                  {
+                    "id": "aspettare",
+                    "label": "Aspettare: non fare niente",
+                    "text": "Non fai niente. Intanto il tempo lavora per chi ha la forza.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 4
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": -2
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fondi",
+                        "delta": -3
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Giorno 2",
+              "cards": [
+                {
+                  "kind": "simulation",
+                  "title": "Secondo giorno · 18 ottobre",
+                  "text": "Notizia a pezzi, personaggi inventati."
+                }
+              ],
+              "event": {
+                "who": "Uno studente",
+                "text": "Porta un foglio che parla di una concessione dello zar; nessuno sa se è vera.",
+                "choices": [
+                  {
+                    "id": "indagare",
+                    "label": "Indagare: chiedere ai delegati che cosa ne pensano",
+                    "text": "Il delegato moderato: se è vera si può trattare; se è falsa si perde tempo. Il delegato radicale: le concessioni si strappano scioperando; non si legge, si sciopera. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": 3
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 3
+                      }
+                    ]
+                  },
+                  {
+                    "id": "delegato",
+                    "label": "Mandare un delegato dove lo sciopero esita",
+                    "chance": {
+                      "base": 0.65
+                    },
+                    "success": {
+                      "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "sciopero",
+                          "delta": 9
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "repressione",
+                          "delta": 5
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "fondi",
+                          "delta": -2
+                        }
+                      ]
+                    },
+                    "failure": {
+                      "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "sciopero",
+                          "delta": -3
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "fiducia",
+                          "delta": -4
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "repressione",
+                          "delta": 4
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "distribuire",
+                    "label": "Distribuire pane e fondi della cassa",
+                    "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "fondi",
+                        "delta": -10
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": 6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": 2
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 3
+                      }
+                    ]
+                  },
+                  {
+                    "id": "trattare",
+                    "label": "Trattare con le autorità",
+                    "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": -8
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": -6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": -3
+                      },
+                      {
+                        "kind": "flag",
+                        "id": "tratta_prefetto",
+                        "value": true
+                      }
+                    ]
+                  },
+                  {
+                    "id": "aspettare",
+                    "label": "Aspettare: non fare niente",
+                    "text": "Non fai niente. Intanto il tempo lavora per chi ha la forza.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": -2
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fondi",
+                        "delta": -3
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Giorno 2",
+              "event": {
+                "who": "Un ferroviere",
+                "text": "Il suo deposito ha deciso di fermarsi, ma i treni militari passano lo stesso.",
+                "choices": [
+                  {
+                    "id": "indagare",
+                    "label": "Indagare: chiedere ai delegati che cosa ne pensano",
+                    "text": "Il delegato moderato: non tocchiamo i treni militari; sarebbe provocazione. Il delegato radicale: un treno che passa è uno sciopero che perde; fermare tutto. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": 3
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 3
+                      }
+                    ]
+                  },
+                  {
+                    "id": "delegato",
+                    "label": "Mandare un delegato dove lo sciopero esita",
+                    "chance": {
+                      "base": 0.65
+                    },
+                    "success": {
+                      "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "sciopero",
+                          "delta": 9
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "repressione",
+                          "delta": 5
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "fondi",
+                          "delta": -2
+                        }
+                      ]
+                    },
+                    "failure": {
+                      "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "sciopero",
+                          "delta": -3
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "fiducia",
+                          "delta": -4
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "repressione",
+                          "delta": 4
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "distribuire",
+                    "label": "Distribuire pane e fondi della cassa",
+                    "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "fondi",
+                        "delta": -10
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": 6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": 2
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 3
+                      }
+                    ]
+                  },
+                  {
+                    "id": "trattare",
+                    "label": "Trattare con le autorità",
+                    "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": -8
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": -6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": -3
+                      },
+                      {
+                        "kind": "flag",
+                        "id": "tratta_prefetto",
+                        "value": true
+                      }
+                    ]
+                  },
+                  {
+                    "id": "aspettare",
+                    "label": "Aspettare: non fare niente",
+                    "text": "Non fai niente. Intanto il tempo lavora per chi ha la forza.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": -2
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fondi",
+                        "delta": -3
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Giorno 2",
+              "event": {
+                "who": "Una levatrice",
+                "text": "La polizia ferma due delegati per strada e li rilascia la sera.",
+                "choices": [
+                  {
+                    "id": "indagare",
+                    "label": "Indagare: chiedere ai delegati che cosa ne pensano",
+                    "text": "Il delegato moderato: serve prudenza; chi viene fermato non deve dire dove ci si riunisce. Il delegato radicale: ogni arresto deve avere una risposta. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": 3
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 3
+                      }
+                    ]
+                  },
+                  {
+                    "id": "delegato",
+                    "label": "Mandare un delegato dove lo sciopero esita",
+                    "chance": {
+                      "base": 0.65
+                    },
+                    "success": {
+                      "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "sciopero",
+                          "delta": 9
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "repressione",
+                          "delta": 5
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "fondi",
+                          "delta": -2
+                        }
+                      ]
+                    },
+                    "failure": {
+                      "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "sciopero",
+                          "delta": -3
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "fiducia",
+                          "delta": -4
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "repressione",
+                          "delta": 4
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "distribuire",
+                    "label": "Distribuire pane e fondi della cassa",
+                    "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "fondi",
+                        "delta": -10
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": 6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": 2
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 3
+                      }
+                    ]
+                  },
+                  {
+                    "id": "trattare",
+                    "label": "Trattare con le autorità",
+                    "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": -8
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": -6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": -3
+                      },
+                      {
+                        "kind": "flag",
+                        "id": "tratta_prefetto",
+                        "value": true
+                      }
+                    ]
+                  },
+                  {
+                    "id": "aspettare",
+                    "label": "Aspettare: non fare niente",
+                    "text": "Non fai niente. Intanto il tempo lavora per chi ha la forza.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": -2
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fondi",
+                        "delta": -3
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Giorno 2",
+              "event": {
+                "who": "Un operaio anziano",
+                "text": "Dice che non ha mai visto tanta gente ferma e tanta gente ascoltarsi.",
+                "choices": [
+                  {
+                    "id": "indagare",
+                    "label": "Indagare: chiedere ai delegati che cosa ne pensano",
+                    "text": "Il delegato moderato: la fiducia fra i delegati vale quanto la cassa. Il delegato radicale: finché ci ascoltiamo siamo più forti dello zar. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": 3
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 3
+                      }
+                    ]
+                  },
+                  {
+                    "id": "delegato",
+                    "label": "Mandare un delegato dove lo sciopero esita",
+                    "chance": {
+                      "base": 0.65
+                    },
+                    "success": {
+                      "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "sciopero",
+                          "delta": 9
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "repressione",
+                          "delta": 5
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "fondi",
+                          "delta": -2
+                        }
+                      ]
+                    },
+                    "failure": {
+                      "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "sciopero",
+                          "delta": -3
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "fiducia",
+                          "delta": -4
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "repressione",
+                          "delta": 4
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "distribuire",
+                    "label": "Distribuire pane e fondi della cassa",
+                    "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "fondi",
+                        "delta": -10
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": 6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": 2
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 3
+                      }
+                    ]
+                  },
+                  {
+                    "id": "trattare",
+                    "label": "Trattare con le autorità",
+                    "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": -8
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": -6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": -3
+                      },
+                      {
+                        "kind": "flag",
+                        "id": "tratta_prefetto",
+                        "value": true
+                      }
+                    ]
+                  },
+                  {
+                    "id": "aspettare",
+                    "label": "Aspettare: non fare niente",
+                    "text": "Non fai niente. Intanto il tempo lavora per chi ha la forza.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": -2
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fondi",
+                        "delta": -3
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Giorno 2",
+              "event": {
+                "who": "Un prete di quartiere",
+                "text": "Chiede di aprire la chiesa per distribuire pane e acqua. Poi arriva la notte: freddo e fame.",
+                "choices": [
+                  {
+                    "id": "indagare",
+                    "label": "Indagare: chiedere ai delegati che cosa ne pensano",
+                    "text": "Il delegato moderato: accettare; la chiesa rende lo sciopero meno spaventoso. Il delegato radicale: la chiesa sta con lo zar; ci si può fidare poco. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": 3
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 3
+                      }
+                    ]
+                  },
+                  {
+                    "id": "delegato",
+                    "label": "Mandare un delegato dove lo sciopero esita",
+                    "chance": {
+                      "base": 0.65
+                    },
+                    "success": {
+                      "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "sciopero",
+                          "delta": 9
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "repressione",
+                          "delta": 5
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "fondi",
+                          "delta": -2
+                        }
+                      ]
+                    },
+                    "failure": {
+                      "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "sciopero",
+                          "delta": -3
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "fiducia",
+                          "delta": -4
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "repressione",
+                          "delta": 4
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "distribuire",
+                    "label": "Distribuire pane e fondi della cassa",
+                    "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "fondi",
+                        "delta": -10
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": 6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": 2
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 3
+                      }
+                    ]
+                  },
+                  {
+                    "id": "trattare",
+                    "label": "Trattare con le autorità",
+                    "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": -8
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": -6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": -3
+                      },
+                      {
+                        "kind": "flag",
+                        "id": "tratta_prefetto",
+                        "value": true
+                      }
+                    ]
+                  },
+                  {
+                    "id": "aspettare",
+                    "label": "Aspettare: non fare niente",
+                    "text": "Non fai niente. Intanto il tempo lavora per chi ha la forza.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": -2
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fondi",
+                        "delta": -3
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Giorno 3",
+              "cards": [
+                {
+                  "kind": "simulation",
+                  "title": "Terzo giorno · 19 ottobre",
+                  "text": "Notizia a pezzi, personaggi inventati."
+                }
+              ],
+              "event": {
+                "who": "Un telegrafista",
+                "text": "Arriva la voce che lo zar firmerà un manifesto: libertà e una Duma.",
+                "choices": [
+                  {
+                    "id": "indagare",
+                    "label": "Indagare: chiedere ai delegati che cosa ne pensano",
+                    "text": "Il delegato moderato: è una concessione vera e va accolta. Il delegato radicale: è una tregua per fermarci; la Duma non basta. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": 3
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 5
+                      }
+                    ]
+                  },
+                  {
+                    "id": "delegato",
+                    "label": "Mandare un delegato dove lo sciopero esita",
+                    "chance": {
+                      "base": 0.65
+                    },
+                    "success": {
+                      "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "sciopero",
+                          "delta": 9
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "repressione",
+                          "delta": 7
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "fondi",
+                          "delta": -2
+                        }
+                      ]
+                    },
+                    "failure": {
+                      "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "sciopero",
+                          "delta": -3
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "fiducia",
+                          "delta": -4
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "repressione",
+                          "delta": 6
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "distribuire",
+                    "label": "Distribuire pane e fondi della cassa",
+                    "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "fondi",
+                        "delta": -10
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": 6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": 2
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 5
+                      }
+                    ]
+                  },
+                  {
+                    "id": "trattare",
+                    "label": "Trattare con le autorità",
+                    "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": -8
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": -6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": -3
+                      },
+                      {
+                        "kind": "flag",
+                        "id": "tratta_prefetto",
+                        "value": true
+                      }
+                    ]
+                  },
+                  {
+                    "id": "aspettare",
+                    "label": "Aspettare: non fare niente",
+                    "text": "Non fai niente. Intanto il tempo lavora per chi ha la forza.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 8
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": -2
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fondi",
+                        "delta": -3
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Giorno 3",
+              "event": {
+                "who": "Una tessitrice",
+                "text": "La fabbrica vuole riaprire; metà delle operaie è stanca.",
+                "choices": [
+                  {
+                    "id": "indagare",
+                    "label": "Indagare: chiedere ai delegati che cosa ne pensano",
+                    "text": "Il delegato moderato: riaprire con una garanzia è meglio che perdere il posto. Il delegato radicale: riaprire ora vuol dire regalare la vittoria. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": 3
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 5
+                      }
+                    ]
+                  },
+                  {
+                    "id": "delegato",
+                    "label": "Mandare un delegato dove lo sciopero esita",
+                    "chance": {
+                      "base": 0.65
+                    },
+                    "success": {
+                      "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "sciopero",
+                          "delta": 9
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "repressione",
+                          "delta": 7
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "fondi",
+                          "delta": -2
+                        }
+                      ]
+                    },
+                    "failure": {
+                      "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "sciopero",
+                          "delta": -3
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "fiducia",
+                          "delta": -4
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "repressione",
+                          "delta": 6
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "distribuire",
+                    "label": "Distribuire pane e fondi della cassa",
+                    "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "fondi",
+                        "delta": -10
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": 6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": 2
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 5
+                      }
+                    ]
+                  },
+                  {
+                    "id": "trattare",
+                    "label": "Trattare con le autorità",
+                    "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": -8
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": -6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": -3
+                      },
+                      {
+                        "kind": "flag",
+                        "id": "tratta_prefetto",
+                        "value": true
+                      }
+                    ]
+                  },
+                  {
+                    "id": "aspettare",
+                    "label": "Aspettare: non fare niente",
+                    "text": "Non fai niente. Intanto il tempo lavora per chi ha la forza.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 8
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": -2
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fondi",
+                        "delta": -3
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Giorno 3",
+              "event": {
+                "who": "Un garzone",
+                "text": "Dice di aver visto cosacchi nelle strade attorno alla sala.",
+                "choices": [
+                  {
+                    "id": "indagare",
+                    "label": "Indagare: chiedere ai delegati che cosa ne pensano",
+                    "text": "Il delegato moderato: meglio non farsi trovare tutti insieme. Il delegato radicale: restare insieme è l'unica difesa. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": 3
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 5
+                      }
+                    ]
+                  },
+                  {
+                    "id": "delegato",
+                    "label": "Mandare un delegato dove lo sciopero esita",
+                    "chance": {
+                      "base": 0.65
+                    },
+                    "success": {
+                      "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "sciopero",
+                          "delta": 9
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "repressione",
+                          "delta": 7
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "fondi",
+                          "delta": -2
+                        }
+                      ]
+                    },
+                    "failure": {
+                      "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "sciopero",
+                          "delta": -3
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "fiducia",
+                          "delta": -4
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "repressione",
+                          "delta": 6
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "distribuire",
+                    "label": "Distribuire pane e fondi della cassa",
+                    "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "fondi",
+                        "delta": -10
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": 6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": 2
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 5
+                      }
+                    ]
+                  },
+                  {
+                    "id": "trattare",
+                    "label": "Trattare con le autorità",
+                    "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": -8
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": -6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": -3
+                      },
+                      {
+                        "kind": "flag",
+                        "id": "tratta_prefetto",
+                        "value": true
+                      }
+                    ]
+                  },
+                  {
+                    "id": "aspettare",
+                    "label": "Aspettare: non fare niente",
+                    "text": "Non fai niente. Intanto il tempo lavora per chi ha la forza.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 8
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": -2
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fondi",
+                        "delta": -3
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Giorno 3",
+              "event": {
+                "who": "Un cassiere",
+                "text": "La cassa è quasi vuota e le richieste di aiuto crescono.",
+                "choices": [
+                  {
+                    "id": "indagare",
+                    "label": "Indagare: chiedere ai delegati che cosa ne pensano",
+                    "text": "Il delegato moderato: serve una pausa per ripartire dopo. Il delegato radicale: pausa vuol dire sconfitta. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": 3
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 5
+                      }
+                    ]
+                  },
+                  {
+                    "id": "delegato",
+                    "label": "Mandare un delegato dove lo sciopero esita",
+                    "chance": {
+                      "base": 0.65
+                    },
+                    "success": {
+                      "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "sciopero",
+                          "delta": 9
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "repressione",
+                          "delta": 7
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "fondi",
+                          "delta": -2
+                        }
+                      ]
+                    },
+                    "failure": {
+                      "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "sciopero",
+                          "delta": -3
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "fiducia",
+                          "delta": -4
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "repressione",
+                          "delta": 6
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "distribuire",
+                    "label": "Distribuire pane e fondi della cassa",
+                    "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "fondi",
+                        "delta": -10
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": 6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": 2
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 5
+                      }
+                    ]
+                  },
+                  {
+                    "id": "trattare",
+                    "label": "Trattare con le autorità",
+                    "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": -8
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": -6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": -3
+                      },
+                      {
+                        "kind": "flag",
+                        "id": "tratta_prefetto",
+                        "value": true
+                      }
+                    ]
+                  },
+                  {
+                    "id": "aspettare",
+                    "label": "Aspettare: non fare niente",
+                    "text": "Non fai niente. Intanto il tempo lavora per chi ha la forza.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 8
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": -2
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fondi",
+                        "delta": -3
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Giorno 3",
+              "event": {
+                "who": "Un operaio anziano",
+                "text": "Chiede che cosa vuol dire, per un soviet, fermare un impero incrociando le braccia. Poi arriva la notte: freddo e fame.",
+                "choices": [
+                  {
+                    "id": "indagare",
+                    "label": "Indagare: chiedere ai delegati che cosa ne pensano",
+                    "text": "Il delegato moderato: vuol dire coordinare lo sciopero senza governare. Il delegato radicale: vuol dire che il potere sta cambiando mano. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": 3
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 5
+                      }
+                    ]
+                  },
+                  {
+                    "id": "delegato",
+                    "label": "Mandare un delegato dove lo sciopero esita",
+                    "chance": {
+                      "base": 0.65
+                    },
+                    "success": {
+                      "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "sciopero",
+                          "delta": 9
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "repressione",
+                          "delta": 7
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "fondi",
+                          "delta": -2
+                        }
+                      ]
+                    },
+                    "failure": {
+                      "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "sciopero",
+                          "delta": -3
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "fiducia",
+                          "delta": -4
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "repressione",
+                          "delta": 6
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "distribuire",
+                    "label": "Distribuire pane e fondi della cassa",
+                    "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "fondi",
+                        "delta": -10
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": 6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": 2
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 5
+                      }
+                    ]
+                  },
+                  {
+                    "id": "trattare",
+                    "label": "Trattare con le autorità",
+                    "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": -8
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fiducia",
+                        "delta": -6
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": -3
+                      },
+                      {
+                        "kind": "flag",
+                        "id": "tratta_prefetto",
+                        "value": true
+                      }
+                    ]
+                  },
+                  {
+                    "id": "aspettare",
+                    "label": "Aspettare: non fare niente",
+                    "text": "Non fai niente. Intanto il tempo lavora per chi ha la forza.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "repressione",
+                        "delta": 8
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "sciopero",
+                        "delta": -2
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "fondi",
+                        "delta": -3
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "goal": "Tieni lo sciopero senza che la cassa si svuoti o il soviet si spacchi.",
+          "shows": [
+            "sciopero",
+            "fondi",
+            "fiducia",
+            "repressione"
+          ],
+          "phaseLabels": {
+            "cards": "La giornata",
+            "event": "Che cosa fai"
+          },
+          "turnWord": "azione",
+          "nextLabel": "L'azione dopo"
+        },
+        {
+          "id": "a1-u4-ricorda",
+          "type": "narrative",
+          "title": "Cosa ti devi ricordare",
+          "text": "Il 22 gennaio 1905 la truppa spara su un corteo pacifico e la fiducia nello zar come padre si spezza. Nell'ottobre 1905 uno sciopero generale ferma il paese e a Pietroburgo nasce il soviet.\n\nIl soviet del 1905 è un contropotere: coordina uno sciopero e non governa. Lo zar concede il Manifesto di ottobre sotto la pressione dello sciopero: una concessione strappata può essere un diritto o una tregua.",
+          "roleId": "figlio",
+          "stageId": "a1-u4-soviet",
+          "motionId": "ingresso",
+          "context": {
+            "kind": "documented",
+            "dateLabel": "1905"
+          },
+          "display": "cards"
         }
       ]
     }

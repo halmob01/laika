@@ -153,3 +153,11 @@ Nessuna è stata riscontrata: i giochi le trattano come simulazione e il testo p
 - Multe del caposquadra in fabbrica (I.3).
 - Negozio della fabbrica che vende a credito (I.3).
 - Stanza in affitto a Pietroburgo e relativo costo (I.3).
+
+## Voci aperte dal gioco di I.4 (3 novembre 2026)
+
+Non riscontrate: il testo per lo studente le tratta come simulazione.
+
+- Cronologia di dettaglio dei giorni dello sciopero di ottobre 1905 (17-19 ottobre usati solo come cornice).
+- Che cosa fecero i delegati del soviet giorno per giorno: personaggi e notizie sono inventati.
+- Domenica di sangue: data (22 gennaio 1905, 9 gennaio g.), petizione di Gapon e assenza dello zar dalla città. La scheda di PIANO-ATTI chiede di verificare ancora il passo del diario di Nicola, qui non usato.
