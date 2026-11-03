@@ -139,6 +139,30 @@
       "max": 100,
       "start": 40,
       "good": "low"
+    },
+    {
+      "id": "pet_eco",
+      "label": "Richieste economiche",
+      "min": 0,
+      "max": 100,
+      "start": 0,
+      "good": "high"
+    },
+    {
+      "id": "pet_pol",
+      "label": "Richieste politiche",
+      "min": 0,
+      "max": 100,
+      "start": 0,
+      "good": "high"
+    },
+    {
+      "id": "pet_pace",
+      "label": "Richiesta di pace",
+      "min": 0,
+      "max": 100,
+      "start": 0,
+      "good": "high"
     }
   ],
   "resources": [
@@ -169,7 +193,10 @@
     "figlio_in_citta",
     "mir_diviso",
     "linea_soviet",
-    "tratta_prefetto"
+    "tratta_prefetto",
+    "uscita_dal_mir",
+    "stolypin_resta",
+    "stolypin_vende"
   ],
   "episodes": [
     {
@@ -3874,6 +3901,70 @@
       "visualExplanation": "Il corteo avanza con un foglio e le icone. Lo sparo non si vede: le figure si disperdono e il foglio resta nella neve."
     },
     {
+      "id": "a1-u4-petizione",
+      "type": "resource_allocation",
+      "roleId": "figlio",
+      "title": "La petizione",
+      "budget": 5,
+      "context": {
+        "kind": "simulation",
+        "dateLabel": "gennaio 1905",
+        "placeLabel": "Pietroburgo"
+      },
+      "text": "Prima del corteo si scrive la petizione da portare allo zar. Hai cinque righe. Puoi spenderle fra richieste di lavoro e di salario e richieste politiche o di pace.\n\nLe righe che scrivi sono una simulazione: la petizione vera ebbe un testo suo.",
+      "stageId": "a1-u4-domenica",
+      "motionId": "ingresso",
+      "exposes": [
+        "a1-petizione"
+      ],
+      "visualExplanation": "Il corteo si prepara. Le righe della petizione sono indici della simulazione e non dati storici né voti.",
+      "buckets": [
+        {
+          "id": "economiche",
+          "label": "Salari e orario di lavoro",
+          "max": 4,
+          "perUnit": [
+            {
+              "kind": "metric",
+              "id": "pet_eco",
+              "delta": 20
+            }
+          ]
+        },
+        {
+          "id": "politiche",
+          "label": "Libertà e un'assemblea eletta",
+          "max": 4,
+          "perUnit": [
+            {
+              "kind": "metric",
+              "id": "pet_pol",
+              "delta": 20
+            }
+          ]
+        },
+        {
+          "id": "pace",
+          "label": "La fine della guerra",
+          "max": 3,
+          "perUnit": [
+            {
+              "kind": "metric",
+              "id": "pet_pace",
+              "delta": 20
+            }
+          ]
+        }
+      ],
+      "effects": [],
+      "feedback": "Hai scelto che cosa chiedere allo zar. Più una petizione chiede cose diverse e più è difficile rispondere con un sì o con un no.",
+      "shows": [
+        "pet_eco",
+        "pet_pol",
+        "pet_pace"
+      ]
+    },
+    {
       "id": "a1-u4-soviet",
       "type": "turn_game",
       "roleId": "figlio",
@@ -6264,6 +6355,120 @@
       ]
     },
     {
+      "id": "a1-u4-manifesto",
+      "type": "source_comparison",
+      "roleId": "figlio",
+      "title": "Che cosa concede lo zar",
+      "context": {
+        "kind": "source",
+        "dateLabel": "1905–1907",
+        "placeLabel": "Pietroburgo"
+      },
+      "text": "Dopo lo sciopero lo zar concede il Manifesto di ottobre. Poi vengono le Leggi fondamentali e le Dume. Apri le tre schede e confrontale.",
+      "stageId": "a1-u4-soviet",
+      "motionId": "ingresso",
+      "exposes": [
+        "a1-manifesto-ott"
+      ],
+      "visualExplanation": "Tre schede sulla stessa concessione. Gli indicatori sono indici della simulazione e non dati storici né voti.",
+      "sources": [
+        {
+          "id": "manifesto",
+          "title": "Il Manifesto di ottobre",
+          "text": "Lo zar promette libertà civili e una Duma eletta. Lo concede dopo lo sciopero generale.",
+          "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa»: non è il testo originale. Da riscontrare nei dettagli."
+        },
+        {
+          "id": "leggi",
+          "title": "Le Leggi fondamentali del 1906",
+          "text": "Le leggi chiamano ancora autocratico il potere dello zar. La Duma esiste ma lo zar conserva poteri molto larghi.",
+          "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa»: non è il testo originale. Da riscontrare nei dettagli."
+        },
+        {
+          "id": "dume",
+          "title": "Le due Dume sciolte",
+          "text": "La prima Duma viene sciolta dopo pochi mesi e la seconda dura ancora meno. La Duma non nasce con pieni poteri.",
+          "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa»: date da riscontrare."
+        }
+      ],
+      "choices": [
+        {
+          "id": "diritto",
+          "label": "È un diritto conquistato con lo sciopero",
+          "feedback": "Lo sciopero ha davvero strappato qualcosa: prima del 1905 non c'era una Duma. Ma le Leggi fondamentali e le Dume sciolte mostrano che quel diritto era debole.",
+          "effects": []
+        },
+        {
+          "id": "tregua",
+          "label": "È una tregua: lo zar concede per riprendere dopo",
+          "feedback": "Una concessione strappata può essere una tregua: le Leggi fondamentali e lo scioglimento delle Dume mostrano che lo zar teneva i poteri larghi.",
+          "effects": []
+        },
+        {
+          "id": "entrambe",
+          "label": "È l'una e l'altra cosa insieme",
+          "feedback": "È la risposta più prudente: qualcosa è cambiato davvero e il potere dello zar è rimasto largo. Le fonti non bastano a dire quale prevalga.",
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "a1-u4-stolypin",
+      "type": "choice",
+      "roleId": "capofamiglia",
+      "title": "Stolypin",
+      "context": {
+        "kind": "simulation",
+        "dateLabel": "novembre 1906",
+        "placeLabel": "Un villaggio della Russia centrale"
+      },
+      "text": "Nel novembre 1906 un decreto permette ai contadini di uscire dal mir e di unire le strisce in un podere. Intanto i tribunali militari mandano alla forca i rivoltosi: la corda si chiama «la cravatta di Stolypin».\n\nLa tua famiglia può restare nel mir. Può uscire e consolidare le strisce. Può vendere e partire.",
+      "stageId": "a1-u2-mir",
+      "motionId": "ingresso",
+      "exposes": [
+        "a1-stolypin"
+      ],
+      "visualExplanation": "Davanti alle isbe la tua famiglia deve decidere se restare. Le scelte sono simulazione.",
+      "choices": [
+        {
+          "id": "resta",
+          "label": "Restare nel mir",
+          "feedback": "Resti con i vicini: la terra resta divisa a strisce e la decisione resta all'assemblea. Stolypin consente di uscire dal mir ma non lo abolisce.",
+          "effects": [
+            {
+              "kind": "flag",
+              "id": "stolypin_resta",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": "esce",
+          "label": "Uscire e unire le strisce in un podere",
+          "feedback": "Esci dal mir con le tue strisce unite in un podere. Hai più libertà e meno protezione: i vicini non ti aiuteranno più come prima.",
+          "effects": [
+            {
+              "kind": "flag",
+              "id": "uscita_dal_mir",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": "vende",
+          "label": "Vendere e partire per la città",
+          "feedback": "Vendi la terra e parti: un altro figlio, un'altra famiglia in città.",
+          "effects": [
+            {
+              "kind": "flag",
+              "id": "stolypin_vende",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "a1-u4-ricorda",
       "type": "narrative",
       "roleId": "figlio",
@@ -6276,6 +6481,30 @@
       "text": "Il 22 gennaio 1905 la truppa spara su un corteo pacifico e la fiducia nello zar come padre si spezza. Nell'ottobre 1905 uno sciopero generale ferma il paese e a Pietroburgo nasce il soviet.\n\nIl soviet del 1905 è un contropotere: coordina uno sciopero e non governa. Lo zar concede il Manifesto di ottobre sotto la pressione dello sciopero: una concessione strappata può essere un diritto o una tregua.",
       "stageId": "a1-u4-soviet",
       "motionId": "ingresso"
+    },
+    {
+      "id": "a1-u4-v3",
+      "type": "assessment",
+      "roleId": "figlio",
+      "title": "Che cos'era il soviet",
+      "questionRef": "a1-v3",
+      "context": {
+        "kind": "assessment"
+      },
+      "text": "Una domanda sul soviet del 1905. Non valuta le scelte che hai fatto nella partita.",
+      "stageId": "a1-u4-soviet"
+    },
+    {
+      "id": "a1-u4-v4",
+      "type": "assessment",
+      "roleId": "capofamiglia",
+      "title": "Che cosa consente Stolypin",
+      "questionRef": "a1-v4",
+      "context": {
+        "kind": "assessment"
+      },
+      "text": "Una domanda su Stolypin. Non valuta le scelte che hai fatto nella partita.",
+      "stageId": "a1-u2-mir"
     }
   ],
   "reconciliation": "Fine dell'unità I.1 (1700–1861). Per un secolo e mezzo la ricchezza si è contata in anime e il tempo di un servo apparteneva in parte al signore. La libertà del 1861 è vera, ma arriva senza la terra: la terra si paga per quarantanove anni e il villaggio risponde insieme dei debiti. Le tue scelte hanno cambiato soltanto la simulazione, non questi fatti. Le unità successive dell'Atto I (1861–1917) sono in preparazione: per ora il percorso si ferma qui.",
@@ -6383,8 +6612,13 @@
       ],
       "episodes": [
         "a1-u4-domenica",
+        "a1-u4-petizione",
         "a1-u4-soviet",
-        "a1-u4-ricorda"
+        "a1-u4-manifesto",
+        "a1-u4-stolypin",
+        "a1-u4-ricorda",
+        "a1-u4-v3",
+        "a1-u4-v4"
       ],
       "carries": "Il figlio della famiglia di I.3: ora è fra i delegati.",
       "closing": {

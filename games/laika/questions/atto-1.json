@@ -66,5 +66,73 @@
         "sd": "confonde il soggetto operaio con quello contadino"
       }
     }
+  },
+  {
+    "id": "a1-v3",
+    "prompt": "Nell'ottobre 1905 nasce a Pietroburgo il soviet. Che cos'era?",
+    "options": [
+      {
+        "id": "contropotere",
+        "label": "Un consiglio di delegati degli scioperanti che coordinava lo sciopero senza governare"
+      },
+      {
+        "id": "governo",
+        "label": "Il nuovo governo che sostituì lo zar"
+      },
+      {
+        "id": "parlamento",
+        "label": "Il parlamento eletto concesso dal Manifesto di ottobre"
+      }
+    ],
+    "correctId": "contropotere",
+    "rationale": "Il soviet del 1905 era un contropotere: un consiglio di delegati che coordinava lo sciopero. Non era un governo e non era la Duma.",
+    "objectives": [
+      "Distinguere il soviet del 1905 dal governo e dalla Duma"
+    ],
+    "source": "Episodio «Le giornate del soviet»: appunti «La Rivoluzione Russa»",
+    "requiredExposureFlags": [
+      "a1-soviet"
+    ],
+    "editorial": {
+      "verifica": "V3",
+      "distrattori": {
+        "governo": "confonde contropotere e governo",
+        "parlamento": "confonde il soviet con la Duma"
+      }
+    }
+  },
+  {
+    "id": "a1-v4",
+    "prompt": "Che cosa permette a un contadino la riforma di Stolypin del 1906?",
+    "options": [
+      {
+        "id": "uscire",
+        "label": "Uscire dal mir e unire le sue strisce in un podere"
+      },
+      {
+        "id": "abolire",
+        "label": "Abolire il mir in tutta la Russia"
+      },
+      {
+        "id": "gratis",
+        "label": "Avere la terra del signore gratis"
+      }
+    ],
+    "correctId": "uscire",
+    "rationale": "Stolypin consente di uscire dal mir e di consolidare le strisce in un podere. Non abolisce il mir e non regala la terra.",
+    "objectives": [
+      "Dire che cosa consente Stolypin e che cosa non fa"
+    ],
+    "source": "Episodio «Stolypin»: appunti «La Rivoluzione Russa»",
+    "requiredExposureFlags": [
+      "a1-stolypin"
+    ],
+    "editorial": {
+      "verifica": "V4",
+      "distrattori": {
+        "abolire": "confonde consentire e abolire",
+        "gratis": "confonde con la distribuzione della terra"
+      }
+    }
   }
 ]
