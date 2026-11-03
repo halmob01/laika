@@ -22,7 +22,7 @@ module.exports=async(browser,root,artifacts)=>{
   await shot('01-prologo');
   while(await page.locator('[data-card=next]').count())await page.locator('[data-card=next]').click();
   await page.locator('[data-action=advance]').click();await page.locator('.turn-label').waitFor();
-  let anno=0,reloaded=false,tappedOnStage=false,fiera=false,costruito=false;const anni=[];
+  let puntiProvati=false,anno=0,reloaded=false,tappedOnStage=false,fiera=false,costruito=false;const anni=[];
   for(let guard=0;guard<400;guard++){
    if(await page.locator('#summary-title').isVisible())break;
    assert.equal(await overflow(),true,'overflow orizzontale');
@@ -78,6 +78,8 @@ module.exports=async(browser,root,artifacts)=>{
     if(anno===3){const d=page.locator('#journal details');await d.evaluate(n=>n.open=true);const testo=await d.innerText();
       assert.doesNotMatch(testo,/causa:|a1-u1|settimana:\d/,'codici interni nel diario');assert.doesNotMatch(testo,/figlio_via|mucca_venduta|: (true|false)\b|(true|false) → /,'flag interni nel diario');assert.match(testo,/1777: /);await shot('03-diario');await d.evaluate(n=>n.open=false);}
     continue;}
+   // Punti azione (I.4): si tocca un punto sulla scena e un punto si spende.
+   if(!puntiProvati&&await page.locator('[data-hotspot=indtess]').count()){puntiProvati=true;await page.locator('[data-hotspot=indtess]').click();await page.locator('.turn-pool').filter({hasText:'4 su 5'}).waitFor();await shot('96-punti-azione');continue;}
    if(await page.locator('[data-turn=leave]').count()){if(!fiera){await shot('02-fiera');fiera=true;}const o=page.locator('[data-offer=punte]:not([disabled])');if(run.costruisce.length&&await o.count()){await o.click();await page.locator('.turn-market + .outcome').waitFor();}await page.locator('[data-turn=leave]').click();continue;}
    if(await page.locator('[data-built]').count()&&!costruito){costruito=true;await shot('migliorie');}
    if(await page.locator('[data-turn-choice]').count()){if(anno===1)await shot('01-bussa');await page.locator('[data-turn-choice]:not([disabled])').first().click();continue;}

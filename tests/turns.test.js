@@ -272,3 +272,57 @@ test('decisioni: salvataggio rigiocato e contratto', () => {
   ];
   for (const c of casi) { const x = giocoDecisioni(); c(x); assert.throws(() => validateGame(x)); }
 });
+
+// ---------- giornata a punti azione (mercato con budget, costi, azioni ripetibili e incerte) ----------
+const giornata = () => ({
+  id: 'p', type: 'turn_game', roleId: 'r', title: 'Giornata di prova', text: 'Spendi.', stageId: 'tavola', turnWord: 'giorno', nextLabel: 'Il giorno dopo', leaveLabel: 'Finire la giornata', pointsLabel: 'Azioni',
+  feedback: 'Fine dei giorni.',
+  turns: [
+    { label: 'Primo giorno', cards: [{ text: 'Una voce.' }], market: { who: 'La sala', text: 'Cinque azioni.', points: 3, offers: [
+      { id: 'indaga', label: 'Indagare', text: 'Due letture opposte.' },
+      { id: 'invia', label: 'Mandare un delegato', repeat: true, chance: { base: 0.5 }, success: { text: 'Arriva.', effects: [{ kind: 'metric', id: 'pazienza', delta: 10 }] }, failure: { text: 'Tardi.', effects: [{ kind: 'metric', id: 'pazienza', delta: -5 }] } },
+      { id: 'grande', label: 'Una cosa grande', cost: 3, text: 'Tutto.', effects: [{ kind: 'metric', id: 'pazienza', delta: 5 }] }
+    ] } },
+    { label: 'Secondo giorno', market: { who: 'La sala', text: 'Ancora.', points: 2, offers: [{ id: 'riposa', label: 'Aspettare', text: 'Niente.' }] } }
+  ]
+});
+const giocoGiornata = () => { const g = gioco(); g.acts[0].episodes[0] = giornata(); return g; };
+
+test('punti azione: budget, costi, ripetibili, esito incerto e fine giornata', () => {
+  const g = giocoGiornata(); validateGame(g);
+  let s = newSession(g, 'seme-p');
+  assert.equal(s.currentAct.game.phase, 'cards');
+  s = t(g, s, 'card');
+  assert.equal(s.currentAct.game.phase, 'market', 'senza richiesta si va alle azioni');
+  assert.equal(s.currentAct.game.market.left, 3);
+  s = t(g, s, 'buy', { offerId: 'indaga' });
+  assert.equal(s.currentAct.game.market.left, 2);
+  assert.throws(() => t(g, s, 'buy', { offerId: 'indaga' }), /non disponibile/i, 'un\'azione non ripetibile si fa una volta');
+  assert.throws(() => t(g, s, 'buy', { offerId: 'grande' }), /non disponibile/i, 'costa più dei punti rimasti');
+  s = t(g, s, 'buy', { offerId: 'invia' }); s = t(g, s, 'buy', { offerId: 'invia' });
+  assert.equal(s.currentAct.game.market.left, 0);
+  assert.throws(() => t(g, s, 'buy', { offerId: 'invia' }), /non disponibile/i, 'punti finiti');
+  assert.equal(s.currentAct.game.market.bought.filter(x => x === 'invia').length, 2);
+  s = t(g, s, 'leave');
+  assert.equal(s.currentAct.game.turn, 1); assert.equal(s.currentAct.game.phase, 'market'); assert.equal(s.currentAct.game.market.left, 2, 'i punti si rinnovano ogni giorno');
+  s = t(g, s, 'leave');
+  assert.equal(s.currentAct.phase, 'outcome');
+  assert.deepEqual(replay(g, s.ledger, 'seme-p').currentAct, s.currentAct, 'rigiocato identico');
+});
+
+test('punti azione: contratto', () => {
+  const casi = [
+    x => { x.acts[0].episodes[0].turns[0].market.points = 0; },
+    x => { x.acts[0].episodes[0].turns[0].market.offers[2].cost = 4; },
+    x => { x.acts[0].episodes[0].turns[0].market.offers[0].cost = 2.5; },
+    x => { delete x.acts[0].episodes[0].turns[0].market.offers[1].success; },
+    x => { x.acts[0].episodes[0].turns[1].market.offers[0].chance = { base: 0.5 }; delete x.acts[0].episodes[0].turns[1].market.points; },
+    x => { delete x.acts[0].episodes[0].turns[0].market; }
+  ];
+  for (const c of casi) { const g = giocoGiornata(); c(g); assert.throws(() => validateGame(g)); }
+});
+
+test('punti azione: punto sulla scena e nome breve', () => {
+  const ok = giocoGiornata(); ok.acts[0].episodes[0].turns[0].market.offers[0].at = { x: 0.3, y: 0.4 }; ok.acts[0].episodes[0].turns[0].market.offers[0].short = 'Indagare'; validateGame(ok);
+  for (const c of [x => { x.acts[0].episodes[0].turns[0].market.offers[0].at = { x: 2, y: 0.4 }; }, x => { x.acts[0].episodes[0].turns[0].market.offers[0].short = 'Un nome molto troppo lungo'; }]) { const g = giocoGiornata(); c(g); assert.throws(() => validateGame(g)); }
+});
