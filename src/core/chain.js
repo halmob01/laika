@@ -17,7 +17,7 @@
 //     gap?:   {metric},                                             // la metrica che segue «carta meno realtà» (0 se la realtà supera la carta)
 //     jam?:   {at, factor}                                          // un anello intermedio (non il primo né l'ultimo) con almeno `at` unità si inceppa; passa `factor` della capacità (0..1)
 //   }
-// In un turno: `chain: {supply?, paper?}` (variazioni solo di quel turno: un raccolto scarso, un rapporto gonfiato).
+// In un turno: `chain: {supply?, paper?}`: `supply` vale solo per quel turno (un raccolto scarso); `paper` cambia il numero sulla carta da lì in poi (un rapporto gonfiato).
 // In una risposta, un esito o un'offerta: `chain: [{link, capacity?: n, stock?: n} | {paper: n}]` (cambiamenti, positivi o negativi).
 import {assert, text, id, unique} from './schema.js';
 

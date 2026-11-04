@@ -148,3 +148,23 @@ test('catena: salvataggio e ripresa a metà e rigioco delle mosse', () => {
   assert.deepEqual(a.currentAct, b.currentAct);
   assert.deepEqual(replay(g, a.ledger, 'c8').currentAct, a.currentAct);
 });
+
+test('catena: coda e catena nello stesso episodio, una sola volta le crisi', () => {
+  const g = gioco(), e = ep(g);
+  e.queue = { groups: [{ id: 'fila', label: 'La fila', size: 5, patience: 3, exit: 'casa' }], signals: [{ at: 1, label: 'battono i piedi' }], drain: { base: 1 },
+    exits: [{ id: 'casa', label: 'A casa', text: 'tornano a casa.', effects: [{ kind: 'metric', id: 'pane', delta: 3 }] }] };
+  validateGame(g);
+  let s = newSession(g, 'c9');
+  const r = transition(g, s, { type: 'turn', step: 'leave' });
+  s = r.nextState;
+  assert.equal(catena(s).last.turn, 0);
+  assert.equal(s.currentAct.game.queue.last.turn, 0);
+  // Il primo turno: la coda scende a 2 e la catena fa passare le merci; la crisi dello scarto (30) scatta una volta sola.
+  assert.deepEqual(catena(s).last.crises.map(c => c.id), ['rapporto-falso']);
+  assert.deepEqual(s.currentAct.game.queue.last.crises.map(c => c.id), ['rapporto-falso']);
+  assert.equal(s.currentAct.metrics.pane, 20 - 5, 'la crisi toglie 5 una volta sola');
+  assert.match(r.feedback, /Il rapporto non regge\./);
+  s = fine(g, s); s = fine(g, s);
+  assert.equal(s.currentAct.game.queue.groups.fila.gone, true);
+  assert.deepEqual(s.currentAct.game.fired, ['rapporto-falso']);
+});

@@ -184,7 +184,7 @@ function chainPanel(episode,g){
   }
   box.append(ul,el('p','Sulla carta: '+v.paper+'. In realtà (arrivato): '+v.real+'. Scarto: '+v.gap+'.',{class:'turn-chain-numbers'}));
   const last=v.last;
-  if(last&&last.turn===g.turn-1){const note=el('div',undefined,{class:'outcome',role:'status'});note.append(el('p','Questo turno sono arrivati '+last.delivered+' di '+goods+'.'));for(const id of last.newlyJammed||[]){const l=c.links.find(x=>x.id===id);note.append(el('p',l.label+': '+(l.jamText||'si è inceppato')+'.'));}box.append(note);}
+  if(last&&last.turn===g.turn-1){const note=el('div',undefined,{class:'outcome',role:'status'});note.append(el('p','Arrivati questo turno: '+last.delivered+' ('+goods+').'));for(const id of last.newlyJammed||[]){const l=c.links.find(x=>x.id===id);note.append(el('p',l.label+': '+(l.jamText||'si è inceppato').replace(/\.$/,'')+'.'));}box.append(note);}
   return box;
 }
 // Le modifiche della catena di un'offerta, in chiaro: «I treni +2 passano per turno», «Carta +10».

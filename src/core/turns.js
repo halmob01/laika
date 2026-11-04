@@ -349,7 +349,7 @@ function fineTurno(e, g, turn0) {
   if (g.queue?.last?.turn === turn0) out.push(...g.queue.last.events.map(x => x.text));
   if (g.chain?.last?.turn === turn0) {
     const l = g.chain.last;
-    for (const id of l.newlyJammed || []) { const link = e.chain.links.find(x => x.id === id); out.push(link.label + ': ' + (link.jamText || 'si è inceppato') + '.'); }
+    for (const id of l.newlyJammed || []) { const link = e.chain.links.find(x => x.id === id); out.push(link.label + ': ' + (link.jamText || 'si è inceppato').replace(/\.$/, '') + '.'); }
   }
   const cr = (g.queue?.last?.turn === turn0 ? g.queue.last.crises : g.chain?.last?.turn === turn0 ? g.chain.last.crises : null) || [];
   out.push(...cr.map(x => x.text));
