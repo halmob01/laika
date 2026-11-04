@@ -90,6 +90,8 @@ function board(stageHost,stage,episode,act,state,dispatch){
   const fresh=stage.generation!==seenGeneration;seenGeneration=stage.generation;stage.position(moves,{animate:!fresh});
 }
 const dots=n=>'●'.repeat(n);
+// Le modifiche della coda di un'offerta, in chiaro: «Le tessili +2 pazienza».
+function queueText(episode,list){const q=episode.queue;if(!q||!list?.length)return '';const word=(q.patienceLabel||'Pazienza').toLowerCase();return list.map(m=>(m.group==='*'?'Tutti':q.groups.find(x=>x.id===m.group)?.label||m.group)+' '+sign(m.patience)+' '+word).join(', ');}
 function effectsText(act,list){return list.map(m=>sign(m.delta)+' '+metricLabel(act,m)).join(', ');}
 // Forza in parole: «3 braccia», «1 braccio». I pallini restano solo come disegno.
 const amount=(e,n)=>n+' '+(n===1&&e.strengthOne?e.strengthOne:e.strengthLabel);
@@ -254,11 +256,12 @@ function turnGame(ctx){
       if(o.cost>1)b.append(el('span','Costa '+o.cost+' punti'));
       if(o.chance){const pc=Math.round(chanceOf(o.chance,act,state)*100);b.append(el('span','riesce nel '+pc+'% dei casi'));}
       else if(o.effects?.length)b.append(el('span',effectsText(act,o.effects.filter(x=>x.kind!=='flag'))));
+      {const qt=o.chance?[queueText(episode,o.success?.queue)&&'se riesce: '+queueText(episode,o.success.queue),queueText(episode,o.failure?.queue)&&'se no: '+queueText(episode,o.failure.queue)].filter(Boolean).join('; '):queueText(episode,o.queue);if(qt)b.append(el('span',qt));}
       b.disabled=!offerOpen(episode,g,o,state);const n=g.market.bought.filter(x=>x===o.id).length;if(n)b.append(el('small',o.repeat?'fatto '+n+(n===1?' volta':' volte'):'preso'));shop.append(b);}
     host.append(shop);
     if(g.market.log.length){const box=el('div',undefined,{class:'outcome turn-result',role:'status'});for(const line of g.market.log)box.append(el('p',line));box.append(changeList(act,g.market.changes));host.append(box);}
     // Con punti ancora da spendere il pulsante lo dice: chiudere la giornata non deve essere un tocco distratto.
-    const avanzo=g.market.left>0?' (restano '+g.market.left+(g.market.left===1?' punto)':' punti)'):'';
+    const avanzo=g.market.left>0?(g.market.left===1?' (resta 1 punto)':' (restano '+g.market.left+' punti)'):'';
     host.append(button((g.turn>=episode.turns.length-1?'Fine della partita':(episode.leaveLabel||'Torna a casa'))+avanzo,()=>go('leave'),{'data-turn':'leave',class:'primary'}));
   }
 }

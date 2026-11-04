@@ -1813,7 +1813,7 @@
         "dateLabel": "marzo 1917",
         "placeLabel": "Pietrogrado"
       },
-      "text": "Il 12 marzo (27 febbraio) il reggimento Volynskij si rifiuta di sparare sui manifestanti. Il punto di svolta è il soldato che non spara. Qui scegli che cosa viene dopo: ogni giornata hai quattro punti da spendere sulla scena. Le voci e la fame delle giornate della coda arrivano fino alle caserme.",
+      "text": "Il punto di svolta è il soldato che non spara. Qui scegli che cosa viene dopo: ogni giornata hai quattro punti da spendere sulla scena. Le voci e la fame delle giornate della coda arrivano fino alle caserme.",
       "goal": "Trasforma un gesto di disobbedienza in qualcosa che regge: soldati con gli operai e il vecchio ordine che perde forza.",
       "stageId": "otto-giorni-soldato",
       "motionId": "ingresso",
@@ -1940,7 +1940,7 @@
             {
               "kind": "simulation",
               "title": "12 marzo, sera",
-              "text": "Il 12 marzo (27 febbraio nel calendario russo) un reparto si rifiuta di sparare sulla folla. La scelta riguarda il dopo. Le persone e le scelte sono simulazione."
+              "text": "Il 12 marzo (27 febbraio nel calendario russo) il reggimento Volynskij si rifiuta di sparare sulla folla. Le persone e le scelte sono simulazione."
             }
           ],
           "market": {
@@ -2558,7 +2558,7 @@
         "dateLabel": "12–16 marzo 1917",
         "placeLabel": "Pietrogrado e Pskov"
       },
-      "text": "Il 12 marzo (27 febbraio) al Palazzo di Tauride nascono lo stesso giorno due poteri: il Comitato provvisorio della Duma e il soviet di Pietrogrado. Il 15 marzo (2 marzo) il treno dello zar è fermo a Pskov. Mentre arrivano i telegrammi Nicola continua ad annotare nel diario la vita del treno. Poi abdica.\n\nDopo l'abdicazione saluta e si tocca i baffi per abitudine e torna nel suo vagone. Il 16 marzo (3 marzo) rinuncia al trono anche suo fratello Michele.\n\nChe cosa resta di uno zar quando smette di esserlo? Un uomo con un'abitudine.",
+      "text": "Il 12 marzo (27 febbraio) al Palazzo di Tauride nascono lo stesso giorno due poteri. Il Comitato provvisorio della Duma è fatto di deputati della vecchia Duma. Il soviet di Pietrogrado è fatto di delegati di operai e soldati e decide per alzata di mano.\n\nIl 15 marzo (2 marzo) il treno dello zar è fermo a Pskov. Mentre arrivano i telegrammi Nicola continua ad annotare nel diario la vita del treno. Poi abdica.\n\nDopo l'abdicazione saluta, si tocca i baffi per abitudine e torna nel suo vagone. Il 16 marzo (3 marzo) rinuncia al trono anche suo fratello Michele.\n\nChe cosa resta di uno zar quando smette di esserlo? Un uomo con un'abitudine.",
       "exposes": [
         "a1-treno"
       ],
@@ -2584,7 +2584,7 @@
         "kind": "documented",
         "dateLabel": "8–16 marzo 1917"
       },
-      "text": "L'8 marzo 1917 (23 febbraio nel calendario russo) le operaie escono dalle fabbriche di Pietrogrado per il pane. Nessun partito aveva deciso che quel giorno cominciasse una rivoluzione. In pochi giorni le code, le fabbriche e le caserme si muovono insieme.\n\nIl 12 marzo (27 febbraio) i soldati che non sparano cambiano tutto: senza soldati che difendano il vecchio ordine la protesta diventa una rivoluzione.\n\nLo stesso giorno al Palazzo di Tauride nascono due poteri: il Comitato provvisorio della Duma e il soviet di Pietrogrado. Il 15 marzo (2 marzo) lo zar abdica e il giorno dopo rinuncia anche suo fratello Michele.",
+      "text": "L'8 marzo 1917 (23 febbraio nel calendario russo) le operaie escono dalle fabbriche di Pietrogrado per il pane. Nessun partito aveva deciso che quel giorno cominciasse una rivoluzione. In pochi giorni le code, le fabbriche e le caserme si muovono insieme.\n\nIl 12 marzo (27 febbraio) i soldati che non sparano cambiano tutto: senza soldati che difendano il vecchio ordine la protesta diventa una rivoluzione.\n\nLo stesso giorno al Palazzo di Tauride nascono due poteri diversi. Il Comitato provvisorio della Duma è fatto di deputati della vecchia Duma. Il soviet di Pietrogrado è fatto di delegati di operai e soldati e decide per alzata di mano. Il 15 marzo (2 marzo) lo zar abdica e il giorno dopo rinuncia anche suo fratello Michele.",
       "stageId": "otto-giorni-treno",
       "motionId": "ingresso",
       "visualExplanation": "Un treno fermo nella neve: la fine dello zar vista da fuori. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
@@ -2623,7 +2623,7 @@
         "dateLabel": "1861–1917",
         "placeLabel": "Russia"
       },
-      "text": "La terra aveva preparato il villaggio e il mir. La fabbrica aveva preparato gli operai. Il 1905 aveva mostrato il soviet. La guerra aveva tolto il pane. Alla fine decisero la piazza e i soldati.\n\nIl potere dello zar cadde perché nessuno più lo difese. Quello che veniva dopo era ancora da decidere.",
+      "text": "La terra aveva preparato il villaggio e il mir. La fabbrica aveva preparato gli operai. Il 1905 aveva mostrato il soviet. La guerra aveva tolto il pane. Alla fine decisero la piazza e i soldati; gli alti ufficiali non risposero più allo zar.\n\nIl potere dello zar cadde perché nessuno più lo difese. Quello che veniva dopo era ancora da decidere.",
       "shows": [],
       "stageId": "otto-giorni-confronto",
       "motionId": "ingresso",
