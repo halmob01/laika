@@ -87,6 +87,10 @@ test('figura: le 13 varianti esistenti conservano esattamente output, pose e ruo
   const baseline = read('tests/fixtures/figure-stabili.json');
   for (const [variant, hash] of Object.entries(baseline.varianti)) {
     const output = baseline.pose.flatMap(pose => baseline.ruoli.map(role => figura({ id: 'f', variant, pose, role, x: 100, y: 200, scale: 1.7, flip: true })));
+    // Il rig di ogni simbolo porta la tabella di tutte le pose. Le pose aggiunte dopo la baseline (procedura del README della bottega:
+    // «in fondo a POSE») allargano quella tabella senza toccare il disegno: si confronta la tabella ristretta alle pose della baseline.
+    // Gli intervalli dei giunti non si possono allargare (le nuove pose stanno dentro quelli esistenti): lo controlla lo stesso hash.
+    for (const o of output) for (const sym of o.symbols || []) if (sym.rig?.poses) sym.rig.poses = Object.fromEntries(baseline.pose.map(n => [n, sym.rig.poses[n]]));
     assert.equal(createHash('sha256').update(JSON.stringify(output)).digest('hex'), hash, variant + ': aspetto o rig modificato');
   }
 });

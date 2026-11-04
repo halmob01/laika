@@ -182,6 +182,33 @@ Un episodio può dichiarare `context: {"kind":"simulation","dateLabel":"1861","p
 
 LAIKA usa un [assemblatore di sorgenti separati](../games/laika/README.md), facoltativo per gli altri giochi. Il CLI di validazione controlla anche i contratti del registro prima di caricare i pacchetti.
 
+### La coda con la pazienza (`queue`, 4 novembre 2026)
+
+Per le code che si sciolgono (il pane del 1917, le razioni del 1919, i negozi vuoti del 1989). È un modulo accanto ai turni: `src/core/queue.js`, usato da `turn_game`. Scheda di lettura: [GIOCHI](laika/GIOCHI.md) §3.5. Vale per i giochi di sole decisioni e per quelli con i posti; non ha contenuti di un gioco specifico.
+
+```json
+"queue": {
+  "label": "La coda del pane", "patienceLabel": "Pazienza",
+  "groups":  [{"id": "tessili", "label": "Le tessili", "size": 6, "patience": 6, "exit": "fabbrica", "figure": "coda"}],
+  "signals": [{"at": 3, "label": "guardano l'orologio", "pose": "guarda_orologio"}, {"at": 1, "label": "battono i piedi", "pose": "batte_piedi"}],
+  "drain":   {"base": 1, "factors": [{"id": "gelo", "label": "Il gelo", "when": {"op": "gte", "kind": "metric", "id": "gelo", "value": 5}, "extra": 1}]},
+  "exits":   [{"id": "fabbrica", "label": "In fabbrica", "text": "vanno in fabbrica.", "effects": [{"kind": "metric", "id": "malcontento", "delta": 10}]}]
+}
+```
+
+- `groups`: da 1 a 6 gruppi in fila. `patience` (da 2 a 30) è il numero di turni di attesa; `size` le persone mostrate; `exit` la destinazione di chi se ne va; `figure` (facoltativo) il nome del gruppo di figure nella scena.
+- `signals`: da 1 a 5 soglie fisse, uguali per tutti i gruppi. Quando la pazienza di un gruppo scende fino alla soglia (o sotto) parte il segnale: un testo e, se c'è, il nome di una posa della figura (`guarda_orologio`, `batte_piedi`, `si_stringe`, ma vale qualunque posa della bottega). Per ogni gruppo e turno parte al massimo un segnale, il più urgente fra quelli superati. Ogni soglia deve stare sotto la pazienza di partenza.
+- `drain`: di quanto scende la pazienza alla fine di ogni turno. `base` (predefinito 1) più gli `extra` dei `factors` la cui condizione vale in quel momento (il gelo, le voci: sono indicatori o flag come tutte le condizioni) più il `queue.drain` del turno.
+- `exits`: dove va chi arriva a zero. Gli `effects` sono mutazioni degli indicatori, applicate una volta quando il gruppo lascia la fila. Chi se n'è andato non torna e non scende più.
+- Nel turno: `turns[].queue: {drain?, note?}` (un gelo o una ressa solo di quel turno).
+- Nelle risposte, negli esiti (`success`, `failure`) e nelle offerte del mercato: `queue: [{"group": "tessili" | "*", "patience": 2}]` alza (o abbassa) la pazienza di chi è ancora in fila. Mai sopra la pazienza di partenza e mai sotto 1: una risposta non manda via nessuno, solo il passare dei turni.
+
+Quando scende: alla fine di ogni turno (`leave` del mercato, `continue` dopo la richiesta). Lo stato è in `game.queue`: `groups[id] = {patience, max, gone, goneTurn}`, `last` (l'ultima discesa: `turn`, `drain` con i fattori, `events` con segnali e uscite, `changes` degli indicatori) e `log`. I segnali e le uscite entrano anche nel testo dell'ultima mossa. Tutto è deterministico e si rigioca dal registro delle mosse, perciò il salvataggio a metà funziona come per il resto della partita.
+
+`queueView(q, g, turno, stato, matches)` restituisce per l'interfaccia chi è in fila, la pazienza, il prossimo segnale e fra quanti turni arriva, fra quanti turni se ne va chi aspetta (a parità di discesa), la posa da mostrare adesso e la discesa prevista del turno con i suoi fattori: è quello che permette al giocatore di vedere la crisi arrivare. Il pannello «La coda» sopra la mossa lo mostra con la barra della pazienza, in testo e per gli screen reader. Per far vedere una persona che lascia la fila nella scena non serve un'azione nuova: `walk` con `da: [dx, dy]` parte dal posto in fila e arriva dove la persona si ferma (esempio `bottega/esempi/coda-pazienza.json`, sequenza `esce`).
+
+Test: `tests/queue.test.js` (pazienza, segnali alle soglie, fattori, uscita con effetti, risposte che alzano la pazienza, lettura per l'interfaccia, salvataggio e ripresa).
+
 ## Unità dentro l'atto (opzionale)
 
 Un atto può dichiarare `period` e `question` (una riga ciascuno) e `units`: tappe con una pagina propria. Se ci sono, il player mostra prima la **pagina dell'atto** (le unità in fila con il loro stato), poi la **pagina dell'unità** e solo dopo il gioco; a fine unità compare la **pagina di chiusura**. Senza `units` il corso funziona come prima.

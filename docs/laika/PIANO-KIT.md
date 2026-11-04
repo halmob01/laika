@@ -70,12 +70,12 @@ Regole:
 - Scene: piazza con la folla in ginocchio, panetteria.
 - Da comporre: la catena del grano che si vede: granaio (`campagna-granaio`), carro, treno sui binari (`mezzo-treno`, `infra-binari`), panetteria; il fronte con la trincea (`ambiente-trincea`); il manifesto del prestito di guerra; il palazzo isolato nella foschia per la fine dello zar in famiglia (oggi senza scena).
 - Disegni da chiedere: vetrina del gioielliere (Fabergé e il pane nella stessa strada).
-- Motore: **«merci che camminano»** (GIOCHI §3.6–§3.7): figure che portano il grano lungo la catena e si vede dove si inceppa. PR di motore propria.
+- Motore: **«merci che camminano»** (GIOCHI §3.6–§3.7): figure che portano il grano lungo la catena e si vede dove si inceppa. Fatto con K1 (`src/core/queue.js`, sezione «La coda con la pazienza» di CREARE-UN-GIOCO).
 
 **III.2 `otto-giorni` · code che diventano corteo, da rifare**
 - Scene: strada con neve, caserma.
 - Da comporre: la coda vera (formazione `coda`, azioni `queue`, `walk`, `disperse`) con la tessera (`coda-tessera`); le tessili che escono dalla fabbrica (`luogo-fabbrica`); il soldato che abbassa il fucile (azione `lower`); **il treno fermo nella neve** (`mezzo-treno`, `infra-binari`, `atmo-neve`); il confronto con il disco rosso che passa dal Palazzo d'Inverno (`luogo-palazzo`) al Palazzo di Tauride (`luogo-palazzo-tauride`, azione `transfer`).
-- Pose da aggiungere: i segnali di chi aspetta (guarda l'orologio, batte i piedi, si stringe nello scialle), come nella scheda di lettura di CorsixTH (GIOCHI §3.5).
+- Pose (fatte con K1): i segnali di chi aspetta (`guarda_orologio`, `batte_piedi`, `si_stringe`), come nella scheda di lettura di CorsixTH (GIOCHI §3.5).
 - Motore: **coda con pazienza**: ogni persona in fila ha una pazienza che scende, manda segnali a soglie fisse e a zero lascia la fila e va altrove (fabbrica, corteo). PR di motore propria.
 
 **Tutti gli atti**

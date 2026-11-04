@@ -36,7 +36,13 @@ export const POSE = {
   lavora:         { label: 'Lavora martello', shL: 20,  elL: 15,  shR: -95, elR: -25, hipL: 18, knL: 5,  hipR: -16, knR: 5,  lean: 10, yOff: 0, prop: 'martello-in-mano', extras: ['mattoni-officina'] },
   legge:          { label: 'Legge giornale',  shL: -45, elL: -30, shR: -55, elR: -35, hipL: 10, knL: 0,  hipR: -10, knR: 0,  lean: 4,  yOff: 0, prop: 'giornale-in-mano' },
   // Aggiunta 20 ottobre 2026: lavoro dei campi.
-  zappa:          { label: 'Zappa',           shL: -30, elL: -35, shR: -50, elR: -20, hipL: 24, knL: 10, hipR: -20, knR: 12, lean: 24, yOff: 2,  prop: 'zappa-in-mano' }
+  zappa:          { label: 'Zappa',           shL: -30, elL: -35, shR: -50, elR: -20, hipL: 24, knL: 10, hipR: -20, knR: 12, lean: 24, yOff: 2,  prop: 'zappa-in-mano' },
+  // Aggiunta 4 novembre 2026 (K1, la coda con la pazienza): i segnali di chi aspetta, a soglie fisse.
+  // Gli angoli (e le mani, -(spalla+gomito)) restano dentro gli intervalli già usati dalle altre pose: gli intervalli del rig si ricavano da tutte le pose
+  // e allargarli cambierebbe il disegno delle figure esistenti (test «baseline»).
+  guarda_orologio:{ label: 'Guarda l\'orologio', shL: 14, elL: 4,  shR: -96, elR: -55, hipL: 10, knL: 0, hipR: -10, knR: 0,  lean: 3,  yOff: 0 },
+  batte_piedi:    { label: 'Batte i piedi',   shL: 12,  elL: -28, shR: -12, elR: 28,  hipL: 22, knL: 22, hipR: -6,  knR: 0,  lean: 0,  yOff: 0 },
+  si_stringe:     { label: 'Si stringe nello scialle', shL: -20, elL: -50, shR: -52, elR: 65, hipL: 8, knL: 8, hipR: -8, knR: 8, lean: 9,  yOff: 4 }
 };
 
 // Varianti dello studio: corpo, copricapo, abito, accessorio.
