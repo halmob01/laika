@@ -212,6 +212,35 @@ Quando scende: alla fine di ogni turno (`leave` del mercato, `continue` dopo la 
 
 Test: `tests/queue.test.js` (pazienza, segnali alle soglie, fattori, uscita con effetti, risposte che alzano la pazienza, lettura per l'interfaccia, salvataggio e ripresa).
 
+### Le merci che camminano (`chain`, 4 novembre 2026)
+
+Per le catene che si inceppano (il grano che va dai campi alla città, il piano contro la realtà). È un modulo accanto ai turni: `src/core/chain.js`, usato da `turn_game` come la coda. Schede di lettura: [GIOCHI](laika/GIOCHI.md) §3.6 e §3.7. Nessun contenuto di un gioco specifico.
+
+```json
+"chain": {
+  "label": "Il grano verso la città", "goodsLabel": "grano", "supply": 6,
+  "links": [
+    {"id": "campi", "label": "I campi", "capacity": 6, "stock": 12},
+    {"id": "granai", "label": "I granai", "capacity": 5, "jamText": "è pieno e rallenta"},
+    {"id": "treni", "label": "I treni", "capacity": 3},
+    {"id": "citta", "label": "La città"}
+  ],
+  "paper": {"start": 30}, "deliver": {"metric": "pane", "per": 2}, "gap": {"metric": "scarto"}, "jam": {"at": 8, "factor": 0.5}
+}
+```
+
+- `links`: da 4 a 5 anelli, dal primo (la fonte) all'ultimo (la destinazione, senza capacità). Ogni anello ha una `capacity` (quanta merce passa al successivo a ogni turno) e una `stock` iniziale. `jamText` è il testo di quando l'anello si inceppa; `figure` (facoltativo) è il nome delle figure della scena che portano la merce su quel tratto.
+- A fine turno entra `supply` nel primo anello (più il `chain.supply` del turno, anche negativo) e ogni anello passa al successivo al massimo la sua capacità. Si muove quello che c'era all'inizio del turno: la merce fa un anello a turno, quindi fra la fonte e la destinazione passano tanti turni quanti sono gli anelli meno uno.
+- **Inceppo:** un anello intermedio (non il primo né l'ultimo) con `jam.at` unità o più è inceppato dal turno dopo: passa solo `factor` della capacità (arrotondata per difetto). Si libera quando scende sotto la soglia.
+- **Due numeri distinti:** `paper` è il numero sulla carta (l'obiettivo dichiarato, il rapporto); il numero reale è la merce arrivata all'ultimo anello (`real`, cumulativo). `deliver` muove una metrica per ogni unità arrivata; `gap` fa seguire a una metrica la differenza «carta meno realtà» (zero se la realtà supera la carta).
+- Nel turno: `turns[].chain: {supply?, paper?}` (un raccolto scarso, un rapporto che cresce da solo).
+- Nelle risposte, negli esiti e nelle offerte del mercato: `chain: [{"link": "treni", "capacity": 2}, {"link": "granai", "stock": -4}, {"paper": 10}]`. La capacità non scende sotto 0 e non supera il doppio di quella di partenza; la scorta non scende sotto 0; la carta non scende sotto 0.
+- Dopo il passaggio delle merci si controllano le `crises` dell'episodio (come dopo la coda). Lo stato è in `game.chain`: `stock`, `capacity`, `jammed`, `paper`, `real` e `last` (`moved`, `delivered`, `newlyJammed`, `freed`, `gap`, `changes`, `crises`). I testi degli anelli che si inceppano entrano nel testo dell'ultima mossa.
+
+`chainView(c, g)` restituisce per l'interfaccia gli anelli con la scorta, la capacità di adesso e l'inceppo, i due numeri e lo scarto: è quello che il pannello «La catena» mostra sopra la mossa (in testo, con «inceppato» a parole). Coda e catena possono stare nello stesso episodio: a fine turno passano prima le merci, poi scende la coda, poi si controllano le crisi.
+
+La scena di prova è `bottega/esempi/catena-merci.json` (galleria della bottega): figure che portano i sacchi da un anello al successivo e una pila di sacchi davanti al granaio che si inceppa. Test: `tests/chain.test.js` (validazione, una merce per anello a turno, il più stretto limita, inceppo e liberazione, carta e realtà distinte con lo scarto, modifiche con i limiti, testo dell'ultima mossa, salvataggio e ripresa).
+
 ## Unità dentro l'atto (opzionale)
 
 Un atto può dichiarare `period` e `question` (una riga ciascuno) e `units`: tappe con una pagina propria. Se ci sono, il player mostra prima la **pagina dell'atto** (le unità in fila con il loro stato), poi la **pagina dell'unità** e solo dopo il gioco; a fine unità compare la **pagina di chiusura**. Senza `units` il corso funziona come prima.

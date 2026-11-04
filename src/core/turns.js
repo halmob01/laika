@@ -8,6 +8,7 @@
 import {assert, text, id, unique, condition, mutations, CONTEXT_LABELS} from './schema.js';
 import {applyEffects, matches, clamp, clone} from './engine.js';
 import {validateQueue, validateQueueEdits, validateTurnQueue, initQueue, queueTick, applyQueueEdits} from './queue.js';
+import {validateChain, validateChainEdits, validateTurnChain, initChain, chainTick, applyChainEdits} from './chain.js';
 
 export const TURN_STEPS = ['card', 'back', 'place', 'assign', 'reserve', 'confirm', 'choose', 'continue', 'buy', 'leave'];
 const PHASES = ['cards', 'place', 'result', 'event', 'eventResult', 'market', 'done'];
@@ -146,6 +147,8 @@ export function validateTurnGame(e, act, stages) {
   rulesSpec(e.rules, act, places, 'Regole iniziali', workers);
   // La coda con la pazienza (src/core/queue.js): gruppi in fila, segnali a soglie fisse, uscita verso una destinazione.
   if (e.queue !== undefined) validateQueue(e.queue, act);
+  // Le merci che camminano (src/core/chain.js): da quattro a cinque anelli, carta contro realtà.
+  if (e.chain !== undefined) validateChain(e.chain, act);
   for (const c of e.crises || []) {
     assert(id(c.id) && text(c.text) && c.when, 'Crisi non valida'); condition(c.when, act); mutations(c.effects || [], act); rulesSpec(c.rules, act, places, 'Crisi ' + c.id, workers);
   }
@@ -155,7 +158,7 @@ export function validateTurnGame(e, act, stages) {
   e.turns.forEach((t, i) => {
     const where = 'Turno ' + (i + 1);
     assert(t && text(t.label), where + ': etichetta mancante');
-    cardsSpec(t.cards, stages, where, act); rulesSpec(t.rules, act, places, where, workers); validateTurnQueue(t, e.queue, where);
+    cardsSpec(t.cards, stages, where, act); rulesSpec(t.rules, act, places, where, workers); validateTurnQueue(t, e.queue, where); validateTurnChain(t, e.chain, where);
     // Effetti d'inizio turno (per esempio un passaggio di generazione che azzera un flag): si applicano dopo aver scelto le card.
     if (t.effects !== undefined) mutations(t.effects, act);
     if (t.preview !== undefined) assert(text(t.preview), where + ': avviso vuoto');
@@ -167,8 +170,8 @@ export function validateTurnGame(e, act, stages) {
         if (c.when !== undefined) condition(c.when, act);
         if (c.chance) {
           chanceSpec(c.chance, act, where);
-          for (const k of ['success', 'failure']) { const o = c[k]; assert(o && text(o.text), where + ': esito ' + k + ' mancante'); mutations(o.effects || [], act); rulesSpec(o.rules, act, places, where, workers); validateQueueEdits(o.queue, e.queue, where); }
-        } else { assert(text(c.text), where + ': esito della risposta mancante'); mutations(c.effects || [], act); rulesSpec(c.rules, act, places, where, workers); validateQueueEdits(c.queue, e.queue, where); }
+          for (const k of ['success', 'failure']) { const o = c[k]; assert(o && text(o.text), where + ': esito ' + k + ' mancante'); mutations(o.effects || [], act); rulesSpec(o.rules, act, places, where, workers); validateQueueEdits(o.queue, e.queue, where); validateChainEdits(o.chain, e.chain, where); }
+        } else { assert(text(c.text), where + ': esito della risposta mancante'); mutations(c.effects || [], act); rulesSpec(c.rules, act, places, where, workers); validateQueueEdits(c.queue, e.queue, where); validateChainEdits(c.chain, e.chain, where); }
       }
     }
     // Mercato: si possono prendere più offerte, ognuna una volta per visita (once: una volta in tutta la partita).
@@ -188,8 +191,8 @@ export function validateTurnGame(e, act, stages) {
         if (o.chance) {
           assert(m.points !== undefined, where + ': esito incerto solo con i punti');
           chanceSpec(o.chance, act, where);
-          for (const k of ['success', 'failure']) { assert(o[k] && text(o[k].text), where + ': esito ' + k + ' mancante'); mutations(o[k].effects || [], act); validateQueueEdits(o[k].queue, e.queue, where); }
-        } else { assert(text(o.text), where + ': offerta senza testo'); mutations(o.effects || [], act); rulesSpec(o.rules, act, places, where, workers); validateQueueEdits(o.queue, e.queue, where); }
+          for (const k of ['success', 'failure']) { assert(o[k] && text(o[k].text), where + ': esito ' + k + ' mancante'); mutations(o[k].effects || [], act); validateQueueEdits(o[k].queue, e.queue, where); validateChainEdits(o[k].chain, e.chain, where); }
+        } else { assert(text(o.text), where + ': offerta senza testo'); mutations(o.effects || [], act); rulesSpec(o.rules, act, places, where, workers); validateQueueEdits(o.queue, e.queue, where); validateChainEdits(o.chain, e.chain, where); }
       }
     }
   });
@@ -249,6 +252,7 @@ export function initGame(e, state, act) {
   const g = { episodeId: e.id, turn: 0, phase: 'place', card: 0, placement: {}, assign: {}, progress: {}, started: [], built: [], reserve: e.reserve?.start ?? 0, bought: [], market: null,
     rules: mergeRules({ tokens: e.tokens ?? 0, min: {}, places: {}, upkeep: [] }, e.rules), fired: [], result: null, eventResult: null };
   if (e.queue) g.queue = initQueue(e.queue);
+  if (e.chain) g.chain = initChain(e.chain);
   enterTurn(e, g, state, act);
   return g;
 }
@@ -321,13 +325,16 @@ function fireCrises(act, e, state, g, cause) {
   return { crises: out, changes };
 }
 function nextTurn(e, state, g, act, sink = []) {
-  // Fine del turno: la coda scende, manda i suoi segnali e chi ha finito la pazienza se ne va.
-  if (e.queue) {
-    const tick = queueTick(e.queue, g, e.turns[g.turn], state, { matches, applyEffects, netChanges, act }, e.id + ':' + g.turn + ':coda');
-    // Le crisi si controllano anche dopo la discesa (e dopo l'ultima giornata): gli effetti delle uscite possono farle scattare.
-    const cr = fireCrises(act, e, state, g, e.id + ':' + g.turn + ':coda');
-    g.queue.last.crises = cr.crises; g.queue.last.changes = netChanges([...tick, ...cr.changes]);
-    sink.push(...tick, ...cr.changes);
+  // Fine del turno: la catena fa passare le merci e la coda scende, manda i suoi segnali e chi ha finito la pazienza se ne va;
+  // poi si controllano le crisi (anche dopo l'ultima giornata): gli effetti possono farle scattare.
+  if (e.chain || e.queue) {
+    const cause = e.id + ':' + g.turn;
+    const catena = e.chain ? chainTick(e.chain, g, e.turns[g.turn], { applyEffects, act, state }, cause + ':catena') : [];
+    const tick = e.queue ? queueTick(e.queue, g, e.turns[g.turn], state, { matches, applyEffects, netChanges, act }, cause + ':coda') : [];
+    const cr = fireCrises(act, e, state, g, cause + ':coda');
+    if (e.queue) { g.queue.last.crises = cr.crises; g.queue.last.changes = netChanges([...tick, ...cr.changes]); }
+    if (e.chain) { g.chain.last.crises = cr.crises; g.chain.last.changes = netChanges([...catena, ...cr.changes]); }
+    sink.push(...catena, ...tick, ...cr.changes);
   }
   g.turn++;
   if (g.turn >= e.turns.length) { g.phase = 'done'; return true; }
@@ -335,6 +342,19 @@ function nextTurn(e, state, g, act, sink = []) {
 }
 function openMarket(e, g) { g.phase = 'market'; g.market = { bought: [], log: [], changes: [], left: e.turns[g.turn].market.points ?? null }; }
 function afterEvent(e, state, g, t, act, sink) { if (t.market) openMarket(e, g); else nextTurn(e, state, g, act, sink); }
+
+// I testi di fine turno: segnali e uscite della coda, anelli che si inceppano o si liberano, crisi.
+function fineTurno(e, g, turn0) {
+  const out = [];
+  if (g.queue?.last?.turn === turn0) out.push(...g.queue.last.events.map(x => x.text));
+  if (g.chain?.last?.turn === turn0) {
+    const l = g.chain.last;
+    for (const id of l.newlyJammed || []) { const link = e.chain.links.find(x => x.id === id); out.push(link.label + ': ' + (link.jamText || 'si è inceppato').replace(/\.$/, '') + '.'); }
+  }
+  const cr = (g.queue?.last?.turn === turn0 ? g.queue.last.crises : g.chain?.last?.turn === turn0 ? g.chain.last.crises : null) || [];
+  out.push(...cr.map(x => x.text));
+  return out;
+}
 
 export function turnAction(act, e, previous, action, seed) {
   assert(previous.phase === 'scene' && previous.game && previous.game.episodeId === e.id, 'Partita non attiva');
@@ -436,6 +456,7 @@ export function turnAction(act, e, previous, action, seed) {
       if (c.chance) { p = chanceOf(c.chance, act, previous); success = draw(seed, e.id, g.turn, 'evento', c.id) < p; o = success ? c.success : c.failure; }
       g.rules = mergeRules(g.rules, o.rules);
       if (e.queue) applyQueueEdits(e.queue, g, o.queue);
+      if (e.chain) applyChainEdits(e.chain, g, o.chain);
       changes.push(...applyEffects(act, state, o.effects || [], cause + ':' + c.id));
       const cr = fireCrises(act, e, state, g, cause); changes.push(...cr.changes);
       g.eventResult = { choiceId: c.id, text: o.text, p: p === null ? null : Math.round(p * 100), success, crises: cr.crises, changes: netChanges(changes) };
@@ -453,6 +474,7 @@ export function turnAction(act, e, previous, action, seed) {
       if (o.chance) { p = chanceOf(o.chance, act, previous); success = draw(seed, e.id, g.turn, 'azione', o.id, nth) < p; r = success ? o.success : o.failure; }
       g.rules = mergeRules(g.rules, r.rules);
       if (e.queue) applyQueueEdits(e.queue, g, r.queue);
+      if (e.chain) applyChainEdits(e.chain, g, r.chain);
       changes.push(...applyEffects(act, state, r.effects || [], cause + ':' + o.id + ':' + nth));
       const cr = fireCrises(act, e, state, g, cause); changes.push(...cr.changes);
       g.market.log.push(r.text, ...cr.crises.map(x => x.text)); g.market.changes = netChanges([...g.market.changes, ...changes]);
@@ -464,11 +486,12 @@ export function turnAction(act, e, previous, action, seed) {
       nextTurn(e, state, g, act, changes); break;
   }
   // Se il turno è finito, i segnali e le uscite della coda entrano nel testo dell'ultima mossa.
-  if (g.queue?.last?.turn === turn0 && (g.queue.last.events.length || g.queue.last.crises?.length) && ['continue', 'leave'].includes(action.step)) feedback = [feedback, ...g.queue.last.events.map(x => x.text), ...(g.queue.last.crises || []).map(x => x.text)].filter(Boolean).join(' ');
+  const dopo = (['continue', 'leave'].includes(action.step) ? fineTurno(e, g, turn0) : []);
+  if (dopo.length) feedback = [feedback, ...dopo].filter(Boolean).join(' ');
   if (g.phase === 'done') {
     state.turn++; state.events.push(e.id); state.phase = 'outcome';
     // L'ultima discesa della coda (segnali, uscite, crisi) precede il testo finale.
-    const fine = g.queue?.last?.turn === turn0 ? [...g.queue.last.events.map(x => x.text), ...(g.queue.last.crises || []).map(x => x.text)] : [];
+    const fine = fineTurno(e, g, turn0);
     feedback = [...fine, e.feedback].join(' '); state.last = { feedback, changes: [], events: [], sourceDecisionId: e.id };
   }
   assert(PHASES.includes(g.phase), 'Fase non valida');

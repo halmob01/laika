@@ -4,7 +4,7 @@
 
 Come si lavora in autonomia, controlli e condizioni di arresto: [METODO](METODO.md) §7. Il prossimo incarico e il messaggio da dare all'agente: `npm run prossimo`.
 
-Incarichi fatti: 5 su 21. Prossimo: K2.
+Incarichi fatti: 6 su 21. Prossimo: U-pane-guerra.
 
 | # | Incarico | Tipo | Modello | Dopo | Stato |
 |---:|---|---|---|---|---|
@@ -13,7 +13,7 @@ Incarichi fatti: 5 su 21. Prossimo: K2.
 | 3 | **K6** Motore: le crisi dopo la coda e le uscite che dipendono dalla partita | motore | Opus | K1 | fatto (PR #49) |
 | 4 | **U-otto-giorni** III.2 Otto giorni: la coda vera, il soldato, il treno, Tauride | unità | Opus | S1, K1, K6 | fatto (PR #50) |
 | 5 | **K4** Bottega: i disegni che mancano agli Atti I–III | bottega | Sonnet | S1 | fatto (PR #51) |
-| 6 | **K2** Motore: le merci che camminano | motore | Opus | S1 | da fare |
+| 6 | **K2** Motore: le merci che camminano | motore | Opus | S1 | fatto (PR #52) |
 | 7 | **U-pane-guerra** III.1 Pane e guerra: grano, treni e città | unità | Opus | S1, K2, K4 | da fare |
 | 8 | **C-III** Il docente prova l'Atto III dal telefono | controllo | — | U-pane-guerra, U-otto-giorni | da fare |
 | 9 | **U-mir** I.2 Il mir: da questionario a gioco | unità | Opus | S1, K4 | da fare |
@@ -93,6 +93,8 @@ Evidenze: docs/evidence/K4/, prototypes/kit-atti-i-iii/kit-atti-i-iii.html, bott
 - Una scena di prova e una sezione in `docs/CREARE-UN-GIOCO.md`.
 
 È fatto quando: Test del motore: la catena si inceppa dove deve, carta e realtà si separano, salvataggio a metà; Controlli comuni G1–G5 passati (METODO §7).
+
+Evidenze: docs/evidence/K2/, tests/chain.test.js, docs/CREARE-UN-GIOCO.md.
 
 ## U-pane-guerra — III.1 Pane e guerra: grano, treni e città
 

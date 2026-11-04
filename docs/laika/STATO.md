@@ -20,6 +20,8 @@ Aggiornato al 4 novembre 2026.
 
 **K6 fatto** (inserito il 4 novembre 2026 dalla revisione indipendente della scheda di «Otto giorni», D-041): le crisi dei turni a punti si controllano anche dopo la discesa della coda e un gruppo può avere più uscite scelte da una condizione. «Otto giorni» (U-otto-giorni) riparte dopo K6.
 
+**K2 fatto** (motore delle merci che camminano): modulo `src/core/chain.js` con test, pannello «La catena» nel gioco, scena di prova `esempio-catena-merci` nella galleria, sezione in `docs/CREARE-UN-GIOCO.md`. Evidenze in `docs/evidence/K2/`.
+
 **K4 fatto** (disegni che mancavano agli Atti I–III): nuovo kit `prototypes/kit-atti-i-iii/` con colonia militare, tazza smaltata, icona da processione, podere con casa isolata e vetrina del gioielliere; variante della figura `dignitario` e posa `scrive`; tutti in bozza, usati in scene (`servitu-utopie`, `citta-corte`, `petizione-domenica`, `stolypin-strisce`, `pane-guerra-pane`, `concessioni-sala`, `petizione-putilov`). Catalogo: 141 disegni. Evidenze in `docs/evidence/K4/`.
 
 Proposte P-01–P-05 chiuse dal docente il 4 novembre (D-038, D-039): si lavora in autonomia con [PIANO-1917](PIANO-1917.md).

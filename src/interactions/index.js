@@ -4,6 +4,7 @@ import {optionOrder} from '../assessment/index.js';
 import {chanceOf,luckOdds,shortfalls,placed,placeLabel,perToken,workersOf,targetsOf,yieldOf,committed,offerOpen,activeStage,cardAt,cardCount} from '../core/turns.js';
 import {matches} from '../core/engine.js';
 import {queueView} from '../core/queue.js';
+import {chainView} from '../core/chain.js';
 export function el(tag,text,attrs={}) {const node=document.createElement(tag);if(text!==undefined)node.textContent=text;for(const [k,v] of Object.entries(attrs))node.setAttribute(k,v);return node;}
 export function button(label,handler,attrs={}) {const b=el('button',label,{type:'button',...attrs});b.addEventListener('click',handler);return b;}
 const registry=new Map();
@@ -171,6 +172,23 @@ function queuePanel(episode,g,t,state){
   if(last&&last.turn===g.turn-1&&(last.events.length||(last.crises||[]).length)){const note=el('div',undefined,{class:'outcome',role:'status'});for(const e of last.events)note.append(el('p',e.text));for(const c of last.crises||[])note.append(el('p',c.text));box.append(note);}
   return box;
 }
+// Le merci che camminano: anelli con scorta e capacità di adesso, inceppi, e i due numeri (carta e realtà).
+function chainPanel(episode,g){
+  const c=episode.chain;if(!c||!g.chain)return null;
+  const v=chainView(c,g),goods=(c.goodsLabel||'merce'),box=el('section',undefined,{class:'turn-chain','aria-label':c.label||'La catena'}),ul=el('ul');
+  box.append(el('h3',c.label||'La catena'));
+  for(const l of v.links){
+    const li=el('li',undefined,{class:l.jammed?'jam':''});li.append(el('b',l.label));
+    li.append(el('small',l.last?'Arrivato: '+l.stock+'.':'In magazzino: '+l.stock+'. Passano '+l.capacity+' per turno'+(l.jammed?': inceppato, '+l.jamText:'')+'.'));
+    ul.append(li);
+  }
+  box.append(ul,el('p','Sulla carta: '+v.paper+'. In realtà (arrivato): '+v.real+'. Scarto: '+v.gap+'.',{class:'turn-chain-numbers'}));
+  const last=v.last;
+  if(last&&last.turn===g.turn-1){const note=el('div',undefined,{class:'outcome',role:'status'});note.append(el('p','Arrivati questo turno: '+last.delivered+' ('+goods+').'));for(const id of last.newlyJammed||[]){const l=c.links.find(x=>x.id===id);note.append(el('p',l.label+': '+(l.jamText||'si è inceppato').replace(/\.$/,'')+'.'));}box.append(note);}
+  return box;
+}
+// Le modifiche della catena di un'offerta, in chiaro: «I treni +2 passano per turno», «Carta +10».
+function chainText(episode,list){const c=episode.chain;if(!c||!list?.length)return '';return list.map(m=>m.paper!==undefined?'Carta '+sign(m.paper):(c.links.find(x=>x.id===m.link)?.label||m.link)+' '+sign(m.capacity??m.stock)+(m.capacity!==undefined?' per turno':' in magazzino')).join(', ');}
 function stepper(episode,g){
   const t=episode.turns[g.turn],now=g.phase==='eventResult'?'event':g.phase;
   const list=['cards','place','result','event','market'].filter(k=>k==='cards'?cardCount(episode,g)>0:k==='event'?!!t.event:k==='market'?!!t.market:!!episode.places);
@@ -185,7 +203,7 @@ function turnGame(ctx){
     if(step!==null)return dispatch({type:'turn',step,...extra});host.replaceChildren();turnGame(ctx);(host.querySelector('[data-worker][aria-pressed=true]')||host.querySelector('[data-worker]'))?.focus({preventScroll:true});};
   if(episode.workers)board(stageHost,stage,episode,act,state,dispatch);else hotspots(stageHost,episode,g,dispatch,state);
   if(state.phase!=='scene')return;
-  const head=el('p',undefined,{class:'turn-label'});head.append(el('span',t.label,{class:'turn-year'}),el('span',(episode.turnWord||'anno')+' '+(g.turn+1)+' di '+episode.turns.length,{class:'turn-count'}));host.append(head,stepper(episode,g));{const qp=queuePanel(episode,g,t,state);if(qp)host.append(qp);}
+  const head=el('p',undefined,{class:'turn-label'});head.append(el('span',t.label,{class:'turn-year'}),el('span',(episode.turnWord||'anno')+' '+(g.turn+1)+' di '+episode.turns.length,{class:'turn-count'}));host.append(head,stepper(episode,g));{const qp=queuePanel(episode,g,t,state);if(qp)host.append(qp);}{const cp=chainPanel(episode,g);if(cp)host.append(cp);}
   if(g.phase==='cards'){
     const c=cardAt(episode,g),n=cardCount(episode,g),box=el('div',undefined,{class:'cards turn-cards'}),bar=el('div',undefined,{class:'card-bar','aria-hidden':'true'}),nav=el('div',undefined,{class:'card-nav'});
     for(let i=0;i<n;i++)bar.append(el('i',undefined,{class:i<g.card?'done':i===g.card?'now':''}));
@@ -256,6 +274,7 @@ function turnGame(ctx){
       if(o.cost>1)b.append(el('span','Costa '+o.cost+' punti'));
       if(o.chance){const pc=Math.round(chanceOf(o.chance,act,state)*100);b.append(el('span','riesce nel '+pc+'% dei casi'));}
       else if(o.effects?.length)b.append(el('span',effectsText(act,o.effects.filter(x=>x.kind!=='flag'))));
+      {const ct=o.chance?[chainText(episode,o.success?.chain)&&'se riesce: '+chainText(episode,o.success.chain),chainText(episode,o.failure?.chain)&&'se no: '+chainText(episode,o.failure.chain)].filter(Boolean).join('; '):chainText(episode,o.chain);if(ct)b.append(el('span',ct));}
       {const qt=o.chance?[queueText(episode,o.success?.queue)&&'se riesce: '+queueText(episode,o.success.queue),queueText(episode,o.failure?.queue)&&'se no: '+queueText(episode,o.failure.queue)].filter(Boolean).join('; '):queueText(episode,o.queue);if(qt)b.append(el('span',qt));}
       b.disabled=!offerOpen(episode,g,o,state);const n=g.market.bought.filter(x=>x===o.id).length;if(n)b.append(el('small',o.repeat?'fatto '+n+(n===1?' volta':' volte'):'preso'));shop.append(b);}
     host.append(shop);
