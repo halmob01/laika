@@ -1,6 +1,6 @@
 # Gioco di III.2 — Otto giorni (`otto-giorni`)
 
-Scheda di gioco dell'unità `otto-giorni` (canone: III.2). Versione 3 · 4 novembre 2026 · le versioni 1 e 2 non sono passate alla revisione indipendente (data sbagliata nel racconto del treno, obiettivo 3 solo nominato, numeri della coda che non sostenevano la tesi; poi due meccaniche mancanti nel motore, ora costruite con K6); questa le usa. Gioco del canone: «code che diventano corteo, poi punti azione (il soldato che non spara)». Regole comuni: [GIOCHI](../GIOCHI.md) §2, §3.5 (le code) e §3.8 (la giornata a punti azione). Motore: la coda con la pazienza (K1 e K6, [CREARE-UN-GIOCO](../../CREARE-UN-GIOCO.md)).
+Scheda di gioco dell'unità `otto-giorni` (canone: III.2). Versione 4 · 4 novembre 2026 · le versioni 1, 2 e 3 non sono passate alla revisione indipendente (data sbagliata nel racconto del treno, obiettivo 3 solo nominato, numeri della coda che non sostenevano la tesi; poi due meccaniche mancanti nel motore, ora costruite con K6; poi una strategia che dominava le altre: organizzarsi solo l'ultimo giorno); questa la corregge. Gioco del canone: «code che diventano corteo, poi punti azione (il soldato che non spara)». Regole comuni: [GIOCHI](../GIOCHI.md) §2, §3.5 (le code) e §3.8 (la giornata a punti azione). Motore: la coda con la pazienza (K1 e K6, [CREARE-UN-GIOCO](../../CREARE-UN-GIOCO.md)).
 
 Tutti i numeri sono indici della simulazione, non statistiche storiche. Le date sono nei due calendari: 8 marzo (23 febbraio nel calendario russo), 12 marzo (27 febbraio), 15 marzo (2 marzo), 16 marzo (3 marzo). Gli appunti dello studio riportano «22 febbraio» e «primo marzo»: in contrasto con le schede dell'atto, si usano le date della scheda e si lasciano fuori dal testo dello studente quelle non riscontrate.
 
@@ -29,7 +29,7 @@ L'unità ha due giochi collegati dagli stessi indicatori (lo stato dell'atto pas
 
 **Il pane cala da solo.** Ogni giornata il pane in città scende di 8 (nel testo: «Ogni notte ne arriva meno»), a partire dal valore con cui finisce III.1.
 
-**Indicatori visibili (tre):** Pane in città; Voci che girano (nuovo, da 0 a 100); Operai in piazza (lo stesso indicatore della parte 2). La forza del vecchio ordine si muove ma si mostra solo nella parte 2.
+**Indicatori visibili (tre):** Pane in città; Voci che girano (nuovo, da 0 a 100, parte da 20); Operai in piazza (lo stesso indicatore della parte 2). La forza del vecchio ordine si muove ma si mostra solo nella parte 2.
 
 **Le azioni di una giornata** (quattro punti; ogni azione dichiara che cosa fa):
 1. **Parlare alle tessili** (1 punto, ripetibile): le tessili +2 di pazienza; voci −2.
@@ -40,18 +40,21 @@ L'unità ha due giochi collegati dagli stessi indicatori (lo stato dell'atto pas
 6. **Ascoltare le voci della fila** (1 punto, ripetibile): voci +2; i vecchi +1.
 
 **Dove vanno (dipende dalla partita).** Chi arriva a zero lascia la fila e va dove la partita lo porta in quel momento (uscite con condizione, K6); il pannello mostra dove andrebbe adesso.
-- **Le tessili:** se le voci sono a 40 o più tornano in fabbrica e portano fuori le compagne (operai +14, forza dell'ordine −4, voci +6); altrimenti tornano a casa stanche (voci +6).
-- **Le madri con i bambini:** se in piazza ci sono 50 operai o più si uniscono al corteo (operai +10, ordine −6); altrimenti tornano a casa (voci +6).
+- **Le tessili:** se le voci sono a 40 o più (e non è l'ultima giornata) tornano in fabbrica e portano fuori le compagne (operai +14, forza dell'ordine −4, voci +6); altrimenti tornano a casa stanche (voci +6).
+- **Le madri con i bambini:** se in piazza ci sono 50 operai o più (e non è l'ultima giornata) si uniscono al corteo (operai +10, ordine −6); altrimenti tornano a casa (voci +6).
 - **I vecchi e gli invalidi:** tornano sempre a casa e raccontano quello che hanno visto (voci +6).
-I gruppi escono nell'ordine in cui sono scritti (tessili, madri, vecchi) e ciascuno vede lo stato già cambiato da chi è uscito prima. Chi se n'è andato non torna. Dopo la discesa, una volta sola, se in piazza ci sono 45 operai o più le fabbriche si fermano (crisi: operai +10, ordine −6); la crisi si controlla anche dopo l'ultima giornata (K6).
+I gruppi escono nell'ordine in cui sono scritti (tessili, madri, vecchi) e ciascuno vede lo stato già cambiato da chi è uscito prima. Chi se n'è andato non torna. **L'ultima giornata (11 marzo) è «troppo tardi»:** all'inizio dell'ultima giornata scatta il flag `troppo_tardi` (effetto di inizio turno) e chi esce quel giorno è troppo stanco per tornare in fabbrica o in piazza: va a casa, comunque stiano le voci e la piazza (ipotesi del modello, dichiarata). Una volta sola, dopo ogni azione e dopo ogni discesa (anche l'ultima, K6), se in piazza ci sono 45 operai o più le fabbriche si fermano (crisi: operai +10, ordine −6).
 
 **Rischio fuori dal controllo.** Il forno (5 su 10, scritto prima). Il gelo del 9 marzo arriva comunque: lo studente lo legge, non lo decide.
 
 **Strategie diverse (esiti diversi, verificati con la simulazione).**
-- **Calmare** (parole, bambini, pane diviso): la fila regge fino all'ultima giornata e le voci restano basse; ma il pane in città finisce e, poiché le voci sono basse e la piazza è vuota, tutti e tre i gruppi tornano a casa: la protesta non nasce.
-- **Organizzare** (dire che a Vyborg si è già usciti): le tessili escono subito e tornano in fabbrica, la piazza si riempie e le madri vanno al corteo; i vecchi tornano a casa; il pane resta quello che è.
-- **Cercare il pane** (il forno, due punti): con fortuna il pane resta, la coda tiene e le voci salgono poco; il risultato dipende dall'esito del forno (5 su 10) e da quanto resta per il resto.
-Nessuna strategia tiene insieme la fila, il pane, le voci basse e la piazza piena. Una prova con un modello semplificato (200 partite per strategia) dà, a fine parte 1: calmare, pane 0, voci 22, operai 40 (tutti a casa); organizzare, pane 18, voci 100, operai 100 (fabbrica e corteo); cercare il pane, pane 65, voci 59, operai 62 in media (esiti misti); non fare niente, pane 18, voci 38, operai 40 (tutti a casa al terzo giorno). La simulazione col motore vero (`tests/laika-otto-giorni.test.js`) la sostituisce.
+- **Calmare** (parole, bambini, pane diviso): la fila di solito regge fino all'ultima giornata (con la coda lunga di III.1 o con poco pane in partenza i vecchi escono il terzo giorno) e le voci restano basse; ma il pane in città finisce e, con le voci basse e la piazza vuota, tutti i gruppi tornano a casa: la protesta non nasce.
+- **Organizzare** (dire che a Vyborg si è già usciti): le tessili escono subito e tornano in fabbrica, la piazza si riempie e le madri vanno al corteo; i vecchi tornano a casa; le voci salgono molto.
+- **Cercare il pane** (il forno, due punti): con fortuna il pane resta; ma con la fila intatta fino all'ultimo giorno tutti tornano a casa, e le voci salgono un poco per i forni che non hanno niente.
+- **Organizzare tardi** (calmare tre giorni e dire di Vyborg solo l'ultimo): non funziona, perché l'ultima giornata è «troppo tardi»: tutti tornano a casa. Per partire bisogna organizzare prima.
+- **Mista** (forno e parole il primo giorno, poi Vyborg): le tessili escono il terzo giorno in fabbrica; madri e vecchi tornano a casa.
+
+Le voci hanno una conseguenza nella parte 2: con le voci a 60 o più (crisi, una sola volta, all'inizio della parte 2) le notizie arrivano nelle caserme: soldati +6, forza del vecchio ordine −6. Nessuna strategia tiene insieme il pane, le voci basse e la piazza piena: chi salva il pane e la calma non ha operai in piazza; chi riempie la piazza ha il pane finito e la città piena di voci. Una prova con un modello semplificato (200 partite per strategia) dà, a fine parte 1 (pane, voci, operai, ordine): calmare 0, 22, 40, 70; cercare il pane 65, 62, 40, 70; non fare niente 18, 38, 40, 70; organizzare 18, 100, 100, 54; organizzare tardi 0, 58, 66, 64; mista 18, 86, 90, 59. La simulazione col motore vero (`tests/laika-otto-giorni.test.js`) la sostituisce.
 
 **Esito.** Il testo finale dice dove sono finiti i tre gruppi (fabbrica, corteo, casa). Nessuna sconfitta.
 
@@ -79,7 +82,7 @@ Nessuna strategia tiene insieme la fila, il pane, le voci basse e la piazza pien
 
 ## Elementi del kit
 
-- **Motore:** la coda con la pazienza (K1), le uscite con condizione e le crisi dopo la discesa (K6), giornate a punti azione. Nessuna meccanica nuova oltre a queste. Dati nuovi nell'atto: metrica `voci`, metrica nascosta `gelo`.
+- **Motore:** la coda con la pazienza (K1), le uscite con condizione e le crisi dopo la discesa (K6), giornate a punti azione. Nessuna meccanica nuova oltre a queste. Dati nuovi nell'atto: metrica `voci` (parte da 20), metrica nascosta `gelo`, flag `troppo_tardi`.
 - **Bottega:** pose `si_stringe`, `guarda_orologio`, `batte_piedi` (K1); `walk` con `da: [dx, dy]` per chi lascia la fila.
 - **Scene:** `otto-giorni-donna`, `otto-giorni-coda`, `otto-giorni-soldato`, `otto-giorni-treno`, `otto-giorni-confronto` (S1). Disegni nuovi: nessuno.
 - **Aneddoti con le fonti registrate (MATRICE):** R88, R15, R08.
