@@ -1,6 +1,6 @@
 # Gioco di III.1 — Pane e guerra (`pane-guerra`)
 
-Scheda di gioco dell'unità `pane-guerra` (canone: III.1). Versione 2 · 4 novembre 2026 · la versione 1 non è passata (gli ammassi erano il vero collo di bottiglia, un'azione costava meno di niente, una crisi cambiava un numero che la catena ricalcola, mancavano raccolto e consumo); la v2 usa i numeri provati sul motore vero. Da far passare alla revisione indipendente prima del codice (METODO §7). Gioco del canone: «quanto serve e quanto c'è (grano, treni, città), prime code». Regole comuni: [GIOCHI](../GIOCHI.md) §2, §3.5 (le code), §3.6 (le merci che camminano) e §3.7 (quanto serve e quanto c'è). Motore: la catena di K2 (`src/core/chain.js`) e la coda di K1 e K6 (`src/core/queue.js`), con le giornate a punti azione già nel motore. Tutti i numeri sono indici della simulazione, non statistiche storiche.
+Scheda di gioco dell'unità `pane-guerra` (canone: III.1). Versione 3 (costruita) · 4 novembre 2026 · le versioni 1 e 2 non sono passate alla revisione indipendente della scheda (la v1: ammassi come collo di bottiglia e un'azione senza costo; la v2: una strategia composta batteva di molto una semplice e tre stagioni su cinque erano vuote); il docente ha autorizzato di costruire il gioco e di fissare il bilanciamento in un test sul motore vero. Gioco del canone: «quanto serve e quanto c'è (grano, treni, città), prime code». Regole comuni: [GIOCHI](../GIOCHI.md) §2, §3.5 (le code), §3.6 (le merci che camminano) e §3.7 (quanto serve e quanto c'è). Motore: la catena di K2 (`src/core/chain.js`) e la coda di K1 e K6 (`src/core/queue.js`), con le giornate a punti azione già nel motore. Tutti i numeri sono indici della simulazione, non statistiche storiche.
 
 ## Il gioco: «Il grano, i treni, la città»
 
@@ -8,7 +8,9 @@ Scheda di gioco dell'unità `pane-guerra` (canone: III.1). Versione 2 · 4 novem
 
 **Chi è il giocatore.** Un funzionario dell'approvvigionamento (il ruolo `capofamiglia` del canone di atto è la famiglia che vedrà le conseguenze: qui decide come lo Stato usa il grano che ha).
 
-**La catena (K2).** Quattro anelli: **i campi** (passano 8 a stagione, 24 in magazzino all'inizio), **gli ammassi dello Stato** (passano 8: non sono il collo di bottiglia), **i treni** (passano 4: **il collo di bottiglia**) e **le città**. Il grano fa un anello a stagione. Il raccolto entra nei campi: 12 in autunno, 2 nelle altre stagioni (ipotesi del modello). Un anello intermedio con 14 o più unità si inceppa e passa metà della capacità: gli ammassi lo fanno quando il grano si accumula perché i treni non reggono. **Sulla carta** il ministero dichiara un obiettivo di 20; il **numero reale** è quello che arriva in città. **Lo scarto** fra carta e realtà segue la differenza (parte da 10, poi la catena lo ricalcola a ogni stagione). Ogni unità arrivata in città vale 2 punti di pane; la città ne consuma 8 a stagione (effetto d'inizio stagione), perciò il pane scende se non arriva grano.
+**La catena (K2).** Quattro anelli: **i campi** (passano 8 a stagione, 24 in magazzino all'inizio), **gli ammassi dello Stato** (passano 8: non sono il collo di bottiglia), **i treni** (passano 3: **il collo di bottiglia**) e **le città**. Il grano fa un anello a stagione. Il raccolto entra nei campi: 12 in autunno, 2 nelle altre stagioni (ipotesi del modello). Un anello intermedio con 14 o più unità si inceppa e passa metà della capacità: succede soprattutto ai treni, davanti ai quali si accumula il grano. **Sulla carta** il ministero dichiara un obiettivo di 20; il **numero reale** è quello che arriva in città. **Lo scarto** fra carta e realtà segue la differenza (parte da 0). Ogni unità arrivata in città vale 2 punti di pane; la città ne consuma 8 a ogni stagione (effetto d'inizio stagione), perciò il pane scende se non arriva grano.
+
+**Il fronte (evento di ogni stagione).** All'inizio di ogni stagione il quartier generale chiede i treni per le munizioni: si può **cedere i treni** (i treni passano 1 in meno per sempre) oppure **rifiutare** (le voci +3: i generali protestano e se ne parla). Così ogni stagione ha una decisione vera e la capacità dei treni è sempre sotto pressione.
 
 **La fila (K1, K6).** Davanti ai forni c'è una fila di 12 persone, con pazienza 6. Segnali a 4, 2 e 1 (si stringono nello scialle, guardano l'orologio, battono i piedi). La pazienza scende di 1 a stagione, più 1 se il pane in città è a 30 o meno e più 1 nelle due stagioni d'inverno. Chi arriva a zero torna a casa e racconta: le voci salgono di 6 e scatta il flag `coda_lunga` (che III.2 legge). La fila **non è il gioco principale**: è il segnale che il pane non basta («prime code»).
 
@@ -17,7 +19,7 @@ Scheda di gioco dell'unità `pane-guerra` (canone: III.1). Versione 2 · 4 novem
 **Le azioni di una stagione** (quattro punti):
 1. **Alzare il prezzo fissato del grano** (1 punto, una volta a stagione): gli ammassi +6 di grano (i contadini vendono di più); le voci +3 (con i rubli di oggi non si compra più niente).
 2. **Imporre una quota di consegna ai villaggi** (1 punto, una volta a stagione): gli ammassi +10; le voci +5 (i contadini ricordano l'obbligo).
-3. **Dare la precedenza ai treni del grano** (2 punti, una volta a stagione): i treni passano 2 in più (fino al doppio della partenza, cioè 8); le voci +2. È l'unica azione che apre il vero collo di bottiglia.
+3. **Dare la precedenza ai treni del grano** (2 punti, una volta a stagione): i treni passano 1 in più (fino al doppio della partenza, cioè 6); le voci +2. È l'azione che apre il vero collo di bottiglia, e il fronte la rimette in discussione a ogni stagione.
 4. **Fissare il prezzo del pane** (1 punto, una volta a stagione): la pazienza della fila +2; il pane in città −4 (i fornai tengono il pane per il mercato nero).
 5. **Mandare un rapporto ottimista** (1 punto, ripetibile): la carta sale di 15; le voci −2.
 6. **Mandare un ispettore sui treni** (1 punto, **5 su 10**, scritto prima, una volta a stagione): se riesce, i treni passano 1 in più e la carta scende di 5 (il rapporto si corregge); se non riesce, le voci salgono di 4.
@@ -27,14 +29,14 @@ Scheda di gioco dell'unità `pane-guerra` (canone: III.1). Versione 2 · 4 novem
 
 **Rischio fuori dal controllo.** L'ispettore (5 su 10, scritto prima). Il raccolto delle stagioni non lo decide il giocatore: lo legge.
 
-**Regola di bilanciamento (G3 di METODO §7), controllata da `tests/laika-pane-guerra.test.js` sul motore vero.** Nessuna strategia è la migliore su tutti gli indicatori insieme: più pane contro meno scarto contro meno voci contro più grano arrivato. Una strategia composta può battere per poco una semplice (è dichiarato); non ne esiste una che vinca su tutto. Il test gioca ogni combinazione di piani di stagione (sei piani per cinque stagioni) con pane iniziale 30, 50 e 70, e controlla anche che ogni azione serva in qualche strategia, che almeno tre strategie portino a esiti diversi e che il rischio sia scritto prima.
+**Regola di bilanciamento (G3 di METODO §7), controllata da `tests/laika-pane-guerra.test.js` sul motore vero (quattro piani di stagione per cinque stagioni, pane iniziale 30 e 70, fronte ceduto o rifiutato).** Nessuna strategia è la migliore su tutti gli indicatori insieme: più pane contro meno scarto contro meno voci contro più grano arrivato. Una strategia composta può battere per poco una semplice (è dichiarato); non ne esiste una che vinca su tutto. Il test controlla anche che ogni azione serva in qualche strategia, che almeno tre strategie portino a esiti diversi e che il rischio sia scritto prima.
 
-**Strategie tipiche (misurate sul motore vero con pane iniziale 50: pane, scarto, voci, grano arrivato).**
-- **Spremere i villaggi** (prezzo e quote, rapporti): 50, 100, 54, 16. Gli ammassi si riempiono e si inceppano, i treni non reggono, la carta sale e lo scarto esplode.
-- **Aprire il collo di bottiglia** (precedenza ai treni, ispettore): 66, 0, 43, 24. Arriva più pane e lo scarto si chiude, ma le voci restano alte e non resta spazio per altro.
-- **Rassicurare** (prezzo del pane, pane diviso, rapporti): 8, 100, 8, 10. La fila regge e le voci restano basse, ma il pane finisce e lo scarto è al massimo.
-- **Non fare niente:** 38, 10, 26, 10.
-Nessuna strategia è la migliore su tutti gli indicatori: chi apre i treni ha più pane e meno scarto; chi rassicura ha meno voci. Una strategia mista (precedenza, quote e rapporti) arriva allo stesso pane di chi apre i treni ma con più scarto (71): è dichiarato che una strategia composta può battere per poco una semplice.
+**Strategie tipiche (misurate dal test sul motore vero, pane iniziale 70; pane, scarto, voci, grano arrivato; la prima riga con il fronte che ottiene i treni, la seconda con il fronte rifiutato).**
+- **Spremere i villaggi** (prezzo, quote, rapporti): 40, 100, 54, 1 e 62, 100, 69, 12. Gli ammassi si riempiono e i treni non reggono; la carta sale e lo scarto esplode.
+- **Aprire il collo di bottiglia** (precedenza ai treni, ispettore): 64, 0, 44, 13 e 74, 0, 59, 18. Arriva più grano e lo scarto si chiude; costa voci.
+- **Rassicurare** (prezzo del pane, pane diviso, rapporti): 8, 100, 8, 0 e 22, 100, 23, 7. La fila regge e le voci restano basse, ma il pane finisce e lo scarto è al massimo.
+- **Non fare niente:** 38, 20, 26, 0 e 52, 13, 41, 7.
+Nessuna strategia è la migliore su tutti gli indicatori: chi apre i treni ha più pane e meno scarto; chi rassicura ha meno voci. Una strategia composta può battere per poco una semplice: è dichiarato. Non fare niente non è mai la mossa migliore: esiste sempre una strategia che porta più pane e più grano.
 
 **Esito.** Un testo finale dice che sulla carta il grano bastava e in città contava solo quello che arrivava; nessuna sconfitta.
 

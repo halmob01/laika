@@ -44,27 +44,11 @@
       "good": "high"
     },
     {
-      "id": "treni",
-      "label": "Treni utili",
-      "min": 0,
-      "max": 100,
-      "start": 50,
-      "good": "high"
-    },
-    {
-      "id": "grano_stato",
-      "label": "Grano in mano allo Stato",
-      "min": 0,
-      "max": 100,
-      "start": 50,
-      "good": "high"
-    },
-    {
       "id": "scarto",
       "label": "Scarto fra carta e realtà",
       "min": 0,
       "max": 100,
-      "start": 10,
+      "start": 0,
       "good": "low"
     },
     {
@@ -122,7 +106,6 @@
     "coda_lunga",
     "arsenale_aperto",
     "verso_tauride",
-    "coda_corteo",
     "troppo_tardi"
   ],
   "episodes": [
@@ -144,20 +127,26 @@
         "a1-ginocchio"
       ],
       "visualExplanation": "Una folla si inginocchia sulla piazza. La scena riprende l'inquadratura della domenica del 1905 con il gesto opposto.",
-      "shows": []
+      "shows": [],
+      "editorial": {
+        "sources": [
+          "scheda III.1-e1"
+        ],
+        "scheda": "III.1-e1"
+      }
     },
     {
       "id": "a3-pane-guerra-grano",
       "type": "turn_game",
       "roleId": "capofamiglia",
-      "title": "Quanto serve e quanto c'è",
+      "title": "Il grano, i treni, la città",
       "context": {
         "kind": "simulation",
         "dateLabel": "1915–1917",
         "placeLabel": "Russia"
       },
-      "text": "Il grano è lo stesso. I treni sono meno. Le città sono più affamate. Per cinque stagioni decidi come lo Stato usa quello che ha.\n\nSulla carta il grano può bastare. Nella realtà conta solo quello che arriva in città.",
-      "goal": "Fai arrivare il pane in città senza che lo scarto fra carta e realtà esploda.",
+      "text": "Il grano c'è: sta nei campi e negli ammassi. Ma per arrivare in città deve passare dai treni. I treni sono pochi. Cinque stagioni di guerra: ogni stagione hai quattro punti. Sulla carta il ministero dichiara quanto grano dovrebbe arrivare; nella realtà conta solo quello che arriva.",
+      "goal": "Fai arrivare il pane in città senza che lo scarto fra la carta e la realtà esploda.",
       "stageId": "pane-guerra-treni",
       "motionId": "ingresso",
       "exposes": [
@@ -166,16 +155,124 @@
       "visualExplanation": "Una stazione d'inverno: sacchi di grano sulla banchina e un treno fermo sui binari. Gli indicatori sono indici della simulazione: non sono dati storici né voti.",
       "turnWord": "stagione",
       "nextLabel": "La stagione dopo",
+      "leaveLabel": "Finire la stagione",
+      "pointsLabel": "Punti azione",
       "phaseLabels": {
-        "cards": "Il quadro",
-        "event": "Una decisione"
+        "event": "Il fronte",
+        "market": "I punti azione"
       },
       "shows": [
         "pane_citta",
-        "treni",
-        "grano_stato",
-        "scarto"
+        "scarto",
+        "voci"
       ],
+      "chain": {
+        "label": "Il grano verso la città",
+        "goodsLabel": "grano",
+        "links": [
+          {
+            "id": "campi",
+            "label": "I campi",
+            "capacity": 8,
+            "stock": 24
+          },
+          {
+            "id": "ammassi",
+            "label": "Gli ammassi dello Stato",
+            "capacity": 8,
+            "jamText": "è pieno e il grano aspetta"
+          },
+          {
+            "id": "treni",
+            "label": "I treni",
+            "capacity": 3,
+            "jamText": "sono carichi e passano meno vagoni"
+          },
+          {
+            "id": "citta",
+            "label": "Le città"
+          }
+        ],
+        "paper": {
+          "start": 20
+        },
+        "deliver": {
+          "metric": "pane_citta",
+          "per": 2
+        },
+        "gap": {
+          "metric": "scarto"
+        },
+        "jam": {
+          "at": 14,
+          "factor": 0.5
+        }
+      },
+      "queue": {
+        "label": "La fila davanti ai forni",
+        "patienceLabel": "Pazienza",
+        "groups": [
+          {
+            "id": "fila",
+            "label": "La fila davanti ai forni",
+            "size": 12,
+            "patience": 6,
+            "exit": "casa"
+          }
+        ],
+        "signals": [
+          {
+            "at": 4,
+            "label": "si stringono nello scialle",
+            "pose": "si_stringe"
+          },
+          {
+            "at": 2,
+            "label": "guardano l'orologio",
+            "pose": "guarda_orologio"
+          },
+          {
+            "at": 1,
+            "label": "battono i piedi",
+            "pose": "batte_piedi"
+          }
+        ],
+        "drain": {
+          "base": 1,
+          "factors": [
+            {
+              "id": "fame",
+              "label": "La fame",
+              "when": {
+                "op": "lte",
+                "kind": "metric",
+                "id": "pane_citta",
+                "value": 30
+              },
+              "extra": 1
+            }
+          ]
+        },
+        "exits": [
+          {
+            "id": "casa",
+            "label": "A casa",
+            "text": "tornano a casa senza pane e raccontano quello che hanno visto.",
+            "effects": [
+              {
+                "kind": "metric",
+                "id": "voci",
+                "delta": 6
+              },
+              {
+                "kind": "flag",
+                "id": "coda_lunga",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
       "crises": [
         {
           "id": "code",
@@ -195,7 +292,7 @@
             {
               "kind": "metric",
               "id": "pane_citta",
-              "delta": 20
+              "delta": 15
             }
           ]
         },
@@ -211,436 +308,1133 @@
           "effects": [
             {
               "kind": "metric",
-              "id": "scarto",
-              "delta": -30
-            },
-            {
-              "kind": "metric",
-              "id": "grano_stato",
-              "delta": -10
-            }
-          ]
-        },
-        {
-          "id": "treni-fermi",
-          "when": {
-            "op": "lte",
-            "kind": "metric",
-            "id": "treni",
-            "value": 10
-          },
-          "text": "I treni sono fermi: il grano c'è ma non arriva.",
-          "effects": [
-            {
-              "kind": "metric",
-              "id": "pane_citta",
-              "delta": -15
-            },
-            {
-              "kind": "metric",
-              "id": "treni",
-              "delta": 25
+              "id": "voci",
+              "delta": 8
             }
           ]
         }
       ],
-      "feedback": "Hai deciso cinque stagioni. Sulla carta il grano bastava: in città contava solo quello che arrivava. Le code per il pane sono l'inizio delle giornate di febbraio.",
+      "feedback": "Cinque stagioni sono passate. Sulla carta il grano bastava; in città contava solo quello che arrivava. Le code per il pane precedono i giorni di marzo. Le persone, i treni e i numeri sono simulazione.",
       "turns": [
         {
           "label": "Autunno 1915",
-          "cards": [
-            {
-              "kind": "simulation",
-              "title": "Quanto serve e quanto c'è",
-              "text": "Con gli uomini al fronte la campagna rende meno. Lo Stato compra il grano a prezzo fissato e lo manda ai soldati e alle città. Le persone e le richieste sono inventate per far vedere i vincoli."
-            }
-          ],
           "event": {
-            "who": "Un funzionario dell'approvvigionamento",
-            "text": "I contadini vendono poco grano al prezzo fissato: con i rubli di oggi non comprano più niente. Lo Stato deve scegliere.",
+            "who": "Il quartier generale",
+            "text": "Il fronte chiede i treni per le munizioni.",
             "choices": [
               {
-                "id": "alzare",
-                "label": "Alzare il prezzo fissato",
-                "text": "Più grano arriva agli ammassi ma la moneta vale ancora meno.",
-                "effects": [
+                "id": "cede",
+                "label": "Cedere i treni al fronte",
+                "text": "I treni del grano passano meno carri.",
+                "chain": [
                   {
-                    "kind": "metric",
-                    "id": "grano_stato",
-                    "delta": 12
-                  },
-                  {
-                    "kind": "metric",
-                    "id": "treni",
-                    "delta": -3
-                  },
-                  {
-                    "kind": "metric",
-                    "id": "scarto",
-                    "delta": 5
+                    "link": "treni",
+                    "capacity": -1
                   }
                 ]
               },
               {
-                "id": "lasciare",
-                "label": "Lasciare il prezzo fissato",
-                "text": "I contadini tengono il grano o lo vendono altrove.",
+                "id": "rifiuta",
+                "label": "Rifiutare",
+                "text": "I generali protestano e in città se ne parla.",
                 "effects": [
                   {
                     "kind": "metric",
-                    "id": "grano_stato",
-                    "delta": -10
-                  },
+                    "id": "voci",
+                    "delta": 3
+                  }
+                ]
+              }
+            ]
+          },
+          "market": {
+            "who": "Il ministero",
+            "text": "Hai quattro punti da spendere.",
+            "points": 4,
+            "offers": [
+              {
+                "id": "prezzo",
+                "label": "Alzare il prezzo fissato del grano",
+                "short": "Il prezzo",
+                "at": {
+                  "x": 0.18,
+                  "y": 0.7
+                },
+                "text": "I contadini vendono di più allo Stato, ma con i rubli di oggi non comprano niente.",
+                "effects": [
                   {
                     "kind": "metric",
-                    "id": "scarto",
-                    "delta": 6
+                    "id": "voci",
+                    "delta": 3
+                  }
+                ],
+                "chain": [
+                  {
+                    "link": "ammassi",
+                    "stock": 6
                   }
                 ]
               },
               {
                 "id": "quota",
-                "label": "Fissare una quota di consegna per villaggio",
-                "text": "Arriva più grano ma i contadini ricordano l'obbligo.",
-                "effects": [
-                  {
-                    "kind": "metric",
-                    "id": "grano_stato",
-                    "delta": 15
-                  },
-                  {
-                    "kind": "metric",
-                    "id": "scarto",
-                    "delta": 12
-                  }
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "label": "Inverno 1915",
-          "event": {
-            "who": "Un capostazione",
-            "text": "I treni sono pochi e la ferrovia è ingolfata. Il grano e le munizioni per il fronte viaggiano sugli stessi binari.",
-            "choices": [
-              {
-                "id": "grano",
-                "label": "Dare la precedenza ai treni di grano",
-                "text": "Il grano arriva in città ma il fronte aspetta.",
-                "effects": [
-                  {
-                    "kind": "metric",
-                    "id": "treni",
-                    "delta": 10
-                  },
-                  {
-                    "kind": "metric",
-                    "id": "pane_citta",
-                    "delta": 12
-                  },
-                  {
-                    "kind": "metric",
-                    "id": "scarto",
-                    "delta": 4
-                  }
-                ]
-              },
-              {
-                "id": "munizioni",
-                "label": "Dare la precedenza alle munizioni",
-                "text": "Il fronte riceve ma in città il pane tarda.",
-                "effects": [
-                  {
-                    "kind": "metric",
-                    "id": "treni",
-                    "delta": 8
-                  },
-                  {
-                    "kind": "metric",
-                    "id": "pane_citta",
-                    "delta": -12
-                  },
-                  {
-                    "kind": "metric",
-                    "id": "grano_stato",
-                    "delta": -4
-                  }
-                ]
-              },
-              {
-                "id": "misto",
-                "label": "Dividere i convogli a metà",
-                "chance": {
-                  "base": 0.6
+                "label": "Imporre una quota di consegna ai villaggi",
+                "short": "La quota",
+                "at": {
+                  "x": 0.3,
+                  "y": 0.62
                 },
-                "success": {
-                  "text": "I convogli misti arrivano quasi tutti.",
-                  "effects": [
-                    {
-                      "kind": "metric",
-                      "id": "treni",
-                      "delta": 6
-                    },
-                    {
-                      "kind": "metric",
-                      "id": "pane_citta",
-                      "delta": 5
-                    }
-                  ]
-                },
-                "failure": {
-                  "text": "I convogli misti si bloccano a metà strada.",
-                  "effects": [
-                    {
-                      "kind": "metric",
-                      "id": "treni",
-                      "delta": -8
-                    },
-                    {
-                      "kind": "metric",
-                      "id": "pane_citta",
-                      "delta": -6
-                    },
-                    {
-                      "kind": "metric",
-                      "id": "scarto",
-                      "delta": 6
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        },
-        {
-          "label": "Inverno 1916",
-          "event": {
-            "who": "Un ministro",
-            "text": "Vuole un rapporto con numeri buoni da mostrare alla Duma. Sulla carta il grano basta. In realtà non arriva dove serve.",
-            "choices": [
-              {
-                "id": "aggiusta",
-                "label": "Aggiustare i numeri del rapporto",
-                "text": "La carta dice che va bene. Nei fatti il pane non arriva.",
+                "text": "Arriva più grano agli ammassi, ma i contadini ricordano l'obbligo.",
                 "effects": [
                   {
                     "kind": "metric",
-                    "id": "scarto",
-                    "delta": 18
-                  },
-                  {
-                    "kind": "metric",
-                    "id": "pane_citta",
-                    "delta": -4
-                  }
-                ]
-              },
-              {
-                "id": "vero",
-                "label": "Scrivere i numeri veri",
-                "text": "Il ministro si arrabbia ma ora si vede dove manca il pane.",
-                "effects": [
-                  {
-                    "kind": "metric",
-                    "id": "scarto",
-                    "delta": -8
-                  },
-                  {
-                    "kind": "metric",
-                    "id": "treni",
-                    "delta": 4
-                  },
-                  {
-                    "kind": "metric",
-                    "id": "grano_stato",
-                    "delta": 3
-                  }
-                ]
-              },
-              {
-                "id": "tace",
-                "label": "Non scrivere niente",
-                "text": "Il problema resta senza nome.",
-                "effects": [
-                  {
-                    "kind": "metric",
-                    "id": "scarto",
-                    "delta": 8
-                  },
-                  {
-                    "kind": "metric",
-                    "id": "pane_citta",
-                    "delta": -3
-                  }
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "label": "Gennaio 1917",
-          "event": {
-            "who": "Un sindaco di città",
-            "text": "La gente fa la fila per il pane fin dalla notte. Le città chiedono una regola.",
-            "choices": [
-              {
-                "id": "tessere",
-                "label": "Distribuire il pane con le tessere",
-                "text": "Meno caos ma si vede quanto poco c'è.",
-                "effects": [
-                  {
-                    "kind": "metric",
-                    "id": "pane_citta",
-                    "delta": 8
-                  },
-                  {
-                    "kind": "metric",
-                    "id": "grano_stato",
-                    "delta": -6
-                  },
-                  {
-                    "kind": "metric",
-                    "id": "scarto",
-                    "delta": -3
-                  }
-                ]
-              },
-              {
-                "id": "libero",
-                "label": "Lasciare il mercato libero",
-                "text": "Chi ha soldi mangia: gli altri aspettano.",
-                "effects": [
-                  {
-                    "kind": "metric",
-                    "id": "pane_citta",
-                    "delta": -10
-                  },
-                  {
-                    "kind": "metric",
-                    "id": "grano_stato",
+                    "id": "voci",
                     "delta": 5
                   }
+                ],
+                "chain": [
+                  {
+                    "link": "ammassi",
+                    "stock": 10
+                  }
                 ]
               },
               {
-                "id": "prestito",
-                "label": "Chiedere grano ai villaggi vicini",
+                "id": "precedenza",
+                "label": "Dare la precedenza ai treni del grano",
+                "short": "I treni",
+                "at": {
+                  "x": 0.72,
+                  "y": 0.55
+                },
+                "cost": 2,
+                "text": "Per questa stagione i treni del grano passano di più; il fronte se ne accorge.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": 2
+                  }
+                ],
+                "chain": [
+                  {
+                    "link": "treni",
+                    "capacity": 1
+                  }
+                ]
+              },
+              {
+                "id": "prezzopane",
+                "label": "Fissare il prezzo del pane",
+                "short": "Il pane",
+                "at": {
+                  "x": 0.45,
+                  "y": 0.78
+                },
+                "text": "La fila si calma, ma i fornai tengono il pane per il mercato nero.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": -4
+                  }
+                ],
+                "queue": [
+                  {
+                    "group": "fila",
+                    "patience": 2
+                  }
+                ]
+              },
+              {
+                "id": "rapporto",
+                "label": "Mandare un rapporto ottimista",
+                "short": "Il rapporto",
+                "at": {
+                  "x": 0.1,
+                  "y": 0.5
+                },
+                "repeat": true,
+                "text": "Sulla carta il grano basta: nessuno al ministero ha bisogno di sapere altro.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": -2
+                  }
+                ],
+                "chain": [
+                  {
+                    "paper": 15
+                  }
+                ]
+              },
+              {
+                "id": "ispettore",
+                "label": "Mandare un ispettore sui treni",
+                "short": "L'ispettore",
+                "at": {
+                  "x": 0.85,
+                  "y": 0.7
+                },
                 "chance": {
                   "base": 0.5
                 },
                 "success": {
-                  "text": "Arriva grano dai villaggi vicini.",
-                  "effects": [
+                  "text": "L'ispettore trova vagoni fermi e li fa ripartire. Il rapporto si corregge.",
+                  "chain": [
                     {
-                      "kind": "metric",
-                      "id": "pane_citta",
-                      "delta": 12
+                      "link": "treni",
+                      "capacity": 1
                     },
                     {
-                      "kind": "metric",
-                      "id": "grano_stato",
-                      "delta": -6
+                      "paper": -5
                     }
                   ]
                 },
                 "failure": {
-                  "text": "I villaggi non mandano niente.",
+                  "text": "L'ispettore non trova niente di utile e in città si parla di corruzione.",
                   "effects": [
                     {
                       "kind": "metric",
-                      "id": "pane_citta",
-                      "delta": -6
-                    },
-                    {
-                      "kind": "metric",
-                      "id": "scarto",
-                      "delta": 5
+                      "id": "voci",
+                      "delta": 4
                     }
                   ]
                 }
+              },
+              {
+                "id": "dividere",
+                "label": "Dividere il pane della città",
+                "short": "Dividere",
+                "at": {
+                  "x": 0.55,
+                  "y": 0.55
+                },
+                "repeat": true,
+                "text": "Si divide il pane: a ciascuno un pezzo più piccolo.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": -5
+                  }
+                ],
+                "queue": [
+                  {
+                    "group": "fila",
+                    "patience": 1
+                  }
+                ]
               }
             ]
+          },
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "pane_citta",
+              "delta": -8
+            }
+          ],
+          "chain": {
+            "supply": 12
           }
         },
         {
-          "label": "Febbraio 1917",
+          "label": "Inverno 1915–1916",
           "event": {
-            "who": "Il capo della ferrovia",
-            "text": "Gelo e neve fermano i treni. Il grano c'è ma non si muove.",
+            "who": "Il quartier generale",
+            "text": "Il fronte chiede i treni per le munizioni.",
             "choices": [
               {
-                "id": "spazzare",
-                "label": "Mandare squadre a liberare i binari",
+                "id": "cede",
+                "label": "Cedere i treni al fronte",
+                "text": "I treni del grano passano meno carri.",
+                "chain": [
+                  {
+                    "link": "treni",
+                    "capacity": -1
+                  }
+                ]
+              },
+              {
+                "id": "rifiuta",
+                "label": "Rifiutare",
+                "text": "I generali protestano e in città se ne parla.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": 3
+                  }
+                ]
+              }
+            ]
+          },
+          "market": {
+            "who": "Il ministero",
+            "text": "Hai quattro punti da spendere.",
+            "points": 4,
+            "offers": [
+              {
+                "id": "prezzo",
+                "label": "Alzare il prezzo fissato del grano",
+                "short": "Il prezzo",
+                "at": {
+                  "x": 0.18,
+                  "y": 0.7
+                },
+                "text": "I contadini vendono di più allo Stato, ma con i rubli di oggi non comprano niente.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": 3
+                  }
+                ],
+                "chain": [
+                  {
+                    "link": "ammassi",
+                    "stock": 6
+                  }
+                ]
+              },
+              {
+                "id": "quota",
+                "label": "Imporre una quota di consegna ai villaggi",
+                "short": "La quota",
+                "at": {
+                  "x": 0.3,
+                  "y": 0.62
+                },
+                "text": "Arriva più grano agli ammassi, ma i contadini ricordano l'obbligo.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": 5
+                  }
+                ],
+                "chain": [
+                  {
+                    "link": "ammassi",
+                    "stock": 10
+                  }
+                ]
+              },
+              {
+                "id": "precedenza",
+                "label": "Dare la precedenza ai treni del grano",
+                "short": "I treni",
+                "at": {
+                  "x": 0.72,
+                  "y": 0.55
+                },
+                "cost": 2,
+                "text": "Per questa stagione i treni del grano passano di più; il fronte se ne accorge.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": 2
+                  }
+                ],
+                "chain": [
+                  {
+                    "link": "treni",
+                    "capacity": 1
+                  }
+                ]
+              },
+              {
+                "id": "prezzopane",
+                "label": "Fissare il prezzo del pane",
+                "short": "Il pane",
+                "at": {
+                  "x": 0.45,
+                  "y": 0.78
+                },
+                "text": "La fila si calma, ma i fornai tengono il pane per il mercato nero.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": -4
+                  }
+                ],
+                "queue": [
+                  {
+                    "group": "fila",
+                    "patience": 2
+                  }
+                ]
+              },
+              {
+                "id": "rapporto",
+                "label": "Mandare un rapporto ottimista",
+                "short": "Il rapporto",
+                "at": {
+                  "x": 0.1,
+                  "y": 0.5
+                },
+                "repeat": true,
+                "text": "Sulla carta il grano basta: nessuno al ministero ha bisogno di sapere altro.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": -2
+                  }
+                ],
+                "chain": [
+                  {
+                    "paper": 15
+                  }
+                ]
+              },
+              {
+                "id": "ispettore",
+                "label": "Mandare un ispettore sui treni",
+                "short": "L'ispettore",
+                "at": {
+                  "x": 0.85,
+                  "y": 0.7
+                },
                 "chance": {
-                  "base": 0.6
+                  "base": 0.5
                 },
                 "success": {
-                  "text": "Le squadre liberano i binari.",
-                  "effects": [
+                  "text": "L'ispettore trova vagoni fermi e li fa ripartire. Il rapporto si corregge.",
+                  "chain": [
                     {
-                      "kind": "metric",
-                      "id": "treni",
-                      "delta": 10
+                      "link": "treni",
+                      "capacity": 1
                     },
                     {
-                      "kind": "metric",
-                      "id": "pane_citta",
-                      "delta": 8
+                      "paper": -5
                     }
                   ]
                 },
                 "failure": {
-                  "text": "La neve ricopre i binari: lavoro perso.",
+                  "text": "L'ispettore non trova niente di utile e in città si parla di corruzione.",
                   "effects": [
                     {
                       "kind": "metric",
-                      "id": "treni",
-                      "delta": -6
-                    },
-                    {
-                      "kind": "metric",
-                      "id": "pane_citta",
-                      "delta": -8
+                      "id": "voci",
+                      "delta": 4
                     }
                   ]
                 }
               },
               {
-                "id": "scorte",
-                "label": "Aprire le scorte della città",
-                "text": "Si mangia un po' per qualche giorno.",
+                "id": "dividere",
+                "label": "Dividere il pane della città",
+                "short": "Dividere",
+                "at": {
+                  "x": 0.55,
+                  "y": 0.55
+                },
+                "repeat": true,
+                "text": "Si divide il pane: a ciascuno un pezzo più piccolo.",
                 "effects": [
                   {
                     "kind": "metric",
                     "id": "pane_citta",
-                    "delta": 8
-                  },
-                  {
-                    "kind": "metric",
-                    "id": "grano_stato",
-                    "delta": -10
+                    "delta": -5
                   }
-                ]
-              },
-              {
-                "id": "aspetta",
-                "label": "Aspettare il disgelo",
-                "text": "Aspettare costa il pane di oggi.",
-                "effects": [
+                ],
+                "queue": [
                   {
-                    "kind": "metric",
-                    "id": "pane_citta",
-                    "delta": -12
-                  },
-                  {
-                    "kind": "metric",
-                    "id": "treni",
-                    "delta": -4
+                    "group": "fila",
+                    "patience": 1
                   }
                 ]
               }
             ]
+          },
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "pane_citta",
+              "delta": -8
+            }
+          ],
+          "chain": {
+            "supply": 2
+          },
+          "queue": {
+            "drain": 1
+          }
+        },
+        {
+          "label": "Primavera 1916",
+          "event": {
+            "who": "Il quartier generale",
+            "text": "Il fronte chiede i treni per le munizioni.",
+            "choices": [
+              {
+                "id": "cede",
+                "label": "Cedere i treni al fronte",
+                "text": "I treni del grano passano meno carri.",
+                "chain": [
+                  {
+                    "link": "treni",
+                    "capacity": -1
+                  }
+                ]
+              },
+              {
+                "id": "rifiuta",
+                "label": "Rifiutare",
+                "text": "I generali protestano e in città se ne parla.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": 3
+                  }
+                ]
+              }
+            ]
+          },
+          "market": {
+            "who": "Il ministero",
+            "text": "Hai quattro punti da spendere.",
+            "points": 4,
+            "offers": [
+              {
+                "id": "prezzo",
+                "label": "Alzare il prezzo fissato del grano",
+                "short": "Il prezzo",
+                "at": {
+                  "x": 0.18,
+                  "y": 0.7
+                },
+                "text": "I contadini vendono di più allo Stato, ma con i rubli di oggi non comprano niente.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": 3
+                  }
+                ],
+                "chain": [
+                  {
+                    "link": "ammassi",
+                    "stock": 6
+                  }
+                ]
+              },
+              {
+                "id": "quota",
+                "label": "Imporre una quota di consegna ai villaggi",
+                "short": "La quota",
+                "at": {
+                  "x": 0.3,
+                  "y": 0.62
+                },
+                "text": "Arriva più grano agli ammassi, ma i contadini ricordano l'obbligo.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": 5
+                  }
+                ],
+                "chain": [
+                  {
+                    "link": "ammassi",
+                    "stock": 10
+                  }
+                ]
+              },
+              {
+                "id": "precedenza",
+                "label": "Dare la precedenza ai treni del grano",
+                "short": "I treni",
+                "at": {
+                  "x": 0.72,
+                  "y": 0.55
+                },
+                "cost": 2,
+                "text": "Per questa stagione i treni del grano passano di più; il fronte se ne accorge.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": 2
+                  }
+                ],
+                "chain": [
+                  {
+                    "link": "treni",
+                    "capacity": 1
+                  }
+                ]
+              },
+              {
+                "id": "prezzopane",
+                "label": "Fissare il prezzo del pane",
+                "short": "Il pane",
+                "at": {
+                  "x": 0.45,
+                  "y": 0.78
+                },
+                "text": "La fila si calma, ma i fornai tengono il pane per il mercato nero.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": -4
+                  }
+                ],
+                "queue": [
+                  {
+                    "group": "fila",
+                    "patience": 2
+                  }
+                ]
+              },
+              {
+                "id": "rapporto",
+                "label": "Mandare un rapporto ottimista",
+                "short": "Il rapporto",
+                "at": {
+                  "x": 0.1,
+                  "y": 0.5
+                },
+                "repeat": true,
+                "text": "Sulla carta il grano basta: nessuno al ministero ha bisogno di sapere altro.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": -2
+                  }
+                ],
+                "chain": [
+                  {
+                    "paper": 15
+                  }
+                ]
+              },
+              {
+                "id": "ispettore",
+                "label": "Mandare un ispettore sui treni",
+                "short": "L'ispettore",
+                "at": {
+                  "x": 0.85,
+                  "y": 0.7
+                },
+                "chance": {
+                  "base": 0.5
+                },
+                "success": {
+                  "text": "L'ispettore trova vagoni fermi e li fa ripartire. Il rapporto si corregge.",
+                  "chain": [
+                    {
+                      "link": "treni",
+                      "capacity": 1
+                    },
+                    {
+                      "paper": -5
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "L'ispettore non trova niente di utile e in città si parla di corruzione.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "voci",
+                      "delta": 4
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "dividere",
+                "label": "Dividere il pane della città",
+                "short": "Dividere",
+                "at": {
+                  "x": 0.55,
+                  "y": 0.55
+                },
+                "repeat": true,
+                "text": "Si divide il pane: a ciascuno un pezzo più piccolo.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": -5
+                  }
+                ],
+                "queue": [
+                  {
+                    "group": "fila",
+                    "patience": 1
+                  }
+                ]
+              }
+            ]
+          },
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "pane_citta",
+              "delta": -8
+            }
+          ],
+          "chain": {
+            "supply": 2
+          }
+        },
+        {
+          "label": "Autunno 1916",
+          "event": {
+            "who": "Il quartier generale",
+            "text": "Il fronte chiede i treni per le munizioni.",
+            "choices": [
+              {
+                "id": "cede",
+                "label": "Cedere i treni al fronte",
+                "text": "I treni del grano passano meno carri.",
+                "chain": [
+                  {
+                    "link": "treni",
+                    "capacity": -1
+                  }
+                ]
+              },
+              {
+                "id": "rifiuta",
+                "label": "Rifiutare",
+                "text": "I generali protestano e in città se ne parla.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": 3
+                  }
+                ]
+              }
+            ]
+          },
+          "market": {
+            "who": "Il ministero",
+            "text": "Hai quattro punti da spendere.",
+            "points": 4,
+            "offers": [
+              {
+                "id": "prezzo",
+                "label": "Alzare il prezzo fissato del grano",
+                "short": "Il prezzo",
+                "at": {
+                  "x": 0.18,
+                  "y": 0.7
+                },
+                "text": "I contadini vendono di più allo Stato, ma con i rubli di oggi non comprano niente.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": 3
+                  }
+                ],
+                "chain": [
+                  {
+                    "link": "ammassi",
+                    "stock": 6
+                  }
+                ]
+              },
+              {
+                "id": "quota",
+                "label": "Imporre una quota di consegna ai villaggi",
+                "short": "La quota",
+                "at": {
+                  "x": 0.3,
+                  "y": 0.62
+                },
+                "text": "Arriva più grano agli ammassi, ma i contadini ricordano l'obbligo.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": 5
+                  }
+                ],
+                "chain": [
+                  {
+                    "link": "ammassi",
+                    "stock": 10
+                  }
+                ]
+              },
+              {
+                "id": "precedenza",
+                "label": "Dare la precedenza ai treni del grano",
+                "short": "I treni",
+                "at": {
+                  "x": 0.72,
+                  "y": 0.55
+                },
+                "cost": 2,
+                "text": "Per questa stagione i treni del grano passano di più; il fronte se ne accorge.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": 2
+                  }
+                ],
+                "chain": [
+                  {
+                    "link": "treni",
+                    "capacity": 1
+                  }
+                ]
+              },
+              {
+                "id": "prezzopane",
+                "label": "Fissare il prezzo del pane",
+                "short": "Il pane",
+                "at": {
+                  "x": 0.45,
+                  "y": 0.78
+                },
+                "text": "La fila si calma, ma i fornai tengono il pane per il mercato nero.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": -4
+                  }
+                ],
+                "queue": [
+                  {
+                    "group": "fila",
+                    "patience": 2
+                  }
+                ]
+              },
+              {
+                "id": "rapporto",
+                "label": "Mandare un rapporto ottimista",
+                "short": "Il rapporto",
+                "at": {
+                  "x": 0.1,
+                  "y": 0.5
+                },
+                "repeat": true,
+                "text": "Sulla carta il grano basta: nessuno al ministero ha bisogno di sapere altro.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": -2
+                  }
+                ],
+                "chain": [
+                  {
+                    "paper": 15
+                  }
+                ]
+              },
+              {
+                "id": "ispettore",
+                "label": "Mandare un ispettore sui treni",
+                "short": "L'ispettore",
+                "at": {
+                  "x": 0.85,
+                  "y": 0.7
+                },
+                "chance": {
+                  "base": 0.5
+                },
+                "success": {
+                  "text": "L'ispettore trova vagoni fermi e li fa ripartire. Il rapporto si corregge.",
+                  "chain": [
+                    {
+                      "link": "treni",
+                      "capacity": 1
+                    },
+                    {
+                      "paper": -5
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "L'ispettore non trova niente di utile e in città si parla di corruzione.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "voci",
+                      "delta": 4
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "dividere",
+                "label": "Dividere il pane della città",
+                "short": "Dividere",
+                "at": {
+                  "x": 0.55,
+                  "y": 0.55
+                },
+                "repeat": true,
+                "text": "Si divide il pane: a ciascuno un pezzo più piccolo.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": -5
+                  }
+                ],
+                "queue": [
+                  {
+                    "group": "fila",
+                    "patience": 1
+                  }
+                ]
+              }
+            ]
+          },
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "pane_citta",
+              "delta": -8
+            }
+          ],
+          "chain": {
+            "supply": 12
+          }
+        },
+        {
+          "label": "Inverno 1916–1917",
+          "event": {
+            "who": "Il quartier generale",
+            "text": "Il fronte chiede i treni per le munizioni.",
+            "choices": [
+              {
+                "id": "cede",
+                "label": "Cedere i treni al fronte",
+                "text": "I treni del grano passano meno carri.",
+                "chain": [
+                  {
+                    "link": "treni",
+                    "capacity": -1
+                  }
+                ]
+              },
+              {
+                "id": "rifiuta",
+                "label": "Rifiutare",
+                "text": "I generali protestano e in città se ne parla.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": 3
+                  }
+                ]
+              }
+            ]
+          },
+          "market": {
+            "who": "Il ministero",
+            "text": "Hai quattro punti da spendere.",
+            "points": 4,
+            "offers": [
+              {
+                "id": "prezzo",
+                "label": "Alzare il prezzo fissato del grano",
+                "short": "Il prezzo",
+                "at": {
+                  "x": 0.18,
+                  "y": 0.7
+                },
+                "text": "I contadini vendono di più allo Stato, ma con i rubli di oggi non comprano niente.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": 3
+                  }
+                ],
+                "chain": [
+                  {
+                    "link": "ammassi",
+                    "stock": 6
+                  }
+                ]
+              },
+              {
+                "id": "quota",
+                "label": "Imporre una quota di consegna ai villaggi",
+                "short": "La quota",
+                "at": {
+                  "x": 0.3,
+                  "y": 0.62
+                },
+                "text": "Arriva più grano agli ammassi, ma i contadini ricordano l'obbligo.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": 5
+                  }
+                ],
+                "chain": [
+                  {
+                    "link": "ammassi",
+                    "stock": 10
+                  }
+                ]
+              },
+              {
+                "id": "precedenza",
+                "label": "Dare la precedenza ai treni del grano",
+                "short": "I treni",
+                "at": {
+                  "x": 0.72,
+                  "y": 0.55
+                },
+                "cost": 2,
+                "text": "Per questa stagione i treni del grano passano di più; il fronte se ne accorge.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": 2
+                  }
+                ],
+                "chain": [
+                  {
+                    "link": "treni",
+                    "capacity": 1
+                  }
+                ]
+              },
+              {
+                "id": "prezzopane",
+                "label": "Fissare il prezzo del pane",
+                "short": "Il pane",
+                "at": {
+                  "x": 0.45,
+                  "y": 0.78
+                },
+                "text": "La fila si calma, ma i fornai tengono il pane per il mercato nero.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": -4
+                  }
+                ],
+                "queue": [
+                  {
+                    "group": "fila",
+                    "patience": 2
+                  }
+                ]
+              },
+              {
+                "id": "rapporto",
+                "label": "Mandare un rapporto ottimista",
+                "short": "Il rapporto",
+                "at": {
+                  "x": 0.1,
+                  "y": 0.5
+                },
+                "repeat": true,
+                "text": "Sulla carta il grano basta: nessuno al ministero ha bisogno di sapere altro.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": -2
+                  }
+                ],
+                "chain": [
+                  {
+                    "paper": 15
+                  }
+                ]
+              },
+              {
+                "id": "ispettore",
+                "label": "Mandare un ispettore sui treni",
+                "short": "L'ispettore",
+                "at": {
+                  "x": 0.85,
+                  "y": 0.7
+                },
+                "chance": {
+                  "base": 0.5
+                },
+                "success": {
+                  "text": "L'ispettore trova vagoni fermi e li fa ripartire. Il rapporto si corregge.",
+                  "chain": [
+                    {
+                      "link": "treni",
+                      "capacity": 1
+                    },
+                    {
+                      "paper": -5
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "L'ispettore non trova niente di utile e in città si parla di corruzione.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "voci",
+                      "delta": 4
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "dividere",
+                "label": "Dividere il pane della città",
+                "short": "Dividere",
+                "at": {
+                  "x": 0.55,
+                  "y": 0.55
+                },
+                "repeat": true,
+                "text": "Si divide il pane: a ciascuno un pezzo più piccolo.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": -5
+                  }
+                ],
+                "queue": [
+                  {
+                    "group": "fila",
+                    "patience": 1
+                  }
+                ]
+              }
+            ]
+          },
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "pane_citta",
+              "delta": -8
+            }
+          ],
+          "chain": {
+            "supply": 2
+          },
+          "queue": {
+            "drain": 1
           }
         }
       ]
@@ -665,20 +1459,20 @@
         {
           "id": "gioielli",
           "title": "I gioielli",
-          "text": "Il gioielliere della corte non ha mai venduto tanto. Nella stessa città mancano pane e combustibile.",
-          "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa»"
+          "text": "Secondo Trockij, che riporta il ricordo di una dama di corte, nell'inverno 1915–1916 il gioielliere della corte non aveva mai venduto tanto. Nella stessa città mancavano pane e combustibile. È la testimonianza di un autore ostile al regime.",
+          "provenance": "Trockij, Storia della rivoluzione russa; atlante C39 (parafrasi)."
         },
         {
           "id": "ballerina",
           "title": "La ballerina",
-          "text": "Si mormora che una ballerina famosa decida le commesse d'artiglieria. È una voce.",
-          "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa»"
+          "text": "Rodzjanko, riferito da Trockij, racconta che il comandante supremo si preoccupava dell'influenza di una ballerina sulle commesse d'artiglieria. È un'accusa riferita: non dimostra che le commesse le decidesse lei. Mostra il clima di sospetto.",
+          "provenance": "Trockij, Storia della rivoluzione russa; atlante C42 (parafrasi)."
         },
         {
           "id": "duma",
           "title": "La domanda alla Duma",
           "text": "Un deputato chiede dalla tribuna: stupidità o tradimento? Intanto circola la voce che l'imperatrice sia una spia.",
-          "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa»."
+          "provenance": "Appunti «La Rivoluzione Russa» (sintesi per il gioco)."
         }
       ],
       "choices": [
@@ -701,7 +1495,14 @@
           "effects": []
         }
       ],
-      "shows": []
+      "shows": [],
+      "editorial": {
+        "sources": [
+          "C39",
+          "C42"
+        ],
+        "scheda": "III.1-e3"
+      }
     },
     {
       "id": "a3-pane-guerra-famiglia",
@@ -714,11 +1515,42 @@
         "dateLabel": "dicembre 1916",
         "placeLabel": "Pietrogrado"
       },
-      "text": "Nel dicembre 1916 Rasputin viene ucciso da un principe e da un granduca. Una granduchessa arriva a proporre di eliminare l'imperatrice.\n\nLo zar sembra non fidarsi più nemmeno di chi lo circonda. Il palazzo è isolato e attorno c'è il vuoto.\n\nPuò sopravvivere un potere sacro quando non ci crede più nemmeno la sua famiglia?",
+      "text": "Nel dicembre 1916 Rasputin viene ucciso da un principe e da un granduca. Una granduchessa, secondo il racconto riferito, propone a un deputato di eliminare l'imperatrice; lui chiede di considerare la frase come non detta.\n\nAll'ambasciatore britannico che lo invita a riconquistare la fiducia del suo popolo, lo zar risponde che dovrebbe essere il popolo a riconquistare la sua.\n\nIl palazzo è isolato e attorno c'è il vuoto. Può sopravvivere un potere sacro quando non ci crede più nemmeno la sua famiglia?",
       "shows": [],
       "stageId": "pane-guerra-famiglia",
       "motionId": "ingresso",
-      "visualExplanation": "Un palazzo imperiale d'inverno con il vuoto intorno: tre figure della famiglia, minuscole, lo attraversano."
+      "visualExplanation": "Un palazzo imperiale d'inverno con il vuoto intorno: tre figure della famiglia, minuscole, lo attraversano.",
+      "editorial": {
+        "sources": [
+          "C43",
+          "Buchanan"
+        ],
+        "scheda": "III.1-e4"
+      }
+    },
+    {
+      "id": "a3-pane-guerra-ricorda",
+      "type": "narrative",
+      "roleId": "capofamiglia",
+      "title": "Cosa ti devi ricordare",
+      "display": "cards",
+      "context": {
+        "kind": "documented",
+        "dateLabel": "1914–1916"
+      },
+      "text": "Tra il 1914 e il 1916 le città russe restano senza pane anche se il grano non manca del tutto: i treni sono pochi, i prezzi sono fissati e la guerra assorbe tutto. Sulla carta lo Stato conta il grano; in città conta quello che arriva.\n\nIntanto circolano voci sulla corte: i gioielli, la ballerina, l'imperatrice spia. Una voce può diventare più forte di un fatto perché dà un colpevole a chi ha fame.\n\nA dicembre 1916 anche la famiglia dei Romanov non crede più allo zar: si parla di eliminare l'imperatrice. Un potere che perde il sostegno della famiglia e delle élite è già debole.",
+      "stageId": "pane-guerra-famiglia",
+      "motionId": "ingresso",
+      "visualExplanation": "Un palazzo imperiale d'inverno con il vuoto intorno. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
+      "editorial": {
+        "sources": [
+          "C39",
+          "C42",
+          "C43"
+        ],
+        "scheda": "III.1 ricordo"
+      },
+      "shows": []
     },
     {
       "id": "a3-pane-guerra-v5",
@@ -2649,6 +3481,7 @@
         "a3-pane-guerra-grano",
         "a3-pane-guerra-gioielli",
         "a3-pane-guerra-famiglia",
+        "a3-pane-guerra-ricorda",
         "a3-pane-guerra-v5"
       ],
       "closing": {
