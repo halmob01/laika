@@ -10,7 +10,7 @@ Schede degli episodi dell'atto. Numeri, titoli, periodi e gioco di ogni unità: 
 **Effetti differiti.** La linea del soviet scelta in IV.2 decide come il diario racconta il rifiuto del potere a luglio e quante risorse avrà il commissario in V.4. La scelta del soldato in IV.4 matura in V.1.
 
 ## IV.1 — Il paese più libero del mondo (marzo–aprile 1917) · `paese-piu-libero`
-Ruoli: la figlia operaia; un soldato della guarnigione. Fili: anime e semidei; la promessa e il suo prezzo.
+Ruoli: la figlia operaia; un soldato della guarnigione. Fili: la terra e lo zar; la promessa e il suo prezzo.
 
 **IV.1-e1 · narrative [D] · La festa dei gesti rovesciati**
 - **Scena.** Una passeggiata per la città, quadro dopo quadro. Il soldato sale sul tram (R02). Nei caffè il cartello «Non si accettano mance»; uno aggiunge che chi serve ai tavoli non va insultato con una mancia (F02, Reed). Le aquile imperiali vengono strappate dai palazzi e gettate sul ghiaccio della Neva; a Mosca le staccano con ganci di ferro dalle scale dei pompieri (N007). Al Mariinskij il palco dello zar è occupato da ex prigionieri politici e gli uscieri hanno la giacca sporca (N007). Si costruiscono statue degli zar apposta per abbatterle (R05). A Mosca il funerale del «Vecchio Ordine», con una bara nera e un elefante del circo (R06). Monaci e suore cacciano i superiori (R07). In un ufficio di provincia, invece, i ritratti dello zar finiscono in soffitta in silenzio, non distrutti (N006).
@@ -66,7 +66,7 @@ Ruoli: un soldato delegato al soviet; un deputato menscevico. Fili: chi rapprese
 **IV.2-e4 · assessment [V] · Verifica V2.**
 
 ## IV.3 — Ogni angolo di strada una tribuna (marzo–giugno 1917) · `ogni-angolo-strada`
-Ruoli: un comitato di fabbrica; una domestica; un reparto al fronte. Fili: anime e semidei; chi rappresenta chi.
+Ruoli: un comitato di fabbrica; una domestica; un reparto al fronte. Fili: la terra e lo zar; chi rappresenta chi.
 
 **IV.3-e1 · narrative [D] · La sete della parola**
 - **Scena.** Dalla Putilov escono quarantamila operai per ascoltare chiunque abbia qualcosa da dire; nei treni nascono dibattiti; i vetturini hanno un sindacato con un rappresentante nel soviet; al fronte soldati laceri chiedono «ci avete portato qualcosa da leggere?». Le domestiche, pagate meno di un paio di scarpe al mese, rifiutano di fare la coda per i padroni. Nelle fabbriche i capireparto odiati vengono caricati sulle carriole e rovesciati nel canale. A Mosca il ministro socialista francese Albert Thomas mima un Kaiser con i baffi davanti a una folla che non capisce e la prende per una farsa (R09). Il generale Brusilov tende la mano ai soldati e loro armeggiano con i fucili per poterla stringere (R10).
@@ -88,7 +88,7 @@ Ruoli: un comitato di fabbrica; una domestica; un reparto al fronte. Fili: anime
 **IV.3-e4 · assessment [V] · Verifica V3.**
 
 ## IV.4 — Pane, pace, terra (aprile–giugno 1917) · `pane-pace-terra`
-Ruoli: un militante bolscevico; il figlio della famiglia al fronte. Fili: anime e semidei; la promessa e il suo prezzo.
+Ruoli: un militante bolscevico; il figlio della famiglia al fronte. Fili: la terra e lo zar; la promessa e il suo prezzo.
 
 **IV.4-e1 · narrative [D] · Il treno e il mazzo di fiori**
 - **Scena.** 16 aprile (g. 3): Lenin arriva alla stazione di Finlandia dopo aver attraversato la Germania con l'assenso tedesco (il piano del viaggio era nato da un'idea del menscevico Martov). Čcheidze lo accoglie a nome del soviet con un mazzo di fiori e un discorso sull'unità; Lenin tiene i fiori come una cosa dimenticata, guarda il soffitto e si rivolge alla folla. Il giorno dopo le Tesi: uscire dalla guerra, nazionalizzare la terra, tutto il potere ai soviet. Il partito si installa nel palazzo della ballerina Kšesinskaja, ex amante dell'erede al trono (C40): la casa dei semidei diventa la sede di chi vuole abbatterli. A giugno, al Congresso dei soviet, il menscevico Cereteli dice che nessun partito è pronto a prendere da solo il potere; Lenin risponde dal suo posto che quel partito esiste, fra le risate.

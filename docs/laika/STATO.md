@@ -6,44 +6,36 @@ Aggiornato al 4 novembre 2026.
 
 ## Adesso
 
-**Riordino in corso** ([RIORDINO](RIORDINO.md)). Gli incarichi di contenuto e di gioco sono fermi fino alla fine della fase R3 (D-026).
+**Riordino finito** ([RIORDINO](RIORDINO.md)). Il gioco segue il canone: tre atti fino al 1917, unità con i nomi stabili, identificatori degli episodi derivati dai nomi (`a1-citta-salario`, `a2-soviet-giornate`, `a3-otto-giorni-coda`). Il build legge titoli, periodi e domande dal canone e si ferma se gli atti o le unità non coincidono; `tests/canone.test.js` e `tests/units.test.js` lo controllano anche per la home.
 
 | Fase | Che cosa | Stato |
 |---|---|---|
 | R0 | Piano del riordino | PR #39 |
-| R1 | Riordino dei documenti; `npm run canone`; test di coerenza dei documenti (`tests/canone.test.js`) | PR R1 |
-| R2 | Il build legge il canone; il test controlla anche il gioco | da fare, insieme a R3 |
-| R3 | Il gioco nei tre atti; home e usabilità | da fare |
+| R1 | Riordino dei documenti; `npm run canone`; test di coerenza dei documenti | PR #40 |
+| R2 e R3 | Il build legge il canone; il gioco in tre atti; home con nove fascicoli; usabilità | PR R3 |
 
-**Il gioco non segue ancora il canone.** Fino alla fase R3 il gioco ha un solo atto («Atto I — La terra e lo zar», sei unità I.1–I.6, dal 1700 al 1917). Corrispondenze:
-
-| Nel gioco oggi | Nel canone |
-|---|---|
-| I.1 Anime e semidei (`i1`, episodi `a1-u1-*`) | I.1 `servitu` |
-| I.2 La terra dopo il Manifesto (`i2`, `a1-u2-mir`) | I.2 `mir` |
-| I.3 In città (`i3`, episodi `a1-u2-*`) | I.3 `citta` |
-| I.4 Il 1905 (`i4`, `a1-u4-*`) | Atto II: II.1 `petizione`, II.2 `soviet`, II.3 `concessioni`, II.4 `stolypin` |
-| I.5 Pane e guerra (`i5`, `a1-u5-*`) | III.1 `pane-guerra` |
-| I.6 Otto giorni (`i6`, `a1-u6-*`) | III.2 `otto-giorni` |
+In attesa del docente: le proposte P-01–P-05 in [DECISIONI](DECISIONI.md) (soprattutto P-01, la divisione dell'Atto II in quattro unità, già usata nel gioco come proposta).
 
 ## Le unità costruite
 
-Tutte in `main` come bozza: nessuna è ancora stata provata e approvata dal docente dal telefono.
+Nessuna è ancora stata provata e approvata dal docente dal telefono.
 
 | Unità | Che cosa c'è | Che cosa manca | Evidenze |
 |---|---|---|---|
 | I.1 `servitu` | La settimana del servo: otto anni dal 1740 al 1861, cinque generazioni, migliorie, fiera, chi bussa, verifica V1 | Previsione ed esito del grano che si contraddicono; numeri negativi; pagina lunga sul telefono | `tests/browser-i1.cjs`; [revisione del 4 novembre](revisioni/2026-11-04-allievo-atto-I.md) |
 | I.2 `mir` | Otto assemblee, quattro gruppi | È un questionario con barre: niente da gestire fra una richiesta e l'altra | revisione del 4 novembre §5 |
 | I.3 `citta` | In città, il salario (otto settimane), il razzo, la corte, i tre volantini, verifica V2 | Il salario si vince con la stessa mossa ogni settimana; manca il confronto di fine atto | revisione §5 |
-| Atto II (vecchia I.4) | Petizione, domenica di sangue, giornate del soviet a punti azione, che cosa concede lo zar, Stolypin, verifiche V3 e V4 | Divisione in unità (P-01); giochi di petizione, concessioni e Stolypin; aneddoti dei libri (diario di Nicola, il granduca, Baletta); le notizie del soviet non servono a niente; confronto di fine atto | revisione §3 e §5 |
-| III.1 `pane-guerra` | In ginocchio, il grano e i treni come partita di sole decisioni, gioielli e pane, la fine dei semidei, verifica V5 | **Da rifare**: il gioco approvato (quanto serve e quanto c'è, prime code) non c'è; aneddoti (Fabergé, Kšesinskaja, Rodzjanko) | revisione §3 |
-| III.2 `otto-giorni` | Giornata della donna, la coda a punti azione, il soldato a punti azione, il treno, verifica V6, confronto | **Da rifare**: la coda vera (figure che lasciano la fila); aneddoti del treno (baffi, Frederiks); scena del treno | revisione §3 e §4 |
+| Atto II (II.1–II.4) | Petizione e domenica di sangue (II.1), giornate del soviet a punti azione e V3 (II.2), che cosa concede lo zar (II.3), Stolypin, V4 e «Cosa ti devi ricordare» (II.4) | Approvazione della divisione in unità (P-01); giochi di petizione, concessioni e Stolypin; aneddoti dei libri (diario di Nicola, il granduca, Baletta); le notizie del soviet non servono a niente; confronto di fine atto | revisione §3 e §5 |
+| III.1 `pane-guerra` | In ginocchio, il grano e i treni come partita di sole decisioni, gioielli e pane, la fine dello zar, verifica V5 | **Da rifare**: il gioco approvato (quanto serve e quanto c'è, prime code) non c'è; aneddoti (Fabergé, Kšesinskaja, Rodzjanko) | revisione §3 |
+| III.2 `otto-giorni` | Giornata della donna, la coda a punti azione, il soldato a punti azione, il treno, verifica V6, confronto | **Da rifare**: la coda vera (figure che lasciano la fila); aneddoti del treno (baffi, Frederiks); disegno del treno nella neve (oggi treno, fine dello zar e confronto sono senza scena, invece di riusare scene sbagliate) | revisione §3 e §4 |
 
 ## Home e sito
 
-- Home approvata (PR #19) con sette fascicoli: va portata ai nove atti del canone (R3, D-025).
-- Pagina dell'atto, dell'unità e chiusura in `main` (#25); tutte le unità si aprono dalla pagina dell'atto (#37).
-- Problemi di usabilità aperti dalla revisione del 4 novembre: didascalie sbagliate sotto le scene riusate, etichette sovrapposte sulla scena, pagine lunghe sul telefono, giornate a punti azione che si chiudono con un tocco senza spendere punti, budget della home 623 KB contro 500. Corretti nella PR #38: chiusura dell'atto, muro di indicatori, pulsanti delle giornate, errori di lingua.
+- Home: nove fascicoli dal canone; i tre atti costruiti hanno titolo e «Apri il fascicolo» che portano alla pagina dell'atto (`play.html?game=laika&atto=atto-N`). Evidenze: `docs/evidence/riordino/`.
+- Pagina dell'atto, dell'unità e chiusura (#25); ogni unità si apre dalla pagina del suo atto (#37), anche in un atto diverso da quello della partita salvata.
+- Finita l'ultima unità di un atto, la chiusura mostra «Fine dell'atto» e porta alla pagina dell'atto successivo.
+- Corretti nella PR #38: chiusura dell'atto, muro di indicatori, pulsanti delle giornate, errori di lingua. Corretti nella PR R3: didascalie di altre scene sotto gli episodi che riusano una scena, didascalia generica sotto le verifiche, giornate a punti azione chiuse senza vedere i punti rimasti, numeri negativi nella previsione del grano.
+- Restano: etichette sovrapposte sulla scena (sala del soviet), pagine lunghe sul telefono (tabellone di I.1), la home a 626 KB contro i 500 del budget, «Riprendi» nella home che non compare se si è appena entrati in un'unità senza agire.
 
 ## Disegni
 

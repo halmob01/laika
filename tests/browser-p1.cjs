@@ -56,8 +56,11 @@ module.exports=async(browser,root,artifacts)=>{
   assert.equal(await page.evaluate(()=>localStorage.getItem('learning-kit:laika:save-v1:precedente')),raw);
  }
  await page.goto(origin+'/play.html?game=laika');await page.locator('#hub-title').waitFor();
- assert.equal(await page.locator('[data-unit-start]').count()>=6,true);
- await page.locator('[data-unit="i4"] [data-unit-start]').click();await page.locator('[data-hub=go]').click();await page.locator('#scene-title').waitFor();
+ assert.equal(await page.locator('[data-unit-start]').count(),3);
+ // Un fascicolo della home apre un altro atto: le sue unità si giocano direttamente.
+ await page.goto(origin+'/play.html?game=laika&atto=atto-2');await page.locator('#hub-title').waitFor();assert.match(await page.locator('#hub-title').innerText(),/Atto II/i);
+ await page.locator('[data-unit="soviet"] [data-unit-start]').click();await page.locator('[data-hub=go]').click();await page.locator('#scene-title').waitFor();
+ assert.match(await page.locator('.eyebrow-back').innerText(),/II\.2/);
  await page.goto(origin+'/play.html?game=biblioteca');await page.locator('#scene-title').waitFor();
  assert.equal(await page.locator('#pack-theme').count(),0);assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).getPropertyValue('--accent').trim()),'#355e59');
  // Context labels from content are rendered as text, never HTML.

@@ -27,6 +27,8 @@ Ricostruito il 4 novembre 2026 dai documenti, dal registro delle PR e dalle conv
 
 ### La struttura (atti e unità)
 
+- **D-037 · 4 novembre 2026 · «La terra e lo zar» al posto di «anime e semidei».** «Anime e semidei» non piace al docente: non si usa nei testi per lo studente né nella home. Il titolo di I.1, il nome del filo e la formula dell'Atto I diventano «La terra e lo zar»; l'episodio della famiglia imperiale nella guerra si chiama «La fine dello zar comincia in famiglia». Chiude A-06 e A-07. (chat del 4 novembre)
+
 - **D-024 · 4 novembre 2026 · Tre atti fino al 1917.** Il docente ristabilisce la divisione che aveva prima del 21 ottobre: **Atto I «La terra e lo zar»**, **Atto II «1905»**, **Atto III «Pane e guerra»**. Sostituisce la fusione in un solo Atto I 1700–marzo 1917 fatta dal piano v5 del 21 ottobre (vedi «Decisioni superate»). Il lavoro fatto si sposta, non si butta: le vecchie unità I.1–I.3 restano nell'Atto I, la vecchia I.4 diventa l'Atto II, le vecchie I.5 e I.6 diventano l'Atto III. Titoli scritti come il docente li ha dati in chat. (chat del 4 novembre; [RIORDINO](RIORDINO.md))
 - **D-018 · 29 ottobre 2026 · Unità e pagine.** Un atto è fatto di unità; prima del gioco di un'unità ci sono la pagina dell'atto e la pagina dell'unità, dopo c'è la chiusura dell'unità. (BRAND-DESIGN §5quinquies)
 - **D-027 · 4 novembre 2026 · Unità aperte.** Ogni unità che ha episodi si apre direttamente dalla pagina dell'atto, senza ordine obbligato. (BRAND-DESIGN §5quinquies, PR #37)
@@ -56,7 +58,7 @@ Ricostruito il 4 novembre 2026 dai documenti, dal registro delle PR e dalle conv
 - **D-022 · 29 ottobre 2026 · Ogni PR aggiorna i documenti** con le scelte fatte e le novità: «se no si fanno danni». (AGENTS.md)
 - **D-023 · 21 ottobre 2026 · Opus e Sonnet.** Opus per il quadro generale (atti, aneddoti, libri, direzione) e per le revisioni; Sonnet per sviluppare le singole scene dalle schede. Le schede dicono quando serve Opus. (METODO §4–§5)
 - **D-025 · 4 novembre 2026 · Home e usabilità insieme alla struttura.** Con il passaggio ai tre atti si modificano anche la home e l'usabilità del sito. (chat del 4 novembre)
-- **D-026 · 4 novembre 2026 · Riordino dei documenti.** Si riordinano i documenti secondo [RIORDINO](RIORDINO.md): canone unico, questo registro, stato separato, piano degli atti diviso per atto, archivio. Fino alla fine della fase R3 gli incarichi di contenuto e di gioco sono fermi. (chat del 4 novembre)
+- **D-026 · 4 novembre 2026 · Riordino dei documenti.** Si riordinano i documenti secondo [RIORDINO](RIORDINO.md): canone unico, questo registro, stato separato, piano degli atti diviso per atto, archivio. Fino alla fine della fase R3 gli incarichi di contenuto e di gioco sono fermi (fase finita il 4 novembre con la PR R3). (chat del 4 novembre)
 
 ## Decisioni superate
 
@@ -78,7 +80,5 @@ Ricostruito il 4 novembre 2026 dai documenti, dal registro delle PR e dalle conv
 - **A-02** · Il nome della carestia del 1932–1933 e il modo di presentarne le interpretazioni (VII.1-e3).
 - **A-03** · Quanto mostrare della morte di Laika (VIII.3-e2): la proposta è il segnale che si interrompe, senza immagini.
 - **A-04** · Valutazione sommativa a fine atto o solo a fine percorso; le riflessioni aperte (V.5, VII.5, IX.4) richiedono una rubrica.
-- **A-06** · La formula che nel gioco sostituirà «anime e semidei». Finché non c'è, il piano dice che l'espressione resta solo nei documenti di lavoro; oggi però è il titolo di I.1 e compare in un titolo dell'Atto III.
-- **A-07** · I.1 «Anime e semidei»: tenere o cambiare il titolo dell'unità (legata ad A-06).
 
-Chiuse: A-01 (le tre meccaniche della v4.1: chiusa da D-011); A-05 (gli identificatori degli atti nel motore: chiusa dal riordino con i nomi stabili del canone).
+Chiuse: A-06 e A-07 (chiuse da D-037); A-01 (le tre meccaniche della v4.1: chiusa da D-011); A-05 (gli identificatori degli atti nel motore: chiusa dal riordino con i nomi stabili del canone).

@@ -22,13 +22,11 @@ Si può possedere un essere umano? Che cosa tiene in piedi un potere che si cred
 
 | Unità | Nome stabile | Titolo | Periodo | Gioco | Gioco deciso | Stato |
 |---|---|---|---|---|---|---|
-| I.1 | `servitu` | Anime e semidei | 1700–1861 | [gestione (la settimana del servo) con decisioni sui gruppi](giochi/servitu.md) | approvato | bozza |
+| I.1 | `servitu` | La terra e lo zar | 1700–1861 | [gestione (la settimana del servo) con decisioni sui gruppi](giochi/servitu.md) | approvato | bozza |
 | I.2 | `mir` | La terra dopo il Manifesto | 1861–1904 | [decisioni sui gruppi (l'assemblea del mir)](giochi/mir.md) | approvato | bozza |
 | I.3 | `citta` | In città | fine Ottocento–1904 | [gestione (il salario, più settimane)](giochi/salario.md) | approvato | bozza |
 
-- I.1: Titolo provvisorio: «anime e semidei» nei testi per lo studente è la domanda aperta A-06.
 - I.2: Costruito come partita di sole decisioni: la revisione del 4 novembre lo giudica un questionario con barre.
-- I.3: Gli identificatori degli episodi nel gioco sono ancora a1-u2-*: da rinominare in R3.
 
 ## Atto II — 1905 (1905–1911)
 

@@ -19,14 +19,13 @@
         {
           "numero": "I.1",
           "id": "servitu",
-          "titolo": "Anime e semidei",
+          "titolo": "La terra e lo zar",
           "periodo": "1700–1861",
           "gioco": "gestione (la settimana del servo) con decisioni sui gruppi",
           "stato_gioco": "approvato",
           "stato": "bozza",
           "scheda_gioco": "docs/laika/giochi/servitu.md",
-          "nel_gioco": "i1",
-          "nota": "Titolo provvisorio: «anime e semidei» nei testi per lo studente è la domanda aperta A-06."
+          "nel_gioco": "i1"
         },
         {
           "numero": "I.2",
@@ -49,8 +48,7 @@
           "stato_gioco": "approvato",
           "stato": "bozza",
           "scheda_gioco": "docs/laika/giochi/salario.md",
-          "nel_gioco": "i3",
-          "nota": "Gli identificatori degli episodi nel gioco sono ancora a1-u2-*: da rinominare in R3."
+          "nel_gioco": "i3"
         }
       ]
     },

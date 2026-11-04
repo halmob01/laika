@@ -66,13 +66,13 @@ function play(name, seed, {check = false, answer = 'liberta'} = {}) {
           const dove = dal.has(w.id) ? 'corvee' : (st.vicini || []).includes(w.id) ? 'vicini' : (st.costruisce || []).includes(w.id) && lavoro ? lavoro : 'campo';
           try { T('assign', {workerId: w.id, placeId: dove}); } catch { T('assign', {workerId: w.id, placeId: 'campo'}); }
         }
-        if (s.currentAct.resources.grano - s.currentAct.game.reserve - 20 < 0) fame++;
+        if (e.id === 'a1-servitu-settimana' && s.currentAct.resources.grano - s.currentAct.game.reserve - 20 < 0) fame++;
         T('confirm');
       } else if (g.phase === 'event') { const ch = e.turns[g.turn].event.choices.filter(c => !c.when || matches(c.when, a)); k = (k * 7 + 3) % 97; T('choose', {choiceId: ch[k % ch.length].id}); }
       else if (g.phase === 'market') T('leave');
       else T('continue');
     } else {
-      if (e.id === 'a1-u1-settimana') fine = {...a.resources, ...a.metrics, fired: a.game.fired, built: a.game.built, fame};
+      if (e.id === 'a1-servitu-settimana') fine = {...a.resources, ...a.metrics, fired: a.game.fired, built: a.game.built, fame};
       s = transition(game, s, azione(e, a, answer)).nextState;
     }
     if (check) { const back = restore(game, exportSave(game, s)); assert.equal(back.ok, true); assert.deepEqual(back.state, s); }
@@ -124,11 +124,12 @@ test('I.1: i flag non compaiono nelle variazioni mostrate e Legami è un indicat
   for (const p of e.projects) for (const id of Object.values(p.scene || {})) assert.ok(ids.has(id), 'disegno del lavoro mancante nella scena: ' + id);
 });
 
-test('I.2 e I.3: la partita completa passa da mir, città, salario, razzo, corte e volantini fino alla V2', () => {
+test('I.2 e I.3: la partita completa passa da mir, città, salario, razzo, corte e volantini fino alla V2, poi negli Atti II e III', () => {
   const r = play('solidale', 'i2', {check: true});
-  const ids = game.acts[0].episodes.filter(e => e.id.startsWith('a1-u2-')).map(e => e.id);
-  assert.deepEqual(ids, ['a1-u2-mir', 'a1-u2-citta', 'a1-u2-salario', 'a1-u2-razzo', 'a1-u2-corte', 'a1-u2-volantini', 'a1-u2-ricorda', 'a1-u2-e7']);
-  const v2 = game.acts[0].episodes.find(e => e.id === 'a1-u2-e7').question;
+  const ids = game.acts[0].episodes.filter(e => /^a1-(mir|citta)-/.test(e.id)).map(e => e.id);
+  assert.deepEqual(ids, ['a1-mir-assemblea', 'a1-citta-arrivo', 'a1-citta-salario', 'a1-citta-razzo', 'a1-citta-corte', 'a1-citta-volantini', 'a1-citta-ricorda', 'a1-citta-v2']);
+  assert.deepEqual(r.s.historySnapshots.map(h => h.actId), ['atto-1', 'atto-2', 'atto-3']);
+  const v2 = game.acts[0].episodes.find(e => e.id === 'a1-citta-v2').question;
   assert.deepEqual(v2.requiredExposureFlags, ['a1-volantini']);
   assert.ok(r.s.complete);
   const forze = game.acts[0].resources.find(x => x.id === 'forze');
@@ -138,7 +139,7 @@ test('I.2 e I.3: la partita completa passa da mir, città, salario, razzo, corte
 test('I.1: cinque generazioni, card di passaggio senza varianti sbagliate, giudizio dell\'anno, indicatori dell\'unità', () => {
   const a = game.acts[0], e = a.episodes.find(x => x.type === 'turn_game');
   assert.deepEqual(e.turns.filter(t => t.effects).map(t => t.label), ['1761', '1787', '1820', '1840', '1861'], 'passaggi di generazione');
-  for (const ep of a.episodes.filter(x => x.id.startsWith('a1-u1-'))) assert.deepEqual(ep.shows, ['grano', 'occhio', 'speranza', 'legami']);
+  for (const ep of a.episodes.filter(x => x.id.startsWith('a1-servitu-'))) assert.deepEqual(ep.shows, ['grano', 'occhio', 'speranza', 'legami']);
   assert.match(a.episodes[0].text, /cinque generazioni/);
   let s = newSession(game, 'gen');
   const T = (step, x = {}) => { s = transition(game, s, {type: 'turn', step, ...x}).nextState; };
@@ -160,4 +161,9 @@ test('I.1: cinque generazioni, card di passaggio senza varianti sbagliate, giudi
   assert.equal(g().turn, 1);
   assert.ok(list.every(c => !c.when || c.when.value === false), 'solo le card della famiglia al completo');
   assert.ok(list.some(c => /Pëtr, il bambino del 1740, è diventato il padre/.test(c.text)));
+});
+
+test('D-037: «anime e semidei» non compare nei testi per lo studente né nella home', () => {
+  assert.doesNotMatch(JSON.stringify(game), NAMES);
+  assert.doesNotMatch(fs.readFileSync(new URL('../index.html', import.meta.url), 'utf8'), NAMES);
 });

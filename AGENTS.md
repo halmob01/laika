@@ -4,9 +4,9 @@ Repository di un **kit di giochi didattici** (motore riutilizzabile) e del primo
 
 **Regola di stile per tutti i testi del gioco e della home:** in italiano non si mette la virgola prima di «e», «ed», «o», «od», «né» (niente «virgola di Oxford»). Se la frase senza virgola diventa ambigua o troppo lunga, si spezza in due frasi o si usa il punto e virgola. Il test `tests/laika-virgola.test.js` la controlla.
 
-## Fermo: riordino in corso (dal 4 novembre 2026)
+## Dopo il riordino (4 novembre 2026)
 
-Gli incarichi di contenuto e di gioco sono fermi finché non è finito il riordino ([docs/laika/RIORDINO.md](docs/laika/RIORDINO.md), fasi R1–R3). Si lavora solo sulle PR di quel piano. A che punto è: [docs/laika/STATO.md](docs/laika/STATO.md).
+Il riordino di struttura e documenti è finito ([docs/laika/RIORDINO.md](docs/laika/RIORDINO.md)). Il lavoro riparte dall'elenco «Da fare» di [docs/laika/STATO.md](docs/laika/STATO.md), un incarico per PR. Le proposte P-01–P-05 di [DECISIONI](docs/laika/DECISIONI.md) aspettano la risposta del docente: finché non c'è, non si costruisce nulla che ne dipenda.
 
 ## Le regole che non si toccano
 

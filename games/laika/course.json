@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "laika",
-  "contentVersion": "p4-revisione-1",
+  "contentVersion": "riordino-tre-atti-1",
   "title": "LAIKA",
   "exposureFlags": [
     "a1-anime",
@@ -32,6 +32,14 @@
     {
       "id": "atto-1",
       "file": "source/acts/atto-1.json"
+    },
+    {
+      "id": "atto-2",
+      "file": "source/acts/atto-2.json"
+    },
+    {
+      "id": "atto-3",
+      "file": "source/acts/atto-3.json"
     }
   ],
   "stages": [],

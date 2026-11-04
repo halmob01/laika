@@ -2,7 +2,7 @@
 
 - `canone.json`: struttura del percorso (atti, unità, gioco di ogni unità, stato). Fa fede sugli altri documenti; dopo una modifica `npm run canone`.
 
-Un solo corso con l'Atto I (1700–marzo 1917), diviso in sei unità tutte giocabili in prima versione: I.1 la settimana del servo, I.2 il mir, I.3 la città e il salario, I.4 il 1905, I.5 la guerra e il pane, I.6 marzo 1917. Nel gioco l'atto è ancora uno solo: dal 4 novembre 2026 il canone ne prevede tre fino al 1917 (D-024), che il gioco avrà dalla fase R3 del riordino. Stato: [STATO](../../docs/laika/STATO.md). Gli identificatori degli episodi di I.3 sono ancora `a1-u2-*` (scelta del 29 ottobre 2026).
+Un solo corso con tre atti fino al 1917, come nel canone: Atto I «La terra e lo zar» (`source/acts/atto-1.json`: servitu, mir, citta), Atto II «1905» (`atto-2.json`: petizione, soviet, concessioni, stolypin), Atto III «Pane e guerra» (`atto-3.json`: pane-guerra, otto-giorni). Titoli, periodi e domande degli atti e titoli e periodi delle unità si scrivono **solo** in `canone.json`: il build li copia nel manifest e si ferma se atti o unità non coincidono. Gli identificatori degli episodi cominciano con l'atto e il nome stabile dell'unità (`a2-soviet-giornate`). Stato: [STATO](../../docs/laika/STATO.md).
 
 Eseguire dalla radice:
 

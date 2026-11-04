@@ -12,9 +12,12 @@ const $=id=>document.getElementById(id);
 let game,state,stageId=null,blocked=false,storage=null,cardEpisode=null,cardIndex=0;
 // Corsi a unità: si passa da pagina dell'atto, pagina dell'unità e chiusura prima di giocare. view: act | unit | play | close.
 let view='play',closed=null,pendingIntro=false;
+// Atto sfogliato dalla pagina dell'atto (?atto=… o un altro fascicolo della home): null = l'atto della partita in corso.
+let browse=null;
+const hubIndex=()=>browse??Math.min(state.actIndex,game.acts.length-1);
 try{storage=window.localStorage;}catch{}
 const media=matchMedia('(prefers-reduced-motion: reduce)');
-const stage=createStage($('stage'),{reducedMotion:media.matches,onCaption:message=>{$('caption').textContent=message;},onStatus:value=>{$('pause').textContent=value==='paused'?'Riprendi':'Pausa';$('pause').setAttribute('aria-pressed',String(value==='paused'));$('pause').disabled=value==='finished';}});
+const stage=createStage($('stage'),{reducedMotion:media.matches,onCaption:message=>{$('caption').textContent=message;$('caption').hidden=!message;},onStatus:value=>{$('pause').textContent=value==='paused'?'Riprendi':'Pausa';$('pause').setAttribute('aria-pressed',String(value==='paused'));$('pause').disabled=value==='finished';}});
 media.addEventListener('change',e=>stage.setReducedMotion(e.matches));
 function notice(message){$('notice').textContent=message;}
 const STALE='Il progresso salvato non è più utilizzabile perché il percorso è stato aggiornato. Premi Ricomincia per proseguire.';
@@ -34,11 +37,14 @@ function journal(){
 }
 function focusPlay(){($(state.complete?'summary-title':'scene-title'))?.focus({preventScroll:true});}
 function hubActions(){return {
-  go(){if(view==='act'){view='unit';}else if(view==='unit'){view='play';render({intro:pendingIntro,sceneMotion:true});pendingIntro=false;focusPlay();return;}else{const nextUnit=!state.complete&&closed&&state.actIndex===closed.act&&closedNext()!==null;view=nextUnit?'unit':state.complete||state.actIndex!==closed?.act?'play':'act';closed=null;}render();if(view==='play')focusPlay();},
-  back(){view='act';closed=null;render();},
+  go(){if(view==='act'){view='unit';}else if(view==='unit'){view='play';render({intro:pendingIntro,sceneMotion:true});pendingIntro=false;focusPlay();return;}else{const nextUnit=!state.complete&&closed&&state.actIndex===closed.act&&closedNext()!==null;
+    // Finito un atto si passa alla pagina dell'atto successivo (non dentro la sua prima scena); finito il corso, al riepilogo.
+    view=nextUnit?'unit':state.complete?'play':'act';closed=null;browse=null;}render();if(view==='play')focusPlay();},
+  back(){view='act';closed=null;browse=null;render();},
+  browsing:false,
   start(index){
-    const act=game.acts[Math.min(state.actIndex,game.acts.length-1)],u=act.units[index];
-    if(index===unitIndexOf(act,state.currentAct.episodeId)&&!state.complete){view='unit';render();return;}
+    const act=game.acts[hubIndex()],u=act.units[index],same=hubIndex()===state.actIndex;browse=null;
+    if(same&&index===unitIndexOf(act,state.currentAct.episodeId)&&!state.complete){view='unit';render();return;}
     // Si entra in un'altra unità: la partita precedente resta nella chiave di riserva.
     try{const k=storageKey(game),raw=storage.getItem(k);if(raw!==null)storage.setItem(k+':precedente',raw);}catch{}
     state=newSession(game,crypto.randomUUID(),u.episodes[0]);blocked=false;stageId=null;notice('');persist();view='unit';render();
@@ -46,16 +52,17 @@ function hubActions(){return {
 };}
 function closedNext(){const act=game.acts[state.actIndex],i=act.units.findIndex(u=>u.episodes.includes(state.currentAct.episodeId));return i<0?null:i;}
 function renderHub(){
-  const act=game.acts[view==='close'?closed.act:Math.min(state.actIndex,game.acts.length-1)],host=$('hub'),actions=hubActions();
+  const act=game.acts[view==='close'?closed.act:view==='act'?hubIndex():Math.min(state.actIndex,game.acts.length-1)],host=$('hub'),actions=hubActions();
+  actions.browsing=view==='act'&&browse!==null&&browse!==state.actIndex;
   $('workspace').hidden=true;$('summary').hidden=true;$('journal').replaceChildren();host.hidden=false;stage.pause();
   if(view==='act')actPage(host,{act,session:state,actions});
   else if(view==='unit')unitPage(host,{act,session:state,index:unitIndexOf(act,state.currentAct.episodeId),actions});
-  else closingPage(host,{act,index:closed.index,nextIndex:state.complete||state.actIndex!==closed.act?null:unitIndexOf(act,state.currentAct.episodeId),complete:state.complete||state.actIndex!==closed.act,actions});
+  else closingPage(host,{act,index:closed.index,nextIndex:state.complete||state.actIndex!==closed.act?null:unitIndexOf(act,state.currentAct.episodeId),complete:state.complete||state.actIndex!==closed.act,nextAct:!state.complete&&state.actIndex!==closed.act?game.acts[state.actIndex]:null,actions});
   document.body.dataset.view=view;$('hub-title')?.focus({preventScroll:true});window.scrollTo(0,0);
 }
 function render({motion=false,intro=false,sceneMotion=false,cue=null}={}) {
-  const hubAct=game.acts[Math.min(state.actIndex,game.acts.length-1)];
-  if(hasUnits(hubAct)&&view!=='play'&&!(state.complete&&view!=='close')){renderHub();return;}
+  const hubAct=game.acts[view==='act'?hubIndex():Math.min(state.actIndex,game.acts.length-1)];
+  if(hasUnits(hubAct)&&view!=='play'&&!(state.complete&&view!=='close'&&!(view==='act'&&browse!==null))){renderHub();return;}
   $('hub').hidden=true;document.body.dataset.view='play';
   $('workspace').hidden=state.complete;$('summary').hidden=!state.complete;journal();
   if(state.complete){stage.skip();const summary=recap(game,state);$('summary').replaceChildren(el('p','Percorso completato',{class:'eyebrow'}),el('h1','Le scelte e ciò che hai imparato',{id:'summary-title',tabindex:'-1'}));
@@ -66,7 +73,8 @@ function render({motion=false,intro=false,sceneMotion=false,cue=null}={}) {
   const act=game.acts[state.actIndex],s=state.currentAct,e=currentScene(game,state);
   // Nella partita a turni la scena attiva è quella della card in lettura, altrimenti il tabellone.
   const active=e.type==='turn_game'&&s.game?activeStage(e,s.game):{stageId:e.stageId,motionId:e.motionId},descriptor=game.stages.find(x=>x.id===active.stageId);
-  $('caption').textContent=e.visualExplanation||'Scena della simulazione.';
+  // Senza una spiegazione della scena la didascalia resta vuota e nascosta (niente testo generico).
+  $('caption').textContent=e.visualExplanation||'';
   if(descriptor){if(stageId!==descriptor.id){stage.mount(descriptor,s,{intro:intro&&!active.motionId});stageId=descriptor.id;if((intro||sceneMotion||e.type==='turn_game')&&active.motionId)stage.sequence(active.motionId);}else stage.update(s,{animate:motion,sequence:cue||(sceneMotion?e.motionId:undefined)});}
   else {stage.destroy();stageId=null;}
   // Inquadratura per schermi stretti dichiarata dalla scenografia: il tema la usa per centrare l'azione.
@@ -76,6 +84,7 @@ function render({motion=false,intro=false,sceneMotion=false,cue=null}={}) {
   $('stage').parentElement.hidden=!descriptor&&!hasMetrics;
   $('workspace').classList.toggle('text-only',!descriptor&&!hasMetrics);
   for(const node of [$('stage'),$('caption'),$('replay').parentElement])node.hidden=!descriptor;
+  if(!$('caption').textContent)$('caption').hidden=true;
   
   // Indicatori: solo quelli dell'episodio (se li dichiara), con il verso detto a parole e non solo con il colore.
   const shown=d=>!d.hidden&&(!e.shows||e.shows.includes(d.id));
@@ -156,8 +165,11 @@ async function start(){
   state=result.ok&&result.state?result.state:newSession(game,crypto.randomUUID());
   if(blocked){notice(/^Archivio locale/.test(result.error)?result.error:STALE);$('raw').hidden=false;}
   else if(result.state)notice('Progresso ripreso. Nel diario trovi le decisioni che spiegano la situazione attuale.');
-  const firstAct=game.acts[state.actIndex];
-  if(hasUnits(firstAct)&&!state.complete){view='act';pendingIntro=!result.state;render();}else {view='play';render({intro:!result.state});}
+  // ?atto=<id>: si apre la pagina di quell'atto (per esempio da un fascicolo della home) senza toccare la partita salvata.
+  const asked=game.acts.findIndex(a=>a.id===new URLSearchParams(location.search).get('atto'));
+  if(asked>=0&&hasUnits(game.acts[asked])&&(asked!==state.actIndex||state.complete)){browse=asked;view='act';pendingIntro=true;render();}
+  else {const firstAct=game.acts[state.actIndex];
+  if(hasUnits(firstAct)&&!state.complete){view='act';pendingIntro=!result.state;render();}else {view='play';render({intro:!result.state});}}
   if(!blocked)persist();
 }
 start().catch(error=>{notice('Impossibile aprire il laboratorio: '+error.message);$('tools').hidden=true;});

@@ -4,10 +4,12 @@ import {assess,report} from '../assessment/index.js';
 import {turnAction} from '../core/turns.js';
 export function newSession(game,seed='session',startEpisodeId=null) {
   validateGame(game);assert(typeof seed==='string'&&seed.length<=100,'Seed non valido');
-  const act=game.acts[0];let currentAct=initialState(act);
-  // Ingresso diretto in un episodio (per esempio la prima scena di un'unità): stato iniziale dell'atto, poi ingresso nell'episodio.
-  if(startEpisodeId&&startEpisodeId!==act.episodes[0].id){const ep=act.episodes.find(e=>e.id===startEpisodeId);assert(ep,'Episodio di partenza non valido');currentAct=enterEpisode(act,currentAct,ep).state;}
-  return {gameId:game.id,contentVersion:game.contentVersion,seed,startEpisodeId:startEpisodeId||null,actIndex:0,currentAct,ledger:[],historySnapshots:[],exposureFlags:[],assessmentResults:[],journal:[],complete:false};
+  // Ingresso diretto in un episodio di qualunque atto (per esempio la prima scena di un'unità): stato iniziale di quell'atto, poi ingresso nell'episodio.
+  const actIndex=startEpisodeId?game.acts.findIndex(a=>a.episodes.some(e=>e.id===startEpisodeId)):0;
+  assert(actIndex>=0,'Episodio di partenza non valido');
+  const act=game.acts[actIndex];let currentAct=initialState(act);
+  if(startEpisodeId&&startEpisodeId!==act.episodes[0].id)currentAct=enterEpisode(act,currentAct,act.episodes.find(e=>e.id===startEpisodeId)).state;
+  return {gameId:game.id,contentVersion:game.contentVersion,seed,startEpisodeId:startEpisodeId||null,actIndex,currentAct,ledger:[],historySnapshots:[],exposureFlags:[],assessmentResults:[],journal:[],complete:false};
 }
 export const currentScene=(game,s)=>s.complete?null:game.acts[s.actIndex].episodes.find(e=>e.id===s.currentAct.episodeId);
 export function transition(game,previous,action) {

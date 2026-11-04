@@ -15,6 +15,7 @@ export function buildLaika(root=fileURLToPath(new URL('../games/laika/',import.m
   return JSON.parse(fs.readFileSync(path.join(root,ref),'utf8'));
  };
  const course=read('course.json');unique(course.acts,'Atti authoring',1);
+ const canone=fs.existsSync(path.join(root,'canone.json'))?read('canone.json'):null;
  const questions=course.questions.flatMap(ref=>read(ref));unique(questions,'Domande');
  const allEpisodes=[];
  const acts=course.acts.map(entry=>{
@@ -29,8 +30,19 @@ export function buildLaika(root=fileURLToPath(new URL('../games/laika/',import.m
    }
    return episode;
   });
-  return {...pick(act,['id','title','actors','roles','metrics','resources','relations','flags','reconciliation','period','question','units']),episodes};
+  // Il canone (canone.json) è la sola fonte di numero, titolo, periodo e domanda dell'atto e di titolo e periodo delle unità.
+  const ca=canone?.atti.find(x=>x.id===act.id);
+  if(canone){
+   assert(ca,'Atto assente dal canone: '+act.id);
+   assert(JSON.stringify((act.units||[]).map(u=>u.id))===JSON.stringify(ca.unita.map(u=>u.id)),'Unità di '+act.id+' diverse dal canone: '+(act.units||[]).map(u=>u.id).join(', ')+' invece di '+ca.unita.map(u=>u.id).join(', '));
+   for(const k of ['title','period','question'])assert(act[k]===undefined,'«'+k+'» di '+act.id+' si scrive solo nel canone');
+   for(const u of act.units)assert(u.title===undefined&&u.period===undefined,'Titolo e periodo dell\'unità '+u.id+' si scrivono solo nel canone');
+  }
+  const fromCanone=ca?{title:'Atto '+ca.numero+' — '+ca.titolo,period:ca.periodo,question:ca.domanda,units:act.units.map((u,i)=>({...u,title:ca.unita[i].titolo,period:ca.unita[i].periodo}))}:{};
+  return {...pick({...act,...fromCanone},['id','title','actors','roles','metrics','resources','relations','flags','reconciliation','period','question','units']),episodes};
  });
+ // Nel corso stanno, in ordine, tutti gli atti del canone che hanno almeno un'unità costruita.
+ if(canone){const attese=canone.atti.filter(a=>a.unita.some(u=>u.stato!=='da fare')).map(a=>a.id);assert(JSON.stringify(acts.map(a=>a.id))===JSON.stringify(attese),'Atti del corso diversi dal canone: '+acts.map(a=>a.id).join(', ')+' invece di '+attese.join(', '));}
  unique(allEpisodes,'Episodi authoring');
  // Schede scena della bottega (facoltative): composte con il tema del corso.
  const scene=(course.scene||[]).map(read);

@@ -18,23 +18,21 @@ test('unità valide: episodi contigui e unità non giocabili solo in coda',()=>{
   const orphan=mini();orphan.units[1].episodes=[];orphan.units[1].closing=undefined;assert.throws(()=>validateUnits(orphan),/stare in una unità/);
   const dup=mini();dup.units[1].id='u1';assert.throws(()=>validateUnits(dup),/Unità/);
 });
-test('LAIKA atto I: sei unità, la terra e la città separate',()=>{
-  assert.equal(act.units.length,6);
-  assert.deepEqual(act.units.map(u=>unitLabel(act,act.units.indexOf(u))),['I.1','I.2','I.3','I.4','I.5','I.6']);
-  assert.deepEqual(act.units[1].episodes,['a1-u2-mir']);
-  assert.equal(act.units[2].episodes[0],'a1-u2-citta');
-  assert.equal(actNumber(act),'Atto I');assert.equal(actName(act),'La terra e lo zar');
-  assert.deepEqual(act.units[3].episodes,['a1-u4-petizione','a1-u4-domenica','a1-u4-soviet','a1-u4-manifesto','a1-u4-stolypin','a1-u4-ricorda','a1-u4-v3','a1-u4-v4']);
-  assert.deepEqual(act.units[4].episodes,['a1-u5-ginocchio','a1-u5-grano','a1-u5-gioielli','a1-u5-semidei','a1-u5-v5']);
-  assert.deepEqual(act.units[5].episodes,['a1-u6-donna','a1-u6-coda-gioco','a1-u6-soldato','a1-u6-treno','a1-u6-v6','a1-u6-confronto']);
+test('LAIKA: tre atti fino al 1917 con le unità del canone e i nomi stabili',()=>{
+  const canone=JSON.parse(fs.readFileSync(new URL('../games/laika/canone.json',import.meta.url),'utf8'));
+  assert.deepEqual(game.acts.map(a=>actNumber(a)+' · '+actName(a)),['Atto I · La terra e lo zar','Atto II · 1905','Atto III · Pane e guerra']);
+  game.acts.forEach((a,k)=>{const c=canone.atti[k];assert.deepEqual(a.units.map(u=>u.id),c.unita.map(u=>u.id));
+    assert.deepEqual(a.units.map((u,i)=>unitLabel(a,i)),c.unita.map(u=>u.numero));assert.deepEqual(a.units.map(u=>u.title),c.unita.map(u=>u.titolo));
+    for(const u of a.units)for(const e of u.episodes)assert.ok(e.startsWith('a'+(k+1)+'-'+u.id+'-'),'identificatore senza il nome stabile: '+e);});
+  assert.deepEqual(game.acts[1].units[0].episodes,['a2-petizione-righe','a2-petizione-domenica'],'la petizione prima del corteo');
 });
 test('stato delle unità dall\'episodio corrente',()=>{
-  const first=unitStates(act,'a1-u1-settimana');
-  assert.deepEqual(first.map(s=>s.status),['current','later','later','later','later','later']);
-  const second=unitStates(act,'a1-u2-salario');
-  assert.deepEqual(second.map(s=>s.status),['done','done','current','later','later','later']);
-  assert.deepEqual(unitStates(act,'a1-u2-e7',true).map(s=>s.status),['done','done','done','done','done','done']);
-  assert.equal(unitIndexOf(act,'a1-u2-mir'),1);assert.deepEqual(positionInUnit(act,'a1-u2-salario'),{index:2,total:7});
+  const first=unitStates(act,'a1-servitu-settimana');
+  assert.deepEqual(first.map(s=>s.status),['current','later','later']);
+  const third=unitStates(act,'a1-citta-salario');
+  assert.deepEqual(third.map(s=>s.status),['done','done','current']);
+  assert.deepEqual(unitStates(act,'a1-citta-v2',true).map(s=>s.status),['done','done','done']);
+  assert.equal(unitIndexOf(act,'a1-mir-assemblea'),1);assert.deepEqual(positionInUnit(act,'a1-citta-salario'),{index:2,total:7});
 });
 test('unità iniziata o da iniziare',()=>{
   const s=newSession(game,'seed');assert.equal(unitStarted(act,s),false);
@@ -43,8 +41,8 @@ test('unità iniziata o da iniziare',()=>{
 
 test('ogni unità con episodi si può aprire direttamente e il salvataggio si ripristina', async () => {
   const {exportSave,restore}=await import('../src/storage/index.js');
-  for(const u of act.units.filter(x=>x.episodes.length)){
-    const s=newSession(game,'diretto',u.episodes[0]);
+  for(const [k,a] of game.acts.entries())for(const u of a.units.filter(x=>x.episodes.length)){
+    const s=newSession(game,'diretto',u.episodes[0]);assert.equal(s.actIndex,k,'si entra nell\'atto giusto');
     assert.equal(s.currentAct.episodeId,u.episodes[0]);assert.equal(s.startEpisodeId,u.episodes[0]);
     const r=restore(game,exportSave(game,s));assert.equal(r.ok,true);assert.equal(r.state.currentAct.episodeId,u.episodes[0]);
   }

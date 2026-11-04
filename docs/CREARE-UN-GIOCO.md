@@ -214,3 +214,12 @@ Il kit si riusa perché ogni parte vive in un livello diverso e i livelli dipend
 ## Ingresso diretto in un'unità (4 novembre 2026)
 
 `newSession(game,seed,startEpisodeId)` parte dallo stato iniziale dell'atto ed entra nell'episodio indicato; la sessione porta `startEpisodeId` e il salvataggio lo scrive (campo facoltativo `startEpisodeId`, `replay` lo riceve come quarto argomento). La pagina dell'atto (`hub.js`) offre `actions.start(indice)` per ogni unità con episodi: la partita precedente passa nella chiave `:precedente` e si riparte da quell'unità con i valori iniziali dell'atto. Test in `tests/units.test.js`.
+
+## Più atti a unità (4 novembre 2026)
+
+- `newSession(game,seed,startEpisodeId)` accetta un episodio di **qualunque atto**: la sessione parte con `actIndex` di quell'atto e il suo stato iniziale. `replay` e i salvataggi funzionano come prima.
+- `play.html?game=<id>&atto=<id dell'atto>` apre la pagina di quell'atto senza toccare la partita salvata; il pulsante principale diventa «Inizia» con la prima unità giocabile e ogni unità si apre con il suo pulsante. Iniziare un'unità di un altro atto sposta la partita precedente nella chiave `:precedente`, come per l'ingresso diretto.
+- Finita l'ultima unità di un atto, la chiusura mostra «Fine dell'atto» (il testo `reconciliation` dell'atto) e «Che cosa viene dopo» con l'atto successivo; il pulsante porta alla **pagina dell'atto successivo**, non dentro la sua prima scena.
+- La didascalia sotto la scena mostra `visualExplanation` dell'episodio o la didascalia della sequenza; se non c'è nessuna delle due resta nascosta (prima diceva «Scena della simulazione.»). Un episodio che riusa la scena di un altro non deve avere `motionId`, altrimenti la sequenza mostra la didascalia dell'altro episodio.
+- Nelle giornate a punti azione il pulsante di fine giornata dice quanti punti restano («Finire la giornata (restano 3 punti)»).
+- Nella gestione con la semina, la previsione dice «ne mancano N per arrivare al raccolto» invece di un numero negativo.

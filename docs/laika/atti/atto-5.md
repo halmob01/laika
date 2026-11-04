@@ -47,7 +47,7 @@ Ruoli: un ferroviere; un delegato al comitato centrale bolscevico. Fili: chi rap
 **V.2-e3 · assessment [V] · Verifica V2.**
 
 ## V.3 — La notte del palazzo (6–8 novembre 1917, g. 24–26 ottobre) · `notte-palazzo`
-Ruoli: un marinaio di Kronštadt dentro il Palazzo d'Inverno; una guardia rossa dello Smol'nyj. Fili: anime e semidei; chi rappresenta chi.
+Ruoli: un marinaio di Kronštadt dentro il Palazzo d'Inverno; una guardia rossa dello Smol'nyj. Fili: la terra e lo zar; chi rappresenta chi.
 
 **V.3-e1 · narrative [D] · La città che non se ne accorge**
 - **Scena.** I tram corrono, i teatri recitano; al cinema un melodramma italiano pieno di sangue (R16); al Circo Moderno, sotto cinque lampadine, un soldato chiede per chi si combatte (R20, F06). La rivoluzione si dirige dallo Smol'nyj, collegio per le figlie della nobiltà: sulle porte restano le targhe «Quarta classe femminile» e «Sala dei professori» sotto i cartelli scritti a mano dei comitati. I riflettori dell'Aurora bastano a mettere in fuga i cadetti di guardia a un ponte. Kerenskij lascia la città su un'auto con targa diplomatica dell'ambasciata americana; più tardi correrà la voce che sia fuggito vestito da infermiera (R90).
@@ -83,7 +83,7 @@ Ruoli: un marinaio di Kronštadt dentro il Palazzo d'Inverno; una guardia rossa 
 **V.3-e6 · assessment [V] · Verifica V3.**
 
 ## V.4 — Le promesse decretate (novembre–dicembre 1917) · `promesse-decretate`
-Ruoli: un commissario del popolo appena nominato; il figlio della famiglia di ritorno. Fili: anime e semidei; la terra.
+Ruoli: un commissario del popolo appena nominato; il figlio della famiglia di ritorno. Fili: la terra e lo zar; la terra.
 
 **V.4-e1 · narrative [D] · Una pioggia di decreti**
 - **Scena.** In poche settimane: la pace, la terra ai contadini senza indennizzo, otto ore, controllo operaio, diritto dei popoli a separarsi, abolizione di ceti, titoli e gradi: tutti cittadini. Poi matrimonio civile e divorzio, separazione fra Chiesa e Stato, calendario gregoriano, ortografia semplificata. Un giovane operaio grida «La guerra è finita!» mentre altri cantano e piangono (R32, F08). Un contabile del commissariato torna dalla banca ogni volta meravigliato che i soldi della rivoluzione siano veri (N044).
