@@ -4,11 +4,11 @@
 
 Come si lavora in autonomia, controlli e condizioni di arresto: [METODO](METODO.md) §7. Il prossimo incarico e il messaggio da dare all'agente: `npm run prossimo`.
 
-Incarichi fatti: 1 su 20. Prossimo: K1.
+Incarichi fatti: 0 su 20. Prossimo: S1.
 
 | # | Incarico | Tipo | Modello | Dopo | Stato |
 |---:|---|---|---|---|---|
-| 1 | **S1** Le scene delle unità già fatte con i disegni che ci sono | scene | Sonnet | — | fatto (PR #47) |
+| 1 | **S1** Le scene delle unità già fatte con i disegni che ci sono | scene | Sonnet | — | in corso |
 | 2 | **K1** Motore: la coda con la pazienza | motore | Opus | S1 | da fare |
 | 3 | **U-otto-giorni** III.2 Otto giorni: la coda vera, il soldato, il treno, Tauride | unità | Opus | S1, K1 | da fare |
 | 4 | **K4** Bottega: i disegni che mancano agli Atti I–III | bottega | Sonnet | S1 | da fare |
@@ -37,8 +37,6 @@ Incarichi fatti: 1 su 20. Prossimo: K1.
 - Ogni episodio ha una `visualExplanation` che descrive la sua scena.
 
 È fatto quando: Le regole sulle scene di `tests/unita-ludiche.test.js` passano per tutte le unità (diventano vincolanti quando S1 è «fatto»); Schermate prima e dopo di ogni unità in `docs/evidence/S1/`; Controlli comuni G1–G5 passati (METODO §7).
-
-Evidenze: docs/evidence/S1/, docs/evidence/S1/allievo/trascrizione.md.
 
 ## K1 — Motore: la coda con la pazienza
 
