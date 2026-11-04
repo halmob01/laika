@@ -20,7 +20,7 @@ Regole:
 
 ## 2. Che cosa c'è già
 
-- **Bottega:** 136 disegni a catalogo, di cui 32 in bozza; figura articolata con 25 pose, 17 varianti (4 in bozza), 3 corpi; 10 formazioni (fra cui `fila` e `coda`); 21 azioni (fra cui `queue`, `disperse`, `transfer`, `replace`, `reveal`, `camera`).
+- **Bottega:** 141 disegni a catalogo, di cui 37 in bozza; figura articolata con 29 pose, 18 varianti (5 in bozza), 3 corpi; 10 formazioni (fra cui `fila` e `coda`); 21 azioni (fra cui `queue`, `disperse`, `transfer`, `replace`, `reveal`, `camera`).
 - **Motore:** episodi a racconto, scelta, distribuzione, fonti, verifica; partita a turni con gestione (persone e posti, lavori lunghi, semina, fiera), sole decisioni, monete, giornate a punti azione.
 - **Disegni mai usati:** con S1 (4 novembre 2026) tutti i disegni elencati qui sotto, sia in bozza sia pronti, sono in almeno una scena di LAIKA; restano da usare solo quelli dei kit non ancora importati (K4) e quelli degli atti successivi.
 
@@ -29,7 +29,7 @@ Regole:
 **I.1 `servitu` · gestione della settimana**
 - Scene: ci sono tutte (anime, feste, inventari, anno, due inverni, utopie, manifesto).
 - Da comporre: nella scena delle utopie le case rosa in fila della colonia di Arakčeev (oggi solo isbe e foschia).
-- Disegni da chiedere: colonia militare con case in fila (già nell'elenco del piano degli atti).
+- Disegni: la colonia militare con case in fila (`colonia-case`) c'è dal 4 novembre 2026 (K4) e sta nella scena delle utopie.
 - Motore: niente di nuovo. Correzioni: previsione ed esito del grano che si contraddicono; etichette dei posti che escono dal bordo sul telefono; tabellone troppo lungo sul telefono (proposta: le migliorie chiuse in un pannello).
 
 **I.2 `mir` · decisioni sui gruppi, da ripensare come gioco**
@@ -41,13 +41,13 @@ Regole:
 **I.3 `citta` · gestione del salario, da rendere più difficile**
 - Scene: stanza, città, cella, corte, volantini.
 - Da comporre: il dormitorio di fabbrica (`citta-dormitorio`) per le settimane senza stanza; il carbone (`citta-carbone`); la corte del 1896 con la sala da ballo (`ambiente-salone-lampadari`) invece del palazzo visto da fuori.
-- Disegni da chiedere: tazza smaltata (Chodynka).
+- Disegni: la tazza smaltata (`tazza-smaltata`) c'è dal 4 novembre 2026 (K4) e sta nella scena della corte.
 - Motore: niente di nuovo; eventi e bilanciamento sono contenuti. Confronto di fine atto: scena composta con villaggio e fabbrica nella stessa inquadratura.
 
 **II.1 `petizione` · gioco da scegliere nella scheda di gioco**
 - Scene: piazza con neve (la domenica).
 - Da comporre: il Palazzo d'Inverno sullo sfondo della piazza (`luogo-palazzo`); il corteo con il ritratto dello zar (`oggetto-ritratto-zar`) e le icone; le officine Putilov (`luogo-fabbrica`) per la scrittura della petizione.
-- Disegni da chiedere: icona portata in processione; posa «scrive».
+- Disegni: l'icona portata in processione (`icona-processione`) e la posa `scrive` ci sono dal 4 novembre 2026 (K4).
 - Motore: dipende dal gioco che si sceglie.
 
 **II.2 `soviet` · punti azione, notizie che devono contare**
@@ -59,17 +59,17 @@ Regole:
 **II.3 `concessioni` · gioco da scegliere nella scheda di gioco**
 - Scene: oggi riusa la sala del soviet.
 - Da comporre: la sala di San Giorgio (`ambiente-sala`) con due blocchi di figure, uniformi da una parte e giacche dall'altra (formazione `righe`); il palco del teatro per la ballerina insultata (`ambiente-teatro-palco`); l'aquila imperiale per le Leggi fondamentali.
-- Figure: uniforme da ufficiale o dignitario (non c'è: oggi esiste solo il soldato di guarnigione).
+- Figure: la variante `dignitario` (uniforme con spalline) c'è dal 4 novembre 2026 (K4), in bozza.
 
 **II.4 `stolypin` · gioco da scegliere nella scheda di gioco**
 - Scene: oggi riusa il mir.
 - Da comporre: le strisce che si uniscono in un podere.
-- Disegni da chiedere: podere consolidato (*chutor*) con casa isolata. La forca non si disegna: la violenza si vede nelle conseguenze (D-006).
+- Disegni: il podere consolidato (`podere-chutor`) con casa isolata c'è dal 4 novembre 2026 (K4). La forca non si disegna: la violenza si vede nelle conseguenze (D-006).
 
 **III.1 `pane-guerra` · quanto serve e quanto c'è, da rifare**
 - Scene: piazza con la folla in ginocchio, panetteria.
 - Da comporre: la catena del grano che si vede: granaio (`campagna-granaio`), carro, treno sui binari (`mezzo-treno`, `infra-binari`), panetteria; il fronte con la trincea (`ambiente-trincea`); il manifesto del prestito di guerra; il palazzo isolato nella foschia per la fine dello zar in famiglia (oggi senza scena).
-- Disegni da chiedere: vetrina del gioielliere (Fabergé e il pane nella stessa strada).
+- Disegni: la vetrina del gioielliere (`vetrina-gioielliere`) c'è dal 4 novembre 2026 (K4) e sta accanto alla coda del pane.
 - Motore: **«merci che camminano»** (GIOCHI §3.6–§3.7): figure che portano il grano lungo la catena e si vede dove si inceppa. Fatto con K1 (`src/core/queue.js`, sezione «La coda con la pazienza» di CREARE-UN-GIOCO).
 
 **III.2 `otto-giorni` · code che diventano corteo, da rifare**

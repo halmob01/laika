@@ -24,6 +24,10 @@ Consultazione online: 23 ottobre 2026. Si adottano solo fogge semplificate senza
 - **Soldatessa:** [London Museum, NN30312](https://www.londonmuseum.org.uk/collections/v/object-968959/emmeline-pankhurst-and-the-russia-women-soldiers/), *Emmeline Pankhurst and the Russia Women soldiers*, 1917. Scheda e fotografia consultate: tunica con cintura, pantaloni e berretto con visiera sono leggibili. Il museo indica Pietrogrado come luogo probabile; la scheda non attribuisce con certezza reparto e giorno. Non prova che si tratti del battaglione di Bočkarëva entro luglio. La figura non è un ritratto della comandante. Il riferimento è usato per le fogge; nessuna fotografia è copiata nella repo.
 - **Civile:** `prototypes/laika-studi-originali/studio personaggi.html#buildOminoSVG`, corpo uomo con `hat: berretto` già presente. La testa circolare non ha dettagli del viso. Nessuna pretesa di riprodurre un travestimento documentato o un cappello preciso dell'episodio. Fogge locali e datazione puntuale restano da verificare.
 
+## Il dignitario (K4, 4 novembre 2026)
+
+Variante `dignitario`, in bozza: uniforme di funzionario o di corte con colletto alto, spalline e fila di bottoni, senza insegne, nastri o decorazioni. Serve a figure come il granduca di «Che cosa concede lo zar» (II.3). È un archetipo: non identifica un corpo, un grado né un ministero. Foggia da riscontrare con una fotografia diretta prima di usarla per un personaggio storico preciso (stesse fonti e limiti delle altre varianti: Library of Congress, serie Rynda).
+
 ## Abiti mancanti, solo proposte
 
 La ricognizione di `VARIANTI` e dei rami del generatore trova gonna, vestito, scialle, cappotto e mantello generici. Non trova grembiule, fazzoletto da lavoro o soprabito con cintura per un vetturino. Nessun abito esistente certifica uno di questi mestieri. Le proposte sono anche in `catalogo.da_fare`:

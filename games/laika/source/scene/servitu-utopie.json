@@ -49,67 +49,11 @@
       "scala": 0.8
     },
     {
-      "id": "colonia-0-0",
-      "simbolo": "luogo-isbe",
-      "x": 1060,
-      "y": 560,
-      "scala": 0.42
-    },
-    {
-      "id": "colonia-0-1",
-      "simbolo": "luogo-isbe",
-      "x": 1260,
-      "y": 560,
-      "scala": 0.42
-    },
-    {
-      "id": "colonia-0-2",
-      "simbolo": "luogo-isbe",
-      "x": 1460,
-      "y": 560,
-      "scala": 0.42
-    },
-    {
-      "id": "colonia-1-0",
-      "simbolo": "luogo-isbe",
-      "x": 1060,
-      "y": 610,
-      "scala": 0.42
-    },
-    {
-      "id": "colonia-1-1",
-      "simbolo": "luogo-isbe",
-      "x": 1260,
-      "y": 610,
-      "scala": 0.42
-    },
-    {
-      "id": "colonia-1-2",
-      "simbolo": "luogo-isbe",
-      "x": 1460,
-      "y": 610,
-      "scala": 0.42
-    },
-    {
-      "id": "colonia-2-0",
-      "simbolo": "luogo-isbe",
-      "x": 1060,
+      "id": "colonia",
+      "simbolo": "colonia-case",
+      "x": 1280,
       "y": 660,
-      "scala": 0.42
-    },
-    {
-      "id": "colonia-2-1",
-      "simbolo": "luogo-isbe",
-      "x": 1260,
-      "y": 660,
-      "scala": 0.42
-    },
-    {
-      "id": "colonia-2-2",
-      "simbolo": "luogo-isbe",
-      "x": 1460,
-      "y": 660,
-      "scala": 0.42
+      "scala": 1.0
     }
   ],
   "figure": [

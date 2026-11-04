@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit Atti I-III (bottega)</title>
+<style>
+  body { margin: 0; font-family: monospace; background: #dcdcd8; color: #161614; }
+  h1 { font-size: 14px; margin: 12px 16px; }
+  #griglia { display: grid; grid-template-columns: repeat(auto-fill, minmax(520px, 1fr)); gap: 12px; padding: 0 16px 16px; }
+  figure { margin: 0; border: 1px solid #b4b6b3; background: #f6f1e3; }
+  figcaption { font-size: 12px; padding: 4px 8px; border-top: 1px solid #b4b6b3; }
+  svg { display: block; width: 100%; height: 300px; }
+</style>
+</head>
+<body>
+<h1>Kit Atti I-III (bottega): anteprima</h1>
+<div id="griglia"></div>
+<script>
+// Kit per la bottega: cinque disegni che mancavano agli Atti I-III di LAIKA (K4, 4 novembre 2026).
+// Rispetta bottega/CONTRATTO-KIT.md. Tutti i pezzi poggiano su GROUND_Y e sono centrati in x = 0.
+// Stile: lo stesso tratto a mano dei kit interni, generato in modo deterministico.
+// Coerenza storica (epoca e luogo nel catalogo di bottega):
+// - colonia_case: case tutte uguali in fila su una linea retta; archetipo delle colonie militari di Arakcheev
+//   (Russia, 1810-1857); nessuna insegna, nessun colore dichiarato come storico.
+// - tazza_smaltata: tazza di smalto bianco con bordo scuro; archetipo del dono dell'incoronazione di Nicola II
+//   a Chodynka (maggio 1896); nessuna cifra, nessun blasone, nessuna scritta.
+// - icona_processione: icona incorniciata su un'asta; archetipo del corteo religioso della domenica di sangue
+//   (gennaio 1905); la figura e' una sagoma senza volto, nessun santo identificabile.
+// - podere_chutor: podere recintato con una casa isolata e un pozzo; archetipo del chutor (riforma Stolypin,
+//   1906-1911).
+// - vetrina_gioielliere: vetrina di negozio di gioielli con tenda e insegna vuota; archetipo di Pietroburgo,
+//   primo Novecento; nessun nome di bottega.
+
+const C = {
+  bg: '#f6f1e3', p2: '#ece5d3', ink: '#161614', red: '#e02a1b', sand: '#decba8',
+  cLight: '#c9d6df', cMid: '#8ea8b8', cDark: '#4f6b7c', sky: '#b8cbd8', tree: '#97b0c0'
+};
+const GROUND_Y = 400;
+const f1 = n => (Math.round(n * 10) / 10).toString();
+const arco = (x, w, top, base) => `M ${f1(x - w / 2)} ${base} L ${f1(x - w / 2)} ${f1(top + w / 2)} A ${f1(w / 2)} ${f1(w / 2)} 0 0 1 ${f1(x + w / 2)} ${f1(top + w / 2)} L ${f1(x + w / 2)} ${base} Z`;
+// Generatore pseudo-casuale deterministico (mulberry32).
+function rng(seed) {
+  let a = seed >>> 0;
+  return function () {
+    a = (a + 0x6D2B79F5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+// --- Strumenti del tratto (gli stessi del kit luoghi monumentali) ------------------------
+function linea(pts, r, amp = 0.8, passo = 22) {
+  let d = '';
+  for (let i = 0; i < pts.length - 1; i++) {
+    const [x1, y1] = pts[i], [x2, y2] = pts[i + 1];
+    const L = Math.hypot(x2 - x1, y2 - y1) || 1, n = Math.max(1, Math.round(L / passo));
+    const nx = -(y2 - y1) / L, ny = (x2 - x1) / L;
+    for (let k = i === 0 ? 0 : 1; k <= n; k++) {
+      const t = k / n, j = (r() - 0.5) * 2 * amp * (k === 0 || k === n ? 0.5 : 1);
+      d += (d ? ' L ' : 'M ') + f1(x1 + (x2 - x1) * t + nx * j) + ' ' + f1(y1 + (y2 - y1) * t + ny * j);
+    }
+  }
+  return d;
+}
+function riga(x1, y1, x2, y2, r, amp = 0.8, sborda = 3) {
+  const L = Math.hypot(x2 - x1, y2 - y1) || 1, ux = (x2 - x1) / L, uy = (y2 - y1) / L;
+  const a = sborda * r(), b = sborda * r();
+  return linea([[x1 - ux * a, y1 - uy * a], [x2 + ux * b, y2 + uy * b]], r, amp);
+}
+function bordo(x, y, w, h, r, amp = 0.8, sborda = 3) {
+  return [riga(x, y, x + w, y, r, amp, sborda), riga(x + w, y, x + w, y + h, r, amp, sborda),
+    riga(x + w, y + h, x, y + h, r, amp, sborda), riga(x, y + h, x, y, r, amp, sborda)].join(' ');
+}
+function macchia(x, y, w, h, r, sp = 1.6) {
+  const j = () => (r() - 0.5) * 2 * sp;
+  return `M ${f1(x + sp + j())} ${f1(y - sp * 0.6 + j())} L ${f1(x + w + sp + j())} ${f1(y - sp * 0.6 + j())} L ${f1(x + w + sp + j())} ${f1(y + h + j())} L ${f1(x + sp + j())} ${f1(y + h + j())} Z`;
+}
+function macchiaP(pts, r, sp = 1.6) {
+  return 'M ' + pts.map(([x, y]) => f1(x + sp + (r() - 0.5) * 2 * sp) + ' ' + f1(y - sp * 0.6 + (r() - 0.5) * 2 * sp)).join(' L ') + ' Z';
+}
+function tratteggio(x, y, w, h, r, passo = 5, amp = 0.5) {
+  let d = '';
+  for (let c = x - h; c < x + w; c += passo) {
+    let x1 = c, y1 = y + h, x2 = c + h, y2 = y;
+    if (x1 < x) { y1 -= x - x1; x1 = x; }
+    if (x2 > x + w) { y2 += x2 - (x + w); x2 = x + w; }
+    if (x2 - x1 < 1) continue;
+    d += ' ' + linea([[x1, y1], [x2, y2]], r, amp, 40);
+  }
+  return d.trim();
+}
+function puntiArco(cx, cy, rx, ry, a0, a1, n = 18) {
+  const p = [];
+  for (let i = 0; i <= n; i++) { const a = a0 + (a1 - a0) * i / n; p.push([cx + Math.cos(a) * rx, cy + Math.sin(a) * ry]); }
+  return p;
+}
+const inchiostro = (d, w = 1.4, op = 1) => `<path d="${d}" fill="none" stroke="${C.ink}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"${op < 1 ? ` opacity="${op}"` : ''}/>`;
+const tinta = (d, fill, op = 1) => `<path d="${d}" fill="${fill}"${op < 1 ? ` opacity="${op}"` : ''}/>`;
+const grana = (d, op = 1) => `<path d="${d}" fill="url(#grana)"${op < 1 ? ` opacity="${op}"` : ''}/>`;
+// Rettangolo arrotondato come tracciato (sacchi, pagnotte).
+const tondo = (x, y, w, h, q) => `M ${f1(x + q)} ${f1(y)} L ${f1(x + w - q)} ${f1(y)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x + w)} ${f1(y + q)} L ${f1(x + w)} ${f1(y + h - q)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x + w - q)} ${f1(y + h)} L ${f1(x + q)} ${f1(y + h)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x)} ${f1(y + h - q)} L ${f1(x)} ${f1(y + q)} A ${f1(q)} ${f1(q)} 0 0 1 ${f1(x + q)} ${f1(y)} Z`;
+// Ellisse come tracciato.
+const ovale = (cx, cy, rx, ry) => `M ${f1(cx - rx)} ${f1(cy)} A ${f1(rx)} ${f1(ry)} 0 1 0 ${f1(cx + rx)} ${f1(cy)} A ${f1(rx)} ${f1(ry)} 0 1 0 ${f1(cx - rx)} ${f1(cy)} Z`;
+
+function getDefs() {
+  const r = rng(6);
+  let punti = '', chiari = '', segni = '';
+  for (let i = 0; i < 14; i++) { const x = r() * 46 + 1, y = r() * 46 + 1, q = 0.5 + r() * 0.7; punti += `M ${f1(x - q)} ${f1(y)} L ${f1(x + q)} ${f1(y + 0.3)} `; }
+  for (let i = 0; i < 10; i++) { const x = r() * 44 + 2, y = r() * 44 + 2, q = 1.5 + r() * 2.5; chiari += `M ${f1(x)} ${f1(y)} L ${f1(x + q)} ${f1(y - q * 0.4)} `; }
+  for (let i = 0; i < 3; i++) { const x = r() * 44 + 2, y = r() * 30 + 2; segni += `M ${f1(x)} ${f1(y)} L ${f1(x + 0.3)} ${f1(y + 8 + r() * 6)} `; }
+  return `<pattern id="grana" width="48" height="48" patternUnits="userSpaceOnUse">` +
+    `<path d="${punti.trim()}" fill="none" stroke="${C.ink}" stroke-width="1.1" stroke-linecap="round" opacity="0.32"/>` +
+    `<path d="${chiari.trim()}" fill="none" stroke="${C.bg}" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>` +
+    `<path d="${segni.trim()}" fill="none" stroke="${C.cDark}" stroke-width="0.7" opacity="0.35"/>` +
+    `</pattern>`;
+}
+
+function fiamma(x, y, id) {
+  return `<g id="${id}" data-pivot="${f1(x)} ${f1(y)}"><path d="M ${f1(x - 3)} ${f1(y)} C ${f1(x - 5)} ${f1(y - 6)} ${f1(x)} ${f1(y - 8)} ${f1(x)} ${f1(y - 13)} C ${f1(x + 5)} ${f1(y - 8)} ${f1(x + 5)} ${f1(y - 4)} ${f1(x + 3)} ${f1(y)} Z" fill="${C.red}" stroke="${C.ink}" stroke-width="0.8"/></g>`;
+}
+const ATTI = [
+  { id: 'colonia_case', label: 'Colonia militare: case in fila', width: 560 },
+  { id: 'tazza_smaltata', label: 'Tazza smaltata', width: 90 },
+  { id: 'icona_processione', label: 'Icona da processione', width: 100 },
+  { id: 'podere_chutor', label: 'Podere consolidato con casa isolata', width: 400 },
+  { id: 'vetrina_gioielliere', label: 'Vetrina del gioielliere', width: 300 }
+];
+function drawAtti(id, ox = 0, oy = 0) {
+  let s = '';
+  if (id === 'colonia_case') {
+    const r = rng(5101);
+    for (let i = -2; i <= 2; i++) {
+      const x = i * 110;
+      s += tinta(macchia(x - 35, 354, 70, 46, r, 0.6), C.sand) + grana(macchia(x - 35, 354, 70, 46, r, 0), 0.5) + inchiostro(bordo(x - 35, 354, 70, 46, r, 0.3, 1), 1.4);
+      s += tinta(macchiaP([[x - 42, 354], [x, 324], [x + 42, 354]], r, 0.5), C.cDark) + inchiostro(linea([[x - 42, 354], [x, 324], [x + 42, 354], [x - 42, 354]], r, 0.3, 14), 1.4);
+      s += tinta(macchia(x - 6, 372, 12, 28, r, 0.3), C.cDark) + inchiostro(bordo(x - 6, 372, 12, 28, r, 0.2, 0), 1.1);
+      s += tinta(macchia(x - 27, 366, 12, 12, r, 0.3), C.sky) + inchiostro(bordo(x - 27, 366, 12, 12, r, 0.2, 0), 1.0);
+      s += tinta(macchia(x + 15, 366, 12, 12, r, 0.3), C.sky) + inchiostro(bordo(x + 15, 366, 12, 12, r, 0.2, 0), 1.0);
+    }
+    s += inchiostro(riga(-275, 400, 275, 400, r, 0.4, 0), 1.8);
+    for (let i = -6; i <= 6; i++) s += inchiostro(riga(i * 44, 400, i * 44, 410, r, 0.2, 0), 1.4);
+  } else if (id === 'tazza_smaltata') {
+    const r = rng(5102);
+    s += tinta(tondo(-24, 346, 48, 54, 8), C.bg) + grana(tondo(-24, 346, 48, 54, 8), 0.45) + inchiostro(tondo(-24, 346, 48, 54, 8), 1.6);
+    s += inchiostro(riga(-24, 353, 24, 353, r, 0.3, 0), 3.4);
+    s += inchiostro('M 24 358 C 40 356 42 386 24 388', 3.2) + inchiostro('M 24 364 C 34 364 35 380 24 382', 1.0, 0.6);
+    s += tinta(ovale(-12, 380, 3, 2.5), C.cDark, 0.7);
+  } else if (id === 'icona_processione') {
+    const r = rng(5103);
+    s += inchiostro(riga(0, 400, 0, 196, r, 0.4, 0), 3.2);
+    s += tinta(arco(0, 60, 196, 276), C.cDark) + inchiostro(arco(0, 60, 196, 276), 1.8);
+    s += tinta(arco(0, 44, 206, 268), C.sand) + inchiostro(arco(0, 44, 206, 268), 1.1);
+    s += tinta(ovale(0, 226, 11, 11), C.bg) + inchiostro(ovale(0, 226, 11, 11), 1.2);
+    s += tinta(ovale(0, 226, 5, 5), C.ink);
+    s += tinta('M -12 268 L -9 240 L 9 240 L 12 268 Z', C.cMid) + inchiostro('M -12 268 L -9 240 L 9 240 L 12 268 Z', 1.1);
+    s += tinta('M -4 196 L -10 210 L 0 206 L 10 210 L 4 196 Z', C.red) + inchiostro('M -4 196 L -10 210 L 0 206 L 10 210 L 4 196 Z', 0.8);
+  } else if (id === 'podere_chutor') {
+    const r = rng(5104);
+    s += tinta(macchia(-190, 350, 380, 50, r, 1.2), C.p2) + grana(macchia(-190, 350, 380, 50, r, 0), 0.5);
+    for (let k = 0; k < 5; k++) s += inchiostro(riga(-184, 358 + k * 9, 184, 358 + k * 9, r, 0.5, 2), 0.8, 0.55);
+    s += inchiostro(bordo(-190, 350, 380, 50, r, 0.6, 3), 1.6);
+    for (let i = -9; i <= 9; i++) { s += inchiostro(riga(i * 21, 350, i * 21, 340, r, 0.2, 0), 1.6); s += inchiostro(riga(i * 21, 400, i * 21, 410, r, 0.2, 0), 1.6); }
+    s += inchiostro(riga(-190, 344, 190, 344, r, 0.4, 0) + ' ' + riga(-190, 406, 190, 406, r, 0.4, 0), 1.0, 0.8);
+    s += tinta(macchia(-96, 340, 64, 40, r, 0.5), C.sand) + inchiostro(bordo(-96, 340, 64, 40, r, 0.3, 1), 1.4);
+    s += tinta(macchiaP([[-102, 340], [-64, 310], [-26, 340]], r, 0.5), C.cDark) + inchiostro(linea([[-102, 340], [-64, 310], [-26, 340], [-102, 340]], r, 0.3, 14), 1.4);
+    s += tinta(macchia(-70, 356, 12, 24, r, 0.3), C.cDark) + inchiostro(bordo(-70, 356, 12, 24, r, 0.2, 0), 1.1);
+    s += tinta(macchia(-52, 352, 11, 11, r, 0.3), C.sky) + inchiostro(bordo(-52, 352, 11, 11, r, 0.2, 0), 1.0);
+    s += tinta(macchia(96, 366, 28, 18, r, 0.3), C.cMid) + inchiostro(bordo(96, 366, 28, 18, r, 0.3, 1), 1.3) + inchiostro(riga(98, 366, 98, 352, r, 0.2, 0) + ' ' + riga(122, 366, 122, 352, r, 0.2, 0) + ' ' + riga(96, 352, 124, 352, r, 0.2, 0), 1.4);
+  } else if (id === 'vetrina_gioielliere') {
+    const r = rng(5105);
+    s += tinta(macchia(-130, 238, 260, 162, r, 1), C.cLight) + grana(macchia(-130, 238, 260, 162, r, 0), 0.5) + inchiostro(bordo(-130, 238, 260, 162, r, 0.5, 2), 1.6);
+    s += tinta(macchia(-96, 238, 192, 20, r, 0.4), C.bg) + inchiostro(bordo(-96, 238, 192, 20, r, 0.3, 1), 1.3);
+    s += tinta('M -104 270 L 104 270 L 112 292 L -112 292 Z', C.cMid) + inchiostro('M -104 270 L 104 270 L 112 292 L -112 292 Z', 1.5);
+    for (let k = -4; k <= 4; k += 2) s += tinta(`M ${k * 24 - 12} 270 L ${k * 24 + 12} 270 L ${k * 24 + 14} 292 L ${k * 24 - 14} 292 Z`, C.bg) + inchiostro(`M ${k * 24 - 12} 270 L ${k * 24 + 12} 270 L ${k * 24 + 14} 292 L ${k * 24 - 14} 292 Z`, 0.8, 0.8);
+    s += tinta(arco(-10, 180, 302, 392), C.ink) + inchiostro(arco(-10, 180, 302, 392), 2);
+    s += tinta(arco(-10, 168, 308, 386), C.cDark);
+    s += tinta(macchia(-92, 362, 164, 6, r, 0.3), C.sand) + inchiostro(bordo(-92, 362, 164, 6, r, 0.2, 0), 1.0);
+    const gemma = (x, y) => tinta(`M ${x - 8} ${y} L ${x - 4} ${y - 8} L ${x + 4} ${y - 8} L ${x + 8} ${y} L ${x} ${y + 9} Z`, C.sky) + inchiostro(`M ${x - 8} ${y} L ${x - 4} ${y - 8} L ${x + 4} ${y - 8} L ${x + 8} ${y} L ${x} ${y + 9} Z M ${x - 8} ${y} L ${x + 8} ${y}`, 0.9);
+    s += gemma(-58, 350) + gemma(26, 350);
+    s += inchiostro(`M -26 322 C -26 344 26 344 26 322`, 1.3) + tinta(ovale(0, 340, 4, 4), C.red) + inchiostro(ovale(0, 340, 4, 4), 0.7);
+    for (let k = -3; k <= 3; k++) s += tinta(ovale(k * 8.4, 322 + Math.abs(k) * -0 + (3 - Math.abs(k)) * 6, 2.2, 2.2), C.bg) + inchiostro(ovale(k * 8.4, 322 + (3 - Math.abs(k)) * 6, 2.2, 2.2), 0.6);
+    s += tinta(ovale(52, 352, 7, 7), C.bg) + inchiostro(ovale(52, 352, 7, 7), 1.2) + tinta(ovale(52, 345, 3, 3), C.sky) + inchiostro(ovale(52, 345, 3, 3), 0.6);
+    s += tinta(macchia(88, 300, 34, 100, r, 0.5), C.cDark) + inchiostro(bordo(88, 300, 34, 100, r, 0.3, 1), 1.4) + tinta(ovale(96, 352, 2.4, 2.4), C.bg);
+  }
+  return `<g transform="translate(${ox} ${oy})">${s}</g>`;
+}
+// AVVIO
+(function () {
+  const griglia = document.getElementById('griglia');
+  const defs = `<defs>${getDefs()}</defs>`;
+  ATTI.forEach(v => {
+    const fig = document.createElement('figure');
+    fig.innerHTML = `<svg viewBox="-320 160 640 270">${defs}${drawAtti(v.id)}</svg><figcaption>${v.label}</figcaption>`;
+    griglia.appendChild(fig);
+  });
+})();
+</script>
+</body>
+</html>

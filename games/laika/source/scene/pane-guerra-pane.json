@@ -18,7 +18,7 @@
     "centro": 0.5,
     "zoom": 1.2
   },
-  "etichetta": "Davanti a una panetteria una fila di persone aspetta il pane che non arriva; a lato un cartello del pane e il manifesto vuoto di un prestito di guerra.",
+  "etichetta": "Davanti a una panetteria una fila di persone aspetta il pane che non arriva; a lato un cartello del pane e il manifesto vuoto di un prestito di guerra. Accanto, la vetrina di un gioielliere.",
   "elementi": [
     {
       "id": "panetteria",
@@ -51,9 +51,9 @@
     {
       "id": "cartello",
       "simbolo": "oggetto-cartello-pane",
-      "x": 1400,
+      "x": 1255,
       "y": 880,
-      "scala": 2.2
+      "scala": 1.8
     },
     {
       "id": "manifesto",
@@ -61,6 +61,13 @@
       "x": 150,
       "y": 870,
       "scala": 2
+    },
+    {
+      "id": "vetrina",
+      "simbolo": "vetrina-gioielliere",
+      "x": 1470,
+      "y": 900,
+      "scala": 0.85
     }
   ],
   "figure": [

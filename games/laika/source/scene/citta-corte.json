@@ -18,7 +18,7 @@
     "centro": 0.45,
     "zoom": 1.2
   },
-  "etichetta": "Dentro il salone illuminato dai lampadari la corte danza in costume; fuori le ciminiere fumano e gli operai sono fermi.",
+  "etichetta": "Dentro il salone illuminato dai lampadari la corte danza in costume; fuori le ciminiere fumano e gli operai sono fermi. Per terra una tazza smaltata.",
   "elementi": [
     {
       "id": "terra",
@@ -40,6 +40,13 @@
       "x": 1230,
       "y": 645,
       "scala": 0.42
+    },
+    {
+      "id": "tazza",
+      "simbolo": "tazza-smaltata",
+      "x": 960,
+      "y": 900,
+      "scala": 0.9
     }
   ],
   "figure": [

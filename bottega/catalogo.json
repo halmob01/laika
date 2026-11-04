@@ -22,7 +22,7 @@
   "generatore": "bottega/figura/figura.js",
   "dati": "bottega/figura/pose.js",
   "fonte": "prototypes/laika-studi-originali/studio personaggi.html#buildOminoSVG",
-  "descrizione": "Figura articolata con 14 giunture, 25 pose/azioni, 17 varianti, 3 corpi, 4 ruoli. Oggetti in mano agganciati a prese. Le quattro varianti aggiuntive sono bozze registrate qui sotto.",
+  "descrizione": "Figura articolata con 14 giunture, 29 pose/azioni, 18 varianti, 3 corpi, 4 ruoli. Oggetti in mano agganciati a prese. Le cinque varianti aggiuntive sono bozze registrate qui sotto.",
   "varianti": [
    {
     "id": "marinaio",
@@ -62,6 +62,16 @@
     "fonte": "prototypes/laika-studi-originali/studio personaggi.html#buildOminoSVG",
     "riscontro": "Combinazione del corpo uomo con il berretto già presente nello studio. Testa circolare senza barba, baffi o dettagli del viso; nessun tratto di persone reali.",
     "limiti": "Il berretto è un archetipo grafico. Non riproduce un travestimento documentato né la fisionomia di una persona; la sua foggia specifica nel 1917 non è verificata.",
+    "verifica": "docs/laika/disegni/FIGURE-1917.md"
+   },
+   {
+    "id": "dignitario",
+    "nome": "Dignitario in uniforme",
+    "stato": "bozza",
+    "epoca": "Archetipo di dignitario di corte o funzionario in uniforme, Russia 1861-1917.",
+    "fonte": "https://www.loc.gov/pictures/item/2016804335/",
+    "riscontro": "Nessuna fotografia identificata per questo archetipo: la foggia (colletto alto, spalline, fila di bottoni, berretto o testa scoperta) è generica ed è stata riscontrata solo come tipo con le uniformi civili e di corte russe di fine Ottocento viste su fotografie della Library of Congress della serie Rynda, già citata per il marinaio.",
+    "limiti": "Non identifica un corpo, un grado o un ministero: spalline, bottoni e colletto sono schematizzati e senza insegne, nastri o decorazioni. Serve un controllo iconografico diretto prima di usarlo per un personaggio storico preciso.",
     "verifica": "docs/laika/disegni/FIGURE-1917.md"
    }
   ],
@@ -1291,6 +1301,51 @@
    "epoca": "Asta con drappo rosso senza scritte; archetipo di bandiera di corteo.",
    "fonte": "prototypes/kit-soviet-coda/kit-soviet-coda.html#soviet_bandiera",
    "note": "Parti con id: drappo. Disegnato dall'agente il 3 novembre 2026; da approvare dal docente."
+  },
+  {
+   "id": "colonia-case",
+   "famiglia": "atti-i-iii",
+   "nome": "Colonia militare: case in fila",
+   "stato": "bozza",
+   "epoca": "Russia, 1810-1857 (colonie militari di Arakcheev): archetipo di case tutte uguali in fila su una linea retta; nessuna insegna. Non usare per villaggi contadini liberi.",
+   "fonte": "prototypes/kit-atti-i-iii/kit-atti-i-iii.html#colonia_case",
+   "note": "Oggetto largo (560 a scala 1): in una scena a 1600 si usa a scala 0.6-1.0. Disegnato dall'agente il 4 novembre 2026; da approvare dal docente."
+  },
+  {
+   "id": "tazza-smaltata",
+   "famiglia": "atti-i-iii",
+   "nome": "Tazza smaltata",
+   "stato": "bozza",
+   "epoca": "Russia, maggio 1896: archetipo del dono distribuito a Chodynka per l'incoronazione di Nicola II (atlante C34, Montefiore, «an enamel mug»); nessuna cifra, blasone o scritta.",
+   "fonte": "prototypes/kit-atti-i-iii/kit-atti-i-iii.html#tazza_smaltata",
+   "note": "Oggetto piccolo (90 di larghezza). Disegnato dall'agente il 4 novembre 2026; da approvare dal docente."
+  },
+  {
+   "id": "icona-processione",
+   "famiglia": "atti-i-iii",
+   "nome": "Icona da processione",
+   "stato": "bozza",
+   "epoca": "Russia, gennaio 1905: archetipo di icona incorniciata portata su un'asta dal corteo; figura a sagoma senza volto, nessun santo identificabile.",
+   "fonte": "prototypes/kit-atti-i-iii/kit-atti-i-iii.html#icona_processione",
+   "note": "Alta circa 210 a scala 1; l'asta è lunga: poggia a terra. Disegnata dall'agente il 4 novembre 2026; da approvare dal docente."
+  },
+  {
+   "id": "podere-chutor",
+   "famiglia": "atti-i-iii",
+   "nome": "Podere consolidato con casa isolata",
+   "stato": "bozza",
+   "epoca": "Russia, 1906-1911 (riforma di Stolypin): archetipo di chutor con un podere recintato, una casa isolata e un pozzo.",
+   "fonte": "prototypes/kit-atti-i-iii/kit-atti-i-iii.html#podere_chutor",
+   "note": "Larghezza 400 a scala 1. Disegnato dall'agente il 4 novembre 2026; da approvare dal docente."
+  },
+  {
+   "id": "vetrina-gioielliere",
+   "famiglia": "atti-i-iii",
+   "nome": "Vetrina del gioielliere",
+   "stato": "bozza",
+   "epoca": "Pietroburgo, primo Novecento: archetipo di negozio di gioielli con tenda e insegna vuota; nessun nome di bottega.",
+   "fonte": "prototypes/kit-atti-i-iii/kit-atti-i-iii.html#vetrina_gioielliere",
+   "note": "Larghezza 260, alta circa 160. Disegnata dall'agente il 4 novembre 2026; da approvare dal docente."
   }
  ],
  "da_fare": [

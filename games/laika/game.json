@@ -1984,6 +1984,25 @@
             "wrist-near": -13,
             "hand-near": -13,
             "grip-near": -13
+          },
+          "scrive": {
+            "root": {
+              "rotate": 12,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -30,
+            "forearm-far": -20,
+            "hand-far": 50,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -75,
+            "forearm-near": -45,
+            "wrist-near": 120,
+            "hand-near": 120,
+            "grip-near": 120
           }
         }
       }
@@ -2953,6 +2972,25 @@
             "wrist-near": -13,
             "hand-near": -13,
             "grip-near": -13
+          },
+          "scrive": {
+            "root": {
+              "rotate": 12,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -30,
+            "forearm-far": -20,
+            "hand-far": 50,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -75,
+            "forearm-near": -45,
+            "wrist-near": 120,
+            "hand-near": 120,
+            "grip-near": 120
           }
         }
       }
@@ -3866,6 +3904,25 @@
             "wrist-near": -13,
             "hand-near": -13,
             "grip-near": -13
+          },
+          "scrive": {
+            "root": {
+              "rotate": 12,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -30,
+            "forearm-far": -20,
+            "hand-far": 50,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -75,
+            "forearm-near": -45,
+            "wrist-near": 120,
+            "hand-near": 120,
+            "grip-near": 120
           }
         }
       }
@@ -6876,6 +6933,25 @@
             "wrist-near": -13,
             "hand-near": -13,
             "grip-near": -13
+          },
+          "scrive": {
+            "root": {
+              "rotate": 12,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -30,
+            "forearm-far": -20,
+            "hand-far": 50,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -75,
+            "forearm-near": -45,
+            "wrist-near": 120,
+            "hand-near": 120,
+            "grip-near": 120
           }
         }
       }
@@ -7801,6 +7877,25 @@
             "wrist-near": -13,
             "hand-near": -13,
             "grip-near": -13
+          },
+          "scrive": {
+            "root": {
+              "rotate": 12,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -30,
+            "forearm-far": -20,
+            "hand-far": 50,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -75,
+            "forearm-near": -45,
+            "wrist-near": 120,
+            "hand-near": 120,
+            "grip-near": 120
           }
         }
       }
@@ -18998,6 +19093,25 @@
             "wrist-near": -13,
             "hand-near": -13,
             "grip-near": -13
+          },
+          "scrive": {
+            "root": {
+              "rotate": 12,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -30,
+            "forearm-far": -20,
+            "hand-far": 50,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -75,
+            "forearm-near": -45,
+            "wrist-near": 120,
+            "hand-near": 120,
+            "grip-near": 120
           }
         }
       }
@@ -19554,6 +19668,844 @@
             "stroke-width": 3.2,
             "stroke-linecap": "round"
           }
+        }
+      ]
+    },
+    {
+      "id": "colonia-case",
+      "meta": {
+        "label": "Colonia militare: case in fila",
+        "family": "atti-i-iii",
+        "source": "kit-atti-i-iii.html#colonia_case",
+        "size": [
+          552,
+          88
+        ],
+        "anchor": "base",
+        "origine": {
+          "file": "prototypes/kit-atti-i-iii/kit-atti-i-iii.html",
+          "funzione": "drawAtti",
+          "argomenti": [
+            "colonia_case",
+            0,
+            0
+          ],
+          "rimuoviPrimo": false,
+          "definizioni": {
+            "funzione": "getDefs",
+            "argomenti": [],
+            "texture": "atti-i-iii",
+            "motivi": {
+              "grana": "grana-ambienti"
+            }
+          }
+        }
+      },
+      "layers": [
+        {
+          "id": "opera",
+          "tag": "g",
+          "pose": {
+            "translateX": 0,
+            "translateY": -400
+          }
+        },
+        {
+          "id": "f-1",
+          "tag": "g",
+          "pose": {
+            "translateX": 0,
+            "translateY": 0
+          },
+          "parent": "opera"
+        },
+        {
+          "id": "f-2",
+          "tag": "g",
+          "attrs": {},
+          "parent": "f-1"
+        },
+        {
+          "id": "f-3",
+          "tag": "path",
+          "attrs": {
+            "d": "M -254.3 353.9 L -184.5 353.9 L -184.2 400.5 L -254.9 399.6 Z",
+            "fill": "sand"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-4",
+          "tag": "path",
+          "attrs": {
+            "d": "M -255 354 L -185 354 L -185 400 L -255 400 Z",
+            "fill": "pattern:grana-ambienti",
+            "opacity": 0.5
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-5",
+          "tag": "path",
+          "attrs": {
+            "d": "M -255.2 353.9 L -231.8 354 L -208.3 354 L -184.9 354 M -185 353.1 L -185 376.7 L -185.1 400.2 M -184.8 399.9 L -208.4 399.8 L -232 400.2 L -255.6 400.1 M -254.9 401 L -255.1 377.4 L -254.9 353.9",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-6",
+          "tag": "path",
+          "attrs": {
+            "d": "M -261.5 354.2 L -219.3 324 L -177.2 353.4 Z",
+            "fill": "concrete-dark"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-7",
+          "tag": "path",
+          "attrs": {
+            "d": "M -262 354 L -251.6 346.4 L -241.1 338.9 L -230.4 331.7 L -220 324 L -209.5 331.5 L -198.9 338.9 L -188.6 346.6 L -178 354 L -192 354 L -206 354.3 L -220 354.1 L -234 353.7 L -248 354.2 L -262 354",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-8",
+          "tag": "path",
+          "attrs": {
+            "d": "M -225.8 371.6 L -214 372 L -213.4 400.2 L -225.6 400.2 Z",
+            "fill": "concrete-dark"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-9",
+          "tag": "path",
+          "attrs": {
+            "d": "M -226 372.1 L -214 372 M -213.9 372 L -214 400 M -214 400 L -226 400.1 M -226 400 L -226 372",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.1,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-10",
+          "tag": "path",
+          "attrs": {
+            "d": "M -246.6 365.7 L -234.6 365.5 L -235 378.3 L -246.5 377.7 Z",
+            "fill": "sky"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-11",
+          "tag": "path",
+          "attrs": {
+            "d": "M -247 366 L -235 366 M -235 366 L -235 378 M -235 377.9 L -247 377.9 M -247 378 L -247 366",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-12",
+          "tag": "path",
+          "attrs": {
+            "d": "M -204.7 365.7 L -192.5 365.9 L -192.9 377.7 L -205 378.1 Z",
+            "fill": "sky"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-13",
+          "tag": "path",
+          "attrs": {
+            "d": "M -205 366.1 L -193 366.1 M -193 366 L -193 378 M -193 378.1 L -205 378.1 M -204.9 378 L -204.9 366",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-14",
+          "tag": "path",
+          "attrs": {
+            "d": "M -144.2 353.6 L -74 353.4 L -74.7 400.2 L -144.6 400.4 Z",
+            "fill": "sand"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-15",
+          "tag": "path",
+          "attrs": {
+            "d": "M -145 354 L -75 354 L -75 400 L -145 400 Z",
+            "fill": "pattern:grana-ambienti",
+            "opacity": 0.5
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-16",
+          "tag": "path",
+          "attrs": {
+            "d": "M -145.3 354.1 L -121.7 353.8 L -98.1 354.2 L -74.6 354 M -75.1 353.7 L -75.2 376.9 L -75 400.2 M -74.2 400.1 L -97.9 399.9 L -121.6 399.8 L -145.3 399.9 M -145 400.8 L -145.1 377.1 L -145.1 353.4",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-17",
+          "tag": "path",
+          "attrs": {
+            "d": "M -151.1 354.2 L -109.6 324 L -67.8 353.4 Z",
+            "fill": "concrete-dark"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-18",
+          "tag": "path",
+          "attrs": {
+            "d": "M -152 354 L -141.4 346.6 L -131 339 L -120.5 331.5 L -110 324.1 L -99.5 331.5 L -89.2 339.2 L -78.5 346.5 L -68.1 354.1 L -82 354.2 L -96 353.9 L -110 353.8 L -124 353.8 L -138 353.9 L -152 354",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-19",
+          "tag": "path",
+          "attrs": {
+            "d": "M -115.9 371.7 L -103.8 371.6 L -103.8 400.1 L -115.6 399.8 Z",
+            "fill": "concrete-dark"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-20",
+          "tag": "path",
+          "attrs": {
+            "d": "M -116 372.1 L -104 371.9 M -103.9 372 L -104.1 400 M -104 400.1 L -116 400.1 M -116 400 L -115.9 372",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.1,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-21",
+          "tag": "path",
+          "attrs": {
+            "d": "M -136.4 366 L -124.6 365.6 L -124.8 378.1 L -136.8 378 Z",
+            "fill": "sky"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-22",
+          "tag": "path",
+          "attrs": {
+            "d": "M -137 366 L -125 365.9 M -125 366 L -125.1 378 M -125 378.1 L -137 378 M -137.1 378 L -136.9 366",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-23",
+          "tag": "path",
+          "attrs": {
+            "d": "M -94.4 366.1 L -82.5 365.8 L -82.7 378 L -94.9 377.8 Z",
+            "fill": "sky"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-24",
+          "tag": "path",
+          "attrs": {
+            "d": "M -95 366 L -83 366 M -83.1 366 L -83 378 M -83 377.9 L -95 377.9 M -95.1 378 L -95.1 366",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-25",
+          "tag": "path",
+          "attrs": {
+            "d": "M -34.6 353.6 L 36 353.3 L 35.8 399.9 L -34.9 400.1 Z",
+            "fill": "sand"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-26",
+          "tag": "path",
+          "attrs": {
+            "d": "M -35 354 L 35 354 L 35 400 L -35 400 Z",
+            "fill": "pattern:grana-ambienti",
+            "opacity": 0.5
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-27",
+          "tag": "path",
+          "attrs": {
+            "d": "M -35.9 354.1 L -12 354.1 L 11.9 354.2 L 35.8 354 M 35 353.7 L 35.1 376.9 L 34.9 400.1 M 35.6 400 L 12 400 L -11.7 400.1 L -35.3 399.9 M -34.9 400.4 L -34.8 377.1 L -34.9 353.8",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-28",
+          "tag": "path",
+          "attrs": {
+            "d": "M -41.5 353.3 L 0.5 323.4 L 42.1 353.4 Z",
+            "fill": "concrete-dark"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-29",
+          "tag": "path",
+          "attrs": {
+            "d": "M -42 354 L -31.6 346.4 L -20.9 339.2 L -10.5 331.5 L -0.1 323.9 L 10.6 331.4 L 20.9 339.2 L 31.3 346.7 L 42 354 L 28 353.9 L 14 353.7 L 0 354 L -14 353.9 L -28 353.8 L -42 354.1",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-30",
+          "tag": "path",
+          "attrs": {
+            "d": "M -5.9 372 L 6.1 371.7 L 6.5 399.7 L -5.5 399.9 Z",
+            "fill": "concrete-dark"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-31",
+          "tag": "path",
+          "attrs": {
+            "d": "M -6 372.1 L 6 372 M 6 372 L 6 400 M 6 399.9 L -6 400 M -6.1 400 L -6 372",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.1,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-32",
+          "tag": "path",
+          "attrs": {
+            "d": "M -26.7 365.7 L -14.7 366 L -14.5 378.3 L -26.7 377.8 Z",
+            "fill": "sky"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-33",
+          "tag": "path",
+          "attrs": {
+            "d": "M -27 365.9 L -15 366 M -15 366 L -15.1 378 M -15 378.1 L -27 378 M -27 378 L -27 366",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-34",
+          "tag": "path",
+          "attrs": {
+            "d": "M 15 365.9 L 27.2 366 L 27.5 378.2 L 15.3 377.8 Z",
+            "fill": "sky"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-35",
+          "tag": "path",
+          "attrs": {
+            "d": "M 15 366 L 27 366.1 M 26.9 366 L 27 378 M 27 378.1 L 15 377.9 M 15 378 L 15 366",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-36",
+          "tag": "path",
+          "attrs": {
+            "d": "M 75 354.1 L 145.7 353.4 L 146.2 400.5 L 76.1 399.5 Z",
+            "fill": "sand"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-37",
+          "tag": "path",
+          "attrs": {
+            "d": "M 75 354 L 145 354 L 145 400 L 75 400 Z",
+            "fill": "pattern:grana-ambienti",
+            "opacity": 0.5
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-38",
+          "tag": "path",
+          "attrs": {
+            "d": "M 74.6 354 L 98.2 354 L 121.9 353.9 L 145.5 354.1 M 145.1 353.5 L 145.2 377 L 144.9 400.4 M 145.2 399.9 L 121.8 400.1 L 98.3 400.1 L 74.9 400 M 74.9 400.5 L 74.9 377.2 L 75 353.8",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-39",
+          "tag": "path",
+          "attrs": {
+            "d": "M 68.3 354.1 L 110.7 323.8 L 152.4 354.1 Z",
+            "fill": "concrete-dark"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-40",
+          "tag": "path",
+          "attrs": {
+            "d": "M 68.1 354.1 L 78.6 346.7 L 89.2 339.2 L 99.4 331.3 L 109.9 323.9 L 120.5 331.5 L 130.9 339.2 L 141.6 346.3 L 152 354 L 138 354.1 L 124 354.3 L 110 354 L 96 353.8 L 82 354 L 68 354",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-41",
+          "tag": "path",
+          "attrs": {
+            "d": "M 104.2 371.8 L 116.4 371.7 L 116.2 400.3 L 104.4 400.2 Z",
+            "fill": "concrete-dark"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-42",
+          "tag": "path",
+          "attrs": {
+            "d": "M 104 371.9 L 116 372.1 M 116 372 L 116.1 400 M 116 400.1 L 104 400.1 M 104 400 L 104.1 372",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.1,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-43",
+          "tag": "path",
+          "attrs": {
+            "d": "M 83.1 366 L 95.2 366.1 L 95.5 377.8 L 83.4 377.9 Z",
+            "fill": "sky"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-44",
+          "tag": "path",
+          "attrs": {
+            "d": "M 83 366 L 95 366.1 M 94.9 366 L 95 378 M 95 378 L 83 378.1 M 83 378 L 83 366",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-45",
+          "tag": "path",
+          "attrs": {
+            "d": "M 125.1 365.5 L 137.3 365.8 L 137.3 378.1 L 125.5 378.2 Z",
+            "fill": "sky"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-46",
+          "tag": "path",
+          "attrs": {
+            "d": "M 125 366.1 L 137 366 M 137 366 L 137 378 M 137 378 L 125 377.9 M 125.1 378 L 125 366",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-47",
+          "tag": "path",
+          "attrs": {
+            "d": "M 185.6 353.9 L 256.1 353.1 L 255.7 400.1 L 185.9 400.5 Z",
+            "fill": "sand"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-48",
+          "tag": "path",
+          "attrs": {
+            "d": "M 185 354 L 255 354 L 255 400 L 185 400 Z",
+            "fill": "pattern:grana-ambienti",
+            "opacity": 0.5
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-49",
+          "tag": "path",
+          "attrs": {
+            "d": "M 184.4 354.1 L 208.1 353.7 L 231.8 354.1 L 255.5 353.9 M 255 354 L 255.3 377.4 L 255.1 400.8 M 255.7 400 L 232.1 400 L 208.5 400.2 L 184.8 399.9 M 185 400.7 L 185.2 376.9 L 185 353.1",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-50",
+          "tag": "path",
+          "attrs": {
+            "d": "M 178.3 354 L 220.6 323.7 L 262.6 353.7 Z",
+            "fill": "concrete-dark"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-51",
+          "tag": "path",
+          "attrs": {
+            "d": "M 178.1 354.1 L 188.6 346.7 L 199 339 L 209.5 331.5 L 220 324 L 230.5 331.5 L 241.1 338.8 L 251.4 346.7 L 262 354 L 248 354.3 L 234 353.7 L 220 353.9 L 206 354.2 L 192 353.9 L 178 354.1",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-52",
+          "tag": "path",
+          "attrs": {
+            "d": "M 214.6 371.7 L 226.6 371.7 L 226.3 400 L 214.5 400.1 Z",
+            "fill": "concrete-dark"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-53",
+          "tag": "path",
+          "attrs": {
+            "d": "M 214 371.9 L 226 371.9 M 226 372 L 225.9 400 M 226 399.9 L 214 399.9 M 214 400 L 213.9 372",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.1,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-54",
+          "tag": "path",
+          "attrs": {
+            "d": "M 193 365.8 L 205.2 365.8 L 205.5 377.8 L 193.1 378.1 Z",
+            "fill": "sky"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-55",
+          "tag": "path",
+          "attrs": {
+            "d": "M 193 365.9 L 205 366 M 205.1 366 L 205.1 378 M 205 377.9 L 193 377.9 M 193 378 L 193 366",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-56",
+          "tag": "path",
+          "attrs": {
+            "d": "M 235.4 366.1 L 247.5 366.1 L 247.2 377.9 L 235.4 377.8 Z",
+            "fill": "sky"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-57",
+          "tag": "path",
+          "attrs": {
+            "d": "M 235 365.9 L 247 366 M 247 366 L 247 378 M 247 377.9 L 235 378.1 M 235 378 L 234.9 366",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-58",
+          "tag": "path",
+          "attrs": {
+            "d": "M -275 400.1 L -253 400.1 L -231 400.4 L -209 399.8 L -187 400.2 L -165 400.2 L -143 400.4 L -121 399.8 L -99 400.3 L -77 400.3 L -55 399.8 L -33 400 L -11 399.8 L 11 399.8 L 33 399.9 L 55 399.8 L 77 399.9 L 99 399.7 L 121 400.3 L 143 399.6 L 165 399.6 L 187 399.8 L 209 400 L 231 400.3 L 253 400.2 L 275 400.1",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.8,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-59",
+          "tag": "path",
+          "attrs": {
+            "d": "M -264 400 L -263.9 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-60",
+          "tag": "path",
+          "attrs": {
+            "d": "M -220.1 400 L -220 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-61",
+          "tag": "path",
+          "attrs": {
+            "d": "M -176 400 L -176 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-62",
+          "tag": "path",
+          "attrs": {
+            "d": "M -132 400 L -132 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-63",
+          "tag": "path",
+          "attrs": {
+            "d": "M -88 400 L -88 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-64",
+          "tag": "path",
+          "attrs": {
+            "d": "M -44 400 L -43.9 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-65",
+          "tag": "path",
+          "attrs": {
+            "d": "M 0 400 L 0.1 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-66",
+          "tag": "path",
+          "attrs": {
+            "d": "M 43.9 400 L 44 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-67",
+          "tag": "path",
+          "attrs": {
+            "d": "M 87.9 400 L 87.9 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-68",
+          "tag": "path",
+          "attrs": {
+            "d": "M 132 400 L 132 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-69",
+          "tag": "path",
+          "attrs": {
+            "d": "M 176 400 L 175.9 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-70",
+          "tag": "path",
+          "attrs": {
+            "d": "M 220.1 400 L 220 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-71",
+          "tag": "path",
+          "attrs": {
+            "d": "M 264.1 400 L 264.1 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
         }
       ]
     },
@@ -20487,6 +21439,25 @@
             "wrist-near": -13,
             "hand-near": -13,
             "grip-near": -13
+          },
+          "scrive": {
+            "root": {
+              "rotate": 12,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -30,
+            "forearm-far": -20,
+            "hand-far": 50,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -75,
+            "forearm-near": -45,
+            "wrist-near": 120,
+            "hand-near": 120,
+            "grip-near": 120
           }
         }
       }
@@ -21400,6 +22371,25 @@
             "wrist-near": -13,
             "hand-near": -13,
             "grip-near": -13
+          },
+          "scrive": {
+            "root": {
+              "rotate": 12,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -30,
+            "forearm-far": -20,
+            "hand-far": 50,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -75,
+            "forearm-near": -45,
+            "wrist-near": 120,
+            "hand-near": 120,
+            "grip-near": 120
           }
         }
       }
@@ -22346,6 +23336,25 @@
             "wrist-near": -13,
             "hand-near": -13,
             "grip-near": -13
+          },
+          "scrive": {
+            "root": {
+              "rotate": 12,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -30,
+            "forearm-far": -20,
+            "hand-far": 50,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -75,
+            "forearm-near": -45,
+            "wrist-near": 120,
+            "hand-near": 120,
+            "grip-near": 120
           }
         }
       }
@@ -28323,6 +29332,144 @@
       ]
     },
     {
+      "id": "tazza-smaltata",
+      "meta": {
+        "label": "Tazza smaltata",
+        "family": "atti-i-iii",
+        "source": "kit-atti-i-iii.html#tazza_smaltata",
+        "size": [
+          76,
+          72
+        ],
+        "anchor": "base",
+        "origine": {
+          "file": "prototypes/kit-atti-i-iii/kit-atti-i-iii.html",
+          "funzione": "drawAtti",
+          "argomenti": [
+            "tazza_smaltata",
+            0,
+            0
+          ],
+          "rimuoviPrimo": false,
+          "definizioni": {
+            "funzione": "getDefs",
+            "argomenti": [],
+            "texture": "atti-i-iii",
+            "motivi": {
+              "grana": "grana-ambienti"
+            }
+          }
+        }
+      },
+      "layers": [
+        {
+          "id": "opera",
+          "tag": "g",
+          "pose": {
+            "translateX": -5.4,
+            "translateY": -400
+          }
+        },
+        {
+          "id": "f-1",
+          "tag": "g",
+          "pose": {
+            "translateX": 0,
+            "translateY": 0
+          },
+          "parent": "opera"
+        },
+        {
+          "id": "f-2",
+          "tag": "g",
+          "attrs": {},
+          "parent": "f-1"
+        },
+        {
+          "id": "f-3",
+          "tag": "path",
+          "attrs": {
+            "d": "M -16 346 L 16 346 A 8 8 0 0 1 24 354 L 24 392 A 8 8 0 0 1 16 400 L -16 400 A 8 8 0 0 1 -24 392 L -24 354 A 8 8 0 0 1 -16 346 Z",
+            "fill": "paper"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-4",
+          "tag": "path",
+          "attrs": {
+            "d": "M -16 346 L 16 346 A 8 8 0 0 1 24 354 L 24 392 A 8 8 0 0 1 16 400 L -16 400 A 8 8 0 0 1 -24 392 L -24 354 A 8 8 0 0 1 -16 346 Z",
+            "fill": "pattern:grana-ambienti",
+            "opacity": 0.45
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-5",
+          "tag": "path",
+          "attrs": {
+            "d": "M -16 346 L 16 346 A 8 8 0 0 1 24 354 L 24 392 A 8 8 0 0 1 16 400 L -16 400 A 8 8 0 0 1 -24 392 L -24 354 A 8 8 0 0 1 -16 346 Z",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-6",
+          "tag": "path",
+          "attrs": {
+            "d": "M -24 352.9 L 0 352.9 L 24 353",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 3.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-7",
+          "tag": "path",
+          "attrs": {
+            "d": "M 24 358 C 40 356 42 386 24 388",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 3.2,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-8",
+          "tag": "path",
+          "attrs": {
+            "d": "M 24 364 C 34 364 35 380 24 382",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round",
+            "opacity": 0.6
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-9",
+          "tag": "path",
+          "attrs": {
+            "d": "M -15 380 A 3 2.5 0 1 0 -9 380 A 3 2.5 0 1 0 -15 380 Z",
+            "fill": "concrete-dark",
+            "opacity": 0.7
+          },
+          "parent": "f-2"
+        }
+      ]
+    },
+    {
       "id": "oggetto-volantini",
       "meta": {
         "label": "Volantini & Sassi",
@@ -28959,6 +30106,194 @@
             "stroke-linecap": "round",
             "stroke-linejoin": "round",
             "opacity": 0.7
+          },
+          "parent": "f-2"
+        }
+      ]
+    },
+    {
+      "id": "icona-processione",
+      "meta": {
+        "label": "Icona da processione",
+        "family": "atti-i-iii",
+        "source": "kit-atti-i-iii.html#icona_processione",
+        "size": [
+          122,
+          207
+        ],
+        "anchor": "base",
+        "origine": {
+          "file": "prototypes/kit-atti-i-iii/kit-atti-i-iii.html",
+          "funzione": "drawAtti",
+          "argomenti": [
+            "icona_processione",
+            0,
+            0
+          ],
+          "rimuoviPrimo": false,
+          "definizioni": {
+            "funzione": "getDefs",
+            "argomenti": [],
+            "texture": "atti-i-iii",
+            "motivi": {
+              "grana": "grana-ambienti"
+            }
+          }
+        }
+      },
+      "layers": [
+        {
+          "id": "opera",
+          "tag": "g",
+          "pose": {
+            "translateX": 0,
+            "translateY": -400
+          }
+        },
+        {
+          "id": "f-1",
+          "tag": "g",
+          "pose": {
+            "translateX": 0,
+            "translateY": 0
+          },
+          "parent": "opera"
+        },
+        {
+          "id": "f-2",
+          "tag": "g",
+          "attrs": {},
+          "parent": "f-1"
+        },
+        {
+          "id": "f-3",
+          "tag": "path",
+          "attrs": {
+            "d": "M 0 400 L -0.2 377.3 L 0.1 354.7 L -0.4 332 L -0.3 309.3 L 0 286.7 L -0.3 264 L 0.2 241.3 L 0.2 218.7 L -0.1 196",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 3.2,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-4",
+          "tag": "path",
+          "attrs": {
+            "d": "M -30 276 L -30 226 A 30 30 0 0 1 30 226 L 30 276 Z",
+            "fill": "concrete-dark"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-5",
+          "tag": "path",
+          "attrs": {
+            "d": "M -30 276 L -30 226 A 30 30 0 0 1 30 226 L 30 276 Z",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.8,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-6",
+          "tag": "path",
+          "attrs": {
+            "d": "M -22 268 L -22 228 A 22 22 0 0 1 22 228 L 22 268 Z",
+            "fill": "sand"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-7",
+          "tag": "path",
+          "attrs": {
+            "d": "M -22 268 L -22 228 A 22 22 0 0 1 22 228 L 22 268 Z",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.1,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-8",
+          "tag": "path",
+          "attrs": {
+            "d": "M -11 226 A 11 11 0 1 0 11 226 A 11 11 0 1 0 -11 226 Z",
+            "fill": "paper"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-9",
+          "tag": "path",
+          "attrs": {
+            "d": "M -11 226 A 11 11 0 1 0 11 226 A 11 11 0 1 0 -11 226 Z",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.2,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-10",
+          "tag": "path",
+          "attrs": {
+            "d": "M -5 226 A 5 5 0 1 0 5 226 A 5 5 0 1 0 -5 226 Z",
+            "fill": "ink"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-11",
+          "tag": "path",
+          "attrs": {
+            "d": "M -12 268 L -9 240 L 9 240 L 12 268 Z",
+            "fill": "concrete-mid"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-12",
+          "tag": "path",
+          "attrs": {
+            "d": "M -12 268 L -9 240 L 9 240 L 12 268 Z",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.1,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-13",
+          "tag": "path",
+          "attrs": {
+            "d": "M -4 196 L -10 210 L 0 206 L 10 210 L 4 196 Z",
+            "fill": "red"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-14",
+          "tag": "path",
+          "attrs": {
+            "d": "M -4 196 L -10 210 L 0 206 L 10 210 L 4 196 Z",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 0.8,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
           },
           "parent": "f-2"
         }
@@ -29894,6 +31229,25 @@
             "wrist-near": -13,
             "hand-near": -13,
             "grip-near": -13
+          },
+          "scrive": {
+            "root": {
+              "rotate": 12,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -30,
+            "forearm-far": -20,
+            "hand-far": 50,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -75,
+            "forearm-near": -45,
+            "wrist-near": 120,
+            "hand-near": 120,
+            "grip-near": 120
           }
         }
       }
@@ -30828,6 +32182,25 @@
             "wrist-near": -13,
             "hand-near": -13,
             "grip-near": -13
+          },
+          "scrive": {
+            "root": {
+              "rotate": 12,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -30,
+            "forearm-far": -20,
+            "hand-far": 50,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -75,
+            "forearm-near": -45,
+            "wrist-near": 120,
+            "hand-near": 120,
+            "grip-near": 120
           }
         }
       }
@@ -31752,6 +33125,25 @@
             "wrist-near": -13,
             "hand-near": -13,
             "grip-near": -13
+          },
+          "scrive": {
+            "root": {
+              "rotate": 12,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -30,
+            "forearm-far": -20,
+            "hand-far": 50,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -75,
+            "forearm-near": -45,
+            "wrist-near": 120,
+            "hand-near": 120,
+            "grip-near": 120
           }
         }
       }
@@ -32739,6 +34131,614 @@
           "attrs": {
             "d": "M 30 191 L 42 183 L 42 200 L 30 200 Z",
             "fill": "sand"
+          },
+          "parent": "f-2"
+        }
+      ]
+    },
+    {
+      "id": "vetrina-gioielliere",
+      "meta": {
+        "label": "Vetrina del gioielliere",
+        "family": "atti-i-iii",
+        "source": "kit-atti-i-iii.html#vetrina_gioielliere",
+        "size": [
+          362,
+          248
+        ],
+        "anchor": "base",
+        "origine": {
+          "file": "prototypes/kit-atti-i-iii/kit-atti-i-iii.html",
+          "funzione": "drawAtti",
+          "argomenti": [
+            "vetrina_gioielliere",
+            0,
+            0
+          ],
+          "rimuoviPrimo": false,
+          "definizioni": {
+            "funzione": "getDefs",
+            "argomenti": [],
+            "texture": "atti-i-iii",
+            "motivi": {
+              "grana": "grana-ambienti"
+            }
+          }
+        }
+      },
+      "layers": [
+        {
+          "id": "opera",
+          "tag": "g",
+          "pose": {
+            "translateX": 10,
+            "translateY": -400
+          }
+        },
+        {
+          "id": "f-1",
+          "tag": "g",
+          "pose": {
+            "translateX": 0,
+            "translateY": 0
+          },
+          "parent": "opera"
+        },
+        {
+          "id": "f-2",
+          "tag": "g",
+          "attrs": {},
+          "parent": "f-1"
+        },
+        {
+          "id": "f-3",
+          "tag": "path",
+          "attrs": {
+            "d": "M -129.2 238.2 L 131.1 236.5 L 130.6 400.5 L -129.2 399.5 Z",
+            "fill": "concrete-light"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-4",
+          "tag": "path",
+          "attrs": {
+            "d": "M -130 238 L 130 238 L 130 400 L -130 400 Z",
+            "fill": "pattern:grana-ambienti",
+            "opacity": 0.5
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-5",
+          "tag": "path",
+          "attrs": {
+            "d": "M -130.8 238 L -108.9 237.6 L -87 237.6 L -65.1 237.8 L -43.2 238.1 L -21.3 237.7 L 0.6 237.9 L 22.5 238.2 L 44.4 237.5 L 66.3 238.3 L 88.2 237.8 L 110.1 237.6 L 131.9 237.8 M 129.8 236.4 L 129.7 257.1 L 130.4 277.7 L 130 298.4 L 129.7 319.1 L 129.9 339.8 L 129.7 360.5 L 130.3 381.2 L 129.9 401.9 M 130 399.8 L 108.2 399.7 L 86.4 399.9 L 64.5 400.2 L 42.7 399.6 L 20.9 400.1 L -0.9 400.3 L -22.8 399.9 L -44.6 399.6 L -66.4 400.5 L -88.3 399.6 L -110.1 400 L -131.9 399.8 M -129.8 400.7 L -130.4 377.2 L -130 353.7 L -130.4 330.2 L -130 306.7 L -129.9 283.3 L -130 259.8 L -130 236.3",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-6",
+          "tag": "path",
+          "attrs": {
+            "d": "M -95.6 237.9 L 96.2 238.1 L 96.5 258.1 L -96 257.7 Z",
+            "fill": "paper"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-7",
+          "tag": "path",
+          "attrs": {
+            "d": "M -96.5 237.9 L -75 238.1 L -53.6 237.8 L -32.1 237.8 L -10.6 238.1 L 10.9 238.2 L 32.4 237.7 L 53.9 237.9 L 75.4 237.7 L 96.9 238.1 M 96.1 237.3 L 96 258 M 96.2 257.9 L 74.8 258.3 L 53.4 258 L 32 258.3 L 10.6 258.2 L -10.8 258.1 L -32.3 258.3 L -53.7 257.8 L -75.1 258 L -96.5 257.9 M -96.1 258.6 L -96.1 237.4",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.3,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-8",
+          "tag": "path",
+          "attrs": {
+            "d": "M -104 270 L 104 270 L 112 292 L -112 292 Z",
+            "fill": "concrete-mid"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-9",
+          "tag": "path",
+          "attrs": {
+            "d": "M -104 270 L 104 270 L 112 292 L -112 292 Z",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.5,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-10",
+          "tag": "path",
+          "attrs": {
+            "d": "M -108 270 L -84 270 L -82 292 L -110 292 Z",
+            "fill": "paper"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-11",
+          "tag": "path",
+          "attrs": {
+            "d": "M -108 270 L -84 270 L -82 292 L -110 292 Z",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 0.8,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round",
+            "opacity": 0.8
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-12",
+          "tag": "path",
+          "attrs": {
+            "d": "M -60 270 L -36 270 L -34 292 L -62 292 Z",
+            "fill": "paper"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-13",
+          "tag": "path",
+          "attrs": {
+            "d": "M -60 270 L -36 270 L -34 292 L -62 292 Z",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 0.8,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round",
+            "opacity": 0.8
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-14",
+          "tag": "path",
+          "attrs": {
+            "d": "M -12 270 L 12 270 L 14 292 L -14 292 Z",
+            "fill": "paper"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-15",
+          "tag": "path",
+          "attrs": {
+            "d": "M -12 270 L 12 270 L 14 292 L -14 292 Z",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 0.8,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round",
+            "opacity": 0.8
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-16",
+          "tag": "path",
+          "attrs": {
+            "d": "M 36 270 L 60 270 L 62 292 L 34 292 Z",
+            "fill": "paper"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-17",
+          "tag": "path",
+          "attrs": {
+            "d": "M 36 270 L 60 270 L 62 292 L 34 292 Z",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 0.8,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round",
+            "opacity": 0.8
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-18",
+          "tag": "path",
+          "attrs": {
+            "d": "M 84 270 L 108 270 L 110 292 L 82 292 Z",
+            "fill": "paper"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-19",
+          "tag": "path",
+          "attrs": {
+            "d": "M 84 270 L 108 270 L 110 292 L 82 292 Z",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 0.8,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round",
+            "opacity": 0.8
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-20",
+          "tag": "path",
+          "attrs": {
+            "d": "M -100 392 L -100 392 A 90 90 0 0 1 80 392 L 80 392 Z",
+            "fill": "ink"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-21",
+          "tag": "path",
+          "attrs": {
+            "d": "M -100 392 L -100 392 A 90 90 0 0 1 80 392 L 80 392 Z",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 2,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-22",
+          "tag": "path",
+          "attrs": {
+            "d": "M -94 386 L -94 392 A 84 84 0 0 1 74 392 L 74 386 Z",
+            "fill": "concrete-dark"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-23",
+          "tag": "path",
+          "attrs": {
+            "d": "M -91.4 361.6 L 72.1 362 L 72 368.1 L -91.7 367.9 Z",
+            "fill": "sand"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-24",
+          "tag": "path",
+          "attrs": {
+            "d": "M -92 362 L -68.6 362.1 L -45.1 362.1 L -21.7 361.8 L 1.7 362 L 25.1 362.1 L 48.6 361.9 L 72 362 M 72 362 L 72 368 M 72 368 L 48.6 367.8 L 25.1 367.8 L 1.7 368 L -21.7 367.9 L -45.1 368.1 L -68.6 368.1 L -92 368 M -91.9 368 L -92 362",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-25",
+          "tag": "path",
+          "attrs": {
+            "d": "M -66 350 L -62 342 L -54 342 L -50 350 L -58 359 Z",
+            "fill": "sky"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-26",
+          "tag": "path",
+          "attrs": {
+            "d": "M -66 350 L -62 342 L -54 342 L -50 350 L -58 359 Z M -66 350 L -50 350",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 0.9,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-27",
+          "tag": "path",
+          "attrs": {
+            "d": "M 18 350 L 22 342 L 30 342 L 34 350 L 26 359 Z",
+            "fill": "sky"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-28",
+          "tag": "path",
+          "attrs": {
+            "d": "M 18 350 L 22 342 L 30 342 L 34 350 L 26 359 Z M 18 350 L 34 350",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 0.9,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-29",
+          "tag": "path",
+          "attrs": {
+            "d": "M -26 322 C -26 344 26 344 26 322",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.3,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-30",
+          "tag": "path",
+          "attrs": {
+            "d": "M -4 340 A 4 4 0 1 0 4 340 A 4 4 0 1 0 -4 340 Z",
+            "fill": "red"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-31",
+          "tag": "path",
+          "attrs": {
+            "d": "M -4 340 A 4 4 0 1 0 4 340 A 4 4 0 1 0 -4 340 Z",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 0.7,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-32",
+          "tag": "path",
+          "attrs": {
+            "d": "M -27.4 322 A 2.2 2.2 0 1 0 -23 322 A 2.2 2.2 0 1 0 -27.4 322 Z",
+            "fill": "paper"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-33",
+          "tag": "path",
+          "attrs": {
+            "d": "M -27.4 322 A 2.2 2.2 0 1 0 -23 322 A 2.2 2.2 0 1 0 -27.4 322 Z",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 0.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-34",
+          "tag": "path",
+          "attrs": {
+            "d": "M -19 328 A 2.2 2.2 0 1 0 -14.6 328 A 2.2 2.2 0 1 0 -19 328 Z",
+            "fill": "paper"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-35",
+          "tag": "path",
+          "attrs": {
+            "d": "M -19 328 A 2.2 2.2 0 1 0 -14.6 328 A 2.2 2.2 0 1 0 -19 328 Z",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 0.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-36",
+          "tag": "path",
+          "attrs": {
+            "d": "M -10.6 334 A 2.2 2.2 0 1 0 -6.2 334 A 2.2 2.2 0 1 0 -10.6 334 Z",
+            "fill": "paper"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-37",
+          "tag": "path",
+          "attrs": {
+            "d": "M -10.6 334 A 2.2 2.2 0 1 0 -6.2 334 A 2.2 2.2 0 1 0 -10.6 334 Z",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 0.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-38",
+          "tag": "path",
+          "attrs": {
+            "d": "M -2.2 340 A 2.2 2.2 0 1 0 2.2 340 A 2.2 2.2 0 1 0 -2.2 340 Z",
+            "fill": "paper"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-39",
+          "tag": "path",
+          "attrs": {
+            "d": "M -2.2 340 A 2.2 2.2 0 1 0 2.2 340 A 2.2 2.2 0 1 0 -2.2 340 Z",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 0.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-40",
+          "tag": "path",
+          "attrs": {
+            "d": "M 6.2 334 A 2.2 2.2 0 1 0 10.6 334 A 2.2 2.2 0 1 0 6.2 334 Z",
+            "fill": "paper"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-41",
+          "tag": "path",
+          "attrs": {
+            "d": "M 6.2 334 A 2.2 2.2 0 1 0 10.6 334 A 2.2 2.2 0 1 0 6.2 334 Z",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 0.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-42",
+          "tag": "path",
+          "attrs": {
+            "d": "M 14.6 328 A 2.2 2.2 0 1 0 19 328 A 2.2 2.2 0 1 0 14.6 328 Z",
+            "fill": "paper"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-43",
+          "tag": "path",
+          "attrs": {
+            "d": "M 14.6 328 A 2.2 2.2 0 1 0 19 328 A 2.2 2.2 0 1 0 14.6 328 Z",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 0.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-44",
+          "tag": "path",
+          "attrs": {
+            "d": "M 23 322 A 2.2 2.2 0 1 0 27.4 322 A 2.2 2.2 0 1 0 23 322 Z",
+            "fill": "paper"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-45",
+          "tag": "path",
+          "attrs": {
+            "d": "M 23 322 A 2.2 2.2 0 1 0 27.4 322 A 2.2 2.2 0 1 0 23 322 Z",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 0.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-46",
+          "tag": "path",
+          "attrs": {
+            "d": "M 45 352 A 7 7 0 1 0 59 352 A 7 7 0 1 0 45 352 Z",
+            "fill": "paper"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-47",
+          "tag": "path",
+          "attrs": {
+            "d": "M 45 352 A 7 7 0 1 0 59 352 A 7 7 0 1 0 45 352 Z",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.2,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-48",
+          "tag": "path",
+          "attrs": {
+            "d": "M 49 345 A 3 3 0 1 0 55 345 A 3 3 0 1 0 49 345 Z",
+            "fill": "sky"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-49",
+          "tag": "path",
+          "attrs": {
+            "d": "M 49 345 A 3 3 0 1 0 55 345 A 3 3 0 1 0 49 345 Z",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 0.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-50",
+          "tag": "path",
+          "attrs": {
+            "d": "M 88.6 299.7 L 122.5 300.2 L 122.3 400 L 88.2 400.4 Z",
+            "fill": "concrete-dark"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-51",
+          "tag": "path",
+          "attrs": {
+            "d": "M 87.8 300 L 105.3 300.1 L 122.7 300 M 121.9 299.2 L 122.1 319.6 L 121.7 339.9 L 122.3 360.2 L 122 380.5 L 122.1 400.9 M 122.2 399.9 L 104.7 400.2 L 87.2 399.9 M 87.9 400.2 L 88 380.1 L 88.1 360 L 87.8 339.8 L 87.9 319.7 L 88.1 299.6",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-52",
+          "tag": "path",
+          "attrs": {
+            "d": "M 93.6 352 A 2.4 2.4 0 1 0 98.4 352 A 2.4 2.4 0 1 0 93.6 352 Z",
+            "fill": "paper"
           },
           "parent": "f-2"
         }
@@ -34184,6 +36184,25 @@
             "wrist-near": -13,
             "hand-near": -13,
             "grip-near": -13
+          },
+          "scrive": {
+            "root": {
+              "rotate": 12,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -30,
+            "forearm-far": -20,
+            "hand-far": 50,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -75,
+            "forearm-near": -45,
+            "wrist-near": 120,
+            "hand-near": 120,
+            "grip-near": 120
           }
         }
       }
@@ -35538,6 +37557,25 @@
             "wrist-near": -13,
             "hand-near": -13,
             "grip-near": -13
+          },
+          "scrive": {
+            "root": {
+              "rotate": 12,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -30,
+            "forearm-far": -20,
+            "hand-far": 50,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -75,
+            "forearm-near": -45,
+            "wrist-near": 120,
+            "hand-near": 120,
+            "grip-near": 120
           }
         }
       }
@@ -36461,6 +38499,40 @@
             "stroke-linejoin": "round"
           },
           "parent": "f-2"
+        }
+      ]
+    },
+    {
+      "id": "presa-penna-in-mano",
+      "meta": {
+        "label": "penna in mano",
+        "family": "oggetti-impugnati",
+        "source": "studio personaggi.html#buildOminoSVG",
+        "presa": "grip-near",
+        "tinta": false
+      },
+      "layers": [
+        {
+          "id": "f-1",
+          "tag": "path",
+          "attrs": {
+            "d": "M -2 2 L 14 -12",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 2.2,
+            "stroke-linecap": "round"
+          }
+        },
+        {
+          "id": "f-2",
+          "tag": "path",
+          "attrs": {
+            "d": "M -2 2 L -4 5",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round"
+          }
         }
       ]
     },
@@ -37938,6 +40010,1773 @@
       ]
     },
     {
+      "id": "fig-uomo-nudo-uniforme",
+      "meta": {
+        "label": "Figura uomo nudo uniforme",
+        "family": "figure",
+        "source": "bottega/figura/figura.js#figuraSymbol"
+      },
+      "layers": [
+        {
+          "id": "corpo",
+          "tag": "g",
+          "pose": {
+            "translateY": -42,
+            "scale": 1
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "root",
+          "tag": "g",
+          "parent": "corpo",
+          "pose": {
+            "rotate": 0,
+            "translateY": 0
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "slot-back",
+          "tag": "g",
+          "parent": "root"
+        },
+        {
+          "id": "arm-far",
+          "tag": "g",
+          "parent": "root",
+          "pose": {
+            "translateX": -5,
+            "translateY": -24,
+            "rotate": 22
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "arm-far-skin",
+          "tag": "path",
+          "parent": "arm-far",
+          "attrs": {
+            "d": "M -3.75 0 A 3.75 3.75 0 1 1 3.75 0 L 3.1 16 A 3.1 3.1 0 1 1 -3.1 16 Z",
+            "fill": "ink"
+          }
+        },
+        {
+          "id": "forearm-far",
+          "tag": "g",
+          "parent": "arm-far",
+          "pose": {
+            "translateX": 0,
+            "translateY": 16,
+            "rotate": 5
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "forearm-far-skin",
+          "tag": "path",
+          "parent": "forearm-far",
+          "attrs": {
+            "d": "M -3.1 0 A 3.1 3.1 0 1 1 3.1 0 L 2.5 15 A 2.5 2.5 0 1 1 -2.5 15 Z",
+            "fill": "ink"
+          }
+        },
+        {
+          "id": "hand-far",
+          "tag": "g",
+          "parent": "forearm-far",
+          "pose": {
+            "translateX": 0,
+            "translateY": 14,
+            "rotate": -27
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "leg-far",
+          "tag": "g",
+          "parent": "root",
+          "pose": {
+            "translateX": -4.5,
+            "translateY": 2,
+            "rotate": 10
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "leg-far-skin",
+          "tag": "path",
+          "parent": "leg-far",
+          "attrs": {
+            "d": "M -4.6 0 A 4.6 4.6 0 1 1 4.6 0 L 3.6 19 A 3.6 3.6 0 1 1 -3.6 19 Z",
+            "fill": "ink"
+          }
+        },
+        {
+          "id": "shin-far",
+          "tag": "g",
+          "parent": "leg-far",
+          "pose": {
+            "translateX": 0,
+            "translateY": 19,
+            "rotate": 0
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "shin-far-skin",
+          "tag": "path",
+          "parent": "shin-far",
+          "attrs": {
+            "d": "M -3.6 0 A 3.6 3.6 0 1 1 3.6 0 L 2.8 19 A 2.8 2.8 0 1 1 -2.8 19 Z",
+            "fill": "ink"
+          }
+        },
+        {
+          "id": "leg-near",
+          "tag": "g",
+          "parent": "root",
+          "pose": {
+            "translateX": 4.5,
+            "translateY": 2,
+            "rotate": -10
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "leg-near-skin",
+          "tag": "path",
+          "parent": "leg-near",
+          "attrs": {
+            "d": "M -4.6 0 A 4.6 4.6 0 1 1 4.6 0 L 3.6 19 A 3.6 3.6 0 1 1 -3.6 19 Z",
+            "fill": "ink"
+          }
+        },
+        {
+          "id": "shin-near",
+          "tag": "g",
+          "parent": "leg-near",
+          "pose": {
+            "translateX": 0,
+            "translateY": 19,
+            "rotate": 0
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "shin-near-skin",
+          "tag": "path",
+          "parent": "shin-near",
+          "attrs": {
+            "d": "M -3.6 0 A 3.6 3.6 0 1 1 3.6 0 L 2.8 19 A 2.8 2.8 0 1 1 -2.8 19 Z",
+            "fill": "ink"
+          }
+        },
+        {
+          "id": "torso",
+          "tag": "path",
+          "parent": "root",
+          "attrs": {
+            "d": "M -8 -27 L -10.5 14 L 10.5 14 L 8 -27 Z",
+            "fill": "ink"
+          }
+        },
+        {
+          "id": "torso-colletto",
+          "tag": "path",
+          "parent": "root",
+          "attrs": {
+            "d": "M -5 -26 L -5 -21 L 5 -21 L 5 -26",
+            "fill": "none",
+            "stroke": "paper",
+            "stroke-width": 1.4
+          }
+        },
+        {
+          "id": "torso-spalline",
+          "tag": "path",
+          "parent": "root",
+          "attrs": {
+            "d": "M -12 -25 L -6 -27 M 12 -25 L 6 -27",
+            "fill": "none",
+            "stroke": "paper",
+            "stroke-width": 2.4,
+            "stroke-linecap": "round"
+          }
+        },
+        {
+          "id": "torso-bottoni",
+          "tag": "path",
+          "parent": "root",
+          "attrs": {
+            "d": "M 0 -19 L 0 -17 M 0 -13 L 0 -11 M 0 -7 L 0 -5 M 0 -1 L 0 1",
+            "fill": "none",
+            "stroke": "paper",
+            "stroke-width": 2,
+            "stroke-linecap": "round"
+          }
+        },
+        {
+          "id": "torso-fascia",
+          "tag": "path",
+          "parent": "root",
+          "attrs": {
+            "d": "M -9 -2 L 9 -2",
+            "fill": "none",
+            "stroke": "paper",
+            "stroke-width": 1.4
+          }
+        },
+        {
+          "id": "head",
+          "tag": "g",
+          "parent": "root",
+          "pose": {
+            "translateX": 0,
+            "translateY": -40,
+            "rotate": 0
+          },
+          "origin": [
+            0,
+            7
+          ]
+        },
+        {
+          "id": "head-skin",
+          "tag": "circle",
+          "parent": "head",
+          "attrs": {
+            "cx": 0,
+            "cy": 0,
+            "r": 8.5,
+            "fill": "ink"
+          }
+        },
+        {
+          "id": "arm-near",
+          "tag": "g",
+          "parent": "root",
+          "pose": {
+            "translateX": 5,
+            "translateY": -24,
+            "rotate": -22
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "arm-near-skin",
+          "tag": "path",
+          "parent": "arm-near",
+          "attrs": {
+            "d": "M -3.75 0 A 3.75 3.75 0 1 1 3.75 0 L 3.1 16 A 3.1 3.1 0 1 1 -3.1 16 Z",
+            "fill": "ink"
+          }
+        },
+        {
+          "id": "forearm-near",
+          "tag": "g",
+          "parent": "arm-near",
+          "pose": {
+            "translateX": 0,
+            "translateY": 16,
+            "rotate": -5
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "forearm-near-skin",
+          "tag": "path",
+          "parent": "forearm-near",
+          "attrs": {
+            "d": "M -3.1 0 A 3.1 3.1 0 1 1 3.1 0 L 2.5 15 A 2.5 2.5 0 1 1 -2.5 15 Z",
+            "fill": "ink"
+          }
+        },
+        {
+          "id": "wrist-near",
+          "tag": "g",
+          "parent": "forearm-near",
+          "pose": {
+            "translateX": 0,
+            "translateY": 0,
+            "rotate": 27
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "hand-near",
+          "tag": "g",
+          "parent": "forearm-near",
+          "pose": {
+            "translateX": 0,
+            "translateY": 14,
+            "rotate": 27
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "grip-near",
+          "tag": "g",
+          "parent": "forearm-near",
+          "pose": {
+            "translateX": 0,
+            "translateY": 12,
+            "rotate": 27
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "slot-front",
+          "tag": "g",
+          "parent": "root"
+        }
+      ],
+      "rig": {
+        "joints": {
+          "root": [
+            -129,
+            69
+          ],
+          "head": [
+            -45,
+            45
+          ],
+          "arm-far": [
+            -95,
+            193
+          ],
+          "forearm-far": [
+            -110,
+            90
+          ],
+          "hand-far": [
+            -210,
+            130
+          ],
+          "leg-far": [
+            -130,
+            93
+          ],
+          "shin-far": [
+            -80,
+            135
+          ],
+          "leg-near": [
+            -125,
+            70
+          ],
+          "shin-near": [
+            -50,
+            140
+          ],
+          "arm-near": [
+            -193,
+            77
+          ],
+          "forearm-near": [
+            -100,
+            110
+          ],
+          "wrist-near": [
+            -90,
+            210
+          ],
+          "hand-near": [
+            -90,
+            210
+          ],
+          "grip-near": [
+            -90,
+            210
+          ]
+        },
+        "poses": {
+          "in_piedi": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 22,
+            "forearm-far": 5,
+            "hand-far": -27,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -22,
+            "forearm-near": -5,
+            "wrist-near": 27,
+            "hand-near": 27,
+            "grip-near": 27
+          },
+          "cammina_1": {
+            "root": {
+              "rotate": 5,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 35,
+            "forearm-far": 15,
+            "hand-far": -50,
+            "leg-far": 26,
+            "shin-far": -8,
+            "leg-near": -24,
+            "shin-near": 18,
+            "arm-near": -30,
+            "forearm-near": 20,
+            "wrist-near": 10,
+            "hand-near": 10,
+            "grip-near": 10
+          },
+          "cammina_2": {
+            "root": {
+              "rotate": 5,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -28,
+            "forearm-far": 15,
+            "hand-far": 13,
+            "leg-far": -22,
+            "shin-far": 15,
+            "leg-near": 25,
+            "shin-near": -5,
+            "arm-near": 32,
+            "forearm-near": 10,
+            "wrist-near": -42,
+            "hand-near": -42,
+            "grip-near": -42
+          },
+          "corre": {
+            "root": {
+              "rotate": 18,
+              "translateY": 2
+            },
+            "head": 0,
+            "arm-far": 55,
+            "forearm-far": 45,
+            "hand-far": -100,
+            "leg-far": 48,
+            "shin-far": -35,
+            "leg-near": -45,
+            "shin-near": 45,
+            "arm-near": -55,
+            "forearm-near": 50,
+            "wrist-near": 5,
+            "hand-near": 5,
+            "grip-near": 5
+          },
+          "braccia_alzate": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 145,
+            "forearm-far": 15,
+            "hand-far": -160,
+            "leg-far": 12,
+            "shin-far": 0,
+            "leg-near": -12,
+            "shin-near": 0,
+            "arm-near": -145,
+            "forearm-near": -15,
+            "wrist-near": 160,
+            "hand-near": 160,
+            "grip-near": 160
+          },
+          "gira": {
+            "root": {
+              "rotate": -4,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 48,
+            "forearm-far": 10,
+            "hand-far": -58,
+            "leg-far": 28,
+            "shin-far": 10,
+            "leg-near": -18,
+            "shin-near": 25,
+            "arm-near": -35,
+            "forearm-near": -10,
+            "wrist-near": 45,
+            "hand-near": 45,
+            "grip-near": 45
+          },
+          "indica": {
+            "root": {
+              "rotate": 2,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 25,
+            "forearm-far": 5,
+            "hand-far": -30,
+            "leg-far": 12,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -82,
+            "forearm-near": 0,
+            "wrist-near": 82,
+            "hand-near": 82,
+            "grip-near": 82
+          },
+          "saluta": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 22,
+            "forearm-far": 5,
+            "hand-far": -27,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -135,
+            "forearm-near": -15,
+            "wrist-near": 150,
+            "hand-near": 150,
+            "grip-near": 150
+          },
+          "parla": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 20,
+            "forearm-far": 10,
+            "hand-far": -30,
+            "leg-far": 8,
+            "shin-far": 0,
+            "leg-near": -8,
+            "shin-near": 0,
+            "arm-near": -45,
+            "forearm-near": -55,
+            "wrist-near": 100,
+            "hand-near": 100,
+            "grip-near": 100
+          },
+          "mani_fianchi": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 42,
+            "forearm-far": -65,
+            "hand-far": 23,
+            "leg-far": 14,
+            "shin-far": 0,
+            "leg-near": -14,
+            "shin-near": 0,
+            "arm-near": -42,
+            "forearm-near": 65,
+            "wrist-near": -23,
+            "hand-near": -23,
+            "grip-near": -23
+          },
+          "seduto": {
+            "root": {
+              "rotate": 4,
+              "translateY": 18
+            },
+            "head": 0,
+            "arm-far": -15,
+            "forearm-far": -45,
+            "hand-far": 60,
+            "leg-far": -85,
+            "shin-far": 85,
+            "leg-near": -80,
+            "shin-near": 80,
+            "arm-near": -25,
+            "forearm-near": -50,
+            "wrist-near": 75,
+            "hand-near": 75,
+            "grip-near": 75
+          },
+          "inginocchiato": {
+            "root": {
+              "rotate": 12,
+              "translateY": 22
+            },
+            "head": 0,
+            "arm-far": -10,
+            "forearm-far": -40,
+            "hand-far": 50,
+            "leg-far": -75,
+            "shin-far": 90,
+            "leg-near": 25,
+            "shin-near": 95,
+            "arm-near": -25,
+            "forearm-near": -55,
+            "wrist-near": 80,
+            "hand-near": 80,
+            "grip-near": 80
+          },
+          "a_terra": {
+            "root": {
+              "rotate": -84,
+              "translateY": 44
+            },
+            "head": 0,
+            "arm-far": 15,
+            "forearm-far": -25,
+            "hand-far": 10,
+            "leg-far": 8,
+            "shin-far": 0,
+            "leg-near": -12,
+            "shin-near": 10,
+            "arm-near": -110,
+            "forearm-near": 40,
+            "wrist-near": 70,
+            "hand-near": 70,
+            "grip-near": 70
+          },
+          "porta_bandiera": {
+            "root": {
+              "rotate": 6,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 28,
+            "forearm-far": -10,
+            "hand-far": -18,
+            "leg-far": 20,
+            "shin-far": 0,
+            "leg-near": -18,
+            "shin-near": 8,
+            "arm-near": -65,
+            "forearm-near": -25,
+            "wrist-near": 90,
+            "hand-near": 90,
+            "grip-near": 90
+          },
+          "manifesta": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 148,
+            "forearm-far": 15,
+            "hand-far": -163,
+            "leg-far": 12,
+            "shin-far": 0,
+            "leg-near": -12,
+            "shin-near": 0,
+            "arm-near": -148,
+            "forearm-near": -15,
+            "wrist-near": 163,
+            "hand-near": 163,
+            "grip-near": 163
+          },
+          "lancia": {
+            "root": {
+              "rotate": 14,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 45,
+            "forearm-far": 15,
+            "hand-far": -60,
+            "leg-far": 28,
+            "shin-far": -5,
+            "leg-near": -28,
+            "shin-near": 18,
+            "arm-near": -115,
+            "forearm-near": -10,
+            "wrist-near": 125,
+            "hand-near": 125,
+            "grip-near": 125
+          },
+          "sbarra": {
+            "root": {
+              "rotate": 5,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 25,
+            "forearm-far": -20,
+            "hand-far": -5,
+            "leg-far": 18,
+            "shin-far": 0,
+            "leg-near": -18,
+            "shin-near": 5,
+            "arm-near": -55,
+            "forearm-near": -15,
+            "wrist-near": 70,
+            "hand-near": 70,
+            "grip-near": 70
+          },
+          "tiene_cartello": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 145,
+            "forearm-far": 20,
+            "hand-far": -165,
+            "leg-far": 12,
+            "shin-far": 0,
+            "leg-near": -12,
+            "shin-near": 0,
+            "arm-near": -145,
+            "forearm-near": -20,
+            "wrist-near": 165,
+            "hand-near": 165,
+            "grip-near": 165
+          },
+          "usa_fucile": {
+            "root": {
+              "rotate": 6,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -45,
+            "forearm-far": -35,
+            "hand-far": 80,
+            "leg-far": 16,
+            "shin-far": 0,
+            "leg-near": -16,
+            "shin-near": 5,
+            "arm-near": -72,
+            "forearm-near": -15,
+            "wrist-near": 87,
+            "hand-near": 87,
+            "grip-near": 87
+          },
+          "spara": {
+            "root": {
+              "rotate": 12,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -50,
+            "forearm-far": -35,
+            "hand-far": 85,
+            "leg-far": 24,
+            "shin-far": 5,
+            "leg-near": -24,
+            "shin-near": 12,
+            "arm-near": -78,
+            "forearm-near": -10,
+            "wrist-near": 88,
+            "hand-near": 88,
+            "grip-near": 88
+          },
+          "con_megafono": {
+            "root": {
+              "rotate": 2,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 20,
+            "forearm-far": 10,
+            "hand-far": -30,
+            "leg-far": 14,
+            "shin-far": 0,
+            "leg-near": -14,
+            "shin-near": 0,
+            "arm-near": -75,
+            "forearm-near": -35,
+            "wrist-near": 110,
+            "hand-near": 110,
+            "grip-near": 110
+          },
+          "costruisce": {
+            "root": {
+              "rotate": 15,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -35,
+            "forearm-far": -20,
+            "hand-far": 55,
+            "leg-far": 18,
+            "shin-far": 5,
+            "leg-near": -18,
+            "shin-near": 5,
+            "arm-near": 30,
+            "forearm-near": 15,
+            "wrist-near": -45,
+            "hand-near": -45,
+            "grip-near": -45
+          },
+          "lavora": {
+            "root": {
+              "rotate": 10,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 20,
+            "forearm-far": 15,
+            "hand-far": -35,
+            "leg-far": 18,
+            "shin-far": 5,
+            "leg-near": -16,
+            "shin-near": 5,
+            "arm-near": -95,
+            "forearm-near": -25,
+            "wrist-near": 120,
+            "hand-near": 120,
+            "grip-near": 120
+          },
+          "legge": {
+            "root": {
+              "rotate": 4,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -45,
+            "forearm-far": -30,
+            "hand-far": 75,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -55,
+            "forearm-near": -35,
+            "wrist-near": 90,
+            "hand-near": 90,
+            "grip-near": 90
+          },
+          "zappa": {
+            "root": {
+              "rotate": 24,
+              "translateY": 2
+            },
+            "head": 0,
+            "arm-far": -30,
+            "forearm-far": -35,
+            "hand-far": 65,
+            "leg-far": 24,
+            "shin-far": 10,
+            "leg-near": -20,
+            "shin-near": 12,
+            "arm-near": -50,
+            "forearm-near": -20,
+            "wrist-near": 70,
+            "hand-near": 70,
+            "grip-near": 70
+          },
+          "guarda_orologio": {
+            "root": {
+              "rotate": 3,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 14,
+            "forearm-far": 4,
+            "hand-far": -18,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -96,
+            "forearm-near": -55,
+            "wrist-near": 151,
+            "hand-near": 151,
+            "grip-near": 151
+          },
+          "batte_piedi": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 12,
+            "forearm-far": -28,
+            "hand-far": 16,
+            "leg-far": 22,
+            "shin-far": 22,
+            "leg-near": -6,
+            "shin-near": 0,
+            "arm-near": -12,
+            "forearm-near": 28,
+            "wrist-near": -16,
+            "hand-near": -16,
+            "grip-near": -16
+          },
+          "si_stringe": {
+            "root": {
+              "rotate": 9,
+              "translateY": 4
+            },
+            "head": 0,
+            "arm-far": -20,
+            "forearm-far": -50,
+            "hand-far": 70,
+            "leg-far": 8,
+            "shin-far": 8,
+            "leg-near": -8,
+            "shin-near": 8,
+            "arm-near": -52,
+            "forearm-near": 65,
+            "wrist-near": -13,
+            "hand-near": -13,
+            "grip-near": -13
+          },
+          "scrive": {
+            "root": {
+              "rotate": 12,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -30,
+            "forearm-far": -20,
+            "hand-far": 50,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -75,
+            "forearm-near": -45,
+            "wrist-near": 120,
+            "hand-near": 120,
+            "grip-near": 120
+          }
+        }
+      }
+    },
+    {
+      "id": "podere-chutor",
+      "meta": {
+        "label": "Podere consolidato con casa isolata",
+        "family": "atti-i-iii",
+        "source": "kit-atti-i-iii.html#podere_chutor",
+        "size": [
+          386,
+          102
+        ],
+        "anchor": "base",
+        "origine": {
+          "file": "prototypes/kit-atti-i-iii/kit-atti-i-iii.html",
+          "funzione": "drawAtti",
+          "argomenti": [
+            "podere_chutor",
+            0,
+            0
+          ],
+          "rimuoviPrimo": false,
+          "definizioni": {
+            "funzione": "getDefs",
+            "argomenti": [],
+            "texture": "atti-i-iii",
+            "motivi": {
+              "grana": "grana-ambienti"
+            }
+          }
+        }
+      },
+      "layers": [
+        {
+          "id": "opera",
+          "tag": "g",
+          "pose": {
+            "translateX": -0.6,
+            "translateY": -400
+          }
+        },
+        {
+          "id": "f-1",
+          "tag": "g",
+          "pose": {
+            "translateX": 0,
+            "translateY": 0
+          },
+          "parent": "opera"
+        },
+        {
+          "id": "f-2",
+          "tag": "g",
+          "attrs": {},
+          "parent": "f-1"
+        },
+        {
+          "id": "f-3",
+          "tag": "path",
+          "attrs": {
+            "d": "M -188.2 350.2 L 191.9 348.9 L 191.3 399.1 L -188.3 400.7 Z",
+            "fill": "paper2"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-4",
+          "tag": "path",
+          "attrs": {
+            "d": "M -190 350 L 190 350 L 190 400 L -190 400 Z",
+            "fill": "pattern:grana-ambienti",
+            "opacity": 0.5
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-5",
+          "tag": "path",
+          "attrs": {
+            "d": "M -184.3 358.1 L -162.6 357.8 L -141 358.2 L -119.3 358.2 L -97.6 357.8 L -75.9 357.7 L -54.2 357.7 L -32.5 357.9 L -10.8 358 L 10.9 357.7 L 32.6 357.5 L 54.3 357.7 L 76 358.1 L 97.6 358 L 119.3 358 L 141 358.5 L 162.7 358.5 L 184.4 357.8",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 0.8,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round",
+            "opacity": 0.55
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-6",
+          "tag": "path",
+          "attrs": {
+            "d": "M -184.1 367 L -162.4 367.3 L -140.8 367.1 L -119.1 367.3 L -97.5 366.8 L -75.8 367.4 L -54.1 367.4 L -32.5 366.8 L -10.8 367.3 L 10.8 367.4 L 32.5 366.5 L 54.1 366.6 L 75.8 367.4 L 97.5 366.9 L 119.1 367.1 L 140.8 366.8 L 162.4 367.5 L 184.1 367.1",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 0.8,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round",
+            "opacity": 0.55
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-7",
+          "tag": "path",
+          "attrs": {
+            "d": "M -185 375.9 L -163.2 375.8 L -141.5 376.3 L -119.7 375.9 L -98 376.4 L -76.2 375.5 L -54.5 375.9 L -32.7 376.3 L -11 375.8 L 10.8 376.1 L 32.6 375.5 L 54.3 375.6 L 76.1 375.9 L 97.8 376.5 L 119.6 375.8 L 141.3 375.7 L 163.1 376.4 L 184.8 376",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 0.8,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round",
+            "opacity": 0.55
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-8",
+          "tag": "path",
+          "attrs": {
+            "d": "M -185.1 385.1 L -163.3 385.1 L -141.6 384.8 L -119.9 384.9 L -98.2 385.5 L -76.5 385.5 L -54.8 385.2 L -33.1 385.2 L -11.4 385.5 L 10.3 385.2 L 32 385.3 L 53.7 385.4 L 75.5 384.9 L 97.2 385 L 118.9 384.8 L 140.6 384.5 L 162.3 385.1 L 184 384.9",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 0.8,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round",
+            "opacity": 0.55
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-9",
+          "tag": "path",
+          "attrs": {
+            "d": "M -184.6 394.1 L -162.9 393.6 L -141.1 394 L -119.4 393.6 L -97.6 393.6 L -75.9 393.5 L -54.1 394.5 L -32.4 394.2 L -10.6 393.8 L 11.1 394.1 L 32.9 393.7 L 54.7 393.7 L 76.4 393.9 L 98.2 394.1 L 119.9 394 L 141.7 393.7 L 163.4 394.4 L 185.2 393.8",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 0.8,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round",
+            "opacity": 0.55
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-10",
+          "tag": "path",
+          "attrs": {
+            "d": "M -191.5 349.7 L -168.9 350.3 L -146.3 350 L -123.6 349.5 L -101 349.5 L -78.4 350 L -55.8 350 L -33.2 350.4 L -10.6 349.6 L 12 349.5 L 34.6 350.3 L 57.2 349.9 L 79.8 349.8 L 102.4 349.5 L 125 349.9 L 147.6 350.6 L 170.2 349.5 L 192.8 350.2 M 190.3 349.6 L 189.4 375.2 L 190 400.9 M 192.2 400.1 L 169.7 399.4 L 147.2 399.8 L 124.7 400.4 L 102.1 399.6 L 79.6 400.4 L 57.1 400.4 L 34.6 399.4 L 12 400.4 L -10.5 399.7 L -33 400.3 L -55.5 399.5 L -78.1 400 L -100.6 399.8 L -123.1 399.7 L -145.6 399.9 L -168.2 399.9 L -190.7 400.1 M -189.9 402.9 L -190.1 376.3 L -189.7 349.7",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-11",
+          "tag": "path",
+          "attrs": {
+            "d": "M -189.1 350 L -189.1 340",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-12",
+          "tag": "path",
+          "attrs": {
+            "d": "M -188.9 400 L -189 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-13",
+          "tag": "path",
+          "attrs": {
+            "d": "M -167.9 350 L -167.9 340",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-14",
+          "tag": "path",
+          "attrs": {
+            "d": "M -167.9 400 L -168 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-15",
+          "tag": "path",
+          "attrs": {
+            "d": "M -147.1 350 L -147 340",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-16",
+          "tag": "path",
+          "attrs": {
+            "d": "M -147 400 L -147 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-17",
+          "tag": "path",
+          "attrs": {
+            "d": "M -126.1 350 L -126 340",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-18",
+          "tag": "path",
+          "attrs": {
+            "d": "M -126 400 L -126.1 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-19",
+          "tag": "path",
+          "attrs": {
+            "d": "M -105 350 L -105 340",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-20",
+          "tag": "path",
+          "attrs": {
+            "d": "M -105 400 L -105 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-21",
+          "tag": "path",
+          "attrs": {
+            "d": "M -84.1 350 L -84 340",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-22",
+          "tag": "path",
+          "attrs": {
+            "d": "M -83.9 400 L -84 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-23",
+          "tag": "path",
+          "attrs": {
+            "d": "M -62.9 350 L -63.1 340",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-24",
+          "tag": "path",
+          "attrs": {
+            "d": "M -62.9 400 L -63 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-25",
+          "tag": "path",
+          "attrs": {
+            "d": "M -41.9 350 L -42.1 340",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-26",
+          "tag": "path",
+          "attrs": {
+            "d": "M -42.1 400 L -42 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-27",
+          "tag": "path",
+          "attrs": {
+            "d": "M -21 350 L -21 340",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-28",
+          "tag": "path",
+          "attrs": {
+            "d": "M -21 400 L -20.9 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-29",
+          "tag": "path",
+          "attrs": {
+            "d": "M -0.1 350 L 0.1 340",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-30",
+          "tag": "path",
+          "attrs": {
+            "d": "M 0 400 L 0 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-31",
+          "tag": "path",
+          "attrs": {
+            "d": "M 20.9 350 L 21 340",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-32",
+          "tag": "path",
+          "attrs": {
+            "d": "M 20.9 400 L 21 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-33",
+          "tag": "path",
+          "attrs": {
+            "d": "M 41.9 350 L 42 340",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-34",
+          "tag": "path",
+          "attrs": {
+            "d": "M 42.1 400 L 41.9 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-35",
+          "tag": "path",
+          "attrs": {
+            "d": "M 63 350 L 63 340",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-36",
+          "tag": "path",
+          "attrs": {
+            "d": "M 63 400 L 63.1 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-37",
+          "tag": "path",
+          "attrs": {
+            "d": "M 83.9 350 L 84.1 340",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-38",
+          "tag": "path",
+          "attrs": {
+            "d": "M 84 400 L 84 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-39",
+          "tag": "path",
+          "attrs": {
+            "d": "M 105 350 L 105.1 340",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-40",
+          "tag": "path",
+          "attrs": {
+            "d": "M 105.1 400 L 105 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-41",
+          "tag": "path",
+          "attrs": {
+            "d": "M 126 350 L 126 340",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-42",
+          "tag": "path",
+          "attrs": {
+            "d": "M 126 400 L 125.9 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-43",
+          "tag": "path",
+          "attrs": {
+            "d": "M 147 350 L 147 340",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-44",
+          "tag": "path",
+          "attrs": {
+            "d": "M 146.9 400 L 147.1 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-45",
+          "tag": "path",
+          "attrs": {
+            "d": "M 168 350 L 167.9 340",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-46",
+          "tag": "path",
+          "attrs": {
+            "d": "M 168 400 L 167.9 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-47",
+          "tag": "path",
+          "attrs": {
+            "d": "M 188.9 350 L 189 340",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-48",
+          "tag": "path",
+          "attrs": {
+            "d": "M 189 400 L 189.1 410",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-49",
+          "tag": "path",
+          "attrs": {
+            "d": "M -190 343.8 L -167.6 343.7 L -145.3 344.3 L -122.9 343.7 L -100.6 344.3 L -78.2 343.9 L -55.9 344.3 L -33.5 344.3 L -11.2 344.3 L 11.2 343.9 L 33.5 344.3 L 55.9 343.9 L 78.2 344.4 L 100.6 344 L 122.9 344.3 L 145.3 344.2 L 167.6 344.1 L 190 343.9 M -190 406 L -167.6 405.9 L -145.3 406.1 L -122.9 406.3 L -100.6 406.2 L -78.2 406 L -55.9 405.7 L -33.5 406.1 L -11.2 406 L 11.2 406.1 L 33.5 405.9 L 55.9 406.3 L 78.2 405.9 L 100.6 406.4 L 122.9 405.9 L 145.3 405.8 L 167.6 406.2 L 190 406.2",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round",
+            "opacity": 0.8
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-50",
+          "tag": "path",
+          "attrs": {
+            "d": "M -95.5 339.7 L -31.5 339.8 L -31.5 379.9 L -95.8 379.8 Z",
+            "fill": "sand"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-51",
+          "tag": "path",
+          "attrs": {
+            "d": "M -96.2 340 L -74.8 340.1 L -53.4 339.7 L -32 340 M -32.1 339.1 L -31.7 360 L -32.1 381 M -31.5 379.9 L -53.3 380.2 L -75.1 379.9 L -96.9 379.9 M -95.9 380.1 L -95.9 360 L -95.9 340",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-52",
+          "tag": "path",
+          "attrs": {
+            "d": "M -101.4 339.9 L -64 309.3 L -25.2 339.8 Z",
+            "fill": "concrete-dark"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-53",
+          "tag": "path",
+          "attrs": {
+            "d": "M -102 340.1 L -89.4 329.9 L -76.5 320.2 L -63.9 310.1 L -51.4 320.1 L -38.6 330 L -26 340 L -41.2 340.2 L -56.4 339.7 L -71.6 340 L -86.8 340.2 L -102 340",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-54",
+          "tag": "path",
+          "attrs": {
+            "d": "M -69.5 356 L -57.5 355.8 L -57.8 380.1 L -69.7 380.2 Z",
+            "fill": "concrete-dark"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-55",
+          "tag": "path",
+          "attrs": {
+            "d": "M -70 356 L -58 356 M -58.1 356 L -57.9 380 M -58 379.9 L -70 380 M -70.1 380 L -70.1 356",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.1,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-56",
+          "tag": "path",
+          "attrs": {
+            "d": "M -51.7 352 L -40.6 351.7 L -40.8 362.8 L -52 363.2 Z",
+            "fill": "sky"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-57",
+          "tag": "path",
+          "attrs": {
+            "d": "M -52 352 L -41 352 M -41 352 L -41.1 363 M -41 362.9 L -52 362.9 M -51.9 363 L -52 352",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-58",
+          "tag": "path",
+          "attrs": {
+            "d": "M 96.3 366.1 L 124.3 365.9 L 124.2 384.2 L 96.4 384.1 Z",
+            "fill": "concrete-mid"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-59",
+          "tag": "path",
+          "attrs": {
+            "d": "M 96 366.1 L 124.4 366 M 123.9 365 L 123.9 384.4 M 124.1 384 L 95.9 384 M 96.1 384.8 L 96 365.1",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.3,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-60",
+          "tag": "path",
+          "attrs": {
+            "d": "M 97.9 366 L 98.1 352 M 122.1 366 L 122.1 352 M 96 351.9 L 124 352.1",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        }
+      ]
+    },
+    {
       "id": "fig-uomo-nudo-cappotto-zaino",
       "meta": {
         "label": "Figura uomo nudo cappotto zaino",
@@ -38867,6 +42706,25 @@
             "wrist-near": -13,
             "hand-near": -13,
             "grip-near": -13
+          },
+          "scrive": {
+            "root": {
+              "rotate": 12,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -30,
+            "forearm-far": -20,
+            "hand-far": 50,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -75,
+            "forearm-near": -45,
+            "wrist-near": 120,
+            "hand-near": 120,
+            "grip-near": 120
           }
         }
       }
@@ -48511,93 +52369,12 @@
           }
         },
         {
-          "id": "colonia-0-0",
-          "symbol": "luogo-isbe",
+          "id": "colonia",
+          "symbol": "colonia-case",
           "parent": "world",
           "pose": {
-            "translateX": 1060,
-            "translateY": 560,
-            "scale": 0.42
-          }
-        },
-        {
-          "id": "colonia-0-1",
-          "symbol": "luogo-isbe",
-          "parent": "world",
-          "pose": {
-            "translateX": 1260,
-            "translateY": 560,
-            "scale": 0.42
-          }
-        },
-        {
-          "id": "colonia-0-2",
-          "symbol": "luogo-isbe",
-          "parent": "world",
-          "pose": {
-            "translateX": 1460,
-            "translateY": 560,
-            "scale": 0.42
-          }
-        },
-        {
-          "id": "colonia-1-0",
-          "symbol": "luogo-isbe",
-          "parent": "world",
-          "pose": {
-            "translateX": 1060,
-            "translateY": 610,
-            "scale": 0.42
-          }
-        },
-        {
-          "id": "colonia-1-1",
-          "symbol": "luogo-isbe",
-          "parent": "world",
-          "pose": {
-            "translateX": 1260,
-            "translateY": 610,
-            "scale": 0.42
-          }
-        },
-        {
-          "id": "colonia-1-2",
-          "symbol": "luogo-isbe",
-          "parent": "world",
-          "pose": {
-            "translateX": 1460,
-            "translateY": 610,
-            "scale": 0.42
-          }
-        },
-        {
-          "id": "colonia-2-0",
-          "symbol": "luogo-isbe",
-          "parent": "world",
-          "pose": {
-            "translateX": 1060,
-            "translateY": 660,
-            "scale": 0.42
-          }
-        },
-        {
-          "id": "colonia-2-1",
-          "symbol": "luogo-isbe",
-          "parent": "world",
-          "pose": {
-            "translateX": 1260,
-            "translateY": 660,
-            "scale": 0.42
-          }
-        },
-        {
-          "id": "colonia-2-2",
-          "symbol": "luogo-isbe",
-          "parent": "world",
-          "pose": {
-            "translateX": 1460,
-            "translateY": 660,
-            "scale": 0.42
+            "translateX": 1280,
+            "translateY": 660
           }
         },
         {
@@ -61073,7 +64850,7 @@
     },
     {
       "id": "citta-corte",
-      "label": "Dentro il salone illuminato dai lampadari la corte danza in costume; fuori le ciminiere fumano e gli operai sono fermi.",
+      "label": "Dentro il salone illuminato dai lampadari la corte danza in costume; fuori le ciminiere fumano e gli operai sono fermi. Per terra una tazza smaltata.",
       "viewBox": [
         0,
         0,
@@ -61132,6 +64909,16 @@
             "translateX": 1230,
             "translateY": 645,
             "scale": 0.42
+          }
+        },
+        {
+          "id": "tazza",
+          "symbol": "tazza-smaltata",
+          "parent": "world",
+          "pose": {
+            "translateX": 960,
+            "translateY": 900,
+            "scale": 0.9
           }
         },
         {
@@ -62107,7 +65894,7 @@
     },
     {
       "id": "petizione-domenica",
-      "label": "Un corteo di operai sale verso il Palazzo d'Inverno con il ritratto dello zar in testa; il corteo si disperde e un foglio resta nella neve.",
+      "label": "Un corteo di operai sale verso il Palazzo d'Inverno con il ritratto dello zar e un'icona in testa; il corteo si disperde e un foglio resta nella neve.",
       "viewBox": [
         0,
         0,
@@ -62206,6 +65993,16 @@
             "translateX": 1340,
             "translateY": 360,
             "scale": 1.7
+          }
+        },
+        {
+          "id": "icona",
+          "symbol": "icona-processione",
+          "parent": "world",
+          "pose": {
+            "translateX": 1130,
+            "translateY": 900,
+            "scale": 1.5
           }
         },
         {
@@ -69203,7 +73000,7 @@
     },
     {
       "id": "pane-guerra-pane",
-      "label": "Davanti a una panetteria una fila di persone aspetta il pane che non arriva; a lato un cartello del pane e il manifesto vuoto di un prestito di guerra.",
+      "label": "Davanti a una panetteria una fila di persone aspetta il pane che non arriva; a lato un cartello del pane e il manifesto vuoto di un prestito di guerra. Accanto, la vetrina di un gioielliere.",
       "viewBox": [
         0,
         0,
@@ -69279,9 +73076,9 @@
           "symbol": "oggetto-cartello-pane",
           "parent": "world",
           "pose": {
-            "translateX": 1400,
+            "translateX": 1255,
             "translateY": 880,
-            "scale": 2.2
+            "scale": 1.8
           }
         },
         {
@@ -69292,6 +73089,16 @@
             "translateX": 150,
             "translateY": 870,
             "scale": 2
+          }
+        },
+        {
+          "id": "vetrina",
+          "symbol": "vetrina-gioielliere",
+          "parent": "world",
+          "pose": {
+            "translateX": 1470,
+            "translateY": 900,
+            "scale": 0.85
           }
         },
         {
@@ -77412,7 +81219,7 @@
         {
           "id": "scrivano",
           "symbol": "fig-uomo-nudo-cappotto",
-          "rigPose": "legge",
+          "rigPose": "scrive",
           "pose": {
             "translateX": 640,
             "translateY": 860,
@@ -77424,8 +81231,8 @@
           "parent": "world"
         },
         {
-          "id": "scrivano-giornale-in-mano",
-          "symbol": "presa-giornale-in-mano",
+          "id": "scrivano-penna-in-mano",
+          "symbol": "presa-penna-in-mano",
           "parent": "scrivano-grip-near"
         }
       ],
@@ -80066,6 +83873,17 @@
           "id": "lettore-2-giornale-in-mano",
           "symbol": "presa-giornale-in-mano",
           "parent": "lettore-2-grip-near"
+        },
+        {
+          "id": "dignitario",
+          "symbol": "fig-uomo-nudo-uniforme",
+          "rigPose": "in_piedi",
+          "pose": {
+            "translateX": 300,
+            "translateY": 850,
+            "scale": 1.25
+          },
+          "parent": "world"
         }
       ],
       "sequences": [
@@ -80219,12 +84037,11 @@
         },
         {
           "id": "podere",
-          "symbol": "campagna-orto-finito",
+          "symbol": "podere-chutor",
           "parent": "world",
           "pose": {
-            "translateX": 1050,
-            "translateY": 700,
-            "scale": 1.35
+            "translateX": 1100,
+            "translateY": 700
           }
         },
         {
@@ -80324,7 +84141,7 @@
                 {
                   "offset": 0,
                   "values": {
-                    "scale": -0.54
+                    "scale": -0.4
                   }
                 },
                 {

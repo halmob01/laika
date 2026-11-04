@@ -79,6 +79,14 @@
       "cappello": null,
       "posa": "legge",
       "flip": true
+    },
+    {
+      "id": "dignitario",
+      "x": 300,
+      "y": 850,
+      "scala": 1.25,
+      "variante": "dignitario",
+      "posa": "in_piedi"
     }
   ],
   "sequenze": [

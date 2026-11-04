@@ -161,7 +161,13 @@
         "Disegni a catalogo con epoca e fonte; galleria aggiornata",
         "Controlli comuni G1–G5 passati (METODO §7)"
       ],
-      "stato": "da fare"
+      "stato": "fatto",
+      "pr": 51,
+      "evidenze": [
+        "docs/evidence/K4/",
+        "prototypes/kit-atti-i-iii/kit-atti-i-iii.html",
+        "bottega/catalogo.json"
+      ]
     },
     {
       "id": "K2",

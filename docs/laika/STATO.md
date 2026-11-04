@@ -20,6 +20,8 @@ Aggiornato al 4 novembre 2026.
 
 **K6 fatto** (inserito il 4 novembre 2026 dalla revisione indipendente della scheda di «Otto giorni», D-041): le crisi dei turni a punti si controllano anche dopo la discesa della coda e un gruppo può avere più uscite scelte da una condizione. «Otto giorni» (U-otto-giorni) riparte dopo K6.
 
+**K4 fatto** (disegni che mancavano agli Atti I–III): nuovo kit `prototypes/kit-atti-i-iii/` con colonia militare, tazza smaltata, icona da processione, podere con casa isolata e vetrina del gioielliere; variante della figura `dignitario` e posa `scrive`; tutti in bozza, usati in scene (`servitu-utopie`, `citta-corte`, `petizione-domenica`, `stolypin-strisce`, `pane-guerra-pane`, `concessioni-sala`, `petizione-putilov`). Catalogo: 141 disegni. Evidenze in `docs/evidence/K4/`.
+
 Proposte P-01–P-05 chiuse dal docente il 4 novembre (D-038, D-039): si lavora in autonomia con [PIANO-1917](PIANO-1917.md).
 
 **S1 fatto** (scene con i disegni che ci sono; revisione indipendente: due «non passa» corretti, terzo giro «passa»): le schede scena hanno i nomi stabili delle unità; ogni unità ha una scena propria e nessun episodio usa quella di un'altra; 13 scene nuove (`citta-fabbrica`, `citta-dormitorio`, `petizione-putilov`, `soviet-ferrovia`, `concessioni-sala`, `stolypin-strisce`, `stolypin-ricorda`, `pane-guerra-treni`, `pane-guerra-trincea`, `pane-guerra-famiglia`, `otto-giorni-coda`, `otto-giorni-treno`, `otto-giorni-confronto`) e le scene vecchie arricchite; tutti i 35 disegni assegnati sono usati; ogni episodio ha la sua `visualExplanation`. Evidenze: schermate prima e dopo in `docs/evidence/S1/`, trascrizione dell'allievo finto in `docs/evidence/S1/allievo/`. Le regole sulle scene di `tests/unita-ludiche.test.js` ora valgono per tutte le unità. Il manifesto `game.json` è salito a 262 KB compressi: la soglia del test è stata portata da 260 a 300 KB (decisione dell'agente, motivata nel test e nella PR).
@@ -67,7 +69,7 @@ La CI gioca i tre atti in Chromium e WebKit: circa 11 minuti per browser. Il lim
 
 ## Disegni e kit
 
-Catalogo in `bottega/catalogo.json`: 136 disegni, 32 in bozza da approvare dal docente. Che cosa serve dal kit unità per unità, che cosa c'è già e in che ordine si fa: [PIANO-KIT](PIANO-KIT.md). Con S1 il treno nella neve (`otto-giorni-treno`) e il Palazzo di Tauride (`otto-giorni-confronto`) hanno la loro scena.
+Catalogo in `bottega/catalogo.json`: 141 disegni, 37 in bozza da approvare dal docente. Che cosa serve dal kit unità per unità, che cosa c'è già e in che ordine si fa: [PIANO-KIT](PIANO-KIT.md). Con S1 il treno nella neve (`otto-giorni-treno`) e il Palazzo di Tauride (`otto-giorni-confronto`) hanno la loro scena.
 
 ## Da fare
 
