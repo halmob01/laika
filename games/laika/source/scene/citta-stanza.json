@@ -18,7 +18,7 @@
     "centro": 0.5,
     "zoom": 1.2
   },
-  "etichetta": "Un angolo di stanza in affitto: il letto di ferro, il baule, la stufetta. Sul tavolo il pane e una lettera da mandare al villaggio; il salario è poco e bisogna scegliere. Accanto alla porta la stufetta e il secchio del carbone.",
+  "etichetta": "Un angolo di stanza in affitto: il letto di ferro, il baule, la stufetta. Sul tavolo il pane e una lettera da mandare al villaggio; il salario è poco e bisogna scegliere. Accanto alla porta il secchio del carbone.",
   "elementi": [
     {
       "id": "stanza",

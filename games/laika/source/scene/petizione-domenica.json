@@ -18,8 +18,15 @@
     "centro": 0.5,
     "zoom": 1.2
   },
-  "etichetta": "Un corteo di operai sale verso il Palazzo d'Inverno con il ritratto dello zar e un foglio; il foglio resta nella neve.",
+  "etichetta": "Un corteo di operai sale verso il Palazzo d'Inverno con il ritratto dello zar in testa; il corteo si disperde e un foglio resta nella neve.",
   "elementi": [
+    {
+      "id": "terra",
+      "simbolo": "suolo",
+      "x": 800,
+      "y": 905,
+      "scala": 3.4
+    },
     {
       "id": "piazza",
       "simbolo": "ambiente-piazza",
@@ -37,9 +44,9 @@
     {
       "id": "ritratto",
       "simbolo": "oggetto-ritratto-zar",
-      "x": 760,
-      "y": 860,
-      "scala": 1.7
+      "x": 900,
+      "y": 870,
+      "scala": 1.8
     },
     {
       "id": "neve",
@@ -47,17 +54,31 @@
       "x": 800,
       "y": 300,
       "scala": 2
+    },
+    {
+      "id": "neve-2",
+      "simbolo": "atmo-neve",
+      "x": 260,
+      "y": 420,
+      "scala": 1.7
+    },
+    {
+      "id": "neve-3",
+      "simbolo": "atmo-neve",
+      "x": 1340,
+      "y": 360,
+      "scala": 1.7
     }
   ],
   "figure": [
     {
       "gruppo": "corteo",
       "formazione": {
-        "tipo": "marcia",
+        "tipo": "fila",
         "n": 7,
-        "x": 250,
+        "x": 520,
         "y": 860,
-        "passo": 130,
+        "passo": 110,
         "scala": 2.2,
         "varianti": [
           "cappotto",
@@ -77,7 +98,7 @@
       "didascalia": "Il corteo avanza; poi si disperde e il foglio resta nella neve.",
       "passi": [
         {
-          "azione": "march",
+          "azione": "walk",
           "chi": "corteo",
           "da": "sinistra",
           "distanza": 420,
@@ -94,8 +115,8 @@
           "azione": "transfer",
           "chi": "ritratto",
           "da": [
-            260,
-            860
+            480,
+            870
           ],
           "arco": 0,
           "a": 0,

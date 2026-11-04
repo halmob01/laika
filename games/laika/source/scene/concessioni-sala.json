@@ -18,7 +18,7 @@
     "centro": 0.5,
     "zoom": 1.2
   },
-  "etichetta": "A sinistra la sala di San Giorgio con l'aquila imperiale; a destra il palco di un teatro. In mezzo un giornale e tre persone che leggono la stessa concessione in modi diversi.",
+  "etichetta": "A sinistra la sala di San Giorgio con l'aquila imperiale; a destra il palco di un teatro. In primo piano un giornale e tre persone che lo leggono in modi diversi.",
   "elementi": [
     {
       "id": "sala",
@@ -44,8 +44,8 @@
     {
       "id": "giornale",
       "simbolo": "oggetto-giornale",
-      "x": 800,
-      "y": 880,
+      "x": 760,
+      "y": 890,
       "scala": 2.4
     }
   ],
@@ -62,7 +62,7 @@
     },
     {
       "id": "lettrice",
-      "x": 900,
+      "x": 980,
       "y": 860,
       "scala": 1.25,
       "variante": "scialle",
@@ -71,7 +71,7 @@
     },
     {
       "id": "lettore-2",
-      "x": 1050,
+      "x": 1120,
       "y": 850,
       "scala": 1.25,
       "variante": "nessuna",

@@ -21,11 +21,11 @@
   "etichetta": "Una coda di donne davanti al cartello del pane, con la tessera in mano; a destra l'uscita di una fabbrica tessile.",
   "elementi": [
     {
-      "id": "campi",
-      "simbolo": "luogo-pianura",
+      "id": "terra",
+      "simbolo": "suolo",
       "x": 800,
       "y": 900,
-      "scala": 2.9
+      "scala": 3.4
     },
     {
       "id": "fabbrica",
@@ -44,9 +44,9 @@
     {
       "id": "tessera",
       "simbolo": "coda-tessera",
-      "x": 620,
-      "y": 880,
-      "scala": 1.8
+      "x": 900,
+      "y": 890,
+      "scala": 0.9
     },
     {
       "id": "neve",
@@ -54,6 +54,20 @@
       "x": 800,
       "y": 300,
       "scala": 2
+    },
+    {
+      "id": "neve-2",
+      "simbolo": "atmo-neve",
+      "x": 260,
+      "y": 420,
+      "scala": 1.7
+    },
+    {
+      "id": "neve-3",
+      "simbolo": "atmo-neve",
+      "x": 1340,
+      "y": 360,
+      "scala": 1.7
     }
   ],
   "figure": [

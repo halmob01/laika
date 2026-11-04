@@ -18,7 +18,7 @@
     "centro": 0.5,
     "zoom": 1.2
   },
-  "etichetta": "Un treno fermo nella neve su un binario morto; accanto al vagone un uomo in cappotto solo.",
+  "etichetta": "Un treno fermo nella neve su un binario morto; accanto a lui un uomo in cappotto, solo.",
   "elementi": [
     {
       "id": "campi",
@@ -45,7 +45,7 @@
       "id": "treno",
       "simbolo": "mezzo-treno",
       "x": 800,
-      "y": 755,
+      "y": 785,
       "scala": 3.4
     },
     {
@@ -54,6 +54,20 @@
       "x": 800,
       "y": 300,
       "scala": 2
+    },
+    {
+      "id": "neve-2",
+      "simbolo": "atmo-neve",
+      "x": 260,
+      "y": 420,
+      "scala": 1.7
+    },
+    {
+      "id": "neve-3",
+      "simbolo": "atmo-neve",
+      "x": 1340,
+      "y": 360,
+      "scala": 1.7
     }
   ],
   "figure": [
@@ -71,7 +85,7 @@
   "sequenze": [
     {
       "id": "ingresso",
-      "didascalia": "Lo zar scende dal vagone e torna dentro: il treno resta fermo.",
+      "didascalia": "Un uomo in cappotto si avvicina al treno e si allontana: il treno resta fermo.",
       "passi": [
         {
           "azione": "walk",

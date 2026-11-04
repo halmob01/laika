@@ -30,7 +30,12 @@
         "Schermate prima e dopo di ogni unità in `docs/evidence/S1/`",
         "Controlli comuni G1–G5 passati (METODO §7)"
       ],
-      "stato": "in corso"
+      "stato": "fatto",
+      "pr": 47,
+      "evidenze": [
+        "docs/evidence/S1/",
+        "docs/evidence/S1/allievo/trascrizione.md"
+      ]
     },
     {
       "id": "K1",

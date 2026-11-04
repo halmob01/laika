@@ -21,11 +21,11 @@
   "etichetta": "Il cortile di una fabbrica: l'edificio con le sue ciminiere, il figlio e due operai che escono dai turni; per terra restano dei volantini.",
   "elementi": [
     {
-      "id": "campi",
-      "simbolo": "luogo-pianura",
+      "id": "terra",
+      "simbolo": "suolo",
       "x": 800,
       "y": 900,
-      "scala": 2.9
+      "scala": 3.4
     },
     {
       "id": "fabbrica",

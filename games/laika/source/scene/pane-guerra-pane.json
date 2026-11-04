@@ -35,6 +35,20 @@
       "scala": 2
     },
     {
+      "id": "neve-2",
+      "simbolo": "atmo-neve",
+      "x": 260,
+      "y": 420,
+      "scala": 1.7
+    },
+    {
+      "id": "neve-3",
+      "simbolo": "atmo-neve",
+      "x": 1340,
+      "y": 360,
+      "scala": 1.7
+    },
+    {
       "id": "cartello",
       "simbolo": "oggetto-cartello-pane",
       "x": 1400,

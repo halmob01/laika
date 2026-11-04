@@ -18,14 +18,14 @@
     "centro": 0.5,
     "zoom": 1.2
   },
-  "etichetta": "Il palazzo imperiale d'inverno, isolato: davanti a lui un grande spazio vuoto e, minuscole, tre figure della famiglia.",
+  "etichetta": "Un palazzo imperiale d'inverno, isolato: davanti a lui un grande spazio vuoto e, minuscole, tre figure della famiglia.",
   "elementi": [
     {
-      "id": "campi",
-      "simbolo": "luogo-pianura",
+      "id": "terra",
+      "simbolo": "suolo",
       "x": 800,
       "y": 900,
-      "scala": 2.9
+      "scala": 3.4
     },
     {
       "id": "palazzo",
@@ -47,6 +47,20 @@
       "x": 800,
       "y": 300,
       "scala": 2
+    },
+    {
+      "id": "neve-2",
+      "simbolo": "atmo-neve",
+      "x": 260,
+      "y": 420,
+      "scala": 1.7
+    },
+    {
+      "id": "neve-3",
+      "simbolo": "atmo-neve",
+      "x": 1340,
+      "y": 360,
+      "scala": 1.7
     }
   ],
   "figure": [

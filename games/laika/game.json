@@ -27976,6 +27976,35 @@
       ]
     },
     {
+      "id": "suolo",
+      "meta": {
+        "label": "Linea di terra",
+        "family": "ambienti",
+        "source": "studio personaggi.html#suolo",
+        "size": [
+          522,
+          2
+        ],
+        "anchor": "base",
+        "origine": null
+      },
+      "layers": [
+        {
+          "id": "f-1",
+          "tag": "line",
+          "attrs": {
+            "x1": -260,
+            "y1": 0,
+            "x2": 260,
+            "y2": 0,
+            "stroke": "blue",
+            "stroke-width": 1.5,
+            "opacity": 0.6
+          }
+        }
+      ]
+    },
+    {
       "id": "ambiente-piazza",
       "meta": {
         "label": "Piazza",
@@ -28417,1373 +28446,6 @@
             "stroke-linecap": "round",
             "stroke-linejoin": "round",
             "opacity": 0.7
-          },
-          "parent": "f-2"
-        }
-      ]
-    },
-    {
-      "id": "presa-bandiera",
-      "meta": {
-        "label": "bandiera",
-        "family": "oggetti-impugnati",
-        "source": "studio personaggi.html#buildOminoSVG",
-        "presa": "hand-near",
-        "tinta": false
-      },
-      "layers": [
-        {
-          "id": "f-1",
-          "tag": "line",
-          "attrs": {
-            "x1": -14,
-            "y1": 22,
-            "x2": 10,
-            "y2": -36,
-            "stroke": "ink",
-            "stroke-width": 2.8,
-            "stroke-linecap": "round"
-          }
-        },
-        {
-          "id": "telo",
-          "tag": "path",
-          "attrs": {
-            "d": "M 10 -36 C 24 -38 36 -44 48 -46 L 46 -14 C 32 -18 18 -18 2 -18 Z",
-            "fill": "red"
-          },
-          "origin": [
-            6,
-            -27
-          ]
-        }
-      ]
-    },
-    {
-      "id": "presa-bastone-lungo",
-      "meta": {
-        "label": "bastone lungo",
-        "family": "oggetti-impugnati",
-        "source": "studio personaggi.html#buildOminoSVG",
-        "presa": "hand-near",
-        "tinta": false
-      },
-      "layers": [
-        {
-          "id": "f-1",
-          "tag": "line",
-          "attrs": {
-            "x1": -22,
-            "y1": 22,
-            "x2": 32,
-            "y2": -28,
-            "stroke": "ink",
-            "stroke-width": 3,
-            "stroke-linecap": "round"
-          }
-        }
-      ]
-    },
-    {
-      "id": "fig-uomo-nudo-base-fascia",
-      "meta": {
-        "label": "Figura uomo nudo base fascia",
-        "family": "figure",
-        "source": "studio personaggi.html#buildOminoSVG"
-      },
-      "layers": [
-        {
-          "id": "corpo",
-          "tag": "g",
-          "pose": {
-            "translateY": -42,
-            "scale": 1
-          },
-          "origin": [
-            0,
-            0
-          ]
-        },
-        {
-          "id": "root",
-          "tag": "g",
-          "parent": "corpo",
-          "pose": {
-            "rotate": 0,
-            "translateY": 0
-          },
-          "origin": [
-            0,
-            0
-          ]
-        },
-        {
-          "id": "slot-back",
-          "tag": "g",
-          "parent": "root"
-        },
-        {
-          "id": "arm-far",
-          "tag": "g",
-          "parent": "root",
-          "pose": {
-            "translateX": -5,
-            "translateY": -24,
-            "rotate": 22
-          },
-          "origin": [
-            0,
-            0
-          ]
-        },
-        {
-          "id": "arm-far-skin",
-          "tag": "path",
-          "parent": "arm-far",
-          "attrs": {
-            "d": "M -3.75 0 A 3.75 3.75 0 1 1 3.75 0 L 3.1 16 A 3.1 3.1 0 1 1 -3.1 16 Z",
-            "fill": "ink"
-          }
-        },
-        {
-          "id": "forearm-far",
-          "tag": "g",
-          "parent": "arm-far",
-          "pose": {
-            "translateX": 0,
-            "translateY": 16,
-            "rotate": 5
-          },
-          "origin": [
-            0,
-            0
-          ]
-        },
-        {
-          "id": "forearm-far-skin",
-          "tag": "path",
-          "parent": "forearm-far",
-          "attrs": {
-            "d": "M -3.1 0 A 3.1 3.1 0 1 1 3.1 0 L 2.5 15 A 2.5 2.5 0 1 1 -2.5 15 Z",
-            "fill": "ink"
-          }
-        },
-        {
-          "id": "hand-far",
-          "tag": "g",
-          "parent": "forearm-far",
-          "pose": {
-            "translateX": 0,
-            "translateY": 14,
-            "rotate": -27
-          },
-          "origin": [
-            0,
-            0
-          ]
-        },
-        {
-          "id": "leg-far",
-          "tag": "g",
-          "parent": "root",
-          "pose": {
-            "translateX": -4.5,
-            "translateY": 2,
-            "rotate": 10
-          },
-          "origin": [
-            0,
-            0
-          ]
-        },
-        {
-          "id": "leg-far-skin",
-          "tag": "path",
-          "parent": "leg-far",
-          "attrs": {
-            "d": "M -4.6 0 A 4.6 4.6 0 1 1 4.6 0 L 3.6 19 A 3.6 3.6 0 1 1 -3.6 19 Z",
-            "fill": "ink"
-          }
-        },
-        {
-          "id": "shin-far",
-          "tag": "g",
-          "parent": "leg-far",
-          "pose": {
-            "translateX": 0,
-            "translateY": 19,
-            "rotate": 0
-          },
-          "origin": [
-            0,
-            0
-          ]
-        },
-        {
-          "id": "shin-far-skin",
-          "tag": "path",
-          "parent": "shin-far",
-          "attrs": {
-            "d": "M -3.6 0 A 3.6 3.6 0 1 1 3.6 0 L 2.8 19 A 2.8 2.8 0 1 1 -2.8 19 Z",
-            "fill": "ink"
-          }
-        },
-        {
-          "id": "leg-near",
-          "tag": "g",
-          "parent": "root",
-          "pose": {
-            "translateX": 4.5,
-            "translateY": 2,
-            "rotate": -10
-          },
-          "origin": [
-            0,
-            0
-          ]
-        },
-        {
-          "id": "leg-near-skin",
-          "tag": "path",
-          "parent": "leg-near",
-          "attrs": {
-            "d": "M -4.6 0 A 4.6 4.6 0 1 1 4.6 0 L 3.6 19 A 3.6 3.6 0 1 1 -3.6 19 Z",
-            "fill": "ink"
-          }
-        },
-        {
-          "id": "shin-near",
-          "tag": "g",
-          "parent": "leg-near",
-          "pose": {
-            "translateX": 0,
-            "translateY": 19,
-            "rotate": 0
-          },
-          "origin": [
-            0,
-            0
-          ]
-        },
-        {
-          "id": "shin-near-skin",
-          "tag": "path",
-          "parent": "shin-near",
-          "attrs": {
-            "d": "M -3.6 0 A 3.6 3.6 0 1 1 3.6 0 L 2.8 19 A 2.8 2.8 0 1 1 -2.8 19 Z",
-            "fill": "ink"
-          }
-        },
-        {
-          "id": "torso",
-          "tag": "path",
-          "parent": "root",
-          "attrs": {
-            "d": "M -7 -27 C -9 -14 -9 4 -8 6 L 8 6 C 9 4 9 -14 7 -27 Z",
-            "fill": "ink"
-          }
-        },
-        {
-          "id": "head",
-          "tag": "g",
-          "parent": "root",
-          "pose": {
-            "translateX": 0,
-            "translateY": -40,
-            "rotate": 0
-          },
-          "origin": [
-            0,
-            7
-          ]
-        },
-        {
-          "id": "head-skin",
-          "tag": "circle",
-          "parent": "head",
-          "attrs": {
-            "cx": 0,
-            "cy": 0,
-            "r": 8.5,
-            "fill": "ink"
-          }
-        },
-        {
-          "id": "arm-near",
-          "tag": "g",
-          "parent": "root",
-          "pose": {
-            "translateX": 5,
-            "translateY": -24,
-            "rotate": -22
-          },
-          "origin": [
-            0,
-            0
-          ]
-        },
-        {
-          "id": "arm-near-skin",
-          "tag": "path",
-          "parent": "arm-near",
-          "attrs": {
-            "d": "M -3.75 0 A 3.75 3.75 0 1 1 3.75 0 L 3.1 16 A 3.1 3.1 0 1 1 -3.1 16 Z",
-            "fill": "ink"
-          }
-        },
-        {
-          "id": "fascia",
-          "tag": "rect",
-          "parent": "arm-near",
-          "attrs": {
-            "x": -4.1,
-            "y": 5,
-            "width": 8.2,
-            "height": 4.5,
-            "fill": "red"
-          }
-        },
-        {
-          "id": "forearm-near",
-          "tag": "g",
-          "parent": "arm-near",
-          "pose": {
-            "translateX": 0,
-            "translateY": 16,
-            "rotate": -5
-          },
-          "origin": [
-            0,
-            0
-          ]
-        },
-        {
-          "id": "forearm-near-skin",
-          "tag": "path",
-          "parent": "forearm-near",
-          "attrs": {
-            "d": "M -3.1 0 A 3.1 3.1 0 1 1 3.1 0 L 2.5 15 A 2.5 2.5 0 1 1 -2.5 15 Z",
-            "fill": "ink"
-          }
-        },
-        {
-          "id": "wrist-near",
-          "tag": "g",
-          "parent": "forearm-near",
-          "pose": {
-            "translateX": 0,
-            "translateY": 0,
-            "rotate": 27
-          },
-          "origin": [
-            0,
-            0
-          ]
-        },
-        {
-          "id": "hand-near",
-          "tag": "g",
-          "parent": "forearm-near",
-          "pose": {
-            "translateX": 0,
-            "translateY": 14,
-            "rotate": 27
-          },
-          "origin": [
-            0,
-            0
-          ]
-        },
-        {
-          "id": "grip-near",
-          "tag": "g",
-          "parent": "forearm-near",
-          "pose": {
-            "translateX": 0,
-            "translateY": 12,
-            "rotate": 27
-          },
-          "origin": [
-            0,
-            0
-          ]
-        },
-        {
-          "id": "slot-front",
-          "tag": "g",
-          "parent": "root"
-        }
-      ],
-      "rig": {
-        "joints": {
-          "root": [
-            -129,
-            69
-          ],
-          "head": [
-            -45,
-            45
-          ],
-          "arm-far": [
-            -95,
-            193
-          ],
-          "forearm-far": [
-            -110,
-            90
-          ],
-          "hand-far": [
-            -210,
-            130
-          ],
-          "leg-far": [
-            -130,
-            93
-          ],
-          "shin-far": [
-            -80,
-            135
-          ],
-          "leg-near": [
-            -125,
-            70
-          ],
-          "shin-near": [
-            -50,
-            140
-          ],
-          "arm-near": [
-            -193,
-            77
-          ],
-          "forearm-near": [
-            -100,
-            110
-          ],
-          "wrist-near": [
-            -90,
-            210
-          ],
-          "hand-near": [
-            -90,
-            210
-          ],
-          "grip-near": [
-            -90,
-            210
-          ]
-        },
-        "poses": {
-          "in_piedi": {
-            "root": {
-              "rotate": 0,
-              "translateY": 0
-            },
-            "head": 0,
-            "arm-far": 22,
-            "forearm-far": 5,
-            "hand-far": -27,
-            "leg-far": 10,
-            "shin-far": 0,
-            "leg-near": -10,
-            "shin-near": 0,
-            "arm-near": -22,
-            "forearm-near": -5,
-            "wrist-near": 27,
-            "hand-near": 27,
-            "grip-near": 27
-          },
-          "cammina_1": {
-            "root": {
-              "rotate": 5,
-              "translateY": 0
-            },
-            "head": 0,
-            "arm-far": 35,
-            "forearm-far": 15,
-            "hand-far": -50,
-            "leg-far": 26,
-            "shin-far": -8,
-            "leg-near": -24,
-            "shin-near": 18,
-            "arm-near": -30,
-            "forearm-near": 20,
-            "wrist-near": 10,
-            "hand-near": 10,
-            "grip-near": 10
-          },
-          "cammina_2": {
-            "root": {
-              "rotate": 5,
-              "translateY": 0
-            },
-            "head": 0,
-            "arm-far": -28,
-            "forearm-far": 15,
-            "hand-far": 13,
-            "leg-far": -22,
-            "shin-far": 15,
-            "leg-near": 25,
-            "shin-near": -5,
-            "arm-near": 32,
-            "forearm-near": 10,
-            "wrist-near": -42,
-            "hand-near": -42,
-            "grip-near": -42
-          },
-          "corre": {
-            "root": {
-              "rotate": 18,
-              "translateY": 2
-            },
-            "head": 0,
-            "arm-far": 55,
-            "forearm-far": 45,
-            "hand-far": -100,
-            "leg-far": 48,
-            "shin-far": -35,
-            "leg-near": -45,
-            "shin-near": 45,
-            "arm-near": -55,
-            "forearm-near": 50,
-            "wrist-near": 5,
-            "hand-near": 5,
-            "grip-near": 5
-          },
-          "braccia_alzate": {
-            "root": {
-              "rotate": 0,
-              "translateY": 0
-            },
-            "head": 0,
-            "arm-far": 145,
-            "forearm-far": 15,
-            "hand-far": -160,
-            "leg-far": 12,
-            "shin-far": 0,
-            "leg-near": -12,
-            "shin-near": 0,
-            "arm-near": -145,
-            "forearm-near": -15,
-            "wrist-near": 160,
-            "hand-near": 160,
-            "grip-near": 160
-          },
-          "gira": {
-            "root": {
-              "rotate": -4,
-              "translateY": 0
-            },
-            "head": 0,
-            "arm-far": 48,
-            "forearm-far": 10,
-            "hand-far": -58,
-            "leg-far": 28,
-            "shin-far": 10,
-            "leg-near": -18,
-            "shin-near": 25,
-            "arm-near": -35,
-            "forearm-near": -10,
-            "wrist-near": 45,
-            "hand-near": 45,
-            "grip-near": 45
-          },
-          "indica": {
-            "root": {
-              "rotate": 2,
-              "translateY": 0
-            },
-            "head": 0,
-            "arm-far": 25,
-            "forearm-far": 5,
-            "hand-far": -30,
-            "leg-far": 12,
-            "shin-far": 0,
-            "leg-near": -10,
-            "shin-near": 0,
-            "arm-near": -82,
-            "forearm-near": 0,
-            "wrist-near": 82,
-            "hand-near": 82,
-            "grip-near": 82
-          },
-          "saluta": {
-            "root": {
-              "rotate": 0,
-              "translateY": 0
-            },
-            "head": 0,
-            "arm-far": 22,
-            "forearm-far": 5,
-            "hand-far": -27,
-            "leg-far": 10,
-            "shin-far": 0,
-            "leg-near": -10,
-            "shin-near": 0,
-            "arm-near": -135,
-            "forearm-near": -15,
-            "wrist-near": 150,
-            "hand-near": 150,
-            "grip-near": 150
-          },
-          "parla": {
-            "root": {
-              "rotate": 0,
-              "translateY": 0
-            },
-            "head": 0,
-            "arm-far": 20,
-            "forearm-far": 10,
-            "hand-far": -30,
-            "leg-far": 8,
-            "shin-far": 0,
-            "leg-near": -8,
-            "shin-near": 0,
-            "arm-near": -45,
-            "forearm-near": -55,
-            "wrist-near": 100,
-            "hand-near": 100,
-            "grip-near": 100
-          },
-          "mani_fianchi": {
-            "root": {
-              "rotate": 0,
-              "translateY": 0
-            },
-            "head": 0,
-            "arm-far": 42,
-            "forearm-far": -65,
-            "hand-far": 23,
-            "leg-far": 14,
-            "shin-far": 0,
-            "leg-near": -14,
-            "shin-near": 0,
-            "arm-near": -42,
-            "forearm-near": 65,
-            "wrist-near": -23,
-            "hand-near": -23,
-            "grip-near": -23
-          },
-          "seduto": {
-            "root": {
-              "rotate": 4,
-              "translateY": 18
-            },
-            "head": 0,
-            "arm-far": -15,
-            "forearm-far": -45,
-            "hand-far": 60,
-            "leg-far": -85,
-            "shin-far": 85,
-            "leg-near": -80,
-            "shin-near": 80,
-            "arm-near": -25,
-            "forearm-near": -50,
-            "wrist-near": 75,
-            "hand-near": 75,
-            "grip-near": 75
-          },
-          "inginocchiato": {
-            "root": {
-              "rotate": 12,
-              "translateY": 22
-            },
-            "head": 0,
-            "arm-far": -10,
-            "forearm-far": -40,
-            "hand-far": 50,
-            "leg-far": -75,
-            "shin-far": 90,
-            "leg-near": 25,
-            "shin-near": 95,
-            "arm-near": -25,
-            "forearm-near": -55,
-            "wrist-near": 80,
-            "hand-near": 80,
-            "grip-near": 80
-          },
-          "a_terra": {
-            "root": {
-              "rotate": -84,
-              "translateY": 44
-            },
-            "head": 0,
-            "arm-far": 15,
-            "forearm-far": -25,
-            "hand-far": 10,
-            "leg-far": 8,
-            "shin-far": 0,
-            "leg-near": -12,
-            "shin-near": 10,
-            "arm-near": -110,
-            "forearm-near": 40,
-            "wrist-near": 70,
-            "hand-near": 70,
-            "grip-near": 70
-          },
-          "porta_bandiera": {
-            "root": {
-              "rotate": 6,
-              "translateY": 0
-            },
-            "head": 0,
-            "arm-far": 28,
-            "forearm-far": -10,
-            "hand-far": -18,
-            "leg-far": 20,
-            "shin-far": 0,
-            "leg-near": -18,
-            "shin-near": 8,
-            "arm-near": -65,
-            "forearm-near": -25,
-            "wrist-near": 90,
-            "hand-near": 90,
-            "grip-near": 90
-          },
-          "manifesta": {
-            "root": {
-              "rotate": 0,
-              "translateY": 0
-            },
-            "head": 0,
-            "arm-far": 148,
-            "forearm-far": 15,
-            "hand-far": -163,
-            "leg-far": 12,
-            "shin-far": 0,
-            "leg-near": -12,
-            "shin-near": 0,
-            "arm-near": -148,
-            "forearm-near": -15,
-            "wrist-near": 163,
-            "hand-near": 163,
-            "grip-near": 163
-          },
-          "lancia": {
-            "root": {
-              "rotate": 14,
-              "translateY": 0
-            },
-            "head": 0,
-            "arm-far": 45,
-            "forearm-far": 15,
-            "hand-far": -60,
-            "leg-far": 28,
-            "shin-far": -5,
-            "leg-near": -28,
-            "shin-near": 18,
-            "arm-near": -115,
-            "forearm-near": -10,
-            "wrist-near": 125,
-            "hand-near": 125,
-            "grip-near": 125
-          },
-          "sbarra": {
-            "root": {
-              "rotate": 5,
-              "translateY": 0
-            },
-            "head": 0,
-            "arm-far": 25,
-            "forearm-far": -20,
-            "hand-far": -5,
-            "leg-far": 18,
-            "shin-far": 0,
-            "leg-near": -18,
-            "shin-near": 5,
-            "arm-near": -55,
-            "forearm-near": -15,
-            "wrist-near": 70,
-            "hand-near": 70,
-            "grip-near": 70
-          },
-          "tiene_cartello": {
-            "root": {
-              "rotate": 0,
-              "translateY": 0
-            },
-            "head": 0,
-            "arm-far": 145,
-            "forearm-far": 20,
-            "hand-far": -165,
-            "leg-far": 12,
-            "shin-far": 0,
-            "leg-near": -12,
-            "shin-near": 0,
-            "arm-near": -145,
-            "forearm-near": -20,
-            "wrist-near": 165,
-            "hand-near": 165,
-            "grip-near": 165
-          },
-          "usa_fucile": {
-            "root": {
-              "rotate": 6,
-              "translateY": 0
-            },
-            "head": 0,
-            "arm-far": -45,
-            "forearm-far": -35,
-            "hand-far": 80,
-            "leg-far": 16,
-            "shin-far": 0,
-            "leg-near": -16,
-            "shin-near": 5,
-            "arm-near": -72,
-            "forearm-near": -15,
-            "wrist-near": 87,
-            "hand-near": 87,
-            "grip-near": 87
-          },
-          "spara": {
-            "root": {
-              "rotate": 12,
-              "translateY": 0
-            },
-            "head": 0,
-            "arm-far": -50,
-            "forearm-far": -35,
-            "hand-far": 85,
-            "leg-far": 24,
-            "shin-far": 5,
-            "leg-near": -24,
-            "shin-near": 12,
-            "arm-near": -78,
-            "forearm-near": -10,
-            "wrist-near": 88,
-            "hand-near": 88,
-            "grip-near": 88
-          },
-          "con_megafono": {
-            "root": {
-              "rotate": 2,
-              "translateY": 0
-            },
-            "head": 0,
-            "arm-far": 20,
-            "forearm-far": 10,
-            "hand-far": -30,
-            "leg-far": 14,
-            "shin-far": 0,
-            "leg-near": -14,
-            "shin-near": 0,
-            "arm-near": -75,
-            "forearm-near": -35,
-            "wrist-near": 110,
-            "hand-near": 110,
-            "grip-near": 110
-          },
-          "costruisce": {
-            "root": {
-              "rotate": 15,
-              "translateY": 0
-            },
-            "head": 0,
-            "arm-far": -35,
-            "forearm-far": -20,
-            "hand-far": 55,
-            "leg-far": 18,
-            "shin-far": 5,
-            "leg-near": -18,
-            "shin-near": 5,
-            "arm-near": 30,
-            "forearm-near": 15,
-            "wrist-near": -45,
-            "hand-near": -45,
-            "grip-near": -45
-          },
-          "lavora": {
-            "root": {
-              "rotate": 10,
-              "translateY": 0
-            },
-            "head": 0,
-            "arm-far": 20,
-            "forearm-far": 15,
-            "hand-far": -35,
-            "leg-far": 18,
-            "shin-far": 5,
-            "leg-near": -16,
-            "shin-near": 5,
-            "arm-near": -95,
-            "forearm-near": -25,
-            "wrist-near": 120,
-            "hand-near": 120,
-            "grip-near": 120
-          },
-          "legge": {
-            "root": {
-              "rotate": 4,
-              "translateY": 0
-            },
-            "head": 0,
-            "arm-far": -45,
-            "forearm-far": -30,
-            "hand-far": 75,
-            "leg-far": 10,
-            "shin-far": 0,
-            "leg-near": -10,
-            "shin-near": 0,
-            "arm-near": -55,
-            "forearm-near": -35,
-            "wrist-near": 90,
-            "hand-near": 90,
-            "grip-near": 90
-          },
-          "zappa": {
-            "root": {
-              "rotate": 24,
-              "translateY": 2
-            },
-            "head": 0,
-            "arm-far": -30,
-            "forearm-far": -35,
-            "hand-far": 65,
-            "leg-far": 24,
-            "shin-far": 10,
-            "leg-near": -20,
-            "shin-near": 12,
-            "arm-near": -50,
-            "forearm-near": -20,
-            "wrist-near": 70,
-            "hand-near": 70,
-            "grip-near": 70
-          }
-        }
-      }
-    },
-    {
-      "id": "soviet-tavolo",
-      "meta": {
-        "label": "Tavolo del comitato con fogli e lampada",
-        "family": "soviet-coda",
-        "source": "kit-soviet-coda.html#soviet_tavolo",
-        "size": [
-          283,
-          127
-        ],
-        "anchor": "base",
-        "origine": {
-          "file": "prototypes/kit-soviet-coda/kit-soviet-coda.html",
-          "funzione": "drawSoviet",
-          "argomenti": [
-            "soviet_tavolo",
-            0,
-            0
-          ],
-          "rimuoviPrimo": false,
-          "definizioni": {
-            "funzione": "getDefs",
-            "argomenti": [],
-            "texture": "soviet-coda",
-            "motivi": {
-              "grana": "grana-ambienti"
-            }
-          }
-        }
-      },
-      "layers": [
-        {
-          "id": "opera",
-          "tag": "g",
-          "pose": {
-            "translateX": 0.2,
-            "translateY": -400
-          }
-        },
-        {
-          "id": "f-1",
-          "tag": "g",
-          "pose": {
-            "translateX": 0,
-            "translateY": 0
-          },
-          "parent": "opera"
-        },
-        {
-          "id": "f-2",
-          "tag": "g",
-          "attrs": {},
-          "parent": "f-1"
-        },
-        {
-          "id": "f-3",
-          "tag": "path",
-          "attrs": {
-            "d": "M -139.4 299.5 L 140.9 299.7 L 140.5 311.8 L -138.9 312 Z",
-            "fill": "concrete-dark"
-          },
-          "parent": "f-2"
-        },
-        {
-          "id": "f-4",
-          "tag": "path",
-          "attrs": {
-            "d": "M -140.5 299.9 L -118.8 300.1 L -97.2 299.9 L -75.6 300.1 L -54 299.9 L -32.4 299.7 L -10.8 300.3 L 10.9 300.2 L 32.5 299.8 L 54.1 300.1 L 75.7 300.1 L 97.3 300 L 118.9 300.2 L 140.5 299.9 M 139.9 299.8 L 140.1 312 M 140.7 311.9 L 119 311.7 L 97.4 312.1 L 75.7 312.2 L 54 311.9 L 32.4 312 L 10.7 312 L -11 312 L -32.6 312.3 L -54.3 311.8 L -76 312.1 L -97.6 311.8 L -119.3 311.9 L -141 311.9 M -139.9 312.4 L -139.9 299.8",
-            "fill": "none",
-            "stroke": "ink",
-            "stroke-width": 1.5,
-            "stroke-linecap": "round",
-            "stroke-linejoin": "round"
-          },
-          "parent": "f-2"
-        },
-        {
-          "id": "f-5",
-          "tag": "path",
-          "attrs": {
-            "d": "M -124 312 L -124 334 L -123.9 356 L -123.9 378 L -123.9 400 M 124 312 L 124.1 334 L 124 356 L 124.2 378 L 124 400 M -124 340.1 L -101.5 340 L -78.9 339.8 L -56.4 339.9 L -33.8 339.9 L -11.3 340.3 L 11.3 339.9 L 33.8 340.1 L 56.4 339.8 L 78.9 340.1 L 101.5 340.2 L 124 339.9",
-            "fill": "none",
-            "stroke": "ink",
-            "stroke-width": 2.6,
-            "stroke-linecap": "round",
-            "stroke-linejoin": "round"
-          },
-          "parent": "f-2"
-        },
-        {
-          "id": "f-6",
-          "tag": "path",
-          "attrs": {
-            "d": "M -109.8 299.3 L -59.5 297.7 L -55.3 286.1 L -103.1 287.8 Z",
-            "fill": "paper"
-          },
-          "parent": "f-2"
-        },
-        {
-          "id": "f-7",
-          "tag": "path",
-          "attrs": {
-            "d": "M -110 300 L -97.5 299.7 L -85 299.2 L -72.5 298.4 L -60 298.1 L -56 286 L -72 286.9 L -88 287.6 L -104 288.1 L -110.1 299.9",
-            "fill": "none",
-            "stroke": "ink",
-            "stroke-width": 1.1,
-            "stroke-linecap": "round",
-            "stroke-linejoin": "round"
-          },
-          "parent": "f-2"
-        },
-        {
-          "id": "f-8",
-          "tag": "path",
-          "attrs": {
-            "d": "M -39.5 300.1 L 10.1 298.3 L 16.2 287.4 L -33.4 289.1 Z",
-            "fill": "paper"
-          },
-          "parent": "f-2"
-        },
-        {
-          "id": "f-9",
-          "tag": "path",
-          "attrs": {
-            "d": "M -40 300 L -27.5 299.9 L -15 299.5 L -2.5 299.3 L 10 299.1 L 15.9 288 L 3.5 288 L -9 288.3 L -21.5 288.7 L -34 288.9 L -40 300",
-            "fill": "none",
-            "stroke": "ink",
-            "stroke-width": 1.1,
-            "stroke-linecap": "round",
-            "stroke-linejoin": "round"
-          },
-          "parent": "f-2"
-        },
-        {
-          "id": "f-10",
-          "tag": "path",
-          "attrs": {
-            "d": "M -96 294 L -66 293 M -28 294.9 L 4 294",
-            "fill": "none",
-            "stroke": "ink",
-            "stroke-width": 0.9,
-            "stroke-linecap": "round",
-            "stroke-linejoin": "round",
-            "opacity": 0.7
-          },
-          "parent": "f-2"
-        },
-        {
-          "id": "f-11",
-          "tag": "path",
-          "attrs": {
-            "d": "M 72.4 275.7 L 98.3 275.7 L 98.6 299.6 L 72.5 300.4 Z",
-            "fill": "sky"
-          },
-          "parent": "f-2"
-        },
-        {
-          "id": "f-12",
-          "tag": "path",
-          "attrs": {
-            "d": "M 71.2 275.9 L 98.4 276.1 M 98.1 275.8 L 98.1 300.8 M 98.7 300 L 71.2 300.1 M 72.1 300.7 L 72.1 275.3",
-            "fill": "none",
-            "stroke": "ink",
-            "stroke-width": 1.2,
-            "stroke-linecap": "round",
-            "stroke-linejoin": "round"
-          },
-          "parent": "f-2"
-        },
-        {
-          "id": "f-13",
-          "tag": "path",
-          "attrs": {
-            "d": "M 66.3 298 L 104.1 297.7 L 104.4 302 L 66.6 302.3 Z",
-            "fill": "concrete-dark"
-          },
-          "parent": "f-2"
-        },
-        {
-          "id": "fiamma",
-          "tag": "g",
-          "attrs": {},
-          "parent": "f-2",
-          "origin": [
-            85,
-            288
-          ]
-        },
-        {
-          "id": "f-15",
-          "tag": "path",
-          "attrs": {
-            "d": "M 82 288 C 80 282 85 280 85 275 C 90 280 90 284 88 288 Z",
-            "fill": "red",
-            "stroke": "ink",
-            "stroke-width": 0.8
-          },
-          "parent": "fiamma"
-        },
-        {
-          "id": "f-16",
-          "tag": "path",
-          "attrs": {
-            "d": "M -119.6 349.9 L -83.5 349.8 L -83.5 358.2 L -119.7 358.2 Z",
-            "fill": "sand"
-          },
-          "parent": "f-2"
-        },
-        {
-          "id": "f-17",
-          "tag": "path",
-          "attrs": {
-            "d": "M -120.8 349.9 L -102 349.9 L -83.1 350.1 M -83.9 349.5 L -84.1 358.5 M -83.6 358 L -102 358.2 L -120.3 357.9 M -120.1 358.3 L -120 350 M -114.1 358 L -113.8 379 L -114.1 400 M -90 358 L -89.8 379 L -90 400",
-            "fill": "none",
-            "stroke": "ink",
-            "stroke-width": 1.4,
-            "stroke-linecap": "round",
-            "stroke-linejoin": "round"
-          },
-          "parent": "f-2"
-        },
-        {
-          "id": "f-18",
-          "tag": "path",
-          "attrs": {
-            "d": "M 84 349.6 L 120.2 349.6 L 120 358 L 84.5 358 Z",
-            "fill": "sand"
-          },
-          "parent": "f-2"
-        },
-        {
-          "id": "f-19",
-          "tag": "path",
-          "attrs": {
-            "d": "M 83.8 350 L 102.2 350.2 L 120.6 350 M 120.1 349.7 L 119.9 358.5 M 120.8 358 L 102.1 357.9 L 83.5 358.1 M 84.1 358.1 L 84 349.5 M 90 358 L 90.2 379 L 90 400 M 114 358 L 113.9 379 L 114 400",
-            "fill": "none",
-            "stroke": "ink",
-            "stroke-width": 1.4,
-            "stroke-linecap": "round",
-            "stroke-linejoin": "round"
-          },
-          "parent": "f-2"
-        }
-      ]
-    },
-    {
-      "id": "soviet-telegrafo",
-      "meta": {
-        "label": "Apparecchio telegrafico",
-        "family": "soviet-coda",
-        "source": "kit-soviet-coda.html#soviet_telegrafo",
-        "size": [
-          123,
-          137
-        ],
-        "anchor": "base",
-        "origine": {
-          "file": "prototypes/kit-soviet-coda/kit-soviet-coda.html",
-          "funzione": "drawSoviet",
-          "argomenti": [
-            "soviet_telegrafo",
-            0,
-            0
-          ],
-          "rimuoviPrimo": false,
-          "definizioni": {
-            "funzione": "getDefs",
-            "argomenti": [],
-            "texture": "soviet-coda",
-            "motivi": {
-              "grana": "grana-ambienti"
-            }
-          }
-        }
-      },
-      "layers": [
-        {
-          "id": "opera",
-          "tag": "g",
-          "pose": {
-            "translateX": -0.2,
-            "translateY": -400
-          }
-        },
-        {
-          "id": "f-1",
-          "tag": "g",
-          "pose": {
-            "translateX": 0,
-            "translateY": 0
-          },
-          "parent": "opera"
-        },
-        {
-          "id": "f-2",
-          "tag": "g",
-          "attrs": {},
-          "parent": "f-1"
-        },
-        {
-          "id": "f-3",
-          "tag": "path",
-          "attrs": {
-            "d": "M -59.8 340 L 60.2 340.2 L 60.7 349.7 L -59.4 349.7 Z",
-            "fill": "concrete-dark"
-          },
-          "parent": "f-2"
-        },
-        {
-          "id": "f-4",
-          "tag": "path",
-          "attrs": {
-            "d": "M -60.4 339.9 L -40.2 340 L -20 339.7 L 0.2 340.3 L 20.4 340.1 L 40.6 339.9 L 60.8 339.9 M 60 339.4 L 59.9 350.7 M 60.4 349.9 L 36.3 349.8 L 12.2 350.3 L -11.9 350.2 L -36 350.2 L -60.1 350 M -59.9 350.5 L -60 339.2 M -49.9 350 L -49.9 375 L -50 400 M 49.9 350 L 50.1 375 L 50.1 400",
-            "fill": "none",
-            "stroke": "ink",
-            "stroke-width": 1.6,
-            "stroke-linecap": "round",
-            "stroke-linejoin": "round"
-          },
-          "parent": "f-2"
-        },
-        {
-          "id": "f-5",
-          "tag": "path",
-          "attrs": {
-            "d": "M -37.5 307.5 L 38.9 307.1 L 38.8 340.5 L -37.7 340.3 Z",
-            "fill": "sand"
-          },
-          "parent": "f-2"
-        },
-        {
-          "id": "f-6",
-          "tag": "path",
-          "attrs": {
-            "d": "M -38.6 308 L -13 307.9 L 12.6 308.1 L 38.1 308 M 38.2 307.3 L 38.1 323.9 L 38 340.5 M 38.1 339.8 L 12.5 340.2 L -13.1 340.2 L -38.7 340.1 M -38 340.9 L -37.7 324 L -38 307.1",
-            "fill": "none",
-            "stroke": "ink",
-            "stroke-width": 1.4,
-            "stroke-linecap": "round",
-            "stroke-linejoin": "round"
-          },
-          "parent": "f-2"
-        },
-        {
-          "id": "f-7",
-          "tag": "path",
-          "attrs": {
-            "d": "M -28 302 A 14 6 0 1 0 0 302 A 14 6 0 1 0 -28 302 Z",
-            "fill": "concrete-mid"
-          },
-          "parent": "f-2"
-        },
-        {
-          "id": "f-8",
-          "tag": "path",
-          "attrs": {
-            "d": "M -28 302 A 14 6 0 1 0 0 302 A 14 6 0 1 0 -28 302 Z",
-            "fill": "none",
-            "stroke": "ink",
-            "stroke-width": 1.1,
-            "stroke-linecap": "round",
-            "stroke-linejoin": "round"
-          },
-          "parent": "f-2"
-        },
-        {
-          "id": "f-9",
-          "tag": "path",
-          "attrs": {
-            "d": "M 18 308 L 17.9 286 M 10 286 L 34 286",
-            "fill": "none",
-            "stroke": "ink",
-            "stroke-width": 2.4,
-            "stroke-linecap": "round",
-            "stroke-linejoin": "round"
-          },
-          "parent": "f-2"
-        },
-        {
-          "id": "f-10",
-          "tag": "path",
-          "attrs": {
-            "d": "M 12 276 A 12 12 0 1 0 36 276 A 12 12 0 1 0 12 276 Z",
-            "fill": "paper"
-          },
-          "parent": "f-2"
-        },
-        {
-          "id": "f-11",
-          "tag": "path",
-          "attrs": {
-            "d": "M 12 276 A 12 12 0 1 0 36 276 A 12 12 0 1 0 12 276 Z",
-            "fill": "none",
-            "stroke": "ink",
-            "stroke-width": 1.2,
-            "stroke-linecap": "round",
-            "stroke-linejoin": "round"
-          },
-          "parent": "f-2"
-        },
-        {
-          "id": "f-12",
-          "tag": "path",
-          "attrs": {
-            "d": "M 38 322 C 52 322 52 336 44 338 C 38 340 36 334 42 332",
-            "fill": "none",
-            "stroke": "ink",
-            "stroke-width": 1.1,
-            "stroke-linecap": "round",
-            "stroke-linejoin": "round"
-          },
-          "parent": "f-2"
-        },
-        {
-          "id": "f-13",
-          "tag": "path",
-          "attrs": {
-            "d": "M -28 322 A 4 4 0 1 0 -20 322 A 4 4 0 1 0 -28 322 Z",
-            "fill": "red"
-          },
-          "parent": "f-2"
-        },
-        {
-          "id": "f-14",
-          "tag": "path",
-          "attrs": {
-            "d": "M -28 322 A 4 4 0 1 0 -20 322 A 4 4 0 1 0 -28 322 Z",
-            "fill": "none",
-            "stroke": "ink",
-            "stroke-width": 0.8,
-            "stroke-linecap": "round",
-            "stroke-linejoin": "round"
           },
           "parent": "f-2"
         }
@@ -32411,6 +31073,443 @@
       }
     },
     {
+      "id": "soviet-tavolo",
+      "meta": {
+        "label": "Tavolo del comitato con fogli e lampada",
+        "family": "soviet-coda",
+        "source": "kit-soviet-coda.html#soviet_tavolo",
+        "size": [
+          283,
+          127
+        ],
+        "anchor": "base",
+        "origine": {
+          "file": "prototypes/kit-soviet-coda/kit-soviet-coda.html",
+          "funzione": "drawSoviet",
+          "argomenti": [
+            "soviet_tavolo",
+            0,
+            0
+          ],
+          "rimuoviPrimo": false,
+          "definizioni": {
+            "funzione": "getDefs",
+            "argomenti": [],
+            "texture": "soviet-coda",
+            "motivi": {
+              "grana": "grana-ambienti"
+            }
+          }
+        }
+      },
+      "layers": [
+        {
+          "id": "opera",
+          "tag": "g",
+          "pose": {
+            "translateX": 0.2,
+            "translateY": -400
+          }
+        },
+        {
+          "id": "f-1",
+          "tag": "g",
+          "pose": {
+            "translateX": 0,
+            "translateY": 0
+          },
+          "parent": "opera"
+        },
+        {
+          "id": "f-2",
+          "tag": "g",
+          "attrs": {},
+          "parent": "f-1"
+        },
+        {
+          "id": "f-3",
+          "tag": "path",
+          "attrs": {
+            "d": "M -139.4 299.5 L 140.9 299.7 L 140.5 311.8 L -138.9 312 Z",
+            "fill": "concrete-dark"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-4",
+          "tag": "path",
+          "attrs": {
+            "d": "M -140.5 299.9 L -118.8 300.1 L -97.2 299.9 L -75.6 300.1 L -54 299.9 L -32.4 299.7 L -10.8 300.3 L 10.9 300.2 L 32.5 299.8 L 54.1 300.1 L 75.7 300.1 L 97.3 300 L 118.9 300.2 L 140.5 299.9 M 139.9 299.8 L 140.1 312 M 140.7 311.9 L 119 311.7 L 97.4 312.1 L 75.7 312.2 L 54 311.9 L 32.4 312 L 10.7 312 L -11 312 L -32.6 312.3 L -54.3 311.8 L -76 312.1 L -97.6 311.8 L -119.3 311.9 L -141 311.9 M -139.9 312.4 L -139.9 299.8",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.5,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-5",
+          "tag": "path",
+          "attrs": {
+            "d": "M -124 312 L -124 334 L -123.9 356 L -123.9 378 L -123.9 400 M 124 312 L 124.1 334 L 124 356 L 124.2 378 L 124 400 M -124 340.1 L -101.5 340 L -78.9 339.8 L -56.4 339.9 L -33.8 339.9 L -11.3 340.3 L 11.3 339.9 L 33.8 340.1 L 56.4 339.8 L 78.9 340.1 L 101.5 340.2 L 124 339.9",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 2.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-6",
+          "tag": "path",
+          "attrs": {
+            "d": "M -109.8 299.3 L -59.5 297.7 L -55.3 286.1 L -103.1 287.8 Z",
+            "fill": "paper"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-7",
+          "tag": "path",
+          "attrs": {
+            "d": "M -110 300 L -97.5 299.7 L -85 299.2 L -72.5 298.4 L -60 298.1 L -56 286 L -72 286.9 L -88 287.6 L -104 288.1 L -110.1 299.9",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.1,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-8",
+          "tag": "path",
+          "attrs": {
+            "d": "M -39.5 300.1 L 10.1 298.3 L 16.2 287.4 L -33.4 289.1 Z",
+            "fill": "paper"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-9",
+          "tag": "path",
+          "attrs": {
+            "d": "M -40 300 L -27.5 299.9 L -15 299.5 L -2.5 299.3 L 10 299.1 L 15.9 288 L 3.5 288 L -9 288.3 L -21.5 288.7 L -34 288.9 L -40 300",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.1,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-10",
+          "tag": "path",
+          "attrs": {
+            "d": "M -96 294 L -66 293 M -28 294.9 L 4 294",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 0.9,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round",
+            "opacity": 0.7
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-11",
+          "tag": "path",
+          "attrs": {
+            "d": "M 72.4 275.7 L 98.3 275.7 L 98.6 299.6 L 72.5 300.4 Z",
+            "fill": "sky"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-12",
+          "tag": "path",
+          "attrs": {
+            "d": "M 71.2 275.9 L 98.4 276.1 M 98.1 275.8 L 98.1 300.8 M 98.7 300 L 71.2 300.1 M 72.1 300.7 L 72.1 275.3",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.2,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-13",
+          "tag": "path",
+          "attrs": {
+            "d": "M 66.3 298 L 104.1 297.7 L 104.4 302 L 66.6 302.3 Z",
+            "fill": "concrete-dark"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "fiamma",
+          "tag": "g",
+          "attrs": {},
+          "parent": "f-2",
+          "origin": [
+            85,
+            288
+          ]
+        },
+        {
+          "id": "f-15",
+          "tag": "path",
+          "attrs": {
+            "d": "M 82 288 C 80 282 85 280 85 275 C 90 280 90 284 88 288 Z",
+            "fill": "red",
+            "stroke": "ink",
+            "stroke-width": 0.8
+          },
+          "parent": "fiamma"
+        },
+        {
+          "id": "f-16",
+          "tag": "path",
+          "attrs": {
+            "d": "M -119.6 349.9 L -83.5 349.8 L -83.5 358.2 L -119.7 358.2 Z",
+            "fill": "sand"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-17",
+          "tag": "path",
+          "attrs": {
+            "d": "M -120.8 349.9 L -102 349.9 L -83.1 350.1 M -83.9 349.5 L -84.1 358.5 M -83.6 358 L -102 358.2 L -120.3 357.9 M -120.1 358.3 L -120 350 M -114.1 358 L -113.8 379 L -114.1 400 M -90 358 L -89.8 379 L -90 400",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-18",
+          "tag": "path",
+          "attrs": {
+            "d": "M 84 349.6 L 120.2 349.6 L 120 358 L 84.5 358 Z",
+            "fill": "sand"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-19",
+          "tag": "path",
+          "attrs": {
+            "d": "M 83.8 350 L 102.2 350.2 L 120.6 350 M 120.1 349.7 L 119.9 358.5 M 120.8 358 L 102.1 357.9 L 83.5 358.1 M 84.1 358.1 L 84 349.5 M 90 358 L 90.2 379 L 90 400 M 114 358 L 113.9 379 L 114 400",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        }
+      ]
+    },
+    {
+      "id": "soviet-telegrafo",
+      "meta": {
+        "label": "Apparecchio telegrafico",
+        "family": "soviet-coda",
+        "source": "kit-soviet-coda.html#soviet_telegrafo",
+        "size": [
+          123,
+          137
+        ],
+        "anchor": "base",
+        "origine": {
+          "file": "prototypes/kit-soviet-coda/kit-soviet-coda.html",
+          "funzione": "drawSoviet",
+          "argomenti": [
+            "soviet_telegrafo",
+            0,
+            0
+          ],
+          "rimuoviPrimo": false,
+          "definizioni": {
+            "funzione": "getDefs",
+            "argomenti": [],
+            "texture": "soviet-coda",
+            "motivi": {
+              "grana": "grana-ambienti"
+            }
+          }
+        }
+      },
+      "layers": [
+        {
+          "id": "opera",
+          "tag": "g",
+          "pose": {
+            "translateX": -0.2,
+            "translateY": -400
+          }
+        },
+        {
+          "id": "f-1",
+          "tag": "g",
+          "pose": {
+            "translateX": 0,
+            "translateY": 0
+          },
+          "parent": "opera"
+        },
+        {
+          "id": "f-2",
+          "tag": "g",
+          "attrs": {},
+          "parent": "f-1"
+        },
+        {
+          "id": "f-3",
+          "tag": "path",
+          "attrs": {
+            "d": "M -59.8 340 L 60.2 340.2 L 60.7 349.7 L -59.4 349.7 Z",
+            "fill": "concrete-dark"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-4",
+          "tag": "path",
+          "attrs": {
+            "d": "M -60.4 339.9 L -40.2 340 L -20 339.7 L 0.2 340.3 L 20.4 340.1 L 40.6 339.9 L 60.8 339.9 M 60 339.4 L 59.9 350.7 M 60.4 349.9 L 36.3 349.8 L 12.2 350.3 L -11.9 350.2 L -36 350.2 L -60.1 350 M -59.9 350.5 L -60 339.2 M -49.9 350 L -49.9 375 L -50 400 M 49.9 350 L 50.1 375 L 50.1 400",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.6,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-5",
+          "tag": "path",
+          "attrs": {
+            "d": "M -37.5 307.5 L 38.9 307.1 L 38.8 340.5 L -37.7 340.3 Z",
+            "fill": "sand"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-6",
+          "tag": "path",
+          "attrs": {
+            "d": "M -38.6 308 L -13 307.9 L 12.6 308.1 L 38.1 308 M 38.2 307.3 L 38.1 323.9 L 38 340.5 M 38.1 339.8 L 12.5 340.2 L -13.1 340.2 L -38.7 340.1 M -38 340.9 L -37.7 324 L -38 307.1",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-7",
+          "tag": "path",
+          "attrs": {
+            "d": "M -28 302 A 14 6 0 1 0 0 302 A 14 6 0 1 0 -28 302 Z",
+            "fill": "concrete-mid"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-8",
+          "tag": "path",
+          "attrs": {
+            "d": "M -28 302 A 14 6 0 1 0 0 302 A 14 6 0 1 0 -28 302 Z",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.1,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-9",
+          "tag": "path",
+          "attrs": {
+            "d": "M 18 308 L 17.9 286 M 10 286 L 34 286",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 2.4,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-10",
+          "tag": "path",
+          "attrs": {
+            "d": "M 12 276 A 12 12 0 1 0 36 276 A 12 12 0 1 0 12 276 Z",
+            "fill": "paper"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-11",
+          "tag": "path",
+          "attrs": {
+            "d": "M 12 276 A 12 12 0 1 0 36 276 A 12 12 0 1 0 12 276 Z",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.2,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-12",
+          "tag": "path",
+          "attrs": {
+            "d": "M 38 322 C 52 322 52 336 44 338 C 38 340 36 334 42 332",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.1,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-13",
+          "tag": "path",
+          "attrs": {
+            "d": "M -28 322 A 4 4 0 1 0 -20 322 A 4 4 0 1 0 -28 322 Z",
+            "fill": "red"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-14",
+          "tag": "path",
+          "attrs": {
+            "d": "M -28 322 A 4 4 0 1 0 -20 322 A 4 4 0 1 0 -28 322 Z",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 0.8,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        }
+      ]
+    },
+    {
       "id": "ambiente-panetteria",
       "meta": {
         "label": "Bottega del pane",
@@ -33417,6 +32516,936 @@
           "parent": "f-2"
         }
       ]
+    },
+    {
+      "id": "presa-bandiera",
+      "meta": {
+        "label": "bandiera",
+        "family": "oggetti-impugnati",
+        "source": "studio personaggi.html#buildOminoSVG",
+        "presa": "hand-near",
+        "tinta": false
+      },
+      "layers": [
+        {
+          "id": "f-1",
+          "tag": "line",
+          "attrs": {
+            "x1": -14,
+            "y1": 22,
+            "x2": 10,
+            "y2": -36,
+            "stroke": "ink",
+            "stroke-width": 2.8,
+            "stroke-linecap": "round"
+          }
+        },
+        {
+          "id": "telo",
+          "tag": "path",
+          "attrs": {
+            "d": "M 10 -36 C 24 -38 36 -44 48 -46 L 46 -14 C 32 -18 18 -18 2 -18 Z",
+            "fill": "red"
+          },
+          "origin": [
+            6,
+            -27
+          ]
+        }
+      ]
+    },
+    {
+      "id": "presa-bastone-lungo",
+      "meta": {
+        "label": "bastone lungo",
+        "family": "oggetti-impugnati",
+        "source": "studio personaggi.html#buildOminoSVG",
+        "presa": "hand-near",
+        "tinta": false
+      },
+      "layers": [
+        {
+          "id": "f-1",
+          "tag": "line",
+          "attrs": {
+            "x1": -22,
+            "y1": 22,
+            "x2": 32,
+            "y2": -28,
+            "stroke": "ink",
+            "stroke-width": 3,
+            "stroke-linecap": "round"
+          }
+        }
+      ]
+    },
+    {
+      "id": "fig-uomo-nudo-base-fascia",
+      "meta": {
+        "label": "Figura uomo nudo base fascia",
+        "family": "figure",
+        "source": "studio personaggi.html#buildOminoSVG"
+      },
+      "layers": [
+        {
+          "id": "corpo",
+          "tag": "g",
+          "pose": {
+            "translateY": -42,
+            "scale": 1
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "root",
+          "tag": "g",
+          "parent": "corpo",
+          "pose": {
+            "rotate": 0,
+            "translateY": 0
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "slot-back",
+          "tag": "g",
+          "parent": "root"
+        },
+        {
+          "id": "arm-far",
+          "tag": "g",
+          "parent": "root",
+          "pose": {
+            "translateX": -5,
+            "translateY": -24,
+            "rotate": 22
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "arm-far-skin",
+          "tag": "path",
+          "parent": "arm-far",
+          "attrs": {
+            "d": "M -3.75 0 A 3.75 3.75 0 1 1 3.75 0 L 3.1 16 A 3.1 3.1 0 1 1 -3.1 16 Z",
+            "fill": "ink"
+          }
+        },
+        {
+          "id": "forearm-far",
+          "tag": "g",
+          "parent": "arm-far",
+          "pose": {
+            "translateX": 0,
+            "translateY": 16,
+            "rotate": 5
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "forearm-far-skin",
+          "tag": "path",
+          "parent": "forearm-far",
+          "attrs": {
+            "d": "M -3.1 0 A 3.1 3.1 0 1 1 3.1 0 L 2.5 15 A 2.5 2.5 0 1 1 -2.5 15 Z",
+            "fill": "ink"
+          }
+        },
+        {
+          "id": "hand-far",
+          "tag": "g",
+          "parent": "forearm-far",
+          "pose": {
+            "translateX": 0,
+            "translateY": 14,
+            "rotate": -27
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "leg-far",
+          "tag": "g",
+          "parent": "root",
+          "pose": {
+            "translateX": -4.5,
+            "translateY": 2,
+            "rotate": 10
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "leg-far-skin",
+          "tag": "path",
+          "parent": "leg-far",
+          "attrs": {
+            "d": "M -4.6 0 A 4.6 4.6 0 1 1 4.6 0 L 3.6 19 A 3.6 3.6 0 1 1 -3.6 19 Z",
+            "fill": "ink"
+          }
+        },
+        {
+          "id": "shin-far",
+          "tag": "g",
+          "parent": "leg-far",
+          "pose": {
+            "translateX": 0,
+            "translateY": 19,
+            "rotate": 0
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "shin-far-skin",
+          "tag": "path",
+          "parent": "shin-far",
+          "attrs": {
+            "d": "M -3.6 0 A 3.6 3.6 0 1 1 3.6 0 L 2.8 19 A 2.8 2.8 0 1 1 -2.8 19 Z",
+            "fill": "ink"
+          }
+        },
+        {
+          "id": "leg-near",
+          "tag": "g",
+          "parent": "root",
+          "pose": {
+            "translateX": 4.5,
+            "translateY": 2,
+            "rotate": -10
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "leg-near-skin",
+          "tag": "path",
+          "parent": "leg-near",
+          "attrs": {
+            "d": "M -4.6 0 A 4.6 4.6 0 1 1 4.6 0 L 3.6 19 A 3.6 3.6 0 1 1 -3.6 19 Z",
+            "fill": "ink"
+          }
+        },
+        {
+          "id": "shin-near",
+          "tag": "g",
+          "parent": "leg-near",
+          "pose": {
+            "translateX": 0,
+            "translateY": 19,
+            "rotate": 0
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "shin-near-skin",
+          "tag": "path",
+          "parent": "shin-near",
+          "attrs": {
+            "d": "M -3.6 0 A 3.6 3.6 0 1 1 3.6 0 L 2.8 19 A 2.8 2.8 0 1 1 -2.8 19 Z",
+            "fill": "ink"
+          }
+        },
+        {
+          "id": "torso",
+          "tag": "path",
+          "parent": "root",
+          "attrs": {
+            "d": "M -7 -27 C -9 -14 -9 4 -8 6 L 8 6 C 9 4 9 -14 7 -27 Z",
+            "fill": "ink"
+          }
+        },
+        {
+          "id": "head",
+          "tag": "g",
+          "parent": "root",
+          "pose": {
+            "translateX": 0,
+            "translateY": -40,
+            "rotate": 0
+          },
+          "origin": [
+            0,
+            7
+          ]
+        },
+        {
+          "id": "head-skin",
+          "tag": "circle",
+          "parent": "head",
+          "attrs": {
+            "cx": 0,
+            "cy": 0,
+            "r": 8.5,
+            "fill": "ink"
+          }
+        },
+        {
+          "id": "arm-near",
+          "tag": "g",
+          "parent": "root",
+          "pose": {
+            "translateX": 5,
+            "translateY": -24,
+            "rotate": -22
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "arm-near-skin",
+          "tag": "path",
+          "parent": "arm-near",
+          "attrs": {
+            "d": "M -3.75 0 A 3.75 3.75 0 1 1 3.75 0 L 3.1 16 A 3.1 3.1 0 1 1 -3.1 16 Z",
+            "fill": "ink"
+          }
+        },
+        {
+          "id": "fascia",
+          "tag": "rect",
+          "parent": "arm-near",
+          "attrs": {
+            "x": -4.1,
+            "y": 5,
+            "width": 8.2,
+            "height": 4.5,
+            "fill": "red"
+          }
+        },
+        {
+          "id": "forearm-near",
+          "tag": "g",
+          "parent": "arm-near",
+          "pose": {
+            "translateX": 0,
+            "translateY": 16,
+            "rotate": -5
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "forearm-near-skin",
+          "tag": "path",
+          "parent": "forearm-near",
+          "attrs": {
+            "d": "M -3.1 0 A 3.1 3.1 0 1 1 3.1 0 L 2.5 15 A 2.5 2.5 0 1 1 -2.5 15 Z",
+            "fill": "ink"
+          }
+        },
+        {
+          "id": "wrist-near",
+          "tag": "g",
+          "parent": "forearm-near",
+          "pose": {
+            "translateX": 0,
+            "translateY": 0,
+            "rotate": 27
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "hand-near",
+          "tag": "g",
+          "parent": "forearm-near",
+          "pose": {
+            "translateX": 0,
+            "translateY": 14,
+            "rotate": 27
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "grip-near",
+          "tag": "g",
+          "parent": "forearm-near",
+          "pose": {
+            "translateX": 0,
+            "translateY": 12,
+            "rotate": 27
+          },
+          "origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "slot-front",
+          "tag": "g",
+          "parent": "root"
+        }
+      ],
+      "rig": {
+        "joints": {
+          "root": [
+            -129,
+            69
+          ],
+          "head": [
+            -45,
+            45
+          ],
+          "arm-far": [
+            -95,
+            193
+          ],
+          "forearm-far": [
+            -110,
+            90
+          ],
+          "hand-far": [
+            -210,
+            130
+          ],
+          "leg-far": [
+            -130,
+            93
+          ],
+          "shin-far": [
+            -80,
+            135
+          ],
+          "leg-near": [
+            -125,
+            70
+          ],
+          "shin-near": [
+            -50,
+            140
+          ],
+          "arm-near": [
+            -193,
+            77
+          ],
+          "forearm-near": [
+            -100,
+            110
+          ],
+          "wrist-near": [
+            -90,
+            210
+          ],
+          "hand-near": [
+            -90,
+            210
+          ],
+          "grip-near": [
+            -90,
+            210
+          ]
+        },
+        "poses": {
+          "in_piedi": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 22,
+            "forearm-far": 5,
+            "hand-far": -27,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -22,
+            "forearm-near": -5,
+            "wrist-near": 27,
+            "hand-near": 27,
+            "grip-near": 27
+          },
+          "cammina_1": {
+            "root": {
+              "rotate": 5,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 35,
+            "forearm-far": 15,
+            "hand-far": -50,
+            "leg-far": 26,
+            "shin-far": -8,
+            "leg-near": -24,
+            "shin-near": 18,
+            "arm-near": -30,
+            "forearm-near": 20,
+            "wrist-near": 10,
+            "hand-near": 10,
+            "grip-near": 10
+          },
+          "cammina_2": {
+            "root": {
+              "rotate": 5,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -28,
+            "forearm-far": 15,
+            "hand-far": 13,
+            "leg-far": -22,
+            "shin-far": 15,
+            "leg-near": 25,
+            "shin-near": -5,
+            "arm-near": 32,
+            "forearm-near": 10,
+            "wrist-near": -42,
+            "hand-near": -42,
+            "grip-near": -42
+          },
+          "corre": {
+            "root": {
+              "rotate": 18,
+              "translateY": 2
+            },
+            "head": 0,
+            "arm-far": 55,
+            "forearm-far": 45,
+            "hand-far": -100,
+            "leg-far": 48,
+            "shin-far": -35,
+            "leg-near": -45,
+            "shin-near": 45,
+            "arm-near": -55,
+            "forearm-near": 50,
+            "wrist-near": 5,
+            "hand-near": 5,
+            "grip-near": 5
+          },
+          "braccia_alzate": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 145,
+            "forearm-far": 15,
+            "hand-far": -160,
+            "leg-far": 12,
+            "shin-far": 0,
+            "leg-near": -12,
+            "shin-near": 0,
+            "arm-near": -145,
+            "forearm-near": -15,
+            "wrist-near": 160,
+            "hand-near": 160,
+            "grip-near": 160
+          },
+          "gira": {
+            "root": {
+              "rotate": -4,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 48,
+            "forearm-far": 10,
+            "hand-far": -58,
+            "leg-far": 28,
+            "shin-far": 10,
+            "leg-near": -18,
+            "shin-near": 25,
+            "arm-near": -35,
+            "forearm-near": -10,
+            "wrist-near": 45,
+            "hand-near": 45,
+            "grip-near": 45
+          },
+          "indica": {
+            "root": {
+              "rotate": 2,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 25,
+            "forearm-far": 5,
+            "hand-far": -30,
+            "leg-far": 12,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -82,
+            "forearm-near": 0,
+            "wrist-near": 82,
+            "hand-near": 82,
+            "grip-near": 82
+          },
+          "saluta": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 22,
+            "forearm-far": 5,
+            "hand-far": -27,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -135,
+            "forearm-near": -15,
+            "wrist-near": 150,
+            "hand-near": 150,
+            "grip-near": 150
+          },
+          "parla": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 20,
+            "forearm-far": 10,
+            "hand-far": -30,
+            "leg-far": 8,
+            "shin-far": 0,
+            "leg-near": -8,
+            "shin-near": 0,
+            "arm-near": -45,
+            "forearm-near": -55,
+            "wrist-near": 100,
+            "hand-near": 100,
+            "grip-near": 100
+          },
+          "mani_fianchi": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 42,
+            "forearm-far": -65,
+            "hand-far": 23,
+            "leg-far": 14,
+            "shin-far": 0,
+            "leg-near": -14,
+            "shin-near": 0,
+            "arm-near": -42,
+            "forearm-near": 65,
+            "wrist-near": -23,
+            "hand-near": -23,
+            "grip-near": -23
+          },
+          "seduto": {
+            "root": {
+              "rotate": 4,
+              "translateY": 18
+            },
+            "head": 0,
+            "arm-far": -15,
+            "forearm-far": -45,
+            "hand-far": 60,
+            "leg-far": -85,
+            "shin-far": 85,
+            "leg-near": -80,
+            "shin-near": 80,
+            "arm-near": -25,
+            "forearm-near": -50,
+            "wrist-near": 75,
+            "hand-near": 75,
+            "grip-near": 75
+          },
+          "inginocchiato": {
+            "root": {
+              "rotate": 12,
+              "translateY": 22
+            },
+            "head": 0,
+            "arm-far": -10,
+            "forearm-far": -40,
+            "hand-far": 50,
+            "leg-far": -75,
+            "shin-far": 90,
+            "leg-near": 25,
+            "shin-near": 95,
+            "arm-near": -25,
+            "forearm-near": -55,
+            "wrist-near": 80,
+            "hand-near": 80,
+            "grip-near": 80
+          },
+          "a_terra": {
+            "root": {
+              "rotate": -84,
+              "translateY": 44
+            },
+            "head": 0,
+            "arm-far": 15,
+            "forearm-far": -25,
+            "hand-far": 10,
+            "leg-far": 8,
+            "shin-far": 0,
+            "leg-near": -12,
+            "shin-near": 10,
+            "arm-near": -110,
+            "forearm-near": 40,
+            "wrist-near": 70,
+            "hand-near": 70,
+            "grip-near": 70
+          },
+          "porta_bandiera": {
+            "root": {
+              "rotate": 6,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 28,
+            "forearm-far": -10,
+            "hand-far": -18,
+            "leg-far": 20,
+            "shin-far": 0,
+            "leg-near": -18,
+            "shin-near": 8,
+            "arm-near": -65,
+            "forearm-near": -25,
+            "wrist-near": 90,
+            "hand-near": 90,
+            "grip-near": 90
+          },
+          "manifesta": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 148,
+            "forearm-far": 15,
+            "hand-far": -163,
+            "leg-far": 12,
+            "shin-far": 0,
+            "leg-near": -12,
+            "shin-near": 0,
+            "arm-near": -148,
+            "forearm-near": -15,
+            "wrist-near": 163,
+            "hand-near": 163,
+            "grip-near": 163
+          },
+          "lancia": {
+            "root": {
+              "rotate": 14,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 45,
+            "forearm-far": 15,
+            "hand-far": -60,
+            "leg-far": 28,
+            "shin-far": -5,
+            "leg-near": -28,
+            "shin-near": 18,
+            "arm-near": -115,
+            "forearm-near": -10,
+            "wrist-near": 125,
+            "hand-near": 125,
+            "grip-near": 125
+          },
+          "sbarra": {
+            "root": {
+              "rotate": 5,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 25,
+            "forearm-far": -20,
+            "hand-far": -5,
+            "leg-far": 18,
+            "shin-far": 0,
+            "leg-near": -18,
+            "shin-near": 5,
+            "arm-near": -55,
+            "forearm-near": -15,
+            "wrist-near": 70,
+            "hand-near": 70,
+            "grip-near": 70
+          },
+          "tiene_cartello": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 145,
+            "forearm-far": 20,
+            "hand-far": -165,
+            "leg-far": 12,
+            "shin-far": 0,
+            "leg-near": -12,
+            "shin-near": 0,
+            "arm-near": -145,
+            "forearm-near": -20,
+            "wrist-near": 165,
+            "hand-near": 165,
+            "grip-near": 165
+          },
+          "usa_fucile": {
+            "root": {
+              "rotate": 6,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -45,
+            "forearm-far": -35,
+            "hand-far": 80,
+            "leg-far": 16,
+            "shin-far": 0,
+            "leg-near": -16,
+            "shin-near": 5,
+            "arm-near": -72,
+            "forearm-near": -15,
+            "wrist-near": 87,
+            "hand-near": 87,
+            "grip-near": 87
+          },
+          "spara": {
+            "root": {
+              "rotate": 12,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -50,
+            "forearm-far": -35,
+            "hand-far": 85,
+            "leg-far": 24,
+            "shin-far": 5,
+            "leg-near": -24,
+            "shin-near": 12,
+            "arm-near": -78,
+            "forearm-near": -10,
+            "wrist-near": 88,
+            "hand-near": 88,
+            "grip-near": 88
+          },
+          "con_megafono": {
+            "root": {
+              "rotate": 2,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 20,
+            "forearm-far": 10,
+            "hand-far": -30,
+            "leg-far": 14,
+            "shin-far": 0,
+            "leg-near": -14,
+            "shin-near": 0,
+            "arm-near": -75,
+            "forearm-near": -35,
+            "wrist-near": 110,
+            "hand-near": 110,
+            "grip-near": 110
+          },
+          "costruisce": {
+            "root": {
+              "rotate": 15,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -35,
+            "forearm-far": -20,
+            "hand-far": 55,
+            "leg-far": 18,
+            "shin-far": 5,
+            "leg-near": -18,
+            "shin-near": 5,
+            "arm-near": 30,
+            "forearm-near": 15,
+            "wrist-near": -45,
+            "hand-near": -45,
+            "grip-near": -45
+          },
+          "lavora": {
+            "root": {
+              "rotate": 10,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 20,
+            "forearm-far": 15,
+            "hand-far": -35,
+            "leg-far": 18,
+            "shin-far": 5,
+            "leg-near": -16,
+            "shin-near": 5,
+            "arm-near": -95,
+            "forearm-near": -25,
+            "wrist-near": 120,
+            "hand-near": 120,
+            "grip-near": 120
+          },
+          "legge": {
+            "root": {
+              "rotate": 4,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": -45,
+            "forearm-far": -30,
+            "hand-far": 75,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -55,
+            "forearm-near": -35,
+            "wrist-near": 90,
+            "hand-near": 90,
+            "grip-near": 90
+          },
+          "zappa": {
+            "root": {
+              "rotate": 24,
+              "translateY": 2
+            },
+            "head": 0,
+            "arm-far": -30,
+            "forearm-far": -35,
+            "hand-far": 65,
+            "leg-far": 24,
+            "shin-far": 10,
+            "leg-near": -20,
+            "shin-near": 12,
+            "arm-near": -50,
+            "forearm-near": -20,
+            "wrist-near": 70,
+            "hand-near": 70,
+            "grip-near": 70
+          }
+        }
+      }
     },
     {
       "id": "ambiente-caserma",
@@ -59865,7 +59894,7 @@
     },
     {
       "id": "citta-stanza",
-      "label": "Un angolo di stanza in affitto: il letto di ferro, il baule, la stufetta. Sul tavolo il pane e una lettera da mandare al villaggio; il salario è poco e bisogna scegliere. Accanto alla porta la stufetta e il secchio del carbone.",
+      "label": "Un angolo di stanza in affitto: il letto di ferro, il baule, la stufetta. Sul tavolo il pane e una lettera da mandare al villaggio; il salario è poco e bisogna scegliere. Accanto alla porta il secchio del carbone.",
       "viewBox": [
         0,
         0,
@@ -61223,7 +61252,7 @@
     },
     {
       "id": "petizione-domenica",
-      "label": "Un corteo di operai sale verso il Palazzo d'Inverno con il ritratto dello zar e un foglio; il foglio resta nella neve.",
+      "label": "Un corteo di operai sale verso il Palazzo d'Inverno con il ritratto dello zar in testa; il corteo si disperde e un foglio resta nella neve.",
       "viewBox": [
         0,
         0,
@@ -61255,6 +61284,16 @@
       ],
       "components": [
         {
+          "id": "terra",
+          "symbol": "suolo",
+          "parent": "world",
+          "pose": {
+            "translateX": 800,
+            "translateY": 905,
+            "scale": 3.4
+          }
+        },
+        {
           "id": "piazza",
           "symbol": "ambiente-piazza",
           "parent": "world",
@@ -61279,9 +61318,9 @@
           "symbol": "oggetto-ritratto-zar",
           "parent": "world",
           "pose": {
-            "translateX": 760,
-            "translateY": 860,
-            "scale": 1.7
+            "translateX": 900,
+            "translateY": 870,
+            "scale": 1.8
           }
         },
         {
@@ -61295,99 +61334,99 @@
           }
         },
         {
-          "id": "corteo-1",
-          "symbol": "fig-uomo-nudo-base",
-          "rigPose": "cammina_1",
+          "id": "neve-2",
+          "symbol": "atmo-neve",
+          "parent": "world",
           "pose": {
-            "translateX": -3.0000000000000284,
-            "translateY": 860.2639999999999,
-            "scale": 1.8920000000000001
+            "translateX": 260,
+            "translateY": 420,
+            "scale": 1.7
+          }
+        },
+        {
+          "id": "neve-3",
+          "symbol": "atmo-neve",
+          "parent": "world",
+          "pose": {
+            "translateX": 1340,
+            "translateY": 360,
+            "scale": 1.7
+          }
+        },
+        {
+          "id": "corteo-1",
+          "symbol": "fig-uomo-fedora-cappotto",
+          "rigPose": "in_piedi",
+          "pose": {
+            "translateX": 190,
+            "translateY": 860,
+            "scale": 2.112
           },
           "parent": "world"
         },
         {
           "id": "corteo-2",
-          "symbol": "fig-uomo-nudo-base",
-          "rigPose": "porta_bandiera",
+          "symbol": "fig-donna-chignon-scialle",
+          "rigPose": "in_piedi",
           "pose": {
-            "translateX": 74,
-            "translateY": 847.0639999999999,
-            "scale": 1.8920000000000001
+            "translateX": 300,
+            "translateY": 860,
+            "scale": 2.2
           },
           "parent": "world"
         },
         {
-          "id": "corteo-2-bandiera",
-          "symbol": "presa-bandiera",
-          "parent": "corteo-2-hand-near"
-        },
-        {
           "id": "corteo-3",
           "symbol": "fig-uomo-nudo-base",
-          "rigPose": "cammina_1",
+          "rigPose": "in_piedi",
           "pose": {
-            "translateX": 151,
-            "translateY": 860.2639999999999,
-            "scale": 1.8920000000000001
+            "translateX": 410,
+            "translateY": 860,
+            "scale": 2.2880000000000003
           },
           "parent": "world"
         },
         {
           "id": "corteo-4",
-          "symbol": "fig-uomo-nudo-base",
-          "rigPose": "sbarra",
+          "symbol": "fig-uomo-fedora-base",
+          "rigPose": "in_piedi",
           "pose": {
-            "translateX": 228,
-            "translateY": 847.0639999999999,
-            "scale": 1.8920000000000001
+            "translateX": 520,
+            "translateY": 860,
+            "scale": 2.156
           },
           "parent": "world"
-        },
-        {
-          "id": "corteo-4-bastone-lungo",
-          "symbol": "presa-bastone-lungo",
-          "parent": "corteo-4-hand-near"
         },
         {
           "id": "corteo-5",
-          "symbol": "fig-uomo-nudo-base-fascia",
-          "rigPose": "porta_bandiera",
+          "symbol": "fig-donna-chignon-gonna",
+          "rigPose": "in_piedi",
           "pose": {
-            "translateX": 305,
-            "translateY": 860.2639999999999,
-            "scale": 1.8920000000000001
+            "translateX": 630,
+            "translateY": 860,
+            "scale": 2.244
           },
           "parent": "world"
-        },
-        {
-          "id": "corteo-5-bandiera",
-          "symbol": "presa-bandiera",
-          "parent": "corteo-5-hand-near"
         },
         {
           "id": "corteo-6",
-          "symbol": "fig-uomo-nudo-base",
-          "rigPose": "sbarra",
+          "symbol": "fig-uomo-fedora-cappotto",
+          "rigPose": "in_piedi",
           "pose": {
-            "translateX": 382,
-            "translateY": 847.0639999999999,
-            "scale": 1.8920000000000001
+            "translateX": 740,
+            "translateY": 860,
+            "scale": 2.112
           },
           "parent": "world"
-        },
-        {
-          "id": "corteo-6-bastone-lungo",
-          "symbol": "presa-bastone-lungo",
-          "parent": "corteo-6-hand-near"
         },
         {
           "id": "corteo-7",
           "symbol": "fig-uomo-nudo-base",
-          "rigPose": "cammina_1",
+          "rigPose": "in_piedi",
           "pose": {
-            "translateX": 459,
-            "translateY": 860.2639999999999,
-            "scale": 1.8920000000000001
+            "translateX": 850,
+            "translateY": 860,
+            "scale": 2.2
           },
           "parent": "world"
         }
@@ -61455,31 +61494,31 @@
                 {
                   "offset": 0.0833,
                   "values": {
-                    "rotate": 17
+                    "rotate": 14
                   }
                 },
                 {
                   "offset": 0.1667,
                   "values": {
-                    "rotate": 29.44
+                    "rotate": 24.25
                   }
                 },
                 {
                   "offset": 0.25,
                   "values": {
-                    "rotate": 34
+                    "rotate": 28
                   }
                 },
                 {
                   "offset": 0.3333,
                   "values": {
-                    "rotate": 29.44
+                    "rotate": 24.25
                   }
                 },
                 {
                   "offset": 0.4167,
                   "values": {
-                    "rotate": 17
+                    "rotate": 14
                   }
                 },
                 {
@@ -61491,31 +61530,31 @@
                 {
                   "offset": 0.5833,
                   "values": {
-                    "rotate": -17
+                    "rotate": -14
                   }
                 },
                 {
                   "offset": 0.6667,
                   "values": {
-                    "rotate": -29.44
+                    "rotate": -24.25
                   }
                 },
                 {
                   "offset": 0.75,
                   "values": {
-                    "rotate": -34
+                    "rotate": -28
                   }
                 },
                 {
                   "offset": 0.8333,
                   "values": {
-                    "rotate": -29.44
+                    "rotate": -24.25
                   }
                 },
                 {
                   "offset": 0.9167,
                   "values": {
-                    "rotate": -17
+                    "rotate": -14
                   }
                 },
                 {
@@ -61529,7 +61568,11 @@
             {
               "targets": [
                 "corteo-1",
+                "corteo-2",
                 "corteo-3",
+                "corteo-4",
+                "corteo-5",
+                "corteo-6",
                 "corteo-7"
               ],
               "part": "arm-near",
@@ -61548,31 +61591,31 @@
                 {
                   "offset": 0.0833,
                   "values": {
-                    "rotate": -17
+                    "rotate": -14
                   }
                 },
                 {
                   "offset": 0.1667,
                   "values": {
-                    "rotate": -29.44
+                    "rotate": -24.25
                   }
                 },
                 {
                   "offset": 0.25,
                   "values": {
-                    "rotate": -34
+                    "rotate": -28
                   }
                 },
                 {
                   "offset": 0.3333,
                   "values": {
-                    "rotate": -29.44
+                    "rotate": -24.25
                   }
                 },
                 {
                   "offset": 0.4167,
                   "values": {
-                    "rotate": -17
+                    "rotate": -14
                   }
                 },
                 {
@@ -61584,31 +61627,31 @@
                 {
                   "offset": 0.5833,
                   "values": {
-                    "rotate": 17
+                    "rotate": 14
                   }
                 },
                 {
                   "offset": 0.6667,
                   "values": {
-                    "rotate": 29.44
+                    "rotate": 24.25
                   }
                 },
                 {
                   "offset": 0.75,
                   "values": {
-                    "rotate": 34
+                    "rotate": 28
                   }
                 },
                 {
                   "offset": 0.8333,
                   "values": {
-                    "rotate": 29.44
+                    "rotate": 24.25
                   }
                 },
                 {
                   "offset": 0.9167,
                   "values": {
-                    "rotate": 17
+                    "rotate": 14
                   }
                 },
                 {
@@ -61645,31 +61688,31 @@
                 {
                   "offset": 0.0833,
                   "values": {
-                    "rotate": -15
+                    "rotate": -13
                   }
                 },
                 {
                   "offset": 0.1667,
                   "values": {
-                    "rotate": -25.98
+                    "rotate": -22.52
                   }
                 },
                 {
                   "offset": 0.25,
                   "values": {
-                    "rotate": -30
+                    "rotate": -26
                   }
                 },
                 {
                   "offset": 0.3333,
                   "values": {
-                    "rotate": -25.98
+                    "rotate": -22.52
                   }
                 },
                 {
                   "offset": 0.4167,
                   "values": {
-                    "rotate": -15
+                    "rotate": -13
                   }
                 },
                 {
@@ -61681,31 +61724,31 @@
                 {
                   "offset": 0.5833,
                   "values": {
-                    "rotate": 15
+                    "rotate": 13
                   }
                 },
                 {
                   "offset": 0.6667,
                   "values": {
-                    "rotate": 25.98
+                    "rotate": 22.52
                   }
                 },
                 {
                   "offset": 0.75,
                   "values": {
-                    "rotate": 30
+                    "rotate": 26
                   }
                 },
                 {
                   "offset": 0.8333,
                   "values": {
-                    "rotate": 25.98
+                    "rotate": 22.52
                   }
                 },
                 {
                   "offset": 0.9167,
                   "values": {
-                    "rotate": 15
+                    "rotate": 13
                   }
                 },
                 {
@@ -61742,31 +61785,31 @@
                 {
                   "offset": 0.0833,
                   "values": {
-                    "rotate": 15
+                    "rotate": 13
                   }
                 },
                 {
                   "offset": 0.1667,
                   "values": {
-                    "rotate": 25.98
+                    "rotate": 22.52
                   }
                 },
                 {
                   "offset": 0.25,
                   "values": {
-                    "rotate": 30
+                    "rotate": 26
                   }
                 },
                 {
                   "offset": 0.3333,
                   "values": {
-                    "rotate": 25.98
+                    "rotate": 22.52
                   }
                 },
                 {
                   "offset": 0.4167,
                   "values": {
-                    "rotate": 15
+                    "rotate": 13
                   }
                 },
                 {
@@ -61778,31 +61821,31 @@
                 {
                   "offset": 0.5833,
                   "values": {
-                    "rotate": -15
+                    "rotate": -13
                   }
                 },
                 {
                   "offset": 0.6667,
                   "values": {
-                    "rotate": -25.98
+                    "rotate": -22.52
                   }
                 },
                 {
                   "offset": 0.75,
                   "values": {
-                    "rotate": -30
+                    "rotate": -26
                   }
                 },
                 {
                   "offset": 0.8333,
                   "values": {
-                    "rotate": -25.98
+                    "rotate": -22.52
                   }
                 },
                 {
                   "offset": 0.9167,
                   "values": {
-                    "rotate": -15
+                    "rotate": -13
                   }
                 },
                 {
@@ -61875,31 +61918,31 @@
                 {
                   "offset": 0.5833,
                   "values": {
-                    "rotate": 14
+                    "rotate": 11
                   }
                 },
                 {
                   "offset": 0.6667,
                   "values": {
-                    "rotate": 24.25
+                    "rotate": 19.05
                   }
                 },
                 {
                   "offset": 0.75,
                   "values": {
-                    "rotate": 28
+                    "rotate": 22
                   }
                 },
                 {
                   "offset": 0.8333,
                   "values": {
-                    "rotate": 24.25
+                    "rotate": 19.05
                   }
                 },
                 {
                   "offset": 0.9167,
                   "values": {
-                    "rotate": 14
+                    "rotate": 11
                   }
                 },
                 {
@@ -61936,6 +61979,701 @@
                 {
                   "offset": 0.0833,
                   "values": {
+                    "rotate": 11
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "rotate": 19.05
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "rotate": 22
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "rotate": 19.05
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "rotate": 11
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-1",
+                "corteo-6"
+              ],
+              "part": "root",
+              "relative": true,
+              "ease": "linear",
+              "at": 0,
+              "duration": 867,
+              "iterations": 3,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "translateY": 0.59
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "translateY": 1.03
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "translateY": 1.18
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "translateY": 1.03
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "translateY": 0.59
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "translateY": 0.59
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "translateY": 1.03
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "translateY": 1.18
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "translateY": 1.03
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "translateY": 0.59
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateY": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-2"
+              ],
+              "part": "root",
+              "relative": true,
+              "ease": "linear",
+              "at": 0,
+              "duration": 867,
+              "iterations": 3,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "translateY": 0.6
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "translateY": 1.05
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "translateY": 1.21
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "translateY": 1.05
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "translateY": 0.6
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "translateY": 0.6
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "translateY": 1.05
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "translateY": 1.21
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "translateY": 1.05
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "translateY": 0.6
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateY": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-3"
+              ],
+              "part": "root",
+              "relative": true,
+              "ease": "linear",
+              "at": 0,
+              "duration": 867,
+              "iterations": 3,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "translateY": 0.55
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "translateY": 0.95
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "translateY": 1.09
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "translateY": 0.95
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "translateY": 0.55
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "translateY": 0.55
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "translateY": 0.95
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "translateY": 1.09
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "translateY": 0.95
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "translateY": 0.55
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateY": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-4"
+              ],
+              "part": "root",
+              "relative": true,
+              "ease": "linear",
+              "at": 0,
+              "duration": 867,
+              "iterations": 3,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "translateY": 0.58
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "translateY": 1
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "translateY": 1.16
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "translateY": 1
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "translateY": 0.58
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "translateY": 0.58
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "translateY": 1
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "translateY": 1.16
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "translateY": 1
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "translateY": 0.58
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateY": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-5"
+              ],
+              "part": "root",
+              "relative": true,
+              "ease": "linear",
+              "at": 0,
+              "duration": 867,
+              "iterations": 3,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "translateY": 0.59
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "translateY": 1.03
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "translateY": 1.19
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "translateY": 1.03
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "translateY": 0.59
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "translateY": 0.59
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "translateY": 1.03
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "translateY": 1.19
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "translateY": 1.03
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "translateY": 0.59
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateY": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-7"
+              ],
+              "part": "root",
+              "relative": true,
+              "ease": "linear",
+              "at": 0,
+              "duration": 867,
+              "iterations": 3,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "translateY": 0.57
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "translateY": 0.98
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "translateY": 1.14
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "translateY": 0.98
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "translateY": 0.57
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "translateY": 0.57
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "translateY": 0.98
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "translateY": 1.14
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "translateY": 0.98
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "translateY": 0.57
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateY": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "ritratto"
+              ],
+              "relative": true,
+              "at": 0,
+              "duration": 2600,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateX": -420,
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "translateX": -210,
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateX": 0,
+                    "translateY": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-1"
+              ],
+              "relative": true,
+              "ease": "linear",
+              "at": 3000,
+              "duration": 1400,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateX": 231,
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateX": 0,
+                    "translateY": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-1",
+                "corteo-7"
+              ],
+              "part": "arm-far",
+              "relative": true,
+              "ease": "linear",
+              "at": 3000,
+              "duration": 700,
+              "iterations": 2,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
                     "rotate": 14
                   }
                 },
@@ -61972,6 +62710,466 @@
                 {
                   "offset": 0.5833,
                   "values": {
+                    "rotate": -14
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "rotate": -24.25
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "rotate": -28
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "rotate": -24.25
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "rotate": -14
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-1",
+                "corteo-7"
+              ],
+              "part": "arm-near",
+              "relative": true,
+              "ease": "linear",
+              "at": 3000,
+              "duration": 700,
+              "iterations": 2,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "rotate": -14
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "rotate": -24.25
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "rotate": -28
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "rotate": -24.25
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "rotate": -14
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "rotate": 14
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "rotate": 24.25
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "rotate": 28
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "rotate": 24.25
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "rotate": 14
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-1",
+                "corteo-7"
+              ],
+              "part": "leg-far",
+              "relative": true,
+              "ease": "linear",
+              "at": 3000,
+              "duration": 700,
+              "iterations": 2,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "rotate": -13
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "rotate": -22.52
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "rotate": -26
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "rotate": -22.52
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "rotate": -13
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "rotate": 13
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "rotate": 22.52
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "rotate": 26
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "rotate": 22.52
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "rotate": 13
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-1",
+                "corteo-7"
+              ],
+              "part": "leg-near",
+              "relative": true,
+              "ease": "linear",
+              "at": 3000,
+              "duration": 700,
+              "iterations": 2,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "rotate": 13
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "rotate": 22.52
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "rotate": 26
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "rotate": 22.52
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "rotate": 13
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "rotate": -13
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "rotate": -22.52
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "rotate": -26
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "rotate": -22.52
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "rotate": -13
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-1",
+                "corteo-7"
+              ],
+              "part": "shin-far",
+              "relative": true,
+              "ease": "linear",
+              "at": 3000,
+              "duration": 700,
+              "iterations": 2,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "rotate": 11
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "rotate": 19.05
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "rotate": 22
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "rotate": 19.05
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "rotate": 11
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-1",
+                "corteo-7"
+              ],
+              "part": "shin-near",
+              "relative": true,
+              "ease": "linear",
+              "at": 3000,
+              "duration": 700,
+              "iterations": 2,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "rotate": 11
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "rotate": 19.05
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "rotate": 22
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "rotate": 19.05
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "rotate": 11
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
                     "rotate": 0
                   }
                 },
@@ -62009,20 +63207,14 @@
             },
             {
               "targets": [
-                "corteo-1",
-                "corteo-2",
-                "corteo-3",
-                "corteo-4",
-                "corteo-5",
-                "corteo-6",
-                "corteo-7"
+                "corteo-1"
               ],
               "part": "root",
               "relative": true,
               "ease": "linear",
-              "at": 0,
-              "duration": 867,
-              "iterations": 3,
+              "at": 3000,
+              "duration": 700,
+              "iterations": 2,
               "frames": [
                 {
                   "offset": 0,
@@ -62033,31 +63225,31 @@
                 {
                   "offset": 0.0833,
                   "values": {
-                    "translateY": 0.79
+                    "translateY": 0.59
                   }
                 },
                 {
                   "offset": 0.1667,
                   "values": {
-                    "translateY": 1.37
+                    "translateY": 1.03
                   }
                 },
                 {
                   "offset": 0.25,
                   "values": {
-                    "translateY": 1.59
+                    "translateY": 1.18
                   }
                 },
                 {
                   "offset": 0.3333,
                   "values": {
-                    "translateY": 1.37
+                    "translateY": 1.03
                   }
                 },
                 {
                   "offset": 0.4167,
                   "values": {
-                    "translateY": 0.79
+                    "translateY": 0.59
                   }
                 },
                 {
@@ -62069,31 +63261,31 @@
                 {
                   "offset": 0.5833,
                   "values": {
-                    "translateY": 0.79
+                    "translateY": 0.59
                   }
                 },
                 {
                   "offset": 0.6667,
                   "values": {
-                    "translateY": 1.37
+                    "translateY": 1.03
                   }
                 },
                 {
                   "offset": 0.75,
                   "values": {
-                    "translateY": 1.59
+                    "translateY": 1.18
                   }
                 },
                 {
                   "offset": 0.8333,
                   "values": {
-                    "translateY": 1.37
+                    "translateY": 1.03
                   }
                 },
                 {
                   "offset": 0.9167,
                   "values": {
-                    "translateY": 0.79
+                    "translateY": 0.59
                   }
                 },
                 {
@@ -62106,38 +63298,7 @@
             },
             {
               "targets": [
-                "ritratto"
-              ],
-              "relative": true,
-              "at": 0,
-              "duration": 2600,
-              "frames": [
-                {
-                  "offset": 0,
-                  "values": {
-                    "translateX": -500,
-                    "translateY": 0
-                  }
-                },
-                {
-                  "offset": 0.5,
-                  "values": {
-                    "translateX": -250,
-                    "translateY": 0
-                  }
-                },
-                {
-                  "offset": 1,
-                  "values": {
-                    "translateX": 0,
-                    "translateY": 0
-                  }
-                }
-              ]
-            },
-            {
-              "targets": [
-                "corteo-1"
+                "corteo-2"
               ],
               "relative": true,
               "ease": "linear",
@@ -62147,8 +63308,8 @@
                 {
                   "offset": 0,
                   "values": {
-                    "translateX": 161.7,
-                    "translateY": -3.96
+                    "translateX": 154,
+                    "translateY": 0
                   }
                 },
                 {
@@ -62162,13 +63323,11 @@
             },
             {
               "targets": [
-                "corteo-1",
                 "corteo-2",
                 "corteo-3",
                 "corteo-4",
                 "corteo-5",
-                "corteo-6",
-                "corteo-7"
+                "corteo-6"
               ],
               "part": "arm-far",
               "relative": true,
@@ -62259,9 +63418,11 @@
             },
             {
               "targets": [
-                "corteo-1",
+                "corteo-2",
                 "corteo-3",
-                "corteo-7"
+                "corteo-4",
+                "corteo-5",
+                "corteo-6"
               ],
               "part": "arm-near",
               "relative": true,
@@ -62352,13 +63513,11 @@
             },
             {
               "targets": [
-                "corteo-1",
                 "corteo-2",
                 "corteo-3",
                 "corteo-4",
                 "corteo-5",
-                "corteo-6",
-                "corteo-7"
+                "corteo-6"
               ],
               "part": "leg-far",
               "relative": true,
@@ -62449,13 +63608,11 @@
             },
             {
               "targets": [
-                "corteo-1",
                 "corteo-2",
                 "corteo-3",
                 "corteo-4",
                 "corteo-5",
-                "corteo-6",
-                "corteo-7"
+                "corteo-6"
               ],
               "part": "leg-near",
               "relative": true,
@@ -62546,13 +63703,11 @@
             },
             {
               "targets": [
-                "corteo-1",
                 "corteo-2",
                 "corteo-3",
                 "corteo-4",
                 "corteo-5",
-                "corteo-6",
-                "corteo-7"
+                "corteo-6"
               ],
               "part": "shin-far",
               "relative": true,
@@ -62643,13 +63798,11 @@
             },
             {
               "targets": [
-                "corteo-1",
                 "corteo-2",
                 "corteo-3",
                 "corteo-4",
                 "corteo-5",
-                "corteo-6",
-                "corteo-7"
+                "corteo-6"
               ],
               "part": "shin-near",
               "relative": true,
@@ -62740,13 +63893,7 @@
             },
             {
               "targets": [
-                "corteo-1",
-                "corteo-2",
-                "corteo-3",
-                "corteo-4",
-                "corteo-5",
-                "corteo-6",
-                "corteo-7"
+                "corteo-2"
               ],
               "part": "root",
               "relative": true,
@@ -62764,31 +63911,31 @@
                 {
                   "offset": 0.0833,
                   "values": {
-                    "translateY": 0.66
+                    "translateY": 0.6
                   }
                 },
                 {
                   "offset": 0.1667,
                   "values": {
-                    "translateY": 1.14
+                    "translateY": 1.05
                   }
                 },
                 {
                   "offset": 0.25,
                   "values": {
-                    "translateY": 1.32
+                    "translateY": 1.21
                   }
                 },
                 {
                   "offset": 0.3333,
                   "values": {
-                    "translateY": 1.14
+                    "translateY": 1.05
                   }
                 },
                 {
                   "offset": 0.4167,
                   "values": {
-                    "translateY": 0.66
+                    "translateY": 0.6
                   }
                 },
                 {
@@ -62800,61 +63947,36 @@
                 {
                   "offset": 0.5833,
                   "values": {
-                    "translateY": 0.66
+                    "translateY": 0.6
                   }
                 },
                 {
                   "offset": 0.6667,
                   "values": {
-                    "translateY": 1.14
+                    "translateY": 1.05
                   }
                 },
                 {
                   "offset": 0.75,
                   "values": {
-                    "translateY": 1.32
+                    "translateY": 1.21
                   }
                 },
                 {
                   "offset": 0.8333,
                   "values": {
-                    "translateY": 1.14
+                    "translateY": 1.05
                   }
                 },
                 {
                   "offset": 0.9167,
                   "values": {
-                    "translateY": 0.66
+                    "translateY": 0.6
                   }
                 },
                 {
                   "offset": 1,
                   "values": {
-                    "translateY": 0
-                  }
-                }
-              ]
-            },
-            {
-              "targets": [
-                "corteo-2"
-              ],
-              "relative": true,
-              "ease": "linear",
-              "at": 3000,
-              "duration": 1400,
-              "frames": [
-                {
-                  "offset": 0,
-                  "values": {
-                    "translateX": 107.8,
-                    "translateY": 5.28
-                  }
-                },
-                {
-                  "offset": 1,
-                  "values": {
-                    "translateX": 0,
                     "translateY": 0
                   }
                 }
@@ -62872,14 +63994,105 @@
                 {
                   "offset": 0,
                   "values": {
-                    "translateX": 53.9,
-                    "translateY": -3.96
+                    "translateX": 77,
+                    "translateY": 0
                   }
                 },
                 {
                   "offset": 1,
                   "values": {
                     "translateX": 0,
+                    "translateY": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-3"
+              ],
+              "part": "root",
+              "relative": true,
+              "ease": "linear",
+              "at": 3000,
+              "duration": 1400,
+              "iterations": 1,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "translateY": 0.55
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "translateY": 0.95
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "translateY": 1.09
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "translateY": 0.95
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "translateY": 0.55
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "translateY": 0.55
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "translateY": 0.95
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "translateY": 1.09
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "translateY": 0.95
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "translateY": 0.55
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
                     "translateY": 0
                   }
                 }
@@ -62898,13 +64111,104 @@
                   "offset": 0,
                   "values": {
                     "translateX": 0,
-                    "translateY": 5.28
+                    "translateY": 0
                   }
                 },
                 {
                   "offset": 1,
                   "values": {
                     "translateX": 0,
+                    "translateY": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-4"
+              ],
+              "part": "root",
+              "relative": true,
+              "ease": "linear",
+              "at": 3000,
+              "duration": 1400,
+              "iterations": 1,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "translateY": 0.58
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "translateY": 1
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "translateY": 1.16
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "translateY": 1
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "translateY": 0.58
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "translateY": 0.58
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "translateY": 1
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "translateY": 1.16
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "translateY": 1
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "translateY": 0.58
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
                     "translateY": 0
                   }
                 }
@@ -62922,14 +64226,105 @@
                 {
                   "offset": 0,
                   "values": {
-                    "translateX": -53.9,
-                    "translateY": -3.96
+                    "translateX": -77,
+                    "translateY": 0
                   }
                 },
                 {
                   "offset": 1,
                   "values": {
                     "translateX": 0,
+                    "translateY": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-5"
+              ],
+              "part": "root",
+              "relative": true,
+              "ease": "linear",
+              "at": 3000,
+              "duration": 1400,
+              "iterations": 1,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "translateY": 0.59
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "translateY": 1.03
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "translateY": 1.19
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "translateY": 1.03
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "translateY": 0.59
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "translateY": 0.59
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "translateY": 1.03
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "translateY": 1.19
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "translateY": 1.03
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "translateY": 0.59
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
                     "translateY": 0
                   }
                 }
@@ -62947,14 +64342,105 @@
                 {
                   "offset": 0,
                   "values": {
-                    "translateX": -107.8,
-                    "translateY": 5.28
+                    "translateX": -154,
+                    "translateY": 0
                   }
                 },
                 {
                   "offset": 1,
                   "values": {
                     "translateX": 0,
+                    "translateY": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-6"
+              ],
+              "part": "root",
+              "relative": true,
+              "ease": "linear",
+              "at": 3000,
+              "duration": 1400,
+              "iterations": 1,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "translateY": 0.59
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "translateY": 1.03
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "translateY": 1.18
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "translateY": 1.03
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "translateY": 0.59
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "translateY": 0.59
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "translateY": 1.03
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "translateY": 1.18
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "translateY": 1.03
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "translateY": 0.59
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
                     "translateY": 0
                   }
                 }
@@ -62972,14 +64458,105 @@
                 {
                   "offset": 0,
                   "values": {
-                    "translateX": -161.7,
-                    "translateY": -3.96
+                    "translateX": -231,
+                    "translateY": 0
                   }
                 },
                 {
                   "offset": 1,
                   "values": {
                     "translateX": 0,
+                    "translateY": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "corteo-7"
+              ],
+              "part": "root",
+              "relative": true,
+              "ease": "linear",
+              "at": 3000,
+              "duration": 700,
+              "iterations": 2,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "translateY": 0.57
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "translateY": 0.98
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "translateY": 1.14
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "translateY": 0.98
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "translateY": 0.57
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "translateY": 0.57
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "translateY": 0.98
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "translateY": 1.14
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "translateY": 0.98
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "translateY": 0.57
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
                     "translateY": 0
                   }
                 }
@@ -63914,6 +65491,26 @@
             "translateX": 800,
             "translateY": 300,
             "scale": 2
+          }
+        },
+        {
+          "id": "neve-2",
+          "symbol": "atmo-neve",
+          "parent": "world",
+          "pose": {
+            "translateX": 260,
+            "translateY": 420,
+            "scale": 1.7
+          }
+        },
+        {
+          "id": "neve-3",
+          "symbol": "atmo-neve",
+          "parent": "world",
+          "pose": {
+            "translateX": 1340,
+            "translateY": 360,
+            "scale": 1.7
           }
         },
         {
@@ -65594,6 +67191,26 @@
             "translateX": 800,
             "translateY": 300,
             "scale": 2
+          }
+        },
+        {
+          "id": "neve-2",
+          "symbol": "atmo-neve",
+          "parent": "world",
+          "pose": {
+            "translateX": 260,
+            "translateY": 420,
+            "scale": 1.7
+          }
+        },
+        {
+          "id": "neve-3",
+          "symbol": "atmo-neve",
+          "parent": "world",
+          "pose": {
+            "translateX": 1340,
+            "translateY": 360,
+            "scale": 1.7
           }
         },
         {
@@ -70318,6 +71935,26 @@
           }
         },
         {
+          "id": "neve-2",
+          "symbol": "atmo-neve",
+          "parent": "world",
+          "pose": {
+            "translateX": 260,
+            "translateY": 420,
+            "scale": 1.7
+          }
+        },
+        {
+          "id": "neve-3",
+          "symbol": "atmo-neve",
+          "parent": "world",
+          "pose": {
+            "translateX": 1340,
+            "translateY": 360,
+            "scale": 1.7
+          }
+        },
+        {
           "id": "corteo-1",
           "symbol": "fig-uomo-nudo-base",
           "rigPose": "cammina_1",
@@ -71993,13 +73630,13 @@
       ],
       "components": [
         {
-          "id": "campi",
-          "symbol": "luogo-pianura",
+          "id": "terra",
+          "symbol": "suolo",
           "parent": "world",
           "pose": {
             "translateX": 800,
             "translateY": 900,
-            "scale": 2.9
+            "scale": 3.4
           }
         },
         {
@@ -73563,13 +75200,13 @@
       ],
       "components": [
         {
-          "id": "campi",
-          "symbol": "luogo-pianura",
+          "id": "terra",
+          "symbol": "suolo",
           "parent": "world",
           "pose": {
             "translateX": 800,
             "translateY": 900,
-            "scale": 2.9
+            "scale": 3.4
           }
         },
         {
@@ -73590,6 +75227,26 @@
             "translateX": 800,
             "translateY": 300,
             "scale": 2
+          }
+        },
+        {
+          "id": "neve-2",
+          "symbol": "atmo-neve",
+          "parent": "world",
+          "pose": {
+            "translateX": 260,
+            "translateY": 420,
+            "scale": 1.7
+          }
+        },
+        {
+          "id": "neve-3",
+          "symbol": "atmo-neve",
+          "parent": "world",
+          "pose": {
+            "translateX": 1340,
+            "translateY": 360,
+            "scale": 1.7
           }
         },
         {
@@ -75440,7 +77097,7 @@
           "parent": "world",
           "pose": {
             "translateX": 800,
-            "translateY": 735,
+            "translateY": 765,
             "scale": 3.3
           }
         },
@@ -76228,7 +77885,7 @@
     },
     {
       "id": "concessioni-sala",
-      "label": "A sinistra la sala di San Giorgio con l'aquila imperiale; a destra il palco di un teatro. In mezzo un giornale e tre persone che leggono la stessa concessione in modi diversi.",
+      "label": "A sinistra la sala di San Giorgio con l'aquila imperiale; a destra il palco di un teatro. In primo piano un giornale e tre persone che lo leggono in modi diversi.",
       "viewBox": [
         0,
         0,
@@ -76294,8 +77951,8 @@
           "symbol": "oggetto-giornale",
           "parent": "world",
           "pose": {
-            "translateX": 800,
-            "translateY": 880,
+            "translateX": 760,
+            "translateY": 890,
             "scale": 2.4
           }
         },
@@ -76320,7 +77977,7 @@
           "symbol": "fig-donna-chignon-scialle",
           "rigPose": "legge",
           "pose": {
-            "translateX": 900,
+            "translateX": 980,
             "translateY": 860,
             "scale": 1.25,
             "scaleX": -1
@@ -76337,7 +77994,7 @@
           "symbol": "fig-uomo-nudo-cappotto",
           "rigPose": "legge",
           "pose": {
-            "translateX": 1050,
+            "translateX": 1120,
             "translateY": 850,
             "scale": 1.25,
             "scaleX": -1
@@ -78688,13 +80345,13 @@
       ],
       "components": [
         {
-          "id": "campi",
-          "symbol": "luogo-pianura",
+          "id": "terra",
+          "symbol": "suolo",
           "parent": "world",
           "pose": {
             "translateX": 800,
             "translateY": 900,
-            "scale": 2.9
+            "scale": 3.4
           }
         },
         {
@@ -78733,7 +80390,7 @@
           "parent": "world",
           "pose": {
             "translateX": 1200,
-            "translateY": 745,
+            "translateY": 765,
             "scale": 3.2
           }
         },
@@ -78775,6 +80432,26 @@
             "translateX": 800,
             "translateY": 300,
             "scale": 2
+          }
+        },
+        {
+          "id": "neve-2",
+          "symbol": "atmo-neve",
+          "parent": "world",
+          "pose": {
+            "translateX": 260,
+            "translateY": 420,
+            "scale": 1.7
+          }
+        },
+        {
+          "id": "neve-3",
+          "symbol": "atmo-neve",
+          "parent": "world",
+          "pose": {
+            "translateX": 1340,
+            "translateY": 360,
+            "scale": 1.7
           }
         },
         {
@@ -78829,14 +80506,14 @@
                   "offset": 0,
                   "values": {
                     "translateX": 500,
-                    "translateY": 0
+                    "translateY": -20
                   }
                 },
                 {
                   "offset": 0.5,
                   "values": {
                     "translateX": 250,
-                    "translateY": 0
+                    "translateY": -10
                   }
                 },
                 {
@@ -79060,6 +80737,26 @@
           }
         },
         {
+          "id": "neve-2",
+          "symbol": "atmo-neve",
+          "parent": "world",
+          "pose": {
+            "translateX": 260,
+            "translateY": 420,
+            "scale": 1.7
+          }
+        },
+        {
+          "id": "neve-3",
+          "symbol": "atmo-neve",
+          "parent": "world",
+          "pose": {
+            "translateX": 1340,
+            "translateY": 360,
+            "scale": 1.7
+          }
+        },
+        {
           "id": "soldato-1",
           "symbol": "fig-uomo-visiera-tunica",
           "rigPose": "in_piedi",
@@ -79200,7 +80897,7 @@
     },
     {
       "id": "pane-guerra-famiglia",
-      "label": "Il palazzo imperiale d'inverno, isolato: davanti a lui un grande spazio vuoto e, minuscole, tre figure della famiglia.",
+      "label": "Un palazzo imperiale d'inverno, isolato: davanti a lui un grande spazio vuoto e, minuscole, tre figure della famiglia.",
       "viewBox": [
         0,
         0,
@@ -79232,13 +80929,13 @@
       ],
       "components": [
         {
-          "id": "campi",
-          "symbol": "luogo-pianura",
+          "id": "terra",
+          "symbol": "suolo",
           "parent": "world",
           "pose": {
             "translateX": 800,
             "translateY": 900,
-            "scale": 2.9
+            "scale": 3.4
           }
         },
         {
@@ -79269,6 +80966,26 @@
             "translateX": 800,
             "translateY": 300,
             "scale": 2
+          }
+        },
+        {
+          "id": "neve-2",
+          "symbol": "atmo-neve",
+          "parent": "world",
+          "pose": {
+            "translateX": 260,
+            "translateY": 420,
+            "scale": 1.7
+          }
+        },
+        {
+          "id": "neve-3",
+          "symbol": "atmo-neve",
+          "parent": "world",
+          "pose": {
+            "translateX": 1340,
+            "translateY": 360,
+            "scale": 1.7
           }
         },
         {
@@ -81347,13 +83064,13 @@
       ],
       "components": [
         {
-          "id": "campi",
-          "symbol": "luogo-pianura",
+          "id": "terra",
+          "symbol": "suolo",
           "parent": "world",
           "pose": {
             "translateX": 800,
             "translateY": 900,
-            "scale": 2.9
+            "scale": 3.4
           }
         },
         {
@@ -81381,9 +83098,9 @@
           "symbol": "coda-tessera",
           "parent": "world",
           "pose": {
-            "translateX": 620,
-            "translateY": 880,
-            "scale": 1.8
+            "translateX": 900,
+            "translateY": 890,
+            "scale": 0.9
           }
         },
         {
@@ -81394,6 +83111,26 @@
             "translateX": 800,
             "translateY": 300,
             "scale": 2
+          }
+        },
+        {
+          "id": "neve-2",
+          "symbol": "atmo-neve",
+          "parent": "world",
+          "pose": {
+            "translateX": 260,
+            "translateY": 420,
+            "scale": 1.7
+          }
+        },
+        {
+          "id": "neve-3",
+          "symbol": "atmo-neve",
+          "parent": "world",
+          "pose": {
+            "translateX": 1340,
+            "translateY": 360,
+            "scale": 1.7
           }
         },
         {
@@ -87481,7 +89218,7 @@
     },
     {
       "id": "otto-giorni-treno",
-      "label": "Un treno fermo nella neve su un binario morto; accanto al vagone un uomo in cappotto solo.",
+      "label": "Un treno fermo nella neve su un binario morto; accanto a lui un uomo in cappotto, solo.",
       "viewBox": [
         0,
         0,
@@ -87548,7 +89285,7 @@
           "parent": "world",
           "pose": {
             "translateX": 800,
-            "translateY": 755,
+            "translateY": 785,
             "scale": 3.4
           }
         },
@@ -87560,6 +89297,26 @@
             "translateX": 800,
             "translateY": 300,
             "scale": 2
+          }
+        },
+        {
+          "id": "neve-2",
+          "symbol": "atmo-neve",
+          "parent": "world",
+          "pose": {
+            "translateX": 260,
+            "translateY": 420,
+            "scale": 1.7
+          }
+        },
+        {
+          "id": "neve-3",
+          "symbol": "atmo-neve",
+          "parent": "world",
+          "pose": {
+            "translateX": 1340,
+            "translateY": 360,
+            "scale": 1.7
           }
         },
         {
@@ -87578,7 +89335,7 @@
       "sequences": [
         {
           "id": "ingresso",
-          "caption": "Lo zar scende dal vagone e torna dentro: il treno resta fermo.",
+          "caption": "Un uomo in cappotto si avvicina al treno e si allontana: il treno resta fermo.",
           "tracks": [],
           "clips": [
             {
@@ -88293,13 +90050,13 @@
       ],
       "components": [
         {
-          "id": "campi",
-          "symbol": "luogo-pianura",
+          "id": "terra",
+          "symbol": "suolo",
           "parent": "world",
           "pose": {
             "translateX": 800,
             "translateY": 900,
-            "scale": 2.9
+            "scale": 3.4
           }
         },
         {
@@ -94085,7 +95842,7 @@
           "text": "La guerra contro il Giappone va male. Domenica 22 gennaio 1905 (9 gennaio nel calendario russo) un corteo guidato da padre Gapon porta allo zar una petizione e le icone. Lo zar non è in città. La truppa spara sulla folla.\n\nChe cosa muore quella domenica oltre alle persone? La fiducia nello zar come padre.",
           "roleId": "figlio",
           "stageId": "petizione-domenica",
-          "visualExplanation": "Il corteo sale verso il Palazzo d'Inverno con un foglio e il ritratto dello zar. Lo sparo non si vede: le figure si disperdono e il foglio resta nella neve.",
+          "visualExplanation": "Il corteo sale verso il Palazzo d'Inverno con il ritratto dello zar in testa. Lo sparo non si vede: le figure si disperdono e il foglio resta nella neve.",
           "context": {
             "kind": "documented",
             "dateLabel": "22 gennaio 1905",
@@ -94929,7 +96686,7 @@
           "roleId": "figlio",
           "stageId": "concessioni-sala",
           "motionId": "ingresso",
-          "visualExplanation": "A sinistra la sala di San Giorgio con l'aquila imperiale, a destra il palco di un teatro; in mezzo un giornale e tre persone che leggono la stessa concessione. Tre schede sulla stessa concessione. Gli indicatori sono indici della simulazione: non sono dati storici né voti.",
+          "visualExplanation": "A sinistra la sala di San Giorgio con l'aquila imperiale, a destra il palco di un teatro; in primo piano un giornale e tre persone che lo leggono. Gli indicatori sono indici della simulazione: non sono dati storici né voti.",
           "context": {
             "kind": "source",
             "dateLabel": "1905–1907",
@@ -95862,7 +97619,7 @@
           "roleId": "capofamiglia",
           "stageId": "pane-guerra-famiglia",
           "motionId": "ingresso",
-          "visualExplanation": "Il palazzo imperiale d'inverno con il vuoto intorno: tre figure della famiglia, minuscole, lo attraversano.",
+          "visualExplanation": "Un palazzo imperiale d'inverno con il vuoto intorno: tre figure della famiglia, minuscole, lo attraversano.",
           "context": {
             "kind": "documented",
             "dateLabel": "dicembre 1916",
@@ -97190,7 +98947,7 @@
           "roleId": "figlio",
           "stageId": "otto-giorni-treno",
           "motionId": "ingresso",
-          "visualExplanation": "Un treno fermo nella neve e un uomo in cappotto che scende dal vagone e torna dentro.",
+          "visualExplanation": "Un treno fermo nella neve e un uomo in cappotto che gli si avvicina e poi si allontana.",
           "context": {
             "kind": "documented",
             "dateLabel": "marzo 1917",

@@ -190,7 +190,7 @@
       "exposes": [
         "a1-domenica"
       ],
-      "visualExplanation": "Il corteo sale verso il Palazzo d'Inverno con un foglio e il ritratto dello zar. Lo sparo non si vede: le figure si disperdono e il foglio resta nella neve.",
+      "visualExplanation": "Il corteo sale verso il Palazzo d'Inverno con il ritratto dello zar in testa. Lo sparo non si vede: le figure si disperdono e il foglio resta nella neve.",
       "shows": []
     },
     {
@@ -1006,7 +1006,7 @@
       "exposes": [
         "a1-manifesto-ott"
       ],
-      "visualExplanation": "A sinistra la sala di San Giorgio con l'aquila imperiale, a destra il palco di un teatro; in mezzo un giornale e tre persone che leggono la stessa concessione. Tre schede sulla stessa concessione. Gli indicatori sono indici della simulazione: non sono dati storici né voti.",
+      "visualExplanation": "A sinistra la sala di San Giorgio con l'aquila imperiale, a destra il palco di un teatro; in primo piano un giornale e tre persone che lo leggono. Gli indicatori sono indici della simulazione: non sono dati storici né voti.",
       "sources": [
         {
           "id": "manifesto",

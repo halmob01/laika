@@ -21,11 +21,11 @@
   "etichetta": "Dal Palazzo d'Inverno al Palazzo di Tauride: una bandiera rossa passa da un palazzo all'altro attraverso la piazza.",
   "elementi": [
     {
-      "id": "campi",
-      "simbolo": "luogo-pianura",
+      "id": "terra",
+      "simbolo": "suolo",
       "x": 800,
       "y": 900,
-      "scala": 2.9
+      "scala": 3.4
     },
     {
       "id": "palazzo",
