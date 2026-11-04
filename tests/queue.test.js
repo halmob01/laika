@@ -224,3 +224,23 @@ test('coda: validazione delle uscite condizionate', () => {
   const g = gioco(); ep(g).queue.groups[0].exit = [{ when: { op: 'gte', kind: 'metric', id: 'malcontento', value: 5 }, to: 'fabbrica' }, { to: 'corteo' }];
   validateGame(g);
 });
+
+test('coda: sei regole di uscita sono troppe, la crisi non scatta due volte, ripresa con la crisi già scattata', () => {
+  const g = gioco(); const e = ep(g);
+  const r = n => ({ when: { op: 'gte', kind: 'metric', id: 'malcontento', value: n }, to: 'corteo' });
+  e.queue.groups[0].exit = [r(1), r(2), r(3), r(4), r(5), { to: 'fabbrica' }];
+  assert.throws(() => validateGame(g));
+  const h = gioco(), f = ep(h);
+  f.crises = [{ id: 'piazza-piena', when: { op: 'gte', kind: 'metric', id: 'malcontento', value: 20 }, text: 'La piazza è piena.', effects: [{ kind: 'metric', id: 'malcontento', delta: 7 }] }];
+  let s = newSession(h, 's11');
+  for (let i = 0; i < 3; i++) s = finisciTurno(h, s);
+  assert.deepEqual(coda(s).last.crises.map(c => c.id), ['piazza-piena']);
+  const dopo = s.currentAct.metrics.malcontento;
+  const back = restore(h, exportSave(h, s));
+  assert.equal(back.ok, true);
+  assert.deepEqual(back.state.currentAct.game.queue.last.crises, coda(s).last.crises);
+  let u = back.state; u = finisciTurno(h, u);
+  assert.equal(coda(u).last.crises.length, 0, 'la crisi è già scattata: non si ripete');
+  assert.ok(u.currentAct.metrics.malcontento >= dopo);
+  assert.deepEqual(u.currentAct.game.fired, ['piazza-piena']);
+});
