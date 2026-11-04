@@ -2059,7 +2059,7 @@
         }
       ],
       "editorial": {
-        "scheda": "I.1 (forma nuova, REPERTORIO-GIOCHI §5)",
+        "scheda": "I.1 (forma nuova, docs/laika/giochi/servitu.md)",
         "nota": "Card [D] dalla matrice delle fonti; chi bussa, regole e numeri sono simulazione."
       },
       "strengthLabel": "braccia",
@@ -6910,7 +6910,7 @@
   "reconciliation": "Fine dell'Atto I (1700–marzo 1917). Per un secolo e mezzo la ricchezza si è contata in anime; il 1861 ha dato la libertà della persona senza la terra. La terra non bastava, i figli sono andati in fabbrica; nel 1905 uno sciopero ha fatto nascere il primo soviet; la guerra ha tolto il pane alle città. A marzo 1917 i soldati non hanno sparato e lo zar è caduto perché nessuno lo difendeva più. Le tue scelte hanno cambiato soltanto la simulazione, non questi fatti. Che cosa viene dopo era ancora da decidere: è l'Atto II, in preparazione.",
   "editorial": {
     "unita": "I.1",
-    "piano": "docs/PIANO-ATTI-LAIKA.md §7"
+    "piano": "docs/laika/atti/atto-1.md"
   },
   "period": "1700 – marzo 1917",
   "question": "Si può possedere un essere umano? Che cosa tiene in piedi un potere che si crede sacro?",

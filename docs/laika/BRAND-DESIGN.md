@@ -2,8 +2,8 @@
 
 **Stato:** direzione creativa condivisa; **prototipo visivo non definitivo**, 19 ottobre 2026.  
 **Repository tecnica:** `halmob01/riv-russa` (il nome del repository non cambia).  
-**Prototipo:** [`prototypes/laika-home/index.html`](../prototypes/laika-home/index.html).  
-**Riferimenti illustrativi:** [`references/laika/README.md`](../references/laika/README.md).
+**Prototipo:** [`prototypes/laika-home/index.html`](../../prototypes/laika-home/index.html).  
+**Riferimenti illustrativi:** [`references/laika/README.md`](../../references/laika/README.md).
 
 ## 1. Identità
 
@@ -119,9 +119,9 @@ Decisione del docente: il giocatore deve sentire che un'unità finisce e un'altr
 - **Pagina dell'atto:** titolo e periodo dell'atto, la sua domanda, una barra a segmenti e «n unità finite su N», un pulsante («Inizia» o «Riprendi») e l'elenco delle unità con numero (I.1…), titolo, periodo, riga di sintesi e timbro di stato: *Finita*, *In corso*, *Più avanti*. Su schermo largo titolo e pulsante stanno a sinistra e l'elenco a destra.
 - **Pagina dell'unità:** domanda, «Dove siamo», «Che cosa farai» (il gioco), «Che cosa incontrerai» (concetti), «Da prima porti con te», pulsante e «Torna all'atto». Niente durate finché non sono misurate.
 - **Chiusura:** timbro «Unità conclusa», «Che cosa hai fatto», fatto documentato e simulazione affiancati, che cosa viene dopo, pulsante per l'unità successiva.
-- Durante il gioco il collegamento «‹ Atto I · I.2 · 1 / 7» riporta alla pagina dell'atto.
+- Durante il gioco il collegamento «‹ Atto I · I.2 · 1 / 7» (numeri dal canone) riporta alla pagina dell'atto.
 - **Regola dei testi:** nessuna scritta di lavoro rivolta all'utente («in preparazione», «prova tecnica», «backup», «migrazione», nomi di file o di flag). Un'unità non ancora giocabile si dice «Più avanti». **Scelta del docente (4 novembre 2026):** ogni unità che ha episodi si apre direttamente dalla pagina dell'atto con il suo pulsante («Inizia», «Gioca» o «Rigioca»), senza ordine obbligato; il grigio «Più avanti» resta solo per le unità senza episodi. Il corso non mostra pulsanti di esportazione, importazione o backup: se il salvataggio non è più utilizzabile compare una frase semplice con il solo «Ricomincia».
-- Le pagine usano le stesse famiglie e la stessa palette del player (§5quater). Contratto dati in [CREARE-UN-GIOCO](CREARE-UN-GIOCO.md); schermate di prova approvate nel file `schermate-unita.html` (bozza fuori repository).
+- Le pagine usano le stesse famiglie e la stessa palette del player (§5quater). Contratto dati in [CREARE-UN-GIOCO](../CREARE-UN-GIOCO.md); schermate di prova approvate nel file `schermate-unita.html` (bozza fuori repository).
 
 ## 5bis. Homepage: prototipo iniziale (storico)
 
@@ -133,14 +133,14 @@ Decisione del docente: il giocatore deve sentire che un'unità finisce e un'altr
 6. **Procedura**: spiegazione dell'esperienza didattica con tono da comunicato amministrativo.
 7. **Pausa movimento**, `prefers-reduced-motion`, attenzione a desktop e telefono.
 
-Le interazioni del prototipo sono dimostrazioni di branding: **non** sostituiscono il gioco né costituiscono il pacchetto storico definitivo. Il riferimento per i capitoli resta [`docs/PROGETTO.md`](archivio/PROGETTO.md).
+Le interazioni del prototipo sono dimostrazioni di branding: **non** sostituiscono il gioco né costituiscono il pacchetto storico definitivo. Il riferimento per i capitoli resta [`docs/PROGETTO.md`](../archivio/PROGETTO.md).
 
 ## 6. Motion design
 
 - Le animazioni devono **mostrare fenomeni**: folle che crescono o cambiano orientamento, una costruzione che avanza, la diffusione di una decisione, il passaggio di potere, un treno, una bandiera che segnala un attore.
 - Animazioni di contesto e microinterazioni possibili ma misurate, senza bounce o effetti decorativi ripetitivi.
 - Preferire sequenze causali collegate a eventi dichiarativi del kit; mantenere possibilità di pausa, replay, skip e riduzione del movimento.
-- Non includere animazioni specificamente russe nel motore generico. Riferirsi a [`docs/MOTION.md`](MOTION.md) per il contratto tecnico.
+- Non includere animazioni specificamente russe nel motore generico. Riferirsi a [`docs/MOTION.md`](../MOTION.md) per il contratto tecnico.
 - L'obiettivo non è riprodurre in codice i JPG dei riferimenti: servono **nuove scene semplificate**, coerenti con la storia di ciascun atto.
 
 ## 7. Stato e prossime decisioni
@@ -211,6 +211,6 @@ Conservare `prefers-reduced-motion`, pausa e possibilità di raggiungere diretta
 
 ## 9. Consolidamento di asset e figure (19 ottobre 2026, PR di design)
 
-Sono state preservate tre fonti indipendenti: il [primo kit da 20 simboli](../prototypes/laika-kit/kit-forme-laika.html) per architetture, mezzi e segni, la [home v2](../prototypes/laika-home/index-v2.html) per la direzione stilistica dei **cinque omini più organici** e la [nuova galleria dell'Atto 0](../prototypes/laika-kit/index.html) per terra, mir, fabbrica, risorse e crisi. Le figure geometriche del primo kit restano un confronto, non lo standard estetico definitivo.
+Sono state preservate tre fonti indipendenti: il [primo kit da 20 simboli](../../prototypes/laika-kit/kit-forme-laika.html) per architetture, mezzi e segni, la [home v2](../../prototypes/laika-home/index-v2.html) per la direzione stilistica dei **cinque omini più organici** e la [nuova galleria dell'Atto 0](../../prototypes/laika-kit/index.html) per terra, mir, fabbrica, risorse e crisi. Le figure geometriche del primo kit restano un confronto, non lo standard estetico definitivo.
 
-Vincoli non cambiati: silhouette umane piene, curve meno regolari, geometria essenziale, palette controllata. Prima di finalizzare la grafica occorre correggere gli snodi visibili nell'animazione e testare le composizioni in mobile. La galleria ha un contratto tecnico separato dai contenuti didattici; per provenienza, limiti storici e criteri di merge leggere [LAIKA-ASSET-DIRECTION.md](archivio/LAIKA-ASSET-DIRECTION.md).
+Vincoli non cambiati: silhouette umane piene, curve meno regolari, geometria essenziale, palette controllata. Prima di finalizzare la grafica occorre correggere gli snodi visibili nell'animazione e testare le composizioni in mobile. La galleria ha un contratto tecnico separato dai contenuti didattici; per provenienza, limiti storici e criteri di merge leggere [LAIKA-ASSET-DIRECTION.md](../archivio/LAIKA-ASSET-DIRECTION.md).

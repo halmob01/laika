@@ -2,15 +2,15 @@
 
 ## Stato e funzione
 
-L'originale integrale [LAIKA_ATLANTE_ANEDDOTI_E_FRASI_COMPLETO.md](../references/fonti/atlanti/LAIKA_ATLANTE_ANEDDOTI_E_FRASI_COMPLETO.md) è stato caricato dall'utente con la PR #12 il 20 ottobre 2026. La ricollocazione conserva il blob `0871c8c288f9365a80c8a474800b54f540a14fab`: 153661 byte, SHA-256 `889333b51aea30dbf662f2b49fbac2224a38f06f972aeff191ddde33a42418fc`. Integrità registrata nel [manifest delle fonti](../references/fonti/manifest.json); il confronto riguarda il caricamento GitHub, non gli allegati Sediment inaccessibili.
+L'originale integrale [LAIKA_ATLANTE_ANEDDOTI_E_FRASI_COMPLETO.md](../../../references/fonti/atlanti/LAIKA_ATLANTE_ANEDDOTI_E_FRASI_COMPLETO.md) è stato caricato dall'utente con la PR #12 il 20 ottobre 2026. La ricollocazione conserva il blob `0871c8c288f9365a80c8a474800b54f540a14fab`: 153661 byte, SHA-256 `889333b51aea30dbf662f2b49fbac2224a38f06f972aeff191ddde33a42418fc`. Integrità registrata nel [manifest delle fonti](../../../references/fonti/manifest.json); il confronto riguarda il caricamento GitHub, non gli allegati Sediment inaccessibili.
 
-Ricognizione del Markdown: **44 schede C01–C44**, **96 schede R01–R96** e **17 frasi F01–F17**, tutte identificate una sola volta. L'[indice editoriale](../references/fonti/atlanti/index.json) registra titoli, sezioni, righe e note di provenienza trascritte dall'originale; ogni voce resta `da_verificare`. Gli ID sono quelli originali: l'ordine delle R non è numericamente progressivo e non va usato come cronologia.
+Ricognizione del Markdown: **44 schede C01–C44**, **96 schede R01–R96** e **17 frasi F01–F17**, tutte identificate una sola volta. L'[indice editoriale](../../../references/fonti/atlanti/index.json) registra titoli, sezioni, righe e note di provenienza trascritte dall'originale; ogni voce resta `da_verificare`. Gli ID sono quelli originali: l'ordine delle R non è numericamente progressivo e non va usato come cronologia.
 
 La prima parte tratta la corte dagli zar precedenti al 1917; la seconda distingue crisi dello zarismo/Ottobre (25 schede), guerra civile/primi anni sovietici (22), Stalin/guerra/memoria del terrore (29), dopoguerra/dissoluzione (20); la terza conserva le 17 frasi. Sono classificazioni dell'atlante, non datazioni autonome appena certificate.
 
 Il testo include già avvertenze su parafrasi, testimonianze, memorie e leggende. Per esempio C20 problematizza i «villaggi Potëmkin», C21 segnala una pista non comprovata e C41 una storia falsa: conservarne i limiti, senza convertirle in fatti scenici. La dichiarazione interna di riscontri nelle opere è parte del documento fornito, non prova di verifiche svolte da questa PR.
 
-L'atlante è un repertorio editoriale di candidati per rendere le scene concrete. Gli appunti «La Rivoluzione Russa» restano la fonte didattica prioritaria secondo [FONTI-LAIKA](FONTI-LAIKA.md) e la [matrice delle fonti](FONTI-MATRICE-LAIKA.md). Nessun ampliamento automatico del programma o degli atti deriva dall'acquisizione.
+L'atlante è un repertorio editoriale di candidati per rendere le scene concrete. Gli appunti «La Rivoluzione Russa» restano la fonte didattica prioritaria secondo [FONTI-LAIKA](FONTI.md) e la [matrice delle fonti](MATRICE.md). Nessun ampliamento automatico del programma o degli atti deriva dall'acquisizione.
 
 ## Conservazione e uso
 
@@ -61,4 +61,4 @@ La bibliografia interna cita anche opere non presenti nell'attuale archivio dell
 
 Integrità del file originale e corrispondenza di tutti i 157 ID/titoli/righe dell'indice vengono controllate da `tests/laika-originals.test.js`; i risultati di CI sono nella PR. Contare e indicizzare non significa riscontrare una citazione nel libro. L'accettazione della PR non valida storicamente le voci e non equivale all'approvazione di scene di produzione.
 
-L'originale rimane immutato; rettifiche, selezioni e schede di prelievo sono materiali separati. Nessun nuovo atto, scena, domanda o parser Markdown viene aggiunto al player. Per i tre studi grafici vedere [LAIKA-STUDI-SPERIMENTALI](LAIKA-STUDI-SPERIMENTALI.md).
+L'originale rimane immutato; rettifiche, selezioni e schede di prelievo sono materiali separati. Nessun nuovo atto, scena, domanda o parser Markdown viene aggiunto al player. Per i tre studi grafici vedere [LAIKA-STUDI-SPERIMENTALI](../disegni/STUDI-ORIGINALI.md).

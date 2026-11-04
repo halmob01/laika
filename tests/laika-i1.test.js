@@ -1,4 +1,4 @@
-// LAIKA, unità I.1 nella forma a partita (REPERTORIO-GIOCHI §5): struttura, strategie contrastanti,
+// LAIKA, unità I.1 nella forma a partita (docs/laika/giochi/servitu.md): struttura, strategie contrastanti,
 // bilanciamento senza vicoli ciechi, card con le fonti, salvataggio rigiocato.
 import test from 'node:test';
 import assert from 'node:assert/strict';

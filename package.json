@@ -14,7 +14,8 @@
     "bottega:verifica": "node bottega/strumenti/importa-studi.js --check",
     "scena": "node bottega/strumenti/componi.js",
     "build:home": "node scripts/build-home.js",
-    "allievo": "node scripts/allievo-finto.cjs"
+    "allievo": "node scripts/allievo-finto.cjs",
+    "canone": "node scripts/canone.js"
   },
   "devDependencies": {
     "playwright": "1.58.2"

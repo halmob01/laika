@@ -12,11 +12,11 @@ Lettura effettuata del sorgente e inventario delle dichiarazioni JavaScript. Aut
 
 | Originale / consultazione | Byte | Blob Git invariato |
 |---|---:|---|
-| [Estetiche brutaliste 2.html](../prototypes/laika-studi-originali/Estetiche%20brutaliste%202.html) | 46712 | `462c16fa6a9d4378ef84b9c5596c64cc5e679d8c` |
-| [estetiche brutaliste 1.html](../prototypes/laika-studi-originali/estetiche%20brutaliste%201.html) | 47585 | `41e898b985e80869bc41f841f19b745135ba1158` |
-| [studio personaggi.html](../prototypes/laika-studi-originali/studio%20personaggi.html) | 58784 | `e5a3a89b403cfcccf3657ea24f4bf2ce42141bec` |
+| [Estetiche brutaliste 2.html](../../../prototypes/laika-studi-originali/Estetiche%20brutaliste%202.html) | 46712 | `462c16fa6a9d4378ef84b9c5596c64cc5e679d8c` |
+| [estetiche brutaliste 1.html](../../../prototypes/laika-studi-originali/estetiche%20brutaliste%201.html) | 47585 | `41e898b985e80869bc41f841f19b745135ba1158` |
+| [studio personaggi.html](../../../prototypes/laika-studi-originali/studio%20personaggi.html) | 58784 | `e5a3a89b403cfcccf3657ea24f4bf2ce42141bec` |
 
-Il [manifest di authoring](../prototypes/laika-studi-originali/manifest.json) conserva SHA-256, blob Git, nome, percorso precedente e commit di provenienza, oltre al catalogo dei contenuti. Non è un manifest/registry runtime. [Indice degli studi e istruzioni di apertura](../prototypes/laika-studi-originali/README.md).
+Il [manifest di authoring](../../../prototypes/laika-studi-originali/manifest.json) conserva SHA-256, blob Git, nome, percorso precedente e commit di provenienza, oltre al catalogo dei contenuti. Non è un manifest/registry runtime. [Indice degli studi e istruzioni di apertura](../../../prototypes/laika-studi-originali/README.md).
 
 ## Fase A — Estetiche brutaliste
 
@@ -87,13 +87,13 @@ Torre, blocco abitativo, palazzo amministrativo, centro civico, complesso a grad
 | Ambienti | piazza, fabbrica, stazione, rurale, più assenza di ambiente |
 | Mezzi | treno, tram, camion, tank, più assenza di mezzo |
 
-Accessori, abiti, armi, mezzi e simboli sono candidati da verificare per episodio/epoca; il numero di combinazioni possibili non rappresenta il numero di asset approvati. Il debug articolare dello studio non garantisce compatibilità con [RIG-AUTHORING](RIG-AUTHORING.md).
+Accessori, abiti, armi, mezzi e simboli sono candidati da verificare per episodio/epoca; il numero di combinazioni possibili non rappresenta il numero di asset approvati. Il debug articolare dello studio non garantisce compatibilità con [RIG-AUTHORING](../../RIG-AUTHORING.md).
 
 ## Osservazioni tecniche sui sorgenti
 
 - I tre HTML sono autonomi: CSS e JavaScript inline, font di sistema, nessun import/fetch di moduli o risorse esterne individuato. Hanno UI proprie, selettori globali e generazione SVG con `innerHTML`; conservarli come documenti separati, senza copiare queste scelte nel motore.
 - Fase A e Fase B usano entrambe l'ID fisso `brutal-ink`, con definizioni differenti; i pattern sono `concrete-speckle` e `concrete-tex`. Lo studio personaggi usa `laika-rough`. Comporre gli export nello stesso DOM richiede isolamento e namespacing di tutte le definizioni e dei loro riferimenti.
-- I filtri usano `feTurbulence` e `feDisplacementMap`; compaiono pattern, poligoni e forme generate. Il supporto di ellipse/rig/texture della PR #9 ora integrata non rende questi HTML automaticamente importabili: [SVG-AUTHORING](SVG-AUTHORING.md) mantiene un subset esplicito.
+- I filtri usano `feTurbulence` e `feDisplacementMap`; compaiono pattern, poligoni e forme generate. Il supporto di ellipse/rig/texture della PR #9 ora integrata non rende questi HTML automaticamente importabili: [SVG-AUTHORING](../../SVG-AUTHORING.md) mantiene un subset esplicito.
 - I tre export disegnano un rettangolo di fondo chiaro: non sono asset trasparenti pronti da sovrapporre. Non rimuovere il fondo dagli originali; valutare una variante derivata e confrontarla visivamente.
 - Palette comune: fondo `#F6F1E3`, inchiostro `#161614`, rosso `#E02A1B`. Fase A usa blu `#C6D5DF/#8DA9BC/#4A687A`; Fase B `#C9D6DF/#8EA8B8/#4F6B7C`; personaggi `#6B92A4` e sabbia `#DECBA8`. Non uniformarle nell'acquisizione.
 - ViewBox: Fase A singolo `245×205` o `440×205`, tavola `1480×1060`; Fase B singolo larghezza dichiarata +30, altezza 225, tavola `1520×1080`; personaggi singolo `260×260`, folla `560×300`, tavola `1350×940`. Coordinate locali, piedi, ancoraggi, scala e ritagli richiedono normalizzazione nei derivati.
@@ -125,10 +125,10 @@ Non è richiesta in questa PR la realizzazione di tutti i derivati: è richiesta
 
 Il test Node `tests/laika-originals.test.js` verifica dimensioni, SHA-256, blob Git e l'indice editoriale. Il test browser `tests/browser-original-studies.cjs`, rimosso il 21/10/2026 a trasloco concluso perché instabile e ridondante, confrontava i file ricollocati con i blob originari della PR #12, serviti a un URL di riferimento separato: SVG esportato, anteprima PNG e screenshot nelle modalità singolo/tavola, a 1440×1000 e 390×844, in Chromium e WebKit attraverso la CI esistente. Queste prove riguardano la conservazione nel trasloco; non dimostrano idoneità mobile, equivalenza fra browser o correttezza di ogni combinazione/animazione.
 
-Originali separati da eventuali futuri derivati nel pacchetto LAIKA, nessuna estensione del motore o importazione automatica. Inventario generale: [ASSET-MANIFEST](ASSET-MANIFEST.md); roadmap: [HISTORY-SVG-KIT](HISTORY-SVG-KIT.md); atlante editoriale: [ANEDDOTI-SCENE-LAIKA](ANEDDOTI-SCENE-LAIKA.md).
+Originali separati da eventuali futuri derivati nel pacchetto LAIKA, nessuna estensione del motore o importazione automatica. Inventario generale: [ASSET-MANIFEST](PROVENIENZA.md); roadmap: [HISTORY-SVG-KIT](../../archivio/HISTORY-SVG-KIT.md); atlante editoriale: [ANEDDOTI-SCENE-LAIKA](../fonti/ANEDDOTI.md).
 
 ## Derivati realizzati — 20 ottobre 2026
 
-I tre studi sono la fonte della [bottega](../bottega/README.md). Gli originali restano intatti: l'importatore esegue le loro funzioni di disegno in un contenitore isolato, sostituendo la palette con token, e converte il markup nei layer del motore. Risultato: 21 elementi della Fase A, 15 palazzi della Fase B, 4 ambienti, 4 mezzi, i tralicci e 12 oggetti dello studio personaggi, più i due motivi di grana e i tre filtri ruvidi come parametri. La figura dello studio è stata portata a mano con le stesse forme, giunture e tabelle di pose; le sei folle sono formazioni della bottega.
+I tre studi sono la fonte della [bottega](../../../bottega/README.md). Gli originali restano intatti: l'importatore esegue le loro funzioni di disegno in un contenitore isolato, sostituendo la palette con token, e converte il markup nei layer del motore. Risultato: 21 elementi della Fase A, 15 palazzi della Fase B, 4 ambienti, 4 mezzi, i tralicci e 12 oggetti dello studio personaggi, più i due motivi di grana e i tre filtri ruvidi come parametri. La figura dello studio è stata portata a mano con le stesse forme, giunture e tabelle di pose; le sei folle sono formazioni della bottega.
 
 Il test `tests/browser-bottega.cjs` confronta al pixel ogni simbolo importato, 40 combinazioni di figura e le sei folle con l'output degli originali: nessuna differenza. Restano aperti: autore e licenza, idoneità storica per epoca (indicata nel catalogo), resa su telefono reale. Le discrepanze del sorgente (13 pose annunciate come 12, testo non escapato nel poster) non toccano i derivati: il poster non è importato.

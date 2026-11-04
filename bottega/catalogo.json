@@ -31,7 +31,7 @@
     "fonte": "https://www.loc.gov/pictures/item/2016804335/",
     "riscontro": "Library of Congress, LC-DIG-det-4a14901: marinai della Rynda, 1893. Scheda indicizzata e fotografia digitale consultate il 23 ottobre 2026. Riferimento di foggia per casacca con colletto e berretto senza visiera; nastri semplificati da verificare.",
     "limiti": "La fonte precede il 1917 e non verifica l'equipaggiamento di Kronstadt nel marzo-luglio 1917. Taglio, numero delle righe e nastri sono semplificati. Nessuna scritta di nave, coccarda o insegna; colori affidati al tema. Da riscontrare con una fotografia locale datata prima dell'uso storico definitivo.",
-    "verifica": "docs/FIGURE-ATTO-II.md"
+    "verifica": "docs/laika/disegni/FIGURE-1917.md"
    },
    {
     "id": "soldato_guarnigione",
@@ -41,7 +41,7 @@
     "fonte": "https://www.loc.gov/pictures/item/2009631821/",
     "riscontro": "Library of Congress, LC-USZ62-2186: folla prevalentemente di soldati a Pietrogrado, 1917. Testo indicizzato della scheda consultato il 23 ottobre 2026; immagine non controllata per HTTP 403. La foggia proposta riusa tunica e berretto dell'archetipo militare.",
     "limiti": "Non identifica un reparto di guarnigione né verifica una dotazione uniforme per tutti i mesi. Serve un controllo iconografico diretto. Colletto, chiusura e fibbia sono schematizzati; spalline, gradi, coccarde e simboli politici omessi. Il ruolo esercito scambia token e non certifica il colore del tessuto.",
-    "verifica": "docs/FIGURE-ATTO-II.md"
+    "verifica": "docs/laika/disegni/FIGURE-1917.md"
    },
    {
     "id": "soldatessa",
@@ -51,7 +51,7 @@
     "fonte": "https://www.londonmuseum.org.uk/collections/v/object-968959/emmeline-pankhurst-and-the-russia-women-soldiers/",
     "riscontro": "London Museum, NN30312, fotografia del 1917: tunica con cintura, pantaloni e berretto con visiera. Corpo donna, senza gonna o chignon esposto sotto il berretto. Consultato il 23 ottobre 2026.",
     "limiti": "Il museo indica Pietrogrado come luogo probabile. La scheda non identifica con certezza il reparto di Bočkarëva o una data entro luglio. Nessun ritratto della comandante. Nessuna insegna o emblema di battaglione; particolari della tunica e colori non verificati.",
-    "verifica": "docs/FIGURE-ATTO-II.md"
+    "verifica": "docs/laika/disegni/FIGURE-1917.md"
    },
    {
     "id": "uomo_cappello",
@@ -61,7 +61,7 @@
     "fonte": "prototypes/laika-studi-originali/studio personaggi.html#buildOminoSVG",
     "riscontro": "Combinazione del corpo uomo con il berretto già presente nello studio. Testa circolare senza barba, baffi o dettagli del viso; nessun tratto di persone reali.",
     "limiti": "Il berretto è un archetipo grafico. Non riproduce un travestimento documentato né la fisionomia di una persona; la sua foggia specifica nel 1917 non è verificata.",
-    "verifica": "docs/FIGURE-ATTO-II.md"
+    "verifica": "docs/laika/disegni/FIGURE-1917.md"
    }
   ],
   "giunture": [
@@ -1010,7 +1010,7 @@
    "stato": "bozza",
    "epoca": "Russia imperiale, XIX secolo-marzo 1917; come simbolo rimosso nelle scene della primavera 1917.",
    "fonte": "prototypes/kit-primavera-1917/kit-primavera-1917.html#aquila_imperiale",
-   "note": "Archetipo generico bicipite senza blasone leggibile. Non riproduce un manufatto identificato; materiali e ornati da rivedere. Riferimenti: docs/PIANO-ATTI-LAIKA.md, II.1-e1; references/fonti/atlanti/LAIKA_NUOVI_ANEDDOTI_48.md, N007 (scheda su Stites, cap. 3, p. 67). Scala figura 1."
+   "note": "Archetipo generico bicipite senza blasone leggibile. Non riproduce un manufatto identificato; materiali e ornati da rivedere. Riferimenti: docs/laika/atti/atto-4.md, IV.1-e1; references/fonti/atlanti/LAIKA_NUOVI_ANEDDOTI_48.md, N007 (scheda su Stites, cap. 3, p. 67). Scala figura 1."
   },
   {
    "id": "oggetto-ritratto-zar",

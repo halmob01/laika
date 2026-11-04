@@ -1,8 +1,8 @@
 # LAIKA — Piano di riordino
 
-4 novembre 2026 · proposta da approvare dal docente · base: PR #38 (revisione con l'allievo finto)
+4 novembre 2026 · approvato dal docente lo stesso giorno (D-024, D-025, D-026) · base: PR #38 (revisione con l'allievo finto)
 
-Questo piano ha due scopi. Il primo è rimettere il gioco nella struttura che il docente aveva deciso. Il secondo è cambiare il modo in cui sono scritti i documenti, perché gli agenti che continuano il lavoro non possano più spostare la struttura senza che il docente se ne accorga. Finché il riordino non è finito (fase R3), **non si avviano nuovi incarichi di contenuto o di gioco** (avviso in testa ad `AGENTS.md`).
+Questo piano ha due scopi. Il primo è rimettere il gioco nella struttura che il docente aveva deciso. Il secondo è cambiare il modo in cui sono scritti i documenti, perché gli agenti che continuano il lavoro non possano più spostare la struttura senza che il docente se ne accorga. Finché il riordino non è finito (fase R3), **non si avviano nuovi incarichi di contenuto o di gioco** (D-026, avviso in testa ad `AGENTS.md`). Stato delle fasi in [STATO](STATO.md).
 
 ## 1. Che cosa è successo
 
@@ -31,11 +31,11 @@ Il principio è: **una cosa sta in un posto solo; il gioco la legge da lì; un t
 | File | Contiene | Chi lo cambia |
 |---|---|---|
 | `games/laika/canone.json` (nuovo) | La struttura: atti (numero, titolo, periodo, domanda), unità (nome stabile, titolo, periodo, gioco del repertorio), stato di ogni unità (da fare, bozza, approvata dal docente con la data). | Solo il docente oppure un agente su sua richiesta esplicita citata nella PR. |
-| `docs/CANONE.md` (generato) | La stessa struttura in una tabella leggibile dal telefono. Si rigenera con un comando; il test fallisce se non è aggiornata. | Nessuno a mano. |
-| `docs/DECISIONI.md` (nuovo) | Registro numerato delle decisioni del docente: D-001, D-002… Data, testo, che cosa sostituisce. Le proposte degli agenti stanno in una sezione a parte e non valgono finché il docente non le sposta sopra. | Il docente approva; l'agente propone. |
-| `docs/atti/atto-N.md` | Le schede degli episodi di un atto, divise per unità con il nome stabile. Il piano degli atti di oggi viene spezzato in un file per atto. | Agenti, dentro i limiti del canone. |
-| `docs/REPERTORIO-GIOCHI-LAIKA.md` | Le regole dei giochi. La tabella «gioco di ogni unità» esce da qui ed entra nel canone. | Come oggi. |
-| `docs/STATO.md` (nuovo) | A che punto è ogni unità, con le evidenze (PR, prove dal telefono). Sostituisce le parti di stato sparse in `PIANO-LAIKA` §4, `INCARICHI` e nei riquadri. | Ogni PR. |
+| `docs/laika/CANONE.md` (generato) | La stessa struttura in una tabella leggibile dal telefono. Si rigenera con un comando; il test fallisce se non è aggiornata. | Nessuno a mano. |
+| `docs/laika/DECISIONI.md` (nuovo) | Registro numerato delle decisioni del docente: D-001, D-002… Data, testo, che cosa sostituisce. Le proposte degli agenti stanno in una sezione a parte e non valgono finché il docente non le sposta sopra. | Il docente approva; l'agente propone. |
+| `docs/laika/atti/atto-N.md` | Le schede degli episodi di un atto, divise per unità con il nome stabile. Il piano degli atti di oggi viene spezzato in un file per atto. | Agenti, dentro i limiti del canone. |
+| `docs/laika/GIOCHI.md` e `docs/laika/giochi/` | Le regole dei giochi e le schede di gioco delle unità. La tabella «gioco di ogni unità» è uscita dal repertorio ed è entrata nel canone. | Agenti; le schede si approvano prima di costruire. |
+| `docs/laika/STATO.md` (nuovo) | A che punto è ogni unità, con le evidenze (PR, prove dal telefono). Sostituisce le parti di stato sparse in `PIANO-LAIKA` §4, `INCARICHI` e nei riquadri. | Ogni PR. |
 | `docs/archivio/` | Tutto ciò che è superato, con la data. Non si lascia testo vecchio sotto un riquadro. | Ogni PR che sostituisce qualcosa. |
 | `AGENTS.md` | Corto: le regole che non si toccano, quale documento leggere per quale lavoro (al massimo tre), come si consegna. | Il docente. |
 
@@ -54,7 +54,9 @@ Il principio è: **una cosa sta in un posto solo; il gioco la legge da lì; un t
 - nessun riquadro «Aggiornamento» nei documenti attivi;
 - nessun riferimento a un'unità con un numero diverso da quello del canone nei documenti attivi (per quanto si può controllare).
 
-## 4. Le decisioni che servono prima di cominciare
+## 4. Le decisioni
+
+**Prese il 4 novembre 2026:** tre atti «La terra e lo zar», «1905», «Pane e guerra» (D-024); home e usabilità si modificano insieme (D-025); prima di tutto si riordinano i documenti (D-026). **Ancora proposte:** la divisione dell'Atto II (P-01), l'approvazione dal telefono (P-02), l'autonomia dopo il riordino (P-03), nove atti in tutto (P-04). Il testo qui sotto è la proposta com'era prima della decisione.
 
 **D1. La struttura degli atti.** Proposta: tornare alla divisione del docente. Il lavoro già fatto si sposta, non si butta.
 

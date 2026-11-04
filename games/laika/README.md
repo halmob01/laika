@@ -1,6 +1,8 @@
 # LAIKA — il pacchetto del corso
 
-Un solo corso con l'Atto I (1700–marzo 1917), diviso in sei unità tutte giocabili in prima versione: I.1 la settimana del servo, I.2 il mir, I.3 la città e il salario, I.4 il 1905, I.5 la guerra e il pane, I.6 marzo 1917. Stato e cose da rifare: [PIANO-LAIKA](../../docs/PIANO-LAIKA.md) §4 e [la revisione del 4 novembre 2026](../../docs/REVISIONE-ALLIEVO-ATTO-I.md). Gli identificatori degli episodi di I.3 sono ancora `a1-u2-*` (scelta del 29 ottobre 2026).
+- `canone.json`: struttura del percorso (atti, unità, gioco di ogni unità, stato). Fa fede sugli altri documenti; dopo una modifica `npm run canone`.
+
+Un solo corso con l'Atto I (1700–marzo 1917), diviso in sei unità tutte giocabili in prima versione: I.1 la settimana del servo, I.2 il mir, I.3 la città e il salario, I.4 il 1905, I.5 la guerra e il pane, I.6 marzo 1917. Nel gioco l'atto è ancora uno solo: dal 4 novembre 2026 il canone ne prevede tre fino al 1917 (D-024), che il gioco avrà dalla fase R3 del riordino. Stato: [STATO](../../docs/laika/STATO.md). Gli identificatori degli episodi di I.3 sono ancora `a1-u2-*` (scelta del 29 ottobre 2026).
 
 Eseguire dalla radice:
 
