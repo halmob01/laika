@@ -9,7 +9,7 @@ Incarichi fatti: 1 su 20. Prossimo: K1.
 | # | Incarico | Tipo | Modello | Dopo | Stato |
 |---:|---|---|---|---|---|
 | 1 | **S1** Le scene delle unità già fatte con i disegni che ci sono | scene | Sonnet | — | fatto (PR #47) |
-| 2 | **K1** Motore: la coda con la pazienza | motore | Opus | S1 | da fare |
+| 2 | **K1** Motore: la coda con la pazienza | motore | Opus | S1 | in corso |
 | 3 | **U-otto-giorni** III.2 Otto giorni: la coda vera, il soldato, il treno, Tauride | unità | Opus | S1, K1 | da fare |
 | 4 | **K4** Bottega: i disegni che mancano agli Atti I–III | bottega | Sonnet | S1 | da fare |
 | 5 | **K2** Motore: le merci che camminano | motore | Opus | S1 | da fare |

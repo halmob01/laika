@@ -1,0 +1,43 @@
+{
+  "id": "esempio-coda-pazienza",
+  "etichetta": "Una coda davanti a una stazione. Tre persone mostrano che la pazienza sta finendo: una batte i piedi, una guarda l'orologio, una si stringe nello scialle. Una quarta ha lasciato la fila e se ne va.",
+  "ruvido": true,
+  "elementi": [
+    { "id": "stazione", "simbolo": "ambiente-stazione", "x": 700, "y": 430, "scala": 1.8 },
+    { "id": "terra", "simbolo": "suolo", "x": 480, "y": 430, "scala": 1.9 }
+  ],
+  "figure": [
+    {
+      "gruppo": "fila",
+      "formazione": {
+        "tipo": "coda", "n": 5, "x": 560, "y": 470, "passo": 62, "scala": 1.5,
+        "varianti": ["cappotto", "nessuna", "scialle", "cappello", "donna"],
+        "pose": ["batte_piedi", "guarda_orologio", "si_stringe", "in_piedi", "in_piedi"]
+      }
+    },
+    { "id": "uscente", "x": 860, "y": 470, "scala": 1.5, "variante": "cappotto", "posa": "cammina_1", "ruolo": "protagonista" }
+  ],
+  "sequenze": [
+    {
+      "id": "segnali",
+      "didascalia": "Chi aspetta da più tempo comincia a dare segni di insofferenza.",
+      "passi": [
+        { "azione": "pose", "chi": "fila-3", "da": "in_piedi", "a": 0, "durata": 700 },
+        { "azione": "pose", "chi": "fila-2", "da": "in_piedi", "a": 900, "durata": 700 },
+        { "azione": "pose", "chi": "fila-1", "da": "in_piedi", "a": 1800, "durata": 700 }
+      ],
+      "battute": [
+        { "a": 0, "testo": "Si stringe nello scialle." },
+        { "a": 900, "testo": "Guarda l'orologio." },
+        { "a": 1800, "testo": "Batte i piedi." }
+      ]
+    },
+    {
+      "id": "esce",
+      "didascalia": "La pazienza è finita: una persona lascia la fila e va via.",
+      "passi": [ { "azione": "walk", "chi": "uscente", "da": [-300, 0], "a": 0, "durata": 2400 } ],
+      "battute": [ { "a": 0, "testo": "Lascia la coda." } ]
+    }
+  ],
+  "ingresso": "segnali"
+}

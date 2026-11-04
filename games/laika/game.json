@@ -1927,6 +1927,63 @@
             "wrist-near": 70,
             "hand-near": 70,
             "grip-near": 70
+          },
+          "guarda_orologio": {
+            "root": {
+              "rotate": 3,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 14,
+            "forearm-far": 4,
+            "hand-far": -18,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -96,
+            "forearm-near": -55,
+            "wrist-near": 151,
+            "hand-near": 151,
+            "grip-near": 151
+          },
+          "batte_piedi": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 12,
+            "forearm-far": -28,
+            "hand-far": 16,
+            "leg-far": 22,
+            "shin-far": 22,
+            "leg-near": -6,
+            "shin-near": 0,
+            "arm-near": -12,
+            "forearm-near": 28,
+            "wrist-near": -16,
+            "hand-near": -16,
+            "grip-near": -16
+          },
+          "si_stringe": {
+            "root": {
+              "rotate": 9,
+              "translateY": 4
+            },
+            "head": 0,
+            "arm-far": -20,
+            "forearm-far": -50,
+            "hand-far": 70,
+            "leg-far": 8,
+            "shin-far": 8,
+            "leg-near": -8,
+            "shin-near": 8,
+            "arm-near": -52,
+            "forearm-near": 65,
+            "wrist-near": -13,
+            "hand-near": -13,
+            "grip-near": -13
           }
         }
       }
@@ -2839,6 +2896,63 @@
             "wrist-near": 70,
             "hand-near": 70,
             "grip-near": 70
+          },
+          "guarda_orologio": {
+            "root": {
+              "rotate": 3,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 14,
+            "forearm-far": 4,
+            "hand-far": -18,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -96,
+            "forearm-near": -55,
+            "wrist-near": 151,
+            "hand-near": 151,
+            "grip-near": 151
+          },
+          "batte_piedi": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 12,
+            "forearm-far": -28,
+            "hand-far": 16,
+            "leg-far": 22,
+            "shin-far": 22,
+            "leg-near": -6,
+            "shin-near": 0,
+            "arm-near": -12,
+            "forearm-near": 28,
+            "wrist-near": -16,
+            "hand-near": -16,
+            "grip-near": -16
+          },
+          "si_stringe": {
+            "root": {
+              "rotate": 9,
+              "translateY": 4
+            },
+            "head": 0,
+            "arm-far": -20,
+            "forearm-far": -50,
+            "hand-far": 70,
+            "leg-far": 8,
+            "shin-far": 8,
+            "leg-near": -8,
+            "shin-near": 8,
+            "arm-near": -52,
+            "forearm-near": 65,
+            "wrist-near": -13,
+            "hand-near": -13,
+            "grip-near": -13
           }
         }
       }
@@ -3695,6 +3809,63 @@
             "wrist-near": 70,
             "hand-near": 70,
             "grip-near": 70
+          },
+          "guarda_orologio": {
+            "root": {
+              "rotate": 3,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 14,
+            "forearm-far": 4,
+            "hand-far": -18,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -96,
+            "forearm-near": -55,
+            "wrist-near": 151,
+            "hand-near": 151,
+            "grip-near": 151
+          },
+          "batte_piedi": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 12,
+            "forearm-far": -28,
+            "hand-far": 16,
+            "leg-far": 22,
+            "shin-far": 22,
+            "leg-near": -6,
+            "shin-near": 0,
+            "arm-near": -12,
+            "forearm-near": 28,
+            "wrist-near": -16,
+            "hand-near": -16,
+            "grip-near": -16
+          },
+          "si_stringe": {
+            "root": {
+              "rotate": 9,
+              "translateY": 4
+            },
+            "head": 0,
+            "arm-far": -20,
+            "forearm-far": -50,
+            "hand-far": 70,
+            "leg-far": 8,
+            "shin-far": 8,
+            "leg-near": -8,
+            "shin-near": 8,
+            "arm-near": -52,
+            "forearm-near": 65,
+            "wrist-near": -13,
+            "hand-near": -13,
+            "grip-near": -13
           }
         }
       }
@@ -6648,6 +6819,63 @@
             "wrist-near": 70,
             "hand-near": 70,
             "grip-near": 70
+          },
+          "guarda_orologio": {
+            "root": {
+              "rotate": 3,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 14,
+            "forearm-far": 4,
+            "hand-far": -18,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -96,
+            "forearm-near": -55,
+            "wrist-near": 151,
+            "hand-near": 151,
+            "grip-near": 151
+          },
+          "batte_piedi": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 12,
+            "forearm-far": -28,
+            "hand-far": 16,
+            "leg-far": 22,
+            "shin-far": 22,
+            "leg-near": -6,
+            "shin-near": 0,
+            "arm-near": -12,
+            "forearm-near": 28,
+            "wrist-near": -16,
+            "hand-near": -16,
+            "grip-near": -16
+          },
+          "si_stringe": {
+            "root": {
+              "rotate": 9,
+              "translateY": 4
+            },
+            "head": 0,
+            "arm-far": -20,
+            "forearm-far": -50,
+            "hand-far": 70,
+            "leg-far": 8,
+            "shin-far": 8,
+            "leg-near": -8,
+            "shin-near": 8,
+            "arm-near": -52,
+            "forearm-near": 65,
+            "wrist-near": -13,
+            "hand-near": -13,
+            "grip-near": -13
           }
         }
       }
@@ -7516,6 +7744,63 @@
             "wrist-near": 70,
             "hand-near": 70,
             "grip-near": 70
+          },
+          "guarda_orologio": {
+            "root": {
+              "rotate": 3,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 14,
+            "forearm-far": 4,
+            "hand-far": -18,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -96,
+            "forearm-near": -55,
+            "wrist-near": 151,
+            "hand-near": 151,
+            "grip-near": 151
+          },
+          "batte_piedi": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 12,
+            "forearm-far": -28,
+            "hand-far": 16,
+            "leg-far": 22,
+            "shin-far": 22,
+            "leg-near": -6,
+            "shin-near": 0,
+            "arm-near": -12,
+            "forearm-near": 28,
+            "wrist-near": -16,
+            "hand-near": -16,
+            "grip-near": -16
+          },
+          "si_stringe": {
+            "root": {
+              "rotate": 9,
+              "translateY": 4
+            },
+            "head": 0,
+            "arm-far": -20,
+            "forearm-far": -50,
+            "hand-far": 70,
+            "leg-far": 8,
+            "shin-far": 8,
+            "leg-near": -8,
+            "shin-near": 8,
+            "arm-near": -52,
+            "forearm-near": 65,
+            "wrist-near": -13,
+            "hand-near": -13,
+            "grip-near": -13
           }
         }
       }
@@ -18656,6 +18941,63 @@
             "wrist-near": 70,
             "hand-near": 70,
             "grip-near": 70
+          },
+          "guarda_orologio": {
+            "root": {
+              "rotate": 3,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 14,
+            "forearm-far": 4,
+            "hand-far": -18,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -96,
+            "forearm-near": -55,
+            "wrist-near": 151,
+            "hand-near": 151,
+            "grip-near": 151
+          },
+          "batte_piedi": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 12,
+            "forearm-far": -28,
+            "hand-far": 16,
+            "leg-far": 22,
+            "shin-far": 22,
+            "leg-near": -6,
+            "shin-near": 0,
+            "arm-near": -12,
+            "forearm-near": 28,
+            "wrist-near": -16,
+            "hand-near": -16,
+            "grip-near": -16
+          },
+          "si_stringe": {
+            "root": {
+              "rotate": 9,
+              "translateY": 4
+            },
+            "head": 0,
+            "arm-far": -20,
+            "forearm-far": -50,
+            "hand-far": 70,
+            "leg-far": 8,
+            "shin-far": 8,
+            "leg-near": -8,
+            "shin-near": 8,
+            "arm-near": -52,
+            "forearm-near": 65,
+            "wrist-near": -13,
+            "hand-near": -13,
+            "grip-near": -13
           }
         }
       }
@@ -20088,6 +20430,63 @@
             "wrist-near": 70,
             "hand-near": 70,
             "grip-near": 70
+          },
+          "guarda_orologio": {
+            "root": {
+              "rotate": 3,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 14,
+            "forearm-far": 4,
+            "hand-far": -18,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -96,
+            "forearm-near": -55,
+            "wrist-near": 151,
+            "hand-near": 151,
+            "grip-near": 151
+          },
+          "batte_piedi": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 12,
+            "forearm-far": -28,
+            "hand-far": 16,
+            "leg-far": 22,
+            "shin-far": 22,
+            "leg-near": -6,
+            "shin-near": 0,
+            "arm-near": -12,
+            "forearm-near": 28,
+            "wrist-near": -16,
+            "hand-near": -16,
+            "grip-near": -16
+          },
+          "si_stringe": {
+            "root": {
+              "rotate": 9,
+              "translateY": 4
+            },
+            "head": 0,
+            "arm-far": -20,
+            "forearm-far": -50,
+            "hand-far": 70,
+            "leg-far": 8,
+            "shin-far": 8,
+            "leg-near": -8,
+            "shin-near": 8,
+            "arm-near": -52,
+            "forearm-near": 65,
+            "wrist-near": -13,
+            "hand-near": -13,
+            "grip-near": -13
           }
         }
       }
@@ -20944,6 +21343,63 @@
             "wrist-near": 70,
             "hand-near": 70,
             "grip-near": 70
+          },
+          "guarda_orologio": {
+            "root": {
+              "rotate": 3,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 14,
+            "forearm-far": 4,
+            "hand-far": -18,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -96,
+            "forearm-near": -55,
+            "wrist-near": 151,
+            "hand-near": 151,
+            "grip-near": 151
+          },
+          "batte_piedi": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 12,
+            "forearm-far": -28,
+            "hand-far": 16,
+            "leg-far": 22,
+            "shin-far": 22,
+            "leg-near": -6,
+            "shin-near": 0,
+            "arm-near": -12,
+            "forearm-near": 28,
+            "wrist-near": -16,
+            "hand-near": -16,
+            "grip-near": -16
+          },
+          "si_stringe": {
+            "root": {
+              "rotate": 9,
+              "translateY": 4
+            },
+            "head": 0,
+            "arm-far": -20,
+            "forearm-far": -50,
+            "hand-far": 70,
+            "leg-far": 8,
+            "shin-far": 8,
+            "leg-near": -8,
+            "shin-near": 8,
+            "arm-near": -52,
+            "forearm-near": 65,
+            "wrist-near": -13,
+            "hand-near": -13,
+            "grip-near": -13
           }
         }
       }
@@ -21833,6 +22289,63 @@
             "wrist-near": 70,
             "hand-near": 70,
             "grip-near": 70
+          },
+          "guarda_orologio": {
+            "root": {
+              "rotate": 3,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 14,
+            "forearm-far": 4,
+            "hand-far": -18,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -96,
+            "forearm-near": -55,
+            "wrist-near": 151,
+            "hand-near": 151,
+            "grip-near": 151
+          },
+          "batte_piedi": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 12,
+            "forearm-far": -28,
+            "hand-far": 16,
+            "leg-far": 22,
+            "shin-far": 22,
+            "leg-near": -6,
+            "shin-near": 0,
+            "arm-near": -12,
+            "forearm-near": 28,
+            "wrist-near": -16,
+            "hand-near": -16,
+            "grip-near": -16
+          },
+          "si_stringe": {
+            "root": {
+              "rotate": 9,
+              "translateY": 4
+            },
+            "head": 0,
+            "arm-far": -20,
+            "forearm-far": -50,
+            "hand-far": 70,
+            "leg-far": 8,
+            "shin-far": 8,
+            "leg-near": -8,
+            "shin-near": 8,
+            "arm-near": -52,
+            "forearm-near": 65,
+            "wrist-near": -13,
+            "hand-near": -13,
+            "grip-near": -13
           }
         }
       }
@@ -29324,6 +29837,63 @@
             "wrist-near": 70,
             "hand-near": 70,
             "grip-near": 70
+          },
+          "guarda_orologio": {
+            "root": {
+              "rotate": 3,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 14,
+            "forearm-far": 4,
+            "hand-far": -18,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -96,
+            "forearm-near": -55,
+            "wrist-near": 151,
+            "hand-near": 151,
+            "grip-near": 151
+          },
+          "batte_piedi": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 12,
+            "forearm-far": -28,
+            "hand-far": 16,
+            "leg-far": 22,
+            "shin-far": 22,
+            "leg-near": -6,
+            "shin-near": 0,
+            "arm-near": -12,
+            "forearm-near": 28,
+            "wrist-near": -16,
+            "hand-near": -16,
+            "grip-near": -16
+          },
+          "si_stringe": {
+            "root": {
+              "rotate": 9,
+              "translateY": 4
+            },
+            "head": 0,
+            "arm-far": -20,
+            "forearm-far": -50,
+            "hand-far": 70,
+            "leg-far": 8,
+            "shin-far": 8,
+            "leg-near": -8,
+            "shin-near": 8,
+            "arm-near": -52,
+            "forearm-near": 65,
+            "wrist-near": -13,
+            "hand-near": -13,
+            "grip-near": -13
           }
         }
       }
@@ -30201,6 +30771,63 @@
             "wrist-near": 70,
             "hand-near": 70,
             "grip-near": 70
+          },
+          "guarda_orologio": {
+            "root": {
+              "rotate": 3,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 14,
+            "forearm-far": 4,
+            "hand-far": -18,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -96,
+            "forearm-near": -55,
+            "wrist-near": 151,
+            "hand-near": 151,
+            "grip-near": 151
+          },
+          "batte_piedi": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 12,
+            "forearm-far": -28,
+            "hand-far": 16,
+            "leg-far": 22,
+            "shin-far": 22,
+            "leg-near": -6,
+            "shin-near": 0,
+            "arm-near": -12,
+            "forearm-near": 28,
+            "wrist-near": -16,
+            "hand-near": -16,
+            "grip-near": -16
+          },
+          "si_stringe": {
+            "root": {
+              "rotate": 9,
+              "translateY": 4
+            },
+            "head": 0,
+            "arm-far": -20,
+            "forearm-far": -50,
+            "hand-far": 70,
+            "leg-far": 8,
+            "shin-far": 8,
+            "leg-near": -8,
+            "shin-near": 8,
+            "arm-near": -52,
+            "forearm-near": 65,
+            "wrist-near": -13,
+            "hand-near": -13,
+            "grip-near": -13
           }
         }
       }
@@ -31068,6 +31695,63 @@
             "wrist-near": 70,
             "hand-near": 70,
             "grip-near": 70
+          },
+          "guarda_orologio": {
+            "root": {
+              "rotate": 3,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 14,
+            "forearm-far": 4,
+            "hand-far": -18,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -96,
+            "forearm-near": -55,
+            "wrist-near": 151,
+            "hand-near": 151,
+            "grip-near": 151
+          },
+          "batte_piedi": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 12,
+            "forearm-far": -28,
+            "hand-far": 16,
+            "leg-far": 22,
+            "shin-far": 22,
+            "leg-near": -6,
+            "shin-near": 0,
+            "arm-near": -12,
+            "forearm-near": 28,
+            "wrist-near": -16,
+            "hand-near": -16,
+            "grip-near": -16
+          },
+          "si_stringe": {
+            "root": {
+              "rotate": 9,
+              "translateY": 4
+            },
+            "head": 0,
+            "arm-far": -20,
+            "forearm-far": -50,
+            "hand-far": 70,
+            "leg-far": 8,
+            "shin-far": 8,
+            "leg-near": -8,
+            "shin-near": 8,
+            "arm-near": -52,
+            "forearm-near": 65,
+            "wrist-near": -13,
+            "hand-near": -13,
+            "grip-near": -13
           }
         }
       }
@@ -33443,6 +34127,63 @@
             "wrist-near": 70,
             "hand-near": 70,
             "grip-near": 70
+          },
+          "guarda_orologio": {
+            "root": {
+              "rotate": 3,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 14,
+            "forearm-far": 4,
+            "hand-far": -18,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -96,
+            "forearm-near": -55,
+            "wrist-near": 151,
+            "hand-near": 151,
+            "grip-near": 151
+          },
+          "batte_piedi": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 12,
+            "forearm-far": -28,
+            "hand-far": 16,
+            "leg-far": 22,
+            "shin-far": 22,
+            "leg-near": -6,
+            "shin-near": 0,
+            "arm-near": -12,
+            "forearm-near": 28,
+            "wrist-near": -16,
+            "hand-near": -16,
+            "grip-near": -16
+          },
+          "si_stringe": {
+            "root": {
+              "rotate": 9,
+              "translateY": 4
+            },
+            "head": 0,
+            "arm-far": -20,
+            "forearm-far": -50,
+            "hand-far": 70,
+            "leg-far": 8,
+            "shin-far": 8,
+            "leg-near": -8,
+            "shin-near": 8,
+            "arm-near": -52,
+            "forearm-near": 65,
+            "wrist-near": -13,
+            "hand-near": -13,
+            "grip-near": -13
           }
         }
       }
@@ -34740,6 +35481,63 @@
             "wrist-near": 70,
             "hand-near": 70,
             "grip-near": 70
+          },
+          "guarda_orologio": {
+            "root": {
+              "rotate": 3,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 14,
+            "forearm-far": 4,
+            "hand-far": -18,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -96,
+            "forearm-near": -55,
+            "wrist-near": 151,
+            "hand-near": 151,
+            "grip-near": 151
+          },
+          "batte_piedi": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 12,
+            "forearm-far": -28,
+            "hand-far": 16,
+            "leg-far": 22,
+            "shin-far": 22,
+            "leg-near": -6,
+            "shin-near": 0,
+            "arm-near": -12,
+            "forearm-near": 28,
+            "wrist-near": -16,
+            "hand-near": -16,
+            "grip-near": -16
+          },
+          "si_stringe": {
+            "root": {
+              "rotate": 9,
+              "translateY": 4
+            },
+            "head": 0,
+            "arm-far": -20,
+            "forearm-far": -50,
+            "hand-far": 70,
+            "leg-far": 8,
+            "shin-far": 8,
+            "leg-near": -8,
+            "shin-near": 8,
+            "arm-near": -52,
+            "forearm-near": 65,
+            "wrist-near": -13,
+            "hand-near": -13,
+            "grip-near": -13
           }
         }
       }
@@ -38012,6 +38810,63 @@
             "wrist-near": 70,
             "hand-near": 70,
             "grip-near": 70
+          },
+          "guarda_orologio": {
+            "root": {
+              "rotate": 3,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 14,
+            "forearm-far": 4,
+            "hand-far": -18,
+            "leg-far": 10,
+            "shin-far": 0,
+            "leg-near": -10,
+            "shin-near": 0,
+            "arm-near": -96,
+            "forearm-near": -55,
+            "wrist-near": 151,
+            "hand-near": 151,
+            "grip-near": 151
+          },
+          "batte_piedi": {
+            "root": {
+              "rotate": 0,
+              "translateY": 0
+            },
+            "head": 0,
+            "arm-far": 12,
+            "forearm-far": -28,
+            "hand-far": 16,
+            "leg-far": 22,
+            "shin-far": 22,
+            "leg-near": -6,
+            "shin-near": 0,
+            "arm-near": -12,
+            "forearm-near": 28,
+            "wrist-near": -16,
+            "hand-near": -16,
+            "grip-near": -16
+          },
+          "si_stringe": {
+            "root": {
+              "rotate": 9,
+              "translateY": 4
+            },
+            "head": 0,
+            "arm-far": -20,
+            "forearm-far": -50,
+            "hand-far": 70,
+            "leg-far": 8,
+            "shin-far": 8,
+            "leg-near": -8,
+            "shin-near": 8,
+            "arm-near": -52,
+            "forearm-near": 65,
+            "wrist-near": -13,
+            "hand-near": -13,
+            "grip-near": -13
           }
         }
       }

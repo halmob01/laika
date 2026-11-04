@@ -14,6 +14,8 @@ Aggiornato al 4 novembre 2026.
 | R1 | Riordino dei documenti; `npm run canone`; test di coerenza dei documenti | PR #40 |
 | R2 e R3 | Il build legge il canone; il gioco in tre atti; home con nove fascicoli; usabilità | PR R3 |
 
+**K1 in corso** (motore della coda con la pazienza): modulo `src/core/queue.js` e test, pannello «La coda» nel gioco, tre pose di attesa (`guarda_orologio`, `batte_piedi`, `si_stringe`), scena di prova `esempio-coda-pazienza` nella galleria, sezione in `docs/CREARE-UN-GIOCO.md`. Evidenze in `docs/evidence/K1/`.
+
 Proposte P-01–P-05 chiuse dal docente il 4 novembre (D-038, D-039): si lavora in autonomia con [PIANO-1917](PIANO-1917.md).
 
 **S1 fatto** (scene con i disegni che ci sono; revisione indipendente: due «non passa» corretti, terzo giro «passa»): le schede scena hanno i nomi stabili delle unità; ogni unità ha una scena propria e nessun episodio usa quella di un'altra; 13 scene nuove (`citta-fabbrica`, `citta-dormitorio`, `petizione-putilov`, `soviet-ferrovia`, `concessioni-sala`, `stolypin-strisce`, `stolypin-ricorda`, `pane-guerra-treni`, `pane-guerra-trincea`, `pane-guerra-famiglia`, `otto-giorni-coda`, `otto-giorni-treno`, `otto-giorni-confronto`) e le scene vecchie arricchite; tutti i 35 disegni assegnati sono usati; ogni episodio ha la sua `visualExplanation`. Evidenze: schermate prima e dopo in `docs/evidence/S1/`, trascrizione dell'allievo finto in `docs/evidence/S1/allievo/`. Le regole sulle scene di `tests/unita-ludiche.test.js` ora valgono per tutte le unità. Il manifesto `game.json` è salito a 262 KB compressi: la soglia del test è stata portata da 260 a 300 KB (decisione dell'agente, motivata nel test e nella PR).

@@ -3,6 +3,7 @@ import {CONTEXT_LABELS} from '../core/schema.js';
 import {optionOrder} from '../assessment/index.js';
 import {chanceOf,luckOdds,shortfalls,placed,placeLabel,perToken,workersOf,targetsOf,yieldOf,committed,offerOpen,activeStage,cardAt,cardCount} from '../core/turns.js';
 import {matches} from '../core/engine.js';
+import {queueView} from '../core/queue.js';
 export function el(tag,text,attrs={}) {const node=document.createElement(tag);if(text!==undefined)node.textContent=text;for(const [k,v] of Object.entries(attrs))node.setAttribute(k,v);return node;}
 export function button(label,handler,attrs={}) {const b=el('button',label,{type:'button',...attrs});b.addEventListener('click',handler);return b;}
 const registry=new Map();
@@ -147,6 +148,26 @@ function managePlace(host,episode,act,state,go){
 }
 // Barra dei passi del turno: notizie, mossa, esito, chi bussa, mercato (solo quelli presenti quest'anno).
 const PHASE_NAMES={cards:'Notizie',place:'La mossa',result:'L’esito',event:'Incontro',market:'Mercato'};
+// La coda con la pazienza: chi aspetta, quanta pazienza resta, che segnale sta per arrivare e dove andrà chi se ne va.
+function queuePanel(episode,g,t,state){
+  const q=episode.queue;if(!q||!g.queue)return null;
+  const v=queueView(q,g,t,state,matches),word=(q.patienceLabel||'Pazienza'),box=el('section',undefined,{class:'turn-queue','aria-label':q.label||'La coda'}),ul=el('ul');
+  box.append(el('h3',q.label||'La coda'));
+  for(const x of v.groups){
+    const li=el('li',undefined,{class:x.gone?'gone':''});li.append(el('b',x.label+' ('+x.size+')'));
+    if(x.gone)li.append(el('small','Se ne sono andati: '+x.exit.toLowerCase()+'.'));
+    else{
+      const bar=el('span',undefined,{class:'turn-patience',role:'img','aria-label':word+': '+x.patience+' su '+x.max});for(let i=0;i<x.max;i++)bar.append(el('i',undefined,{class:i<x.patience?'on':''}));
+      li.append(bar,el('small',word+' '+x.patience+' su '+x.max+(x.turnsToLeave!=null?'. Di questo passo se ne vanno tra '+x.turnsToLeave+(x.turnsToLeave===1?' turno':' turni')+' ('+x.exit.toLowerCase()+').':'.')));
+      if(x.next)li.append(el('small','Prossimo segnale: '+x.next.label+(x.turnsToSignal!=null?', tra '+x.turnsToSignal+(x.turnsToSignal===1?' turno':' turni'):'')+'.'));
+    }
+    ul.append(li);
+  }
+  box.append(ul,el('p','Ogni turno la '+word.toLowerCase()+' scende di '+v.drain.total+(v.drain.factors.length?' ('+v.drain.factors.map(f=>f.label.toLowerCase()).join(', ')+')':'')+'.',{class:'turn-queue-drain'}));
+  const last=g.queue.last;
+  if(last&&last.turn===g.turn-1&&last.events.length){const note=el('div',undefined,{class:'outcome',role:'status'});for(const e of last.events)note.append(el('p',e.text));box.append(note);}
+  return box;
+}
 function stepper(episode,g){
   const t=episode.turns[g.turn],now=g.phase==='eventResult'?'event':g.phase;
   const list=['cards','place','result','event','market'].filter(k=>k==='cards'?cardCount(episode,g)>0:k==='event'?!!t.event:k==='market'?!!t.market:!!episode.places);
@@ -161,7 +182,7 @@ function turnGame(ctx){
     if(step!==null)return dispatch({type:'turn',step,...extra});host.replaceChildren();turnGame(ctx);(host.querySelector('[data-worker][aria-pressed=true]')||host.querySelector('[data-worker]'))?.focus({preventScroll:true});};
   if(episode.workers)board(stageHost,stage,episode,act,state,dispatch);else hotspots(stageHost,episode,g,dispatch,state);
   if(state.phase!=='scene')return;
-  const head=el('p',undefined,{class:'turn-label'});head.append(el('span',t.label,{class:'turn-year'}),el('span',(episode.turnWord||'anno')+' '+(g.turn+1)+' di '+episode.turns.length,{class:'turn-count'}));host.append(head,stepper(episode,g));
+  const head=el('p',undefined,{class:'turn-label'});head.append(el('span',t.label,{class:'turn-year'}),el('span',(episode.turnWord||'anno')+' '+(g.turn+1)+' di '+episode.turns.length,{class:'turn-count'}));host.append(head,stepper(episode,g));{const qp=queuePanel(episode,g,t,state);if(qp)host.append(qp);}
   if(g.phase==='cards'){
     const c=cardAt(episode,g),n=cardCount(episode,g),box=el('div',undefined,{class:'cards turn-cards'}),bar=el('div',undefined,{class:'card-bar','aria-hidden':'true'}),nav=el('div',undefined,{class:'card-nav'});
     for(let i=0;i<n;i++)bar.append(el('i',undefined,{class:i<g.card?'done':i===g.card?'now':''}));
