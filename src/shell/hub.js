@@ -1,7 +1,7 @@
 // Pagine di passaggio di un corso a unità: pagina dell'atto, pagina dell'unità, chiusura. Nessun dato di un gioco specifico.
 import {el,button} from '../interactions/index.js';
 import {unitStates,unitStarted,unitLabel,actName,actNumber} from '../core/units.js';
-const STATUS={done:'Finita',current:'In corso',later:'Più avanti'};
+const STATUS={done:'Finita',current:'In corso',later:'Più avanti',open:'Gioca'};
 const section=(title,...nodes)=>{const box=el('section',undefined,{class:'hub-block'});box.append(el('h2',title),...nodes);return box;};
 const box=(kind,text)=>{const d=el('div',undefined,{class:'hub-box'});d.append(el('p',kind,{class:'hub-box-k'}),el('p',text));return d;};
 function head(act,crumb,label,title,period){
@@ -25,8 +25,10 @@ export function actPage(host,{act,session,actions}){
   else host.append(button('Vedi il riepilogo',actions.go,{class:'primary hub-cta','data-hub':'go'}));
   const list=el('ol',undefined,{class:'hub-units'});
   for(const s of states){
-    const li=el('li',undefined,{class:'hub-unit '+s.status,'data-unit':s.unit.id}),body=el('div');
-    body.append(el('h3',s.unit.title),el('p',s.unit.period,{class:'hub-period'}),el('p',s.unit.summary),el('span',STATUS[s.status],{class:'hub-stamp'}));
+    const ready=s.unit.episodes.length>0&&s.status==='later',li=el('li',undefined,{class:'hub-unit '+s.status+(ready?' open':''),'data-unit':s.unit.id}),body=el('div');
+    body.append(el('h3',s.unit.title),el('p',s.unit.period,{class:'hub-period'}),el('p',s.unit.summary),el('span',STATUS[ready?'open':s.status],{class:'hub-stamp'}));
+    // Ogni unità con episodi si può aprire direttamente: non c'è un ordine obbligato.
+    if(s.unit.episodes.length&&actions.start)body.append(button(s.status==='current'?(started?'Riprendi':'Inizia')+' · '+unitLabel(act,s.index):(s.status==='done'?'Rigioca':'Gioca')+' · '+unitLabel(act,s.index),()=>actions.start(s.index),{class:'hub-open','data-unit-start':s.unit.id}));
     li.append(el('span',unitLabel(act,s.index),{class:'hub-n','aria-hidden':'true'}),body);list.append(li);
   }
   host.append(list);

@@ -210,3 +210,7 @@ Il kit si riusa perché ogni parte vive in un livello diverso e i livelli dipend
 2. Aggiungere il tema del progetto in `bottega/temi.json` e indicarlo in `hero.config.json`.
 3. `npm run build:home -- site/<progetto>`; poi `npm test`.
 4. La pagina usa solo API pubbliche: `composePack`, `createStage`, `validateRegistry`, `validatePack`, `readProgress`. Nessun accesso diretto a chiavi di `localStorage`.
+
+## Ingresso diretto in un'unità (4 novembre 2026)
+
+`newSession(game,seed,startEpisodeId)` parte dallo stato iniziale dell'atto ed entra nell'episodio indicato; la sessione porta `startEpisodeId` e il salvataggio lo scrive (campo facoltativo `startEpisodeId`, `replay` lo riceve come quarto argomento). La pagina dell'atto (`hub.js`) offre `actions.start(indice)` per ogni unità con episodi: la partita precedente passa nella chiave `:precedente` e si riparte da quell'unità con i valori iniziali dell'atto. Test in `tests/units.test.js`.

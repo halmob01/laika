@@ -2,9 +2,12 @@ import {validateGame, assert, jsonData} from '../core/schema.js';
 import {initialState, clone, actOn, enterEpisode, matches} from '../core/engine.js';
 import {assess,report} from '../assessment/index.js';
 import {turnAction} from '../core/turns.js';
-export function newSession(game,seed='session') {
+export function newSession(game,seed='session',startEpisodeId=null) {
   validateGame(game);assert(typeof seed==='string'&&seed.length<=100,'Seed non valido');
-  return {gameId:game.id,contentVersion:game.contentVersion,seed,actIndex:0,currentAct:initialState(game.acts[0]),ledger:[],historySnapshots:[],exposureFlags:[],assessmentResults:[],journal:[],complete:false};
+  const act=game.acts[0];let currentAct=initialState(act);
+  // Ingresso diretto in un episodio (per esempio la prima scena di un'unità): stato iniziale dell'atto, poi ingresso nell'episodio.
+  if(startEpisodeId&&startEpisodeId!==act.episodes[0].id){const ep=act.episodes.find(e=>e.id===startEpisodeId);assert(ep,'Episodio di partenza non valido');currentAct=enterEpisode(act,currentAct,ep).state;}
+  return {gameId:game.id,contentVersion:game.contentVersion,seed,startEpisodeId:startEpisodeId||null,actIndex:0,currentAct,ledger:[],historySnapshots:[],exposureFlags:[],assessmentResults:[],journal:[],complete:false};
 }
 export const currentScene=(game,s)=>s.complete?null:game.acts[s.actIndex].episodes.find(e=>e.id===s.currentAct.episodeId);
 export function transition(game,previous,action) {
@@ -60,9 +63,9 @@ export function transition(game,previous,action) {
 export const select=(game,s,choiceId)=>transition(game,s,{type:'select',choiceId}).nextState;
 export const advance=(game,s)=>transition(game,s,{type:'advance'}).nextState;
 export const recap=(game,s)=>({title:game.title,acts:clone(s.historySnapshots),journal:clone(s.journal),assessment:report(s.assessmentResults)});
-export function replay(game,commands,seed) {
+export function replay(game,commands,seed,startEpisodeId=null) {
   assert(Array.isArray(commands)&&commands.length<=10000,'Registro non valido o troppo lungo');
-  let state=newSession(game,seed);
+  let state=newSession(game,seed,startEpisodeId);
   for(const entry of commands) {
     assert(entry.sequence===state.ledger.length&&entry.actId===state.currentAct.actId&&entry.episodeId===state.currentAct.episodeId,'Ordine del registro incoerente');
     state=transition(game,state,entry.action).nextState;

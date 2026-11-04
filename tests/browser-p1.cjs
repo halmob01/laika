@@ -55,6 +55,9 @@ module.exports=async(browser,root,artifacts)=>{
   await page.goto(origin+'/play.html?game=laika');await page.locator('#hub-title').waitFor();assert.equal(await page.locator('#raw').isVisible(),false);assert.equal(/non è più utilizzabile|Ricomincia/.test(await page.locator('#notice').innerText()),false);
   assert.equal(await page.evaluate(()=>localStorage.getItem('learning-kit:laika:save-v1:precedente')),raw);
  }
+ await page.goto(origin+'/play.html?game=laika');await page.locator('#hub-title').waitFor();
+ assert.equal(await page.locator('[data-unit-start]').count()>=6,true);
+ await page.locator('[data-unit="i4"] [data-unit-start]').click();await page.locator('[data-hub=go]').click();await page.locator('#scene-title').waitFor();
  await page.goto(origin+'/play.html?game=biblioteca');await page.locator('#scene-title').waitFor();
  assert.equal(await page.locator('#pack-theme').count(),0);assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).getPropertyValue('--accent').trim()),'#355e59');
  // Context labels from content are rendered as text, never HTML.

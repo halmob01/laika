@@ -40,3 +40,13 @@ test('unità iniziata o da iniziare',()=>{
   const s=newSession(game,'seed');assert.equal(unitStarted(act,s),false);
   const next=transition(game,s,{type:'advance'}).nextState;assert.equal(unitStarted(act,next),true);
 });
+
+test('ogni unità con episodi si può aprire direttamente e il salvataggio si ripristina', async () => {
+  const {exportSave,restore}=await import('../src/storage/index.js');
+  for(const u of act.units.filter(x=>x.episodes.length)){
+    const s=newSession(game,'diretto',u.episodes[0]);
+    assert.equal(s.currentAct.episodeId,u.episodes[0]);assert.equal(s.startEpisodeId,u.episodes[0]);
+    const r=restore(game,exportSave(game,s));assert.equal(r.ok,true);assert.equal(r.state.currentAct.episodeId,u.episodes[0]);
+  }
+  assert.throws(()=>newSession(game,'x','non-esiste'));
+});

@@ -4,7 +4,7 @@ export const SAVE_SCHEMA_VERSION=1;
 export const storageKey=game=>'learning-kit:'+game.id+':save-v1';
 export function exportSave(game,state) {
   assert(state.gameId===game.id&&state.contentVersion===game.contentVersion,'Sessione incompatibile');
-  return JSON.stringify({saveSchemaVersion:SAVE_SCHEMA_VERSION,gameId:game.id,contentVersion:game.contentVersion,seed:state.seed,commands:state.ledger});
+  return JSON.stringify({saveSchemaVersion:SAVE_SCHEMA_VERSION,gameId:game.id,contentVersion:game.contentVersion,seed:state.seed,...(state.startEpisodeId?{startEpisodeId:state.startEpisodeId}:{}),commands:state.ledger});
 }
 export function restore(game,raw) {
   try {
@@ -13,7 +13,7 @@ export function restore(game,raw) {
     assert(data.saveSchemaVersion===SAVE_SCHEMA_VERSION,'Versione salvataggio non supportata: conserva il backup originale');
     assert(data.gameId===game.id,'Il backup appartiene a un altro gioco');
     assert(data.contentVersion===game.contentVersion,'Contenuti aggiornati: serve una migrazione esplicita. Conserva il backup');
-    return {ok:true,state:replay(game,data.commands,data.seed)};
+    return {ok:true,state:replay(game,data.commands,data.seed,data.startEpisodeId??null)};
   } catch(error) {return {ok:false,error:error.message};}
 }
 export function load(game,storage) {

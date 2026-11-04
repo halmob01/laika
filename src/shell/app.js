@@ -35,7 +35,14 @@ function journal(){
 function focusPlay(){($(state.complete?'summary-title':'scene-title'))?.focus({preventScroll:true});}
 function hubActions(){return {
   go(){if(view==='act'){view='unit';}else if(view==='unit'){view='play';render({intro:pendingIntro,sceneMotion:true});pendingIntro=false;focusPlay();return;}else{const nextUnit=!state.complete&&closed&&state.actIndex===closed.act&&closedNext()!==null;view=nextUnit?'unit':state.complete||state.actIndex!==closed?.act?'play':'act';closed=null;}render();if(view==='play')focusPlay();},
-  back(){view='act';closed=null;render();}
+  back(){view='act';closed=null;render();},
+  start(index){
+    const act=game.acts[Math.min(state.actIndex,game.acts.length-1)],u=act.units[index];
+    if(index===unitIndexOf(act,state.currentAct.episodeId)&&!state.complete){view='unit';render();return;}
+    // Si entra in un'altra unità: la partita precedente resta nella chiave di riserva.
+    try{const k=storageKey(game),raw=storage.getItem(k);if(raw!==null)storage.setItem(k+':precedente',raw);}catch{}
+    state=newSession(game,crypto.randomUUID(),u.episodes[0]);blocked=false;stageId=null;notice('');persist();view='unit';render();
+  },
 };}
 function closedNext(){const act=game.acts[state.actIndex],i=act.units.findIndex(u=>u.episodes.includes(state.currentAct.episodeId));return i<0?null:i;}
 function renderHub(){
