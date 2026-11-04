@@ -162,3 +162,8 @@ test('I.1: cinque generazioni, card di passaggio senza varianti sbagliate, giudi
   assert.ok(list.every(c => !c.when || c.when.value === false), 'solo le card della famiglia al completo');
   assert.ok(list.some(c => /Pëtr, il bambino del 1740, è diventato il padre/.test(c.text)));
 });
+
+test('D-037: «anime e semidei» non compare nei testi per lo studente né nella home', () => {
+  assert.doesNotMatch(JSON.stringify(game), NAMES);
+  assert.doesNotMatch(fs.readFileSync(new URL('../index.html', import.meta.url), 'utf8'), NAMES);
+});

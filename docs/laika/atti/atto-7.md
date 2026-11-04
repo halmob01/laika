@@ -32,7 +32,7 @@ Ruoli: la famiglia al villaggio; un attivista venuto dalla città. Fili: la terr
 **VII.1-e4 · assessment [V] · Verifica V1.**
 
 ## VII.2 — Costruire il socialismo (1928–1937) · `costruire-socialismo`
-Ruoli: il fratello ex bambino di strada, ora tecnico; una direttrice tecnica; un direttore di fabbrica. Fili: la promessa e il suo prezzo; anime e semidei; il cielo.
+Ruoli: il fratello ex bambino di strada, ora tecnico; una direttrice tecnica; un direttore di fabbrica. Fili: la promessa e il suo prezzo; la terra e lo zar; il cielo.
 
 **VII.2-e1 · narrative [D] · Rinati nel 1917**
 - **Scena.** Città nuove sorgono nella steppa. A un congresso stachanovista un operaio dice: «Ho quarantacinque anni, ma vivo soltanto da diciotto» (N028). Evgenija, picchiata da ragazza dalla modista «Madame Matilda», è ora direttrice tecnica di una grande fabbrica e studia la sera per il diploma (N029). Il fratello, ex bambino di strada, è diventato tecnico in una città nuova (o è rimasto fra i ladri delle stazioni, secondo VI.4). Lo stachanovista che batte i record è celebrato dai giornali ed evitato dai compagni, perché i suoi record alzano le norme di tutti (N048).

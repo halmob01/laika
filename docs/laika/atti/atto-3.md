@@ -10,7 +10,7 @@ Schede degli episodi dell'atto. Numeri, titoli, periodi e gioco di ogni unità: 
 **Effetti differiti.** Il raccolto e i treni di III.1 decidono la lunghezza della coda in III.2.
 
 ## III.1 — Pane e guerra (agosto 1914–dicembre 1916) · `pane-guerra`
-Ruoli: la famiglia con il figlio richiamato; un ministro, un deputato, un ufficiale. Fili: la promessa e il suo prezzo; anime e semidei.
+Ruoli: la famiglia con il figlio richiamato; un ministro, un deputato, un ufficiale. Fili: la promessa e il suo prezzo; la terra e lo zar.
 
 **III.1-e1 · narrative [D] · In ginocchio sulla stessa piazza**
 - **Scena.** 2 agosto 1914 (g. 20 luglio): la folla si inginocchia davanti al Palazzo d'Inverno mentre lo zar annuncia la guerra. È la stessa piazza del 1905. Poi Tannenberg, la ritirata, Nicola al comando supremo.
@@ -29,7 +29,7 @@ Ruoli: la famiglia con il figlio richiamato; un ministro, un deputato, un uffici
 - **Regia.** Le voci si propagano come fumo fra le figure; la vetrina di gioielli e la coda nella stessa strada.
 - **Chi la sviluppa.** Sonnet.
 
-**III.1-e4 · narrative [D] · La fine dei semidei comincia in famiglia**
+**III.1-e4 · narrative [D] · La fine dello zar comincia in famiglia**
 - **Scena.** Dicembre 1916: Rasputin è ucciso da un principe e un granduca. Una granduchessa propone di «eliminare» l'imperatrice; Rodzjanko chiede di considerare la frase come non detta (C43). All'ambasciatore britannico che lo invita a riconquistare la fiducia del popolo, lo zar chiede se non sia il popolo a dover riconquistare la sua.
 - **Sotto la scena.** Un potere sacro può sopravvivere quando non ci crede più nemmeno la sua famiglia?
 - **Materiali.** C43 (Trockij, «granduchessa Maria Pavlovna»); battuta all'ambasciatore: Montefiore [verificare].

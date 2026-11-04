@@ -60790,7 +60790,7 @@
             "fact": "Fino al 1861 un servo era contato in «anime» e si poteva vendere con la terra o senza. Il Manifesto del 19 febbraio 1861 abolì la servitù della gleba.",
             "simulation": "Gli indicatori della settimana sono indici della simulazione. Non sono statistiche storiche."
           },
-          "title": "Anime e semidei",
+          "title": "La terra e lo zar",
           "period": "1700–1861"
         },
         {
@@ -65857,7 +65857,7 @@
             "a3-pane-guerra-ginocchio",
             "a3-pane-guerra-grano",
             "a3-pane-guerra-gioielli",
-            "a3-pane-guerra-semidei",
+            "a3-pane-guerra-famiglia",
             "a3-pane-guerra-v5"
           ],
           "closing": {
@@ -66476,9 +66476,9 @@
           "shows": []
         },
         {
-          "id": "a3-pane-guerra-semidei",
+          "id": "a3-pane-guerra-famiglia",
           "type": "narrative",
-          "title": "La fine dei semidei comincia in famiglia",
+          "title": "La fine dello zar comincia in famiglia",
           "text": "Nel dicembre 1916 Rasputin viene ucciso da un principe e da un granduca. Una granduchessa arriva a proporre di eliminare l'imperatrice.\n\nLo zar sembra non fidarsi più nemmeno di chi lo circonda. Il palazzo è isolato e attorno c'è il vuoto.\n\nPuò sopravvivere un potere sacro quando non ci crede più nemmeno la sua famiglia?",
           "roleId": "capofamiglia",
           "context": {
@@ -67801,7 +67801,7 @@
           "id": "a3-otto-giorni-treno",
           "type": "narrative",
           "title": "Il treno fermo nella neve",
-          "text": "Al Palazzo di Tauride nascono lo stesso giorno il Comitato della Duma e il soviet. Il treno dello zar è deviato a Pskov.\n\nMentre arrivano i telegrammi Nicola annota nel diario la vita del treno. Poi abdica.\n\nChe cosa resta di un semidio quando smette di esserlo? Un uomo con un'abitudine.",
+          "text": "Al Palazzo di Tauride nascono lo stesso giorno il Comitato della Duma e il soviet. Il treno dello zar è deviato a Pskov.\n\nMentre arrivano i telegrammi Nicola annota nel diario la vita del treno. Poi abdica.\n\nChe cosa resta di uno zar quando smette di esserlo? Un uomo con un'abitudine.",
           "roleId": "figlio",
           "context": {
             "kind": "documented",

@@ -9,8 +9,8 @@ Schede degli episodi dell'atto. Numeri, titoli, periodi e gioco di ogni unità: 
 **Stato della simulazione.** Sussistenza della famiglia (risorsa); Tensione sociale (metrica). Relazione nascosta: cooperazione fra i gruppi. Flag: `figlio_in_citta`.
 **Effetti differiti.** La sussistenza di I.1 e le decisioni sul mir di I.2 decidono se un figlio parte per la città (I.3). Il diario porta all'Atto II chi è partito e chi è rimasto.
 
-## I.1 — Anime e semidei (1700–1861) · `servitu`
-Ruoli: gli antenati della famiglia; un osservatore della corte. Fili: anime e semidei; la terra; il cielo.
+## I.1 — La terra e lo zar (1700–1861) · `servitu`
+Ruoli: gli antenati della famiglia; un osservatore della corte. Fili: la terra e lo zar; la terra; il cielo.
 
 **I.1-e1 · narrative [D] · Le anime**
 - **Scena.** La ricchezza di un nobile si misura in «anime», i servi maschi; le donne non si contano nemmeno. Si vendono con la terra o senza, si giocano a carte, si esiliano in Siberia per «insolenza». Caterina II regala anime come gioielli: a Zorič, congedato, una tenuta con settemila anime; Potëmkin arriva a trecentomila servi.
@@ -65,7 +65,7 @@ Unità di un solo episodio giocato: il villaggio dopo il riscatto. Gioco di deci
 - **Chi la sviluppa.** Sonnet.
 
 ## I.3 — In città (fine Ottocento–1904) · `citta`
-Gioco di gestione a più settimane ([GIOCHI](../GIOCHI.md) §3.1; scheda [salario](../giochi/salario.md)): il salario. Ruoli: il figlio emigrato a Pietroburgo; un operaio anziano; un osservatore della corte. Fili: chi rappresenta chi; anime e semidei; il cielo.
+Gioco di gestione a più settimane ([GIOCHI](../GIOCHI.md) §3.1; scheda [salario](../giochi/salario.md)): il salario. Ruoli: il figlio emigrato a Pietroburgo; un operaio anziano; un osservatore della corte. Fili: chi rappresenta chi; la terra e lo zar; il cielo.
 
 **I.3-e1 · narrative [D] · In città** (ex A0.4)
 - **Scena.** Il figlio arriva a Pietroburgo: fabbrica metalmeccanica, turni di undici ore e più, un angolo di stanza in affitto, nessun sindacato legale. I soldati di truppa non possono salire sul tram né entrare nei ristoranti (R02).

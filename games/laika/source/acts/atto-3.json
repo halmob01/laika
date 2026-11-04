@@ -696,10 +696,10 @@
       "shows": []
     },
     {
-      "id": "a3-pane-guerra-semidei",
+      "id": "a3-pane-guerra-famiglia",
       "type": "narrative",
       "roleId": "capofamiglia",
-      "title": "La fine dei semidei comincia in famiglia",
+      "title": "La fine dello zar comincia in famiglia",
       "display": "cards",
       "context": {
         "kind": "documented",
@@ -2002,7 +2002,7 @@
         "dateLabel": "marzo 1917",
         "placeLabel": "Pskov"
       },
-      "text": "Al Palazzo di Tauride nascono lo stesso giorno il Comitato della Duma e il soviet. Il treno dello zar è deviato a Pskov.\n\nMentre arrivano i telegrammi Nicola annota nel diario la vita del treno. Poi abdica.\n\nChe cosa resta di un semidio quando smette di esserlo? Un uomo con un'abitudine.",
+      "text": "Al Palazzo di Tauride nascono lo stesso giorno il Comitato della Duma e il soviet. Il treno dello zar è deviato a Pskov.\n\nMentre arrivano i telegrammi Nicola annota nel diario la vita del treno. Poi abdica.\n\nChe cosa resta di uno zar quando smette di esserlo? Un uomo con un'abitudine.",
       "exposes": [
         "a1-treno"
       ],
@@ -2054,7 +2054,7 @@
         "a3-pane-guerra-ginocchio",
         "a3-pane-guerra-grano",
         "a3-pane-guerra-gioielli",
-        "a3-pane-guerra-semidei",
+        "a3-pane-guerra-famiglia",
         "a3-pane-guerra-v5"
       ],
       "closing": {

@@ -12,7 +12,7 @@ L'atto non chiede di scegliere fra ammirazione e condanna: chiede di sentire l'u
 **Effetti differiti.** Ciò che la famiglia ha conservato in VII.3 decide chi torna e come in VIII.2; la scelta della pronipote in VIII.4 apre l'Atto IX.
 
 ## VIII.1 — Dopo la vittoria (1945–1953) · `dopo-vittoria`
-Ruoli: il nipote reduce; un dirigente della cerchia di Stalin. Fili: anime e semidei; chi rappresenta chi.
+Ruoli: il nipote reduce; un dirigente della cerchia di Stalin. Fili: la terra e lo zar; chi rappresenta chi.
 
 **VIII.1-e1 · narrative [D] · Governati dalla tavola da pranzo**
 - **Scena.** I reduci tornano in un paese distrutto. Nel 1946–1947 c'è di nuovo la fame nelle campagne; Stalin chiede altre tasse ai contadini e, a chi obietta, indica l'abbondanza dei suoi film di propaganda (R62). Il capo della sua scorta porta via dalla Germania porcellane, pianoforti, automobili, tre tori e due cavalli (R63). Le decisioni si prendono a banchetti notturni obbligatori: Molotov dirà che l'impero era governato dalla tavola da pranzo (R61). Nel 1949 la bomba atomica sovietica. A dicembre Mao arriva a Mosca e la sua cena in treno viene rifiutata (R64).
@@ -95,7 +95,7 @@ Ruoli: una contadina della regione di Saratov; la pronipote; un funzionario dell
 - **Chi la sviluppa.** Sonnet.
 
 ## VIII.5 — La guerra dei simboli (1959–1964) · `guerra-simboli`
-Ruoli: un visitatore dell'esposizione americana; la famiglia nel nuovo appartamento. Fili: anime e semidei; il cielo.
+Ruoli: un visitatore dell'esposizione americana; la famiglia nel nuovo appartamento. Fili: la terra e lo zar; il cielo.
 
 **VIII.5-e1 · narrative [D] · La cucina e la cagnolina**
 - **Scena.** 1959: a Mosca un'esposizione americana mostra una cucina modello; Nixon e Chruščëv litigano davanti a una lavatrice su quale sistema dia di più alle famiglie [verificare dettagli]. Le sonde sovietiche colpiscono la Luna e ne fotografano la faccia nascosta. Nel 1960 le cagnette Belka e Strelka tornano vive dallo spazio. Nel 1961 Chruščëv regala alla famiglia Kennedy Pušinka, una figlia di Strelka; prima di farla entrare alla Casa Bianca i servizi americani la passano ai raggi X per cercare microfoni. All'ONU Chruščëv batte una scarpa sul banco, o forse no (R69). Nel 1962 il mondo si ferma per la crisi dei missili a Cuba.
