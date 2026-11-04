@@ -4,12 +4,12 @@
 
 Come si lavora in autonomia, controlli e condizioni di arresto: [METODO](METODO.md) §7. Il prossimo incarico e il messaggio da dare all'agente: `npm run prossimo`.
 
-Incarichi fatti: 1 su 20. Prossimo: K1.
+Incarichi fatti: 2 su 20. Prossimo: U-otto-giorni.
 
 | # | Incarico | Tipo | Modello | Dopo | Stato |
 |---:|---|---|---|---|---|
 | 1 | **S1** Le scene delle unità già fatte con i disegni che ci sono | scene | Sonnet | — | fatto (PR #47) |
-| 2 | **K1** Motore: la coda con la pazienza | motore | Opus | S1 | in corso |
+| 2 | **K1** Motore: la coda con la pazienza | motore | Opus | S1 | fatto (PR #48) |
 | 3 | **U-otto-giorni** III.2 Otto giorni: la coda vera, il soldato, il treno, Tauride | unità | Opus | S1, K1 | da fare |
 | 4 | **K4** Bottega: i disegni che mancano agli Atti I–III | bottega | Sonnet | S1 | da fare |
 | 5 | **K2** Motore: le merci che camminano | motore | Opus | S1 | da fare |
@@ -47,6 +47,8 @@ Evidenze: docs/evidence/S1/, docs/evidence/S1/allievo/trascrizione.md.
 - Una scena di prova nella galleria e una sezione in `docs/CREARE-UN-GIOCO.md`.
 
 È fatto quando: Test del motore: pazienza, segnali alle soglie, uscita dalla fila, salvataggio e ripresa a metà; Scena di prova nella galleria della bottega; Controlli comuni G1–G5 passati (METODO §7).
+
+Evidenze: docs/evidence/K1/, tests/queue.test.js.
 
 ## U-otto-giorni — III.2 Otto giorni: la coda vera, il soldato, il treno, Tauride
 

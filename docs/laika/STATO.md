@@ -14,7 +14,7 @@ Aggiornato al 4 novembre 2026.
 | R1 | Riordino dei documenti; `npm run canone`; test di coerenza dei documenti | PR #40 |
 | R2 e R3 | Il build legge il canone; il gioco in tre atti; home con nove fascicoli; usabilità | PR R3 |
 
-**K1 in corso** (motore della coda con la pazienza): modulo `src/core/queue.js` e test, pannello «La coda» nel gioco, tre pose di attesa (`guarda_orologio`, `batte_piedi`, `si_stringe`), scena di prova `esempio-coda-pazienza` nella galleria, sezione in `docs/CREARE-UN-GIOCO.md`. Evidenze in `docs/evidence/K1/`.
+**K1 fatto** (motore della coda con la pazienza; revisione indipendente al primo giro: passa): modulo `src/core/queue.js` e test, pannello «La coda» nel gioco, tre pose di attesa (`guarda_orologio`, `batte_piedi`, `si_stringe`), scena di prova `esempio-coda-pazienza` nella galleria, sezione in `docs/CREARE-UN-GIOCO.md`. Evidenze in `docs/evidence/K1/`.
 
 Proposte P-01–P-05 chiuse dal docente il 4 novembre (D-038, D-039): si lavora in autonomia con [PIANO-1917](PIANO-1917.md).
 

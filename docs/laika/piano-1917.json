@@ -61,7 +61,12 @@
         "Scena di prova nella galleria della bottega",
         "Controlli comuni G1–G5 passati (METODO §7)"
       ],
-      "stato": "in corso"
+      "stato": "fatto",
+      "pr": 48,
+      "evidenze": [
+        "docs/evidence/K1/",
+        "tests/queue.test.js"
+      ]
     },
     {
       "id": "U-otto-giorni",

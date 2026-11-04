@@ -93,7 +93,7 @@ export function queueTick(q, g, t, state, deps, cause) {
     }
     // Il segnale più urgente fra quelli appena superati (uno solo per gruppo e turno).
     const hit = sorted.find(sig => before > sig.at && after <= sig.at);
-    if (hit) events.push({ group: grp.id, groupLabel: grp.label, kind: 'signal', at: hit.at, pose: hit.pose || null, text: grp.label + ': ' + hit.label });
+    if (hit) events.push({ group: grp.id, groupLabel: grp.label, kind: 'signal', at: hit.at, pose: hit.pose || null, text: grp.label + ': ' + hit.label + '.' });
   }
   g.queue.last = { turn: g.turn, drain: d, events, changes: deps.netChanges(changes) };
   g.queue.log.push({ turn: g.turn, drain: d.total, events: events.map(e => ({ group: e.group, kind: e.kind, at: e.at ?? null })) });
