@@ -27,7 +27,7 @@ Nessuna è ancora stata provata e approvata dal docente dal telefono.
 | I.3 `citta` | In città, il salario (otto settimane), il razzo, la corte, i tre volantini, verifica V2 | Il salario si vince con la stessa mossa ogni settimana; manca il confronto di fine atto | revisione §5 |
 | Atto II (II.1–II.4) | Petizione e domenica di sangue (II.1), giornate del soviet a punti azione e V3 (II.2), che cosa concede lo zar (II.3), Stolypin, V4 e «Cosa ti devi ricordare» (II.4) | Approvazione della divisione in unità (P-01); giochi di petizione, concessioni e Stolypin; aneddoti dei libri (diario di Nicola, il granduca, Baletta); le notizie del soviet non servono a niente; confronto di fine atto | revisione §3 e §5 |
 | III.1 `pane-guerra` | In ginocchio, il grano e i treni come partita di sole decisioni, gioielli e pane, la fine dello zar, verifica V5 | **Da rifare**: il gioco approvato (quanto serve e quanto c'è, prime code) non c'è; aneddoti (Fabergé, Kšesinskaja, Rodzjanko) | revisione §3 |
-| III.2 `otto-giorni` | Giornata della donna, la coda a punti azione, il soldato a punti azione, il treno, verifica V6, confronto | **Da rifare**: la coda vera (figure che lasciano la fila); aneddoti del treno (baffi, Frederiks); disegno del treno nella neve (oggi treno, fine dello zar e confronto sono senza scena, invece di riusare scene sbagliate) | revisione §3 e §4 |
+| III.2 `otto-giorni` | Giornata della donna, la coda a punti azione, il soldato a punti azione, il treno, verifica V6, confronto | **Da rifare**: la coda vera (figure che lasciano la fila); aneddoti del treno (baffi, Frederiks); scene del treno nella neve e del Palazzo di Tauride da comporre con disegni che ci sono già ([PIANO-KIT](PIANO-KIT.md)); oggi treno, fine dello zar in famiglia e confronto sono senza scena invece di riusare scene sbagliate | revisione §3 e §4 |
 
 ## Home e sito
 
@@ -41,11 +41,13 @@ Nessuna è ancora stata provata e approvata dal docente dal telefono.
 
 La CI gioca i tre atti in Chromium e WebKit: circa 11 minuti per browser. Il limite del job è 20 minuti (era 12: il 4 novembre 2026 WebKit è stato interrotto dal limite subito dopo l'unione delle PR del riordino).
 
-## Disegni
+## Disegni e kit
 
-Catalogo in `bottega/catalogo.json`. Kit `kit-villaggio-mir`, `kit-interni-citta`, `kit-soviet-coda` in stato «bozza», da approvare dal docente. Mancano il treno nella neve e il Palazzo di Tauride per l'Atto III (le scene oggi riusano la sala del soviet).
+Catalogo in `bottega/catalogo.json`: 136 disegni, 32 in bozza da approvare dal docente. Che cosa serve dal kit unità per unità, che cosa c'è già e in che ordine si fa: [PIANO-KIT](PIANO-KIT.md). Il treno nella neve e il Palazzo di Tauride si possono già comporre con i disegni che ci sono.
 
 ## Da fare dopo il riordino (in ordine)
+
+Ogni voce porta con sé i suoi elementi del kit: ordine delle PR del kit in [PIANO-KIT](PIANO-KIT.md) §4.
 
 1. Giochi da rifare, uno per PR, ciascuno con la sua scheda approvata: la coda vera (III.2); il grano e i treni (III.1); il soviet con notizie che servono (II.2); i giochi di petizione, concessioni e Stolypin (dopo P-01); il mir come gioco; il salario più difficile.
 2. Aneddoti dai libri per gli Atti II e III (Opus, con i libri caricati dal docente).

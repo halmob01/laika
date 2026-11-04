@@ -23,7 +23,7 @@ Prima questo file. Poi, secondo il lavoro, al massimo questi:
 
 | Lavoro | Leggi |
 |---|---|
-| Un'unità o un episodio di LAIKA | la riga dell'unità in [docs/laika/CANONE.md](docs/laika/CANONE.md); la sua scheda in `docs/laika/atti/atto-N.md`; la sua scheda di gioco in `docs/laika/giochi/` |
+| Un'unità o un episodio di LAIKA | la riga dell'unità in [docs/laika/CANONE.md](docs/laika/CANONE.md); la sua scheda in `docs/laika/atti/atto-N.md`; la sua scheda di gioco in `docs/laika/giochi/`; i suoi elementi del kit in [docs/laika/PIANO-KIT.md](docs/laika/PIANO-KIT.md) |
 | Un gioco nuovo | [docs/laika/GIOCHI.md](docs/laika/GIOCHI.md); la scheda di gioco (si scrive e si fa approvare prima del codice, D-017) |
 | Testi e fatti storici | [docs/laika/fonti/FONTI.md](docs/laika/fonti/FONTI.md); [MATRICE](docs/laika/fonti/MATRICE.md) per registrare i prelievi |
 | Scene, disegni, animazioni | [bottega/README.md](bottega/README.md) |
