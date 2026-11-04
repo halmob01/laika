@@ -1,0 +1,97 @@
+{
+  "viewBox": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "id": "pane-guerra-pane",
+  "telefono": {
+    "centro": 0.5,
+    "zoom": 1.2
+  },
+  "etichetta": "Davanti a una panetteria una fila di persone aspetta il pane che non arriva; a lato un cartello del pane e il manifesto vuoto di un prestito di guerra.",
+  "elementi": [
+    {
+      "id": "panetteria",
+      "simbolo": "ambiente-panetteria",
+      "x": 800,
+      "y": 900,
+      "scala": 2
+    },
+    {
+      "id": "neve",
+      "simbolo": "atmo-neve",
+      "x": 800,
+      "y": 300,
+      "scala": 2
+    },
+    {
+      "id": "cartello",
+      "simbolo": "oggetto-cartello-pane",
+      "x": 1400,
+      "y": 880,
+      "scala": 2.2
+    },
+    {
+      "id": "manifesto",
+      "simbolo": "oggetto-manifesto-prestito",
+      "x": 150,
+      "y": 870,
+      "scala": 2
+    }
+  ],
+  "figure": [
+    {
+      "gruppo": "fila",
+      "formazione": {
+        "tipo": "coda",
+        "n": 7,
+        "x": 520,
+        "y": 850,
+        "passo": 120,
+        "scala": 2.2,
+        "varianti": [
+          "cappotto",
+          "scialle",
+          "nessuna",
+          "borsa",
+          "cappello",
+          "donna",
+          "bambino"
+        ]
+      }
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "La coda si forma e avanza di un posto.",
+      "passi": [
+        {
+          "azione": "queue",
+          "chi": "fila",
+          "da": "sinistra",
+          "distanza": 260,
+          "a": 0,
+          "sfalsa": 450
+        }
+      ],
+      "battute": [
+        {
+          "a": 200,
+          "testo": "Pane e carbone mancano."
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

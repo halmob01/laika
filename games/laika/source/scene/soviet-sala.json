@@ -1,0 +1,114 @@
+{
+  "viewBox": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "id": "soviet-sala",
+  "telefono": {
+    "centro": 0.5,
+    "zoom": 1.2
+  },
+  "etichetta": "Nella sala a colonne i delegati del soviet discutono attorno a un tavolo con fogli e lampada; un telegrafo batte le notizie.",
+  "elementi": [
+    {
+      "id": "sala",
+      "simbolo": "ambiente-sala",
+      "x": 800,
+      "y": 900,
+      "scala": 2.2
+    },
+    {
+      "id": "tavolo",
+      "simbolo": "soviet-tavolo",
+      "x": 800,
+      "y": 835,
+      "scala": 1.5
+    },
+    {
+      "id": "telegrafo",
+      "simbolo": "soviet-telegrafo",
+      "x": 1340,
+      "y": 880,
+      "scala": 1.5
+    }
+  ],
+  "figure": [
+    {
+      "id": "oratore",
+      "x": 800,
+      "y": 860,
+      "scala": 2.4,
+      "variante": "nessuna",
+      "posa": "in_piedi",
+      "abito": "cappotto",
+      "cappello": null
+    },
+    {
+      "id": "operaia",
+      "x": 480,
+      "y": 860,
+      "scala": 2.4,
+      "variante": "scialle",
+      "posa": "in_piedi"
+    },
+    {
+      "id": "ferroviere",
+      "x": 1120,
+      "y": 860,
+      "scala": 2.4,
+      "variante": "nessuna",
+      "posa": "in_piedi",
+      "abito": "cappotto",
+      "cappello": null,
+      "flip": true
+    },
+    {
+      "id": "figlio",
+      "x": 250,
+      "y": 860,
+      "scala": 2.4,
+      "variante": "nessuna",
+      "posa": "in_piedi",
+      "ruolo": "protagonista"
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "I delegati prendono posto: ognuno porta notizie diverse.",
+      "passi": [
+        {
+          "azione": "walk",
+          "chi": "figlio",
+          "da": "sinistra",
+          "distanza": 220,
+          "a": 0,
+          "durata": 2000
+        },
+        {
+          "azione": "speak",
+          "chi": "oratore",
+          "a": 300,
+          "cicli": 3
+        }
+      ],
+      "battute": [
+        {
+          "a": 300,
+          "testo": "Cinque cose da fare."
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

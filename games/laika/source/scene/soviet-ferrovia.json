@@ -1,0 +1,126 @@
+{
+  "viewBox": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "id": "soviet-ferrovia",
+  "telefono": {
+    "centro": 0.5,
+    "zoom": 1.2
+  },
+  "etichetta": "Un treno fermo sui binari: i ferrovieri in sciopero issano una bandiera rossa senza scritte e aspettano notizie.",
+  "elementi": [
+    {
+      "id": "campi",
+      "simbolo": "luogo-pianura",
+      "x": 800,
+      "y": 900,
+      "scala": 2.9
+    },
+    {
+      "id": "binari-1",
+      "simbolo": "infra-binari",
+      "x": 390,
+      "y": 740,
+      "scala": 3.4
+    },
+    {
+      "id": "binari-2",
+      "simbolo": "infra-binari",
+      "x": 1100,
+      "y": 740,
+      "scala": 3.4
+    },
+    {
+      "id": "treno",
+      "simbolo": "mezzo-treno",
+      "x": 800,
+      "y": 735,
+      "scala": 3.3
+    },
+    {
+      "id": "bandiera",
+      "simbolo": "soviet-bandiera",
+      "x": 1340,
+      "y": 880,
+      "scala": 1.7
+    }
+  ],
+  "figure": [
+    {
+      "id": "ferroviere-1",
+      "x": 500,
+      "y": 860,
+      "scala": 1.5,
+      "variante": "nessuna",
+      "abito": "cappotto",
+      "cappello": null,
+      "posa": "in_piedi"
+    },
+    {
+      "id": "ferroviere-2",
+      "x": 640,
+      "y": 865,
+      "scala": 1.5,
+      "variante": "nessuna",
+      "abito": "cappotto",
+      "cappello": null,
+      "posa": "in_piedi",
+      "flip": true
+    },
+    {
+      "id": "ferroviere-3",
+      "x": 1180,
+      "y": 860,
+      "scala": 1.5,
+      "variante": "nessuna",
+      "abito": "cappotto",
+      "cappello": null,
+      "posa": "in_piedi",
+      "flip": true
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "I ferrovieri si fermano; la bandiera rossa sale.",
+      "passi": [
+        {
+          "azione": "walk",
+          "chi": [
+            "ferroviere-1",
+            "ferroviere-2"
+          ],
+          "da": "sinistra",
+          "distanza": 200,
+          "a": 0,
+          "durata": 2200
+        },
+        {
+          "azione": "reveal",
+          "chi": "bandiera",
+          "modo": "sale",
+          "a": 1800,
+          "durata": 800
+        }
+      ],
+      "battute": [
+        {
+          "a": 300,
+          "testo": "Il treno non parte."
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

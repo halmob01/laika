@@ -1,0 +1,84 @@
+{
+  "viewBox": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "id": "otto-giorni-donna",
+  "telefono": {
+    "centro": 0.5,
+    "zoom": 1.2
+  },
+  "etichetta": "Una coda per il pane si scioglie e diventa un corteo che marcia.",
+  "elementi": [
+    {
+      "id": "strada",
+      "simbolo": "ambiente-strada",
+      "x": 800,
+      "y": 900,
+      "scala": 2.0
+    },
+    {
+      "id": "neve",
+      "simbolo": "atmo-neve",
+      "x": 800,
+      "y": 300,
+      "scala": 2.0
+    }
+  ],
+  "figure": [
+    {
+      "gruppo": "corteo",
+      "formazione": {
+        "tipo": "marcia",
+        "n": 8,
+        "x": 300,
+        "y": 850,
+        "passo": 120,
+        "scala": 2.2,
+        "varianti": [
+          "cappotto",
+          "scialle",
+          "nessuna",
+          "donna",
+          "cappello",
+          "donna",
+          "nessuna",
+          "cappotto"
+        ]
+      }
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "La coda si scioglie: le stesse persone marciano insieme.",
+      "passi": [
+        {
+          "azione": "march",
+          "chi": "corteo",
+          "da": "sinistra",
+          "distanza": 420,
+          "a": 0,
+          "durata": 2600
+        }
+      ],
+      "battute": [
+        {
+          "a": 200,
+          "testo": "8 marzo 1917."
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

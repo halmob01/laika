@@ -1,0 +1,107 @@
+{
+  "viewBox": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "id": "pane-guerra-famiglia",
+  "telefono": {
+    "centro": 0.5,
+    "zoom": 1.2
+  },
+  "etichetta": "Il palazzo imperiale d'inverno, isolato: davanti a lui un grande spazio vuoto e, minuscole, tre figure della famiglia.",
+  "elementi": [
+    {
+      "id": "campi",
+      "simbolo": "luogo-pianura",
+      "x": 800,
+      "y": 900,
+      "scala": 2.9
+    },
+    {
+      "id": "palazzo",
+      "simbolo": "luogo-palazzo",
+      "x": 800,
+      "y": 660,
+      "scala": 0.95
+    },
+    {
+      "id": "foschia",
+      "simbolo": "atmo-foschia",
+      "x": 800,
+      "y": 700,
+      "scala": 1.4
+    },
+    {
+      "id": "neve",
+      "simbolo": "atmo-neve",
+      "x": 800,
+      "y": 300,
+      "scala": 2
+    }
+  ],
+  "figure": [
+    {
+      "id": "zar",
+      "x": 720,
+      "y": 800,
+      "scala": 0.75,
+      "variante": "mantello",
+      "cappello": null,
+      "posa": "in_piedi"
+    },
+    {
+      "id": "zarina",
+      "x": 800,
+      "y": 805,
+      "scala": 0.75,
+      "variante": "vestito",
+      "posa": "in_piedi"
+    },
+    {
+      "id": "dama",
+      "x": 880,
+      "y": 810,
+      "scala": 0.7,
+      "variante": "vestito",
+      "posa": "in_piedi"
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "Intorno al palazzo c'è il vuoto.",
+      "passi": [
+        {
+          "azione": "walk",
+          "chi": [
+            "zar",
+            "zarina",
+            "dama"
+          ],
+          "da": "sinistra",
+          "distanza": 260,
+          "a": 0,
+          "durata": 3000,
+          "sfalsa": 300
+        }
+      ],
+      "battute": [
+        {
+          "a": 300,
+          "testo": "Dicembre 1916: la corte è sola."
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

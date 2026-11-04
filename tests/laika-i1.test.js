@@ -110,7 +110,10 @@ test('I.1: salvataggio rigiocato identico a ogni mossa; verifica formativa raggi
 test('I.1: il manifesto resta leggero da trasferire (gzip)', async () => {
   const {gzipSync} = await import('node:zlib');
   const size = gzipSync(fs.readFileSync(new URL('../games/laika/game.json', import.meta.url))).length;
-  assert.ok(size < 260 * 1024, 'game.json compresso: ' + Math.round(size / 1024) + ' KB');
+  // 260 KB bastavano per il solo Atto I (207 KB). Con S1 le scene dei tre atti usano 35 disegni in più (circa +55 KB):
+  // la soglia sale a 340 KB per il corso fino al 1917. Il manifesto si carica una volta sola e il budget della home (500 KB)
+  // non lo comprende (METODO §2). Alleggerirlo davvero (simboli per atto, caricamento al bisogno) è lavoro di V-1917.
+  assert.ok(size < 340 * 1024, 'game.json compresso: ' + Math.round(size / 1024) + ' KB');
 });
 
 test('I.1: i flag non compaiono nelle variazioni mostrate e Legami è un indicatore visibile', async () => {
@@ -119,7 +122,7 @@ test('I.1: i flag non compaiono nelle variazioni mostrate e Legami è un indicat
   assert.deepEqual(net.map(c => c.id), ['legami']);
   const act = JSON.parse(fs.readFileSync(new URL('../games/laika/source/acts/atto-1.json', import.meta.url), 'utf8'));
   assert.ok(!act.metrics.find(m => m.id === 'legami').hidden, 'Legami nel villaggio deve essere mostrato');
-  const e = act.episodes.find(x => x.type === 'turn_game'), scena = JSON.parse(fs.readFileSync(new URL('../games/laika/source/scene/a1-u1-anno.json', import.meta.url), 'utf8'));
+  const e = act.episodes.find(x => x.type === 'turn_game'), scena = JSON.parse(fs.readFileSync(new URL('../games/laika/source/scene/servitu-anno.json', import.meta.url), 'utf8'));
   const ids = new Set(scena.elementi.map(x => x.id));
   for (const p of e.projects) for (const id of Object.values(p.scene || {})) assert.ok(ids.has(id), 'disegno del lavoro mancante nella scena: ' + id);
 });

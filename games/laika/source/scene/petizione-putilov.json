@@ -1,0 +1,103 @@
+{
+  "viewBox": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "id": "petizione-putilov",
+  "telefono": {
+    "centro": 0.5,
+    "zoom": 1.2
+  },
+  "etichetta": "Davanti alle officine Putilov, in gennaio, gli operai in sciopero si raccolgono attorno a chi scrive la petizione da portare allo zar.",
+  "elementi": [
+    {
+      "id": "campi",
+      "simbolo": "luogo-pianura",
+      "x": 800,
+      "y": 900,
+      "scala": 2.9
+    },
+    {
+      "id": "putilov",
+      "simbolo": "luogo-fabbrica",
+      "x": 1060,
+      "y": 690,
+      "scala": 0.72
+    },
+    {
+      "id": "neve",
+      "simbolo": "atmo-neve",
+      "x": 800,
+      "y": 300,
+      "scala": 2
+    }
+  ],
+  "figure": [
+    {
+      "gruppo": "operai",
+      "formazione": {
+        "tipo": "gruppo",
+        "n": 9,
+        "x": 430,
+        "y": 850,
+        "passo": 90,
+        "scala": 1.3,
+        "raggio": 170,
+        "seme": 5,
+        "varianti": [
+          "cappotto",
+          "scialle",
+          "nessuna",
+          "cappello",
+          "donna",
+          "cappotto",
+          "nessuna",
+          "scialle",
+          "cappello"
+        ]
+      }
+    },
+    {
+      "id": "scrivano",
+      "x": 640,
+      "y": 860,
+      "scala": 1.5,
+      "variante": "nessuna",
+      "abito": "cappotto",
+      "cappello": null,
+      "posa": "legge",
+      "ruolo": "protagonista"
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "Gli operai delle officine si raccolgono per scrivere la petizione.",
+      "passi": [
+        {
+          "azione": "gather",
+          "chi": "operai",
+          "a": 0,
+          "durata": 2400
+        }
+      ],
+      "battute": [
+        {
+          "a": 300,
+          "testo": "Sciopero alle officine Putilov."
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

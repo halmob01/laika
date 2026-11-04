@@ -1,0 +1,143 @@
+{
+  "viewBox": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "id": "otto-giorni-coda",
+  "telefono": {
+    "centro": 0.5,
+    "zoom": 1.2
+  },
+  "etichetta": "Una coda di donne davanti al cartello del pane, con la tessera in mano; a destra l'uscita di una fabbrica tessile.",
+  "elementi": [
+    {
+      "id": "campi",
+      "simbolo": "luogo-pianura",
+      "x": 800,
+      "y": 900,
+      "scala": 2.9
+    },
+    {
+      "id": "fabbrica",
+      "simbolo": "ambiente-fabbrica",
+      "x": 1220,
+      "y": 780,
+      "scala": 2.4
+    },
+    {
+      "id": "cartello",
+      "simbolo": "oggetto-cartello-pane",
+      "x": 720,
+      "y": 880,
+      "scala": 2.2
+    },
+    {
+      "id": "tessera",
+      "simbolo": "coda-tessera",
+      "x": 620,
+      "y": 880,
+      "scala": 1.8
+    },
+    {
+      "id": "neve",
+      "simbolo": "atmo-neve",
+      "x": 800,
+      "y": 300,
+      "scala": 2
+    }
+  ],
+  "figure": [
+    {
+      "gruppo": "coda",
+      "formazione": {
+        "tipo": "coda",
+        "n": 6,
+        "x": 640,
+        "y": 860,
+        "passo": 75,
+        "scala": 1.5,
+        "varianti": [
+          "scialle",
+          "donna",
+          "scialle",
+          "cappotto",
+          "donna",
+          "scialle"
+        ]
+      }
+    },
+    {
+      "id": "tessile-1",
+      "x": 1080,
+      "y": 870,
+      "scala": 1.5,
+      "variante": "scialle",
+      "posa": "in_piedi",
+      "flip": true
+    },
+    {
+      "id": "tessile-2",
+      "x": 1180,
+      "y": 880,
+      "scala": 1.5,
+      "variante": "scialle",
+      "posa": "in_piedi",
+      "flip": true
+    },
+    {
+      "id": "tessile-3",
+      "x": 1320,
+      "y": 875,
+      "scala": 1.5,
+      "variante": "donna",
+      "posa": "in_piedi",
+      "flip": true
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "La coda si forma; le tessili escono dalla fabbrica.",
+      "passi": [
+        {
+          "azione": "queue",
+          "chi": "coda",
+          "da": "sinistra",
+          "distanza": 260,
+          "a": 0,
+          "sfalsa": 400
+        },
+        {
+          "azione": "walk",
+          "chi": [
+            "tessile-1",
+            "tessile-2",
+            "tessile-3"
+          ],
+          "da": "destra",
+          "distanza": 180,
+          "a": 1200,
+          "durata": 2200,
+          "sfalsa": 200
+        }
+      ],
+      "battute": [
+        {
+          "a": 300,
+          "testo": "Pane e freddo."
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

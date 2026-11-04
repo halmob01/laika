@@ -1,0 +1,109 @@
+{
+  "viewBox": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "id": "otto-giorni-confronto",
+  "telefono": {
+    "centro": 0.5,
+    "zoom": 1.2
+  },
+  "etichetta": "Dal Palazzo d'Inverno al Palazzo di Tauride: una bandiera rossa passa da un palazzo all'altro attraverso la piazza.",
+  "elementi": [
+    {
+      "id": "campi",
+      "simbolo": "luogo-pianura",
+      "x": 800,
+      "y": 900,
+      "scala": 2.9
+    },
+    {
+      "id": "palazzo",
+      "simbolo": "luogo-palazzo",
+      "x": 420,
+      "y": 650,
+      "scala": 0.55
+    },
+    {
+      "id": "tauride",
+      "simbolo": "luogo-palazzo-tauride",
+      "x": 1200,
+      "y": 650,
+      "scala": 0.6
+    },
+    {
+      "id": "bandiera",
+      "simbolo": "oggetto-bandiera",
+      "x": 1200,
+      "y": 800,
+      "scala": 1.5
+    }
+  ],
+  "figure": [
+    {
+      "gruppo": "folla",
+      "formazione": {
+        "tipo": "gruppo",
+        "n": 8,
+        "x": 800,
+        "y": 840,
+        "passo": 80,
+        "scala": 1,
+        "raggio": 120,
+        "seme": 2,
+        "varianti": [
+          "cappotto",
+          "scialle",
+          "nessuna",
+          "donna",
+          "cappello",
+          "nessuna",
+          "scialle",
+          "cappotto"
+        ]
+      }
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "La bandiera passa dal Palazzo d'Inverno al Palazzo di Tauride.",
+      "passi": [
+        {
+          "azione": "transfer",
+          "chi": "bandiera",
+          "da": [
+            420,
+            760
+          ],
+          "arco": 140,
+          "a": 300,
+          "durata": 3200
+        },
+        {
+          "azione": "gather",
+          "chi": "folla",
+          "a": 0,
+          "durata": 2000
+        }
+      ],
+      "battute": [
+        {
+          "a": 300,
+          "testo": "Il potere cambia palazzo."
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

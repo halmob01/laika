@@ -1,0 +1,148 @@
+{
+  "viewBox": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "id": "pane-guerra-treni",
+  "telefono": {
+    "centro": 0.5,
+    "zoom": 1.2
+  },
+  "etichetta": "Una stazione d'inverno: sacchi di grano sulla banchina, un treno sui binari e due ferrovieri.",
+  "elementi": [
+    {
+      "id": "campi",
+      "simbolo": "luogo-pianura",
+      "x": 800,
+      "y": 900,
+      "scala": 2.9
+    },
+    {
+      "id": "stazione",
+      "simbolo": "ambiente-stazione",
+      "x": 430,
+      "y": 780,
+      "scala": 2.6
+    },
+    {
+      "id": "binari-1",
+      "simbolo": "infra-binari",
+      "x": 900,
+      "y": 750,
+      "scala": 3.4
+    },
+    {
+      "id": "binari-2",
+      "simbolo": "infra-binari",
+      "x": 1600,
+      "y": 750,
+      "scala": 3.4
+    },
+    {
+      "id": "treno",
+      "simbolo": "mezzo-treno",
+      "x": 1200,
+      "y": 745,
+      "scala": 3.2
+    },
+    {
+      "id": "sacchi-1",
+      "simbolo": "campagna-sacchi",
+      "x": 780,
+      "y": 880,
+      "scala": 1.8
+    },
+    {
+      "id": "sacchi-2",
+      "simbolo": "campagna-sacchi",
+      "x": 900,
+      "y": 880,
+      "scala": 1.8
+    },
+    {
+      "id": "sacchi-3",
+      "simbolo": "campagna-sacchi",
+      "x": 840,
+      "y": 830,
+      "scala": 1.8
+    },
+    {
+      "id": "neve",
+      "simbolo": "atmo-neve",
+      "x": 800,
+      "y": 300,
+      "scala": 2
+    }
+  ],
+  "figure": [
+    {
+      "id": "facchino-1",
+      "x": 640,
+      "y": 880,
+      "scala": 1.6,
+      "variante": "nessuna",
+      "abito": "cappotto",
+      "cappello": null,
+      "posa": "lavora"
+    },
+    {
+      "id": "facchino-2",
+      "x": 1000,
+      "y": 885,
+      "scala": 1.6,
+      "variante": "nessuna",
+      "abito": "cappotto",
+      "cappello": null,
+      "posa": "in_piedi",
+      "flip": true
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "Il grano arriva alla stazione; il treno è fermo.",
+      "passi": [
+        {
+          "azione": "reveal",
+          "chi": [
+            "sacchi-1",
+            "sacchi-2",
+            "sacchi-3"
+          ],
+          "modo": "sale",
+          "a": 300,
+          "durata": 700,
+          "sfalsa": 250
+        },
+        {
+          "azione": "transfer",
+          "chi": "treno",
+          "a": 0,
+          "durata": 2600,
+          "da": [
+            1700,
+            745
+          ],
+          "arco": 0
+        }
+      ],
+      "battute": [
+        {
+          "a": 300,
+          "testo": "Il grano c'è. Arriva in città?"
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

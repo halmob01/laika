@@ -1,0 +1,109 @@
+{
+  "viewBox": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "id": "pane-guerra-trincea",
+  "telefono": {
+    "centro": 0.5,
+    "zoom": 1.2
+  },
+  "etichetta": "Una trincea d'inverno: tre soldati dietro il parapetto e il filo spinato davanti.",
+  "elementi": [
+    {
+      "id": "trincea",
+      "simbolo": "ambiente-trincea",
+      "x": 800,
+      "y": 790,
+      "scala": 1.5
+    },
+    {
+      "id": "filo",
+      "simbolo": "infra-filo-spinato",
+      "x": 300,
+      "y": 880,
+      "scala": 2
+    },
+    {
+      "id": "parapetto",
+      "simbolo": "ambiente-parapetto",
+      "x": 800,
+      "y": 900,
+      "scala": 1.5,
+      "davanti": true
+    },
+    {
+      "id": "neve",
+      "simbolo": "atmo-neve",
+      "x": 800,
+      "y": 300,
+      "scala": 2
+    }
+  ],
+  "figure": [
+    {
+      "id": "soldato-1",
+      "x": 500,
+      "y": 805,
+      "scala": 1.5,
+      "variante": "soldato_guarnigione",
+      "posa": "in_piedi",
+      "ruolo": "esercito"
+    },
+    {
+      "id": "soldato-2",
+      "x": 800,
+      "y": 805,
+      "scala": 1.5,
+      "variante": "soldato_guarnigione",
+      "posa": "in_piedi",
+      "ruolo": "esercito"
+    },
+    {
+      "id": "soldato-3",
+      "x": 1100,
+      "y": 805,
+      "scala": 1.5,
+      "variante": "soldato_guarnigione",
+      "posa": "in_piedi",
+      "ruolo": "esercito",
+      "flip": true
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "I soldati aspettano nella trincea.",
+      "passi": [
+        {
+          "azione": "listen",
+          "chi": [
+            "soldato-1",
+            "soldato-2",
+            "soldato-3"
+          ],
+          "a": 0,
+          "durata": 2000,
+          "cicli": 2
+        }
+      ],
+      "battute": [
+        {
+          "a": 300,
+          "testo": "Il fronte consuma uomini e treni."
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

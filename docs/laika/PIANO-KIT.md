@@ -22,7 +22,7 @@ Regole:
 
 - **Bottega:** 136 disegni a catalogo, di cui 32 in bozza; figura articolata con 25 pose, 17 varianti (4 in bozza), 3 corpi; 10 formazioni (fra cui `fila` e `coda`); 21 azioni (fra cui `queue`, `disperse`, `transfer`, `replace`, `reveal`, `camera`).
 - **Motore:** episodi a racconto, scelta, distribuzione, fonti, verifica; partita a turni con gestione (persone e posti, lavori lunghi, semina, fiera), sole decisioni, monete, giornate a punti azione.
-- **Disegni in bozza che nessuna scena usa ancora:** `mir-strisce-prima`, `mir-strisce-dopo`, `mir-registro`, `mir-covone`, `citta-dormitorio`, `citta-carbone`, `soviet-tavolo`, `soviet-telegrafo`, `soviet-bandiera`, `coda-tessera`, `luogo-palazzo-tauride`, `oggetto-ritratto-zar`, `oggetto-aquila-imperiale`, `oggetto-manifesto-prestito`, `ambiente-salone-lampadari`, `ambiente-teatro-palco`; anche `mezzo-treno`, `infra-binari`, `ambiente-trincea` (pronti) non sono ancora in nessuna scena di LAIKA. Il treno nella neve e il Palazzo di Tauride **si possono comporre già**: non mancano disegni, manca la scheda scena.
+- **Disegni mai usati:** con S1 (4 novembre 2026) tutti i disegni elencati qui sotto, sia in bozza sia pronti, sono in almeno una scena di LAIKA; restano da usare solo quelli dei kit non ancora importati (K4) e quelli degli atti successivi.
 
 ## 3. Unità per unità
 
@@ -80,7 +80,7 @@ Regole:
 
 **Tutti gli atti**
 - Motore: **il ponte fra gli atti**. Oggi a fine atto lo stato della simulazione riparte da capo: per la famiglia e per «Che cosa porti con te» serve che alcuni flag passino all'atto successivo e che l'atto possa leggere due righe del diario precedente.
-- Scene: i nomi delle schede scena seguono ancora la numerazione vecchia (`a1-u4-soviet`, `a1-u6-coda`): si rinominano con i nomi stabili (`soviet-sala`, `otto-giorni-coda`) quando si tocca l'unità.
+- Scene: le schede scena hanno i nomi stabili delle unità (`soviet-sala`, `otto-giorni-coda`…), rinominate con S1.
 
 ## 4. Ordine delle PR del kit
 
