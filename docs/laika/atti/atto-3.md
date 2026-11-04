@@ -18,9 +18,11 @@ Ruoli: la famiglia con il figlio richiamato; un ministro, un deputato, un uffici
 - **Regia.** Stessa inquadratura di II.1-e2, gesto opposto.
 - **Chi la sviluppa.** Sonnet.
 
-**III.1-e2 · resource_allocation [S] · Il raccolto della guerra**
-- **Scena.** Con gli uomini al fronte la famiglia divide il raccolto fra consumo, vendita allo Stato a prezzo fissato, scorta e seme. In città non c'è niente da comprare con rubli che valgono sempre meno.
-- **Chi la sviluppa.** Sonnet.
+**III.1-e2 · turn_game [S] · Il grano, i treni, la città** *(riscritta il 4 novembre 2026, al posto del «Raccolto della guerra»)*
+- **Scena.** Cinque stagioni di guerra (autunno 1915–inverno 1916–1917) come funzionario dell'approvvigionamento: il grano c'è nei campi e negli ammassi ma arriva in città solo quanto lasciano passare i treni. Sulla carta il ministero dichiara un obiettivo; nella realtà conta quello che arriva. A ogni stagione il fronte chiede i treni; davanti ai forni una fila perde la pazienza.
+- **Sotto la scena.** Il grano c'è: perché la città resta senza pane?
+- **Gioco.** [giochi/pane-guerra.md](../giochi/pane-guerra.md): la catena del motore (K2), la coda (K1, K6) e le giornate a punti azione.
+- **Chi la sviluppa.** Opus.
 
 **III.1-e3 · source_comparison [F] · Gioielli e pane**
 - **Scena.** Nell'inverno 1915–1916 Fabergé, gioielliere della corte, non ha mai venduto tanto, mentre nella capitale mancano pane e combustibile (C39). La ballerina Kšesinskaja, si mormora, decide le commesse d'artiglieria (C42). Alla Duma Miljukov chiede «stupidità o tradimento?». Circola la voce dell'imperatrice spia.
@@ -32,9 +34,11 @@ Ruoli: la famiglia con il figlio richiamato; un ministro, un deputato, un uffici
 **III.1-e4 · narrative [D] · La fine dello zar comincia in famiglia**
 - **Scena.** Dicembre 1916: Rasputin è ucciso da un principe e un granduca. Una granduchessa propone di «eliminare» l'imperatrice; Rodzjanko chiede di considerare la frase come non detta (C43). All'ambasciatore britannico che lo invita a riconquistare la fiducia del popolo, lo zar chiede se non sia il popolo a dover riconquistare la sua.
 - **Sotto la scena.** Un potere sacro può sopravvivere quando non ci crede più nemmeno la sua famiglia?
-- **Materiali.** C43 (Trockij, «granduchessa Maria Pavlovna»); battuta all'ambasciatore: Montefiore [verificare].
+- **Materiali.** C43 (Trockij, «granduchessa Maria Pavlovna»); battuta all'ambasciatore: Montefiore (riscontrata in MATRICE; nel testo dello studente senza data).
 - **Regia.** Il palazzo isolato, il vuoto attorno.
 - **Chi la sviluppa.** Sonnet.
+
+**III.1-e4b · narrative [D] · Cosa ti devi ricordare.** Aggiunta il 4 novembre 2026 (standard didattico, PERCORSO §7): i tre obiettivi dell'unità in parole semplici.
 
 **III.1-e5 · assessment [V] · Verifica V5.**
 
