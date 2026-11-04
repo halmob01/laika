@@ -142,7 +142,10 @@ async function start(){
   for(const [key,value] of Object.entries(game.theme||{}))if(['ink','paper','accent','highlight'].includes(key)&&/^#[0-9a-f]{6}$/i.test(value))document.documentElement.style.setProperty('--'+key,value);
   if(item.presentation?.standalone)$('packs').hidden=true;
   else for(const g of config.games){const a=el('a',g.label,{href:'?game='+encodeURIComponent(g.id)});if(g.id===selected)a.setAttribute('aria-current','page');$('packs').append(a);}
-  const result=load(game,storage);blocked=!result.ok;
+  let result=load(game,storage);
+  // Progresso di una versione precedente (o illeggibile): si riparte da capo senza avvisi; la copia vecchia resta in una chiave di riserva.
+  if(!result.ok&&!/^Archivio locale/.test(result.error)){try{const k=storageKey(game),raw=storage.getItem(k);if(raw!==null)storage.setItem(k+':precedente',raw);}catch{}result={ok:true,state:null};}
+  blocked=!result.ok;
   state=result.ok&&result.state?result.state:newSession(game,crypto.randomUUID());
   if(blocked){notice(/^Archivio locale/.test(result.error)?result.error:STALE);$('raw').hidden=false;}
   else if(result.state)notice('Progresso ripreso. Nel diario trovi le decisioni che spiegano la situazione attuale.');
