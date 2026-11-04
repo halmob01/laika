@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "laika",
-  "contentVersion": "p3r-i2-1",
+  "contentVersion": "p4-revisione-1",
   "title": "LAIKA",
   "exposureFlags": [
     "a1-anime",
@@ -60900,7 +60900,7 @@
         "verso_tauride",
         "coda_corteo"
       ],
-      "reconciliation": "Fine dell'unità I.1 (1700–1861). Per un secolo e mezzo la ricchezza si è contata in anime e il tempo di un servo apparteneva in parte al signore. La libertà del 1861 è vera, ma arriva senza la terra: la terra si paga per quarantanove anni e il villaggio risponde insieme dei debiti. Le tue scelte hanno cambiato soltanto la simulazione, non questi fatti. Le unità successive dell'Atto I (1861–1917) sono in preparazione: per ora il percorso si ferma qui.",
+      "reconciliation": "Fine dell'Atto I (1700–marzo 1917). Per un secolo e mezzo la ricchezza si è contata in anime; il 1861 ha dato la libertà della persona senza la terra. La terra non bastava, i figli sono andati in fabbrica; nel 1905 uno sciopero ha fatto nascere il primo soviet; la guerra ha tolto il pane alle città. A marzo 1917 i soldati non hanno sparato e lo zar è caduto perché nessuno lo difendeva più. Le tue scelte hanno cambiato soltanto la simulazione, non questi fatti. Che cosa viene dopo era ancora da decidere: è l'Atto II, in preparazione.",
       "period": "1700 – marzo 1917",
       "question": "Si può possedere un essere umano? Che cosa tiene in piedi un potere che si crede sacro?",
       "units": [
@@ -61000,8 +61000,8 @@
             "Manifesto di ottobre"
           ],
           "episodes": [
-            "a1-u4-domenica",
             "a1-u4-petizione",
+            "a1-u4-domenica",
             "a1-u4-soviet",
             "a1-u4-manifesto",
             "a1-u4-stolypin",
@@ -61067,7 +61067,7 @@
           ],
           "closing": {
             "did": "Hai guidato il passaggio dalla coda per il pane alla fine dello zar.",
-            "fact": "Fra l'8 e il 16 marzo 1917 una protesta per il pane diventò una rivoluzione quando i soldati si rifiutarono di sparare. Lo zar abdicò e nacquero la Duma e il soviet.",
+            "fact": "Fra l'8 e il 16 marzo 1917 una protesta per il pane diventò una rivoluzione quando i soldati si rifiutarono di sparare. Lo zar abdicò. Al Palazzo di Tauride nacquero il Comitato provvisorio della Duma e il soviet di Pietrogrado.",
             "simulation": "I giorni, i personaggi e le scelte sono simulazione."
           }
         }
@@ -63824,14 +63824,14 @@
           "id": "a1-u2-citta",
           "type": "narrative",
           "title": "In città",
-          "text": "Il figlio della famiglia lascia il villaggio e arriva a Pietroburgo. Lì lo aspetta una fabbrica.\n\nIl salario è basso. La polizia può essere violenta. Gli operai non hanno libertà di associarsi né di stampare ciò che pensano: la vita dell'operaio dipende dalla forza del padrone.\n\nIl figlio dorme in un angolo di stanza in affitto. Spesso la sera pensa al villaggio.\n\nAnche chi veste una divisa trova porte chiuse. Secondo Miéville i soldati di truppa non potevano prendere il tram né mangiare nei ristoranti: bastava l'uniforme a tenerli fuori.\n\nSi è più liberi in città che al villaggio? In città nessuno può venderti o regalarti. Ma ogni gradino della società ha le sue porte chiuse.",
+          "text": "Il figlio della famiglia lascia il villaggio e arriva a Pietroburgo. Lì lo aspetta una fabbrica.\n\nIl salario è basso. La polizia può essere violenta. Gli operai non hanno libertà di associarsi né di stampare ciò che pensano: la vita dell'operaio dipende dalla forza del padrone.\n\nIl figlio dorme in un angolo di stanza in affitto. Spesso la sera pensa al villaggio.\n\nAnche chi veste una divisa trova porte chiuse. I soldati di truppa non possono prendere il tram né mangiare nei ristoranti: basta l'uniforme a tenerli fuori.\n\nSi è più liberi in città che al villaggio? In città nessuno può venderti o regalarti. Ma ogni gradino della società ha le sue porte chiuse.",
           "roleId": "figlio",
           "stageId": "a1-u2-citta",
           "motionId": "ingresso",
           "visualExplanation": "A sinistra il villaggio con le isbe; a destra la fabbrica. Il figlio (in rosso) attraversa lo spazio fra i due mondi. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
           "context": {
             "kind": "documented",
-            "dateLabel": "1861–1904",
+            "dateLabel": "fine Ottocento–1904",
             "placeLabel": "Pietroburgo"
           },
           "exposes": [
@@ -63855,7 +63855,7 @@
           "visualExplanation": "Un angolo di stanza in affitto: il letto di ferro, il baule e la stufetta. Tocca una moneta e poi il posto dove la spendi. Gli indicatori sono indici della simulazione e non dati storici né voti.",
           "context": {
             "kind": "simulation",
-            "dateLabel": "1861–1904",
+            "dateLabel": "fine Ottocento–1904",
             "placeLabel": "Pietroburgo"
           },
           "feedback": "Otto settimane sono passate. In città nessuno può venderti o regalarti. Ma il salario e l'affitto decidono ogni sabato che cosa puoi permetterti: la libertà costa il suo prezzo.",
@@ -64652,29 +64652,10 @@
           }
         },
         {
-          "id": "a1-u4-domenica",
-          "type": "narrative",
-          "title": "La domenica di sangue",
-          "text": "La guerra contro il Giappone va male. Domenica 22 gennaio 1905 (9 gennaio nel calendario russo) un corteo guidato da padre Gapon porta allo zar una petizione e le icone. Lo zar non è in città. La truppa spara sulla folla.\n\nChe cosa muore quella domenica oltre alle persone? La fiducia nello zar come padre.",
-          "roleId": "figlio",
-          "stageId": "a1-u4-domenica",
-          "motionId": "ingresso",
-          "visualExplanation": "Il corteo avanza con un foglio e le icone. Lo sparo non si vede: le figure si disperdono e il foglio resta nella neve.",
-          "context": {
-            "kind": "documented",
-            "dateLabel": "22 gennaio 1905",
-            "placeLabel": "Pietroburgo"
-          },
-          "exposes": [
-            "a1-domenica"
-          ],
-          "display": "cards"
-        },
-        {
           "id": "a1-u4-petizione",
           "type": "resource_allocation",
           "title": "La petizione",
-          "text": "Prima del corteo si scrive la petizione da portare allo zar. Hai cinque righe. Puoi spenderle fra richieste di lavoro e di salario e richieste politiche o di pace.\n\nLe righe che scrivi sono una simulazione: la petizione vera ebbe un testo suo.",
+          "text": "Gennaio 1905. La guerra contro il Giappone va male e alle officine Putilov di Pietroburgo gli operai sono in sciopero. Prima del corteo di domenica si scrive la petizione da portare allo zar. Hai cinque righe. Puoi spenderle fra richieste di lavoro e di salario e richieste politiche o di pace.\n\nLe righe che scrivi sono una simulazione: la petizione vera ebbe un testo suo.",
           "roleId": "figlio",
           "stageId": "a1-u4-domenica",
           "motionId": "ingresso",
@@ -64726,13 +64707,33 @@
               ]
             }
           ],
-          "feedback": "Hai scelto che cosa chiedere allo zar. Più una petizione chiede cose diverse e più è difficile rispondere con un sì o con un no.",
+          "feedback": "Hai scelto che cosa chiedere allo zar. Più una petizione chiede cose diverse e più è difficile rispondere con un sì o con un no. La petizione vera di padre Gapon chiedeva tutto insieme: la giornata di otto ore, un'assemblea eletta da tutti e la fine della guerra.",
           "effects": [],
           "shows": [
             "pet_eco",
             "pet_pol",
             "pet_pace"
           ]
+        },
+        {
+          "id": "a1-u4-domenica",
+          "type": "narrative",
+          "title": "La domenica di sangue",
+          "text": "La guerra contro il Giappone va male. Domenica 22 gennaio 1905 (9 gennaio nel calendario russo) un corteo guidato da padre Gapon porta allo zar una petizione e le icone. Lo zar non è in città. La truppa spara sulla folla.\n\nChe cosa muore quella domenica oltre alle persone? La fiducia nello zar come padre.",
+          "roleId": "figlio",
+          "stageId": "a1-u4-domenica",
+          "motionId": "ingresso",
+          "visualExplanation": "Il corteo avanza con un foglio e le icone. Lo sparo non si vede: le figure si disperdono e il foglio resta nella neve.",
+          "context": {
+            "kind": "documented",
+            "dateLabel": "22 gennaio 1905",
+            "placeLabel": "Pietroburgo"
+          },
+          "exposes": [
+            "a1-domenica"
+          ],
+          "display": "cards",
+          "shows": []
         },
         {
           "id": "a1-u4-soviet",
@@ -65513,7 +65514,9 @@
             "market": "I punti azione"
           },
           "turnWord": "giornata",
-          "nextLabel": "La giornata dopo"
+          "nextLabel": "La giornata dopo",
+          "leaveLabel": "Finire la giornata",
+          "pointsLabel": "Punti azione"
         },
         {
           "id": "a1-u4-manifesto",
@@ -65571,7 +65574,8 @@
               "text": "La prima Duma viene sciolta dopo pochi mesi e la seconda dura ancora meno. La Duma non nasce con pieni poteri.",
               "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa»."
             }
-          ]
+          ],
+          "shows": []
         },
         {
           "id": "a1-u4-stolypin",
@@ -65627,7 +65631,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "shows": []
         },
         {
           "id": "a1-u4-ricorda",
@@ -65641,7 +65646,8 @@
             "kind": "documented",
             "dateLabel": "1905"
           },
-          "display": "cards"
+          "display": "cards",
+          "shows": []
         },
         {
           "id": "a1-u4-v3",
@@ -65653,6 +65659,7 @@
           "context": {
             "kind": "assessment"
           },
+          "shows": [],
           "question": {
             "id": "a1-v3",
             "prompt": "Nell'ottobre 1905 nasce a Pietroburgo il soviet. Che cos'era?",
@@ -65691,6 +65698,7 @@
           "context": {
             "kind": "assessment"
           },
+          "shows": [],
           "question": {
             "id": "a1-v4",
             "prompt": "Che cosa permette a un contadino la riforma di Stolypin del 1906?",
@@ -65736,7 +65744,8 @@
           "exposes": [
             "a1-ginocchio"
           ],
-          "display": "cards"
+          "display": "cards",
+          "shows": []
         },
         {
           "id": "a1-u5-grano",
@@ -66278,7 +66287,7 @@
             {
               "id": "gioielli",
               "title": "I gioielli",
-              "text": "Secondo gli appunti il gioielliere della corte non ha mai venduto tanto mentre in città mancano pane e combustibile.",
+              "text": "Il gioielliere della corte non ha mai venduto tanto. Nella stessa città mancano pane e combustibile.",
               "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa»"
             },
             {
@@ -66293,13 +66302,14 @@
               "text": "Un deputato chiede dalla tribuna: stupidità o tradimento? Intanto circola la voce che l'imperatrice sia una spia.",
               "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa»."
             }
-          ]
+          ],
+          "shows": []
         },
         {
           "id": "a1-u5-semidei",
           "type": "narrative",
           "title": "La fine dei semidei comincia in famiglia",
-          "text": "Nel dicembre 1916 Rasputin viene ucciso da un principe e da un granduca. Secondo gli appunti una granduchessa propone di eliminare l'imperatrice.\n\nLo zar sembra non fidarsi più nemmeno di chi lo circonda. Il palazzo è isolato e attorno c'è il vuoto.\n\nPuò sopravvivere un potere sacro quando non ci crede più nemmeno la sua famiglia?",
+          "text": "Nel dicembre 1916 Rasputin viene ucciso da un principe e da un granduca. Una granduchessa arriva a proporre di eliminare l'imperatrice.\n\nLo zar sembra non fidarsi più nemmeno di chi lo circonda. Il palazzo è isolato e attorno c'è il vuoto.\n\nPuò sopravvivere un potere sacro quando non ci crede più nemmeno la sua famiglia?",
           "roleId": "capofamiglia",
           "stageId": "a1-u5-ginocchio",
           "motionId": "ingresso",
@@ -66308,7 +66318,8 @@
             "dateLabel": "dicembre 1916",
             "placeLabel": "Pietrogrado"
           },
-          "display": "cards"
+          "display": "cards",
+          "shows": []
         },
         {
           "id": "a1-u5-v5",
@@ -66320,6 +66331,7 @@
           "context": {
             "kind": "assessment"
           },
+          "shows": [],
           "question": {
             "id": "a1-v5",
             "prompt": "Perché le città russe restano senza pane nel 1916 anche se il grano non manca del tutto?",
@@ -66365,7 +66377,8 @@
           "exposes": [
             "a1-donna"
           ],
-          "display": "cards"
+          "display": "cards",
+          "shows": []
         },
         {
           "id": "a1-u6-coda-gioco",
@@ -66384,7 +66397,7 @@
           "exposes": [
             "a1-coda"
           ],
-          "feedback": "Tre giornate in coda. La pazienza non è un numero: è una cosa che scende e che si vede. Quando finisce il malcontento va altrove: il 8 marzo 1917 va in piazza.",
+          "feedback": "Tre giornate in coda. La pazienza non è un numero: è una cosa che scende e che si vede. Quando finisce il malcontento va altrove: l'8 marzo 1917 va in piazza.",
           "crises": [
             {
               "id": "inverno-lungo",
@@ -66929,7 +66942,9 @@
             "market": "I punti azione"
           },
           "turnWord": "giornata",
-          "nextLabel": "La giornata dopo"
+          "nextLabel": "La giornata dopo",
+          "leaveLabel": "Finire la giornata",
+          "pointsLabel": "Punti azione"
         },
         {
           "id": "a1-u6-soldato",
@@ -67611,13 +67626,15 @@
             "market": "I punti azione"
           },
           "turnWord": "giornata",
-          "nextLabel": "La giornata dopo"
+          "nextLabel": "La giornata dopo",
+          "leaveLabel": "Finire la giornata",
+          "pointsLabel": "Punti azione"
         },
         {
           "id": "a1-u6-treno",
           "type": "narrative",
           "title": "Il treno fermo nella neve",
-          "text": "Al Palazzo di Tauride nascono lo stesso giorno il Comitato della Duma e il soviet. Il treno dello zar è deviato a Pskov.\n\nNicola abdica. Secondo gli appunti annota nel diario la vita del treno mentre arrivano i telegrammi.\n\nChe cosa resta di un semidio quando smette di esserlo? Un uomo con un'abitudine.",
+          "text": "Al Palazzo di Tauride nascono lo stesso giorno il Comitato della Duma e il soviet. Il treno dello zar è deviato a Pskov.\n\nMentre arrivano i telegrammi Nicola annota nel diario la vita del treno. Poi abdica.\n\nChe cosa resta di un semidio quando smette di esserlo? Un uomo con un'abitudine.",
           "roleId": "figlio",
           "stageId": "a1-u4-soviet",
           "motionId": "ingresso",
@@ -67629,7 +67646,8 @@
           "exposes": [
             "a1-treno"
           ],
-          "display": "cards"
+          "display": "cards",
+          "shows": []
         },
         {
           "id": "a1-u6-v6",
@@ -67641,6 +67659,7 @@
           "context": {
             "kind": "assessment"
           },
+          "shows": [],
           "question": {
             "id": "a1-v6",
             "prompt": "Che cosa trasforma la protesta di marzo 1917 in una rivoluzione?",
@@ -67682,7 +67701,8 @@
             "dateLabel": "1861–1917",
             "placeLabel": "Russia"
           },
-          "display": "cards"
+          "display": "cards",
+          "shows": []
         }
       ]
     }

@@ -13,7 +13,8 @@
     "bottega:importa": "node bottega/strumenti/importa-studi.js",
     "bottega:verifica": "node bottega/strumenti/importa-studi.js --check",
     "scena": "node bottega/strumenti/componi.js",
-    "build:home": "node scripts/build-home.js"
+    "build:home": "node scripts/build-home.js",
+    "allievo": "node scripts/allievo-finto.cjs"
   },
   "devDependencies": {
     "playwright": "1.58.2"

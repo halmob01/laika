@@ -1,6 +1,6 @@
 # LAIKA — Incarichi eseguibili dagli agenti
 
-> **Aggiornamento 21 ottobre 2026, sera.** I contenuti seguono il nuovo arco in sette atti di [PIANO-ATTI-LAIKA](PIANO-ATTI-LAIKA.md): ogni episodio ha una scheda pronta da sviluppare, con aneddoti, passi da cercare e indicazione del modello (sezione 11). Corrispondenze con i codici precedenti: A0.1 → I.1-e4, A0.2 → I.1-e6, A0.3 → I.2-e1, A0.4 → I.2-e2/e3, A1.1–A1.4 → unità I.3. P4 e P5 sono state riallineate di conseguenza.
+> **Aggiornamento 21 ottobre 2026, sera.** I contenuti seguono il nuovo arco in sette atti di [PIANO-ATTI-LAIKA](PIANO-ATTI-LAIKA.md): ogni episodio ha una scheda pronta da sviluppare, con aneddoti, passi da cercare e indicazione del modello (sezione 11). Corrispondenze con i codici precedenti: A0.1 → I.1-e4, A0.2 → I.1-e6, A0.3 → I.2-e1, A0.4 → I.2-e2/e3, A1.1–A1.4 → unità I.3. P4 e P5 sono state riallineate di conseguenza. **Dal 29 ottobre 2026 la numerazione è un'altra**: I.2 è stata spezzata, A0.4 è I.3 «In città» e A1.1–A1.4 sono I.4 «Il 1905» (vedi P4).
 
 Usare con [PIANO-LAIKA.md](PIANO-LAIKA.md) e [BRIEF-HOME-ATTI.md](BRIEF-HOME-ATTI.md). Non affidare l'intero piano a un agente con il solo comando «fai tutto».
 
@@ -145,6 +145,13 @@ A ogni avvio: verificare branch e modifiche locali, leggere eventuali AGENTS.md 
 5. Controllare cronologia, anacronismi e fonti con reviewer distinto. Ogni feedback storico importante ha una fonte verificabile, non solo consenso fra modelli.
 
 **Accettazione:** unità I.1–I.3 complete, item formativi delle tre unità, asset coerenti, due itinerari provati, reload e diario funzionanti, nessun placeholder pubblico. Review storica Astra high su fonti/testo/item, non su una descrizione riassunta dall'autore.
+
+> **4 novembre 2026. Revisione con l'allievo finto** ([REVISIONE-ALLIEVO-ATTO-I](REVISIONE-ALLIEVO-ATTO-I.md), script `npm run allievo`). Fatto nella PR della revisione: chiusura dell'atto riscritta, indicatori solo dell'unità, petizione prima del corteo, «Finire la giornata» nelle giornate a punti azione, accordi del motore, Comitato provvisorio della Duma, niente «secondo gli appunti» nei testi. Incarichi nati dalla revisione, in ordine:
+> 1. (Opus) Aneddoti di I.4–I.6 dai libri del docente, secondo le schede di PIANO-ATTI (revisione §3 e §9 D3).
+> 2. (Sonnet) Didascalie proprie per ogni episodio che riusa una scena; didascalia delle verifiche (revisione §4).
+> 3. (Sonnet) Previsione ed esito del grano in I.1 senza numeri negativi né verdetti opposti; azione «Tornare in caserma» e pane che risale nella coda di I.6 (revisione §4).
+> 4. (Sonnet, dopo le risposte del docente) Titolo dell'atto, «anime e semidei» nei testi, identificatori `a1-u3-*`, effetti differiti della famiglia (D1, D2, D4, D5).
+> 5. (Sonnet) Date da verificare della revisione §6.
 
 ## P5 — Atto I, seconda parte: I.5, I.6, confronto finale e demo di folla
 

@@ -142,7 +142,7 @@ Con questi campi la partita diventa una gestione: le pedine sono persone, alcuni
 #### Partita di sole decisioni e parole della partita (facoltative)
 
 - **Sole decisioni.** Un `turn_game` senza `places` è una partita di decisioni sui gruppi: ogni turno è una richiesta (`event`) con le sue risposte; non ci sono pedine, posti, sorte dei posti, controllo né mantenimento. Dopo le card si passa subito alla richiesta, poi all'esito della risposta (con le crisi, che scattano una sola volta ciascuna) e al turno dopo. Il contratto rifiuta `tokens`, `workers`, `projects`, `reserve`, `control`, `luck`, `upkeep` e `rules` in questa forma, e un turno senza `event`. Le metriche sono i gruppi; le crisi (`when`, `effects`) sono le soglie. Una risposta può avere una `chance` con `success` e `failure`: la probabilità è scritta nel pulsante prima di scegliere.
-- **Parole.** `turnWord` (come si chiama un turno: «anno», «assemblea», «settimana»; il player scrive «assemblea 3 di 8»), `confirmLabel` (il pulsante che chiude la mossa), `nextLabel` (dopo l'esito di chi bussa), `luckLabel` e `luckResultLabel` (come si chiama l'imprevisto prima e dopo), `upkeepHint` (la riga del mantenimento) e `control.escaped` (il testo quando il controllo non scatta). Tutti facoltativi, al massimo 40 caratteri; senza di loro vale il testo di I.1.
+- **Parole.** `turnWord` (come si chiama un turno: «anno», «assemblea», «settimana»; il player scrive «assemblea 3 di 8»), `confirmLabel` (il pulsante che chiude la mossa), `nextLabel` (dopo l'esito di chi bussa), `luckLabel` e `luckResultLabel` (come si chiama l'imprevisto prima e dopo), `upkeepHint` (la riga del mantenimento) e `control.escaped` (il testo quando il controllo non scatta). Tutti facoltativi, al massimo 40 caratteri; senza di loro vale il testo di I.1. Il player accorda da solo le frasi con queste parole: «I numeri della settimana» o «dell'anno» da `turnWord`, «Al salario» o «Alla settimana» dal nome del passo `place` con il suo articolo, «Ne manca 1 braccio» e «Ne mancano 2 braccia».
 - Provata in `tests/turns.test.js` («decisioni: …»).
 
 
@@ -154,7 +154,7 @@ In una partita di sole decisioni un turno può avere un `market` al posto (o dop
 - `repeat: true` permette di ripetere l'azione nella stessa giornata (senza, una volta sola);
 - `chance` (come nelle risposte di una richiesta, con `metric` e `factor` facoltativi) rende l'esito incerto con `success` e `failure`; la probabilità è scritta sul pulsante;
 - `at: {x, y}` (0–1) e `short` (fino a 16 caratteri) mettono l'azione come punto da toccare sulla scena;
-- `leaveLabel` e `pointsLabel` dànno i nomi del pulsante di fine giornata e dei punti. I punti si rinnovano a ogni turno;
+- `leaveLabel` e `pointsLabel` dànno i nomi del pulsante di fine giornata e dei punti (il build di LAIKA li copia nel manifest dal 4 novembre 2026; prima si perdevano e il pulsante diceva «Torna a casa»). I punti si rinnovano a ogni turno;
 - la notte si scrive con `effects` all'inizio del turno dopo.
 
 Test: `tests/turns.test.js` («punti azione»). Scheda di lettura: `docs/meccaniche/punti-azione.md`.
