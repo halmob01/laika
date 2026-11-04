@@ -190,7 +190,13 @@
         "Test del motore: la catena si inceppa dove deve, carta e realtà si separano, salvataggio a metà",
         "Controlli comuni G1–G5 passati (METODO §7)"
       ],
-      "stato": "da fare"
+      "stato": "fatto",
+      "pr": 52,
+      "evidenze": [
+        "docs/evidence/K2/",
+        "tests/chain.test.js",
+        "docs/CREARE-UN-GIOCO.md"
+      ]
     },
     {
       "id": "U-pane-guerra",

@@ -1,0 +1,41 @@
+{
+  "id": "esempio-catena-merci",
+  "etichetta": "Una catena di quattro anelli: l'aratro nei campi, il granaio, il treno e la stazione della città. Alcune figure portano i sacchi da un anello all'altro; davanti al granaio i sacchi si ammucchiano perché l'anello si è inceppato.",
+  "ruvido": true,
+  "elementi": [
+    { "id": "terra", "simbolo": "suolo", "x": 480, "y": 430, "scala": 1.9 },
+    { "id": "campo", "simbolo": "campagna-sokha", "x": 90, "y": 430, "scala": 0.9 },
+    { "id": "granaio", "simbolo": "campagna-granaio", "x": 290, "y": 430, "scala": 0.8 },
+    { "id": "binari", "simbolo": "infra-binari", "x": 560, "y": 440, "scala": 1.6 },
+    { "id": "treno", "simbolo": "mezzo-treno", "x": 590, "y": 438, "scala": 1.2, "davanti": true },
+    { "id": "stazione", "simbolo": "ambiente-stazione", "x": 830, "y": 430, "scala": 0.9 },
+    { "id": "pila-granaio", "simbolo": "campagna-sacchi", "x": 380, "y": 440, "scala": 1.1 },
+    { "id": "pila-granaio-2", "simbolo": "campagna-sacchi", "x": 420, "y": 440, "scala": 1.1 }
+  ],
+  "figure": [
+    { "id": "portatore-1", "x": 190, "y": 450, "scala": 1.2, "variante": "borsa", "posa": "cammina_1" },
+    { "id": "portatore-2", "x": 470, "y": 450, "scala": 1.2, "variante": "zaino", "posa": "cammina_2" },
+    { "id": "portatore-3", "x": 720, "y": 450, "scala": 1.2, "variante": "borsa", "posa": "cammina_1" },
+    { "id": "attesa", "x": 340, "y": 455, "scala": 1.2, "variante": "cappotto", "posa": "mani_fianchi", "ruolo": "protagonista" }
+  ],
+  "sequenze": [
+    {
+      "id": "cammina",
+      "didascalia": "Le figure portano i sacchi da un anello al successivo.",
+      "passi": [
+        { "azione": "walk", "chi": ["portatore-1", "portatore-2", "portatore-3"], "da": "sinistra", "distanza": 120, "a": 0, "durata": 2400, "sfalsa": 300 }
+      ],
+      "battute": [ { "a": 200, "testo": "Il grano cammina." } ]
+    },
+    {
+      "id": "inceppa",
+      "didascalia": "Davanti al granaio i sacchi si ammucchiano: l'anello si è inceppato.",
+      "passi": [
+        { "azione": "reveal", "chi": ["pila-granaio", "pila-granaio-2"], "modo": "sale", "a": 300, "durata": 700, "sfalsa": 300 },
+        { "azione": "raise", "chi": "attesa", "da": "in_piedi", "a": 900, "durata": 600 }
+      ],
+      "battute": [ { "a": 300, "testo": "Il granaio è pieno." } ]
+    }
+  ],
+  "ingresso": "cammina"
+}
