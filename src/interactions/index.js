@@ -92,6 +92,11 @@ const dots=n=>'●'.repeat(n);
 function effectsText(act,list){return list.map(m=>sign(m.delta)+' '+metricLabel(act,m)).join(', ');}
 // Forza in parole: «3 braccia», «1 braccio». I pallini restano solo come disegno.
 const amount=(e,n)=>n+' '+(n===1&&e.strengthOne?e.strengthOne:e.strengthLabel);
+// Accordo del verbo («ne manca 1 braccio», «ne mancano 2 braccia») e preposizione articolata davanti a un nome con articolo («Al salario», «Alla settimana»).
+const manca=n=>n===1?'manca':'mancano';
+const verso=label=>{const m=/^(il|lo|la|i|gli|le|l')\s*(.*)$/i.exec(label);const prep={il:'Al ',lo:'Allo ',la:'Alla ',i:'Ai ',gli:'Agli ',le:'Alle ',"l'":'All\''};return m?prep[m[1].toLowerCase()]+m[2]:'Alla '+label;};
+// «I numeri dell'anno», «della settimana», «della giornata».
+const diTurno=w=>/^[aeiou]/i.test(w)?'dell’'+w:/(a|ione)$/i.test(w)?'della '+w:'del '+w;
 const one=e=>e.strengthOne||e.strengthLabel;
 function managePlace(host,episode,act,state,go){
   const g=state.game,people=workersOf(episode,g),chosen=pickFor(episode,g),targets=targetsOf(episode,g,state);
@@ -119,7 +124,7 @@ function managePlace(host,episode,act,state,go){
     else{const y=yieldOf(episode,g,p.id);row.append(el('span',effectsText(act,perToken(episode,g,p))+' per ogni '+one(episode)+(y!==1?' (oggi rende il '+Math.round(y*100)+'%)':'')+'.'));
       if(req)row.append(el('span','Il signore ne vuole '+amount(episode,req)+'.',{class:'turn-due'}));}
     row.append(el('small',there.length?there.map(w=>w.label).join(', ')+' · '+amount(episode,n):'nessuno',{class:'turn-there'}));
-    if(req&&n<req)row.append(el('small','Ne mancano '+amount(episode,req-n)+'.',{class:'turn-warning'}));
+    if(req&&n<req)row.append(el('small','Ne '+manca(req-n)+' '+amount(episode,req-n)+'.',{class:'turn-warning'}));
     list.append(row);
   }
   host.append(list);
@@ -135,7 +140,7 @@ function managePlace(host,episode,act,state,go){
   // 4. Il rischio, scritto prima di scegliere.
   const risk=el('div',undefined,{class:'turn-risk'});
   risk.append(el('p',(episode.luckLabel||'Il tempo che farà')+': '+luckOdds(episode).map(l=>l.label+' '+l.p+'%').join(' · ')+'.'));
-  for(const s of shortfalls(episode,g))if(episode.control)risk.append(el('p','Al signore mancano '+amount(episode,s.required-s.given)+': qualcuno se ne accorge nel '+Math.round(chanceOf(episode.control.chance,act,state)*100)+'% dei casi.',{class:'turn-warning'}));
+  for(const s of shortfalls(episode,g))if(episode.control)risk.append(el('p','Al signore '+manca(s.required-s.given)+' '+amount(episode,s.required-s.given)+': qualcuno se ne accorge nel '+Math.round(chanceOf(episode.control.chance,act,state)*100)+'% dei casi.',{class:'turn-warning'}));
   host.append(risk);
   // Un solo pulsante principale; se è spento, dice perché.
   const ok=button(free.length?'Manca un posto per: '+free.map(w=>w.label.toLowerCase()).join(', '):'Comincia l’anno',()=>go('confirm'),{'data-turn':'confirm',class:'primary'});ok.disabled=!!free.length;host.append(ok);
@@ -161,7 +166,7 @@ function turnGame(ctx){
     const c=cardAt(episode,g),n=cardCount(episode,g),box=el('div',undefined,{class:'cards turn-cards'}),bar=el('div',undefined,{class:'card-bar','aria-hidden':'true'}),nav=el('div',undefined,{class:'card-nav'});
     for(let i=0;i<n;i++)bar.append(el('i',undefined,{class:i<g.card?'done':i===g.card?'now':''}));
     const prev=button('Indietro',()=>go('back'),{'data-turn':'back'});prev.disabled=g.card===0;
-    nav.append(prev,button(g.card>=n-1?(episode.places?'Alla '+((episode.phaseLabels||{}).place||'mossa').toLowerCase().replace(/^la /,''):(episode.turns[g.turn].event?'Alla richiesta':'Alle azioni')):'Avanti',()=>go('card'),{'data-turn':'card',class:'primary'}));
+    nav.append(prev,button(g.card>=n-1?(episode.places?verso(((episode.phaseLabels||{}).place||'la mossa').toLowerCase()):(episode.turns[g.turn].event?'Alla richiesta':'Alle azioni')):'Avanti',()=>go('card'),{'data-turn':'card',class:'primary'}));
     if(c.kind)box.append(el('p',CONTEXT_LABELS[c.kind],{class:'card-kind','data-kind':c.kind}));
     if(c.title)box.append(el('h2',c.title,{class:'card-title'}));
     box.append(el('p',c.text,{class:'lead card-text',tabindex:'-1'}),bar,nav);host.append(box);return;
@@ -169,7 +174,7 @@ function turnGame(ctx){
   if(g.phase==='place'&&episode.workers){managePlace(host,episode,act,state,go);return;}
   if(g.phase==='place'){
     const left=g.rules.tokens-placed(g);
-    host.append(el('p','Hai '+g.rules.tokens+' '+episode.tokenLabel+'. '+(left?'Da mettere: '+left+'.':'Tutti assegnati.'),{class:'turn-pool',role:'status'}));
+    host.append(el('p','Hai '+g.rules.tokens+' '+episode.tokenLabel+'. '+(left?'Da mettere: '+left+'.':'Niente da mettere.'),{class:'turn-pool',role:'status'}));
     const pool=el('div',undefined,{class:'turn-tokens','aria-hidden':'true'});for(let i=0;i<g.rules.tokens;i++)pool.append(el('i',undefined,{class:i<placed(g)?'used':''}));host.append(pool);
     const list=el('div',undefined,{class:'turn-places'});
     for(const p of episode.places){
@@ -198,7 +203,7 @@ function turnGame(ctx){
     for(const b of r.built||[])why.append(el('li',b.label+': '+b.text,{class:'turn-built'}));
     for(const c of r.crises)why.append(el('li',c.text,{class:'turn-crisis'}));
     box.append(why);
-    const det=el('details',undefined,{class:'turn-numbers'});det.append(el('summary','I numeri dell’anno'));
+    const det=el('details',undefined,{class:'turn-numbers'});det.append(el('summary','I numeri '+diTurno(episode.turnWord||'anno')));
     if(r.steps?.length){const hidden=new Set([...(act.metrics||[]),...(act.resources||[])].filter(d=>d.hidden).map(d=>d.id)),tbl=el('ul',undefined,{class:'turn-steps','aria-label':'Da dove viene ogni variazione'});
       for(const st of r.steps){const vis=st.changes.filter(c=>!hidden.has(c.id));if(!vis.length)continue;const li=el('li');li.append(el('span',st.label),el('b',vis.map(c=>sign(c.delta)+' '+c.label).join(' · ')));tbl.append(li);}
       det.append(tbl);}

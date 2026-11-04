@@ -1,6 +1,6 @@
-# LAIKA — struttura authoring P1
+# LAIKA — il pacchetto del corso
 
-Questo pacchetto è una prova tecnica interna, non un atto didattico disponibile. Un solo corso con Atto 0 e Atto I; i due episodi provvisori servono esclusivamente a verificare ingresso, ripresa e passaggio fra atti. La home non offre un avvio del corso storico.
+Un solo corso con l'Atto I (1700–marzo 1917), diviso in sei unità tutte giocabili in prima versione: I.1 la settimana del servo, I.2 il mir, I.3 la città e il salario, I.4 il 1905, I.5 la guerra e il pane, I.6 marzo 1917. Stato e cose da rifare: [PIANO-LAIKA](../../docs/PIANO-LAIKA.md) §4 e [la revisione del 4 novembre 2026](../../docs/REVISIONE-ALLIEVO-ATTO-I.md). Gli identificatori degli episodi di I.3 sono ancora `a1-u2-*` (scelta del 29 ottobre 2026).
 
 Eseguire dalla radice:
 
@@ -10,12 +10,12 @@ npm test
 npm run serve
 ```
 
-Aprire `/` per la home, `/play.html?game=laika` per il corso: si entra dalla pagina dell'atto I (sei unità; le prime tre giocabili). I laboratori dimostrativi restano su `/play.html?game=biblioteca` e analoghi; gli URL `/?game=...` vengono inoltrati preservando query e frammento.
+Aprire `/` per la home, `/play.html?game=laika` per il corso: si entra dalla pagina dell'atto I (sei unità). I laboratori dimostrativi restano su `/play.html?game=biblioteca` e analoghi; gli URL `/?game=...` vengono inoltrati preservando query e frammento.
 
 - `course.json`: ordine degli atti, elenco dei file di domande, scene e simboli.
 - `source/acts/`: atti sorgente. `questionRef` risolve un ID globale dalle banche domande; `stageId` riferisce le scene indicizzate.
-- `source/stages/`: scene dichiarative del compositore esistente. Per ora nessuna scena di produzione.
-- `questions/`: banche in formato runtime, con eventuali dati di redazione in `editorial`. Per ora vuote: nessuna domanda storica fittizia.
+- `source/stages/`: scene dichiarative del compositore esistente (vuota: le scene di produzione sono schede della bottega in `source/scene/`).
+- `questions/`: banche in formato runtime, con eventuali dati di redazione in `editorial`.
 - `assets/`: simboli e futuri SVG sorgenti. Gli originali restano nei prototipi.
 - `sources.json`: provenienza editoriale da compilare nelle fasi contenuti, senza sostituire il dossier delle fonti.
 - `game.json`: file generato, mai autorità editoriale. Rigenerarlo dopo un conflitto.
@@ -24,7 +24,7 @@ Il build proietta i campi runtime dei contenitori, risolve i riferimenti e rimuo
 
 Due build producono gli stessi byte. Un riferimento mancante, un ID duplicato (anche di episodio fra atti), una domanda non risolta o uno schema invalido interrompono il build prima di riscrivere il manifest.
 
-La fase successiva è P2: famiglia grafica e scena campione. Non espandere gli atti prima delle review previste dal piano.
+Per giocare l'atto intero come uno studente e avere una trascrizione: `npm run serve`, poi `npm run allievo` (vedi `scripts/allievo-finto.cjs`).
 
 ## Scene della bottega
 

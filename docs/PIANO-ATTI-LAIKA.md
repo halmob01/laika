@@ -1046,6 +1046,7 @@ Tutto con `CONTRATTO-KIT` e con l'epoca registrata. Rispetto alla v4.1 si aggiun
 - R56 (le ventiquattro portate del 1939) è confermato in Montefiore, *Stalin*: tolto il «da verificare».
 - I menscevichi e i socialrivoluzionari diventano posizioni vissute: II.2-e2, II.4-e1, II.5-e1, III.3-e4, III.5-e2, IV.2-e2.
 
+- **4 novembre 2026: revisione con l'allievo finto** ([REVISIONE-ALLIEVO-ATTO-I](REVISIONE-ALLIEVO-ATTO-I.md)). Il gioco è stato riallineato alla scheda I.4-e2: la petizione si scrive prima del corteo (prima veniva dopo la domenica di sangue). Gli episodi senza indicatori propri non mostrano più quelli delle altre unità (§6). Segnalato che «Anime e semidei» compare ancora nei titoli per lo studente (I.1 e I.5-e4) contro la decisione aperta 6.
 - **30 ottobre 2026: schede dei giochi di I.2 e I.3** in [SCHEDE-GIOCHI-I2-I3](SCHEDE-GIOCHI-I2-I3.md), da approvare prima del codice.
 - **29 ottobre 2026: I.2 spezzata in due unità.** I.2 resta «La terra dopo il Manifesto» (solo l'assemblea del mir, I.2-e1). Le altre schede di I.2 (e2–e6) formano la nuova I.3 «In città». Le vecchie I.3, I.4 e I.5 diventano I.4, I.5 e I.6: l'Atto I ha sei unità. Le schede qui sotto sono già rinumerate (30 ottobre 2026): I.2-e1 è il mir, I.3-e1..e6 sono le vecchie I.2-e2..e7. Gli identificatori degli episodi nel gioco (`a1-u2-*`) restano quelli storici: i codici di queste schede sono nomi di lavoro, non identificatori. Il tipo di episodio di I.2-e2 e I.3-e2 segue la tabella di [REPERTORIO](REPERTORIO-GIOCHI-LAIKA.md) §5.1, che prevale sulle schede.
 

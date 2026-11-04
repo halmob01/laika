@@ -24,7 +24,7 @@ test('LAIKA atto I: sei unità, la terra e la città separate',()=>{
   assert.deepEqual(act.units[1].episodes,['a1-u2-mir']);
   assert.equal(act.units[2].episodes[0],'a1-u2-citta');
   assert.equal(actNumber(act),'Atto I');assert.equal(actName(act),'La terra e lo zar');
-  assert.deepEqual(act.units[3].episodes,['a1-u4-domenica','a1-u4-petizione','a1-u4-soviet','a1-u4-manifesto','a1-u4-stolypin','a1-u4-ricorda','a1-u4-v3','a1-u4-v4']);
+  assert.deepEqual(act.units[3].episodes,['a1-u4-petizione','a1-u4-domenica','a1-u4-soviet','a1-u4-manifesto','a1-u4-stolypin','a1-u4-ricorda','a1-u4-v3','a1-u4-v4']);
   assert.deepEqual(act.units[4].episodes,['a1-u5-ginocchio','a1-u5-grano','a1-u5-gioielli','a1-u5-semidei','a1-u5-v5']);
   assert.deepEqual(act.units[5].episodes,['a1-u6-donna','a1-u6-coda-gioco','a1-u6-soldato','a1-u6-treno','a1-u6-v6','a1-u6-confronto']);
 });
