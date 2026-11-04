@@ -165,7 +165,7 @@ function queuePanel(episode,g,t,state){
   }
   box.append(ul,el('p','Ogni turno la '+word.toLowerCase()+' scende di '+v.drain.total+(v.drain.factors.length?' ('+v.drain.factors.map(f=>f.label.toLowerCase()).join(', ')+')':'')+'.',{class:'turn-queue-drain'}));
   const last=g.queue.last;
-  if(last&&last.turn===g.turn-1&&last.events.length){const note=el('div',undefined,{class:'outcome',role:'status'});for(const e of last.events)note.append(el('p',e.text));box.append(note);}
+  if(last&&last.turn===g.turn-1&&(last.events.length||(last.crises||[]).length)){const note=el('div',undefined,{class:'outcome',role:'status'});for(const e of last.events)note.append(el('p',e.text));for(const c of last.crises||[])note.append(el('p',c.text));box.append(note);}
   return box;
 }
 function stepper(episode,g){

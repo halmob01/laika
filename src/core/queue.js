@@ -10,10 +10,13 @@
 //   queue: {
 //     label?, patienceLabel?,
 //     groups:  [{id, label, size, patience, exit, figure?}],      // size: persone; patience: turni di attesa; exit: id di una destinazione
+//                                                                   oppure un elenco di regole [{when?, to}]: vale la prima la cui condizione è vera
+//                                                                   nel momento in cui il gruppo se ne va (l'ultima senza `when`, per tutti gli altri casi)
 //     signals: [{at, label, pose?}],                              // at: soglia di pazienza (1 o più); vale per ogni gruppo
 //     drain:   {base?, factors?: [{id, label, when, extra}]},     // base: di quanto scende ogni turno (predefinito 1)
 //     exits:   [{id, label, text, effects}]                       // effects: mutazioni degli indicatori quando un gruppo se ne va
 //   }
+// Dopo la discesa della coda si controllano anche le crisi dell'episodio (`crises`), come dopo un'azione.
 // In un turno: `queue: {drain?, note?}` (gelo o ressa solo di quel turno).
 // In una risposta, un esito o un'offerta: `queue: [{group, patience}]` con `group` un id oppure «*» e `patience` il cambiamento
 // (positivo o negativo); chi è ancora in fila non può essere mandato via da una risposta: la pazienza non scende sotto 1.
@@ -30,7 +33,15 @@ export function validateQueue(q, act, where = 'Coda') {
   assert(q.groups.length <= 6, where + ': troppi gruppi');
   for (const g of q.groups) {
     assert(text(g.label) && int(g.size, 1, 99) && int(g.patience, 2, 30), where + ': gruppo non valido: ' + g.id);
-    assert(exits.has(g.exit), where + ': destinazione sconosciuta per ' + g.id);
+    if (typeof g.exit === 'string') assert(exits.has(g.exit), where + ': destinazione sconosciuta per ' + g.id);
+    else {
+      assert(Array.isArray(g.exit) && g.exit.length >= 2 && g.exit.length <= 5, where + ': regole di uscita non valide per ' + g.id);
+      g.exit.forEach((r, i) => {
+        assert(r && exits.has(r.to), where + ': destinazione sconosciuta per ' + g.id);
+        if (i < g.exit.length - 1) { assert(r.when !== undefined, where + ': ogni regola di uscita tranne l\'ultima ha una condizione: ' + g.id); condition(r.when, act); }
+        else assert(r.when === undefined, where + ': l\'ultima regola di uscita non ha condizione: ' + g.id);
+      });
+    }
     if (g.figure !== undefined) assert(id(g.figure), where + ': figura del gruppo non valida: ' + g.id);
   }
   assert(Array.isArray(q.signals) && q.signals.length >= 1 && q.signals.length <= 5, where + ': segnali non validi');
@@ -62,6 +73,12 @@ export function validateTurnQueue(t, q, where) {
   if (t.queue.note !== undefined) assert(text(t.queue.note), where + ': nota della coda vuota');
 }
 
+// Dove andrebbe un gruppo adesso: la prima regola la cui condizione vale, altrimenti l'ultima.
+export function resolveExit(q, grp, state, matches) {
+  const to = typeof grp.exit === 'string' ? grp.exit : (grp.exit.find(r => r.when === undefined || matches(r.when, state)) || grp.exit[grp.exit.length - 1]).to;
+  return q.exits.find(x => x.id === to);
+}
+
 export const initQueue = q => ({
   groups: Object.fromEntries(q.groups.map(g => [g.id, { patience: g.patience, max: g.patience, gone: false, goneTurn: null }])),
   last: null, log: []
@@ -85,7 +102,7 @@ export function queueTick(q, g, t, state, deps, cause) {
     const before = s.patience, after = Math.max(0, before - d.total);
     s.patience = after;
     if (after === 0) {
-      const x = q.exits.find(y => y.id === grp.exit);
+      const x = resolveExit(q, grp, state, deps.matches);
       s.gone = true; s.goneTurn = g.turn;
       changes.push(...deps.applyEffects(deps.act, state, x.effects || [], cause + ':' + grp.id));
       events.push({ group: grp.id, groupLabel: grp.label, kind: 'left', exit: x.id, text: grp.label + ': ' + x.text });
@@ -126,7 +143,7 @@ export function queueView(q, g, t, state, matches) {
       const turnsToSignal = next && d.total > 0 ? Math.ceil((s.patience - next.at) / d.total) : null;
       return {
         id: grp.id, label: grp.label, size: grp.size, patience: s.patience, max: s.max, gone: s.gone, goneTurn: s.goneTurn,
-        exit: q.exits.find(x => x.id === grp.exit).label, next, turnsToSignal,
+        exit: resolveExit(q, grp, state, matches).label, next, turnsToSignal,
         turnsToLeave: s.gone || d.total === 0 ? null : Math.ceil(s.patience / d.total),
         // La posa da mostrare adesso: quella del segnale più urgente già superato.
         pose: s.gone ? null : [...q.signals].sort((a, b) => a.at - b.at).find(sig => s.patience <= sig.at)?.pose || null
