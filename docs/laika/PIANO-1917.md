@@ -10,7 +10,7 @@ Incarichi fatti: 2 su 20. Prossimo: U-otto-giorni.
 |---:|---|---|---|---|---|
 | 1 | **S1** Le scene delle unità già fatte con i disegni che ci sono | scene | Sonnet | — | fatto (PR #47) |
 | 2 | **K1** Motore: la coda con la pazienza | motore | Opus | S1 | fatto (PR #48) |
-| 3 | **U-otto-giorni** III.2 Otto giorni: la coda vera, il soldato, il treno, Tauride | unità | Opus | S1, K1 | da fare |
+| 3 | **U-otto-giorni** III.2 Otto giorni: la coda vera, il soldato, il treno, Tauride | unità | Opus | S1, K1 | in corso |
 | 4 | **K4** Bottega: i disegni che mancano agli Atti I–III | bottega | Sonnet | S1 | da fare |
 | 5 | **K2** Motore: le merci che camminano | motore | Opus | S1 | da fare |
 | 6 | **U-pane-guerra** III.1 Pane e guerra: grano, treni e città | unità | Opus | S1, K2, K4 | da fare |
