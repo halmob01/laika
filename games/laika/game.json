@@ -102909,7 +102909,7 @@
           "id": "a3-pane-guerra-ginocchio",
           "type": "narrative",
           "title": "In ginocchio sulla stessa piazza",
-          "text": "Il 2 agosto 1914 (20 luglio nel calendario russo) lo zar annuncia la guerra dal Palazzo d'Inverno e la folla si inginocchia sulla piazza. È la stessa piazza del 22 gennaio 1905.\n\nPoi vengono la sconfitta di Tannenberg e la ritirata. Nicola prende il comando supremo dell'esercito.\n\nPerché una folla che dieci anni prima è stata colpita torna a inginocchiarsi?",
+          "text": "Il 2 agosto 1914 (20 luglio nel calendario russo) lo zar annuncia la guerra dal Palazzo d'Inverno e la folla si inginocchia sulla piazza. È la stessa piazza del 22 gennaio 1905 (9 gennaio nel calendario russo).\n\nPoi vengono la sconfitta di Tannenberg e la ritirata. Nicola prende il comando supremo dell'esercito.\n\nPerché una folla che dieci anni prima è stata colpita torna a inginocchiarsi?",
           "roleId": "capofamiglia",
           "stageId": "pane-guerra-ginocchio",
           "motionId": "ingresso",
@@ -103076,7 +103076,7 @@
                       "y": 0.55
                     },
                     "cost": 2,
-                    "text": "Per questa stagione i treni del grano passano di più; il fronte se ne accorge.",
+                    "text": "I treni del grano passano di più; il fronte se ne accorge.",
                     "effects": [
                       {
                         "kind": "metric",
@@ -103299,7 +103299,7 @@
                       "y": 0.55
                     },
                     "cost": 2,
-                    "text": "Per questa stagione i treni del grano passano di più; il fronte se ne accorge.",
+                    "text": "I treni del grano passano di più; il fronte se ne accorge.",
                     "effects": [
                       {
                         "kind": "metric",
@@ -103525,7 +103525,7 @@
                       "y": 0.55
                     },
                     "cost": 2,
-                    "text": "Per questa stagione i treni del grano passano di più; il fronte se ne accorge.",
+                    "text": "I treni del grano passano di più; il fronte se ne accorge.",
                     "effects": [
                       {
                         "kind": "metric",
@@ -103748,7 +103748,7 @@
                       "y": 0.55
                     },
                     "cost": 2,
-                    "text": "Per questa stagione i treni del grano passano di più; il fronte se ne accorge.",
+                    "text": "I treni del grano passano di più; il fronte se ne accorge.",
                     "effects": [
                       {
                         "kind": "metric",
@@ -103971,7 +103971,7 @@
                       "y": 0.55
                     },
                     "cost": 2,
-                    "text": "Per questa stagione i treni del grano passano di più; il fronte se ne accorge.",
+                    "text": "I treni del grano passano di più; il fronte se ne accorge.",
                     "effects": [
                       {
                         "kind": "metric",
@@ -104239,7 +104239,7 @@
           "visualExplanation": "Una coda per il pane, il cartello del pane e il manifesto di un prestito di guerra, vuoto. Gli indicatori sono indici della simulazione.",
           "context": {
             "kind": "source",
-            "dateLabel": "inverno 1915–1916",
+            "dateLabel": "1915–1916",
             "placeLabel": "Pietroburgo"
           },
           "exposes": [
@@ -104275,13 +104275,13 @@
             {
               "id": "ballerina",
               "title": "La ballerina",
-              "text": "Rodzjanko, riferito da Trockij, racconta che il comandante supremo si preoccupava dell'influenza di una ballerina sulle commesse d'artiglieria. È un'accusa riferita: non dimostra che le commesse le decidesse lei. Mostra il clima di sospetto.",
+              "text": "Rodzjanko, riferito da Trockij, racconta che il granduca Nikolaj Nikolaevič, comandante supremo fino al 1915, si preoccupava dell'influenza di una ballerina sulle commesse d'artiglieria. È un'accusa riferita: non dimostra che le commesse le decidesse lei. Mostra il clima di sospetto.",
               "provenance": "Trockij, Storia della rivoluzione russa; atlante C42 (parafrasi)."
             },
             {
               "id": "duma",
               "title": "La domanda alla Duma",
-              "text": "Un deputato chiede dalla tribuna: stupidità o tradimento? Intanto circola la voce che l'imperatrice sia una spia.",
+              "text": "Alla Duma un deputato chiede dalla tribuna: stupidità o tradimento? Intanto circola la voce che l'imperatrice sia una spia.",
               "provenance": "Appunti «La Rivoluzione Russa» (sintesi per il gioco)."
             }
           ],
@@ -104308,7 +104308,7 @@
           "id": "a3-pane-guerra-ricorda",
           "type": "narrative",
           "title": "Cosa ti devi ricordare",
-          "text": "Tra il 1914 e il 1916 le città russe restano senza pane anche se il grano non manca del tutto: i treni sono pochi, i prezzi sono fissati e la guerra assorbe tutto. Sulla carta lo Stato conta il grano; in città conta quello che arriva.\n\nIntanto circolano voci sulla corte: i gioielli, la ballerina, l'imperatrice spia. Una voce può diventare più forte di un fatto perché dà un colpevole a chi ha fame.\n\nA dicembre 1916 anche la famiglia dei Romanov non crede più allo zar: si parla di eliminare l'imperatrice. Un potere che perde il sostegno della famiglia e delle élite è già debole.",
+          "text": "Tra il 1914 e il 1916 le città russe restano senza pane anche se il grano non manca del tutto: i treni sono pochi, i prezzi sono fissati e la guerra assorbe tutto. Sulla carta lo Stato conta il grano; in città conta quello che arriva.\n\nIntanto circolano voci sulla corte: i gioielli, la ballerina, l'imperatrice spia. Una voce può diventare più forte di un fatto perché dà un colpevole a chi ha fame.\n\nA dicembre 1916 anche la famiglia dei Romanov non crede più allo zar: secondo un racconto riferito una granduchessa parla di eliminare l'imperatrice. Un potere che perde il sostegno della famiglia e delle élite è già debole.",
           "roleId": "capofamiglia",
           "stageId": "pane-guerra-famiglia",
           "motionId": "ingresso",

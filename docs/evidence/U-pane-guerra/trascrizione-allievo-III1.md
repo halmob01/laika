@@ -26,7 +26,7 @@ IN GINOCCHIO SULLA STESSA PIAZZA
 
 Card 1 di 3
 
-Il 2 agosto 1914 (20 luglio nel calendario russo) lo zar annuncia la guerra dal Palazzo d'Inverno e la folla si inginocchia sulla piazza. È la stessa piazza del 22 gennaio 1905.
+Il 2 agosto 1914 (20 luglio nel calendario russo) lo zar annuncia la guerra dal Palazzo d'Inverno e la folla si inginocchia sulla piazza. È la stessa piazza del 22 gennaio 1905 (9 gennaio nel calendario russo).
 
 Indietro
 AVANTI
@@ -98,11 +98,11 @@ Ogni stagione la pazienza scende di 1.
 
 Il grano verso la città
 I campi
-In magazzino: 24. Passano 8 per turno.
+In magazzino: 24. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 0. Passano 8 per turno.
+In magazzino: 0. Passano 8 per stagione.
 I treni
-In magazzino: 0. Passano 3 per turno.
+In magazzino: 0. Passano 3 per stagione.
 Le città
 Arrivato: 0.
 
@@ -144,11 +144,11 @@ Ogni stagione la pazienza scende di 1.
 
 Il grano verso la città
 I campi
-In magazzino: 24. Passano 8 per turno.
+In magazzino: 24. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 0. Passano 8 per turno.
+In magazzino: 0. Passano 8 per stagione.
 I treni
-In magazzino: 0. Passano 3 per turno.
+In magazzino: 0. Passano 3 per stagione.
 Le città
 Arrivato: 0.
 
@@ -186,11 +186,11 @@ Ogni stagione la pazienza scende di 1.
 
 Il grano verso la città
 I campi
-In magazzino: 24. Passano 8 per turno.
+In magazzino: 24. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 0. Passano 8 per turno.
+In magazzino: 0. Passano 8 per stagione.
 I treni
-In magazzino: 0. Passano 3 per turno.
+In magazzino: 0. Passano 3 per stagione.
 Le città
 Arrivato: 0.
 
@@ -211,7 +211,7 @@ Gli ammassi dello Stato +10 in magazzino
 Dare la precedenza ai treni del grano
 Costa 2 punti
 +2 Voci che girano
-I treni +1 per turno
+I treni +1 di capacità
 Fissare il prezzo del pane
 −4 Pane in città
 La fila davanti ai forni +2 pazienza
@@ -220,7 +220,7 @@ Mandare un rapporto ottimista
 Carta +15
 Mandare un ispettore sui treni
 riesce nel 50% dei casi
-se riesce: I treni +1 per turno, Carta −5
+se riesce: I treni +1 di capacità, Carta −5
 Dividere il pane della città
 −5 Pane in città
 La fila davanti ai forni +1 pazienza
@@ -255,11 +255,11 @@ Ogni stagione la pazienza scende di 1.
 
 Il grano verso la città
 I campi
-In magazzino: 24. Passano 8 per turno.
+In magazzino: 24. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 6. Passano 8 per turno.
+In magazzino: 6. Passano 8 per stagione.
 I treni
-In magazzino: 0. Passano 3 per turno.
+In magazzino: 0. Passano 3 per stagione.
 Le città
 Arrivato: 0.
 
@@ -281,7 +281,7 @@ Gli ammassi dello Stato +10 in magazzino
 Dare la precedenza ai treni del grano
 Costa 2 punti
 +2 Voci che girano
-I treni +1 per turno
+I treni +1 di capacità
 Fissare il prezzo del pane
 −4 Pane in città
 La fila davanti ai forni +2 pazienza
@@ -290,7 +290,7 @@ Mandare un rapporto ottimista
 Carta +15
 Mandare un ispettore sui treni
 riesce nel 50% dei casi
-se riesce: I treni +1 per turno, Carta −5
+se riesce: I treni +1 di capacità, Carta −5
 Dividere il pane della città
 −5 Pane in città
 La fila davanti ai forni +1 pazienza
@@ -329,11 +329,11 @@ Ogni stagione la pazienza scende di 1.
 
 Il grano verso la città
 I campi
-In magazzino: 24. Passano 8 per turno.
+In magazzino: 24. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 6. Passano 8 per turno.
+In magazzino: 6. Passano 8 per stagione.
 I treni
-In magazzino: 0. Passano 3 per turno.
+In magazzino: 0. Passano 3 per stagione.
 Le città
 Arrivato: 0.
 
@@ -355,7 +355,7 @@ Gli ammassi dello Stato +10 in magazzino
 Dare la precedenza ai treni del grano
 Costa 2 punti
 +2 Voci che girano
-I treni +1 per turno
+I treni +1 di capacità
 Fissare il prezzo del pane
 −4 Pane in città
 La fila davanti ai forni +2 pazienza
@@ -364,7 +364,7 @@ Mandare un rapporto ottimista
 Carta +15
 Mandare un ispettore sui treni
 riesce nel 50% dei casi
-se riesce: I treni +1 per turno, Carta −5
+se riesce: I treni +1 di capacità, Carta −5
 Dividere il pane della città
 −5 Pane in città
 La fila davanti ai forni +1 pazienza
@@ -378,7 +378,7 @@ Voci che girano: 23 → 26
 Pane in città: 42 → 37
 FINIRE LA STAGIONE (RESTANO 2 PUNTI)
 
-> SCELGO: Dare la precedenza ai treni del grano Costa 2 punti +2 Voci che girano I treni +1 per turno
+> SCELGO: Dare la precedenza ai treni del grano Costa 2 punti +2 Voci che girano I treni +1 di capacità
 
 
 ## 226 · azione (226-azione.png)
@@ -407,11 +407,11 @@ Ogni stagione la pazienza scende di 1.
 
 Il grano verso la città
 I campi
-In magazzino: 24. Passano 8 per turno.
+In magazzino: 24. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 6. Passano 8 per turno.
+In magazzino: 6. Passano 8 per stagione.
 I treni
-In magazzino: 0. Passano 4 per turno.
+In magazzino: 0. Passano 4 per stagione.
 Le città
 Arrivato: 0.
 
@@ -433,7 +433,7 @@ Gli ammassi dello Stato +10 in magazzino
 Dare la precedenza ai treni del grano
 Costa 2 punti
 +2 Voci che girano
-I treni +1 per turno
+I treni +1 di capacità
 preso
 Fissare il prezzo del pane
 −4 Pane in città
@@ -443,7 +443,7 @@ Mandare un rapporto ottimista
 Carta +15
 Mandare un ispettore sui treni
 riesce nel 50% dei casi
-se riesce: I treni +1 per turno, Carta −5
+se riesce: I treni +1 di capacità, Carta −5
 Dividere il pane della città
 −5 Pane in città
 La fila davanti ai forni +1 pazienza
@@ -453,7 +453,7 @@ I contadini vendono di più allo Stato, ma con i rubli di oggi non comprano nien
 
 Si divide il pane: a ciascuno un pezzo più piccolo.
 
-Per questa stagione i treni del grano passano di più; il fronte se ne accorge.
+I treni del grano passano di più; il fronte se ne accorge.
 
 Voci che girano: 23 → 28
 Pane in città: 42 → 37
@@ -486,11 +486,11 @@ Ogni stagione la pazienza scende di 3 (la fame).
 
 Il grano verso la città
 I campi
-In magazzino: 28. Passano 8 per turno.
+In magazzino: 28. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 8. Passano 8 per turno.
+In magazzino: 8. Passano 8 per stagione.
 I treni
-In magazzino: 6. Passano 4 per turno.
+In magazzino: 6. Passano 4 per stagione.
 Le città
 Arrivato: 0.
 
@@ -534,11 +534,11 @@ Ogni stagione la pazienza scende di 3 (la fame).
 
 Il grano verso la città
 I campi
-In magazzino: 28. Passano 8 per turno.
+In magazzino: 28. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 8. Passano 8 per turno.
+In magazzino: 8. Passano 8 per stagione.
 I treni
-In magazzino: 6. Passano 4 per turno.
+In magazzino: 6. Passano 4 per stagione.
 Le città
 Arrivato: 0.
 
@@ -578,11 +578,11 @@ Ogni stagione la pazienza scende di 3 (la fame).
 
 Il grano verso la città
 I campi
-In magazzino: 28. Passano 8 per turno.
+In magazzino: 28. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 8. Passano 8 per turno.
+In magazzino: 8. Passano 8 per stagione.
 I treni
-In magazzino: 6. Passano 4 per turno.
+In magazzino: 6. Passano 4 per stagione.
 Le città
 Arrivato: 0.
 
@@ -605,7 +605,7 @@ Gli ammassi dello Stato +10 in magazzino
 Dare la precedenza ai treni del grano
 Costa 2 punti
 +2 Voci che girano
-I treni +1 per turno
+I treni +1 di capacità
 Fissare il prezzo del pane
 −4 Pane in città
 La fila davanti ai forni +2 pazienza
@@ -614,7 +614,7 @@ Mandare un rapporto ottimista
 Carta +15
 Mandare un ispettore sui treni
 riesce nel 50% dei casi
-se riesce: I treni +1 per turno, Carta −5
+se riesce: I treni +1 di capacità, Carta −5
 Dividere il pane della città
 −5 Pane in città
 La fila davanti ai forni +1 pazienza
@@ -649,11 +649,11 @@ Ogni stagione la pazienza scende di 3 (la fame).
 
 Il grano verso la città
 I campi
-In magazzino: 28. Passano 8 per turno.
+In magazzino: 28. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 8. Passano 8 per turno.
+In magazzino: 8. Passano 8 per stagione.
 I treni
-In magazzino: 6. Passano 4 per turno.
+In magazzino: 6. Passano 4 per stagione.
 Le città
 Arrivato: 0.
 
@@ -676,7 +676,7 @@ Gli ammassi dello Stato +10 in magazzino
 Dare la precedenza ai treni del grano
 Costa 2 punti
 +2 Voci che girano
-I treni +1 per turno
+I treni +1 di capacità
 Fissare il prezzo del pane
 −4 Pane in città
 La fila davanti ai forni +2 pazienza
@@ -686,7 +686,7 @@ Mandare un rapporto ottimista
 Carta +15
 Mandare un ispettore sui treni
 riesce nel 50% dei casi
-se riesce: I treni +1 per turno, Carta −5
+se riesce: I treni +1 di capacità, Carta −5
 Dividere il pane della città
 −5 Pane in città
 La fila davanti ai forni +1 pazienza
@@ -696,7 +696,7 @@ La fila si calma, ma i fornai tengono il pane per il mercato nero.
 Pane in città: 29 → 25
 FINIRE LA STAGIONE (RESTANO 3 PUNTI)
 
-> SCELGO: Mandare un ispettore sui treni riesce nel 50% dei casi se riesce: I treni +1 per turno, Carta −5
+> SCELGO: Mandare un ispettore sui treni riesce nel 50% dei casi se riesce: I treni +1 di capacità, Carta −5
 
 
 ## 231 · azione (231-azione.png)
@@ -725,11 +725,11 @@ Ogni stagione la pazienza scende di 3 (la fame).
 
 Il grano verso la città
 I campi
-In magazzino: 28. Passano 8 per turno.
+In magazzino: 28. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 8. Passano 8 per turno.
+In magazzino: 8. Passano 8 per stagione.
 I treni
-In magazzino: 6. Passano 5 per turno.
+In magazzino: 6. Passano 5 per stagione.
 Le città
 Arrivato: 0.
 
@@ -752,7 +752,7 @@ Gli ammassi dello Stato +10 in magazzino
 Dare la precedenza ai treni del grano
 Costa 2 punti
 +2 Voci che girano
-I treni +1 per turno
+I treni +1 di capacità
 Fissare il prezzo del pane
 −4 Pane in città
 La fila davanti ai forni +2 pazienza
@@ -762,7 +762,7 @@ Mandare un rapporto ottimista
 Carta +15
 Mandare un ispettore sui treni
 riesce nel 50% dei casi
-se riesce: I treni +1 per turno, Carta −5
+se riesce: I treni +1 di capacità, Carta −5
 preso
 Dividere il pane della città
 −5 Pane in città
@@ -804,11 +804,11 @@ Ogni stagione la pazienza scende di 3 (la fame).
 
 Il grano verso la città
 I campi
-In magazzino: 28. Passano 8 per turno.
+In magazzino: 28. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 18. Passano 8 per turno.
+In magazzino: 18. Passano 8 per stagione.
 I treni
-In magazzino: 6. Passano 5 per turno.
+In magazzino: 6. Passano 5 per stagione.
 Le città
 Arrivato: 0.
 
@@ -832,7 +832,7 @@ preso
 Dare la precedenza ai treni del grano
 Costa 2 punti
 +2 Voci che girano
-I treni +1 per turno
+I treni +1 di capacità
 Fissare il prezzo del pane
 −4 Pane in città
 La fila davanti ai forni +2 pazienza
@@ -842,7 +842,7 @@ Mandare un rapporto ottimista
 Carta +15
 Mandare un ispettore sui treni
 riesce nel 50% dei casi
-se riesce: I treni +1 per turno, Carta −5
+se riesce: I treni +1 di capacità, Carta −5
 preso
 Dividere il pane della città
 −5 Pane in città
@@ -887,11 +887,11 @@ Ogni stagione la pazienza scende di 3 (la fame).
 
 Il grano verso la città
 I campi
-In magazzino: 28. Passano 8 per turno.
+In magazzino: 28. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 24. Passano 8 per turno.
+In magazzino: 24. Passano 8 per stagione.
 I treni
-In magazzino: 6. Passano 5 per turno.
+In magazzino: 6. Passano 5 per stagione.
 Le città
 Arrivato: 0.
 
@@ -916,7 +916,7 @@ preso
 Dare la precedenza ai treni del grano
 Costa 2 punti
 +2 Voci che girano
-I treni +1 per turno
+I treni +1 di capacità
 Fissare il prezzo del pane
 −4 Pane in città
 La fila davanti ai forni +2 pazienza
@@ -926,7 +926,7 @@ Mandare un rapporto ottimista
 Carta +15
 Mandare un ispettore sui treni
 riesce nel 50% dei casi
-se riesce: I treni +1 per turno, Carta −5
+se riesce: I treni +1 di capacità, Carta −5
 preso
 Dividere il pane della città
 −5 Pane in città
@@ -973,11 +973,11 @@ La fila davanti ai forni: si stringono nello scialle.
 
 Il grano verso la città
 I campi
-In magazzino: 22. Passano 8 per turno.
+In magazzino: 22. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 24. Passano 4 per turno: inceppato, è pieno e il grano aspetta.
+In magazzino: 24. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 9. Passano 5 per turno.
+In magazzino: 9. Passano 5 per stagione.
 Le città
 Arrivato: 5.
 
@@ -1025,11 +1025,11 @@ La fila davanti ai forni: si stringono nello scialle.
 
 Il grano verso la città
 I campi
-In magazzino: 22. Passano 8 per turno.
+In magazzino: 22. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 24. Passano 4 per turno: inceppato, è pieno e il grano aspetta.
+In magazzino: 24. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 9. Passano 4 per turno.
+In magazzino: 9. Passano 4 per stagione.
 Le città
 Arrivato: 5.
 
@@ -1072,11 +1072,11 @@ La fila davanti ai forni: si stringono nello scialle.
 
 Il grano verso la città
 I campi
-In magazzino: 22. Passano 8 per turno.
+In magazzino: 22. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 24. Passano 4 per turno: inceppato, è pieno e il grano aspetta.
+In magazzino: 24. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 9. Passano 4 per turno.
+In magazzino: 9. Passano 4 per stagione.
 Le città
 Arrivato: 5.
 
@@ -1101,7 +1101,7 @@ Gli ammassi dello Stato +10 in magazzino
 Dare la precedenza ai treni del grano
 Costa 2 punti
 +2 Voci che girano
-I treni +1 per turno
+I treni +1 di capacità
 Fissare il prezzo del pane
 −4 Pane in città
 La fila davanti ai forni +2 pazienza
@@ -1110,7 +1110,7 @@ Mandare un rapporto ottimista
 Carta +15
 Mandare un ispettore sui treni
 riesce nel 50% dei casi
-se riesce: I treni +1 per turno, Carta −5
+se riesce: I treni +1 di capacità, Carta −5
 Dividere il pane della città
 −5 Pane in città
 La fila davanti ai forni +1 pazienza
@@ -1147,11 +1147,11 @@ La fila davanti ai forni: si stringono nello scialle.
 
 Il grano verso la città
 I campi
-In magazzino: 22. Passano 8 per turno.
+In magazzino: 22. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 24. Passano 4 per turno: inceppato, è pieno e il grano aspetta.
+In magazzino: 24. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 9. Passano 4 per turno.
+In magazzino: 9. Passano 4 per stagione.
 Le città
 Arrivato: 5.
 
@@ -1176,7 +1176,7 @@ Gli ammassi dello Stato +10 in magazzino
 Dare la precedenza ai treni del grano
 Costa 2 punti
 +2 Voci che girano
-I treni +1 per turno
+I treni +1 di capacità
 Fissare il prezzo del pane
 −4 Pane in città
 La fila davanti ai forni +2 pazienza
@@ -1186,7 +1186,7 @@ Mandare un rapporto ottimista
 Carta +15
 Mandare un ispettore sui treni
 riesce nel 50% dei casi
-se riesce: I treni +1 per turno, Carta −5
+se riesce: I treni +1 di capacità, Carta −5
 Dividere il pane della città
 −5 Pane in città
 La fila davanti ai forni +1 pazienza
@@ -1227,11 +1227,11 @@ La fila davanti ai forni: si stringono nello scialle.
 
 Il grano verso la città
 I campi
-In magazzino: 22. Passano 8 per turno.
+In magazzino: 22. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 30. Passano 4 per turno: inceppato, è pieno e il grano aspetta.
+In magazzino: 30. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 9. Passano 4 per turno.
+In magazzino: 9. Passano 4 per stagione.
 Le città
 Arrivato: 5.
 
@@ -1257,7 +1257,7 @@ Gli ammassi dello Stato +10 in magazzino
 Dare la precedenza ai treni del grano
 Costa 2 punti
 +2 Voci che girano
-I treni +1 per turno
+I treni +1 di capacità
 Fissare il prezzo del pane
 −4 Pane in città
 La fila davanti ai forni +2 pazienza
@@ -1267,7 +1267,7 @@ Mandare un rapporto ottimista
 Carta +15
 Mandare un ispettore sui treni
 riesce nel 50% dei casi
-se riesce: I treni +1 per turno, Carta −5
+se riesce: I treni +1 di capacità, Carta −5
 Dividere il pane della città
 −5 Pane in città
 La fila davanti ai forni +1 pazienza
@@ -1280,7 +1280,7 @@ Pane in città: 27 → 23
 Voci che girano: 39 → 42
 FINIRE LA STAGIONE (RESTANO 2 PUNTI)
 
-> SCELGO: Mandare un ispettore sui treni riesce nel 50% dei casi se riesce: I treni +1 per turno, Carta −5
+> SCELGO: Mandare un ispettore sui treni riesce nel 50% dei casi se riesce: I treni +1 di capacità, Carta −5
 
 
 ## 239 · azione (239-azione.png)
@@ -1311,15 +1311,15 @@ La fila davanti ai forni: si stringono nello scialle.
 
 Il grano verso la città
 I campi
-In magazzino: 22. Passano 8 per turno.
+In magazzino: 22. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 30. Passano 4 per turno: inceppato, è pieno e il grano aspetta.
+In magazzino: 30. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 9. Passano 5 per turno.
+In magazzino: 9. Passano 4 per stagione.
 Le città
 Arrivato: 5.
 
-Sulla carta: 10. In realtà (arrivato): 5. Scarto: 5.
+Sulla carta: 15. In realtà (arrivato): 5. Scarto: 10.
 
 Arrivati questo turno: 5 (grano).
 
@@ -1341,7 +1341,7 @@ Gli ammassi dello Stato +10 in magazzino
 Dare la precedenza ai treni del grano
 Costa 2 punti
 +2 Voci che girano
-I treni +1 per turno
+I treni +1 di capacità
 Fissare il prezzo del pane
 −4 Pane in città
 La fila davanti ai forni +2 pazienza
@@ -1351,7 +1351,7 @@ Mandare un rapporto ottimista
 Carta +15
 Mandare un ispettore sui treni
 riesce nel 50% dei casi
-se riesce: I treni +1 per turno, Carta −5
+se riesce: I treni +1 di capacità, Carta −5
 preso
 Dividere il pane della città
 −5 Pane in città
@@ -1361,10 +1361,10 @@ La fila si calma, ma i fornai tengono il pane per il mercato nero.
 
 I contadini vendono di più allo Stato, ma con i rubli di oggi non comprano niente.
 
-L'ispettore trova vagoni fermi e li fa ripartire. Il rapporto si corregge.
+L'ispettore non trova niente di utile e in città si parla di corruzione.
 
 Pane in città: 27 → 23
-Voci che girano: 39 → 42
+Voci che girano: 39 → 46
 FINIRE LA STAGIONE (RESTA 1 PUNTO)
 
 > SCELGO: Dividere il pane della città −5 Pane in città La fila davanti ai forni +1 pazienza
@@ -1398,15 +1398,15 @@ La fila davanti ai forni: si stringono nello scialle.
 
 Il grano verso la città
 I campi
-In magazzino: 22. Passano 8 per turno.
+In magazzino: 22. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 30. Passano 4 per turno: inceppato, è pieno e il grano aspetta.
+In magazzino: 30. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 9. Passano 5 per turno.
+In magazzino: 9. Passano 4 per stagione.
 Le città
 Arrivato: 5.
 
-Sulla carta: 10. In realtà (arrivato): 5. Scarto: 5.
+Sulla carta: 15. In realtà (arrivato): 5. Scarto: 10.
 
 Arrivati questo turno: 5 (grano).
 
@@ -1428,7 +1428,7 @@ Gli ammassi dello Stato +10 in magazzino
 Dare la precedenza ai treni del grano
 Costa 2 punti
 +2 Voci che girano
-I treni +1 per turno
+I treni +1 di capacità
 Fissare il prezzo del pane
 −4 Pane in città
 La fila davanti ai forni +2 pazienza
@@ -1438,7 +1438,7 @@ Mandare un rapporto ottimista
 Carta +15
 Mandare un ispettore sui treni
 riesce nel 50% dei casi
-se riesce: I treni +1 per turno, Carta −5
+se riesce: I treni +1 di capacità, Carta −5
 preso
 Dividere il pane della città
 −5 Pane in città
@@ -1449,12 +1449,12 @@ La fila si calma, ma i fornai tengono il pane per il mercato nero.
 
 I contadini vendono di più allo Stato, ma con i rubli di oggi non comprano niente.
 
-L'ispettore trova vagoni fermi e li fa ripartire. Il rapporto si corregge.
+L'ispettore non trova niente di utile e in città si parla di corruzione.
 
 Si divide il pane: a ciascuno un pezzo più piccolo.
 
 Pane in città: 27 → 18
-Voci che girano: 39 → 42
+Voci che girano: 39 → 46
 FINIRE LA STAGIONE
 
 
@@ -1486,17 +1486,17 @@ La fila davanti ai forni: si stringono nello scialle.
 
 Il grano verso la città
 I campi
-In magazzino: 16. Passano 8 per turno.
+In magazzino: 16. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 34. Passano 4 per turno: inceppato, è pieno e il grano aspetta.
+In magazzino: 34. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 8. Passano 5 per turno.
+In magazzino: 9. Passano 4 per stagione.
 Le città
-Arrivato: 10.
+Arrivato: 9.
 
-Sulla carta: 10. In realtà (arrivato): 10. Scarto: 0.
+Sulla carta: 15. In realtà (arrivato): 9. Scarto: 6.
 
-Arrivati questo turno: 5 (grano).
+Arrivati questo turno: 4 (grano).
 
 IL QUARTIER GENERALE
 
@@ -1536,21 +1536,21 @@ La fila davanti ai forni: si stringono nello scialle.
 
 Il grano verso la città
 I campi
-In magazzino: 16. Passano 8 per turno.
+In magazzino: 16. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 34. Passano 4 per turno: inceppato, è pieno e il grano aspetta.
+In magazzino: 34. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 8. Passano 5 per turno.
+In magazzino: 9. Passano 4 per stagione.
 Le città
-Arrivato: 10.
+Arrivato: 9.
 
-Sulla carta: 10. In realtà (arrivato): 10. Scarto: 0.
+Sulla carta: 15. In realtà (arrivato): 9. Scarto: 6.
 
-Arrivati questo turno: 5 (grano).
+Arrivati questo turno: 4 (grano).
 
 I generali protestano e in città se ne parla.
 
-Voci che girano: 42 → 45
+Voci che girano: 46 → 49
 ALLA FIERA
 
 
@@ -1582,17 +1582,17 @@ La fila davanti ai forni: si stringono nello scialle.
 
 Il grano verso la città
 I campi
-In magazzino: 16. Passano 8 per turno.
+In magazzino: 16. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 34. Passano 4 per turno: inceppato, è pieno e il grano aspetta.
+In magazzino: 34. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 8. Passano 5 per turno.
+In magazzino: 9. Passano 4 per stagione.
 Le città
-Arrivato: 10.
+Arrivato: 9.
 
-Sulla carta: 10. In realtà (arrivato): 10. Scarto: 0.
+Sulla carta: 15. In realtà (arrivato): 9. Scarto: 6.
 
-Arrivati questo turno: 5 (grano).
+Arrivati questo turno: 4 (grano).
 
 IL MINISTERO
 
@@ -1609,7 +1609,7 @@ Gli ammassi dello Stato +10 in magazzino
 Dare la precedenza ai treni del grano
 Costa 2 punti
 +2 Voci che girano
-I treni +1 per turno
+I treni +1 di capacità
 Fissare il prezzo del pane
 −4 Pane in città
 La fila davanti ai forni +2 pazienza
@@ -1618,7 +1618,7 @@ Mandare un rapporto ottimista
 Carta +15
 Mandare un ispettore sui treni
 riesce nel 50% dei casi
-se riesce: I treni +1 per turno, Carta −5
+se riesce: I treni +1 di capacità, Carta −5
 Dividere il pane della città
 −5 Pane in città
 La fila davanti ai forni +1 pazienza
@@ -1655,17 +1655,17 @@ La fila davanti ai forni: si stringono nello scialle.
 
 Il grano verso la città
 I campi
-In magazzino: 16. Passano 8 per turno.
+In magazzino: 16. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 34. Passano 4 per turno: inceppato, è pieno e il grano aspetta.
+In magazzino: 34. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 8. Passano 5 per turno.
+In magazzino: 9. Passano 4 per stagione.
 Le città
-Arrivato: 10.
+Arrivato: 9.
 
-Sulla carta: 10. In realtà (arrivato): 10. Scarto: 0.
+Sulla carta: 15. In realtà (arrivato): 9. Scarto: 6.
 
-Arrivati questo turno: 5 (grano).
+Arrivati questo turno: 4 (grano).
 
 IL MINISTERO
 
@@ -1682,7 +1682,7 @@ Gli ammassi dello Stato +10 in magazzino
 Dare la precedenza ai treni del grano
 Costa 2 punti
 +2 Voci che girano
-I treni +1 per turno
+I treni +1 di capacità
 Fissare il prezzo del pane
 −4 Pane in città
 La fila davanti ai forni +2 pazienza
@@ -1692,14 +1692,14 @@ Mandare un rapporto ottimista
 Carta +15
 Mandare un ispettore sui treni
 riesce nel 50% dei casi
-se riesce: I treni +1 per turno, Carta −5
+se riesce: I treni +1 di capacità, Carta −5
 Dividere il pane della città
 −5 Pane in città
 La fila davanti ai forni +1 pazienza
 
 La fila si calma, ma i fornai tengono il pane per il mercato nero.
 
-Pane in città: 20 → 16
+Pane in città: 18 → 14
 FINIRE LA STAGIONE (RESTANO 3 PUNTI)
 
 > SCELGO: Alzare il prezzo fissato del grano +3 Voci che girano Gli ammassi dello Stato +6 in magazzino
@@ -1733,17 +1733,17 @@ La fila davanti ai forni: si stringono nello scialle.
 
 Il grano verso la città
 I campi
-In magazzino: 16. Passano 8 per turno.
+In magazzino: 16. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 40. Passano 4 per turno: inceppato, è pieno e il grano aspetta.
+In magazzino: 40. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 8. Passano 5 per turno.
+In magazzino: 9. Passano 4 per stagione.
 Le città
-Arrivato: 10.
+Arrivato: 9.
 
-Sulla carta: 10. In realtà (arrivato): 10. Scarto: 0.
+Sulla carta: 15. In realtà (arrivato): 9. Scarto: 6.
 
-Arrivati questo turno: 5 (grano).
+Arrivati questo turno: 4 (grano).
 
 IL MINISTERO
 
@@ -1761,7 +1761,7 @@ Gli ammassi dello Stato +10 in magazzino
 Dare la precedenza ai treni del grano
 Costa 2 punti
 +2 Voci che girano
-I treni +1 per turno
+I treni +1 di capacità
 Fissare il prezzo del pane
 −4 Pane in città
 La fila davanti ai forni +2 pazienza
@@ -1771,7 +1771,7 @@ Mandare un rapporto ottimista
 Carta +15
 Mandare un ispettore sui treni
 riesce nel 50% dei casi
-se riesce: I treni +1 per turno, Carta −5
+se riesce: I treni +1 di capacità, Carta −5
 Dividere il pane della città
 −5 Pane in città
 La fila davanti ai forni +1 pazienza
@@ -1780,8 +1780,8 @@ La fila si calma, ma i fornai tengono il pane per il mercato nero.
 
 I contadini vendono di più allo Stato, ma con i rubli di oggi non comprano niente.
 
-Pane in città: 20 → 16
-Voci che girano: 45 → 48
+Pane in città: 18 → 14
+Voci che girano: 49 → 52
 FINIRE LA STAGIONE (RESTANO 2 PUNTI)
 
 > SCELGO: Imporre una quota di consegna ai villaggi +5 Voci che girano Gli ammassi dello Stato +10 in magazzino
@@ -1815,17 +1815,17 @@ La fila davanti ai forni: si stringono nello scialle.
 
 Il grano verso la città
 I campi
-In magazzino: 16. Passano 8 per turno.
+In magazzino: 16. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 50. Passano 4 per turno: inceppato, è pieno e il grano aspetta.
+In magazzino: 50. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 8. Passano 5 per turno.
+In magazzino: 9. Passano 4 per stagione.
 Le città
-Arrivato: 10.
+Arrivato: 9.
 
-Sulla carta: 10. In realtà (arrivato): 10. Scarto: 0.
+Sulla carta: 15. In realtà (arrivato): 9. Scarto: 6.
 
-Arrivati questo turno: 5 (grano).
+Arrivati questo turno: 4 (grano).
 
 IL MINISTERO
 
@@ -1844,7 +1844,7 @@ preso
 Dare la precedenza ai treni del grano
 Costa 2 punti
 +2 Voci che girano
-I treni +1 per turno
+I treni +1 di capacità
 Fissare il prezzo del pane
 −4 Pane in città
 La fila davanti ai forni +2 pazienza
@@ -1854,7 +1854,7 @@ Mandare un rapporto ottimista
 Carta +15
 Mandare un ispettore sui treni
 riesce nel 50% dei casi
-se riesce: I treni +1 per turno, Carta −5
+se riesce: I treni +1 di capacità, Carta −5
 Dividere il pane della città
 −5 Pane in città
 La fila davanti ai forni +1 pazienza
@@ -1865,8 +1865,8 @@ I contadini vendono di più allo Stato, ma con i rubli di oggi non comprano nien
 
 Arriva più grano agli ammassi, ma i contadini ricordano l'obbligo.
 
-Pane in città: 20 → 16
-Voci che girano: 45 → 53
+Pane in città: 18 → 14
+Voci che girano: 49 → 57
 FINIRE LA STAGIONE (RESTA 1 PUNTO)
 
 > SCELGO: Dividere il pane della città −5 Pane in città La fila davanti ai forni +1 pazienza
@@ -1900,17 +1900,17 @@ La fila davanti ai forni: si stringono nello scialle.
 
 Il grano verso la città
 I campi
-In magazzino: 16. Passano 8 per turno.
+In magazzino: 16. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 50. Passano 4 per turno: inceppato, è pieno e il grano aspetta.
+In magazzino: 50. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 8. Passano 5 per turno.
+In magazzino: 9. Passano 4 per stagione.
 Le città
-Arrivato: 10.
+Arrivato: 9.
 
-Sulla carta: 10. In realtà (arrivato): 10. Scarto: 0.
+Sulla carta: 15. In realtà (arrivato): 9. Scarto: 6.
 
-Arrivati questo turno: 5 (grano).
+Arrivati questo turno: 4 (grano).
 
 IL MINISTERO
 
@@ -1929,7 +1929,7 @@ preso
 Dare la precedenza ai treni del grano
 Costa 2 punti
 +2 Voci che girano
-I treni +1 per turno
+I treni +1 di capacità
 Fissare il prezzo del pane
 −4 Pane in città
 La fila davanti ai forni +2 pazienza
@@ -1939,7 +1939,7 @@ Mandare un rapporto ottimista
 Carta +15
 Mandare un ispettore sui treni
 riesce nel 50% dei casi
-se riesce: I treni +1 per turno, Carta −5
+se riesce: I treni +1 di capacità, Carta −5
 Dividere il pane della città
 −5 Pane in città
 La fila davanti ai forni +1 pazienza
@@ -1953,8 +1953,10 @@ Arriva più grano agli ammassi, ma i contadini ricordano l'obbligo.
 
 Si divide il pane: a ciascuno un pezzo più piccolo.
 
-Pane in città: 20 → 11
-Voci che girano: 45 → 53
+Il pane manca: le code cominciano di notte e non si sciolgono più.
+
+Pane in città: 18 → 24
+Voci che girano: 49 → 57
 FINIRE LA STAGIONE
 
 
@@ -1977,26 +1979,24 @@ IL FRONTE
 I PUNTI AZIONE
 La fila davanti ai forni
 La fila davanti ai forni (12)
-Pazienza 4 su 6. Di questo passo se ne vanno tra 2 stagioni (a casa).
-Prossimo segnale: guardano l'orologio, tra 1 stagione.
+Pazienza 5 su 6. Di questo passo se ne vanno tra 2 stagioni (a casa).
+Prossimo segnale: si stringono nello scialle, tra 1 stagione.
 
 Ogni stagione la pazienza scende di 3 (la fame).
 
-La fila davanti ai forni: si stringono nello scialle.
-
 Il grano verso la città
 I campi
-In magazzino: 20. Passano 8 per turno.
+In magazzino: 20. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 54. Passano 4 per turno: inceppato, è pieno e il grano aspetta.
+In magazzino: 54. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 7. Passano 5 per turno.
+In magazzino: 9. Passano 4 per stagione.
 Le città
-Arrivato: 15.
+Arrivato: 13.
 
-Sulla carta: 10. In realtà (arrivato): 15. Scarto: 0.
+Sulla carta: 15. In realtà (arrivato): 13. Scarto: 2.
 
-Arrivati questo turno: 5 (grano).
+Arrivati questo turno: 4 (grano).
 
 IL QUARTIER GENERALE
 
@@ -2027,26 +2027,24 @@ IL FRONTE
 I PUNTI AZIONE
 La fila davanti ai forni
 La fila davanti ai forni (12)
-Pazienza 4 su 6. Di questo passo se ne vanno tra 2 stagioni (a casa).
-Prossimo segnale: guardano l'orologio, tra 1 stagione.
+Pazienza 5 su 6. Di questo passo se ne vanno tra 2 stagioni (a casa).
+Prossimo segnale: si stringono nello scialle, tra 1 stagione.
 
 Ogni stagione la pazienza scende di 3 (la fame).
 
-La fila davanti ai forni: si stringono nello scialle.
-
 Il grano verso la città
 I campi
-In magazzino: 20. Passano 8 per turno.
+In magazzino: 20. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 54. Passano 4 per turno: inceppato, è pieno e il grano aspetta.
+In magazzino: 54. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 7. Passano 4 per turno.
+In magazzino: 9. Passano 3 per stagione.
 Le città
-Arrivato: 15.
+Arrivato: 13.
 
-Sulla carta: 10. In realtà (arrivato): 15. Scarto: 0.
+Sulla carta: 15. In realtà (arrivato): 13. Scarto: 2.
 
-Arrivati questo turno: 5 (grano).
+Arrivati questo turno: 4 (grano).
 
 I treni del grano passano meno carri.
 
@@ -2072,26 +2070,24 @@ IL FRONTE
 I PUNTI AZIONE
 La fila davanti ai forni
 La fila davanti ai forni (12)
-Pazienza 4 su 6. Di questo passo se ne vanno tra 2 stagioni (a casa).
-Prossimo segnale: guardano l'orologio, tra 1 stagione.
+Pazienza 5 su 6. Di questo passo se ne vanno tra 2 stagioni (a casa).
+Prossimo segnale: si stringono nello scialle, tra 1 stagione.
 
 Ogni stagione la pazienza scende di 3 (la fame).
 
-La fila davanti ai forni: si stringono nello scialle.
-
 Il grano verso la città
 I campi
-In magazzino: 20. Passano 8 per turno.
+In magazzino: 20. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 54. Passano 4 per turno: inceppato, è pieno e il grano aspetta.
+In magazzino: 54. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 7. Passano 4 per turno.
+In magazzino: 9. Passano 3 per stagione.
 Le città
-Arrivato: 15.
+Arrivato: 13.
 
-Sulla carta: 10. In realtà (arrivato): 15. Scarto: 0.
+Sulla carta: 15. In realtà (arrivato): 13. Scarto: 2.
 
-Arrivati questo turno: 5 (grano).
+Arrivati questo turno: 4 (grano).
 
 IL MINISTERO
 
@@ -2108,7 +2104,7 @@ Gli ammassi dello Stato +10 in magazzino
 Dare la precedenza ai treni del grano
 Costa 2 punti
 +2 Voci che girano
-I treni +1 per turno
+I treni +1 di capacità
 Fissare il prezzo del pane
 −4 Pane in città
 La fila davanti ai forni +2 pazienza
@@ -2117,7 +2113,7 @@ Mandare un rapporto ottimista
 Carta +15
 Mandare un ispettore sui treni
 riesce nel 50% dei casi
-se riesce: I treni +1 per turno, Carta −5
+se riesce: I treni +1 di capacità, Carta −5
 Dividere il pane della città
 −5 Pane in città
 La fila davanti ai forni +1 pazienza
@@ -2145,26 +2141,24 @@ IL FRONTE
 I PUNTI AZIONE
 La fila davanti ai forni
 La fila davanti ai forni (12)
-Pazienza 4 su 6. Di questo passo se ne vanno tra 2 stagioni (a casa).
-Prossimo segnale: guardano l'orologio, tra 1 stagione.
+Pazienza 5 su 6. Di questo passo se ne vanno tra 2 stagioni (a casa).
+Prossimo segnale: si stringono nello scialle, tra 1 stagione.
 
 Ogni stagione la pazienza scende di 3 (la fame).
 
-La fila davanti ai forni: si stringono nello scialle.
-
 Il grano verso la città
 I campi
-In magazzino: 20. Passano 8 per turno.
+In magazzino: 20. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 54. Passano 4 per turno: inceppato, è pieno e il grano aspetta.
+In magazzino: 54. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 7. Passano 4 per turno.
+In magazzino: 9. Passano 3 per stagione.
 Le città
-Arrivato: 15.
+Arrivato: 13.
 
-Sulla carta: 25. In realtà (arrivato): 15. Scarto: 10.
+Sulla carta: 30. In realtà (arrivato): 13. Scarto: 17.
 
-Arrivati questo turno: 5 (grano).
+Arrivati questo turno: 4 (grano).
 
 IL MINISTERO
 
@@ -2181,7 +2175,7 @@ Gli ammassi dello Stato +10 in magazzino
 Dare la precedenza ai treni del grano
 Costa 2 punti
 +2 Voci che girano
-I treni +1 per turno
+I treni +1 di capacità
 Fissare il prezzo del pane
 −4 Pane in città
 La fila davanti ai forni +2 pazienza
@@ -2191,14 +2185,14 @@ Carta +15
 fatto 1 volta
 Mandare un ispettore sui treni
 riesce nel 50% dei casi
-se riesce: I treni +1 per turno, Carta −5
+se riesce: I treni +1 di capacità, Carta −5
 Dividere il pane della città
 −5 Pane in città
 La fila davanti ai forni +1 pazienza
 
 Sulla carta il grano basta: nessuno al ministero ha bisogno di sapere altro.
 
-Voci che girano: 53 → 51
+Voci che girano: 57 → 55
 FINE DELLA PARTITA (RESTANO 3 PUNTI)
 
 > SCELGO: Dividere il pane della città −5 Pane in città La fila davanti ai forni +1 pazienza
@@ -2223,26 +2217,24 @@ IL FRONTE
 I PUNTI AZIONE
 La fila davanti ai forni
 La fila davanti ai forni (12)
-Pazienza 5 su 6. Di questo passo se ne vanno tra 2 stagioni (a casa).
+Pazienza 6 su 6. Di questo passo se ne vanno tra 2 stagioni (a casa).
 Prossimo segnale: si stringono nello scialle, tra 1 stagione.
 
 Ogni stagione la pazienza scende di 3 (la fame).
 
-La fila davanti ai forni: si stringono nello scialle.
-
 Il grano verso la città
 I campi
-In magazzino: 20. Passano 8 per turno.
+In magazzino: 20. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 54. Passano 4 per turno: inceppato, è pieno e il grano aspetta.
+In magazzino: 54. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 7. Passano 4 per turno.
+In magazzino: 9. Passano 3 per stagione.
 Le città
-Arrivato: 15.
+Arrivato: 13.
 
-Sulla carta: 25. In realtà (arrivato): 15. Scarto: 10.
+Sulla carta: 30. In realtà (arrivato): 13. Scarto: 17.
 
-Arrivati questo turno: 5 (grano).
+Arrivati questo turno: 4 (grano).
 
 IL MINISTERO
 
@@ -2259,7 +2251,7 @@ Gli ammassi dello Stato +10 in magazzino
 Dare la precedenza ai treni del grano
 Costa 2 punti
 +2 Voci che girano
-I treni +1 per turno
+I treni +1 di capacità
 Fissare il prezzo del pane
 −4 Pane in città
 La fila davanti ai forni +2 pazienza
@@ -2269,7 +2261,7 @@ Carta +15
 fatto 1 volta
 Mandare un ispettore sui treni
 riesce nel 50% dei casi
-se riesce: I treni +1 per turno, Carta −5
+se riesce: I treni +1 di capacità, Carta −5
 Dividere il pane della città
 −5 Pane in città
 La fila davanti ai forni +1 pazienza
@@ -2279,10 +2271,8 @@ Sulla carta il grano basta: nessuno al ministero ha bisogno di sapere altro.
 
 Si divide il pane: a ciascuno un pezzo più piccolo.
 
-Il pane manca: le code cominciano di notte e non si sciolgono più.
-
-Voci che girano: 53 → 51
-Pane in città: 13 → 23
+Voci che girano: 57 → 55
+Pane in città: 24 → 19
 FINE DELLA PARTITA (RESTANO 2 PUNTI)
 
 > SCELGO: Alzare il prezzo fissato del grano +3 Voci che girano Gli ammassi dello Stato +6 in magazzino
@@ -2307,26 +2297,24 @@ IL FRONTE
 I PUNTI AZIONE
 La fila davanti ai forni
 La fila davanti ai forni (12)
-Pazienza 5 su 6. Di questo passo se ne vanno tra 2 stagioni (a casa).
+Pazienza 6 su 6. Di questo passo se ne vanno tra 2 stagioni (a casa).
 Prossimo segnale: si stringono nello scialle, tra 1 stagione.
 
 Ogni stagione la pazienza scende di 3 (la fame).
 
-La fila davanti ai forni: si stringono nello scialle.
-
 Il grano verso la città
 I campi
-In magazzino: 20. Passano 8 per turno.
+In magazzino: 20. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 60. Passano 4 per turno: inceppato, è pieno e il grano aspetta.
+In magazzino: 60. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 7. Passano 4 per turno.
+In magazzino: 9. Passano 3 per stagione.
 Le città
-Arrivato: 15.
+Arrivato: 13.
 
-Sulla carta: 25. In realtà (arrivato): 15. Scarto: 10.
+Sulla carta: 30. In realtà (arrivato): 13. Scarto: 17.
 
-Arrivati questo turno: 5 (grano).
+Arrivati questo turno: 4 (grano).
 
 IL MINISTERO
 
@@ -2344,7 +2332,7 @@ Gli ammassi dello Stato +10 in magazzino
 Dare la precedenza ai treni del grano
 Costa 2 punti
 +2 Voci che girano
-I treni +1 per turno
+I treni +1 di capacità
 Fissare il prezzo del pane
 −4 Pane in città
 La fila davanti ai forni +2 pazienza
@@ -2354,7 +2342,7 @@ Carta +15
 fatto 1 volta
 Mandare un ispettore sui treni
 riesce nel 50% dei casi
-se riesce: I treni +1 per turno, Carta −5
+se riesce: I treni +1 di capacità, Carta −5
 Dividere il pane della città
 −5 Pane in città
 La fila davanti ai forni +1 pazienza
@@ -2364,12 +2352,10 @@ Sulla carta il grano basta: nessuno al ministero ha bisogno di sapere altro.
 
 Si divide il pane: a ciascuno un pezzo più piccolo.
 
-Il pane manca: le code cominciano di notte e non si sciolgono più.
-
 I contadini vendono di più allo Stato, ma con i rubli di oggi non comprano niente.
 
-Voci che girano: 53 → 54
-Pane in città: 13 → 23
+Voci che girano: 57 → 58
+Pane in città: 24 → 19
 FINE DELLA PARTITA (RESTA 1 PUNTO)
 
 > SCELGO: Dividere il pane della città −5 Pane in città La fila davanti ai forni +1 pazienza fatto 1 volta
@@ -2399,21 +2385,19 @@ Prossimo segnale: si stringono nello scialle, tra 1 stagione.
 
 Ogni stagione la pazienza scende di 3 (la fame).
 
-La fila davanti ai forni: si stringono nello scialle.
-
 Il grano verso la città
 I campi
-In magazzino: 20. Passano 8 per turno.
+In magazzino: 20. Passano 8 per stagione.
 Gli ammassi dello Stato
-In magazzino: 60. Passano 4 per turno: inceppato, è pieno e il grano aspetta.
+In magazzino: 60. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 7. Passano 4 per turno.
+In magazzino: 9. Passano 3 per stagione.
 Le città
-Arrivato: 15.
+Arrivato: 13.
 
-Sulla carta: 25. In realtà (arrivato): 15. Scarto: 10.
+Sulla carta: 30. In realtà (arrivato): 13. Scarto: 17.
 
-Arrivati questo turno: 5 (grano).
+Arrivati questo turno: 4 (grano).
 
 IL MINISTERO
 
@@ -2431,7 +2415,7 @@ Gli ammassi dello Stato +10 in magazzino
 Dare la precedenza ai treni del grano
 Costa 2 punti
 +2 Voci che girano
-I treni +1 per turno
+I treni +1 di capacità
 Fissare il prezzo del pane
 −4 Pane in città
 La fila davanti ai forni +2 pazienza
@@ -2441,7 +2425,7 @@ Carta +15
 fatto 1 volta
 Mandare un ispettore sui treni
 riesce nel 50% dei casi
-se riesce: I treni +1 per turno, Carta −5
+se riesce: I treni +1 di capacità, Carta −5
 Dividere il pane della città
 −5 Pane in città
 La fila davanti ai forni +1 pazienza
@@ -2451,14 +2435,12 @@ Sulla carta il grano basta: nessuno al ministero ha bisogno di sapere altro.
 
 Si divide il pane: a ciascuno un pezzo più piccolo.
 
-Il pane manca: le code cominciano di notte e non si sciolgono più.
-
 I contadini vendono di più allo Stato, ma con i rubli di oggi non comprano niente.
 
 Si divide il pane: a ciascuno un pezzo più piccolo.
 
-Voci che girano: 53 → 54
-Pane in città: 13 → 18
+Voci che girano: 57 → 58
+Pane in città: 24 → 14
 FINE DELLA PARTITA
 
 
@@ -2487,7 +2469,7 @@ Una coda per il pane, il cartello del pane e il manifesto di un prestito di guer
 ---
 ‹ ATTO III · III.1 · 3 / 6
 
-Fonte · inverno 1915–1916 · Pietroburgo
+Fonte · 1915–1916 · Pietroburgo
 
 GIOIELLI E PANE
 
@@ -2500,12 +2482,12 @@ Secondo Trockij, che riporta il ricordo di una dama di corte, nell'inverno 1915�
 Trockij, Storia della rivoluzione russa; atlante C39 (parafrasi).
 LA BALLERINA · LETTA
 
-Rodzjanko, riferito da Trockij, racconta che il comandante supremo si preoccupava dell'influenza di una ballerina sulle commesse d'artiglieria. È un'accusa riferita: non dimostra che le commesse le decidesse lei. Mostra il clima di sospetto.
+Rodzjanko, riferito da Trockij, racconta che il granduca Nikolaj Nikolaevič, comandante supremo fino al 1915, si preoccupava dell'influenza di una ballerina sulle commesse d'artiglieria. È un'accusa riferita: non dimostra che le commesse le decidesse lei. Mostra il clima di sospetto.
 
 Trockij, Storia della rivoluzione russa; atlante C42 (parafrasi).
 LA DOMANDA ALLA DUMA · LETTA
 
-Un deputato chiede dalla tribuna: stupidità o tradimento? Intanto circola la voce che l'imperatrice sia una spia.
+Alla Duma un deputato chiede dalla tribuna: stupidità o tradimento? Intanto circola la voce che l'imperatrice sia una spia.
 
 Appunti «La Rivoluzione Russa» (sintesi per il gioco).
 Il fatto vero è che manca il pane: le voci vengono dopo
@@ -2523,7 +2505,7 @@ Una coda per il pane, il cartello del pane e il manifesto di un prestito di guer
 ---
 ‹ ATTO III · III.1 · 3 / 6
 
-Fonte · inverno 1915–1916 · Pietroburgo
+Fonte · 1915–1916 · Pietroburgo
 
 GIOIELLI E PANE
 
@@ -2648,7 +2630,7 @@ COSA TI DEVI RICORDARE
 
 Card 3 di 3
 
-Adicembre 1916 anche la famiglia dei Romanov non crede più allo zar: si parla di eliminare l'imperatrice. Un potere che perde il sostegno della famiglia e delle élite è già debole.
+Adicembre 1916 anche la famiglia dei Romanov non crede più allo zar: secondo un racconto riferito una granduchessa parla di eliminare l'imperatrice. Un potere che perde il sostegno della famiglia e delle élite è già debole.
 
 Indietro
 CONTINUA
@@ -2669,8 +2651,8 @@ PERCHÉ MANCA IL PANE
 Una domanda sul pane nelle città. Non valuta le scelte che hai fatto nella partita.
 
 Perché le città russe restano senza pane nel 1916 anche se il grano non manca del tutto?
-Perché i contadini hanno smesso di coltivare ovunque
 Perché lo zar ha vietato di vendere il pane
+Perché i contadini hanno smesso di coltivare ovunque
 Il grano c'è ma non arriva dove serve: treni ingolfati e prezzi fissati
 
 > SCELGO: Il grano c'è ma non arriva dove serve: treni ingolfati e prezzi fissati
