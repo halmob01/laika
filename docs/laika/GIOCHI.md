@@ -121,7 +121,7 @@ Le card non sono un gioco: sono il modo di raccontare tra un gioco e l'altro, co
 
 ## 5. Il gioco di ogni unità
 
-Il gioco di ogni unità e il suo stato stanno nel [canone](CANONE.md), non qui. Le schede di una pagina dei giochi già decisi sono in [giochi/](giochi/): [servitu](giochi/servitu.md) (I.1), [mir](giochi/mir.md) (I.2), [salario](giochi/salario.md) (I.3), [soviet](giochi/soviet.md) (IV.2). Regola del 29 ottobre 2026: una scheda di una pagina per ogni gioco, approvata dal docente prima della costruzione (D-017). Dal 4 novembre 2026 la scheda ha una sezione «Elementi del kit» che riprende la riga dell'unità in [PIANO-KIT](PIANO-KIT.md): che cosa c'è, che cosa si compone e che cosa manca nel motore e nella bottega.
+Il gioco di ogni unità e il suo stato stanno nel [canone](CANONE.md), non qui. Le schede di una pagina dei giochi già decisi sono in [giochi/](giochi/): [servitu](giochi/servitu.md) (I.1), [mir](giochi/mir.md) (I.2), [salario](giochi/salario.md) (I.3), [soviet](giochi/soviet.md) (IV.2). Regola del 29 ottobre 2026: una scheda di una pagina per ogni gioco, approvata prima della costruzione: dal 4 novembre 2026 dalla revisione indipendente di METODO §7 (D-017, D-039). Dal 4 novembre 2026 la scheda ha una sezione «Elementi del kit» che riprende la riga dell'unità in [PIANO-KIT](PIANO-KIT.md): che cosa c'è, che cosa si compone e che cosa manca nel motore e nella bottega.
 
 ## 6. Come si usano i modelli open source
 

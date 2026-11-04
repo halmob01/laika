@@ -41,7 +41,7 @@ Ricostruito il 4 novembre 2026 dai documenti, dal registro delle PR e dalle conv
 - **D-013 · 22 ottobre 2026 · Il gioco dell'unità prevale** sul tipo di episodio scritto nelle schede: il contenuto entra nel gioco come notizia, richiesta o regola. (PERCORSO §2)
 - **D-014 · 23 ottobre 2026 · I.1 è una gestione vera** («facciamola diventare una gestione vera»): persone con forza, lavori lunghi, semina, fiera. (giochi/servitu.md)
 - **D-015 · 25 ottobre 2026 · Cinque generazioni in I.1** (scelta A). (giochi/servitu.md)
-- **D-017 · 29 ottobre 2026 · Una scheda per gioco.** Ogni gioco ha una scheda di una pagina approvata dal docente prima della costruzione. (GIOCHI §5)
+- **D-017 · 29 ottobre 2026 · Una scheda per gioco.** Ogni gioco ha una scheda di una pagina approvata prima della costruzione; dal 4 novembre 2026 l'approva la revisione indipendente (D-039). (GIOCHI §5)
 - **D-019 · 3 novembre 2026 · Mir e salario.** Schede approvate con quattro scelte: nel mir il giocatore è il capofamiglia più ascoltato; razzo e corte restano episodi dopo il salario; l'angolo di stanza lo disegna l'agente con il contratto dei kit; il corso serale sblocca una riga nei volantini. (giochi/mir.md, giochi/salario.md)
 - **D-020 · 3 novembre 2026 · Il soviet.** Scheda approvata: tre giornate da cinque azioni; un delegato moderato e uno radicale senza nome di partito; il gioco sostituisce la scelta di ruolo. (giochi/soviet.md)
 
@@ -55,6 +55,9 @@ Ricostruito il 4 novembre 2026 dai documenti, dal registro delle PR e dalle conv
 
 ### Come si lavora
 
+- **D-038 · 4 novembre 2026 · Fino al 1917 con il piano.** «Arriviamo al 17 così»: si completano gli Atti I–III seguendo [PIANO-1917](PIANO-1917.md) e [PIANO-KIT](PIANO-KIT.md). Il docente accetta in blocco le proposte P-01 (Atto II in quattro unità), P-04 (nove atti), P-05 (Atto III in due unità); P-02 e P-03 sono sostituite da D-039. (chat del 4 novembre)
+- **D-039 · 4 novembre 2026 · Lavoro autonomo.** «Limitiamo al massimo le mie approvazioni: il punto è strutturare un piano che rispettiamo e che sia autonomo.» Le approvazioni passo per passo sono sostituite dai controlli G1–G5 di [METODO](METODO.md) §7 (test, allievo finto, bilanciamento, revisione indipendente, documenti); l'agente unisce da solo le PR degli incarichi del piano che li passano; il docente prova ogni atto finito (controlli non bloccanti) e risponde solo alle condizioni di arresto. Modifica D-017 (le schede di gioco le approva la revisione indipendente, non il docente) e riprende D-021 entro questi limiti. (chat del 4 novembre)
+
 - **D-022 · 29 ottobre 2026 · Ogni PR aggiorna i documenti** con le scelte fatte e le novità: «se no si fanno danni». (AGENTS.md)
 - **D-023 · 21 ottobre 2026 · Opus e Sonnet.** Opus per il quadro generale (atti, aneddoti, libri, direzione) e per le revisioni; Sonnet per sviluppare le singole scene dalle schede. Le schede dicono quando serve Opus. (METODO §4–§5)
 - **D-025 · 4 novembre 2026 · Home e usabilità insieme alla struttura.** Con il passaggio ai tre atti si modificano anche la home e l'usabilità del sito. (chat del 4 novembre)
@@ -65,15 +68,11 @@ Ricostruito il 4 novembre 2026 dai documenti, dal registro delle PR e dalle conv
 - **D-035 · 21 ottobre 2026 · Un solo Atto I dal 1700 al marzo 1917**, poi sette atti fino al 1991. Proposta dell'agente nel piano v5, unita con le PR #2 e #3 insieme alla cancellazione della regola «non rinominare l'introduzione del 1861 in Atto I». **Superata da D-024** il 4 novembre 2026: non era stata presentata al docente come cambio di struttura.
 - **D-016 · 29 ottobre 2026 · Sei unità nell'unico Atto I** (I.2 spezzata in mir e città). La divisione fra mir e città resta; la numerazione I.4–I.6 è **superata da D-024**.
 - **D-036 · 21 ottobre 2026 · Sette fascicoli nella home.** **Superata da D-024 e D-025**: i fascicoli seguono il canone.
-- **D-021 · 3 novembre 2026 · Autonomia.** L'agente unisce da solo le PR con test e CI verdi e prosegue con le unità successive. **Sospesa da D-026** finché dura il riordino; dopo vale ciò che il docente decide sulla proposta P-03.
+- **D-021 · 3 novembre 2026 · Autonomia.** L'agente unisce da solo le PR con test e CI verdi e prosegue con le unità successive. **Sospesa da D-026** durante il riordino; **ripresa da D-039** con i controlli di METODO §7 e solo per gli incarichi del piano.
 
 ## Proposte degli agenti (non valgono finché il docente non le approva)
 
-- **P-01 · 4 novembre 2026 · Unità dell'Atto II.** Quattro unità: la petizione (gennaio 1905), il soviet (ottobre 1905), che cosa concede lo zar (1905–1907), Stolypin (1906–1911); confronto di fine atto in coda. Il gioco di petizione, concessioni e Stolypin è da assegnare. In alternativa: due unità (la petizione e il soviet; le concessioni e Stolypin).
-- **P-02 · 4 novembre 2026 · Approvazione.** Un'unità diventa «approvata» nel canone solo dopo la prova del docente dal telefono, con la data.
-- **P-03 · 4 novembre 2026 · Autonomia dopo il riordino.** L'agente può unire da solo una PR solo se non cambia il canone né le decisioni, i test sono verdi e l'unità era già «bozza»; un'unità nuova o un gioco nuovo aspettano sempre il docente.
-- **P-04 · 4 novembre 2026 · Nove atti.** Gli atti del piano v5 dopo il 1917 restano come sono e diventano IV–IX (nove atti in tutto). In alternativa si riuniscono per tornare a sette.
-- **P-05 · 4 novembre 2026 · Atto III in due unità** (pane e guerra; otto giorni), come oggi; il vecchio Atto II «Pane e guerra» di `archivio/PROGETTO.md` ne aveva tre (guerra, rifornimenti, febbraio).
+Nessuna aperta. P-01, P-04 e P-05 accolte con D-038; P-02 e P-03 sostituite da D-039 (4 novembre 2026). Le proposte nuove si scrivono qui con il numero successivo (P-06…).
 
 ## Domande aperte
 

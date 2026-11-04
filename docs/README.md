@@ -21,6 +21,7 @@ Quando due documenti dicono cose diverse vale il primo di questa lista; l'altro 
 | [PERCORSO](laika/PERCORSO.md) | Che cosa deve accadere allo studente, l'arco, i fili, la famiglia, le regole comuni degli atti | Per capire il progetto |
 | [atti/atto-1.md](laika/atti/atto-1.md) … [atto-9.md](laika/atti/atto-9.md) | Schede degli episodi, un file per atto | Quando si costruisce un'unità di quell'atto |
 | [GIOCHI](laika/GIOCHI.md) | Forme di gioco e regole comuni | Quando si progetta o si costruisce un gioco |
+| [PIANO-1917](laika/PIANO-1917.md) | Gli incarichi fino al 1917, in ordine, con lo stato (generato da `piano-1917.json`; `npm run prossimo`) | Sempre, per sapere che cosa fare adesso |
 | [PIANO-KIT](laika/PIANO-KIT.md) | Elementi del kit (motore, disegni, scene) da comporre con ogni unità degli Atti I–III e ordine delle PR del kit | Prima di scrivere la scheda di gioco di un'unità |
 | [giochi/](laika/giochi/) | Schede di gioco approvate: [servitu](laika/giochi/servitu.md), [mir](laika/giochi/mir.md), [salario](laika/giochi/salario.md), [soviet](laika/giochi/soviet.md) | Quando si lavora su quell'unità |
 | [BRAND-DESIGN](laika/BRAND-DESIGN.md) | Aspetto: font, colori, home, player, pagine | Quando si tocca home o player |

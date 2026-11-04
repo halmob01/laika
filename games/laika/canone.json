@@ -70,7 +70,7 @@
           "stato_gioco": "da assegnare",
           "stato": "bozza",
           "nel_gioco": "i4",
-          "nota": "Divisione dell'atto in quattro unità: proposta P-01."
+          "nota": "Divisione dell'atto in quattro unità decisa il 4 novembre 2026 (D-038)."
         },
         {
           "numero": "II.2",
@@ -191,7 +191,8 @@
           "stato_gioco": "da confermare",
           "stato": "da fare"
         }
-      ]
+      ],
+      "decisione": "D-038"
     },
     {
       "numero": "V",
@@ -246,7 +247,8 @@
           "stato_gioco": "da assegnare",
           "stato": "da fare"
         }
-      ]
+      ],
+      "decisione": "D-038"
     },
     {
       "numero": "VI",
@@ -301,7 +303,8 @@
           "stato_gioco": "da assegnare",
           "stato": "da fare"
         }
-      ]
+      ],
+      "decisione": "D-038"
     },
     {
       "numero": "VII",
@@ -356,7 +359,8 @@
           "stato_gioco": "—",
           "stato": "da fare"
         }
-      ]
+      ],
+      "decisione": "D-038"
     },
     {
       "numero": "VIII",
@@ -411,7 +415,8 @@
           "stato_gioco": "da assegnare",
           "stato": "da fare"
         }
-      ]
+      ],
+      "decisione": "D-038"
     },
     {
       "numero": "IX",
@@ -457,7 +462,8 @@
           "stato_gioco": "da confermare",
           "stato": "da fare"
         }
-      ]
+      ],
+      "decisione": "D-038"
     }
   ]
 }

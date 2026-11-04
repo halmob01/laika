@@ -43,7 +43,7 @@ Regole:
 - Disegni da chiedere: tazza smaltata (Chodynka).
 - Motore: niente di nuovo; eventi e bilanciamento sono contenuti. Confronto di fine atto: scena composta con villaggio e fabbrica nella stessa inquadratura.
 
-**II.1 `petizione` · gioco da assegnare (P-01)**
+**II.1 `petizione` · gioco da scegliere nella scheda di gioco**
 - Scene: piazza con neve (la domenica).
 - Da comporre: il Palazzo d'Inverno sullo sfondo della piazza (`luogo-palazzo`); il corteo con il ritratto dello zar (`oggetto-ritratto-zar`) e le icone; le officine Putilov (`luogo-fabbrica`) per la scrittura della petizione.
 - Disegni da chiedere: icona portata in processione; posa «scrive».
@@ -55,12 +55,12 @@ Regole:
 - Correzione di bottega: etichette dei posti sovrapposte («Il ferroviere» sotto «Il prefetto»): posizioni `at` delle azioni.
 - Motore: «letture che contano». Dopo aver indagato si sceglie a quale delle due letture dare peso e la scelta cambia gli effetti delle azioni dei giorni dopo. Forse bastano le condizioni `when` sui flag (da verificare nella scheda); altrimenti una PR di motore piccola.
 
-**II.3 `concessioni` · gioco da assegnare (P-01)**
+**II.3 `concessioni` · gioco da scegliere nella scheda di gioco**
 - Scene: oggi riusa la sala del soviet.
 - Da comporre: la sala di San Giorgio (`ambiente-sala`) con due blocchi di figure, uniformi da una parte e giacche dall'altra (formazione `righe`); il palco del teatro per la ballerina insultata (`ambiente-teatro-palco`); l'aquila imperiale per le Leggi fondamentali.
 - Figure: uniforme da ufficiale o dignitario (non c'è: oggi esiste solo il soldato di guarnigione).
 
-**II.4 `stolypin` · gioco da assegnare (P-01)**
+**II.4 `stolypin` · gioco da scegliere nella scheda di gioco**
 - Scene: oggi riusa il mir.
 - Da comporre: le strisce che si uniscono in un podere.
 - Disegni da chiedere: podere consolidato (*chutor*) con casa isolata. La forca non si disegna: la violenza si vede nelle conseguenze (D-006).
@@ -87,11 +87,10 @@ Le PR del kit vengono prima delle unità che le usano. Una PR, un elemento.
 
 | PR | Che cosa | Livello | Serve a |
 |---|---|---|---|
-| K0 | Il docente approva o respinge nella galleria i disegni in bozza già fatti (mir, città, soviet e coda, Tauride, oggetti del 1917) | docente | tutte |
 | K1 | Coda con pazienza, segnali e uscita dalla fila; pose dei segnali | motore + bottega | III.2, poi le code degli atti successivi |
 | K2 | Merci che camminano lungo una catena | motore | III.1, poi i piani degli anni Trenta |
 | K3 | Ponte fra gli atti (flag e diario che passano) | motore | la famiglia, tutti gli atti |
 | K4 | Disegni da chiedere: colonia militare, tazza smaltata, icona, podere, vetrina del gioielliere, uniforme da dignitario; posa «scrive» | bottega | I.1, I.3, II.1, II.3, II.4, III.1 |
 | K5 | Letture che contano (se le condizioni esistenti non bastano) | motore | II.2 |
 
-Ordine proposto con le unità: K0 → K1 → III.2 → K2 → III.1 → K4 → I.2, I.3, I.1 → K5 → II.2 → (dopo P-01) II.1, II.3, II.4 → K3 → la famiglia in tutti e tre gli atti.
+L'ordine che fa fede, intrecciato con le unità, è quello di [PIANO-1917](PIANO-1917.md). I disegni in bozza (vecchi e nuovi) si usano e il docente li approva tutti insieme nella galleria ai controlli di fine atto (D-039).

@@ -14,7 +14,7 @@ Aggiornato al 4 novembre 2026.
 | R1 | Riordino dei documenti; `npm run canone`; test di coerenza dei documenti | PR #40 |
 | R2 e R3 | Il build legge il canone; il gioco in tre atti; home con nove fascicoli; usabilità | PR R3 |
 
-In attesa del docente: le proposte P-01–P-05 in [DECISIONI](DECISIONI.md) (soprattutto P-01, la divisione dell'Atto II in quattro unità, già usata nel gioco come proposta).
+Proposte P-01–P-05 chiuse dal docente il 4 novembre (D-038, D-039): si lavora in autonomia con [PIANO-1917](PIANO-1917.md).
 
 ## Le unità costruite
 
@@ -25,7 +25,7 @@ Nessuna è ancora stata provata e approvata dal docente dal telefono.
 | I.1 `servitu` | La settimana del servo: otto anni dal 1740 al 1861, cinque generazioni, migliorie, fiera, chi bussa, verifica V1 | Previsione ed esito del grano che si contraddicono; numeri negativi; pagina lunga sul telefono | `tests/browser-i1.cjs`; [revisione del 4 novembre](revisioni/2026-11-04-allievo-atto-I.md) |
 | I.2 `mir` | Otto assemblee, quattro gruppi | È un questionario con barre: niente da gestire fra una richiesta e l'altra | revisione del 4 novembre §5 |
 | I.3 `citta` | In città, il salario (otto settimane), il razzo, la corte, i tre volantini, verifica V2 | Il salario si vince con la stessa mossa ogni settimana; manca il confronto di fine atto | revisione §5 |
-| Atto II (II.1–II.4) | Petizione e domenica di sangue (II.1), giornate del soviet a punti azione e V3 (II.2), che cosa concede lo zar (II.3), Stolypin, V4 e «Cosa ti devi ricordare» (II.4) | Approvazione della divisione in unità (P-01); giochi di petizione, concessioni e Stolypin; aneddoti dei libri (diario di Nicola, il granduca, Baletta); le notizie del soviet non servono a niente; confronto di fine atto | revisione §3 e §5 |
+| Atto II (II.1–II.4) | Petizione e domenica di sangue (II.1), giornate del soviet a punti azione e V3 (II.2), che cosa concede lo zar (II.3), Stolypin, V4 e «Cosa ti devi ricordare» (II.4) | giochi di petizione, concessioni e Stolypin; aneddoti dei libri (diario di Nicola, il granduca, Baletta); le notizie del soviet non servono a niente; confronto di fine atto | revisione §3 e §5 |
 | III.1 `pane-guerra` | In ginocchio, il grano e i treni come partita di sole decisioni, gioielli e pane, la fine dello zar, verifica V5 | **Da rifare**: il gioco approvato (quanto serve e quanto c'è, prime code) non c'è; aneddoti (Fabergé, Kšesinskaja, Rodzjanko) | revisione §3 |
 | III.2 `otto-giorni` | Giornata della donna, la coda a punti azione, il soldato a punti azione, il treno, verifica V6, confronto | **Da rifare**: la coda vera (figure che lasciano la fila); aneddoti del treno (baffi, Frederiks); scene del treno nella neve e del Palazzo di Tauride da comporre con disegni che ci sono già ([PIANO-KIT](PIANO-KIT.md)); oggi treno, fine dello zar in famiglia e confronto sono senza scena invece di riusare scene sbagliate | revisione §3 e §4 |
 
@@ -45,12 +45,6 @@ La CI gioca i tre atti in Chromium e WebKit: circa 11 minuti per browser. Il lim
 
 Catalogo in `bottega/catalogo.json`: 136 disegni, 32 in bozza da approvare dal docente. Che cosa serve dal kit unità per unità, che cosa c'è già e in che ordine si fa: [PIANO-KIT](PIANO-KIT.md). Il treno nella neve e il Palazzo di Tauride si possono già comporre con i disegni che ci sono.
 
-## Da fare dopo il riordino (in ordine)
+## Da fare
 
-Ogni voce porta con sé i suoi elementi del kit: ordine delle PR del kit in [PIANO-KIT](PIANO-KIT.md) §4.
-
-1. Giochi da rifare, uno per PR, ciascuno con la sua scheda approvata: la coda vera (III.2); il grano e i treni (III.1); il soviet con notizie che servono (II.2); i giochi di petizione, concessioni e Stolypin (dopo P-01); il mir come gioco; il salario più difficile.
-2. Aneddoti dai libri per gli Atti II e III (Opus, con i libri caricati dal docente).
-3. Il filo della famiglia fra gli atti e gli effetti differiti previsti dalle schede.
-4. Date da verificare: revisione del 4 novembre §6.
-5. Confronto di fine atto per gli Atti I e II.
+Gli incarichi fino al 1917, in ordine e con lo stato di ciascuno, sono in [PIANO-1917](PIANO-1917.md) (`npm run prossimo` per il prossimo). Gli elementi del kit di ogni unità sono in [PIANO-KIT](PIANO-KIT.md).
