@@ -1,6 +1,6 @@
 # Gioco di III.2 — Otto giorni (`otto-giorni`)
 
-Scheda di gioco dell'unità `otto-giorni` (canone: III.2). Versione 2 · 4 novembre 2026 · la versione 1 non è passata alla revisione indipendente (errore di data nel racconto del treno, obiettivo 3 solo nominato, numeri che non sostenevano la tesi); questa la corregge. Gioco del canone: «code che diventano corteo, poi punti azione (il soldato che non spara)». Regole comuni: [GIOCHI](../GIOCHI.md) §2, §3.5 (le code) e §3.8 (la giornata a punti azione). Motore: la coda con la pazienza (K1, [CREARE-UN-GIOCO](../../CREARE-UN-GIOCO.md)).
+Scheda di gioco dell'unità `otto-giorni` (canone: III.2). Versione 3 · 4 novembre 2026 · le versioni 1 e 2 non sono passate alla revisione indipendente (data sbagliata nel racconto del treno, obiettivo 3 solo nominato, numeri della coda che non sostenevano la tesi; poi due meccaniche mancanti nel motore, ora costruite con K6); questa le usa. Gioco del canone: «code che diventano corteo, poi punti azione (il soldato che non spara)». Regole comuni: [GIOCHI](../GIOCHI.md) §2, §3.5 (le code) e §3.8 (la giornata a punti azione). Motore: la coda con la pazienza (K1 e K6, [CREARE-UN-GIOCO](../../CREARE-UN-GIOCO.md)).
 
 Tutti i numeri sono indici della simulazione, non statistiche storiche. Le date sono nei due calendari: 8 marzo (23 febbraio nel calendario russo), 12 marzo (27 febbraio), 15 marzo (2 marzo), 16 marzo (3 marzo). Gli appunti dello studio riportano «22 febbraio» e «primo marzo»: in contrasto con le schede dell'atto, si usano le date della scheda e si lasciano fuori dal testo dello studente quelle non riscontrate.
 
@@ -39,15 +39,19 @@ L'unità ha due giochi collegati dagli stessi indicatori (lo stato dell'atto pas
 5. **Dire alle tessili che a Vyborg si è già usciti dalle fabbriche** (1 punto, ripetibile): voci +8, operai +4, le tessili −2 di pazienza.
 6. **Ascoltare le voci della fila** (1 punto, ripetibile): voci +2; i vecchi +1.
 
-**Dove vanno.** Chi arriva a zero lascia la fila, e l'uscita sposta gli indicatori: le tessili portano operai in piazza (+14) e tolgono forza all'ordine; le madri fanno corteo (operai +10, ordine −6); i vecchi tornano a casa (voci +8). Chi se n'è andato non torna. Quando in piazza ci sono 45 operai o più (una sola volta) le fabbriche si fermano: operai +10, ordine −6.
+**Dove vanno (dipende dalla partita).** Chi arriva a zero lascia la fila e va dove la partita lo porta in quel momento (uscite con condizione, K6); il pannello mostra dove andrebbe adesso.
+- **Le tessili:** se le voci sono a 40 o più tornano in fabbrica e portano fuori le compagne (operai +14, forza dell'ordine −4, voci +6); altrimenti tornano a casa stanche (voci +6).
+- **Le madri con i bambini:** se in piazza ci sono 50 operai o più si uniscono al corteo (operai +10, ordine −6); altrimenti tornano a casa (voci +6).
+- **I vecchi e gli invalidi:** tornano sempre a casa e raccontano quello che hanno visto (voci +6).
+I gruppi escono nell'ordine in cui sono scritti (tessili, madri, vecchi) e ciascuno vede lo stato già cambiato da chi è uscito prima. Chi se n'è andato non torna. Dopo la discesa, una volta sola, se in piazza ci sono 45 operai o più le fabbriche si fermano (crisi: operai +10, ordine −6); la crisi si controlla anche dopo l'ultima giornata (K6).
 
 **Rischio fuori dal controllo.** Il forno (5 su 10, scritto prima). Il gelo del 9 marzo arriva comunque: lo studente lo legge, non lo decide.
 
-**Strategie diverse (devono portare a esiti diversi, verificati con la simulazione).**
-- **Calmare** (parole, bambini, pane diviso): la fila regge fino all'ultima giornata e le voci restano basse, ma il pane in città finisce e la piazza si riempie solo l'ultimo giorno, quando tutti se ne vanno insieme.
-- **Organizzare** (dire che a Vyborg si è già usciti): le tessili escono presto, la piazza si riempie in anticipo e le voci salgono; le madri e i vecchi restano in coda senza pane.
-- **Cercare il pane** (il forno, due punti): con fortuna la coda tiene e il pane resta; senza, restano meno punti per tutto il resto.
-Nessuna strategia tiene insieme la fila, il pane, le voci basse e la piazza. Una prova con un modello semplificato (200 partite per strategia) dà, a fine parte 1: calmare, pane 0, voci 18, operai 74, fila fino al giorno 4; organizzare, pane 18, voci 100, operai 100, gruppi usciti al giorno 3; cercare il pane, pane 65, voci 58, operai 74, fila fino al giorno 4; non fare niente, pane 18, voci 34, operai 74, gruppi usciti al giorno 3. La simulazione col motore vero (`tests/laika-otto-giorni.test.js`) la sostituisce.
+**Strategie diverse (esiti diversi, verificati con la simulazione).**
+- **Calmare** (parole, bambini, pane diviso): la fila regge fino all'ultima giornata e le voci restano basse; ma il pane in città finisce e, poiché le voci sono basse e la piazza è vuota, tutti e tre i gruppi tornano a casa: la protesta non nasce.
+- **Organizzare** (dire che a Vyborg si è già usciti): le tessili escono subito e tornano in fabbrica, la piazza si riempie e le madri vanno al corteo; i vecchi tornano a casa; il pane resta quello che è.
+- **Cercare il pane** (il forno, due punti): con fortuna il pane resta, la coda tiene e le voci salgono poco; il risultato dipende dall'esito del forno (5 su 10) e da quanto resta per il resto.
+Nessuna strategia tiene insieme la fila, il pane, le voci basse e la piazza piena. Una prova con un modello semplificato (200 partite per strategia) dà, a fine parte 1: calmare, pane 0, voci 22, operai 40 (tutti a casa); organizzare, pane 18, voci 100, operai 100 (fabbrica e corteo); cercare il pane, pane 65, voci 59, operai 62 in media (esiti misti); non fare niente, pane 18, voci 38, operai 40 (tutti a casa al terzo giorno). La simulazione col motore vero (`tests/laika-otto-giorni.test.js`) la sostituisce.
 
 **Esito.** Il testo finale dice dove sono finiti i tre gruppi (fabbrica, corteo, casa). Nessuna sconfitta.
 
@@ -59,7 +63,7 @@ Nessuna strategia tiene insieme la fila, il pane, le voci basse e la piazza. Una
 
 **Revisione degli effetti (richiesta dal piano).** «Convincere un'altra caserma» riesce con probabilità scritta: 4 su 10 più 4 punti per ogni 10 soldati già con gli operai. Aprire l'arsenale costa due punti e muove due indicatori. Nessuna azione è la migliore in ogni caso: lo verifica la simulazione. Regola D-006: nessuna scelta riguarda sparare, reprimere o denunciare.
 
-**Marciare al Palazzo di Tauride** (2 punti): è l'unica azione che mostra i due poteri. Scatta una volta (flag `verso_tauride`) e il testo dice che cosa sono, con una parola per ciascuno: il **Comitato provvisorio della Duma** è fatto di deputati della vecchia Duma e dal 15 marzo darà il governo provvisorio di L'vov (appunti); il **soviet di Pietrogrado** è fatto di delegati di operai e soldati e decide per alzata di mano (appunti). Nascono lo stesso giorno, il 12 marzo, nello stesso palazzo. Chi non ci va, lo legge nel racconto del treno.
+**Marciare al Palazzo di Tauride** (2 punti): è l'unica azione che mostra i due poteri. Scatta una volta (flag `verso_tauride`) e il testo dice che cosa sono, con una parola per ciascuno: il **Comitato provvisorio della Duma** è fatto di deputati della vecchia Duma (conoscenza generale: da riscontrare nei libri se il docente li carica) e darà il governo provvisorio di L'vov (appunti, senza data); il **soviet di Pietrogrado** è fatto di delegati di operai e soldati e decide per alzata di mano (appunti). Nascono lo stesso giorno, il 12 marzo, nello stesso palazzo. Chi non ci va, lo legge nel racconto del treno.
 
 **Crisi.** Con 10 operai o meno in piazza il corteo si disperde; con l'ordine a 95 o più riprende la piazza e porta via forza ai soldati.
 
@@ -75,7 +79,7 @@ Nessuna strategia tiene insieme la fila, il pane, le voci basse e la piazza. Una
 
 ## Elementi del kit
 
-- **Motore:** la coda con la pazienza (K1, in `main`); giornate a punti azione (in `main`). Nessuna meccanica nuova. Dati nuovi nell'atto: metrica `voci`, metrica nascosta `gelo`.
+- **Motore:** la coda con la pazienza (K1), le uscite con condizione e le crisi dopo la discesa (K6), giornate a punti azione. Nessuna meccanica nuova oltre a queste. Dati nuovi nell'atto: metrica `voci`, metrica nascosta `gelo`.
 - **Bottega:** pose `si_stringe`, `guarda_orologio`, `batte_piedi` (K1); `walk` con `da: [dx, dy]` per chi lascia la fila.
 - **Scene:** `otto-giorni-donna`, `otto-giorni-coda`, `otto-giorni-soldato`, `otto-giorni-treno`, `otto-giorni-confronto` (S1). Disegni nuovi: nessuno.
 - **Aneddoti con le fonti registrate (MATRICE):** R88, R15, R08.
@@ -84,6 +88,7 @@ Nessuna strategia tiene insieme la fila, il pane, le voci basse e la piazza. Una
 
 - Il gelo, la durata della fila e i gruppi sono ipotesi del modello, dichiarate simulazione.
 - Il passo di Frederiks: non trovato, tolto.
+- La composizione del Comitato della Duma («deputati della vecchia Duma»): conoscenza generale, non negli appunti; nel testo dello studente resta una frase breve e senza altri dettagli.
 
 ## Domande per il revisore
 
