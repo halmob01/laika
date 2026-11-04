@@ -8,14 +8,14 @@ Il kit si compone **insieme all'unità**, non dopo. Ogni pezzo sta in uno di que
 
 | Livello | Che cos'è | Dove | Quando si fa |
 |---|---|---|---|
-| Motore | una regola di gioco nuova (la coda con la pazienza, la catena delle merci) | `src/`, con test e una riga in `docs/CREARE-UN-GIOCO.md` | in una **PR propria, prima** dell'unità che la usa; generica, senza nomi di LAIKA |
+| Motore | una regola di gioco nuova (la coda con la pazienza, la catena delle merci) | `src/`, con test e una riga in `docs/CREARE-UN-GIOCO.md` | in una **PR propria, prima** dell'unità che la usa; generica, senza nomi di LAIKA. Se ne serve una non prevista qui, l'agente la aggiunge al piano come incarico `K…` e la costruisce senza chiedere (D-041) |
 | Bottega | un disegno, una posa, una variante di figura, un'azione | `bottega/`, disegni con `bottega/CONTRATTO-KIT.md` | in una PR propria (kit) prima dell'unità; stato «bozza» finché il docente non lo approva nella galleria |
 | Scene | le schede scena dell'unità, composte con quello che c'è | `games/laika/source/scene/` | **dentro la PR dell'unità** |
 
 Regole:
 - La scheda di gioco di ogni unità ha una sezione **«Elementi del kit»** che copia la riga di questo piano e dice che cosa c'è, che cosa si compone e che cosa manca. Se manca qualcosa di motore o di bottega, la PR dell'unità aspetta la PR del kit.
 - Un episodio non riusa la scena di un altro episodio se la scena dice un'altra cosa (la sala del soviet non è il treno di Pskov): meglio nessuna scena finché manca la sua.
-- Un disegno nuovo entra nel catalogo solo se una scena lo usa nella stessa PR (lo controlla `tests/unita-ludiche.test.js`). Prima di chiederne uno si cerca nel catalogo: dei 100 disegni utili fino al 1917, 53 non sono ancora usati da nessuna scena.
+- Un disegno nuovo entra nel catalogo solo se una scena lo usa nella stessa PR (lo controlla `tests/unita-ludiche.test.js`). Prima di chiederne uno si cerca nel catalogo: dei 100 disegni utili fino al 1917, 53 non sono ancora usati da nessuna scena; l'incarico S1 li mette nelle unità già fatte.
 - Un disegno «bozza» si può usare in una scena; l'unità però diventa «approvata» solo quando anche i suoi disegni sono stati approvati.
 
 ## 2. Che cosa c'è già

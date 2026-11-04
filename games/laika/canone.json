@@ -21,6 +21,11 @@
           "id": "servitu",
           "titolo": "La terra e lo zar",
           "periodo": "1700–1861",
+          "obiettivi": [
+            "Spiegare che cosa voleva dire contare le persone in «anime» e perché una parte della settimana del servo apparteneva al signore (corvée).",
+            "Mettere accanto, nello stesso anno, la vita della corte e quella del villaggio.",
+            "Dire che cosa dà e che cosa non dà il Manifesto del 1861: la libertà della persona sì, la terra solo a riscatto e con il villaggio che risponde dei debiti."
+          ],
           "gioco": "gestione (la settimana del servo) con decisioni sui gruppi",
           "stato_gioco": "approvato",
           "stato": "bozza",
@@ -32,6 +37,11 @@
           "id": "mir",
           "titolo": "La terra dopo il Manifesto",
           "periodo": "1861–1904",
+          "obiettivi": [
+            "Spiegare come il mir divideva le strisce di terra e rispondeva insieme dei pagamenti.",
+            "Riconoscere che ogni regola di divisione (a tutti lo stesso o secondo il bisogno) favorisce qualcuno e ne scontenta altri.",
+            "Distinguere il mir da un soviet e da una democrazia moderna."
+          ],
           "gioco": "decisioni sui gruppi (l'assemblea del mir)",
           "stato_gioco": "approvato",
           "stato": "bozza",
@@ -44,6 +54,11 @@
           "id": "citta",
           "titolo": "In città",
           "periodo": "fine Ottocento–1904",
+          "obiettivi": [
+            "Descrivere la vita di un operaio a Pietroburgo (turni, salario, alloggio, niente sindacati legali) e il suo legame con il villaggio.",
+            "Collegare la corte di fine Ottocento (Chodynka, il ballo del 1903) alla distanza fra il trono e il paese.",
+            "Distinguere cadetti, socialrivoluzionari e socialdemocratici (bolscevichi e menscevichi) per chi rappresentano e che cosa chiedono."
+          ],
           "gioco": "gestione (il salario, più settimane)",
           "stato_gioco": "approvato",
           "stato": "bozza",
@@ -66,6 +81,10 @@
           "id": "petizione",
           "titolo": "La petizione",
           "periodo": "gennaio 1905",
+          "obiettivi": [
+            "Raccontare la domenica di sangue del 22 gennaio 1905 (9 gennaio nel calendario russo) e che cosa chiedeva la petizione.",
+            "Spiegare perché quella domenica si spezza la fiducia nello zar come padre."
+          ],
           "gioco": "da assegnare (oggi: distribuzione di cinque righe)",
           "stato_gioco": "da assegnare",
           "stato": "bozza",
@@ -77,6 +96,10 @@
           "id": "soviet",
           "titolo": "Il soviet",
           "periodo": "ottobre 1905",
+          "obiettivi": [
+            "Spiegare che cos'era il soviet del 1905: un consiglio di delegati che coordina uno sciopero, un contropotere e non un governo.",
+            "Riconoscere come notizie a pezzi e letture opposte pesano sulle decisioni prese insieme."
+          ],
           "gioco": "punti azione (le giornate del soviet)",
           "stato_gioco": "approvato",
           "stato": "bozza",
@@ -88,6 +111,10 @@
           "id": "concessioni",
           "titolo": "Che cosa concede lo zar",
           "periodo": "ottobre 1905–giugno 1907",
+          "obiettivi": [
+            "Dire che cosa promette il Manifesto di ottobre e che cosa lasciano allo zar le Leggi fondamentali del 1906.",
+            "Sostenere con due fatti se una concessione strappata è un diritto o una tregua."
+          ],
           "gioco": "da assegnare (oggi: confronto di tre schede)",
           "stato_gioco": "da assegnare",
           "stato": "bozza",
@@ -98,6 +125,10 @@
           "id": "stolypin",
           "titolo": "Stolypin",
           "periodo": "novembre 1906–1911",
+          "obiettivi": [
+            "Dire che cosa permette la riforma di Stolypin (uscire dal mir, unire le strisce in un podere) e che cosa non fa (non abolisce il mir).",
+            "Collegare riforma e repressione (i tribunali militari) come due facce della stessa politica."
+          ],
           "gioco": "da assegnare (oggi: una scelta)",
           "stato_gioco": "da assegnare",
           "stato": "bozza",
@@ -119,6 +150,11 @@
           "id": "pane-guerra",
           "titolo": "Pane e guerra",
           "periodo": "agosto 1914–dicembre 1916",
+          "obiettivi": [
+            "Spiegare perché le città restano senza pane anche se il grano c'è: trasporti, prezzi fissati, guerra.",
+            "Riconoscere come le voci sulla corte diventano più forti dei fatti.",
+            "Spiegare perché il trono perde anche il sostegno della sua famiglia e delle élite."
+          ],
           "gioco": "quanto serve e quanto c'è (grano, treni, città), prime code",
           "stato_gioco": "approvato",
           "stato": "da rifare",
@@ -130,6 +166,11 @@
           "id": "otto-giorni",
           "titolo": "Otto giorni",
           "periodo": "8–16 marzo 1917",
+          "obiettivi": [
+            "Ricostruire la sequenza dalle code e dalla Giornata della donna dell'8 marzo 1917 all'abdicazione dello zar.",
+            "Spiegare perché il rifiuto dei soldati di sparare trasforma una protesta in una rivoluzione.",
+            "Distinguere i due poteri nati al Palazzo di Tauride: il Comitato provvisorio della Duma e il soviet di Pietrogrado."
+          ],
           "gioco": "code che diventano corteo, poi punti azione (il soldato che non spara)",
           "stato_gioco": "approvato",
           "stato": "da rifare",

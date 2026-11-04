@@ -6,7 +6,7 @@ Repository di un **kit di giochi didattici** (motore riutilizzabile) e del primo
 
 ## Lavoro autonomo fino al 1917 (D-038, D-039)
 
-Si lavora solo sugli incarichi di [docs/laika/PIANO-1917.md](docs/laika/PIANO-1917.md), nell'ordine: `npm run prossimo` dice qual è il prossimo e stampa il messaggio per l'agente. Le approvazioni del docente sono sostituite dai controlli G1–G5 di [docs/laika/METODO.md](docs/laika/METODO.md) §7; chi passa i controlli unisce da solo la PR e prende l'incarico successivo. Ci si ferma e si scrive al docente solo nelle condizioni di arresto di METODO §7.
+Si lavora solo sugli incarichi di [docs/laika/PIANO-1917.md](docs/laika/PIANO-1917.md), nell'ordine: `npm run prossimo` dice qual è il prossimo e stampa il messaggio per l'agente. Le approvazioni del docente sono sostituite dai controlli G1–G5 di [docs/laika/METODO.md](docs/laika/METODO.md) §7; chi passa i controlli unisce da solo la PR e prende subito l'incarico successivo, fino alla fine del piano. Se un gioco richiede una meccanica che il motore non ha, si inserisce e si costruisce un incarico di motore `K…` prima dell'unità, senza chiedere (D-041); non si ripiega mai su un gioco più semplice. Ci si ferma e si scrive al docente solo nelle condizioni di arresto di METODO §7.
 
 ## Le regole che non si toccano
 

@@ -45,6 +45,8 @@ Ricostruito il 4 novembre 2026 dai documenti, dal registro delle PR e dalle conv
 - **D-019 · 3 novembre 2026 · Mir e salario.** Schede approvate con quattro scelte: nel mir il giocatore è il capofamiglia più ascoltato; razzo e corte restano episodi dopo il salario; l'angolo di stanza lo disegna l'agente con il contratto dei kit; il corso serale sblocca una riga nei volantini. (giochi/mir.md, giochi/salario.md)
 - **D-020 · 3 novembre 2026 · Il soviet.** Scheda approvata: tre giornate da cinque azioni; un delegato moderato e uno radicale senza nome di partito; il gioco sostituisce la scelta di ruolo. (giochi/soviet.md)
 
+- **D-040 · 4 novembre 2026 · La didattica va migliorata.** Ogni unità ha due o tre obiettivi osservabili nel canone e rispetta lo standard didattico di [PERCORSO](PERCORSO.md) §7 (domanda, obiettivi, gioco che fa vivere il nesso, aneddoti con fonti, «Cosa ti devi ricordare», verifica legata a un obiettivo, chiusura, fili). Gli obiettivi li ha scritti l'agente il 4 novembre dalle schede e dalle verifiche; il docente li corregge quando prova gli atti. (chat del 4 novembre)
+
 ### Aspetto
 
 - **D-030 · 20 ottobre 2026 · Bottega.** Le illustrazioni si compongono con la bottega: disegni neutri a token, catalogo unico, figura articolata per i personaggi. (bottega/README.md)
@@ -54,6 +56,8 @@ Ricostruito il 4 novembre 2026 dai documenti, dal registro delle PR e dalle conv
 - **D-034 · 22 ottobre 2026 · Niente virgola prima di «e», «o», «né»** in tutti i testi del gioco e della home. (AGENTS.md; `tests/laika-virgola.test.js`)
 
 ### Come si lavora
+
+- **D-041 · 4 novembre 2026 · Disegni esistenti e motori senza controllo puntuale.** Si inseriscono subito nelle unità già fatte i disegni che ci sono (incarico S1). L'agente non deve improvvisare un'unità inutile: se un gioco richiede un motore nuovo, lo prevede come incarico `K…`, lo costruisce e lo unisce senza un controllo puntuale del docente, che se ne accorge a lavoro fatto. (chat del 4 novembre)
 
 - **D-038 · 4 novembre 2026 · Fino al 1917 con il piano.** «Arriviamo al 17 così»: si completano gli Atti I–III seguendo [PIANO-1917](PIANO-1917.md) e [PIANO-KIT](PIANO-KIT.md). Il docente accetta in blocco le proposte P-01 (Atto II in quattro unità), P-04 (nove atti), P-05 (Atto III in due unità); P-02 e P-03 sono sostituite da D-039. (chat del 4 novembre)
 - **D-039 · 4 novembre 2026 · Lavoro autonomo.** «Limitiamo al massimo le mie approvazioni: il punto è strutturare un piano che rispettiamo e che sia autonomo.» Le approvazioni passo per passo sono sostituite dai controlli G1–G5 di [METODO](METODO.md) §7 (test, allievo finto, bilanciamento, revisione indipendente, documenti); l'agente unisce da solo le PR degli incarichi del piano che li passano; il docente prova ogni atto finito (controlli non bloccanti) e risponde solo alle condizioni di arresto. Modifica D-017 (le schede di gioco le approva la revisione indipendente, non il docente) e riprende D-021 entro questi limiti. (chat del 4 novembre)

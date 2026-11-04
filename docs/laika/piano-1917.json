@@ -1,5 +1,5 @@
 {
-  "_leggimi": "Piano degli incarichi fino al 1917 (D-038, D-039). Gli agenti prendono sempre il primo incarico «da fare» le cui dipendenze sono «fatto» (npm run prossimo), lo portano a termine con i controlli di METODO §7 e lo segnano «fatto» con PR ed evidenze. L'ordine non si cambia senza il docente; le osservazioni del docente diventano incarichi nuovi. Dopo ogni modifica: npm run piano.",
+  "_leggimi": "Piano degli incarichi fino al 1917 (D-038, D-039, D-040). Gli agenti prendono sempre il primo incarico «da fare» le cui dipendenze sono «fatto» (npm run prossimo), lo portano a termine con i controlli di METODO §7, lo segnano «fatto» con PR ed evidenze e passano subito al successivo. L'ordine non si cambia; si possono solo inserire incarichi nuovi: un motore che serve a un'unità (K…, subito prima dell'unità) e le osservazioni del docente. Dopo ogni modifica: npm run piano.",
   "stati": {
     "da fare": "non cominciato",
     "in corso": "un agente ci lavora (al massimo un incarico alla volta)",
@@ -8,12 +8,39 @@
   },
   "incarichi": [
     {
+      "id": "S1",
+      "titolo": "Le scene delle unità già fatte con i disegni che ci sono",
+      "tipo": "scene",
+      "modello": "Sonnet",
+      "unita": [],
+      "dipende": [],
+      "leggere": [
+        "bottega/README.md",
+        "docs/laika/PIANO-KIT.md",
+        "bottega/catalogo.json"
+      ],
+      "fare": [
+        "Usare nelle scene delle unità esistenti i disegni già a catalogo e mai usati (53 su 100 fino al 1917), rispettando l'epoca scritta nel catalogo. Assegnazione: I.1 `campagna-mucca`, `campagna-sacchi`, `campagna-banco-fiera`, `campagna-cavallo` (fiera, raccolto, mucca venduta); I.2 `mir-strisce-prima`, `mir-strisce-dopo`, `mir-registro`, `mir-covone`; I.3 `ambiente-fabbrica`, `infra-ciminiera`, `citta-dormitorio`, `citta-carbone`, `oggetto-volantini`, `ambiente-salone-lampadari` (la corte); II.1 `luogo-fabbrica` (Putilov), `oggetto-ritratto-zar` e il Palazzo d'Inverno sulla piazza; II.2 `soviet-tavolo`, `soviet-telegrafo`, `soviet-bandiera`, `mezzo-treno` e `infra-binari` (i ferrovieri); II.3 una scena propria con `ambiente-sala` (sala di San Giorgio), `oggetto-aquila-imperiale`, `ambiente-teatro-palco`, `oggetto-giornale`; II.4 una scena propria con le strisce che si uniscono e le isbe; III.1 `ambiente-trincea`, `ambiente-parapetto`, `ambiente-stazione`, `mezzo-treno`, `infra-binari`, `campagna-sacchi`, `oggetto-manifesto-prestito`, `oggetto-cartello-pane`; III.2 una scena propria per la coda con `coda-tessera` e `oggetto-cartello-pane`, le tessili all'uscita della fabbrica, il soldato con `oggetto-fucile` abbassato, il treno fermo nella neve (`mezzo-treno`, `infra-binari`, `atmo-neve`) e il confronto con `luogo-palazzo` e `luogo-palazzo-tauride`.",
+        "Ogni unità ha almeno una scena propria e nessun episodio usa la scena di un'altra unità; treno, fine dello zar in famiglia e confronto dell'Atto III tornano ad avere una scena.",
+        "Le schede scena prendono i nomi stabili (`servitu-*`, `mir-*`, `citta-*`, `petizione-*`, `soviet-*`, `concessioni-*`, `stolypin-*`, `pane-guerra-*`, `otto-giorni-*`) al posto di `a1-u*-*`; si aggiornano i riferimenti negli atti e nei test.",
+        "Ogni episodio ha una `visualExplanation` che descrive la sua scena."
+      ],
+      "fatto_quando": [
+        "Le regole sulle scene di `tests/unita-ludiche.test.js` passano per tutte le unità (diventano vincolanti quando S1 è «fatto»)",
+        "Schermate prima e dopo di ogni unità in `docs/evidence/S1/`",
+        "Controlli comuni G1–G5 passati (METODO §7)"
+      ],
+      "stato": "da fare"
+    },
+    {
       "id": "K1",
       "titolo": "Motore: la coda con la pazienza",
       "tipo": "motore",
       "modello": "Opus",
       "unita": [],
-      "dipende": [],
+      "dipende": [
+        "S1"
+      ],
       "leggere": [
         "docs/laika/GIOCHI.md",
         "docs/CREARE-UN-GIOCO.md",
@@ -40,6 +67,7 @@
         "otto-giorni"
       ],
       "dipende": [
+        "S1",
         "K1"
       ],
       "leggere": [
@@ -49,13 +77,15 @@
       ],
       "fare": [
         "Scheda di gioco `docs/laika/giochi/otto-giorni.md` con la sezione «Elementi del kit» (PIANO-KIT, III.2), passata alla revisione indipendente prima del codice.",
+        "Se il gioco richiede una meccanica che il motore non ha, l'agente non la improvvisa dentro l'unità e non la semplifica: inserisce nel piano un incarico di motore K… subito prima di questo, lo costruisce (generico, con test e documentazione in CREARE-UN-GIOCO), lo unisce e poi torna all'unità.",
         "La coda per il pane sulla coda del motore K1: chi lascia la fila va in fabbrica o in corteo; il pane in città arriva da III.1.",
         "Il soldato che non spara resta a punti azione; si ricontrollano gli effetti delle azioni.",
         "Scene da comporre: il treno fermo nella neve (`mezzo-treno`, `infra-binari`, `atmo-neve`); il confronto con il disco rosso dal Palazzo d'Inverno al Palazzo di Tauride (`luogo-palazzo`, `luogo-palazzo-tauride`, `transfer`). Le schede scena dell'unità prendono il nome stabile (`otto-giorni-*`).",
-        "Aneddoti R08 e R15 (lo zar che si tocca i baffi e torna nel vagone; il diario del treno) e Frederiks che annuncia in francese: dall'atlante e dai libri se il docente li ha caricati, in parafrasi, registrati in MATRICE."
+        "Aneddoti R08 e R15 (lo zar che si tocca i baffi e torna nel vagone; il diario del treno) e Frederiks che annuncia in francese: dall'atlante e dai libri se il docente li ha caricati, in parafrasi, registrati in MATRICE.",
+        "Didattica (PERCORSO §7): gli obiettivi dell'unità nel canone guidano gioco e testi; «Cosa ti devi ricordare» dice gli obiettivi in parole semplici; almeno una verifica formativa legata a un obiettivo, scritta con la skill `verifiche-didattiche`; due aneddoti concreti con le fonti registrate."
       ],
       "fatto_quando": [
-        "Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie)",
+        "Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche; domanda, obiettivi, verifica legata a un obiettivo, «Cosa ti devi ricordare», concetti, chiusura, fonti registrate; scene proprie)",
         "Test di bilanciamento della coda: almeno tre strategie arrivano in fondo con esiti diversi; nessuna vince su tutti gli indicatori",
         "Controlli comuni G1–G5 passati (METODO §7)"
       ],
@@ -67,7 +97,9 @@
       "tipo": "bottega",
       "modello": "Sonnet",
       "unita": [],
-      "dipende": [],
+      "dipende": [
+        "S1"
+      ],
       "leggere": [
         "bottega/README.md",
         "bottega/CONTRATTO-KIT.md",
@@ -89,7 +121,9 @@
       "tipo": "motore",
       "modello": "Opus",
       "unita": [],
-      "dipende": [],
+      "dipende": [
+        "S1"
+      ],
       "leggere": [
         "docs/laika/GIOCHI.md",
         "docs/CREARE-UN-GIOCO.md"
@@ -113,6 +147,7 @@
         "pane-guerra"
       ],
       "dipende": [
+        "S1",
         "K2",
         "K4"
       ],
@@ -123,12 +158,14 @@
       ],
       "fare": [
         "Scheda di gioco `docs/laika/giochi/pane-guerra.md` con «Elementi del kit», passata alla revisione indipendente prima del codice.",
+        "Se il gioco richiede una meccanica che il motore non ha, l'agente non la improvvisa dentro l'unità e non la semplifica: inserisce nel piano un incarico di motore K… subito prima di questo, lo costruisce (generico, con test e documentazione in CREARE-UN-GIOCO), lo unisce e poi torna all'unità.",
         "Il gioco «quanto serve e quanto c'è» sulla catena del motore K2, con le prime code; il pane che resta passa a III.2.",
         "Scene: la catena del grano, la trincea, il manifesto del prestito, la vetrina del gioielliere accanto alla coda, il palazzo isolato nella foschia per «La fine dello zar comincia in famiglia».",
-        "Aneddoti C39 (Fabergé), C42 (Kšesinskaja e l'artiglieria), Miljukov («stupidità o tradimento?»), C43 (Rodzjanko), la battuta dello zar all'ambasciatore britannico: dall'atlante e dai libri, in parafrasi, registrati in MATRICE."
+        "Aneddoti C39 (Fabergé), C42 (Kšesinskaja e l'artiglieria), Miljukov («stupidità o tradimento?»), C43 (Rodzjanko), la battuta dello zar all'ambasciatore britannico: dall'atlante e dai libri, in parafrasi, registrati in MATRICE.",
+        "Didattica (PERCORSO §7): gli obiettivi dell'unità nel canone guidano gioco e testi; «Cosa ti devi ricordare» dice gli obiettivi in parole semplici; almeno una verifica formativa legata a un obiettivo, scritta con la skill `verifiche-didattiche`; due aneddoti concreti con le fonti registrate."
       ],
       "fatto_quando": [
-        "Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie)",
+        "Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche; domanda, obiettivi, verifica legata a un obiettivo, «Cosa ti devi ricordare», concetti, chiusura, fonti registrate; scene proprie)",
         "Test di bilanciamento: almeno tre strategie con esiti diversi; nessuna vince su tutto",
         "Controlli comuni G1–G5 passati (METODO §7)"
       ],
@@ -166,6 +203,7 @@
         "mir"
       ],
       "dipende": [
+        "S1",
         "K4"
       ],
       "leggere": [
@@ -175,11 +213,12 @@
       ],
       "fare": [
         "Scheda di gioco `docs/laika/giochi/mir.md` riscritta (la versione approvata il 3 novembre va in archivio): le strisce come posti da assegnare alle famiglie e la cassa come risorsa, così fra una richiesta e l'altra c'è qualcosa da gestire (PIANO-KIT, I.2). Revisione indipendente prima del codice.",
-        "Il gioco usa solo le modalità del motore che ci sono (gestione con persone e posti, monete, richieste, giornate a punti azione) o quelle costruite da K1 e K2; se la scheda chiede una meccanica nuova è una condizione di arresto.",
-        "Scene: le strisce che cambiano (`mir-strisce-prima`, `mir-strisce-dopo`), il registro, il covone."
+        "Se il gioco richiede una meccanica che il motore non ha, l'agente non la improvvisa dentro l'unità e non la semplifica: inserisce nel piano un incarico di motore K… subito prima di questo, lo costruisce (generico, con test e documentazione in CREARE-UN-GIOCO), lo unisce e poi torna all'unità.",
+        "Scene: le strisce che cambiano (`mir-strisce-prima`, `mir-strisce-dopo`), il registro, il covone.",
+        "Didattica (PERCORSO §7): gli obiettivi dell'unità nel canone guidano gioco e testi; «Cosa ti devi ricordare» dice gli obiettivi in parole semplici; almeno una verifica formativa legata a un obiettivo, scritta con la skill `verifiche-didattiche`; due aneddoti concreti con le fonti registrate."
       ],
       "fatto_quando": [
-        "Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie)",
+        "Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche; domanda, obiettivi, verifica legata a un obiettivo, «Cosa ti devi ricordare», concetti, chiusura, fonti registrate; scene proprie)",
         "Test di bilanciamento del mir: almeno tre strategie; ogni gruppo può andare in crisi",
         "Controlli comuni G1–G5 passati (METODO §7)"
       ],
@@ -194,6 +233,7 @@
         "citta"
       ],
       "dipende": [
+        "S1",
         "K4"
       ],
       "leggere": [
@@ -203,11 +243,13 @@
       ],
       "fare": [
         "Ribilanciare il salario con eventi che costringono a scegliere fra pane e stanza (aumento dell'affitto, multa che pesa, freddo lungo): con la stessa mossa ogni settimana non si deve più reggere.",
+        "Se il gioco richiede una meccanica che il motore non ha, l'agente non la improvvisa dentro l'unità e non la semplifica: inserisce nel piano un incarico di motore K… subito prima di questo, lo costruisce (generico, con test e documentazione in CREARE-UN-GIOCO), lo unisce e poi torna all'unità.",
         "Scene: dormitorio e carbone; la corte del 1896 nella sala con i lampadari e la tazza smaltata di Chodynka.",
-        "Scrivere I.3-e7, il confronto di fine atto, e la sua scena."
+        "Scrivere I.3-e7, il confronto di fine atto, e la sua scena.",
+        "Didattica (PERCORSO §7): gli obiettivi dell'unità nel canone guidano gioco e testi; «Cosa ti devi ricordare» dice gli obiettivi in parole semplici; almeno una verifica formativa legata a un obiettivo, scritta con la skill `verifiche-didattiche`; due aneddoti concreti con le fonti registrate."
       ],
       "fatto_quando": [
-        "Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie)",
+        "Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche; domanda, obiettivi, verifica legata a un obiettivo, «Cosa ti devi ricordare», concetti, chiusura, fonti registrate; scene proprie)",
         "Test di bilanciamento del salario: la mossa fissa non regge tutte le settimane; almeno tre strategie con esiti diversi",
         "Controlli comuni G1–G5 passati (METODO §7)"
       ],
@@ -222,6 +264,7 @@
         "servitu"
       ],
       "dipende": [
+        "S1",
         "K4"
       ],
       "leggere": [
@@ -230,11 +273,13 @@
       ],
       "fare": [
         "Previsione ed esito del grano: un solo verdetto, coerente con la previsione.",
+        "Se il gioco richiede una meccanica che il motore non ha, l'agente non la improvvisa dentro l'unità e non la semplifica: inserisce nel piano un incarico di motore K… subito prima di questo, lo costruisce (generico, con test e documentazione in CREARE-UN-GIOCO), lo unisce e poi torna all'unità.",
         "Telefono: tabellone più corto (migliorie chiuse in un pannello), etichette dei posti dentro la scena.",
-        "Scena delle utopie con la colonia militare (K4)."
+        "Scena delle utopie con la colonia militare (K4).",
+        "Didattica (PERCORSO §7): gli obiettivi dell'unità nel canone guidano gioco e testi; «Cosa ti devi ricordare» dice gli obiettivi in parole semplici; almeno una verifica formativa legata a un obiettivo, scritta con la skill `verifiche-didattiche`; due aneddoti concreti con le fonti registrate."
       ],
       "fatto_quando": [
-        "Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie)",
+        "Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche; domanda, obiettivi, verifica legata a un obiettivo, «Cosa ti devi ricordare», concetti, chiusura, fonti registrate; scene proprie)",
         "Controlli comuni G1–G5 passati (METODO §7)"
       ],
       "stato": "da fare"
@@ -271,7 +316,9 @@
       "unita": [
         "soviet"
       ],
-      "dipende": [],
+      "dipende": [
+        "S1"
+      ],
       "leggere": [
         "docs/laika/atti/atto-2.md",
         "docs/laika/giochi/soviet.md",
@@ -279,10 +326,12 @@
       ],
       "fare": [
         "Scheda `docs/laika/giochi/soviet.md` aggiornata: dopo aver indagato si sceglie a quale lettura dare peso e la scelta cambia gli effetti dei giorni dopo. Se le condizioni `when` del motore non bastano, prima una PR di motore piccola (K5) con test.",
-        "Scena: tavolo, telegrafo e bandiera nella sala; etichette dei posti senza sovrapposizioni."
+        "Se il gioco richiede una meccanica che il motore non ha, l'agente non la improvvisa dentro l'unità e non la semplifica: inserisce nel piano un incarico di motore K… subito prima di questo, lo costruisce (generico, con test e documentazione in CREARE-UN-GIOCO), lo unisce e poi torna all'unità.",
+        "Scena: tavolo, telegrafo e bandiera nella sala; etichette dei posti senza sovrapposizioni.",
+        "Didattica (PERCORSO §7): gli obiettivi dell'unità nel canone guidano gioco e testi; «Cosa ti devi ricordare» dice gli obiettivi in parole semplici; almeno una verifica formativa legata a un obiettivo, scritta con la skill `verifiche-didattiche`; due aneddoti concreti con le fonti registrate."
       ],
       "fatto_quando": [
-        "Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie)",
+        "Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche; domanda, obiettivi, verifica legata a un obiettivo, «Cosa ti devi ricordare», concetti, chiusura, fonti registrate; scene proprie)",
         "Test di bilanciamento: seguire una lettura o l'altra porta a esiti diversi",
         "Controlli comuni G1–G5 passati (METODO §7)"
       ],
@@ -297,6 +346,7 @@
         "petizione"
       ],
       "dipende": [
+        "S1",
         "K4"
       ],
       "leggere": [
@@ -306,12 +356,13 @@
       ],
       "fare": [
         "Scheda di gioco `docs/laika/giochi/petizione.md`: un gioco del repertorio al posto del modulo con cinque righe (proposta da valutare nella scheda: decisioni sui gruppi fra operai, Gapon e polizia mentre si raccolgono le firme). Revisione indipendente prima del codice.",
-        "Il gioco usa solo le modalità del motore che ci sono (gestione con persone e posti, monete, richieste, giornate a punti azione) o quelle costruite da K1 e K2; se la scheda chiede una meccanica nuova è una condizione di arresto.",
+        "Se il gioco richiede una meccanica che il motore non ha, l'agente non la improvvisa dentro l'unità e non la semplifica: inserisce nel piano un incarico di motore K… subito prima di questo, lo costruisce (generico, con test e documentazione in CREARE-UN-GIOCO), lo unisce e poi torna all'unità.",
         "Scene: le officine Putilov, il Palazzo d'Inverno sullo sfondo della piazza, il corteo con le icone e il ritratto dello zar.",
-        "Aneddoto: il diario di Nicola («Giornata terribile!» e subito dopo il pranzo con la madre), in parafrasi se il passo non si riscontra."
+        "Aneddoto: il diario di Nicola («Giornata terribile!» e subito dopo il pranzo con la madre), in parafrasi se il passo non si riscontra.",
+        "Didattica (PERCORSO §7): gli obiettivi dell'unità nel canone guidano gioco e testi; «Cosa ti devi ricordare» dice gli obiettivi in parole semplici; almeno una verifica formativa legata a un obiettivo, scritta con la skill `verifiche-didattiche`; due aneddoti concreti con le fonti registrate."
       ],
       "fatto_quando": [
-        "Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie)",
+        "Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche; domanda, obiettivi, verifica legata a un obiettivo, «Cosa ti devi ricordare», concetti, chiusura, fonti registrate; scene proprie)",
         "Test di bilanciamento",
         "Controlli comuni G1–G5 passati (METODO §7)"
       ],
@@ -326,6 +377,7 @@
         "concessioni"
       ],
       "dipende": [
+        "S1",
         "K4",
         "U-soviet"
       ],
@@ -336,12 +388,13 @@
       ],
       "fare": [
         "Scheda di gioco `docs/laika/giochi/concessioni.md` (un gioco del repertorio, non tre schede da leggere); la scelta nel soviet (II.2) apre o chiude un'opzione qui.",
-        "Il gioco usa solo le modalità del motore che ci sono (gestione con persone e posti, monete, richieste, giornate a punti azione) o quelle costruite da K1 e K2; se la scheda chiede una meccanica nuova è una condizione di arresto.",
+        "Se il gioco richiede una meccanica che il motore non ha, l'agente non la improvvisa dentro l'unità e non la semplifica: inserisce nel piano un incarico di motore K… subito prima di questo, lo costruisce (generico, con test e documentazione in CREARE-UN-GIOCO), lo unisce e poi torna all'unità.",
         "Scene: la sala di San Giorgio con uniformi e giacche in due blocchi; il palco del teatro; l'aquila imperiale.",
-        "Aneddoti: il granduca Nikolaj che minaccia di spararsi se lo zar non firma; la ballerina insultata a teatro per le corazzate perdute (C36)."
+        "Aneddoti: il granduca Nikolaj che minaccia di spararsi se lo zar non firma; la ballerina insultata a teatro per le corazzate perdute (C36).",
+        "Didattica (PERCORSO §7): gli obiettivi dell'unità nel canone guidano gioco e testi; «Cosa ti devi ricordare» dice gli obiettivi in parole semplici; almeno una verifica formativa legata a un obiettivo, scritta con la skill `verifiche-didattiche`; due aneddoti concreti con le fonti registrate."
       ],
       "fatto_quando": [
-        "Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie)",
+        "Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche; domanda, obiettivi, verifica legata a un obiettivo, «Cosa ti devi ricordare», concetti, chiusura, fonti registrate; scene proprie)",
         "Test di bilanciamento",
         "Controlli comuni G1–G5 passati (METODO §7)"
       ],
@@ -356,6 +409,7 @@
         "stolypin"
       ],
       "dipende": [
+        "S1",
         "K4"
       ],
       "leggere": [
@@ -365,12 +419,13 @@
       ],
       "fare": [
         "Scheda di gioco `docs/laika/giochi/stolypin.md`: restare nel mir, uscire e unire le strisce, vendere e partire, con conseguenze in più anni (gestione), non una scelta sola.",
-        "Il gioco usa solo le modalità del motore che ci sono (gestione con persone e posti, monete, richieste, giornate a punti azione) o quelle costruite da K1 e K2; se la scheda chiede una meccanica nuova è una condizione di arresto.",
+        "Se il gioco richiede una meccanica che il motore non ha, l'agente non la improvvisa dentro l'unità e non la semplifica: inserisce nel piano un incarico di motore K… subito prima di questo, lo costruisce (generico, con test e documentazione in CREARE-UN-GIOCO), lo unisce e poi torna all'unità.",
         "Scena: le strisce che diventano un podere (K4).",
-        "Scrivere II.4-e3, il confronto di fine atto, e la sua scena."
+        "Scrivere II.4-e3, il confronto di fine atto, e la sua scena.",
+        "Didattica (PERCORSO §7): gli obiettivi dell'unità nel canone guidano gioco e testi; «Cosa ti devi ricordare» dice gli obiettivi in parole semplici; almeno una verifica formativa legata a un obiettivo, scritta con la skill `verifiche-didattiche`; due aneddoti concreti con le fonti registrate."
       ],
       "fatto_quando": [
-        "Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie)",
+        "Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche; domanda, obiettivi, verifica legata a un obiettivo, «Cosa ti devi ricordare», concetti, chiusura, fonti registrate; scene proprie)",
         "Test di bilanciamento",
         "Controlli comuni G1–G5 passati (METODO §7)"
       ],

@@ -31,7 +31,7 @@ Nessuna è ancora stata provata e approvata dal docente dal telefono.
 
 ## Controllo automatico delle unità (4 novembre 2026)
 
-Uscita di `LAIKA_RAPPORTO=1 node tests/unita-ludiche.test.js` (regole di METODO §7, G3a). Diventa vincolante per ogni unità quando il suo incarico è «fatto».
+Uscita di `LAIKA_RAPPORTO=1 node tests/unita-ludiche.test.js` (regole di METODO §7, G3a). Diventa vincolante per ogni unità quando il suo incarico è «fatto». Dal 4 novembre controlla anche lo standard didattico (D-040): a mir, petizione e concessioni manca anche la verifica; a mir, petizione, soviet, concessioni, pane e guerra e otto giorni manca «Cosa ti devi ricordare».
 
 | Unità | Che cosa manca |
 |---|---|
