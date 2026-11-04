@@ -39,7 +39,7 @@ Che cosa muore quando un popolo smette di credere che lo zar sia un padre? Strut
 | II.3 | `concessioni` | Che cosa concede lo zar | ottobre 1905–giugno 1907 | da assegnare (oggi: confronto di tre schede) | da assegnare | bozza |
 | II.4 | `stolypin` | Stolypin | novembre 1906–1911 | da assegnare (oggi: una scelta) | da assegnare | bozza |
 
-- II.1: Divisione dell'atto in quattro unità: proposta P-01.
+- II.1: Divisione dell'atto in quattro unità decisa il 4 novembre 2026 (D-038).
 
 ## Atto III — Pane e guerra (1914–marzo 1917)
 
@@ -55,7 +55,7 @@ Un potere sacro può sopravvivere quando non ci crede più nemmeno chi lo serve?
 
 ## Atto IV — La primavera della libertà (marzo–luglio 1917)
 
-Che cosa chiede chi, per la prima volta, può chiedere tutto?
+Che cosa chiede chi, per la prima volta, può chiedere tutto? Struttura decisa in D-038.
 
 | Unità | Nome stabile | Titolo | Periodo | Gioco | Gioco deciso | Stato |
 |---|---|---|---|---|---|---|
@@ -67,7 +67,7 @@ Che cosa chiede chi, per la prima volta, può chiedere tutto?
 
 ## Atto V — Ottobre (luglio 1917–marzo 1918)
 
-Chi ha il diritto di parlare e decidere per il popolo?
+Chi ha il diritto di parlare e decidere per il popolo? Struttura decisa in D-038.
 
 | Unità | Nome stabile | Titolo | Periodo | Gioco | Gioco deciso | Stato |
 |---|---|---|---|---|---|---|
@@ -79,7 +79,7 @@ Chi ha il diritto di parlare e decidere per il popolo?
 
 ## Atto VI — L'assalto al cielo (1918–1927)
 
-Si può rifare l'essere umano e che cosa si è disposti a pagare per provarci?
+Si può rifare l'essere umano e che cosa si è disposti a pagare per provarci? Struttura decisa in D-038.
 
 | Unità | Nome stabile | Titolo | Periodo | Gioco | Gioco deciso | Stato |
 |---|---|---|---|---|---|---|
@@ -91,7 +91,7 @@ Si può rifare l'essere umano e che cosa si è disposti a pagare per provarci?
 
 ## Atto VII — Il prezzo della potenza (1928–1945)
 
-Che cosa resta di una promessa quando diventa obbligo e paura?
+Che cosa resta di una promessa quando diventa obbligo e paura? Struttura decisa in D-038.
 
 | Unità | Nome stabile | Titolo | Periodo | Gioco | Gioco deciso | Stato |
 |---|---|---|---|---|---|---|
@@ -103,7 +103,7 @@ Che cosa resta di una promessa quando diventa obbligo e paura?
 
 ## Atto VIII — Il cielo è vuoto? (1945–1964)
 
-Il cielo raggiunto mantiene la promessa? Quanto vale una vita accanto a un simbolo?
+Il cielo raggiunto mantiene la promessa? Quanto vale una vita accanto a un simbolo? Struttura decisa in D-038.
 
 | Unità | Nome stabile | Titolo | Periodo | Gioco | Gioco deciso | Stato |
 |---|---|---|---|---|---|---|
@@ -115,7 +115,7 @@ Il cielo raggiunto mantiene la promessa? Quanto vale una vita accanto a un simbo
 
 ## Atto IX — Cemento e silenzio (1964–1991)
 
-Come finisce una cosa che sembrava eterna?
+Come finisce una cosa che sembrava eterna? Struttura decisa in D-038.
 
 | Unità | Nome stabile | Titolo | Periodo | Gioco | Gioco deciso | Stato |
 |---|---|---|---|---|---|---|

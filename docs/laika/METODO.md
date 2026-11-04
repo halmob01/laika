@@ -127,3 +127,36 @@ Le schede degli atti sono pensate perché una scena si possa affidare a Sonnet s
 - La descrizione della PR comincia con **«Che cosa cambia nella struttura»** (anche «niente»), poi i documenti toccati, le verifiche eseguite con comandi e risultati, ciò che non è stato verificato e ciò che resta aperto.
 - Correzioni visive e di contenuto si registrano nel documento che le governa (canone, decisioni, schede); non si mascherano come semplici refactor.
 - Le proposte diventano «fatte» in [STATO](STATO.md) solo con un'evidenza (schermate, trascrizione dell'allievo finto, prova del docente).
+
+## 7. Lavoro autonomo fino al 1917
+
+Decisioni D-038 e D-039. Il docente non approva ogni passo: approva il piano una volta, prova un atto quando è finito e risponde solo quando un agente si ferma per una delle condizioni di arresto. Tutto il resto lo decidono i controlli qui sotto.
+
+**Il giro di ogni incarico.**
+1. `npm run prossimo` dice qual è il prossimo incarico di [PIANO-1917](PIANO-1917.md) e stampa il messaggio da dare all'agente. Si prende sempre quello: l'ordine non si cambia.
+2. L'agente segna l'incarico «in corso» in `docs/laika/piano-1917.json` (poi `npm run piano`) su un branch nuovo da `main`.
+3. Se l'incarico è un gioco, prima scrive la scheda di gioco (una pagina, con «Elementi del kit») e la fa passare alla **revisione indipendente** (G4); solo dopo scrive il codice.
+4. Costruisce, fa passare i controlli G1–G5, apre la PR che comincia con «Che cosa cambia nella struttura».
+5. Se tutti i controlli passano **unisce da solo la PR**, segna l'incarico «fatto» con il numero della PR e le evidenze e passa al prossimo.
+
+**I controlli (al posto delle approvazioni del docente).**
+- **G1 Test.** `npm test` e `npm run test:browser` verdi in locale; CI verde su Chromium e WebKit.
+- **G2 Allievo finto.** `npm run serve` e `npm run allievo`: la partita intera arriva in fondo e tutti i controlli automatici dello script passano (nessun errore, nessuna pagina senza comandi, nessuna didascalia generica, nessun numero negativo, nessuna nota di lavoro, niente «anime e semidei», pulsanti giusti). La trascrizione e le schermate dell'unità toccata vanno in `docs/evidence/<incarico>/`.
+- **G3 Divertimento (solo i giochi).** Un test di bilanciamento come `tests/laika-i1.test.js`: almeno tre strategie diverse arrivano in fondo con esiti diversi; nessuna strategia vince su tutti gli indicatori; ogni scelta si può raggiungere; c'è almeno un rischio che il giocatore non controlla e la cui probabilità è scritta prima di scegliere (GIOCHI §1–§2).
+- **G4 Revisione indipendente.** Un agente nuovo, che non ha scritto il lavoro (preferibilmente Opus; se l'autore è Opus va bene un'altra istanza senza il suo contesto), legge la scheda, il diff, la trascrizione dell'allievo finto e le fonti, e risponde «passa» o «non passa» con i motivi, come commento nella PR. Domande: rispetta canone, decisioni e scheda dell'atto? Rispetta le regole dei giochi e D-006 (nessuna scelta di sparare, reprimere, denunciare)? I fatti sono nelle fonti o nell'atlante, con le date nei due calendari fino al 1918? Lo studente capisce la domanda sotto la scena giocando? Ci sono aneddoti concreti dove la scheda li chiede? Due «non passa» di fila sullo stesso incarico: ci si ferma (condizione di arresto).
+- **G5 Documenti.** STATO, scheda di gioco, scheda dell'atto, canone (stato dell'unità: «bozza» quando è costruita; «approvata» solo dopo il controllo del docente) e piano aggiornati nella stessa PR; `npm test` controlla canone, piano e collegamenti.
+
+**Libri e aneddoti.** Se il docente ha caricato i libri in chat si usano quelli. Altrimenti si usano l'atlante (`references/fonti/atlanti/`), gli appunti e fonti in rete affidabili: sempre in parafrasi, mai citazioni inventate, ogni prelievo registrato in MATRICE. Un aneddoto che non si riscontra si toglie; non si ferma il lavoro per questo.
+
+**Disegni nuovi.** Restano «bozza» e si possono usare; il docente li vede tutti insieme nella galleria al controllo dell'atto.
+
+**Condizioni di arresto: l'agente si ferma e scrive al docente solo se**
+- serve cambiare il canone o una decisione (un'unità in più o in meno, un gioco diverso da quello del canone);
+- un fatto centrale per la scena non si trova in nessuna fonte e senza quel fatto la scena non regge;
+- la revisione indipendente dice «non passa» due volte di fila;
+- un controllo automatico non si riesce a far passare senza indebolirlo;
+- la CI resta rossa per motivi che non dipendono dal lavoro dell'incarico.
+
+Fuori da questi casi l'agente non chiede: sceglie la soluzione più vicina alle schede e ai giochi già approvati e scrive nella PR che cosa ha scelto e perché.
+
+**I controlli del docente** (incarichi `C-III`, `C-I`, `C-II`, `C-1917`) non bloccano il piano: l'agente prepara una pagina con che cosa provare, segna l'incarico «aspetta il docente» e va avanti. Le osservazioni del docente diventano incarichi nuovi inseriti subito dopo quello in corso.

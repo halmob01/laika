@@ -4,15 +4,15 @@ Repository di un **kit di giochi didattici** (motore riutilizzabile) e del primo
 
 **Regola di stile per tutti i testi del gioco e della home:** in italiano non si mette la virgola prima di «e», «ed», «o», «od», «né» (niente «virgola di Oxford»). Se la frase senza virgola diventa ambigua o troppo lunga, si spezza in due frasi o si usa il punto e virgola. Il test `tests/laika-virgola.test.js` la controlla.
 
-## Dopo il riordino (4 novembre 2026)
+## Lavoro autonomo fino al 1917 (D-038, D-039)
 
-Il riordino di struttura e documenti è finito ([docs/laika/RIORDINO.md](docs/laika/RIORDINO.md)). Il lavoro riparte dall'elenco «Da fare» di [docs/laika/STATO.md](docs/laika/STATO.md), un incarico per PR. Le proposte P-01–P-05 di [DECISIONI](docs/laika/DECISIONI.md) aspettano la risposta del docente: finché non c'è, non si costruisce nulla che ne dipenda.
+Si lavora solo sugli incarichi di [docs/laika/PIANO-1917.md](docs/laika/PIANO-1917.md), nell'ordine: `npm run prossimo` dice qual è il prossimo e stampa il messaggio per l'agente. Le approvazioni del docente sono sostituite dai controlli G1–G5 di [docs/laika/METODO.md](docs/laika/METODO.md) §7; chi passa i controlli unisce da solo la PR e prende l'incarico successivo. Ci si ferma e si scrive al docente solo nelle condizioni di arresto di METODO §7.
 
 ## Le regole che non si toccano
 
 1. **Il canone e le decisioni non si cambiano.** La struttura del percorso (atti, unità, numeri, titoli, gioco di ogni unità) sta solo in `games/laika/canone.json`; le decisioni del docente stanno solo in `docs/laika/DECISIONI.md`. Un agente non li modifica se il docente non lo ha chiesto in modo esplicito; se una scheda o un gioco non ci stanno, si ferma e scrive una proposta (P-…) in DECISIONI.
 2. **Un gioco approvato non si sostituisce con una versione più semplice.** Se non si riesce a costruirlo, la PR dice che cosa manca e l'unità resta «da fare» o «da rifare» nel canone.
-3. **Un incarico, un'unità, una PR.** Non si costruisce l'unità successiva prima che il docente abbia provato la precedente.
+3. **Un incarico, un'unità, una PR, nell'ordine del piano.** Non si prende l'incarico successivo prima che il precedente abbia passato i controlli di METODO §7 e sia unito in `main`.
 4. **Le unità si chiamano con il nome stabile** del canone (`citta`, `soviet`), anche negli identificatori del gioco. Il numero (I.3, II.2) si legge dal canone e non si usa come nome.
 5. **Niente riquadri «Aggiornamento» sopra testo vecchio.** Quando una cosa cambia si riscrive il testo e la versione vecchia va in `docs/archivio/` con la data.
 6. **Ogni PR comincia con «Che cosa cambia nella struttura»**, anche se la risposta è «niente».
@@ -34,7 +34,7 @@ Prima questo file. Poi, secondo il lavoro, al massimo questi:
 
 Mappa completa dei documenti e ordine di autorità: [docs/README.md](docs/README.md). `docs/archivio/` è storia: non vale come istruzione.
 
-Poi: controlla branch e modifiche locali (non resettare lavoro altrui, non fare merge se il docente non l'ha chiesto, mai force-push su `main`) ed esegui `npm test`.
+Poi: controlla branch e modifiche locali (non resettare lavoro altrui, mai force-push su `main`; si uniscono solo le PR degli incarichi del piano che hanno passato i controlli) ed esegui `npm test`.
 
 ## Dove si lavora
 

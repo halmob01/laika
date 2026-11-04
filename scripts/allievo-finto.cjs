@@ -11,7 +11,7 @@ const fs=require('node:fs'),path=require('node:path');
 const OUT=process.env.OUT||path.join(__dirname,'..','.artifacts','allievo');fs.mkdirSync(OUT,{recursive:true});
 const W=+(process.env.W||390),H=+(process.env.H||844),PICK=process.env.PICK||'mix';
 const log=fs.createWriteStream(path.join(OUT,'trascrizione.md'));
-let n=0;const rnd=(()=>{let s=+(process.env.SEED||7);return()=>{s=(s*16807)%2147483647;return s/2147483647;};})();
+let n=0,finito=false,bloccato=false;const testi=[];const rnd=(()=>{let s=+(process.env.SEED||7);return()=>{s=(s*16807)%2147483647;return s/2147483647;};})();
 (async()=>{
  const b=await chromium.launch(process.env.CHROME_BIN?{executablePath:process.env.CHROME_BIN}:{});
  const ctx=await b.newContext({viewport:{width:W,height:H},hasTouch:W<500});const p=await ctx.newPage();const errs=[];
@@ -21,14 +21,14 @@ let n=0;const rnd=(()=>{let s=+(process.env.SEED||7);return()=>{s=(s*16807)%2147
  const dump=async(tag)=>{n++;await fine();const f=String(n).padStart(3,'0')+'-'+tag+'.png';
   if(n%1===0)await p.screenshot({path:path.join(OUT,f),fullPage:true});
   const txt=await p.evaluate(()=>{const g=s=>document.querySelector(s)?.innerText?.trim()||'';return [g('#hub')&&getComputedStyle(document.querySelector('#hub')).display!=='none'?g('#hub'):'',g('#scene-title'),g('.turn-label'),g('#caption'),g('#panel')].filter(Boolean).join('\n---\n')}).catch(()=>'');
-  log.write('\n\n## '+n+' · '+tag+' ('+f+')\n\n'+txt.slice(0,4000)+'\n');};
+  testi.push(txt);log.write('\n\n## '+n+' · '+tag+' ('+f+')\n\n'+txt.slice(0,4000)+'\n');};
  const click=async l=>{clicks++;await l.click();};
  const pick=async sel=>{const all=p.locator(sel);const c=await all.count();let i=PICK==='first'?0:PICK==='last'?c-1:Math.floor(rnd()*c);
    const lab=(await all.nth(i).innerText().catch(()=>'')).replace(/\s+/g,' ').slice(0,120);log.write('\n> SCELGO: '+lab+'\n');await click(all.nth(i));};
  await p.goto(ORIGIN+'/');await dump('home');
  await click(p.locator('#inizia'));await p.locator('#hub-title').waitFor();await dump('atto');
  for(let g=0;g<900;g++){
-  if(await p.locator('#summary-title').isVisible().catch(()=>false)){await dump('fine');break;}
+  if(await p.locator('#summary-title').isVisible().catch(()=>false)){await dump('fine');finito=true;break;}
   if(await p.locator('[data-hub=go]:visible').count()){await dump('hub');await click(p.locator('[data-hub=go]:visible').first());continue;}
   if(await p.locator('[data-answer]').count()){await dump('verifica');await pick('[data-answer]');await dump('verifica-esito');await click(p.locator('[data-action=advance]'));continue;}
   if(await p.locator('form input[type=number]').count()){await dump('form');const ins=p.locator('form input[type=number]');const c=await ins.count();
@@ -66,8 +66,21 @@ let n=0;const rnd=(()=>{let s=+(process.env.SEED||7);return()=>{s=(s*16807)%2147
   if(await p.locator('[data-turn=continue]').count()){await dump('continua');await click(p.locator('[data-turn=continue]'));continue;}
   if(await p.locator('[data-turn=confirm]').count()){await dump('conferma2');await click(p.locator('[data-turn=confirm]'));continue;}
   if(await p.locator('[data-action=advance]').count()){await dump('avanti');await click(p.locator('[data-action=advance]'));continue;}
-  await dump('BLOCCO');log.write('\n> NESSUN COMANDO. HTML pulsanti: '+(await p.locator('#panel button').evaluateAll(l=>l.map(b=>b.outerHTML.slice(0,160)).join('\n')))+'\n');break;
+  bloccato=true;await dump('BLOCCO');log.write('\n> NESSUN COMANDO. HTML pulsanti: '+(await p.locator('#panel button').evaluateAll(l=>l.map(b=>b.outerHTML.slice(0,160)).join('\n')))+'\n');break;
  }
  log.write('\n\n# Fine. Click: '+clicks+'. Tempo: '+Math.round((Date.now()-t0)/1000)+'s. Errori: '+JSON.stringify(errs)+'\n');
+ // Controlli automatici (METODO §7, G2): una partita intera senza errori e senza i difetti già visti nelle revisioni.
+ const tutto=testi.join('\n'),controlli=[
+  ['partita arrivata al riepilogo finale',finito],['nessuna pagina senza comandi',!bloccato],['nessun errore nella console',errs.length===0],
+  ['nessuna didascalia generica «Scena della simulazione»',!/Scena della simulazione/.test(tutto)],
+  ['nessun numero negativo nelle previsioni',!/ne restano -\d/.test(tutto)],
+  ['nessuna nota di lavoro nei testi (D-010)',!/\b(da riscontrare|in preparazione|prova tecnica|bozza|TODO)\b/i.test(tutto)],
+  ['nessun «anime e semidei» (D-037)',!/anime e semidei/i.test(tutto)],
+  ['nessun pulsante «Torna a casa» nelle giornate a punti azione',!/Punti azione:[\s\S]{0,1500}TORNA A CASA/.test(tutto)]];
+ const falliti=controlli.filter(c=>!c[1]);
+ fs.writeFileSync(path.join(OUT,'controlli.json'),JSON.stringify({passi:n,tocchi:clicks,controlli:Object.fromEntries(controlli)},null,1));
+ log.write('\n# Controlli\n'+controlli.map(c=>(c[1]?'- ok ':'- NO ')+c[0]).join('\n')+'\n');
+ console.log(controlli.map(c=>(c[1]?'ok  ':'NO  ')+c[0]).join('\n'));
  log.end();await b.close();
+ if(falliti.length)process.exitCode=1;
 })().catch(e=>{log.write('\n\nECCEZIONE '+e.stack);log.end();process.exit(1)});

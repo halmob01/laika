@@ -15,7 +15,9 @@
     "scena": "node bottega/strumenti/componi.js",
     "build:home": "node scripts/build-home.js",
     "allievo": "node scripts/allievo-finto.cjs",
-    "canone": "node scripts/canone.js"
+    "canone": "node scripts/canone.js",
+    "piano": "node scripts/piano.js",
+    "prossimo": "node scripts/piano.js --prossimo"
   },
   "devDependencies": {
     "playwright": "1.58.2"

@@ -11,7 +11,7 @@ Schede degli episodi dell'atto. Numeri, titoli, periodi e gioco di ogni unità: 
 
 Ruoli dell'atto: l'operaio della Putilov (il figlio della famiglia); i delegati del soviet; la famiglia davanti a Stolypin. Fili: chi rappresenta chi; la promessa e il suo prezzo.
 
-> Divisione in unità proposta il 4 novembre 2026 quando il docente ha deciso i tre atti (vedi DECISIONI, D-024 e proposta P-01). Le schede sono quelle della vecchia unità I.4, nello stesso ordine del piano: la petizione prima del corteo.
+Divisione in quattro unità decisa il 4 novembre 2026 (D-024, D-038). Le schede sono quelle della vecchia unità I.4, nello stesso ordine del piano: la petizione prima del corteo.
 
 ## II.1 — La petizione (gennaio 1905) · `petizione`
 
