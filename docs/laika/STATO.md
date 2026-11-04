@@ -37,6 +37,10 @@ Nessuna è ancora stata provata e approvata dal docente dal telefono.
 - Corretti nella PR #38: chiusura dell'atto, muro di indicatori, pulsanti delle giornate, errori di lingua. Corretti nella PR R3: didascalie di altre scene sotto gli episodi che riusano una scena, didascalia generica sotto le verifiche, giornate a punti azione chiuse senza vedere i punti rimasti, numeri negativi nella previsione del grano.
 - Restano: etichette sovrapposte sulla scena (sala del soviet), pagine lunghe sul telefono (tabellone di I.1), la home a 626 KB contro i 500 del budget, «Riprendi» nella home che non compare se si è appena entrati in un'unità senza agire.
 
+## Verifiche automatiche
+
+La CI gioca i tre atti in Chromium e WebKit: circa 11 minuti per browser. Il limite del job è 20 minuti (era 12: il 4 novembre 2026 WebKit è stato interrotto dal limite subito dopo l'unione delle PR del riordino).
+
 ## Disegni
 
 Catalogo in `bottega/catalogo.json`. Kit `kit-villaggio-mir`, `kit-interni-citta`, `kit-soviet-coda` in stato «bozza», da approvare dal docente. Mancano il treno nella neve e il Palazzo di Tauride per l'Atto III (le scene oggi riusano la sala del soviet).
