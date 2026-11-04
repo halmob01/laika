@@ -29,6 +29,22 @@ Nessuna è ancora stata provata e approvata dal docente dal telefono.
 | III.1 `pane-guerra` | In ginocchio, il grano e i treni come partita di sole decisioni, gioielli e pane, la fine dello zar, verifica V5 | **Da rifare**: il gioco approvato (quanto serve e quanto c'è, prime code) non c'è; aneddoti (Fabergé, Kšesinskaja, Rodzjanko) | revisione §3 |
 | III.2 `otto-giorni` | Giornata della donna, la coda a punti azione, il soldato a punti azione, il treno, verifica V6, confronto | **Da rifare**: la coda vera (figure che lasciano la fila); aneddoti del treno (baffi, Frederiks); scene del treno nella neve e del Palazzo di Tauride da comporre con disegni che ci sono già ([PIANO-KIT](PIANO-KIT.md)); oggi treno, fine dello zar in famiglia e confronto sono senza scena invece di riusare scene sbagliate | revisione §3 e §4 |
 
+## Controllo automatico delle unità (4 novembre 2026)
+
+Uscita di `LAIKA_RAPPORTO=1 node tests/unita-ludiche.test.js` (regole di METODO §7, G3a). Diventa vincolante per ogni unità quando il suo incarico è «fatto».
+
+| Unità | Che cosa manca |
+|---|---|
+| I.1 `servitu` | niente |
+| I.2 `mir` | solo richieste a scelta multipla, niente da distribuire o spendere; nessun contenuto documentato |
+| I.3 `citta` | niente (ma il salario si vince con una mossa fissa: lo controlla G3) |
+| II.1 `petizione` | nessun gioco; un modulo con caselle numeriche; nessuna fonte registrata |
+| II.2 `soviet` | nessuna fonte registrata; nessun contenuto documentato (le notizie che non contano le vede G4) |
+| II.3 `concessioni` | nessun gioco; nessuna fonte registrata; nessuna scena propria |
+| II.4 `stolypin` | nessun gioco; nessuna fonte registrata; scene prese dal mir e dal soviet |
+| III.1 `pane-guerra` | solo richieste a scelta multipla; nessuna fonte registrata |
+| III.2 `otto-giorni` | nessuna fonte registrata; la coda usa la scena della panetteria di III.1 |
+
 ## Home e sito
 
 - Home: nove fascicoli dal canone; i tre atti costruiti hanno titolo e «Apri il fascicolo» che portano alla pagina dell'atto (`play.html?game=laika&atto=atto-N`). Evidenze: `docs/evidence/riordino/`.

@@ -46,7 +46,7 @@ Unità del canone: `otto-giorni`.
 - Scene da comporre: il treno fermo nella neve (`mezzo-treno`, `infra-binari`, `atmo-neve`); il confronto con il disco rosso dal Palazzo d'Inverno al Palazzo di Tauride (`luogo-palazzo`, `luogo-palazzo-tauride`, `transfer`). Le schede scena dell'unità prendono il nome stabile (`otto-giorni-*`).
 - Aneddoti R08 e R15 (lo zar che si tocca i baffi e torna nel vagone; il diario del treno) e Frederiks che annuncia in francese: dall'atlante e dai libri se il docente li ha caricati, in parafrasi, registrati in MATRICE.
 
-È fatto quando: Test di bilanciamento della coda: almeno tre strategie arrivano in fondo con esiti diversi; nessuna vince su tutti gli indicatori; Controlli comuni G1–G5 passati (METODO §7).
+È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie); Test di bilanciamento della coda: almeno tre strategie arrivano in fondo con esiti diversi; nessuna vince su tutti gli indicatori; Controlli comuni G1–G5 passati (METODO §7).
 
 ## K4 — Bottega: i disegni che mancano agli Atti I–III
 
@@ -71,7 +71,7 @@ Unità del canone: `pane-guerra`.
 - Scene: la catena del grano, la trincea, il manifesto del prestito, la vetrina del gioielliere accanto alla coda, il palazzo isolato nella foschia per «La fine dello zar comincia in famiglia».
 - Aneddoti C39 (Fabergé), C42 (Kšesinskaja e l'artiglieria), Miljukov («stupidità o tradimento?»), C43 (Rodzjanko), la battuta dello zar all'ambasciatore britannico: dall'atlante e dai libri, in parafrasi, registrati in MATRICE.
 
-È fatto quando: Test di bilanciamento: almeno tre strategie con esiti diversi; nessuna vince su tutto; Controlli comuni G1–G5 passati (METODO §7).
+È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie); Test di bilanciamento: almeno tre strategie con esiti diversi; nessuna vince su tutto; Controlli comuni G1–G5 passati (METODO §7).
 
 ## C-III — Il docente prova l'Atto III dal telefono
 
@@ -87,9 +87,10 @@ Unità del canone: `pane-guerra`, `otto-giorni`.
 Unità del canone: `mir`.
 
 - Scheda di gioco `docs/laika/giochi/mir.md` riscritta (la versione approvata il 3 novembre va in archivio): le strisce come posti da assegnare alle famiglie e la cassa come risorsa, così fra una richiesta e l'altra c'è qualcosa da gestire (PIANO-KIT, I.2). Revisione indipendente prima del codice.
+- Il gioco usa solo le modalità del motore che ci sono (gestione con persone e posti, monete, richieste, giornate a punti azione) o quelle costruite da K1 e K2; se la scheda chiede una meccanica nuova è una condizione di arresto.
 - Scene: le strisce che cambiano (`mir-strisce-prima`, `mir-strisce-dopo`), il registro, il covone.
 
-È fatto quando: Test di bilanciamento del mir: almeno tre strategie; ogni gruppo può andare in crisi; Controlli comuni G1–G5 passati (METODO §7).
+È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie); Test di bilanciamento del mir: almeno tre strategie; ogni gruppo può andare in crisi; Controlli comuni G1–G5 passati (METODO §7).
 
 ## U-citta — I.3 In città: un salario che mette alle strette e il confronto di fine atto
 
@@ -99,7 +100,7 @@ Unità del canone: `citta`.
 - Scene: dormitorio e carbone; la corte del 1896 nella sala con i lampadari e la tazza smaltata di Chodynka.
 - Scrivere I.3-e7, il confronto di fine atto, e la sua scena.
 
-È fatto quando: Test di bilanciamento del salario: la mossa fissa non regge tutte le settimane; almeno tre strategie con esiti diversi; Controlli comuni G1–G5 passati (METODO §7).
+È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie); Test di bilanciamento del salario: la mossa fissa non regge tutte le settimane; almeno tre strategie con esiti diversi; Controlli comuni G1–G5 passati (METODO §7).
 
 ## U-servitu — I.1 La terra e lo zar: rifiniture
 
@@ -109,7 +110,7 @@ Unità del canone: `servitu`.
 - Telefono: tabellone più corto (migliorie chiuse in un pannello), etichette dei posti dentro la scena.
 - Scena delle utopie con la colonia militare (K4).
 
-È fatto quando: Controlli comuni G1–G5 passati (METODO §7).
+È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie); Controlli comuni G1–G5 passati (METODO §7).
 
 ## C-I — Il docente prova l'Atto I dal telefono
 
@@ -126,37 +127,40 @@ Unità del canone: `soviet`.
 - Scheda `docs/laika/giochi/soviet.md` aggiornata: dopo aver indagato si sceglie a quale lettura dare peso e la scelta cambia gli effetti dei giorni dopo. Se le condizioni `when` del motore non bastano, prima una PR di motore piccola (K5) con test.
 - Scena: tavolo, telegrafo e bandiera nella sala; etichette dei posti senza sovrapposizioni.
 
-È fatto quando: Test di bilanciamento: seguire una lettura o l'altra porta a esiti diversi; Controlli comuni G1–G5 passati (METODO §7).
+È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie); Test di bilanciamento: seguire una lettura o l'altra porta a esiti diversi; Controlli comuni G1–G5 passati (METODO §7).
 
 ## U-petizione — II.1 La petizione: il gioco e la domenica di sangue
 
 Unità del canone: `petizione`.
 
 - Scheda di gioco `docs/laika/giochi/petizione.md`: un gioco del repertorio al posto del modulo con cinque righe (proposta da valutare nella scheda: decisioni sui gruppi fra operai, Gapon e polizia mentre si raccolgono le firme). Revisione indipendente prima del codice.
+- Il gioco usa solo le modalità del motore che ci sono (gestione con persone e posti, monete, richieste, giornate a punti azione) o quelle costruite da K1 e K2; se la scheda chiede una meccanica nuova è una condizione di arresto.
 - Scene: le officine Putilov, il Palazzo d'Inverno sullo sfondo della piazza, il corteo con le icone e il ritratto dello zar.
 - Aneddoto: il diario di Nicola («Giornata terribile!» e subito dopo il pranzo con la madre), in parafrasi se il passo non si riscontra.
 
-È fatto quando: Test di bilanciamento; Controlli comuni G1–G5 passati (METODO §7).
+È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie); Test di bilanciamento; Controlli comuni G1–G5 passati (METODO §7).
 
 ## U-concessioni — II.3 Che cosa concede lo zar: il gioco e gli aneddoti
 
 Unità del canone: `concessioni`.
 
 - Scheda di gioco `docs/laika/giochi/concessioni.md` (un gioco del repertorio, non tre schede da leggere); la scelta nel soviet (II.2) apre o chiude un'opzione qui.
+- Il gioco usa solo le modalità del motore che ci sono (gestione con persone e posti, monete, richieste, giornate a punti azione) o quelle costruite da K1 e K2; se la scheda chiede una meccanica nuova è una condizione di arresto.
 - Scene: la sala di San Giorgio con uniformi e giacche in due blocchi; il palco del teatro; l'aquila imperiale.
 - Aneddoti: il granduca Nikolaj che minaccia di spararsi se lo zar non firma; la ballerina insultata a teatro per le corazzate perdute (C36).
 
-È fatto quando: Test di bilanciamento; Controlli comuni G1–G5 passati (METODO §7).
+È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie); Test di bilanciamento; Controlli comuni G1–G5 passati (METODO §7).
 
 ## U-stolypin — II.4 Stolypin: il gioco e il confronto di fine atto
 
 Unità del canone: `stolypin`.
 
 - Scheda di gioco `docs/laika/giochi/stolypin.md`: restare nel mir, uscire e unire le strisce, vendere e partire, con conseguenze in più anni (gestione), non una scelta sola.
+- Il gioco usa solo le modalità del motore che ci sono (gestione con persone e posti, monete, richieste, giornate a punti azione) o quelle costruite da K1 e K2; se la scheda chiede una meccanica nuova è una condizione di arresto.
 - Scena: le strisce che diventano un podere (K4).
 - Scrivere II.4-e3, il confronto di fine atto, e la sua scena.
 
-È fatto quando: Test di bilanciamento; Controlli comuni G1–G5 passati (METODO §7).
+È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie); Test di bilanciamento; Controlli comuni G1–G5 passati (METODO §7).
 
 ## C-II — Il docente prova l'Atto II dal telefono
 
