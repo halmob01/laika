@@ -11,7 +11,7 @@ Scritta il 4 novembre 2026 (incarico C-III). Dal telefono, aprendo la home di LA
 5. **III.2, il soldato che non spara.** Le tre giornate del 12, 13 e 14 marzo: le cinque azioni sono chiare? Marciare al Palazzo di Tauride spiega i due poteri in modo comprensibile?
 6. **III.2, il treno e il riepilogo.** Il racconto del treno e «Cosa ti devi ricordare»: i tre obiettivi dell'unità (sequenza, soldati che non sparano, i due poteri) si leggono?
 7. **Il telefono.** Etichette dei pulsanti, pannelli lunghi, scorrimento: nulla sfora lo schermo? Prova anche con il testo ingrandito e in orizzontale.
-8. **Le scene.** I disegni nuovi dell'Atto III (stazione, treno, trincea, vetrina, tazza non qui) e le tre pose di attesa (scialle, orologio, piedi): sono leggibili? Quelle in «bozza» vanno approvate nella galleria (`/bottega/galleria.html`).
+8. **Le scene.** I disegni dell'Atto III (stazione, treno, trincea, vetrina del gioielliere, palazzo isolato) e le tre pose di attesa (scialle, orologio, piedi): sono leggibili? Quelle in «bozza» vanno approvate nella galleria (`/bottega/galleria.html`).
 9. **Il divertimento.** Quale delle due unità ti ha fatto venire voglia di rigiocare? Quale ti ha annoiato?
 10. **Che cosa cambieresti per prima.** Ogni osservazione diventa un incarico nuovo inserito subito dopo quello in corso.
 
