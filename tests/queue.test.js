@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import {newSession, transition, replay} from '../src/runner/index.js';
 import {validateGame} from '../src/core/schema.js';
 import {exportSave, restore} from '../src/storage/index.js';
-import {queueView, queueDrain} from '../src/core/queue.js';
+import {queueView, queueDrain, resolveExit} from '../src/core/queue.js';
 import {matches} from '../src/core/engine.js';
 
 const offerte = () => [
@@ -156,4 +156,91 @@ test('coda: salvataggio e ripresa a metà e rigioco delle mosse', () => {
   assert.deepEqual(a.currentAct, b.currentAct);
   assert.deepEqual(replay(g, a.ledger, 's6').currentAct, a.currentAct);
   assert.equal(replay(g, a.ledger, 's6').currentAct.metrics.malcontento, a.currentAct.metrics.malcontento);
+});
+
+test('coda: le crisi si controllano dopo la discesa, anche dopo l\'ultima giornata', () => {
+  const g = gioco(); const e = ep(g);
+  // Una crisi che scatta solo per effetto dell'uscita di un gruppo: malcontento a 20 o più (le madri portano +20 al terzo turno).
+  e.crises = [{ id: 'piazza-piena', when: { op: 'gte', kind: 'metric', id: 'malcontento', value: 20 }, text: 'La piazza è piena.', effects: [{ kind: 'metric', id: 'malcontento', delta: 7 }] }];
+  validateGame(g);
+  let s = newSession(g, 's7');
+  s = finisciTurno(g, s); s = finisciTurno(g, s);
+  assert.equal(s.currentAct.metrics.malcontento, 0);
+  const r = transition(g, s, { type: 'turn', step: 'leave' });
+  s = r.nextState;
+  assert.equal(s.currentAct.metrics.malcontento, 27, 'uscita (+20) e poi la crisi (+7), senza bisogno di un\'azione');
+  assert.deepEqual(coda(s).last.crises.map(c => c.id), ['piazza-piena']);
+  assert.match(r.feedback, /La piazza è piena\./);
+  assert.deepEqual(coda(s).last.changes.map(c => [c.id, c.before, c.after]), [['malcontento', 0, 27]]);
+  // Dopo l'ultima giornata: la crisi scatta lo stesso e il testo finale la include.
+  const h = gioco(), f = ep(h);
+  f.crises = [{ id: 'ultima', when: { op: 'gte', kind: 'metric', id: 'malcontento', value: 30 }, text: 'Le fabbriche si fermano.', effects: [{ kind: 'metric', id: 'malcontento', delta: 10 }] }];
+  f.turns = f.turns.slice(0, 4); f.turns[3].queue = { drain: 5 };
+  validateGame(h);
+  let u = newSession(h, 's8');
+  for (let i = 0; i < 3; i++) u = finisciTurno(h, u);
+  const fine = transition(h, u, { type: 'turn', step: 'leave' });
+  assert.equal(fine.nextState.currentAct.phase, 'outcome');
+  assert.equal(fine.nextState.currentAct.metrics.malcontento, 40, 'crisi dopo l\'ultima discesa: 20 + 10 + 10');
+  assert.match(fine.feedback, /Le fabbriche si fermano\.[^]*Fine\./);
+});
+
+test('coda: l\'uscita può dipendere dagli indicatori nel momento in cui il gruppo se ne va', () => {
+  const g = gioco(); const e = ep(g);
+  e.queue.exits.push({ id: 'casa', label: 'A casa', text: 'tornano a casa.', effects: [{ kind: 'metric', id: 'malcontento', delta: 1 }] });
+  e.queue.groups[1].exit = [{ when: { op: 'gte', kind: 'metric', id: 'malcontento', value: 5 }, to: 'corteo' }, { to: 'casa' }];
+  validateGame(g);
+  const state = s => s.currentAct;
+  let s = newSession(g, 's9');
+  const view = x => queueView(e.queue, x.currentAct.game, e.turns[x.currentAct.game.turn], x.currentAct, matches).groups[1].exit;
+  assert.equal(view(s), 'A casa', 'la lettura mostra dove andrebbe adesso');
+  // Con il malcontento già alto le madri vanno al corteo.
+  const alto = JSON.parse(JSON.stringify(s)); alto.currentAct.metrics.malcontento = 10;
+  assert.equal(view(alto), 'Nel corteo');
+  assert.equal(resolveExit(e.queue, e.queue.groups[1], alto.currentAct, matches).id, 'corteo');
+  // Senza far nulla: al terzo giorno le madri se ne vanno con il malcontento a 0: tornano a casa (+1), non nel corteo (+20).
+  s = finisciTurno(g, s); s = finisciTurno(g, s); s = finisciTurno(g, s);
+  assert.equal(coda(s).groups.madri.gone, true);
+  assert.ok(coda(s).last.events.some(x => x.group === 'madri' && x.exit === 'casa'));
+  assert.equal(state(s).metrics.malcontento, 1);
+  // Con il malcontento alto al momento dell'uscita: corteo.
+  let t2 = newSession(g, 's10');
+  t2 = finisciTurno(g, t2); t2 = finisciTurno(g, t2);
+  const sp = JSON.parse(JSON.stringify(t2)); sp.currentAct.metrics.malcontento = 10;
+  const back = transition(g, sp, { type: 'turn', step: 'leave' }).nextState;
+  assert.ok(coda(back).last.events.some(x => x.group === 'madri' && x.exit === 'corteo'));
+  assert.equal(back.currentAct.metrics.malcontento, 30);
+});
+
+test('coda: validazione delle uscite condizionate', () => {
+  const casi = [
+    g => { ep(g).queue.groups[0].exit = [{ to: 'fabbrica' }]; },
+    g => { ep(g).queue.groups[0].exit = [{ to: 'fabbrica' }, { to: 'corteo' }]; },
+    g => { ep(g).queue.groups[0].exit = [{ when: { op: 'gte', kind: 'metric', id: 'malcontento', value: 5 }, to: 'fabbrica' }, { when: { op: 'gte', kind: 'metric', id: 'malcontento', value: 1 }, to: 'corteo' }]; },
+    g => { ep(g).queue.groups[0].exit = [{ when: { op: 'gte', kind: 'metric', id: 'malcontento', value: 5 }, to: 'sconosciuta' }, { to: 'corteo' }]; },
+    g => { ep(g).queue.groups[0].exit = [{ when: { op: 'gte', kind: 'metric', id: 'ignota', value: 5 }, to: 'fabbrica' }, { to: 'corteo' }]; }
+  ];
+  for (const muta of casi) { const g = gioco(); muta(g); assert.throws(() => validateGame(g)); }
+  const g = gioco(); ep(g).queue.groups[0].exit = [{ when: { op: 'gte', kind: 'metric', id: 'malcontento', value: 5 }, to: 'fabbrica' }, { to: 'corteo' }];
+  validateGame(g);
+});
+
+test('coda: sei regole di uscita sono troppe, la crisi non scatta due volte, ripresa con la crisi già scattata', () => {
+  const g = gioco(); const e = ep(g);
+  const r = n => ({ when: { op: 'gte', kind: 'metric', id: 'malcontento', value: n }, to: 'corteo' });
+  e.queue.groups[0].exit = [r(1), r(2), r(3), r(4), r(5), { to: 'fabbrica' }];
+  assert.throws(() => validateGame(g));
+  const h = gioco(), f = ep(h);
+  f.crises = [{ id: 'piazza-piena', when: { op: 'gte', kind: 'metric', id: 'malcontento', value: 20 }, text: 'La piazza è piena.', effects: [{ kind: 'metric', id: 'malcontento', delta: 7 }] }];
+  let s = newSession(h, 's11');
+  for (let i = 0; i < 3; i++) s = finisciTurno(h, s);
+  assert.deepEqual(coda(s).last.crises.map(c => c.id), ['piazza-piena']);
+  const dopo = s.currentAct.metrics.malcontento;
+  const back = restore(h, exportSave(h, s));
+  assert.equal(back.ok, true);
+  assert.deepEqual(back.state.currentAct.game.queue.last.crises, coda(s).last.crises);
+  let u = back.state; u = finisciTurno(h, u);
+  assert.equal(coda(u).last.crises.length, 0, 'la crisi è già scattata: non si ripete');
+  assert.ok(u.currentAct.metrics.malcontento >= dopo);
+  assert.deepEqual(u.currentAct.game.fired, ['piazza-piena']);
 });

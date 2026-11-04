@@ -4,30 +4,31 @@
 
 Come si lavora in autonomia, controlli e condizioni di arresto: [METODO](METODO.md) §7. Il prossimo incarico e il messaggio da dare all'agente: `npm run prossimo`.
 
-Incarichi fatti: 2 su 20. Prossimo: U-otto-giorni.
+Incarichi fatti: 3 su 21. Prossimo: U-otto-giorni.
 
 | # | Incarico | Tipo | Modello | Dopo | Stato |
 |---:|---|---|---|---|---|
 | 1 | **S1** Le scene delle unità già fatte con i disegni che ci sono | scene | Sonnet | — | fatto (PR #47) |
 | 2 | **K1** Motore: la coda con la pazienza | motore | Opus | S1 | fatto (PR #48) |
-| 3 | **U-otto-giorni** III.2 Otto giorni: la coda vera, il soldato, il treno, Tauride | unità | Opus | S1, K1 | in corso |
-| 4 | **K4** Bottega: i disegni che mancano agli Atti I–III | bottega | Sonnet | S1 | da fare |
-| 5 | **K2** Motore: le merci che camminano | motore | Opus | S1 | da fare |
-| 6 | **U-pane-guerra** III.1 Pane e guerra: grano, treni e città | unità | Opus | S1, K2, K4 | da fare |
-| 7 | **C-III** Il docente prova l'Atto III dal telefono | controllo | — | U-pane-guerra, U-otto-giorni | da fare |
-| 8 | **U-mir** I.2 Il mir: da questionario a gioco | unità | Opus | S1, K4 | da fare |
-| 9 | **U-citta** I.3 In città: un salario che mette alle strette e il confronto di fine atto | unità | Sonnet | S1, K4 | da fare |
-| 10 | **U-servitu** I.1 La terra e lo zar: rifiniture | unità | Sonnet | S1, K4 | da fare |
-| 11 | **C-I** Il docente prova l'Atto I dal telefono | controllo | — | U-mir, U-citta, U-servitu | da fare |
-| 12 | **U-soviet** II.2 Il soviet: notizie che contano | unità | Opus | S1 | da fare |
-| 13 | **U-petizione** II.1 La petizione: il gioco e la domenica di sangue | unità | Opus | S1, K4 | da fare |
-| 14 | **U-concessioni** II.3 Che cosa concede lo zar: il gioco e gli aneddoti | unità | Opus | S1, K4, U-soviet | da fare |
-| 15 | **U-stolypin** II.4 Stolypin: il gioco e il confronto di fine atto | unità | Sonnet | S1, K4 | da fare |
-| 16 | **C-II** Il docente prova l'Atto II dal telefono | controllo | — | U-soviet, U-petizione, U-concessioni, U-stolypin | da fare |
-| 17 | **K3** Motore e contenuti: il ponte fra gli atti e la famiglia | motore | Opus | U-citta, U-stolypin, U-pane-guerra | da fare |
-| 18 | **U-sito** Il sito sul telefono: pagine, pesi, ripresa | trasversale | Sonnet | K3 | da fare |
-| 19 | **V-1917** Verifica finale degli Atti I–III | verifica | Opus | U-sito, C-I, C-II, C-III | da fare |
-| 20 | **C-1917** Il docente prova il percorso fino al 1917 | controllo | — | V-1917 | da fare |
+| 3 | **K6** Motore: le crisi dopo la coda e le uscite che dipendono dalla partita | motore | Opus | K1 | fatto (PR #49) |
+| 4 | **U-otto-giorni** III.2 Otto giorni: la coda vera, il soldato, il treno, Tauride | unità | Opus | S1, K1, K6 | in corso |
+| 5 | **K4** Bottega: i disegni che mancano agli Atti I–III | bottega | Sonnet | S1 | da fare |
+| 6 | **K2** Motore: le merci che camminano | motore | Opus | S1 | da fare |
+| 7 | **U-pane-guerra** III.1 Pane e guerra: grano, treni e città | unità | Opus | S1, K2, K4 | da fare |
+| 8 | **C-III** Il docente prova l'Atto III dal telefono | controllo | — | U-pane-guerra, U-otto-giorni | da fare |
+| 9 | **U-mir** I.2 Il mir: da questionario a gioco | unità | Opus | S1, K4 | da fare |
+| 10 | **U-citta** I.3 In città: un salario che mette alle strette e il confronto di fine atto | unità | Sonnet | S1, K4 | da fare |
+| 11 | **U-servitu** I.1 La terra e lo zar: rifiniture | unità | Sonnet | S1, K4 | da fare |
+| 12 | **C-I** Il docente prova l'Atto I dal telefono | controllo | — | U-mir, U-citta, U-servitu | da fare |
+| 13 | **U-soviet** II.2 Il soviet: notizie che contano | unità | Opus | S1 | da fare |
+| 14 | **U-petizione** II.1 La petizione: il gioco e la domenica di sangue | unità | Opus | S1, K4 | da fare |
+| 15 | **U-concessioni** II.3 Che cosa concede lo zar: il gioco e gli aneddoti | unità | Opus | S1, K4, U-soviet | da fare |
+| 16 | **U-stolypin** II.4 Stolypin: il gioco e il confronto di fine atto | unità | Sonnet | S1, K4 | da fare |
+| 17 | **C-II** Il docente prova l'Atto II dal telefono | controllo | — | U-soviet, U-petizione, U-concessioni, U-stolypin | da fare |
+| 18 | **K3** Motore e contenuti: il ponte fra gli atti e la famiglia | motore | Opus | U-citta, U-stolypin, U-pane-guerra | da fare |
+| 19 | **U-sito** Il sito sul telefono: pagine, pesi, ripresa | trasversale | Sonnet | K3 | da fare |
+| 20 | **V-1917** Verifica finale degli Atti I–III | verifica | Opus | U-sito, C-I, C-II, C-III | da fare |
+| 21 | **C-1917** Il docente prova il percorso fino al 1917 | controllo | — | V-1917 | da fare |
 
 ## S1 — Le scene delle unità già fatte con i disegni che ci sono
 
@@ -49,6 +50,17 @@ Evidenze: docs/evidence/S1/, docs/evidence/S1/allievo/trascrizione.md.
 È fatto quando: Test del motore: pazienza, segnali alle soglie, uscita dalla fila, salvataggio e ripresa a metà; Scena di prova nella galleria della bottega; Controlli comuni G1–G5 passati (METODO §7).
 
 Evidenze: docs/evidence/K1/, tests/queue.test.js.
+
+## K6 — Motore: le crisi dopo la coda e le uscite che dipendono dalla partita
+
+- Inserito il 4 novembre 2026 dalla revisione indipendente della scheda di «Otto giorni» (D-041): due meccaniche mancavano alla coda di K1.
+- Le crisi dei turni a punti si controllano anche dopo la discesa della coda a fine giornata (oggi solo dopo un'azione), anche dopo l'ultima giornata.
+- Un gruppo in fila può avere più destinazioni scelte da una condizione sugli indicatori al momento dell'uscita (`exit` come elenco di regole con `when`, l'ultima senza condizione); il pannello mostra dove andrebbe adesso.
+- Test del motore, sezione aggiornata in `docs/CREARE-UN-GIOCO.md`.
+
+È fatto quando: Test del motore: la crisi scatta dopo l'ultima discesa; l'uscita cambia con gli indicatori; la lettura per l'interfaccia mostra la destinazione di adesso; salvataggio e ripresa; Controlli comuni G1–G5 passati (METODO §7).
+
+Evidenze: tests/queue.test.js, docs/CREARE-UN-GIOCO.md.
 
 ## U-otto-giorni — III.2 Otto giorni: la coda vera, il soldato, il treno, Tauride
 

@@ -69,6 +69,37 @@
       ]
     },
     {
+      "id": "K6",
+      "titolo": "Motore: le crisi dopo la coda e le uscite che dipendono dalla partita",
+      "tipo": "motore",
+      "modello": "Opus",
+      "unita": [],
+      "dipende": [
+        "K1"
+      ],
+      "leggere": [
+        "docs/laika/GIOCHI.md",
+        "docs/CREARE-UN-GIOCO.md",
+        "src/core/queue.js"
+      ],
+      "fare": [
+        "Inserito il 4 novembre 2026 dalla revisione indipendente della scheda di «Otto giorni» (D-041): due meccaniche mancavano alla coda di K1.",
+        "Le crisi dei turni a punti si controllano anche dopo la discesa della coda a fine giornata (oggi solo dopo un'azione), anche dopo l'ultima giornata.",
+        "Un gruppo in fila può avere più destinazioni scelte da una condizione sugli indicatori al momento dell'uscita (`exit` come elenco di regole con `when`, l'ultima senza condizione); il pannello mostra dove andrebbe adesso.",
+        "Test del motore, sezione aggiornata in `docs/CREARE-UN-GIOCO.md`."
+      ],
+      "fatto_quando": [
+        "Test del motore: la crisi scatta dopo l'ultima discesa; l'uscita cambia con gli indicatori; la lettura per l'interfaccia mostra la destinazione di adesso; salvataggio e ripresa",
+        "Controlli comuni G1–G5 passati (METODO §7)"
+      ],
+      "stato": "fatto",
+      "pr": 49,
+      "evidenze": [
+        "tests/queue.test.js",
+        "docs/CREARE-UN-GIOCO.md"
+      ]
+    },
+    {
       "id": "U-otto-giorni",
       "titolo": "III.2 Otto giorni: la coda vera, il soldato, il treno, Tauride",
       "tipo": "unità",
@@ -78,7 +109,8 @@
       ],
       "dipende": [
         "S1",
-        "K1"
+        "K1",
+        "K6"
       ],
       "leggere": [
         "docs/laika/atti/atto-3.md",
