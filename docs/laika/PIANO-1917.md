@@ -4,7 +4,7 @@
 
 Come si lavora in autonomia, controlli e condizioni di arresto: [METODO](METODO.md) §7. Il prossimo incarico e il messaggio da dare all'agente: `npm run prossimo`.
 
-Incarichi fatti: 7 su 21. Prossimo: C-III.
+Incarichi fatti: 7 su 21. Prossimo: U-mir.
 
 | # | Incarico | Tipo | Modello | Dopo | Stato |
 |---:|---|---|---|---|---|
@@ -15,7 +15,7 @@ Incarichi fatti: 7 su 21. Prossimo: C-III.
 | 5 | **K4** Bottega: i disegni che mancano agli Atti I–III | bottega | Sonnet | S1 | fatto (PR #51) |
 | 6 | **K2** Motore: le merci che camminano | motore | Opus | S1 | fatto (PR #52) |
 | 7 | **U-pane-guerra** III.1 Pane e guerra: grano, treni e città | unità | Opus | S1, K2, K4 | fatto (PR #53) |
-| 8 | **C-III** Il docente prova l'Atto III dal telefono | controllo | — | U-pane-guerra, U-otto-giorni | da fare |
+| 8 | **C-III** Il docente prova l'Atto III dal telefono | controllo | — | U-pane-guerra, U-otto-giorni | aspetta il docente |
 | 9 | **U-mir** I.2 Il mir: da questionario a gioco | unità | Opus | S1, K4 | da fare |
 | 10 | **U-citta** I.3 In città: un salario che mette alle strette e il confronto di fine atto | unità | Sonnet | S1, K4 | da fare |
 | 11 | **U-servitu** I.1 La terra e lo zar: rifiniture | unità | Sonnet | S1, K4 | da fare |
