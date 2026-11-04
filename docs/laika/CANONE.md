@@ -78,7 +78,7 @@ Un potere sacro può sopravvivere quando non ci crede più nemmeno chi lo serve?
 | Unità | Nome stabile | Titolo | Periodo | Gioco | Gioco deciso | Stato |
 |---|---|---|---|---|---|---|
 | III.1 | `pane-guerra` | Pane e guerra | agosto 1914–dicembre 1916 | quanto serve e quanto c'è (grano, treni, città), prime code | approvato | da rifare |
-| III.2 | `otto-giorni` | Otto giorni | 8–16 marzo 1917 | code che diventano corteo, poi punti azione (il soldato che non spara) | approvato | da rifare |
+| III.2 | `otto-giorni` | Otto giorni | 8–16 marzo 1917 | [code che diventano corteo, poi punti azione (il soldato che non spara)](giochi/otto-giorni.md) | approvato | bozza |
 
 **Obiettivi: alla fine dell'unità lo studente sa…**
 
@@ -92,7 +92,7 @@ Un potere sacro può sopravvivere quando non ci crede più nemmeno chi lo serve?
   - Distinguere i due poteri nati al Palazzo di Tauride: il Comitato provvisorio della Duma e il soviet di Pietrogrado.
 
 - III.1: Costruita il 3 novembre come partita di sole decisioni: non è il gioco approvato.
-- III.2: La coda è una versione semplice a punti azione, senza figure che lasciano la fila: non è il gioco approvato.
+- III.2: Costruita il 4 novembre 2026 con la coda con la pazienza (K1, K6) e il soldato a punti azione; da provare dal telefono (C-III).
 
 ## Atto IV — La primavera della libertà (marzo–luglio 1917)
 

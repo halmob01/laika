@@ -54,11 +54,13 @@ Ruoli: la figlia operaia tessile; un soldato del reggimento Volynskij; un deputa
 - **Chi la sviluppa.** Sonnet.
 
 **III.2-e3 · narrative [D] · Il treno fermo nella neve**
-- **Scena.** Al Palazzo di Tauride nascono lo stesso giorno il Comitato della Duma e il soviet. Il treno dello zar è deviato a Pskov. Mentre arrivano i telegrammi, Nicola annota nel diario la vita del treno (R15). Abdica; dopo, si tocca i baffi come al solito e torna nel vagone (R08). Frederiks lo annuncia in francese e poi piange.
+- **Scena.** Al Palazzo di Tauride nascono lo stesso giorno il Comitato della Duma e il soviet. Il treno dello zar è deviato a Pskov. Mentre arrivano i telegrammi, Nicola annota nel diario la vita del treno (R15). Abdica; dopo, si tocca i baffi come al solito e torna nel vagone (R08). Il 16 marzo (3 marzo) rinuncia anche il fratello Michele. *(Il passo di Frederiks, che annuncia in francese e poi piange, non si è trovato nelle fonti ed è stato tolto il 4 novembre 2026.)*
 - **Sotto la scena.** Che cosa resta di un semidio quando smette di esserlo? Un uomo con un'abitudine.
 - **Materiali.** R08, R15 (Miéville).
 - **Regia.** Il treno fermo nella neve; il palazzo diviso in due ali.
 - **Chi la sviluppa.** Sonnet.
+
+**III.2-e3b · narrative [D] · Cosa ti devi ricordare.** Aggiunta il 4 novembre 2026 (standard didattico, PERCORSO §7): i tre obiettivi dell'unità in parole semplici.
 
 **III.2-e4 · assessment [V] · Verifica V6.**
 

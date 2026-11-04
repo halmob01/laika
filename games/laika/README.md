@@ -24,7 +24,7 @@ Aprire `/` per la home, `/play.html?game=laika` per il corso: si entra dalla pag
 
 Il build proietta i campi runtime dei contenitori, risolve i riferimenti e rimuove la chiave riservata `editorial` a ogni profondità. Mettere note, localizzazioni bibliografiche interne e motivazioni dei distrattori sotto tale chiave; `source` e `sources` runtime restano disponibili allo studente. Nessuna funzione o import di codice nei contenuti. I percorsi di input restano all'interno del pacchetto. Composizione, schema, binding e SVG usano `validatePack`: non esiste un validatore SVG LAIKA separato.
 
-Due build producono gli stessi byte. Un riferimento mancante, un ID duplicato (anche di episodio fra atti), una domanda non risolta o uno schema invalido interrompono il build prima di riscrivere il manifest.
+Il build ammette solo i campi di episodio elencati in `scripts/build-laika.js` (`episodeFields`): un campo nuovo del motore (per esempio `queue`, la coda con la pazienza) va aggiunto lì, altrimenti il build lo scarta e la validazione segnala che la coda non è dichiarata. Due build producono gli stessi byte. Un riferimento mancante, un ID duplicato (anche di episodio fra atti), una domanda non risolta o uno schema invalido interrompono il build prima di riscrivere il manifest.
 
 Per giocare l'atto intero come uno studente e avere una trascrizione: `npm run serve`, poi `npm run allievo` (vedi `scripts/allievo-finto.cjs`).
 
