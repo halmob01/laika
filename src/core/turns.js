@@ -322,7 +322,13 @@ function fireCrises(act, e, state, g, cause) {
 }
 function nextTurn(e, state, g, act, sink = []) {
   // Fine del turno: la coda scende, manda i suoi segnali e chi ha finito la pazienza se ne va.
-  if (e.queue) sink.push(...queueTick(e.queue, g, e.turns[g.turn], state, { matches, applyEffects, netChanges, act }, e.id + ':' + g.turn + ':coda'));
+  if (e.queue) {
+    const tick = queueTick(e.queue, g, e.turns[g.turn], state, { matches, applyEffects, netChanges, act }, e.id + ':' + g.turn + ':coda');
+    // Le crisi si controllano anche dopo la discesa (e dopo l'ultima giornata): gli effetti delle uscite possono farle scattare.
+    const cr = fireCrises(act, e, state, g, e.id + ':' + g.turn + ':coda');
+    g.queue.last.crises = cr.crises; g.queue.last.changes = netChanges([...tick, ...cr.changes]);
+    sink.push(...tick, ...cr.changes);
+  }
   g.turn++;
   if (g.turn >= e.turns.length) { g.phase = 'done'; return true; }
   enterTurn(e, g, state, act); return false;
@@ -458,10 +464,12 @@ export function turnAction(act, e, previous, action, seed) {
       nextTurn(e, state, g, act, changes); break;
   }
   // Se il turno è finito, i segnali e le uscite della coda entrano nel testo dell'ultima mossa.
-  if (g.queue?.last?.turn === turn0 && g.queue.last.events.length && ['continue', 'leave'].includes(action.step)) feedback = [feedback, ...g.queue.last.events.map(x => x.text)].filter(Boolean).join(' ');
+  if (g.queue?.last?.turn === turn0 && (g.queue.last.events.length || g.queue.last.crises?.length) && ['continue', 'leave'].includes(action.step)) feedback = [feedback, ...g.queue.last.events.map(x => x.text), ...(g.queue.last.crises || []).map(x => x.text)].filter(Boolean).join(' ');
   if (g.phase === 'done') {
     state.turn++; state.events.push(e.id); state.phase = 'outcome';
-    feedback = e.feedback; state.last = { feedback, changes: [], events: [], sourceDecisionId: e.id };
+    // L'ultima discesa della coda (segnali, uscite, crisi) precede il testo finale.
+    const fine = g.queue?.last?.turn === turn0 ? [...g.queue.last.events.map(x => x.text), ...(g.queue.last.crises || []).map(x => x.text)] : [];
+    feedback = [...fine, e.feedback].join(' '); state.last = { feedback, changes: [], events: [], sourceDecisionId: e.id };
   }
   assert(PHASES.includes(g.phase), 'Fase non valida');
   return { state, appliedChanges: changes, events: [], feedback };
