@@ -55,6 +55,7 @@
         "Aneddoti R08 e R15 (lo zar che si tocca i baffi e torna nel vagone; il diario del treno) e Frederiks che annuncia in francese: dall'atlante e dai libri se il docente li ha caricati, in parafrasi, registrati in MATRICE."
       ],
       "fatto_quando": [
+        "Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie)",
         "Test di bilanciamento della coda: almeno tre strategie arrivano in fondo con esiti diversi; nessuna vince su tutti gli indicatori",
         "Controlli comuni G1–G5 passati (METODO §7)"
       ],
@@ -127,6 +128,7 @@
         "Aneddoti C39 (Fabergé), C42 (Kšesinskaja e l'artiglieria), Miljukov («stupidità o tradimento?»), C43 (Rodzjanko), la battuta dello zar all'ambasciatore britannico: dall'atlante e dai libri, in parafrasi, registrati in MATRICE."
       ],
       "fatto_quando": [
+        "Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie)",
         "Test di bilanciamento: almeno tre strategie con esiti diversi; nessuna vince su tutto",
         "Controlli comuni G1–G5 passati (METODO §7)"
       ],
@@ -173,9 +175,11 @@
       ],
       "fare": [
         "Scheda di gioco `docs/laika/giochi/mir.md` riscritta (la versione approvata il 3 novembre va in archivio): le strisce come posti da assegnare alle famiglie e la cassa come risorsa, così fra una richiesta e l'altra c'è qualcosa da gestire (PIANO-KIT, I.2). Revisione indipendente prima del codice.",
+        "Il gioco usa solo le modalità del motore che ci sono (gestione con persone e posti, monete, richieste, giornate a punti azione) o quelle costruite da K1 e K2; se la scheda chiede una meccanica nuova è una condizione di arresto.",
         "Scene: le strisce che cambiano (`mir-strisce-prima`, `mir-strisce-dopo`), il registro, il covone."
       ],
       "fatto_quando": [
+        "Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie)",
         "Test di bilanciamento del mir: almeno tre strategie; ogni gruppo può andare in crisi",
         "Controlli comuni G1–G5 passati (METODO §7)"
       ],
@@ -203,6 +207,7 @@
         "Scrivere I.3-e7, il confronto di fine atto, e la sua scena."
       ],
       "fatto_quando": [
+        "Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie)",
         "Test di bilanciamento del salario: la mossa fissa non regge tutte le settimane; almeno tre strategie con esiti diversi",
         "Controlli comuni G1–G5 passati (METODO §7)"
       ],
@@ -229,6 +234,7 @@
         "Scena delle utopie con la colonia militare (K4)."
       ],
       "fatto_quando": [
+        "Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie)",
         "Controlli comuni G1–G5 passati (METODO §7)"
       ],
       "stato": "da fare"
@@ -276,6 +282,7 @@
         "Scena: tavolo, telegrafo e bandiera nella sala; etichette dei posti senza sovrapposizioni."
       ],
       "fatto_quando": [
+        "Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie)",
         "Test di bilanciamento: seguire una lettura o l'altra porta a esiti diversi",
         "Controlli comuni G1–G5 passati (METODO §7)"
       ],
@@ -299,10 +306,12 @@
       ],
       "fare": [
         "Scheda di gioco `docs/laika/giochi/petizione.md`: un gioco del repertorio al posto del modulo con cinque righe (proposta da valutare nella scheda: decisioni sui gruppi fra operai, Gapon e polizia mentre si raccolgono le firme). Revisione indipendente prima del codice.",
+        "Il gioco usa solo le modalità del motore che ci sono (gestione con persone e posti, monete, richieste, giornate a punti azione) o quelle costruite da K1 e K2; se la scheda chiede una meccanica nuova è una condizione di arresto.",
         "Scene: le officine Putilov, il Palazzo d'Inverno sullo sfondo della piazza, il corteo con le icone e il ritratto dello zar.",
         "Aneddoto: il diario di Nicola («Giornata terribile!» e subito dopo il pranzo con la madre), in parafrasi se il passo non si riscontra."
       ],
       "fatto_quando": [
+        "Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie)",
         "Test di bilanciamento",
         "Controlli comuni G1–G5 passati (METODO §7)"
       ],
@@ -327,10 +336,12 @@
       ],
       "fare": [
         "Scheda di gioco `docs/laika/giochi/concessioni.md` (un gioco del repertorio, non tre schede da leggere); la scelta nel soviet (II.2) apre o chiude un'opzione qui.",
+        "Il gioco usa solo le modalità del motore che ci sono (gestione con persone e posti, monete, richieste, giornate a punti azione) o quelle costruite da K1 e K2; se la scheda chiede una meccanica nuova è una condizione di arresto.",
         "Scene: la sala di San Giorgio con uniformi e giacche in due blocchi; il palco del teatro; l'aquila imperiale.",
         "Aneddoti: il granduca Nikolaj che minaccia di spararsi se lo zar non firma; la ballerina insultata a teatro per le corazzate perdute (C36)."
       ],
       "fatto_quando": [
+        "Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie)",
         "Test di bilanciamento",
         "Controlli comuni G1–G5 passati (METODO §7)"
       ],
@@ -354,10 +365,12 @@
       ],
       "fare": [
         "Scheda di gioco `docs/laika/giochi/stolypin.md`: restare nel mir, uscire e unire le strisce, vendere e partire, con conseguenze in più anni (gestione), non una scelta sola.",
+        "Il gioco usa solo le modalità del motore che ci sono (gestione con persone e posti, monete, richieste, giornate a punti azione) o quelle costruite da K1 e K2; se la scheda chiede una meccanica nuova è una condizione di arresto.",
         "Scena: le strisce che diventano un podere (K4).",
         "Scrivere II.4-e3, il confronto di fine atto, e la sua scena."
       ],
       "fatto_quando": [
+        "Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie)",
         "Test di bilanciamento",
         "Controlli comuni G1–G5 passati (METODO §7)"
       ],
