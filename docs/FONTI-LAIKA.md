@@ -77,3 +77,7 @@ Prima di usare un passaggio, leggerlo nel contesto e registrarne localizzazione 
 L'[atlante di aneddoti e frasi](../references/fonti/atlanti/README.md) aggiunge un originale Markdown, 140 schede narrative e 17 frasi indicizzate. Proviene dal caricamento dell'utente con PR #12, non da una nuova verifica autonoma dei libri. Integrità nel manifest; stato di ogni voce: da verificare. Gli appunti didattici restano prioritari.
 
 Serge e Nori, citati nell’atlante, non sono fra le opere di riferimento: le loro voci vanno riscontrate separatamente. L'[integrazione di 48 schede](../references/fonti/atlanti/LAIKA_NUOVI_ANEDDOTI_48.md) (codici N001–N048) completa l'atlante con utopie, riti e vita quotidiana fino agli anni Trenta. Per una frase o un aneddoto effettivamente usato, seguire [ANEDDOTI-SCENE-LAIKA](ANEDDOTI-SCENE-LAIKA.md), con fonte, localizzazione, contesto e decisione editoriale. Nessuna scena è implementata o storicamente approvata da questo atlante.
+
+## Segnalazioni per il docente non vanno nel gioco (4 novembre 2026)
+
+Scelta del docente: le note di lavoro («da riscontrare», rimandi a `FONTI-MATRICE`, «bozza», «da approvare») servono a lui e restano nei documenti di `docs/`. Non compaiono nei testi, nelle note editoriali o nelle provenienze visibili agli studenti né nella home. Lo stato dei riscontri si legge in [FONTI-MATRICE-LAIKA](FONTI-MATRICE-LAIKA.md).

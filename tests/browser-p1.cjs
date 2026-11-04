@@ -51,9 +51,9 @@ module.exports=async(browser,root,artifacts)=>{
   assert.equal(s.complete,true);await setSave(exportSave(game,s));await page.reload();await page.locator('#summary-title').waitFor();}
  const complete=await read();await page.goto(origin+'/');await page.locator('#progress').filter({hasText:'completata'}).waitFor();assert.equal(await page.locator('#resume').isHidden(),true);assert.equal(await read(),complete);
  for(const raw of ['invalid JSON',JSON.stringify({saveSchemaVersion:1,gameId:'laika',contentVersion:'old',commands:[]})]){
-  await setSave(raw);const before=await read();await page.reload();await page.locator('#progress').filter({hasText:'non è più utilizzabile'}).waitFor();assert.equal(await page.locator('#resume').isHidden(),true);assert.equal(await read(),before);
-  await page.goto(origin+'/play.html?game=laika');await page.locator('#hub-title').waitFor();assert.equal(await page.locator('#raw').isVisible(),false);assert.match(await page.locator('#notice').innerText(),/Ricomincia/);assert.equal(await read(),before);
-  await page.goto(origin+'/');await page.locator('#progress').filter({hasText:'non è più utilizzabile'}).waitFor();
+  await setSave(raw);await page.goto(origin+'/');await page.reload();await page.locator('#progress').filter({hasText:'Nessuna pratica'}).waitFor();assert.equal(await page.locator('#resume').isHidden(),true);
+  await page.goto(origin+'/play.html?game=laika');await page.locator('#hub-title').waitFor();assert.equal(await page.locator('#raw').isVisible(),false);assert.equal(/non è più utilizzabile|Ricomincia/.test(await page.locator('#notice').innerText()),false);
+  assert.equal(await page.evaluate(()=>localStorage.getItem('learning-kit:laika:save-v1:precedente')),raw);
  }
  await page.goto(origin+'/play.html?game=biblioteca');await page.locator('#scene-title').waitFor();
  assert.equal(await page.locator('#pack-theme').count(),0);assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).getPropertyValue('--accent').trim()),'#355e59');

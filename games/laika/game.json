@@ -65557,19 +65557,19 @@
               "id": "manifesto",
               "title": "Il Manifesto di ottobre",
               "text": "Lo zar promette libertà civili e una Duma eletta. Lo concede dopo lo sciopero generale.",
-              "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa»: non è il testo originale. Da riscontrare nei dettagli."
+              "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa»: non è il testo originale."
             },
             {
               "id": "leggi",
               "title": "Le Leggi fondamentali del 1906",
               "text": "Le leggi chiamano ancora autocratico il potere dello zar. La Duma esiste ma lo zar conserva poteri molto larghi.",
-              "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa»: non è il testo originale. Da riscontrare nei dettagli."
+              "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa»: non è il testo originale."
             },
             {
               "id": "dume",
               "title": "Le due Dume sciolte",
               "text": "La prima Duma viene sciolta dopo pochi mesi e la seconda dura ancora meno. La Duma non nasce con pieni poteri.",
-              "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa»: date da riscontrare."
+              "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa»."
             }
           ]
         },
@@ -66279,19 +66279,19 @@
               "id": "gioielli",
               "title": "I gioielli",
               "text": "Secondo gli appunti il gioielliere della corte non ha mai venduto tanto mentre in città mancano pane e combustibile.",
-              "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa» (da Trockij): da riscontrare."
+              "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa»"
             },
             {
               "id": "ballerina",
               "title": "La ballerina",
               "text": "Si mormora che una ballerina famosa decida le commesse d'artiglieria. È una voce.",
-              "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa» (da Trockij): voce da riscontrare."
+              "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa»"
             },
             {
               "id": "duma",
               "title": "La domanda alla Duma",
               "text": "Un deputato chiede dalla tribuna: stupidità o tradimento? Intanto circola la voce che l'imperatrice sia una spia.",
-              "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa»: da riscontrare."
+              "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa»."
             }
           ]
         },
@@ -66299,7 +66299,7 @@
           "id": "a1-u5-semidei",
           "type": "narrative",
           "title": "La fine dei semidei comincia in famiglia",
-          "text": "Nel dicembre 1916 Rasputin viene ucciso da un principe e da un granduca. Secondo gli appunti una granduchessa propone di eliminare l'imperatrice.\n\nLo zar sembra non fidarsi più nemmeno di chi lo circonda. Il palazzo è isolato e attorno c'è il vuoto.\n\nPuò sopravvivere un potere sacro quando non ci crede più nemmeno la sua famiglia? Le fonti precise vanno ancora riscontrate.",
+          "text": "Nel dicembre 1916 Rasputin viene ucciso da un principe e da un granduca. Secondo gli appunti una granduchessa propone di eliminare l'imperatrice.\n\nLo zar sembra non fidarsi più nemmeno di chi lo circonda. Il palazzo è isolato e attorno c'è il vuoto.\n\nPuò sopravvivere un potere sacro quando non ci crede più nemmeno la sua famiglia?",
           "roleId": "capofamiglia",
           "stageId": "a1-u5-ginocchio",
           "motionId": "ingresso",
@@ -67617,7 +67617,7 @@
           "id": "a1-u6-treno",
           "type": "narrative",
           "title": "Il treno fermo nella neve",
-          "text": "Al Palazzo di Tauride nascono lo stesso giorno il Comitato della Duma e il soviet. Il treno dello zar è deviato a Pskov.\n\nNicola abdica. Secondo gli appunti annota nel diario la vita del treno mentre arrivano i telegrammi. Le fonti precise vanno riscontrate.\n\nChe cosa resta di un semidio quando smette di esserlo? Un uomo con un'abitudine.",
+          "text": "Al Palazzo di Tauride nascono lo stesso giorno il Comitato della Duma e il soviet. Il treno dello zar è deviato a Pskov.\n\nNicola abdica. Secondo gli appunti annota nel diario la vita del treno mentre arrivano i telegrammi.\n\nChe cosa resta di un semidio quando smette di esserlo? Un uomo con un'abitudine.",
           "roleId": "figlio",
           "stageId": "a1-u4-soviet",
           "motionId": "ingresso",

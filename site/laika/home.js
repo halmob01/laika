@@ -77,7 +77,7 @@ async function leggiProgressi() {
   const messaggi = {
     new: 'Nessuna pratica aperta a tuo nome.',
     complete: 'Pratica completata e archiviata.',
-    incompatible: 'Il percorso è stato aggiornato: il progresso salvato non è più utilizzabile. Aprendo il percorso potrai ricominciare.'
+    incompatible: 'Nessuna pratica aperta a tuo nome.'
   };
   testo.textContent = messaggi[p.status] || 'Pratica aperta: ' + p.actTitle + ', «' + p.episodeTitle + '».';
   const riprendi = p.status === 'resumable';
