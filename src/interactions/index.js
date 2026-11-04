@@ -175,11 +175,11 @@ function queuePanel(episode,g,t,state){
 // Le merci che camminano: anelli con scorta e capacità di adesso, inceppi, e i due numeri (carta e realtà).
 function chainPanel(episode,g){
   const c=episode.chain;if(!c||!g.chain)return null;
-  const v=chainView(c,g),goods=(c.goodsLabel||'merce'),box=el('section',undefined,{class:'turn-chain','aria-label':c.label||'La catena'}),ul=el('ul');
+  const unit=episode.turnWord||'turno',v=chainView(c,g),goods=(c.goodsLabel||'merce'),box=el('section',undefined,{class:'turn-chain','aria-label':c.label||'La catena'}),ul=el('ul');
   box.append(el('h3',c.label||'La catena'));
   for(const l of v.links){
     const li=el('li',undefined,{class:l.jammed?'jam':''});li.append(el('b',l.label));
-    li.append(el('small',l.last?'Arrivato: '+l.stock+'.':'In magazzino: '+l.stock+'. Passano '+l.capacity+' per turno'+(l.jammed?': inceppato, '+l.jamText:'')+'.'));
+    li.append(el('small',l.last?'Arrivato: '+l.stock+'.':'In magazzino: '+l.stock+'. Passano '+l.capacity+' per '+unit+(l.jammed?': inceppato, '+l.jamText:'')+'.'));
     ul.append(li);
   }
   box.append(ul,el('p','Sulla carta: '+v.paper+'. In realtà (arrivato): '+v.real+'. Scarto: '+v.gap+'.',{class:'turn-chain-numbers'}));
@@ -188,7 +188,7 @@ function chainPanel(episode,g){
   return box;
 }
 // Le modifiche della catena di un'offerta, in chiaro: «I treni +2 passano per turno», «Carta +10».
-function chainText(episode,list){const c=episode.chain;if(!c||!list?.length)return '';return list.map(m=>m.paper!==undefined?'Carta '+sign(m.paper):(c.links.find(x=>x.id===m.link)?.label||m.link)+' '+sign(m.capacity??m.stock)+(m.capacity!==undefined?' per turno':' in magazzino')).join(', ');}
+function chainText(episode,list){const c=episode.chain;if(!c||!list?.length)return '';return list.map(m=>m.paper!==undefined?'Carta '+sign(m.paper):(c.links.find(x=>x.id===m.link)?.label||m.link)+' '+sign(m.capacity??m.stock)+(m.capacity!==undefined?' di capacità':' in magazzino')).join(', ');}
 function stepper(episode,g){
   const t=episode.turns[g.turn],now=g.phase==='eventResult'?'event':g.phase;
   const list=['cards','place','result','event','market'].filter(k=>k==='cards'?cardCount(episode,g)>0:k==='event'?!!t.event:k==='market'?!!t.market:!!episode.places);

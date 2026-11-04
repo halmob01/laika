@@ -229,7 +229,13 @@
         "Test di bilanciamento: almeno tre strategie con esiti diversi; nessuna vince su tutto",
         "Controlli comuni G1–G5 passati (METODO §7)"
       ],
-      "stato": "da fare"
+      "stato": "fatto",
+      "pr": 53,
+      "evidenze": [
+        "docs/evidence/U-pane-guerra/",
+        "tests/laika-pane-guerra.test.js",
+        "docs/laika/giochi/pane-guerra.md"
+      ]
     },
     {
       "id": "C-III",

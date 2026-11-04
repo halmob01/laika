@@ -157,9 +157,10 @@
           ],
           "gioco": "quanto serve e quanto c'è (grano, treni, città), prime code",
           "stato_gioco": "approvato",
-          "stato": "da rifare",
+          "stato": "bozza",
           "nel_gioco": "i5",
-          "nota": "Costruita il 3 novembre come partita di sole decisioni: non è il gioco approvato."
+          "nota": "Costruita il 4 novembre 2026 con la catena (K2), la coda (K1, K6) e l'evento del fronte; da provare dal telefono (C-III).",
+          "scheda_gioco": "docs/laika/giochi/pane-guerra.md"
         },
         {
           "numero": "III.2",

@@ -4,7 +4,7 @@
 
 Come si lavora in autonomia, controlli e condizioni di arresto: [METODO](METODO.md) §7. Il prossimo incarico e il messaggio da dare all'agente: `npm run prossimo`.
 
-Incarichi fatti: 6 su 21. Prossimo: U-pane-guerra.
+Incarichi fatti: 7 su 21. Prossimo: C-III.
 
 | # | Incarico | Tipo | Modello | Dopo | Stato |
 |---:|---|---|---|---|---|
@@ -14,7 +14,7 @@ Incarichi fatti: 6 su 21. Prossimo: U-pane-guerra.
 | 4 | **U-otto-giorni** III.2 Otto giorni: la coda vera, il soldato, il treno, Tauride | unità | Opus | S1, K1, K6 | fatto (PR #50) |
 | 5 | **K4** Bottega: i disegni che mancano agli Atti I–III | bottega | Sonnet | S1 | fatto (PR #51) |
 | 6 | **K2** Motore: le merci che camminano | motore | Opus | S1 | fatto (PR #52) |
-| 7 | **U-pane-guerra** III.1 Pane e guerra: grano, treni e città | unità | Opus | S1, K2, K4 | da fare |
+| 7 | **U-pane-guerra** III.1 Pane e guerra: grano, treni e città | unità | Opus | S1, K2, K4 | fatto (PR #53) |
 | 8 | **C-III** Il docente prova l'Atto III dal telefono | controllo | — | U-pane-guerra, U-otto-giorni | da fare |
 | 9 | **U-mir** I.2 Il mir: da questionario a gioco | unità | Opus | S1, K4 | da fare |
 | 10 | **U-citta** I.3 In città: un salario che mette alle strette e il confronto di fine atto | unità | Sonnet | S1, K4 | da fare |
@@ -108,6 +108,8 @@ Unità del canone: `pane-guerra`.
 - Didattica (PERCORSO §7): gli obiettivi dell'unità nel canone guidano gioco e testi; «Cosa ti devi ricordare» dice gli obiettivi in parole semplici; almeno una verifica formativa legata a un obiettivo, scritta con la skill `verifiche-didattiche`; due aneddoti concreti con le fonti registrate.
 
 È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche; domanda, obiettivi, verifica legata a un obiettivo, «Cosa ti devi ricordare», concetti, chiusura, fonti registrate; scene proprie); Test di bilanciamento: almeno tre strategie con esiti diversi; nessuna vince su tutto; Controlli comuni G1–G5 passati (METODO §7).
+
+Evidenze: docs/evidence/U-pane-guerra/, tests/laika-pane-guerra.test.js, docs/laika/giochi/pane-guerra.md.
 
 ## C-III — Il docente prova l'Atto III dal telefono
 

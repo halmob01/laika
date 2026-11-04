@@ -192,3 +192,18 @@ Fonti usate: atlante degli aneddoti (`references/fonti/atlanti/`) e appunti «La
 | Frederiks che annuncia in francese e poi piange / treno | **Tolto**: non si trova né nell'atlante né negli appunti | Ricerca sull'atlante e sugli appunti (4/11/2026) | Non riscontrato, non compare nel testo (METODO §7) |
 
 Simulazione, non fatto: gelo del 9 marzo, durata e composizione dei gruppi in fila, ogni numero degli indicatori.
+
+## III.1 «Pane e guerra» — riscontri del 4 novembre 2026 (U-pane-guerra)
+
+Fonti usate: atlante degli aneddoti (`references/fonti/atlanti/`) e appunti «La Rivoluzione Russa». Nessun libro caricato dal docente per questa unità: i passi sono in parafrasi.
+
+| ID / episodio | Dettaglio nel testo | Fonte | Esito |
+|---|---|---|---|
+| C39 / gioielli, ricorda | Nell'inverno 1915–1916 il gioielliere della corte avrebbe venduto come mai prima mentre mancavano pane e combustibile; testimonianza riferita da un autore ostile al regime | Trockij, *Storia della rivoluzione russa* (cercare «gioielliere Fabergé»); atlante C39 | Confermato sull'atlante, parafrasi; da riscontrare nel libro (memorie di Vyrubova) |
+| C42 / gioielli, ricorda | Rodzjanko riferisce che il comandante supremo si preoccupava dell'influenza di una ballerina sulle commesse d'artiglieria | Trockij (cercare «faccende dell'artiglieria della ballerina»); atlante C42 | Accusa riferita, non dimostrata: nel testo resta attribuita |
+| C43 / famiglia, ricorda | Una granduchessa propone di eliminare l'imperatrice; chi ascolta chiede di considerare la frase come non detta | Trockij (cercare «granduchessa Maria Pavlovna»); atlante C43 | Testimonianza indiretta di un avversario dei Romanov |
+| Buchanan / famiglia | All'ambasciatore britannico che lo invita a riconquistare la fiducia del popolo lo zar risponde che dovrebbe essere il popolo a riconquistare la sua | Montefiore, Act III, Scene 6 (vedi riga «I.5-e4 · battuta all'ambasciatore») | Confermato; nel testo dello studente senza data |
+| Appunti / gioielli | «Stupidità o tradimento?» alla Duma e la voce dell'imperatrice spia | Appunti, sintesi per il gioco | Da riscontrare nei libri |
+| Scheda dell'atto / ginocchio | 2 agosto 1914 (20 luglio): lo zar annuncia la guerra dal Palazzo d'Inverno e la folla si inginocchia; Tannenberg; Nicola al comando supremo | `docs/laika/atti/atto-3.md` (III.1-e1) | Dalla scheda |
+
+Simulazione, non fatto: capacità di campi, ammassi e treni, raccolto per stagione, consumo della città, durata della fila e ogni numero degli indicatori.
