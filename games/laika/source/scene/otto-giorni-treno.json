@@ -46,7 +46,8 @@
       "simbolo": "mezzo-treno",
       "x": 800,
       "y": 785,
-      "scala": 3.4
+      "scala": 3.4,
+      "davanti": true
     },
     {
       "id": "neve",

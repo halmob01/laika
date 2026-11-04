@@ -18,8 +18,15 @@
     "centro": 0.5,
     "zoom": 1.2
   },
-  "etichetta": "Una folla si inginocchia sulla piazza davanti al palazzo: è la stessa piazza del 1905.",
+  "etichetta": "Una folla si inginocchia sulla piazza davanti al Palazzo d'Inverno: è la stessa piazza del 1905. È estate.",
   "elementi": [
+    {
+      "id": "terra",
+      "simbolo": "suolo",
+      "x": 800,
+      "y": 905,
+      "scala": 3.4
+    },
     {
       "id": "piazza",
       "simbolo": "ambiente-piazza",
@@ -28,37 +35,29 @@
       "scala": 2
     },
     {
-      "id": "neve",
-      "simbolo": "atmo-neve",
+      "id": "palazzo",
+      "simbolo": "luogo-palazzo",
       "x": 800,
-      "y": 300,
-      "scala": 2
-    },
-    {
-      "id": "neve-2",
-      "simbolo": "atmo-neve",
-      "x": 260,
-      "y": 420,
-      "scala": 1.7
-    },
-    {
-      "id": "neve-3",
-      "simbolo": "atmo-neve",
-      "x": 1340,
-      "y": 360,
-      "scala": 1.7
+      "y": 640,
+      "scala": 0.75
     }
   ],
   "figure": [
     {
       "gruppo": "folla",
       "formazione": {
-        "tipo": "gruppo",
-        "n": 8,
-        "x": 420,
-        "y": 840,
-        "passo": 110,
-        "scala": 2.2,
+        "tipo": "righe",
+        "n": 10,
+        "righe": 2,
+        "perRiga": 5,
+        "x": 800,
+        "y": 860,
+        "passo": 150,
+        "profondita": 60,
+        "scala": 2,
+        "pose": [
+          "inginocchiato"
+        ],
         "varianti": [
           "cappotto",
           "scialle",
@@ -67,7 +66,9 @@
           "donna",
           "cappotto",
           "nessuna",
-          "bambino"
+          "bambino",
+          "scialle",
+          "cappello"
         ]
       }
     }
@@ -84,12 +85,23 @@
           "distanza": 300,
           "a": 0,
           "durata": 2200
+        },
+        {
+          "azione": "pose",
+          "chi": "folla",
+          "da": "in_piedi",
+          "a": 2400,
+          "durata": 900
         }
       ],
       "battute": [
         {
           "a": 200,
           "testo": "Agosto 1914."
+        },
+        {
+          "a": 2400,
+          "testo": "La folla si inginocchia."
         }
       ]
     }

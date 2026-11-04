@@ -21,11 +21,11 @@
   "etichetta": "Dentro il salone illuminato dai lampadari la corte danza in costume; fuori le ciminiere fumano e gli operai sono fermi.",
   "elementi": [
     {
-      "id": "campi",
-      "simbolo": "luogo-pianura",
+      "id": "terra",
+      "simbolo": "suolo",
       "x": 800,
       "y": 900,
-      "scala": 2.9
+      "scala": 3.4
     },
     {
       "id": "salone",

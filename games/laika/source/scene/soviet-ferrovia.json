@@ -46,7 +46,8 @@
       "simbolo": "mezzo-treno",
       "x": 800,
       "y": 765,
-      "scala": 3.3
+      "scala": 3.3,
+      "davanti": true
     },
     {
       "id": "bandiera",

@@ -26229,6 +26229,35 @@
       ]
     },
     {
+      "id": "suolo",
+      "meta": {
+        "label": "Linea di terra",
+        "family": "ambienti",
+        "source": "studio personaggi.html#suolo",
+        "size": [
+          522,
+          2
+        ],
+        "anchor": "base",
+        "origine": null
+      },
+      "layers": [
+        {
+          "id": "f-1",
+          "tag": "line",
+          "attrs": {
+            "x1": -260,
+            "y1": 0,
+            "x2": 260,
+            "y2": 0,
+            "stroke": "blue",
+            "stroke-width": 1.5,
+            "opacity": 0.6
+          }
+        }
+      ]
+    },
+    {
       "id": "ambiente-salone-lampadari",
       "meta": {
         "label": "Salone con lampadari",
@@ -27972,35 +28001,6 @@
             "stroke-linecap": "round"
           },
           "parent": "f-3"
-        }
-      ]
-    },
-    {
-      "id": "suolo",
-      "meta": {
-        "label": "Linea di terra",
-        "family": "ambienti",
-        "source": "studio personaggi.html#suolo",
-        "size": [
-          522,
-          2
-        ],
-        "anchor": "base",
-        "origine": null
-      },
-      "layers": [
-        {
-          "id": "f-1",
-          "tag": "line",
-          "attrs": {
-            "x1": -260,
-            "y1": 0,
-            "x2": 260,
-            "y2": 0,
-            "stroke": "blue",
-            "stroke-width": 1.5,
-            "opacity": 0.6
-          }
         }
       ]
     },
@@ -35935,6 +35935,128 @@
       ]
     },
     {
+      "id": "soviet-bandiera",
+      "meta": {
+        "label": "Bandiera di corteo senza scritte",
+        "family": "soviet-coda",
+        "source": "kit-soviet-coda.html#soviet_bandiera",
+        "size": [
+          91,
+          179
+        ],
+        "anchor": "base",
+        "origine": {
+          "file": "prototypes/kit-soviet-coda/kit-soviet-coda.html",
+          "funzione": "drawSoviet",
+          "argomenti": [
+            "soviet_bandiera",
+            0,
+            0
+          ],
+          "rimuoviPrimo": false,
+          "definizioni": {
+            "funzione": "getDefs",
+            "argomenti": [],
+            "texture": "soviet-coda",
+            "motivi": {
+              "grana": "grana-ambienti"
+            }
+          }
+        }
+      },
+      "layers": [
+        {
+          "id": "opera",
+          "tag": "g",
+          "pose": {
+            "translateX": 4.9,
+            "translateY": -400
+          }
+        },
+        {
+          "id": "f-1",
+          "tag": "g",
+          "pose": {
+            "translateX": 0,
+            "translateY": 0
+          },
+          "parent": "opera"
+        },
+        {
+          "id": "f-2",
+          "tag": "g",
+          "attrs": {},
+          "parent": "f-1"
+        },
+        {
+          "id": "f-3",
+          "tag": "path",
+          "attrs": {
+            "d": "M -40.2 400 L -40.1 378.8 L -40 357.5 L -40 336.3 L -39.9 315 L -39.7 293.8 L -40.2 272.5 L -39.8 251.3 L -40 230",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 3.2,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "drappo",
+          "tag": "g",
+          "attrs": {},
+          "parent": "f-2",
+          "origin": [
+            -40,
+            240
+          ]
+        },
+        {
+          "id": "f-5",
+          "tag": "path",
+          "attrs": {
+            "d": "M -40 240 C -10 232 10 250 40 240 L 40 292 C 10 302 -10 284 -40 292 Z",
+            "fill": "red"
+          },
+          "parent": "drappo"
+        },
+        {
+          "id": "f-6",
+          "tag": "path",
+          "attrs": {
+            "d": "M -40 240 C -10 232 10 250 40 240 L 40 292 C 10 302 -10 284 -40 292 Z",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1.5,
+            "stroke-linejoin": "round"
+          },
+          "parent": "drappo"
+        },
+        {
+          "id": "f-7",
+          "tag": "path",
+          "attrs": {
+            "d": "M -45 228 A 5 5 0 1 0 -35 228 A 5 5 0 1 0 -45 228 Z",
+            "fill": "concrete-dark"
+          },
+          "parent": "f-2"
+        },
+        {
+          "id": "f-8",
+          "tag": "path",
+          "attrs": {
+            "d": "M -45 228 A 5 5 0 1 0 -35 228 A 5 5 0 1 0 -45 228 Z",
+            "fill": "none",
+            "stroke": "ink",
+            "stroke-width": 1,
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          },
+          "parent": "f-2"
+        }
+      ]
+    },
+    {
       "id": "mezzo-treno",
       "meta": {
         "label": "Treno",
@@ -36054,128 +36176,6 @@
           "attrs": {
             "d": "M25 -5 L38 -18 L55 -14 Z",
             "fill": "red"
-          },
-          "parent": "f-2"
-        }
-      ]
-    },
-    {
-      "id": "soviet-bandiera",
-      "meta": {
-        "label": "Bandiera di corteo senza scritte",
-        "family": "soviet-coda",
-        "source": "kit-soviet-coda.html#soviet_bandiera",
-        "size": [
-          91,
-          179
-        ],
-        "anchor": "base",
-        "origine": {
-          "file": "prototypes/kit-soviet-coda/kit-soviet-coda.html",
-          "funzione": "drawSoviet",
-          "argomenti": [
-            "soviet_bandiera",
-            0,
-            0
-          ],
-          "rimuoviPrimo": false,
-          "definizioni": {
-            "funzione": "getDefs",
-            "argomenti": [],
-            "texture": "soviet-coda",
-            "motivi": {
-              "grana": "grana-ambienti"
-            }
-          }
-        }
-      },
-      "layers": [
-        {
-          "id": "opera",
-          "tag": "g",
-          "pose": {
-            "translateX": 4.9,
-            "translateY": -400
-          }
-        },
-        {
-          "id": "f-1",
-          "tag": "g",
-          "pose": {
-            "translateX": 0,
-            "translateY": 0
-          },
-          "parent": "opera"
-        },
-        {
-          "id": "f-2",
-          "tag": "g",
-          "attrs": {},
-          "parent": "f-1"
-        },
-        {
-          "id": "f-3",
-          "tag": "path",
-          "attrs": {
-            "d": "M -40.2 400 L -40.1 378.8 L -40 357.5 L -40 336.3 L -39.9 315 L -39.7 293.8 L -40.2 272.5 L -39.8 251.3 L -40 230",
-            "fill": "none",
-            "stroke": "ink",
-            "stroke-width": 3.2,
-            "stroke-linecap": "round",
-            "stroke-linejoin": "round"
-          },
-          "parent": "f-2"
-        },
-        {
-          "id": "drappo",
-          "tag": "g",
-          "attrs": {},
-          "parent": "f-2",
-          "origin": [
-            -40,
-            240
-          ]
-        },
-        {
-          "id": "f-5",
-          "tag": "path",
-          "attrs": {
-            "d": "M -40 240 C -10 232 10 250 40 240 L 40 292 C 10 302 -10 284 -40 292 Z",
-            "fill": "red"
-          },
-          "parent": "drappo"
-        },
-        {
-          "id": "f-6",
-          "tag": "path",
-          "attrs": {
-            "d": "M -40 240 C -10 232 10 250 40 240 L 40 292 C 10 302 -10 284 -40 292 Z",
-            "fill": "none",
-            "stroke": "ink",
-            "stroke-width": 1.5,
-            "stroke-linejoin": "round"
-          },
-          "parent": "drappo"
-        },
-        {
-          "id": "f-7",
-          "tag": "path",
-          "attrs": {
-            "d": "M -45 228 A 5 5 0 1 0 -35 228 A 5 5 0 1 0 -45 228 Z",
-            "fill": "concrete-dark"
-          },
-          "parent": "f-2"
-        },
-        {
-          "id": "f-8",
-          "tag": "path",
-          "attrs": {
-            "d": "M -45 228 A 5 5 0 1 0 -35 228 A 5 5 0 1 0 -45 228 Z",
-            "fill": "none",
-            "stroke": "ink",
-            "stroke-width": 1,
-            "stroke-linecap": "round",
-            "stroke-linejoin": "round"
           },
           "parent": "f-2"
         }
@@ -60250,13 +60250,13 @@
       ],
       "components": [
         {
-          "id": "campi",
-          "symbol": "luogo-pianura",
+          "id": "terra",
+          "symbol": "suolo",
           "parent": "world",
           "pose": {
             "translateX": 800,
             "translateY": 900,
-            "scale": 2.9
+            "scale": 3.4
           }
         },
         {
@@ -65442,7 +65442,7 @@
     },
     {
       "id": "pane-guerra-ginocchio",
-      "label": "Una folla si inginocchia sulla piazza davanti al palazzo: è la stessa piazza del 1905.",
+      "label": "Una folla si inginocchia sulla piazza davanti al Palazzo d'Inverno: è la stessa piazza del 1905. È estate.",
       "viewBox": [
         0,
         0,
@@ -65474,6 +65474,16 @@
       ],
       "components": [
         {
+          "id": "terra",
+          "symbol": "suolo",
+          "parent": "world",
+          "pose": {
+            "translateX": 800,
+            "translateY": 905,
+            "scale": 3.4
+          }
+        },
+        {
           "id": "piazza",
           "symbol": "ambiente-piazza",
           "parent": "world",
@@ -65484,41 +65494,26 @@
           }
         },
         {
-          "id": "neve",
-          "symbol": "atmo-neve",
+          "id": "palazzo",
+          "symbol": "luogo-palazzo",
           "parent": "world",
           "pose": {
             "translateX": 800,
-            "translateY": 300,
-            "scale": 2
-          }
-        },
-        {
-          "id": "neve-2",
-          "symbol": "atmo-neve",
-          "parent": "world",
-          "pose": {
-            "translateX": 260,
-            "translateY": 420,
-            "scale": 1.7
-          }
-        },
-        {
-          "id": "neve-3",
-          "symbol": "atmo-neve",
-          "parent": "world",
-          "pose": {
-            "translateX": 1340,
-            "translateY": 360,
-            "scale": 1.7
+            "translateY": 640,
+            "scale": 0.75
           }
         },
         {
           "id": "folla-1",
           "symbol": "fig-uomo-fedora-cappotto",
-          "rigPose": "in_piedi",
+          "rigPose": "inginocchiato",
+          "joints": {
+            "root": {
+              "translateY": 12.337815
+            }
+          },
           "pose": {
-            "translateX": 358.7262188047231,
+            "translateX": 418.7262188047231,
             "translateY": 783.1548795196376,
             "scale": 1.7831357831440093
           },
@@ -65527,9 +65522,14 @@
         {
           "id": "folla-2",
           "symbol": "fig-donna-chignon-scialle",
-          "rigPose": "in_piedi",
+          "rigPose": "inginocchiato",
+          "joints": {
+            "root": {
+              "translateY": 11.938929
+            }
+          },
           "pose": {
-            "translateX": 459.52318109652407,
+            "translateX": 519.5231810965241,
             "translateY": 807.3178977133124,
             "scale": 1.9603312498976242
           },
@@ -65538,9 +65538,14 @@
         {
           "id": "folla-3",
           "symbol": "fig-uomo-nudo-base",
-          "rigPose": "in_piedi",
+          "rigPose": "inginocchiato",
+          "joints": {
+            "root": {
+              "translateY": 10.926438
+            }
+          },
           "pose": {
-            "translateX": 289.17049234529384,
+            "translateX": 349.17049234529384,
             "translateY": 814.5633920194822,
             "scale": 2.0134648748095367
           },
@@ -65549,9 +65554,14 @@
         {
           "id": "folla-4",
           "symbol": "fig-uomo-fedora-base",
-          "rigPose": "in_piedi",
+          "rigPose": "inginocchiato",
+          "joints": {
+            "root": {
+              "translateY": 10.693254
+            }
+          },
           "pose": {
-            "translateX": 547.1990628921264,
+            "translateX": 607.1990628921264,
             "translateY": 820.5507043890223,
             "scale": 2.057371832186164
           },
@@ -65560,9 +65570,14 @@
         {
           "id": "folla-5",
           "symbol": "fig-donna-chignon-gonna",
-          "rigPose": "in_piedi",
+          "rigPose": "inginocchiato",
+          "joints": {
+            "root": {
+              "translateY": 10.634766
+            }
+          },
           "pose": {
-            "translateX": 460.5351506589272,
+            "translateX": 520.5351506589273,
             "translateY": 840.0996369638735,
             "scale": 2.200730671068406
           },
@@ -65571,9 +65586,14 @@
         {
           "id": "folla-6",
           "symbol": "fig-uomo-fedora-cappotto",
-          "rigPose": "in_piedi",
+          "rigPose": "inginocchiato",
+          "joints": {
+            "root": {
+              "translateY": 9.847595
+            }
+          },
           "pose": {
-            "translateX": 335.3737945174297,
+            "translateX": 395.3737945174297,
             "translateY": 844.642904899163,
             "scale": 2.234047969260529
           },
@@ -65582,9 +65602,14 @@
         {
           "id": "folla-7",
           "symbol": "fig-uomo-nudo-base",
-          "rigPose": "in_piedi",
+          "rigPose": "inginocchiato",
+          "joints": {
+            "root": {
+              "translateY": 8.899839
+            }
+          },
           "pose": {
-            "translateX": 461.6292070845692,
+            "translateX": 521.6292070845692,
             "translateY": 877.0847401647161,
             "scale": 2.471954761207918
           },
@@ -65593,9 +65618,14 @@
         {
           "id": "folla-8",
           "symbol": "fig-bambino-nudo-base",
-          "rigPose": "in_piedi",
+          "rigPose": "inginocchiato",
+          "joints": {
+            "root": {
+              "translateY": 12.095521
+            }
+          },
           "pose": {
-            "translateX": 308.30122973874944,
+            "translateX": 368.30122973874944,
             "translateY": 884.4801359558606,
             "scale": 2.5261876636763114
           },
@@ -67123,6 +67153,580 @@
                   }
                 }
               ]
+            },
+            {
+              "targets": [
+                "folla-1",
+                "folla-2",
+                "folla-3",
+                "folla-4",
+                "folla-5",
+                "folla-6",
+                "folla-7",
+                "folla-8"
+              ],
+              "part": "root",
+              "at": 2400,
+              "duration": 900,
+              "ease": "smooth",
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 12
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "folla-1"
+              ],
+              "part": "root",
+              "at": 2400,
+              "duration": 900,
+              "ease": "smooth",
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateY": 12.337815
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "folla-1",
+                "folla-2",
+                "folla-3",
+                "folla-4",
+                "folla-5",
+                "folla-6",
+                "folla-7",
+                "folla-8"
+              ],
+              "part": "arm-far",
+              "at": 2400,
+              "duration": 900,
+              "ease": "smooth",
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 22
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": -10
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "folla-1",
+                "folla-2",
+                "folla-3",
+                "folla-4",
+                "folla-5",
+                "folla-6",
+                "folla-7",
+                "folla-8"
+              ],
+              "part": "forearm-far",
+              "at": 2400,
+              "duration": 900,
+              "ease": "smooth",
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 5
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": -40
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "folla-1",
+                "folla-2",
+                "folla-3",
+                "folla-4",
+                "folla-5",
+                "folla-6",
+                "folla-7",
+                "folla-8"
+              ],
+              "part": "hand-far",
+              "at": 2400,
+              "duration": 900,
+              "ease": "smooth",
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": -27
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 50
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "folla-1",
+                "folla-2",
+                "folla-3",
+                "folla-4",
+                "folla-5",
+                "folla-6",
+                "folla-7",
+                "folla-8"
+              ],
+              "part": "leg-far",
+              "at": 2400,
+              "duration": 900,
+              "ease": "smooth",
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 10
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": -75
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "folla-1",
+                "folla-2",
+                "folla-3",
+                "folla-4",
+                "folla-5",
+                "folla-6",
+                "folla-7",
+                "folla-8"
+              ],
+              "part": "shin-far",
+              "at": 2400,
+              "duration": 900,
+              "ease": "smooth",
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 90
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "folla-1",
+                "folla-2",
+                "folla-3",
+                "folla-4",
+                "folla-5",
+                "folla-6",
+                "folla-7",
+                "folla-8"
+              ],
+              "part": "leg-near",
+              "at": 2400,
+              "duration": 900,
+              "ease": "smooth",
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": -10
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 25
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "folla-1",
+                "folla-2",
+                "folla-3",
+                "folla-4",
+                "folla-5",
+                "folla-6",
+                "folla-7",
+                "folla-8"
+              ],
+              "part": "shin-near",
+              "at": 2400,
+              "duration": 900,
+              "ease": "smooth",
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 95
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "folla-1",
+                "folla-2",
+                "folla-3",
+                "folla-4",
+                "folla-5",
+                "folla-6",
+                "folla-7",
+                "folla-8"
+              ],
+              "part": "arm-near",
+              "at": 2400,
+              "duration": 900,
+              "ease": "smooth",
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": -22
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": -25
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "folla-1",
+                "folla-2",
+                "folla-3",
+                "folla-4",
+                "folla-5",
+                "folla-6",
+                "folla-7",
+                "folla-8"
+              ],
+              "part": "forearm-near",
+              "at": 2400,
+              "duration": 900,
+              "ease": "smooth",
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": -5
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": -55
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "folla-1",
+                "folla-2",
+                "folla-3",
+                "folla-4",
+                "folla-5",
+                "folla-6",
+                "folla-7",
+                "folla-8"
+              ],
+              "part": "wrist-near",
+              "at": 2400,
+              "duration": 900,
+              "ease": "smooth",
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 27
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 80
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "folla-1",
+                "folla-2",
+                "folla-3",
+                "folla-4",
+                "folla-5",
+                "folla-6",
+                "folla-7",
+                "folla-8"
+              ],
+              "part": "hand-near",
+              "at": 2400,
+              "duration": 900,
+              "ease": "smooth",
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 27
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 80
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "folla-1",
+                "folla-2",
+                "folla-3",
+                "folla-4",
+                "folla-5",
+                "folla-6",
+                "folla-7",
+                "folla-8"
+              ],
+              "part": "grip-near",
+              "at": 2400,
+              "duration": 900,
+              "ease": "smooth",
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 27
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 80
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "folla-2"
+              ],
+              "part": "root",
+              "at": 2400,
+              "duration": 900,
+              "ease": "smooth",
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateY": 11.938929
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "folla-3"
+              ],
+              "part": "root",
+              "at": 2400,
+              "duration": 900,
+              "ease": "smooth",
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateY": 10.926438
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "folla-4"
+              ],
+              "part": "root",
+              "at": 2400,
+              "duration": 900,
+              "ease": "smooth",
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateY": 10.693254
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "folla-5"
+              ],
+              "part": "root",
+              "at": 2400,
+              "duration": 900,
+              "ease": "smooth",
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateY": 10.634766
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "folla-6"
+              ],
+              "part": "root",
+              "at": 2400,
+              "duration": 900,
+              "ease": "smooth",
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateY": 9.847595
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "folla-7"
+              ],
+              "part": "root",
+              "at": 2400,
+              "duration": 900,
+              "ease": "smooth",
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateY": 8.899839
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "folla-8"
+              ],
+              "part": "root",
+              "at": 2400,
+              "duration": 900,
+              "ease": "smooth",
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateY": 12.095521
+                  }
+                }
+              ]
             }
           ],
           "shots": [],
@@ -67130,6 +67734,10 @@
             {
               "at": 200,
               "text": "Agosto 1914."
+            },
+            {
+              "at": 2400,
+              "text": "La folla si inginocchia."
             }
           ]
         }
@@ -77092,16 +77700,6 @@
           }
         },
         {
-          "id": "treno",
-          "symbol": "mezzo-treno",
-          "parent": "world",
-          "pose": {
-            "translateX": 800,
-            "translateY": 765,
-            "scale": 3.3
-          }
-        },
-        {
           "id": "bandiera",
           "symbol": "soviet-bandiera",
           "parent": "world",
@@ -77145,6 +77743,16 @@
             "scaleX": -1
           },
           "parent": "world"
+        },
+        {
+          "id": "treno",
+          "symbol": "mezzo-treno",
+          "parent": "world",
+          "pose": {
+            "translateX": 800,
+            "translateY": 765,
+            "scale": 3.3
+          }
         }
       ],
       "sequences": [
@@ -80385,16 +80993,6 @@
           }
         },
         {
-          "id": "treno",
-          "symbol": "mezzo-treno",
-          "parent": "world",
-          "pose": {
-            "translateX": 1200,
-            "translateY": 765,
-            "scale": 3.2
-          }
-        },
-        {
           "id": "sacchi-1",
           "symbol": "campagna-sacchi",
           "parent": "world",
@@ -80486,6 +81084,16 @@
             "scaleX": -1
           },
           "parent": "world"
+        },
+        {
+          "id": "treno",
+          "symbol": "mezzo-treno",
+          "parent": "world",
+          "pose": {
+            "translateX": 1200,
+            "translateY": 765,
+            "scale": 3.2
+          }
         }
       ],
       "sequences": [
@@ -89280,16 +89888,6 @@
           }
         },
         {
-          "id": "treno",
-          "symbol": "mezzo-treno",
-          "parent": "world",
-          "pose": {
-            "translateX": 800,
-            "translateY": 785,
-            "scale": 3.4
-          }
-        },
-        {
           "id": "neve",
           "symbol": "atmo-neve",
           "parent": "world",
@@ -89330,6 +89928,16 @@
             "scaleX": -1
           },
           "parent": "world"
+        },
+        {
+          "id": "treno",
+          "symbol": "mezzo-treno",
+          "parent": "world",
+          "pose": {
+            "translateX": 800,
+            "translateY": 785,
+            "scale": 3.4
+          }
         }
       ],
       "sequences": [
@@ -95382,7 +95990,7 @@
           "roleId": "osservatore",
           "stageId": "citta-cella",
           "motionId": "ingresso",
-          "visualExplanation": "Una cella e un foglio: il disegno della cella e del razzo non esiste ancora nella bottega, per ora c'è solo la figura seduta con un foglio. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
+          "visualExplanation": "Una cella con una finestrella e un uomo seduto che disegna su un foglio: sul foglio c'è il disegno di un razzo. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
           "context": {
             "kind": "documented",
             "dateLabel": "1881–1892",

@@ -53,7 +53,8 @@
       "simbolo": "mezzo-treno",
       "x": 1200,
       "y": 765,
-      "scala": 3.2
+      "scala": 3.2,
+      "davanti": true
     },
     {
       "id": "sacchi-1",

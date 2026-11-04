@@ -3648,7 +3648,7 @@
       "exposes": [
         "a1-razzo"
       ],
-      "visualExplanation": "Una cella e un foglio: il disegno della cella e del razzo non esiste ancora nella bottega, per ora c'è solo la figura seduta con un foglio. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
+      "visualExplanation": "Una cella con una finestrella e un uomo seduto che disegna su un foglio: sul foglio c'è il disegno di un razzo. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
       "editorial": {
         "sources": [
           "I2-06",
