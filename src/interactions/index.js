@@ -90,6 +90,8 @@ function board(stageHost,stage,episode,act,state,dispatch){
   const fresh=stage.generation!==seenGeneration;seenGeneration=stage.generation;stage.position(moves,{animate:!fresh});
 }
 const dots=n=>'●'.repeat(n);
+// Le modifiche della coda di un'offerta, in chiaro: «Le tessili +2 pazienza».
+function queueText(episode,list){const q=episode.queue;if(!q||!list?.length)return '';const word=(q.patienceLabel||'Pazienza').toLowerCase();return list.map(m=>(m.group==='*'?'Tutti':q.groups.find(x=>x.id===m.group)?.label||m.group)+' '+sign(m.patience)+' '+word).join(', ');}
 function effectsText(act,list){return list.map(m=>sign(m.delta)+' '+metricLabel(act,m)).join(', ');}
 // Forza in parole: «3 braccia», «1 braccio». I pallini restano solo come disegno.
 const amount=(e,n)=>n+' '+(n===1&&e.strengthOne?e.strengthOne:e.strengthLabel);
@@ -151,6 +153,7 @@ const PHASE_NAMES={cards:'Notizie',place:'La mossa',result:'L’esito',event:'In
 // La coda con la pazienza: chi aspetta, quanta pazienza resta, che segnale sta per arrivare e dove andrà chi se ne va.
 function queuePanel(episode,g,t,state){
   const q=episode.queue;if(!q||!g.queue)return null;
+  const unit=episode.turnWord||'turno',units=/a$/.test(unit)?unit.slice(0,-1)+'e':/[oe]$/.test(unit)?unit.slice(0,-1)+'i':unit,tra=n=>n+' '+(n===1?unit:units);
   const v=queueView(q,g,t,state,matches),word=(q.patienceLabel||'Pazienza'),box=el('section',undefined,{class:'turn-queue','aria-label':q.label||'La coda'}),ul=el('ul');
   box.append(el('h3',q.label||'La coda'));
   for(const x of v.groups){
@@ -158,12 +161,12 @@ function queuePanel(episode,g,t,state){
     if(x.gone)li.append(el('small','Se ne sono andati: '+x.exit.toLowerCase()+'.'));
     else{
       const bar=el('span',undefined,{class:'turn-patience',role:'img','aria-label':word+': '+x.patience+' su '+x.max});for(let i=0;i<x.max;i++)bar.append(el('i',undefined,{class:i<x.patience?'on':''}));
-      li.append(bar,el('small',word+' '+x.patience+' su '+x.max+(x.turnsToLeave!=null?'. Di questo passo se ne vanno tra '+x.turnsToLeave+(x.turnsToLeave===1?' turno':' turni')+' ('+x.exit.toLowerCase()+').':'.')));
-      if(x.next)li.append(el('small','Prossimo segnale: '+x.next.label+(x.turnsToSignal!=null?', tra '+x.turnsToSignal+(x.turnsToSignal===1?' turno':' turni'):'')+'.'));
+      li.append(bar,el('small',word+' '+x.patience+' su '+x.max+(x.turnsToLeave!=null?'. Di questo passo se ne vanno tra '+tra(x.turnsToLeave)+' ('+x.exit.toLowerCase()+').':'.')));
+      if(x.next)li.append(el('small','Prossimo segnale: '+x.next.label+(x.turnsToSignal!=null?', tra '+tra(x.turnsToSignal):'')+'.'));
     }
     ul.append(li);
   }
-  box.append(ul,el('p','Ogni turno la '+word.toLowerCase()+' scende di '+v.drain.total+(v.drain.factors.length?' ('+v.drain.factors.map(f=>f.label.toLowerCase()).join(', ')+')':'')+'.',{class:'turn-queue-drain'}));
+  box.append(ul,el('p','Ogni '+unit+' la '+word.toLowerCase()+' scende di '+v.drain.total+(v.drain.factors.length?' ('+v.drain.factors.map(f=>f.label.toLowerCase()).join(', ')+')':'')+'.',{class:'turn-queue-drain'}));
   const last=g.queue.last;
   if(last&&last.turn===g.turn-1&&(last.events.length||(last.crises||[]).length)){const note=el('div',undefined,{class:'outcome',role:'status'});for(const e of last.events)note.append(el('p',e.text));for(const c of last.crises||[])note.append(el('p',c.text));box.append(note);}
   return box;
@@ -253,11 +256,12 @@ function turnGame(ctx){
       if(o.cost>1)b.append(el('span','Costa '+o.cost+' punti'));
       if(o.chance){const pc=Math.round(chanceOf(o.chance,act,state)*100);b.append(el('span','riesce nel '+pc+'% dei casi'));}
       else if(o.effects?.length)b.append(el('span',effectsText(act,o.effects.filter(x=>x.kind!=='flag'))));
+      {const qt=o.chance?[queueText(episode,o.success?.queue)&&'se riesce: '+queueText(episode,o.success.queue),queueText(episode,o.failure?.queue)&&'se no: '+queueText(episode,o.failure.queue)].filter(Boolean).join('; '):queueText(episode,o.queue);if(qt)b.append(el('span',qt));}
       b.disabled=!offerOpen(episode,g,o,state);const n=g.market.bought.filter(x=>x===o.id).length;if(n)b.append(el('small',o.repeat?'fatto '+n+(n===1?' volta':' volte'):'preso'));shop.append(b);}
     host.append(shop);
     if(g.market.log.length){const box=el('div',undefined,{class:'outcome turn-result',role:'status'});for(const line of g.market.log)box.append(el('p',line));box.append(changeList(act,g.market.changes));host.append(box);}
     // Con punti ancora da spendere il pulsante lo dice: chiudere la giornata non deve essere un tocco distratto.
-    const avanzo=g.market.left>0?' (restano '+g.market.left+(g.market.left===1?' punto)':' punti)'):'';
+    const avanzo=g.market.left>0?(g.market.left===1?' (resta 1 punto)':' (restano '+g.market.left+' punti)'):'';
     host.append(button((g.turn>=episode.turns.length-1?'Fine della partita':(episode.leaveLabel||'Torna a casa'))+avanzo,()=>go('leave'),{'data-turn':'leave',class:'primary'}));
   }
 }

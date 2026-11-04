@@ -92,12 +92,19 @@
       "good": "low"
     },
     {
-      "id": "pazienza",
-      "label": "Pazienza della coda",
+      "id": "voci",
+      "label": "Voci che girano",
       "min": 0,
       "max": 100,
-      "start": 60,
-      "good": "high"
+      "start": 20
+    },
+    {
+      "id": "gelo",
+      "label": "Gelo",
+      "min": 0,
+      "max": 3,
+      "start": 0,
+      "hidden": true
     }
   ],
   "resources": [
@@ -115,7 +122,8 @@
     "coda_lunga",
     "arsenale_aperto",
     "verso_tauride",
-    "coda_corteo"
+    "coda_corteo",
+    "troppo_tardi"
   ],
   "episodes": [
     {
@@ -738,14 +746,20 @@
         "dateLabel": "8 marzo 1917",
         "placeLabel": "Pietrogrado"
       },
-      "text": "Neve e gelo fermano i treni e le code per il pane cominciano di notte. L'8 marzo (23 febbraio nel calendario russo) le tessili del quartiere di Vyborg escono dalle fabbriche e chiamano i metallurgici.\n\nNessun partito aveva previsto che quel giorno aprisse una rivoluzione.\n\nChi fa davvero una rivoluzione? La coda si scioglie e le stesse persone diventano un corteo.",
+      "text": "Neve e gelo fermano i treni e le code per il pane cominciano di notte. L'8 marzo (23 febbraio nel calendario russo) le tessili del quartiere di Vyborg escono dalle fabbriche e chiamano i metallurgici.\n\nI partiti socialisti avevano pensato a quel giorno come alla Giornata internazionale della donna: discorsi e volantini. Trockij ricorda che nessuno aveva previsto che proprio quel giorno aprisse una rivoluzione.\n\nChi fa davvero una rivoluzione? La coda si scioglie e le stesse persone diventano un corteo.",
       "stageId": "otto-giorni-donna",
       "motionId": "ingresso",
       "exposes": [
         "a1-donna"
       ],
       "visualExplanation": "Una coda per il pane si scioglie e diventa un corteo: stesse figure e nuova formazione.",
-      "shows": []
+      "shows": [],
+      "editorial": {
+        "sources": [
+          "R88"
+        ],
+        "scheda": "III.2-e1"
+      }
     },
     {
       "id": "a3-otto-giorni-coda",
@@ -754,12 +768,13 @@
       "title": "La coda per il pane",
       "context": {
         "kind": "simulation",
-        "dateLabel": "febbraio–marzo 1917",
+        "dateLabel": "8–11 marzo 1917",
         "placeLabel": "Pietrogrado"
       },
-      "text": "Una coda per il pane. Ognuno ha una pazienza che scende ogni ora e ogni notte di gelo. Il gesto di chi aspetta si vede prima che parli: batte i piedi, borbotta, se ne va.\n\nQuando la pazienza finisce la coda non scompare: porta il suo malcontento altrove.",
-      "goal": "Tieni la coda paziente il più a lungo possibile. Se si scioglie, il malcontento va in piazza.",
+      "text": "Quattro giornate dalla coda per il pane. Ogni giornata hai quattro punti da spendere fra la fila, il forno e le voci che girano. Ogni gruppo in fila ha una pazienza che scende a ogni giornata e prima di andarsene dà dei segnali. Quando la pazienza finisce la coda non scompare: porta il suo malcontento altrove.",
+      "goal": "Tieni la coda in fila il più a lungo che puoi: ma guarda dove va chi se ne va.",
       "stageId": "otto-giorni-coda",
+      "motionId": "ingresso",
       "exposes": [
         "a1-coda"
       ],
@@ -773,146 +788,305 @@
         "market": "I punti azione"
       },
       "shows": [
-        "pazienza",
         "pane_citta",
+        "voci",
         "operai"
       ],
+      "queue": {
+        "label": "La coda del pane",
+        "patienceLabel": "Pazienza",
+        "groups": [
+          {
+            "id": "tessili",
+            "label": "Le tessili di Vyborg",
+            "size": 8,
+            "patience": 6,
+            "exit": [
+              {
+                "when": {
+                  "op": "all",
+                  "items": [
+                    {
+                      "op": "not",
+                      "item": {
+                        "op": "flag",
+                        "id": "troppo_tardi",
+                        "value": true
+                      }
+                    },
+                    {
+                      "op": "gte",
+                      "kind": "metric",
+                      "id": "voci",
+                      "value": 40
+                    }
+                  ]
+                },
+                "to": "fabbrica"
+              },
+              {
+                "to": "casa"
+              }
+            ]
+          },
+          {
+            "id": "madri",
+            "label": "Le madri con i bambini",
+            "size": 6,
+            "patience": 5,
+            "exit": [
+              {
+                "when": {
+                  "op": "all",
+                  "items": [
+                    {
+                      "op": "not",
+                      "item": {
+                        "op": "flag",
+                        "id": "troppo_tardi",
+                        "value": true
+                      }
+                    },
+                    {
+                      "op": "gte",
+                      "kind": "metric",
+                      "id": "operai",
+                      "value": 50
+                    }
+                  ]
+                },
+                "to": "corteo"
+              },
+              {
+                "to": "casa"
+              }
+            ]
+          },
+          {
+            "id": "anziani",
+            "label": "I vecchi e gli invalidi",
+            "size": 5,
+            "patience": 6,
+            "exit": "casa"
+          }
+        ],
+        "signals": [
+          {
+            "at": 4,
+            "label": "si stringono nello scialle",
+            "pose": "si_stringe"
+          },
+          {
+            "at": 2,
+            "label": "guardano l'orologio",
+            "pose": "guarda_orologio"
+          },
+          {
+            "at": 1,
+            "label": "battono i piedi",
+            "pose": "batte_piedi"
+          }
+        ],
+        "drain": {
+          "base": 1,
+          "factors": [
+            {
+              "id": "gelo",
+              "label": "Il gelo",
+              "when": {
+                "op": "gte",
+                "kind": "metric",
+                "id": "gelo",
+                "value": 1
+              },
+              "extra": 1
+            },
+            {
+              "id": "fame",
+              "label": "La fame",
+              "when": {
+                "op": "lte",
+                "kind": "metric",
+                "id": "pane_citta",
+                "value": 30
+              },
+              "extra": 1
+            },
+            {
+              "id": "voci",
+              "label": "Le voci",
+              "when": {
+                "op": "gte",
+                "kind": "metric",
+                "id": "voci",
+                "value": 60
+              },
+              "extra": 1
+            },
+            {
+              "id": "coda-lunga",
+              "label": "La coda già lunga dei mesi scorsi",
+              "when": {
+                "op": "flag",
+                "id": "coda_lunga",
+                "value": true
+              },
+              "extra": 1
+            }
+          ]
+        },
+        "exits": [
+          {
+            "id": "fabbrica",
+            "label": "In fabbrica",
+            "text": "tornano in fabbrica e portano fuori le compagne.",
+            "effects": [
+              {
+                "kind": "metric",
+                "id": "operai",
+                "delta": 14
+              },
+              {
+                "kind": "metric",
+                "id": "ordine",
+                "delta": -4
+              },
+              {
+                "kind": "metric",
+                "id": "voci",
+                "delta": 6
+              }
+            ]
+          },
+          {
+            "id": "corteo",
+            "label": "Nel corteo",
+            "text": "si uniscono al corteo.",
+            "effects": [
+              {
+                "kind": "metric",
+                "id": "operai",
+                "delta": 10
+              },
+              {
+                "kind": "metric",
+                "id": "ordine",
+                "delta": -6
+              }
+            ]
+          },
+          {
+            "id": "casa",
+            "label": "A casa",
+            "text": "tornano a casa e raccontano quello che hanno visto.",
+            "effects": [
+              {
+                "kind": "metric",
+                "id": "voci",
+                "delta": 6
+              }
+            ]
+          }
+        ]
+      },
       "crises": [
         {
-          "id": "inverno-lungo",
+          "id": "fabbriche-si-fermano",
           "when": {
-            "op": "flag",
-            "id": "coda_lunga",
-            "value": true
-          },
-          "text": "Da mesi il pane scarseggia: la coda è già lunga e stanca prima di cominciare.",
-          "effects": [
-            {
-              "kind": "metric",
-              "id": "pazienza",
-              "delta": -15
-            }
-          ]
-        },
-        {
-          "id": "pane-finito",
-          "when": {
-            "op": "lte",
+            "op": "gte",
             "kind": "metric",
-            "id": "pane_citta",
-            "value": 10
-          },
-          "text": "Il pane è finito: la coda lo vede e la pazienza crolla.",
-          "effects": [
-            {
-              "kind": "metric",
-              "id": "pazienza",
-              "delta": -20
-            },
-            {
-              "kind": "metric",
-              "id": "pane_citta",
-              "delta": 15
-            }
-          ]
-        },
-        {
-          "id": "batte-i-piedi",
-          "when": {
-            "op": "lte",
-            "kind": "metric",
-            "id": "pazienza",
+            "id": "operai",
             "value": 45
           },
-          "text": "Qualcuno guarda l'orologio e batte i piedi: la coda comincia a spazientirsi.",
-          "effects": []
-        },
-        {
-          "id": "borbotta",
-          "when": {
-            "op": "lte",
-            "kind": "metric",
-            "id": "pazienza",
-            "value": 25
-          },
-          "text": "La fila borbotta. Alcuni lasciano il posto e vanno verso la fabbrica.",
+          "text": "In piazza ci sono tanti operai che le fabbriche si fermano.",
           "effects": [
             {
               "kind": "metric",
               "id": "operai",
-              "delta": 8
-            }
-          ]
-        },
-        {
-          "id": "corteo",
-          "when": {
-            "op": "lte",
-            "kind": "metric",
-            "id": "pazienza",
-            "value": 15
-          },
-          "text": "La coda si scioglie: le stesse persone si mettono a camminare insieme. Diventa un corteo.",
-          "effects": [
-            {
-              "kind": "flag",
-              "id": "coda_corteo",
-              "value": true
+              "delta": 10
             },
             {
               "kind": "metric",
-              "id": "operai",
-              "delta": 20
-            },
-            {
-              "kind": "metric",
-              "id": "pazienza",
-              "delta": 20
+              "id": "ordine",
+              "delta": -6
             }
           ]
         }
       ],
-      "feedback": "Tre giornate in coda. La pazienza non è un numero: è una cosa che scende e che si vede. Quando finisce il malcontento va altrove: l'8 marzo 1917 va in piazza.",
+      "feedback": "Le quattro giornate sono finite e la coda non c'è più. Chi aspetta il pane non sparisce: va in fabbrica, in corteo o a casa. Dove va dipende da quello che si è detto e fatto in fila. Le persone, i gruppi e i numeri sono simulazione.",
       "turns": [
         {
-          "label": "Giorno 1",
+          "label": "8 marzo (23 febbraio)",
           "cards": [
             {
-              "kind": "simulation",
-              "title": "Febbraio 1917",
-              "text": "Gelo e neve fermano i treni. La coda per il pane comincia di notte. Le persone sono inventate."
+              "kind": "documented",
+              "text": "L'8 marzo (23 febbraio nel calendario russo) a Pietrogrado le operaie scendono in piazza per il pane.",
+              "editorial": {
+                "fonti": [
+                  "R88"
+                ]
+              }
             }
           ],
           "market": {
             "who": "La coda",
-            "text": "Hai quattro punti. Tocca la fila o un luogo per spenderli. La pazienza scende ogni notte.",
+            "text": "La fila è già lunga. Oggi i gruppi sono alla pazienza massima: calmarli non serve a niente. Hai quattro punti.",
             "points": 4,
             "offers": [
               {
-                "id": "parola",
-                "label": "Dire una parola alla coda",
-                "short": "Una parola",
+                "id": "tessili",
+                "label": "Parlare alle tessili",
+                "short": "Le tessili",
                 "at": {
-                  "x": 0.38,
-                  "y": 0.5
+                  "x": 0.2,
+                  "y": 0.62
                 },
                 "repeat": true,
-                "text": "Una parola buona: la fila si calma un poco.",
+                "text": "Una parola buona: le tessili aspettano ancora un poco.",
                 "effects": [
                   {
                     "kind": "metric",
-                    "id": "pazienza",
-                    "delta": 3
+                    "id": "voci",
+                    "delta": -2
+                  }
+                ],
+                "queue": [
+                  {
+                    "group": "tessili",
+                    "patience": 2
+                  }
+                ]
+              },
+              {
+                "id": "madri",
+                "label": "Far passare le madri con i bambini",
+                "short": "Le madri",
+                "at": {
+                  "x": 0.3,
+                  "y": 0.7
+                },
+                "text": "Le madri passano avanti: la fila lo accetta.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": -3
+                  }
+                ],
+                "queue": [
+                  {
+                    "group": "madri",
+                    "patience": 3
                   }
                 ]
               },
               {
                 "id": "dividere",
                 "label": "Dividere il poco pane che c'è",
-                "short": "Dividere",
+                "short": "Il pane",
                 "at": {
-                  "x": 0.58,
-                  "y": 0.5
+                  "x": 0.42,
+                  "y": 0.78
                 },
                 "repeat": true,
                 "text": "Si divide il pane: a ciascuno un pezzo piccolo.",
@@ -920,61 +1094,23 @@
                   {
                     "kind": "metric",
                     "id": "pane_citta",
-                    "delta": -8
-                  },
-                  {
-                    "kind": "metric",
-                    "id": "pazienza",
-                    "delta": 6
+                    "delta": -6
                   }
-                ]
-              },
-              {
-                "id": "bambini",
-                "label": "Far passare i bambini per primi",
-                "short": "I bambini",
-                "at": {
-                  "x": 0.78,
-                  "y": 0.5
-                },
-                "text": "I bambini passano avanti: la coda lo accetta.",
-                "effects": [
+                ],
+                "queue": [
                   {
-                    "kind": "metric",
-                    "id": "pazienza",
-                    "delta": 6
-                  },
-                  {
-                    "kind": "metric",
-                    "id": "pane_citta",
-                    "delta": -3
-                  }
-                ]
-              },
-              {
-                "id": "voce",
-                "label": "Ascoltare la voce che gira fra la fila",
-                "short": "La voce",
-                "at": {
-                  "x": 0.48,
-                  "y": 0.28
-                },
-                "text": "Si dice che il pane arriverà domani. Nessuno sa chi l'ha detto.",
-                "effects": [
-                  {
-                    "kind": "metric",
-                    "id": "pazienza",
-                    "delta": 2
+                    "group": "*",
+                    "patience": 1
                   }
                 ]
               },
               {
                 "id": "forno",
-                "label": "Andare al forno a chiedere (due punti)",
+                "label": "Andare al forno a chiedere",
                 "short": "Il forno",
                 "at": {
-                  "x": 0.7,
-                  "y": 0.28
+                  "x": 0.5,
+                  "y": 0.55
                 },
                 "cost": 2,
                 "chance": {
@@ -987,74 +1123,162 @@
                       "kind": "metric",
                       "id": "pane_citta",
                       "delta": 12
-                    },
+                    }
+                  ],
+                  "queue": [
                     {
-                      "kind": "metric",
-                      "id": "pazienza",
-                      "delta": 8
+                      "group": "*",
+                      "patience": 1
                     }
                   ]
                 },
                 "failure": {
-                  "text": "Il fornaio non ha niente da dare.",
+                  "text": "Il fornaio non ha niente e si è perso tempo: la fila si innervosisce.",
                   "effects": [
                     {
                       "kind": "metric",
-                      "id": "pazienza",
-                      "delta": -4
+                      "id": "voci",
+                      "delta": 6
+                    }
+                  ],
+                  "queue": [
+                    {
+                      "group": "*",
+                      "patience": -1
                     }
                   ]
                 }
+              },
+              {
+                "id": "vyborg",
+                "label": "Dire alle tessili che a Vyborg si è già usciti dalle fabbriche",
+                "short": "Vyborg",
+                "at": {
+                  "x": 0.8,
+                  "y": 0.62
+                },
+                "repeat": true,
+                "text": "La voce corre lungo la fila: le tessili vogliono uscire.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": 8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "operai",
+                    "delta": 4
+                  }
+                ],
+                "queue": [
+                  {
+                    "group": "tessili",
+                    "patience": -2
+                  }
+                ]
+              },
+              {
+                "id": "ascolta",
+                "label": "Ascoltare le voci della fila",
+                "short": "Le voci",
+                "at": {
+                  "x": 0.12,
+                  "y": 0.78
+                },
+                "repeat": true,
+                "text": "Si parla di tutto: del pane che manca e di chi esce dalle fabbriche.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": 2
+                  }
+                ],
+                "queue": [
+                  {
+                    "group": "anziani",
+                    "patience": 1
+                  }
+                ]
               }
             ]
           },
           "effects": [
             {
               "kind": "metric",
-              "id": "pazienza",
+              "id": "pane_citta",
               "delta": -8
             }
           ]
         },
         {
-          "label": "Giorno 2",
+          "label": "9 marzo",
           "cards": [
             {
               "kind": "simulation",
-              "title": "Una notte dopo",
-              "text": "È passata un'altra notte di gelo. La fila è più lunga e il pane è meno."
+              "text": "La notte è gelida e la fila si stringe. Nel gioco il gelo fa scendere la pazienza più in fretta; non è un dato storico."
             }
           ],
           "market": {
             "who": "La coda",
-            "text": "Hai quattro punti. Tocca la fila o un luogo per spenderli. La pazienza scende ogni notte.",
+            "text": "Il gelo si sente. Hai quattro punti.",
             "points": 4,
             "offers": [
               {
-                "id": "parola",
-                "label": "Dire una parola alla coda",
-                "short": "Una parola",
+                "id": "tessili",
+                "label": "Parlare alle tessili",
+                "short": "Le tessili",
                 "at": {
-                  "x": 0.38,
-                  "y": 0.5
+                  "x": 0.2,
+                  "y": 0.62
                 },
                 "repeat": true,
-                "text": "Una parola buona: la fila si calma un poco.",
+                "text": "Una parola buona: le tessili aspettano ancora un poco.",
                 "effects": [
                   {
                     "kind": "metric",
-                    "id": "pazienza",
-                    "delta": 3
+                    "id": "voci",
+                    "delta": -2
+                  }
+                ],
+                "queue": [
+                  {
+                    "group": "tessili",
+                    "patience": 2
+                  }
+                ]
+              },
+              {
+                "id": "madri",
+                "label": "Far passare le madri con i bambini",
+                "short": "Le madri",
+                "at": {
+                  "x": 0.3,
+                  "y": 0.7
+                },
+                "text": "Le madri passano avanti: la fila lo accetta.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": -3
+                  }
+                ],
+                "queue": [
+                  {
+                    "group": "madri",
+                    "patience": 3
                   }
                 ]
               },
               {
                 "id": "dividere",
                 "label": "Dividere il poco pane che c'è",
-                "short": "Dividere",
+                "short": "Il pane",
                 "at": {
-                  "x": 0.58,
-                  "y": 0.5
+                  "x": 0.42,
+                  "y": 0.78
                 },
                 "repeat": true,
                 "text": "Si divide il pane: a ciascuno un pezzo piccolo.",
@@ -1062,61 +1286,23 @@
                   {
                     "kind": "metric",
                     "id": "pane_citta",
-                    "delta": -8
-                  },
-                  {
-                    "kind": "metric",
-                    "id": "pazienza",
-                    "delta": 6
+                    "delta": -6
                   }
-                ]
-              },
-              {
-                "id": "bambini",
-                "label": "Far passare i bambini per primi",
-                "short": "I bambini",
-                "at": {
-                  "x": 0.78,
-                  "y": 0.5
-                },
-                "text": "I bambini passano avanti: la coda lo accetta.",
-                "effects": [
+                ],
+                "queue": [
                   {
-                    "kind": "metric",
-                    "id": "pazienza",
-                    "delta": 6
-                  },
-                  {
-                    "kind": "metric",
-                    "id": "pane_citta",
-                    "delta": -3
-                  }
-                ]
-              },
-              {
-                "id": "voce",
-                "label": "Ascoltare la voce che gira fra la fila",
-                "short": "La voce",
-                "at": {
-                  "x": 0.48,
-                  "y": 0.28
-                },
-                "text": "Si dice che il pane arriverà domani. Nessuno sa chi l'ha detto.",
-                "effects": [
-                  {
-                    "kind": "metric",
-                    "id": "pazienza",
-                    "delta": 2
+                    "group": "*",
+                    "patience": 1
                   }
                 ]
               },
               {
                 "id": "forno",
-                "label": "Andare al forno a chiedere (due punti)",
+                "label": "Andare al forno a chiedere",
                 "short": "Il forno",
                 "at": {
-                  "x": 0.7,
-                  "y": 0.28
+                  "x": 0.5,
+                  "y": 0.55
                 },
                 "cost": 2,
                 "chance": {
@@ -1129,79 +1315,167 @@
                       "kind": "metric",
                       "id": "pane_citta",
                       "delta": 12
-                    },
+                    }
+                  ],
+                  "queue": [
                     {
-                      "kind": "metric",
-                      "id": "pazienza",
-                      "delta": 8
+                      "group": "*",
+                      "patience": 1
                     }
                   ]
                 },
                 "failure": {
-                  "text": "Il fornaio non ha niente da dare.",
+                  "text": "Il fornaio non ha niente e si è perso tempo: la fila si innervosisce.",
                   "effects": [
                     {
                       "kind": "metric",
-                      "id": "pazienza",
-                      "delta": -4
+                      "id": "voci",
+                      "delta": 6
+                    }
+                  ],
+                  "queue": [
+                    {
+                      "group": "*",
+                      "patience": -1
                     }
                   ]
                 }
+              },
+              {
+                "id": "vyborg",
+                "label": "Dire alle tessili che a Vyborg si è già usciti dalle fabbriche",
+                "short": "Vyborg",
+                "at": {
+                  "x": 0.8,
+                  "y": 0.62
+                },
+                "repeat": true,
+                "text": "La voce corre lungo la fila: le tessili vogliono uscire.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": 8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "operai",
+                    "delta": 4
+                  }
+                ],
+                "queue": [
+                  {
+                    "group": "tessili",
+                    "patience": -2
+                  }
+                ]
+              },
+              {
+                "id": "ascolta",
+                "label": "Ascoltare le voci della fila",
+                "short": "Le voci",
+                "at": {
+                  "x": 0.12,
+                  "y": 0.78
+                },
+                "repeat": true,
+                "text": "Si parla di tutto: del pane che manca e di chi esce dalle fabbriche.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": 2
+                  }
+                ],
+                "queue": [
+                  {
+                    "group": "anziani",
+                    "patience": 1
+                  }
+                ]
               }
             ]
           },
           "effects": [
             {
               "kind": "metric",
-              "id": "pazienza",
-              "delta": -18
+              "id": "pane_citta",
+              "delta": -8
             },
             {
               "kind": "metric",
-              "id": "pane_citta",
-              "delta": -4
+              "id": "gelo",
+              "delta": 1
             }
           ]
         },
         {
-          "label": "Giorno 3",
+          "label": "10 marzo",
           "cards": [
             {
               "kind": "simulation",
-              "title": "L'8 marzo",
-              "text": "Le tessili sono uscite dalle fabbriche. La fila guarda verso la strada."
+              "text": "Ogni notte arriva meno pane. Chi aspetta lo sa."
             }
           ],
           "market": {
             "who": "La coda",
-            "text": "Hai quattro punti. Tocca la fila o un luogo per spenderli. La pazienza scende ogni notte.",
+            "text": "Il pane cala. Hai quattro punti.",
             "points": 4,
             "offers": [
               {
-                "id": "parola",
-                "label": "Dire una parola alla coda",
-                "short": "Una parola",
+                "id": "tessili",
+                "label": "Parlare alle tessili",
+                "short": "Le tessili",
                 "at": {
-                  "x": 0.38,
-                  "y": 0.5
+                  "x": 0.2,
+                  "y": 0.62
                 },
                 "repeat": true,
-                "text": "Una parola buona: la fila si calma un poco.",
+                "text": "Una parola buona: le tessili aspettano ancora un poco.",
                 "effects": [
                   {
                     "kind": "metric",
-                    "id": "pazienza",
-                    "delta": 3
+                    "id": "voci",
+                    "delta": -2
+                  }
+                ],
+                "queue": [
+                  {
+                    "group": "tessili",
+                    "patience": 2
+                  }
+                ]
+              },
+              {
+                "id": "madri",
+                "label": "Far passare le madri con i bambini",
+                "short": "Le madri",
+                "at": {
+                  "x": 0.3,
+                  "y": 0.7
+                },
+                "text": "Le madri passano avanti: la fila lo accetta.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": -3
+                  }
+                ],
+                "queue": [
+                  {
+                    "group": "madri",
+                    "patience": 3
                   }
                 ]
               },
               {
                 "id": "dividere",
                 "label": "Dividere il poco pane che c'è",
-                "short": "Dividere",
+                "short": "Il pane",
                 "at": {
-                  "x": 0.58,
-                  "y": 0.5
+                  "x": 0.42,
+                  "y": 0.78
                 },
                 "repeat": true,
                 "text": "Si divide il pane: a ciascuno un pezzo piccolo.",
@@ -1209,61 +1483,23 @@
                   {
                     "kind": "metric",
                     "id": "pane_citta",
-                    "delta": -8
-                  },
-                  {
-                    "kind": "metric",
-                    "id": "pazienza",
-                    "delta": 6
+                    "delta": -6
                   }
-                ]
-              },
-              {
-                "id": "bambini",
-                "label": "Far passare i bambini per primi",
-                "short": "I bambini",
-                "at": {
-                  "x": 0.78,
-                  "y": 0.5
-                },
-                "text": "I bambini passano avanti: la coda lo accetta.",
-                "effects": [
+                ],
+                "queue": [
                   {
-                    "kind": "metric",
-                    "id": "pazienza",
-                    "delta": 6
-                  },
-                  {
-                    "kind": "metric",
-                    "id": "pane_citta",
-                    "delta": -3
-                  }
-                ]
-              },
-              {
-                "id": "voce",
-                "label": "Ascoltare la voce che gira fra la fila",
-                "short": "La voce",
-                "at": {
-                  "x": 0.48,
-                  "y": 0.28
-                },
-                "text": "Si dice che il pane arriverà domani. Nessuno sa chi l'ha detto.",
-                "effects": [
-                  {
-                    "kind": "metric",
-                    "id": "pazienza",
-                    "delta": 2
+                    "group": "*",
+                    "patience": 1
                   }
                 ]
               },
               {
                 "id": "forno",
-                "label": "Andare al forno a chiedere (due punti)",
+                "label": "Andare al forno a chiedere",
                 "short": "Il forno",
                 "at": {
-                  "x": 0.7,
-                  "y": 0.28
+                  "x": 0.5,
+                  "y": 0.55
                 },
                 "cost": 2,
                 "chance": {
@@ -1276,42 +1512,296 @@
                       "kind": "metric",
                       "id": "pane_citta",
                       "delta": 12
-                    },
+                    }
+                  ],
+                  "queue": [
                     {
-                      "kind": "metric",
-                      "id": "pazienza",
-                      "delta": 8
+                      "group": "*",
+                      "patience": 1
                     }
                   ]
                 },
                 "failure": {
-                  "text": "Il fornaio non ha niente da dare.",
+                  "text": "Il fornaio non ha niente e si è perso tempo: la fila si innervosisce.",
                   "effects": [
                     {
                       "kind": "metric",
-                      "id": "pazienza",
-                      "delta": -4
+                      "id": "voci",
+                      "delta": 6
+                    }
+                  ],
+                  "queue": [
+                    {
+                      "group": "*",
+                      "patience": -1
                     }
                   ]
                 }
+              },
+              {
+                "id": "vyborg",
+                "label": "Dire alle tessili che a Vyborg si è già usciti dalle fabbriche",
+                "short": "Vyborg",
+                "at": {
+                  "x": 0.8,
+                  "y": 0.62
+                },
+                "repeat": true,
+                "text": "La voce corre lungo la fila: le tessili vogliono uscire.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": 8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "operai",
+                    "delta": 4
+                  }
+                ],
+                "queue": [
+                  {
+                    "group": "tessili",
+                    "patience": -2
+                  }
+                ]
+              },
+              {
+                "id": "ascolta",
+                "label": "Ascoltare le voci della fila",
+                "short": "Le voci",
+                "at": {
+                  "x": 0.12,
+                  "y": 0.78
+                },
+                "repeat": true,
+                "text": "Si parla di tutto: del pane che manca e di chi esce dalle fabbriche.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": 2
+                  }
+                ],
+                "queue": [
+                  {
+                    "group": "anziani",
+                    "patience": 1
+                  }
+                ]
               }
             ]
           },
           "effects": [
             {
               "kind": "metric",
-              "id": "pazienza",
-              "delta": -22
-            },
+              "id": "pane_citta",
+              "delta": -8
+            }
+          ]
+        },
+        {
+          "label": "11 marzo",
+          "cards": [
+            {
+              "kind": "simulation",
+              "text": "Ultima giornata. La fila è stanca: chi esce oggi non ha più la forza di tornare in fabbrica o in piazza. È un'ipotesi del gioco."
+            }
+          ],
+          "market": {
+            "who": "La coda",
+            "text": "Ultima giornata della coda. Hai quattro punti.",
+            "points": 4,
+            "offers": [
+              {
+                "id": "tessili",
+                "label": "Parlare alle tessili",
+                "short": "Le tessili",
+                "at": {
+                  "x": 0.2,
+                  "y": 0.62
+                },
+                "repeat": true,
+                "text": "Una parola buona: le tessili aspettano ancora un poco.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": -2
+                  }
+                ],
+                "queue": [
+                  {
+                    "group": "tessili",
+                    "patience": 2
+                  }
+                ]
+              },
+              {
+                "id": "madri",
+                "label": "Far passare le madri con i bambini",
+                "short": "Le madri",
+                "at": {
+                  "x": 0.3,
+                  "y": 0.7
+                },
+                "text": "Le madri passano avanti: la fila lo accetta.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": -3
+                  }
+                ],
+                "queue": [
+                  {
+                    "group": "madri",
+                    "patience": 3
+                  }
+                ]
+              },
+              {
+                "id": "dividere",
+                "label": "Dividere il poco pane che c'è",
+                "short": "Il pane",
+                "at": {
+                  "x": 0.42,
+                  "y": 0.78
+                },
+                "repeat": true,
+                "text": "Si divide il pane: a ciascuno un pezzo piccolo.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": -6
+                  }
+                ],
+                "queue": [
+                  {
+                    "group": "*",
+                    "patience": 1
+                  }
+                ]
+              },
+              {
+                "id": "forno",
+                "label": "Andare al forno a chiedere",
+                "short": "Il forno",
+                "at": {
+                  "x": 0.5,
+                  "y": 0.55
+                },
+                "cost": 2,
+                "chance": {
+                  "base": 0.5
+                },
+                "success": {
+                  "text": "Al forno ce n'è ancora un poco: arriva altro pane.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "pane_citta",
+                      "delta": 12
+                    }
+                  ],
+                  "queue": [
+                    {
+                      "group": "*",
+                      "patience": 1
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Il fornaio non ha niente e si è perso tempo: la fila si innervosisce.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "voci",
+                      "delta": 6
+                    }
+                  ],
+                  "queue": [
+                    {
+                      "group": "*",
+                      "patience": -1
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "vyborg",
+                "label": "Dire alle tessili che a Vyborg si è già usciti dalle fabbriche",
+                "short": "Vyborg",
+                "at": {
+                  "x": 0.8,
+                  "y": 0.62
+                },
+                "repeat": true,
+                "text": "La voce corre lungo la fila: le tessili vogliono uscire.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": 8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "operai",
+                    "delta": 4
+                  }
+                ],
+                "queue": [
+                  {
+                    "group": "tessili",
+                    "patience": -2
+                  }
+                ]
+              },
+              {
+                "id": "ascolta",
+                "label": "Ascoltare le voci della fila",
+                "short": "Le voci",
+                "at": {
+                  "x": 0.12,
+                  "y": 0.78
+                },
+                "repeat": true,
+                "text": "Si parla di tutto: del pane che manca e di chi esce dalle fabbriche.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "voci",
+                    "delta": 2
+                  }
+                ],
+                "queue": [
+                  {
+                    "group": "anziani",
+                    "patience": 1
+                  }
+                ]
+              }
+            ]
+          },
+          "effects": [
             {
               "kind": "metric",
               "id": "pane_citta",
-              "delta": -4
+              "delta": -8
+            },
+            {
+              "kind": "flag",
+              "id": "troppo_tardi",
+              "value": true
             }
-          ]
+          ],
+          "queue": {
+            "drain": 5
+          }
         }
-      ],
-      "motionId": "ingresso"
+      ]
     },
     {
       "id": "a3-otto-giorni-soldato",
@@ -1323,7 +1813,7 @@
         "dateLabel": "marzo 1917",
         "placeLabel": "Pietrogrado"
       },
-      "text": "Fra l'8 e il 16 marzo 1917 una protesta per il pane diventa una rivoluzione. Il punto di svolta è il soldato che non spara. Qui scegli che cosa viene dopo: ogni giornata hai quattro punti da spendere sulla scena.",
+      "text": "Il punto di svolta è il soldato che non spara. Qui scegli che cosa viene dopo: ogni giornata hai quattro punti da spendere sulla scena. Le voci e la fame delle giornate della coda arrivano fino alle caserme.",
       "goal": "Trasforma un gesto di disobbedienza in qualcosa che regge: soldati con gli operai e il vecchio ordine che perde forza.",
       "stageId": "otto-giorni-soldato",
       "motionId": "ingresso",
@@ -1386,17 +1876,71 @@
               "delta": -10
             }
           ]
+        },
+        {
+          "id": "voci-nelle-caserme",
+          "when": {
+            "op": "gte",
+            "kind": "metric",
+            "id": "voci",
+            "value": 60
+          },
+          "text": "Le voci che giravano in fila sono arrivate nelle caserme: i soldati ascoltano.",
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "soldati",
+              "delta": 6
+            },
+            {
+              "kind": "metric",
+              "id": "ordine",
+              "delta": -6
+            }
+          ]
+        },
+        {
+          "id": "fame-spinge",
+          "when": {
+            "op": "lte",
+            "kind": "metric",
+            "id": "pane_citta",
+            "value": 20
+          },
+          "text": "In città il pane è finito: anche i soldati hanno parenti in coda.",
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "soldati",
+              "delta": 6
+            },
+            {
+              "kind": "metric",
+              "id": "ordine",
+              "delta": -6
+            }
+          ]
+        },
+        {
+          "id": "due-poteri",
+          "when": {
+            "op": "flag",
+            "id": "verso_tauride",
+            "value": true
+          },
+          "text": "Al Palazzo di Tauride ci sono due poteri. Il Comitato provvisorio della Duma è fatto di deputati della vecchia Duma. Il soviet di Pietrogrado è fatto di delegati di operai e soldati e decide per alzata di mano.",
+          "effects": []
         }
       ],
       "feedback": "Hai deciso tre giorni. Disobbedire è un gesto: diventa una rivoluzione quando altri lo seguono e quando nasce qualcosa che regge. Nessuna scelta riguardava lo sparare.",
       "turns": [
         {
-          "label": "Giorno 1",
+          "label": "12 marzo (27 febbraio)",
           "cards": [
             {
-              "kind": "simulation",
-              "title": "12 marzo, sera",
-              "text": "Il 12 marzo (27 febbraio nel calendario russo) un reparto si rifiuta di sparare sulla folla. La scelta riguarda il dopo. Le persone e le scelte sono simulazione."
+              "kind": "documented",
+              "title": "12 marzo (27 febbraio), mattina",
+              "text": "Il 12 marzo (27 febbraio nel calendario russo) il reggimento Volynskij si rifiuta di sparare sulla folla. Le persone e le scelte che seguono sono simulazione."
             }
           ],
           "market": {
@@ -1488,7 +2032,7 @@
               },
               {
                 "id": "arsenale",
-                "label": "Aprire l'arsenale agli operai (due punti)",
+                "label": "Aprire l'arsenale agli operai",
                 "short": "L'arsenale",
                 "at": {
                   "x": 0.72,
@@ -1549,14 +2093,14 @@
               },
               {
                 "id": "tauride",
-                "label": "Marciare verso il Palazzo di Tauride (due punti)",
+                "label": "Marciare verso il Palazzo di Tauride",
                 "short": "Tauride",
                 "at": {
                   "x": 0.52,
                   "y": 0.28
                 },
                 "cost": 2,
-                "text": "Il corteo cerca la Duma.",
+                "text": "Il corteo arriva al Palazzo di Tauride. Quel giorno stesso nascono due poteri: il Comitato provvisorio della Duma e il soviet di Pietrogrado.",
                 "effects": [
                   {
                     "kind": "metric",
@@ -1584,7 +2128,7 @@
           }
         },
         {
-          "label": "Giorno 2",
+          "label": "13 marzo",
           "cards": [
             {
               "kind": "simulation",
@@ -1681,7 +2225,7 @@
               },
               {
                 "id": "arsenale",
-                "label": "Aprire l'arsenale agli operai (due punti)",
+                "label": "Aprire l'arsenale agli operai",
                 "short": "L'arsenale",
                 "at": {
                   "x": 0.72,
@@ -1742,7 +2286,7 @@
               },
               {
                 "id": "tauride",
-                "label": "Marciare verso il Palazzo di Tauride (due punti)",
+                "label": "Marciare verso il Palazzo di Tauride",
                 "short": "Tauride",
                 "at": {
                   "x": 0.52,
@@ -1789,7 +2333,7 @@
           ]
         },
         {
-          "label": "Giorno 3",
+          "label": "14 marzo",
           "cards": [
             {
               "kind": "simulation",
@@ -1886,7 +2430,7 @@
               },
               {
                 "id": "arsenale",
-                "label": "Aprire l'arsenale agli operai (due punti)",
+                "label": "Aprire l'arsenale agli operai",
                 "short": "L'arsenale",
                 "at": {
                   "x": 0.72,
@@ -1947,7 +2491,7 @@
               },
               {
                 "id": "tauride",
-                "label": "Marciare verso il Palazzo di Tauride (due punti)",
+                "label": "Marciare verso il Palazzo di Tauride",
                 "short": "Tauride",
                 "at": {
                   "x": 0.52,
@@ -1995,7 +2539,13 @@
         }
       ],
       "leaveLabel": "Finire la giornata",
-      "pointsLabel": "Punti azione"
+      "pointsLabel": "Punti azione",
+      "editorial": {
+        "sources": [
+          "R88"
+        ],
+        "scheda": "III.2-e2"
+      }
     },
     {
       "id": "a3-otto-giorni-treno",
@@ -2005,17 +2555,48 @@
       "display": "cards",
       "context": {
         "kind": "documented",
-        "dateLabel": "marzo 1917",
-        "placeLabel": "Pskov"
+        "dateLabel": "12–16 marzo 1917",
+        "placeLabel": "Pietrogrado e Pskov"
       },
-      "text": "Al Palazzo di Tauride nascono lo stesso giorno il Comitato della Duma e il soviet. Il treno dello zar è deviato a Pskov.\n\nMentre arrivano i telegrammi Nicola annota nel diario la vita del treno. Poi abdica.\n\nChe cosa resta di uno zar quando smette di esserlo? Un uomo con un'abitudine.",
+      "text": "Il 12 marzo (27 febbraio) al Palazzo di Tauride nascono lo stesso giorno due poteri. Il Comitato provvisorio della Duma è fatto di deputati della vecchia Duma. Il soviet di Pietrogrado è fatto di delegati di operai e soldati e decide per alzata di mano.\n\nIl 15 marzo (2 marzo) il treno dello zar è fermo a Pskov. Mentre arrivano i telegrammi Nicola continua ad annotare nel diario la vita del treno. Poi abdica.\n\nDopo l'abdicazione saluta, si tocca i baffi per abitudine e torna nel suo vagone. Il 16 marzo (3 marzo) rinuncia al trono anche suo fratello Michele.\n\nChe cosa resta di uno zar quando smette di esserlo? Un uomo con un'abitudine.",
       "exposes": [
         "a1-treno"
       ],
       "shows": [],
       "stageId": "otto-giorni-treno",
       "motionId": "ingresso",
-      "visualExplanation": "Un treno fermo nella neve e un uomo in cappotto che gli si avvicina e poi si allontana."
+      "visualExplanation": "Un treno fermo nella neve e un uomo in cappotto che gli si avvicina e poi si allontana.",
+      "editorial": {
+        "sources": [
+          "R15",
+          "R08"
+        ],
+        "scheda": "III.2-e3"
+      }
+    },
+    {
+      "id": "a3-otto-giorni-ricorda",
+      "type": "narrative",
+      "roleId": "figlio",
+      "title": "Cosa ti devi ricordare",
+      "display": "cards",
+      "context": {
+        "kind": "documented",
+        "dateLabel": "8–16 marzo 1917"
+      },
+      "text": "L'8 marzo 1917 (23 febbraio nel calendario russo) le operaie escono dalle fabbriche di Pietrogrado per il pane. Nessun partito aveva deciso che quel giorno cominciasse una rivoluzione. In pochi giorni le code, le fabbriche e le caserme si muovono insieme.\n\nIl 12 marzo (27 febbraio) i soldati che non sparano cambiano tutto: senza soldati che difendano il vecchio ordine la protesta diventa una rivoluzione.\n\nLo stesso giorno al Palazzo di Tauride nascono due poteri diversi. Il Comitato provvisorio della Duma è fatto di deputati della vecchia Duma. Il soviet di Pietrogrado è fatto di delegati di operai e soldati e decide per alzata di mano. Il 15 marzo (2 marzo) lo zar abdica e il giorno dopo rinuncia anche suo fratello Michele.",
+      "stageId": "otto-giorni-treno",
+      "motionId": "ingresso",
+      "visualExplanation": "Un treno fermo nella neve: la fine dello zar vista da fuori. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
+      "editorial": {
+        "sources": [
+          "R88",
+          "R15",
+          "R08"
+        ],
+        "scheda": "III.2 ricordo"
+      },
+      "shows": []
     },
     {
       "id": "a3-otto-giorni-v6",
@@ -2042,7 +2623,7 @@
         "dateLabel": "1861–1917",
         "placeLabel": "Russia"
       },
-      "text": "La terra aveva preparato il villaggio e il mir. La fabbrica aveva preparato gli operai. Il 1905 aveva mostrato il soviet. La guerra aveva tolto il pane. Alla fine decisero la piazza e i soldati.\n\nIl potere dello zar cadde perché nessuno più lo difese. Quello che veniva dopo era ancora da decidere.",
+      "text": "La terra aveva preparato il villaggio e il mir. La fabbrica aveva preparato gli operai. Il 1905 aveva mostrato il soviet. La guerra aveva tolto il pane. Alla fine decisero la piazza e i soldati; gli alti ufficiali non risposero più allo zar.\n\nIl potere dello zar cadde perché nessuno più lo difese. Quello che veniva dopo era ancora da decidere.",
       "shows": [],
       "stageId": "otto-giorni-confronto",
       "motionId": "ingresso",
@@ -2093,6 +2674,7 @@
         "a3-otto-giorni-coda",
         "a3-otto-giorni-soldato",
         "a3-otto-giorni-treno",
+        "a3-otto-giorni-ricorda",
         "a3-otto-giorni-v6",
         "a3-otto-giorni-confronto"
       ],

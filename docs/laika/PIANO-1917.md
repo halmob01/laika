@@ -4,14 +4,14 @@
 
 Come si lavora in autonomia, controlli e condizioni di arresto: [METODO](METODO.md) §7. Il prossimo incarico e il messaggio da dare all'agente: `npm run prossimo`.
 
-Incarichi fatti: 3 su 21. Prossimo: U-otto-giorni.
+Incarichi fatti: 4 su 21. Prossimo: K4.
 
 | # | Incarico | Tipo | Modello | Dopo | Stato |
 |---:|---|---|---|---|---|
 | 1 | **S1** Le scene delle unità già fatte con i disegni che ci sono | scene | Sonnet | — | fatto (PR #47) |
 | 2 | **K1** Motore: la coda con la pazienza | motore | Opus | S1 | fatto (PR #48) |
 | 3 | **K6** Motore: le crisi dopo la coda e le uscite che dipendono dalla partita | motore | Opus | K1 | fatto (PR #49) |
-| 4 | **U-otto-giorni** III.2 Otto giorni: la coda vera, il soldato, il treno, Tauride | unità | Opus | S1, K1, K6 | da fare |
+| 4 | **U-otto-giorni** III.2 Otto giorni: la coda vera, il soldato, il treno, Tauride | unità | Opus | S1, K1, K6 | fatto (PR #50) |
 | 5 | **K4** Bottega: i disegni che mancano agli Atti I–III | bottega | Sonnet | S1 | da fare |
 | 6 | **K2** Motore: le merci che camminano | motore | Opus | S1 | da fare |
 | 7 | **U-pane-guerra** III.1 Pane e guerra: grano, treni e città | unità | Opus | S1, K2, K4 | da fare |
@@ -75,6 +75,8 @@ Unità del canone: `otto-giorni`.
 - Didattica (PERCORSO §7): gli obiettivi dell'unità nel canone guidano gioco e testi; «Cosa ti devi ricordare» dice gli obiettivi in parole semplici; almeno una verifica formativa legata a un obiettivo, scritta con la skill `verifiche-didattiche`; due aneddoti concreti con le fonti registrate.
 
 È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche; domanda, obiettivi, verifica legata a un obiettivo, «Cosa ti devi ricordare», concetti, chiusura, fonti registrate; scene proprie); Test di bilanciamento della coda: almeno tre strategie arrivano in fondo con esiti diversi; nessuna vince su tutti gli indicatori; Controlli comuni G1–G5 passati (METODO §7).
+
+Evidenze: docs/evidence/U-otto-giorni/, tests/laika-otto-giorni.test.js, docs/laika/giochi/otto-giorni.md.
 
 ## K4 — Bottega: i disegni che mancano agli Atti I–III
 

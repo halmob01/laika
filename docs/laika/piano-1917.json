@@ -131,7 +131,13 @@
         "Test di bilanciamento della coda: almeno tre strategie arrivano in fondo con esiti diversi; nessuna vince su tutti gli indicatori",
         "Controlli comuni G1–G5 passati (METODO §7)"
       ],
-      "stato": "da fare"
+      "stato": "fatto",
+      "pr": 50,
+      "evidenze": [
+        "docs/evidence/U-otto-giorni/",
+        "tests/laika-otto-giorni.test.js",
+        "docs/laika/giochi/otto-giorni.md"
+      ]
     },
     {
       "id": "K4",

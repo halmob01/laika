@@ -174,3 +174,21 @@ Non riscontrate: il testo per lo studente le dà come sintesi degli appunti o co
 - Rasputin ucciso nel dicembre 1916 e la proposta contro l'imperatrice (I.5-e4).
 - Giornate di marzo 1917: date in doppio calendario, tessili di Vyborg, reparto che rifiuta di sparare, Comitato della Duma e soviet lo stesso giorno, treno a Pskov, diario di Nicola (I.6).
 - Prezzi fissati e trasporti come causa della mancanza di pane (quesito V5).
+
+## III.2 «Otto giorni» — riscontri del 4 novembre 2026 (U-otto-giorni)
+
+Fonti usate: atlante degli aneddoti (`references/fonti/atlanti/`) e appunti «La Rivoluzione Russa» (`references/fonti/appunti/`). Nessun libro è stato caricato dal docente per questa unità: i passi sono in parafrasi e le citazioni brevi dell'atlante non entrano nel testo.
+
+| ID / episodio | Dettaglio nel testo | Fonte | Esito |
+|---|---|---|---|
+| R88 / donna, ricorda | I partiti socialisti pensavano alla Giornata internazionale della donna con discorsi e volantini; nessuno aveva previsto che proprio quel giorno aprisse una rivoluzione | Trockij, *Storia della rivoluzione russa*; atlante R88 (cercare «inaugurare la rivoluzione»). Parafrasi | Confermato sull'atlante; passo del libro da riscontrare se il docente lo carica |
+| R15 / treno | Mentre arrivano i telegrammi Nicola continua ad annotare nel diario la vita del treno | Miéville, *Ottobre*; atlante R15 (cercare «nervosamente scribacchiando sul suo diario»). Parafrasi | Confermato sull'atlante |
+| R08 / treno | Dopo l'abdicazione Nicola saluta, si tocca i baffi per abitudine e torna nel vagone | Miéville, *Ottobre*; atlante R08 (cercare «si toccò con le dita i baffi»). Parafrasi | Confermato sull'atlante |
+| Appunti / donna, coda | La manifestazione di donne per il pane dell'8 marzo (22 febbraio per gli appunti) e quella pomeridiana degli operai | Appunti, «Febbraio» | La data degli appunti (22 febbraio) non coincide con quella della scheda (23 febbraio); si usa la scheda |
+| Appunti / treno, ricorda, confronto | Abdicazione a favore del fratello Michele, che rinuncia il giorno dopo; gli alti ufficiali si ammutinano e non rispondono | Appunti, «Febbraio» | Date degli appunti («primo marzo») in contrasto con la scheda: si usano 15 marzo (2 marzo) e 16 marzo (3 marzo) |
+| Appunti / soldato | Il governo provvisorio di L'vov; il soviet di Pietrogrado decide per alzata di mano | Appunti, «Febbraio» e «Continuano, comunque, a esistere i Soviet» | Confermato sugli appunti |
+| Conoscenza generale / treno, ricorda | Abdicazione il 15 marzo (2 marzo) a Pskov | La scheda dell'atto dà l'intervallo 8–16 marzo (23 febbraio–3 marzo); gli appunti dicono «primo marzo» | Data da riscontrare nei libri; si usa quella del calendario (2 marzo giuliano = 15 marzo) |
+| Scheda dell'atto / soldato, treno | 12 marzo (27 febbraio): il reggimento Volynskij rifiuta di sparare; nello stesso giorno nascono al Palazzo di Tauride il Comitato provvisorio della Duma e il soviet | `docs/laika/atti/atto-3.md` (III.2-e2, e3) | Dalla scheda; la composizione del Comitato («deputati della vecchia Duma») è conoscenza generale, da riscontrare nei libri |
+| Frederiks che annuncia in francese e poi piange / treno | **Tolto**: non si trova né nell'atlante né negli appunti | Ricerca sull'atlante e sugli appunti (4/11/2026) | Non riscontrato, non compare nel testo (METODO §7) |
+
+Simulazione, non fatto: gelo del 9 marzo, durata e composizione dei gruppi in fila, ogni numero degli indicatori.

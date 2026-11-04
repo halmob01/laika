@@ -173,9 +173,10 @@
           ],
           "gioco": "code che diventano corteo, poi punti azione (il soldato che non spara)",
           "stato_gioco": "approvato",
-          "stato": "da rifare",
+          "stato": "bozza",
           "nel_gioco": "i6",
-          "nota": "La coda è una versione semplice a punti azione, senza figure che lasciano la fila: non è il gioco approvato."
+          "nota": "Costruita il 4 novembre 2026 con la coda con la pazienza (K1, K6) e il soldato a punti azione; da provare dal telefono (C-III).",
+          "scheda_gioco": "docs/laika/giochi/otto-giorni.md"
         }
       ]
     },

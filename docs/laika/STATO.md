@@ -16,6 +16,8 @@ Aggiornato al 4 novembre 2026.
 
 **K1 fatto** (motore della coda con la pazienza; revisione indipendente al primo giro: passa): modulo `src/core/queue.js` e test, pannello «La coda» nel gioco, tre pose di attesa (`guarda_orologio`, `batte_piedi`, `si_stringe`), scena di prova `esempio-coda-pazienza` nella galleria, sezione in `docs/CREARE-UN-GIOCO.md`. Evidenze in `docs/evidence/K1/`.
 
+**U-otto-giorni fatto** (III.2 Otto giorni, scritta il 4 novembre 2026): la coda con la pazienza (tre gruppi, uscite che dipendono dalla partita, ultima giornata «troppo tardi») e il soldato che non spara con le voci e la fame come benzina; «Cosa ti devi ricordare»; fonti R88, R15 e R08 in MATRICE; il passo di Frederiks è stato tolto perché non riscontrato. La scheda di gioco ha avuto cinque revisioni «non passa» (sei versioni) e il docente ha autorizzato di fissare la regola di bilanciamento in un test sul motore vero. Canone: unità «bozza».
+
 **K6 fatto** (inserito il 4 novembre 2026 dalla revisione indipendente della scheda di «Otto giorni», D-041): le crisi dei turni a punti si controllano anche dopo la discesa della coda e un gruppo può avere più uscite scelte da una condizione. «Otto giorni» (U-otto-giorni) riparte dopo K6.
 
 Proposte P-01–P-05 chiuse dal docente il 4 novembre (D-038, D-039): si lavora in autonomia con [PIANO-1917](PIANO-1917.md).
