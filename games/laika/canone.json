@@ -1,0 +1,465 @@
+{
+  "_leggimi": "Struttura del percorso LAIKA: atti, unità, gioco di ogni unità e stato. Fa fede su tutti gli altri documenti. Si cambia solo con una decisione del docente registrata in docs/laika/DECISIONI.md; dopo ogni modifica: npm run canone (rigenera docs/laika/CANONE.md).",
+  "stati": {
+    "da fare": "non costruita",
+    "bozza": "costruita, non ancora provata e approvata dal docente",
+    "da rifare": "costruita in modo diverso dal gioco approvato",
+    "approvata": "provata dal docente e approvata, con la data"
+  },
+  "atti": [
+    {
+      "numero": "I",
+      "id": "atto-1",
+      "titolo": "La terra e lo zar",
+      "periodo": "1700–1904",
+      "domanda": "Si può possedere un essere umano? Che cosa tiene in piedi un potere che si crede sacro?",
+      "decisione": "D-024",
+      "schede": "docs/laika/atti/atto-1.md",
+      "unita": [
+        {
+          "numero": "I.1",
+          "id": "servitu",
+          "titolo": "Anime e semidei",
+          "periodo": "1700–1861",
+          "gioco": "gestione (la settimana del servo) con decisioni sui gruppi",
+          "stato_gioco": "approvato",
+          "stato": "bozza",
+          "scheda_gioco": "docs/laika/giochi/servitu.md",
+          "nel_gioco": "i1",
+          "nota": "Titolo provvisorio: «anime e semidei» nei testi per lo studente è la domanda aperta A-06."
+        },
+        {
+          "numero": "I.2",
+          "id": "mir",
+          "titolo": "La terra dopo il Manifesto",
+          "periodo": "1861–1904",
+          "gioco": "decisioni sui gruppi (l'assemblea del mir)",
+          "stato_gioco": "approvato",
+          "stato": "bozza",
+          "scheda_gioco": "docs/laika/giochi/mir.md",
+          "nel_gioco": "i2",
+          "nota": "Costruito come partita di sole decisioni: la revisione del 4 novembre lo giudica un questionario con barre."
+        },
+        {
+          "numero": "I.3",
+          "id": "citta",
+          "titolo": "In città",
+          "periodo": "fine Ottocento–1904",
+          "gioco": "gestione (il salario, più settimane)",
+          "stato_gioco": "approvato",
+          "stato": "bozza",
+          "scheda_gioco": "docs/laika/giochi/salario.md",
+          "nel_gioco": "i3",
+          "nota": "Gli identificatori degli episodi nel gioco sono ancora a1-u2-*: da rinominare in R3."
+        }
+      ]
+    },
+    {
+      "numero": "II",
+      "id": "atto-2",
+      "titolo": "1905",
+      "periodo": "1905–1911",
+      "domanda": "Che cosa muore quando un popolo smette di credere che lo zar sia un padre?",
+      "decisione": "D-024",
+      "schede": "docs/laika/atti/atto-2.md",
+      "unita": [
+        {
+          "numero": "II.1",
+          "id": "petizione",
+          "titolo": "La petizione",
+          "periodo": "gennaio 1905",
+          "gioco": "da assegnare (oggi: distribuzione di cinque righe)",
+          "stato_gioco": "da assegnare",
+          "stato": "bozza",
+          "nel_gioco": "i4",
+          "nota": "Divisione dell'atto in quattro unità: proposta P-01."
+        },
+        {
+          "numero": "II.2",
+          "id": "soviet",
+          "titolo": "Il soviet",
+          "periodo": "ottobre 1905",
+          "gioco": "punti azione (le giornate del soviet)",
+          "stato_gioco": "approvato",
+          "stato": "bozza",
+          "scheda_gioco": "docs/laika/giochi/soviet.md",
+          "nel_gioco": "i4"
+        },
+        {
+          "numero": "II.3",
+          "id": "concessioni",
+          "titolo": "Che cosa concede lo zar",
+          "periodo": "ottobre 1905–giugno 1907",
+          "gioco": "da assegnare (oggi: confronto di tre schede)",
+          "stato_gioco": "da assegnare",
+          "stato": "bozza",
+          "nel_gioco": "i4"
+        },
+        {
+          "numero": "II.4",
+          "id": "stolypin",
+          "titolo": "Stolypin",
+          "periodo": "novembre 1906–1911",
+          "gioco": "da assegnare (oggi: una scelta)",
+          "stato_gioco": "da assegnare",
+          "stato": "bozza",
+          "nel_gioco": "i4"
+        }
+      ]
+    },
+    {
+      "numero": "III",
+      "id": "atto-3",
+      "titolo": "Pane e guerra",
+      "periodo": "1914–marzo 1917",
+      "domanda": "Un potere sacro può sopravvivere quando non ci crede più nemmeno chi lo serve?",
+      "decisione": "D-024",
+      "schede": "docs/laika/atti/atto-3.md",
+      "unita": [
+        {
+          "numero": "III.1",
+          "id": "pane-guerra",
+          "titolo": "Pane e guerra",
+          "periodo": "agosto 1914–dicembre 1916",
+          "gioco": "quanto serve e quanto c'è (grano, treni, città), prime code",
+          "stato_gioco": "approvato",
+          "stato": "da rifare",
+          "nel_gioco": "i5",
+          "nota": "Costruita il 3 novembre come partita di sole decisioni: non è il gioco approvato."
+        },
+        {
+          "numero": "III.2",
+          "id": "otto-giorni",
+          "titolo": "Otto giorni",
+          "periodo": "8–16 marzo 1917",
+          "gioco": "code che diventano corteo, poi punti azione (il soldato che non spara)",
+          "stato_gioco": "approvato",
+          "stato": "da rifare",
+          "nel_gioco": "i6",
+          "nota": "La coda è una versione semplice a punti azione, senza figure che lasciano la fila: non è il gioco approvato."
+        }
+      ]
+    },
+    {
+      "numero": "IV",
+      "id": "atto-4",
+      "titolo": "La primavera della libertà",
+      "periodo": "marzo–luglio 1917",
+      "domanda": "Che cosa chiede chi, per la prima volta, può chiedere tutto?",
+      "schede": "docs/laika/atti/atto-4.md",
+      "unita": [
+        {
+          "numero": "IV.1",
+          "id": "paese-piu-libero",
+          "titolo": "Il paese più libero del mondo",
+          "periodo": "marzo–aprile 1917",
+          "gioco": "—",
+          "stato_gioco": "da assegnare",
+          "stato": "da fare"
+        },
+        {
+          "numero": "IV.2",
+          "id": "due-poteri-palazzo",
+          "titolo": "Due poteri in un palazzo",
+          "periodo": "marzo–maggio 1917",
+          "gioco": "decisioni sui gruppi (governo provvisorio e soviet davanti a operai, soldati, contadini, ceti medi)",
+          "stato_gioco": "da confermare",
+          "stato": "da fare"
+        },
+        {
+          "numero": "IV.3",
+          "id": "ogni-angolo-strada",
+          "titolo": "Ogni angolo di strada una tribuna",
+          "periodo": "marzo–giugno 1917",
+          "gioco": "—",
+          "stato_gioco": "da assegnare",
+          "stato": "da fare"
+        },
+        {
+          "numero": "IV.4",
+          "id": "pane-pace-terra",
+          "titolo": "Pane, pace, terra",
+          "periodo": "aprile–giugno 1917",
+          "gioco": "—",
+          "stato_gioco": "da assegnare",
+          "stato": "da fare"
+        },
+        {
+          "numero": "IV.5",
+          "id": "giornate-luglio",
+          "titolo": "Le giornate di luglio",
+          "periodo": "luglio 1917",
+          "gioco": "punti azione",
+          "stato_gioco": "da confermare",
+          "stato": "da fare"
+        }
+      ]
+    },
+    {
+      "numero": "V",
+      "id": "atto-5",
+      "titolo": "Ottobre",
+      "periodo": "luglio 1917–marzo 1918",
+      "domanda": "Chi ha il diritto di parlare e decidere per il popolo?",
+      "schede": "docs/laika/atti/atto-5.md",
+      "unita": [
+        {
+          "numero": "V.1",
+          "id": "terra-palazzi",
+          "titolo": "La terra e i palazzi",
+          "periodo": "luglio–settembre 1917",
+          "gioco": "gestione (le occupazioni delle terre)",
+          "stato_gioco": "da confermare",
+          "stato": "da fare"
+        },
+        {
+          "numero": "V.2",
+          "id": "kornilov-svolta",
+          "titolo": "Kornilov e la svolta",
+          "periodo": "agosto–ottobre 1917",
+          "gioco": "punti azione con informazioni incomplete",
+          "stato_gioco": "da confermare",
+          "stato": "da fare"
+        },
+        {
+          "numero": "V.3",
+          "id": "notte-palazzo",
+          "titolo": "La notte del palazzo",
+          "periodo": "6–8 novembre 1917, g. 24–26 ottobre",
+          "gioco": "punti azione con informazioni incomplete",
+          "stato_gioco": "da confermare",
+          "stato": "da fare"
+        },
+        {
+          "numero": "V.4",
+          "id": "promesse-decretate",
+          "titolo": "Le promesse decretate",
+          "periodo": "novembre–dicembre 1917",
+          "gioco": "—",
+          "stato_gioco": "da assegnare",
+          "stato": "da fare"
+        },
+        {
+          "numero": "V.5",
+          "id": "primo-prezzo",
+          "titolo": "Il primo prezzo",
+          "periodo": "dicembre 1917–marzo 1918",
+          "gioco": "—",
+          "stato_gioco": "da assegnare",
+          "stato": "da fare"
+        }
+      ]
+    },
+    {
+      "numero": "VI",
+      "id": "atto-6",
+      "titolo": "L'assalto al cielo",
+      "periodo": "1918–1927",
+      "domanda": "Si può rifare l'essere umano e che cosa si è disposti a pagare per provarci?",
+      "schede": "docs/laika/atti/atto-6.md",
+      "unita": [
+        {
+          "numero": "VI.1",
+          "id": "prezzo-sopravvivenza",
+          "titolo": "Il prezzo della sopravvivenza",
+          "periodo": "1918–1920",
+          "gioco": "quanto serve e quanto c'è (comunismo di guerra); città che resiste (Pietrogrado)",
+          "stato_gioco": "da confermare",
+          "stato": "da fare"
+        },
+        {
+          "numero": "VI.2",
+          "id": "kronstadt-svolta",
+          "titolo": "Kronštadt e la svolta",
+          "periodo": "1921",
+          "gioco": "quanto serve e quanto c'è (NEP)",
+          "stato_gioco": "da confermare",
+          "stato": "da fare"
+        },
+        {
+          "numero": "VI.3",
+          "id": "assalto-al-cielo",
+          "titolo": "L'assalto al cielo",
+          "periodo": "1918–1927",
+          "gioco": "—",
+          "stato_gioco": "da assegnare",
+          "stato": "da fare"
+        },
+        {
+          "numero": "VI.4",
+          "id": "vita-nuova-bambini",
+          "titolo": "La vita nuova e i bambini di strada",
+          "periodo": "1921–1927",
+          "gioco": "fiducia (il bambino di strada nella banda)",
+          "stato_gioco": "da confermare",
+          "stato": "da fare"
+        },
+        {
+          "numero": "VI.5",
+          "id": "dopo-lenin",
+          "titolo": "Dopo Lenin",
+          "periodo": "1922–1927",
+          "gioco": "— (indicatore: credenza, il culto di Lenin)",
+          "stato_gioco": "da assegnare",
+          "stato": "da fare"
+        }
+      ]
+    },
+    {
+      "numero": "VII",
+      "id": "atto-7",
+      "titolo": "Il prezzo della potenza",
+      "periodo": "1928–1945",
+      "domanda": "Che cosa resta di una promessa quando diventa obbligo e paura?",
+      "schede": "docs/laika/atti/atto-7.md",
+      "unita": [
+        {
+          "numero": "VII.1",
+          "id": "grande-svolta",
+          "titolo": "La grande svolta",
+          "periodo": "1928–1933",
+          "gioco": "decisioni sui gruppi (il kolchoz)",
+          "stato_gioco": "da confermare",
+          "stato": "da fare"
+        },
+        {
+          "numero": "VII.2",
+          "id": "costruire-socialismo",
+          "titolo": "Costruire il socialismo",
+          "periodo": "1928–1937",
+          "gioco": "quanto serve e quanto c'è (il piano quinquennale)",
+          "stato_gioco": "da confermare",
+          "stato": "da fare"
+        },
+        {
+          "numero": "VII.3",
+          "id": "paura-1937",
+          "titolo": "La paura",
+          "periodo": "1934–1938",
+          "gioco": "fiducia (le purghe)",
+          "stato_gioco": "da confermare",
+          "stato": "da fare"
+        },
+        {
+          "numero": "VII.4",
+          "id": "guerra-1941",
+          "titolo": "La guerra",
+          "periodo": "1939–1945",
+          "gioco": "città che resiste (Leningrado)",
+          "stato_gioco": "da confermare",
+          "stato": "da fare"
+        },
+        {
+          "numero": "VII.5",
+          "id": "prezzo-mito",
+          "titolo": "Il prezzo e il mito",
+          "periodo": "1945",
+          "gioco": "solo confronto di fine atto",
+          "stato_gioco": "—",
+          "stato": "da fare"
+        }
+      ]
+    },
+    {
+      "numero": "VIII",
+      "id": "atto-8",
+      "titolo": "Il cielo è vuoto?",
+      "periodo": "1945–1964",
+      "domanda": "Il cielo raggiunto mantiene la promessa? Quanto vale una vita accanto a un simbolo?",
+      "schede": "docs/laika/atti/atto-8.md",
+      "unita": [
+        {
+          "numero": "VIII.1",
+          "id": "dopo-vittoria",
+          "titolo": "Dopo la vittoria",
+          "periodo": "1945–1953",
+          "gioco": "fiducia (il dopoguerra)",
+          "stato_gioco": "da confermare",
+          "stato": "da fare"
+        },
+        {
+          "numero": "VIII.2",
+          "id": "disgelo",
+          "titolo": "Il disgelo",
+          "periodo": "1953–1957",
+          "gioco": "—",
+          "stato_gioco": "da assegnare",
+          "stato": "da fare"
+        },
+        {
+          "numero": "VIII.3",
+          "id": "bip",
+          "titolo": "Il bip",
+          "periodo": "1957",
+          "gioco": "la corsa (Sputnik, Laika)",
+          "stato_gioco": "da confermare",
+          "stato": "da fare"
+        },
+        {
+          "numero": "VIII.4",
+          "id": "pojechali",
+          "titolo": "«Pojechali!»",
+          "periodo": "1961–1963",
+          "gioco": "la corsa (Gagarin)",
+          "stato_gioco": "da confermare",
+          "stato": "da fare"
+        },
+        {
+          "numero": "VIII.5",
+          "id": "guerra-simboli",
+          "titolo": "La guerra dei simboli",
+          "periodo": "1959–1964",
+          "gioco": "— (indicatore: credenza, il prestigio)",
+          "stato_gioco": "da assegnare",
+          "stato": "da fare"
+        }
+      ]
+    },
+    {
+      "numero": "IX",
+      "id": "atto-9",
+      "titolo": "Cemento e silenzio",
+      "periodo": "1964–1991",
+      "domanda": "Come finisce una cosa che sembrava eterna?",
+      "schede": "docs/laika/atti/atto-9.md",
+      "unita": [
+        {
+          "numero": "IX.1",
+          "id": "tutto-era-sempre",
+          "titolo": "Tutto era per sempre",
+          "periodo": "1964–1982",
+          "gioco": "quanto serve e quanto c'è (economia parallela, *blat*); fiducia (il samizdat)",
+          "stato_gioco": "da confermare",
+          "stato": "da fare"
+        },
+        {
+          "numero": "IX.2",
+          "id": "afghanistan-cernobyl",
+          "titolo": "Afghanistan e Černobyl'",
+          "periodo": "1979–1986",
+          "gioco": "punti azione (Černobyl')",
+          "stato_gioco": "da confermare",
+          "stato": "da fare"
+        },
+        {
+          "numero": "IX.3",
+          "id": "perestrojka-glasnost",
+          "titolo": "Perestrojka e glasnost",
+          "periodo": "1985–1990",
+          "gioco": "code (1989); decisioni sui gruppi (le repubbliche)",
+          "stato_gioco": "da confermare",
+          "stato": "da fare"
+        },
+        {
+          "numero": "IX.4",
+          "id": "fine-urss",
+          "titolo": "La fine",
+          "periodo": "1991",
+          "gioco": "punti azione (agosto 1991)",
+          "stato_gioco": "da confermare",
+          "stato": "da fare"
+        }
+      ]
+    }
+  ]
+}

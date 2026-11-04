@@ -1,5 +1,7 @@
 # LAIKA — Revisione con un allievo finto: Atto I (I.1–I.6)
 
+> Numerazione: questa revisione è stata scritta quando l'Atto I aveva sei unità (I.1–I.6). Dal riordino dello stesso giorno (D-024) I.4 è l'Atto II, I.5 e I.6 sono III.1 e III.2: corrispondenze in [STATO](../STATO.md). I riferimenti a `PIANO-LAIKA`, `INCARICHI` e `PIANO-ATTI` sono ai documenti oggi in `docs/archivio/`.
+
 4 novembre 2026 · base `main` a `db35091` (merge della PR #36) · branch `revisione-allievo-atto1`
 
 Questo documento è il resoconto di una partita intera all'Atto I fatta da un «allievo finto»: uno script che apre la home, preme «Inizia» e gioca tutte e sei le unità fino all'ultima pagina, scegliendo a caso e scrivendo tutto quello che vede. Le osservazioni sono di chi ha letto le trascrizioni e guardato le schermate. Sono divise in cinque voci (didattica, UX e usabilità, divertimento, correttezza storica, rispetto del piano) e finiscono con l'elenco di ciò che questa PR corregge e di ciò che resta da decidere al docente.

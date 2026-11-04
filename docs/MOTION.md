@@ -88,7 +88,7 @@ Le tracce esplicite precedono quelle generate: sulla stessa proprietà vanno man
 ### Materiali realmente esaminati
 
 - Le quattro tavole `references/laika/*.webp`, integrate con PR #3: cronologia, vita quotidiana, tragedie, tappe della rivoluzione. Osservate visivamente, non soltanto lette le descrizioni.
-- `docs/BRAND-DESIGN.md` e il codice SVG del prototipo `prototypes/laika-home/index.html`.
+- `docs/laika/BRAND-DESIGN.md` e il codice SVG del prototipo `prototypes/laika-home/index.html`.
 - SVG di lavoro `madrepatria_tavola_svg_v8.svg` fornito in un'altra conversazione: esaminata la struttura (gruppi monumento/edifici, pattern, clipping). Non è adatto a rappresentare una piazza rivoluzionaria e non viene ridisegnato o inserito nella demo.
 
 Le tavole suggeriscono una regia per masse: bande orizzontali di persone, vuoti ampi, architetture azzurre, nero dominante nei gesti, rosso selettivo. Alcune immagini hanno anatomie filiformi e dettagli più fitti del target; prevale l'indicazione dell'autore di usare sagome **piene e ulteriormente semplificate**. Le immagini sono riferimenti compositivi, non prove storiche.

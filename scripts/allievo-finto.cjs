@@ -1,5 +1,5 @@
 // Allievo finto: gioca l'Atto I di LAIKA dall'inizio alla fine come uno studente e scrive tutto quello che vede.
-// Serve per le revisioni didattiche (docs/REVISIONE-ALLIEVO-ATTO-I.md), non è un test: non fa asserzioni.
+// Serve per le revisioni didattiche (docs/laika/revisioni/), non è un test: non fa asserzioni.
 // Uso: npm run serve (in un altro terminale), poi
 //   npm run allievo                       telefono 390x844, scelte casuali con seme 7
 //   SEED=11 W=1440 H=900 PICK=first npm run allievo

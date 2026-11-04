@@ -1,6 +1,6 @@
 # Scheda di lettura: la giornata a punti azione
 
-Regola del [REPERTORIO](../REPERTORIO-GIOCHI-LAIKA.md) §6: una scheda di lettura prima di costruire una meccanica.
+Regola del [REPERTORIO](../laika/GIOCHI.md) §6: una scheda di lettura prima di costruire una meccanica.
 
 **Meccanica:** la giornata a punti azione (REPERTORIO §3.8).
 
@@ -12,7 +12,7 @@ Regola del [REPERTORIO](../REPERTORIO-GIOCHI-LAIKA.md) §6: una scheda di lettur
 
 **Che cosa rende il gioco interessante (il trucco di design):** i punti sono pochi e le informazioni incomplete. Indagare costa un punto e non cambia il mondo ma cambia quello che si sa: il giocatore paga per vedere. Le informazioni arrivano da due persone che le leggono in modo opposto.
 
-**Uso in LAIKA e atti:** I.4 (le giornate del soviet) e I.6 (il soldato che non spara); poi Atto II (giornate di luglio) e Atto III (Kornilov, la notte del palazzo).
+**Uso in LAIKA e atti:** II.2 (le giornate del soviet) e III.2 (la coda e il soldato che non spara); poi Atto IV (giornate di luglio) e Atto V (Kornilov, la notte del palazzo). Numeri del canone del 4 novembre 2026.
 
 **Contratto dati nel kit (costruito il 3 novembre 2026):** turno di una partita di sole decisioni con `market: { who, text, points, offers }`; ogni offerta ha `cost` (default 1), `repeat`, `chance` con `success` e `failure`, `at: {x, y}` e `short` per il punto sulla scena. Vedi `docs/CREARE-UN-GIOCO.md`.
 

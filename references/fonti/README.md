@@ -2,7 +2,7 @@
 
 Materiali forniti dall'utente il 19 ottobre 2026. **Fonte didattica prioritaria: gli appunti «La Rivoluzione Russa»**, su indicazione esplicita dell'utente del 19 ottobre 2026. Guidano selezione dei temi, sequenza e obiettivi del percorso. «Dalla modernità alla contemporaneità» fornisce la cornice concettuale. Libri, trascrizioni e ricerche sono materiali eventuali di approfondimento, confronto e verifica: non sostituiscono automaticamente gli appunti né ampliano implicitamente il programma. Le rettifiche storiche necessarie vanno motivate con riferimenti verificabili, distinguendole dalle integrazioni e conservando gli originali. È possibile integrare con ricerche online e chiedere altri libri all'utente.
 
-Archivio destinato al lavoro degli agenti anche per **citare frasi, recuperare aneddoti e verificare dati e dettagli concreti**, con localizzazione e contesto secondo [FONTI-LAIKA](../../docs/FONTI-LAIKA.md). Gli appunti «La Rivoluzione Russa» restano prioritari.
+Archivio destinato al lavoro degli agenti anche per **citare frasi, recuperare aneddoti e verificare dati e dettagli concreti**, con localizzazione e contesto secondo [FONTI-LAIKA](../../docs/laika/fonti/FONTI.md). Gli appunti «La Rivoluzione Russa» restano prioritari.
 
 ## Appunti — priorità didattica
 
@@ -41,7 +41,7 @@ I TXT consentono ricerche nel testo: estrazione dei paragrafi di `word/document.
 
 [manifest.json](manifest.json) registra nome dell'allegato, percorso normalizzato, dimensione, SHA-256 e SHA del blob Git. Gli originali sono copiati senza modifiche. I nomi brevi dei file non cambiano l'attribuzione bibliografica.
 
-Questa cartella è un archivio di lavoro, non un insieme di asset caricati dal player. Il dossier [FONTI-LAIKA](../../docs/FONTI-LAIKA.md) distingue acquisizione, consultazione e verifica dei contenuti. Nessun nuovo testo storico è pubblicato nel corso con questo caricamento.
+Questa cartella è un archivio di lavoro, non un insieme di asset caricati dal player. Il dossier [FONTI-LAIKA](../../docs/laika/fonti/FONTI.md) distingue acquisizione, consultazione e verifica dei contenuti. Nessun nuovo testo storico è pubblicato nel corso con questo caricamento.
 
 ## Atlante di aneddoti e frasi — 20 ottobre 2026
 

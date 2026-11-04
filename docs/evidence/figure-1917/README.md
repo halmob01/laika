@@ -41,7 +41,7 @@ Comandi effettivamente eseguiti, in due terminali:
 
 ```sh
 npm run serve
-PLAYWRIGHT_BROWSERS_PATH=/tmp/laika-playwright node docs/evidence/figure-atto-ii/cattura.cjs
+PLAYWRIGHT_BROWSERS_PATH=/tmp/laika-playwright node docs/evidence/figure-1917/cattura.cjs
 ```
 
 URL: `http://127.0.0.1:4173/bottega/galleria.html`. Lo [script di cattura](cattura.cjs) usa i selettori della galleria e salva questi file:
@@ -56,4 +56,4 @@ URL: `http://127.0.0.1:4173/bottega/galleria.html`. Lo [script di cattura](cattu
 
 ![Scena di prova con le quattro varianti](scena-varianti.png)
 
-Le bozze restano da sottoporre alla revisione visiva. Fonti, limiti iconografici e tre abiti solo proposti sono nella [scheda delle figure](../../FIGURE-ATTO-II.md).
+Le bozze restano da sottoporre alla revisione visiva. Fonti, limiti iconografici e tre abiti solo proposti sono nella [scheda delle figure](../../laika/disegni/FIGURE-1917.md).

@@ -1,15 +1,17 @@
-# Figure per l'Atto II
+# Figure per l'Atto VI (marzo–luglio 1917)
 
-Bozze grafiche del 23 ottobre 2026 per le schede di `PIANO-ATTI-LAIKA.md`, righe 279–421. Nessuna nuova scena storica del corso è collegata da questa modifica. La bottega contiene archetipi riutilizzabili; il contesto degli episodi resta qui.
+Fino al 4 novembre 2026 questo era l'«Atto II» del piano v5; i codici degli episodi sono rinumerati secondo il canone.
+
+Bozze grafiche del 23 ottobre 2026 per le schede dell'Atto IV (`docs/laika/atti/atto-4.md`). Nessuna nuova scena storica del corso è collegata da questa modifica. La bottega contiene archetipi riutilizzabili; il contesto degli episodi resta qui.
 
 | Variante | Impiego previsto | Forma |
 |---|---|---|
-| `marinaio` | II.5, marinai di Kronstadt nel luglio 1917 | Casacca con colletto, berretto senza visiera con nastri |
-| `soldato_guarnigione` | II.1 e II.2, soldato o delegato nel marzo-luglio 1917 | Tunica con cintura, pantaloni, berretto con visiera |
-| `soldatessa` | II.4-e3, battaglione femminile nell'estate 1917 | Corpo donna con la stessa tunica sopra i pantaloni; nessuna gonna o chignon esposto |
-| `uomo_cappello` | II.5-e3, figura civile per la fuga | Corpo uomo e berretto dello studio; testa senza barba, baffi o tratti individuali |
+| `marinaio` | IV.5, marinai di Kronstadt nel luglio 1917 | Casacca con colletto, berretto senza visiera con nastri |
+| `soldato_guarnigione` | IV.1 e IV.2, soldato o delegato nel marzo-luglio 1917 | Tunica con cintura, pantaloni, berretto con visiera |
+| `soldatessa` | IV.4-e3, battaglione femminile nell'estate 1917 | Corpo donna con la stessa tunica sopra i pantaloni; nessuna gonna o chignon esposto |
+| `uomo_cappello` | IV.5-e3, figura civile per la fuga | Corpo uomo e berretto dello studio; testa senza barba, baffi o tratti individuali |
 
-Per le nuove scene del 1917 usare `soldato_guarnigione` al posto di `char-soldato-zarista`, che rimane negli studi di archivio e non costituisce un riferimento verificato. Il rimando nell'[asset manifest](ASSET-MANIFEST.md) è aggiornato; non ci sono ancora schede dell'Atto II da migrare. Il nome della variante civile non identifica Lenin e il disegno non ne riprende la fisionomia.
+Per le nuove scene del 1917 usare `soldato_guarnigione` al posto di `char-soldato-zarista`, che rimane negli studi di archivio e non costituisce un riferimento verificato. Il rimando nell'[asset manifest](PROVENIENZA.md) è aggiornato; non ci sono ancora schede dell'Atto IV da migrare. Il nome della variante civile non identifica Lenin e il disegno non ne riprende la fisionomia.
 
 Tutte e quattro le voci sono in `bottega/catalogo.json`, sotto `figure.varianti`, con stato `bozza`. La figura originale resta `pronto`; questo stato non si estende alle aggiunte. I token del tema e dei ruoli hanno funzione grafica: il blu di `esercito` non è una prova del colore di una divisa.
 
@@ -40,7 +42,7 @@ Il confronto browser con gli studi mantiene gli assert esistenti e copre anche l
 
 Scena neutra di prova: `bottega/esempi/varianti.json`, con le quattro varianti, ingressi da entrambe le direzioni, fucili e specchio. Il test della galleria controlla pausa, replay, finale stabile e movimento ridotto anche su questo esempio. Non contiene testo storico.
 
-Comandi, risultati e screenshot: [evidenze](evidence/figure-atto-ii/README.md).
+Comandi, risultati e screenshot: [evidenze](../../evidence/figure-1917/README.md).
 
 ## Aperto
 

@@ -1,6 +1,8 @@
 # LAIKA — Matrice delle verifiche sulle fonti (P0)
 
-Leggere [FONTI-LAIKA](FONTI-LAIKA.md) prima dell'uso. Gli appunti «La Rivoluzione Russa» guidano il percorso; gli altri materiali offrono frasi, aneddoti, dettagli e confronti, da localizzare e verificare. Questa matrice prepara il lavoro editoriale: **nessuna riga è una rettifica storica già convalidata**.
+> Numerazione: le voci sono registrate con i codici in uso nel giorno del riscontro. A0.x e A1.x sono il vecchio Atto 0 (oggi Atto I) e il vecchio Atto I del 1905 (oggi Atto II); I.4 è oggi l'Atto II, I.5 e I.6 sono III.1 e III.2 ([canone](../CANONE.md)). Si registrano le voci nuove con i numeri del canone.
+
+Leggere [FONTI-LAIKA](FONTI.md) prima dell'uso. Gli appunti «La Rivoluzione Russa» guidano il percorso; gli altri materiali offrono frasi, aneddoti, dettagli e confronti, da localizzare e verificare. Questa matrice prepara il lavoro editoriale: **nessuna riga è una rettifica storica già convalidata**.
 
 ## Localizzazioni riproducibili
 
@@ -162,7 +164,7 @@ Non riscontrate: il testo per lo studente le tratta come simulazione.
 - Che cosa fecero i delegati del soviet giorno per giorno: personaggi e notizie sono inventati.
 - Domenica di sangue: data (22 gennaio 1905, 9 gennaio g.), petizione di Gapon e assenza dello zar dalla città. La scheda di PIANO-ATTI chiede di verificare ancora il passo del diario di Nicola, qui non usato.
 - Manifesto di ottobre, Leggi fondamentali del 1906 e scioglimento delle due Dume (e4): sintesi dagli appunti, dettagli e date da riscontrare.
-- Decreto di Stolypin del 1906: contenuto e data da riscontrare; la «cravatta di Stolypin» è nominata nella scheda di PIANO-ATTI.
+- Decreto di Stolypin del 1906: contenuto e data da riscontrare; la «cravatta di Stolypin» è nominata nella scheda dell'atto.
 
 ## Voci aperte dai giochi di I.5 e I.6 (3 novembre 2026)
 
