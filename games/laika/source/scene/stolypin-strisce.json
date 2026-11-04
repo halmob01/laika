@@ -1,0 +1,103 @@
+{
+  "viewBox": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "id": "stolypin-strisce",
+  "telefono": {
+    "centro": 0.5,
+    "zoom": 1.2
+  },
+  "etichetta": "Davanti alle isbe la famiglia guarda il campo: le strisce di terra possono diventare un solo podere recintato.",
+  "elementi": [
+    {
+      "id": "campi",
+      "simbolo": "luogo-pianura",
+      "x": 800,
+      "y": 900,
+      "scala": 2.9
+    },
+    {
+      "id": "villaggio",
+      "simbolo": "luogo-isbe",
+      "x": 300,
+      "y": 625,
+      "scala": 0.7
+    },
+    {
+      "id": "strisce",
+      "simbolo": "mir-strisce-prima",
+      "x": 1050,
+      "y": 700,
+      "scala": 1.35
+    },
+    {
+      "id": "podere",
+      "simbolo": "campagna-orto-finito",
+      "x": 1050,
+      "y": 700,
+      "scala": 1.35
+    }
+  ],
+  "figure": [
+    {
+      "id": "padre",
+      "x": 700,
+      "y": 830,
+      "scala": 1.1,
+      "variante": "nessuna",
+      "abito": "cappotto",
+      "cappello": null,
+      "posa": "in_piedi",
+      "ruolo": "protagonista"
+    },
+    {
+      "id": "madre",
+      "x": 780,
+      "y": 835,
+      "scala": 1.1,
+      "variante": "scialle",
+      "posa": "in_piedi"
+    },
+    {
+      "id": "figlio",
+      "x": 860,
+      "y": 845,
+      "scala": 0.85,
+      "variante": "bambino",
+      "posa": "in_piedi"
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "Le strisce si uniscono in un solo podere.",
+      "passi": [
+        {
+          "azione": "transform",
+          "da": "strisce",
+          "verso": "podere",
+          "a": 600,
+          "durata": 1800
+        }
+      ],
+      "battute": [
+        {
+          "a": 300,
+          "testo": "Restare, unire le strisce o partire."
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

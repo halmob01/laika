@@ -1,0 +1,109 @@
+{
+  "viewBox": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "id": "otto-giorni-treno",
+  "telefono": {
+    "centro": 0.5,
+    "zoom": 1.2
+  },
+  "etichetta": "Un treno fermo nella neve su un binario morto; accanto a lui un uomo in cappotto, solo.",
+  "elementi": [
+    {
+      "id": "campi",
+      "simbolo": "luogo-pianura",
+      "x": 800,
+      "y": 900,
+      "scala": 2.9
+    },
+    {
+      "id": "binari-1",
+      "simbolo": "infra-binari",
+      "x": 400,
+      "y": 760,
+      "scala": 3.4
+    },
+    {
+      "id": "binari-2",
+      "simbolo": "infra-binari",
+      "x": 1100,
+      "y": 760,
+      "scala": 3.4
+    },
+    {
+      "id": "treno",
+      "simbolo": "mezzo-treno",
+      "x": 800,
+      "y": 785,
+      "scala": 3.4,
+      "davanti": true
+    },
+    {
+      "id": "neve",
+      "simbolo": "atmo-neve",
+      "x": 800,
+      "y": 300,
+      "scala": 2
+    },
+    {
+      "id": "neve-2",
+      "simbolo": "atmo-neve",
+      "x": 260,
+      "y": 420,
+      "scala": 1.7
+    },
+    {
+      "id": "neve-3",
+      "simbolo": "atmo-neve",
+      "x": 1340,
+      "y": 360,
+      "scala": 1.7
+    }
+  ],
+  "figure": [
+    {
+      "id": "zar",
+      "x": 1230,
+      "y": 880,
+      "scala": 1.5,
+      "variante": "mantello",
+      "cappello": null,
+      "posa": "in_piedi",
+      "flip": true
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "Un uomo in cappotto si avvicina al treno e si allontana: il treno resta fermo.",
+      "passi": [
+        {
+          "azione": "walk",
+          "chi": "zar",
+          "da": "destra",
+          "distanza": 200,
+          "a": 0,
+          "durata": 2600
+        }
+      ],
+      "battute": [
+        {
+          "a": 300,
+          "testo": "Pskov, marzo 1917."
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

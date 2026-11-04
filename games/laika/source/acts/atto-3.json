@@ -130,7 +130,7 @@
         "placeLabel": "Pietroburgo"
       },
       "text": "Il 2 agosto 1914 (20 luglio nel calendario russo) lo zar annuncia la guerra dal Palazzo d'Inverno e la folla si inginocchia sulla piazza. È la stessa piazza del 22 gennaio 1905.\n\nPoi vengono la sconfitta di Tannenberg e la ritirata. Nicola prende il comando supremo dell'esercito.\n\nPerché una folla che dieci anni prima è stata colpita torna a inginocchiarsi?",
-      "stageId": "a1-u5-ginocchio",
+      "stageId": "pane-guerra-ginocchio",
       "motionId": "ingresso",
       "exposes": [
         "a1-ginocchio"
@@ -150,12 +150,12 @@
       },
       "text": "Il grano è lo stesso. I treni sono meno. Le città sono più affamate. Per cinque stagioni decidi come lo Stato usa quello che ha.\n\nSulla carta il grano può bastare. Nella realtà conta solo quello che arriva in città.",
       "goal": "Fai arrivare il pane in città senza che lo scarto fra carta e realtà esploda.",
-      "stageId": "a1-u5-pane",
+      "stageId": "pane-guerra-treni",
       "motionId": "ingresso",
       "exposes": [
         "a1-guerra-pane"
       ],
-      "visualExplanation": "Davanti a una panetteria la fila aspetta il pane. Gli indicatori sono indici della simulazione e non dati storici né voti.",
+      "visualExplanation": "Una stazione d'inverno: sacchi di grano sulla banchina e un treno fermo sui binari. Gli indicatori sono indici della simulazione: non sono dati storici né voti.",
       "turnWord": "stagione",
       "nextLabel": "La stagione dopo",
       "phaseLabels": {
@@ -648,11 +648,11 @@
         "placeLabel": "Pietroburgo"
       },
       "text": "Nell'inverno 1915–1916 in città mancano pane e combustibile. Intorno alla corte circolano voci. Apri le tre schede e confrontale.",
-      "stageId": "a1-u5-pane",
+      "stageId": "pane-guerra-pane",
       "exposes": [
         "a1-voci"
       ],
-      "visualExplanation": "Una coda per il pane e le voci che circolano. Gli indicatori sono indici della simulazione.",
+      "visualExplanation": "Una coda per il pane, il cartello del pane e il manifesto di un prestito di guerra, vuoto. Gli indicatori sono indici della simulazione.",
       "sources": [
         {
           "id": "gioielli",
@@ -707,7 +707,10 @@
         "placeLabel": "Pietrogrado"
       },
       "text": "Nel dicembre 1916 Rasputin viene ucciso da un principe e da un granduca. Una granduchessa arriva a proporre di eliminare l'imperatrice.\n\nLo zar sembra non fidarsi più nemmeno di chi lo circonda. Il palazzo è isolato e attorno c'è il vuoto.\n\nPuò sopravvivere un potere sacro quando non ci crede più nemmeno la sua famiglia?",
-      "shows": []
+      "shows": [],
+      "stageId": "pane-guerra-famiglia",
+      "motionId": "ingresso",
+      "visualExplanation": "Un palazzo imperiale d'inverno con il vuoto intorno: tre figure della famiglia, minuscole, lo attraversano."
     },
     {
       "id": "a3-pane-guerra-v5",
@@ -719,8 +722,10 @@
         "kind": "assessment"
       },
       "text": "Una domanda sul pane nelle città. Non valuta le scelte che hai fatto nella partita.",
-      "stageId": "a1-u5-pane",
-      "shows": []
+      "stageId": "pane-guerra-trincea",
+      "shows": [],
+      "motionId": "ingresso",
+      "visualExplanation": "Una trincea d'inverno: la guerra e il fronte che consumano uomini e treni. La domanda riguarda il pane nelle città."
     },
     {
       "id": "a3-otto-giorni-donna",
@@ -734,7 +739,7 @@
         "placeLabel": "Pietrogrado"
       },
       "text": "Neve e gelo fermano i treni e le code per il pane cominciano di notte. L'8 marzo (23 febbraio nel calendario russo) le tessili del quartiere di Vyborg escono dalle fabbriche e chiamano i metallurgici.\n\nNessun partito aveva previsto che quel giorno aprisse una rivoluzione.\n\nChi fa davvero una rivoluzione? La coda si scioglie e le stesse persone diventano un corteo.",
-      "stageId": "a1-u6-coda",
+      "stageId": "otto-giorni-donna",
       "motionId": "ingresso",
       "exposes": [
         "a1-donna"
@@ -754,11 +759,11 @@
       },
       "text": "Una coda per il pane. Ognuno ha una pazienza che scende ogni ora e ogni notte di gelo. Il gesto di chi aspetta si vede prima che parli: batte i piedi, borbotta, se ne va.\n\nQuando la pazienza finisce la coda non scompare: porta il suo malcontento altrove.",
       "goal": "Tieni la coda paziente il più a lungo possibile. Se si scioglie, il malcontento va in piazza.",
-      "stageId": "a1-u5-pane",
+      "stageId": "otto-giorni-coda",
       "exposes": [
         "a1-coda"
       ],
-      "visualExplanation": "Una fila davanti a una panetteria. Gli indicatori sono indici della simulazione e non dati storici né voti.",
+      "visualExplanation": "Una coda di donne davanti al cartello del pane, con la tessera in mano; a destra le tessili escono dalla fabbrica. Gli indicatori sono indici della simulazione: non sono dati storici né voti.",
       "turnWord": "giornata",
       "nextLabel": "La giornata dopo",
       "leaveLabel": "Finire la giornata",
@@ -1305,7 +1310,8 @@
             }
           ]
         }
-      ]
+      ],
+      "motionId": "ingresso"
     },
     {
       "id": "a3-otto-giorni-soldato",
@@ -1319,12 +1325,12 @@
       },
       "text": "Fra l'8 e il 16 marzo 1917 una protesta per il pane diventa una rivoluzione. Il punto di svolta è il soldato che non spara. Qui scegli che cosa viene dopo: ogni giornata hai quattro punti da spendere sulla scena.",
       "goal": "Trasforma un gesto di disobbedienza in qualcosa che regge: soldati con gli operai e il vecchio ordine che perde forza.",
-      "stageId": "a1-u6-caserma",
+      "stageId": "otto-giorni-soldato",
       "motionId": "ingresso",
       "exposes": [
         "a1-soldato"
       ],
-      "visualExplanation": "In una caserma un soldato abbassa il fucile davanti agli operai. Gli indicatori sono indici della simulazione e non dati storici né voti.",
+      "visualExplanation": "In una caserma un soldato abbassa il fucile e lo posa a terra davanti agli operai. Gli indicatori sono indici della simulazione: non sono dati storici né voti.",
       "turnWord": "giornata",
       "nextLabel": "La giornata dopo",
       "phaseLabels": {
@@ -2006,7 +2012,10 @@
       "exposes": [
         "a1-treno"
       ],
-      "shows": []
+      "shows": [],
+      "stageId": "otto-giorni-treno",
+      "motionId": "ingresso",
+      "visualExplanation": "Un treno fermo nella neve e un uomo in cappotto che gli si avvicina e poi si allontana."
     },
     {
       "id": "a3-otto-giorni-v6",
@@ -2018,8 +2027,9 @@
         "kind": "assessment"
       },
       "text": "Una domanda sul passaggio dalla protesta alla rivoluzione. Non valuta le scelte che hai fatto nella partita.",
-      "stageId": "a1-u6-caserma",
-      "shows": []
+      "stageId": "otto-giorni-soldato",
+      "shows": [],
+      "visualExplanation": "In una caserma un soldato abbassa il fucile davanti agli operai. La domanda riguarda gli otto giorni che hai appena visto."
     },
     {
       "id": "a3-otto-giorni-confronto",
@@ -2033,7 +2043,10 @@
         "placeLabel": "Russia"
       },
       "text": "La terra aveva preparato il villaggio e il mir. La fabbrica aveva preparato gli operai. Il 1905 aveva mostrato il soviet. La guerra aveva tolto il pane. Alla fine decisero la piazza e i soldati.\n\nIl potere dello zar cadde perché nessuno più lo difese. Quello che veniva dopo era ancora da decidere.",
-      "shows": []
+      "shows": [],
+      "stageId": "otto-giorni-confronto",
+      "motionId": "ingresso",
+      "visualExplanation": "Dal Palazzo d'Inverno al Palazzo di Tauride: una bandiera rossa passa da un palazzo all'altro mentre la folla si raduna nella piazza in mezzo."
     }
   ],
   "reconciliation": "Fine dell'Atto III (1914–marzo 1917). La guerra ha tolto il pane alle città; a marzo 1917 le donne in coda sono uscite in strada, i soldati non hanno sparato e lo zar è caduto perché nessuno lo difendeva più. Le tue scelte hanno cambiato soltanto la simulazione, non questi fatti. Che cosa sarebbe venuto dopo era ancora da decidere.",

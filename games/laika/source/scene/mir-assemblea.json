@@ -1,0 +1,217 @@
+{
+  "viewBox": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "id": "mir-assemblea",
+  "telefono": {
+    "centro": 0.5,
+    "zoom": 1.25
+  },
+  "etichetta": "Davanti alle isbe l'assemblea del villaggio: a sinistra la famiglia con molte bocche da sfamare, a destra l'anziano con il suo lotto curato; chi guida la discussione sta sotto il portico. Sullo sfondo il campo a strisce: dopo la divisione i paletti spostati sono rossi. Accanto al presidente il registro dei pagamenti; più in là un covone.",
+  "elementi": [
+    {
+      "id": "piazzale",
+      "simbolo": "mir-piazzale",
+      "x": 800,
+      "y": 935,
+      "scala": 1.7
+    },
+    {
+      "id": "pozzo",
+      "simbolo": "mir-pozzo",
+      "x": 170,
+      "y": 935,
+      "scala": 2
+    },
+    {
+      "id": "presidente",
+      "simbolo": "mir-isba-presidente",
+      "x": 1330,
+      "y": 935,
+      "scala": 1.9
+    },
+    {
+      "id": "strisce-prima",
+      "simbolo": "mir-strisce-prima",
+      "x": 470,
+      "y": 655,
+      "scala": 0.72
+    },
+    {
+      "id": "strisce-dopo",
+      "simbolo": "mir-strisce-dopo",
+      "x": 470,
+      "y": 655,
+      "scala": 0.72
+    },
+    {
+      "id": "covone",
+      "simbolo": "mir-covone",
+      "x": 270,
+      "y": 915,
+      "scala": 1.5
+    },
+    {
+      "id": "registro",
+      "simbolo": "mir-registro",
+      "x": 1150,
+      "y": 905,
+      "scala": 1.5
+    }
+  ],
+  "figure": [
+    {
+      "id": "starosta",
+      "x": 1290,
+      "y": 885,
+      "scala": 1.4,
+      "variante": "bastone",
+      "posa": "parla",
+      "cappello": null
+    },
+    {
+      "id": "padre",
+      "x": 470,
+      "y": 880,
+      "scala": 1.4,
+      "variante": "nessuna",
+      "posa": "in_piedi",
+      "abito": "cappotto",
+      "cappello": null
+    },
+    {
+      "id": "madre",
+      "x": 570,
+      "y": 895,
+      "scala": 1.4,
+      "variante": "scialle",
+      "posa": "in_piedi"
+    },
+    {
+      "id": "bimbo-1",
+      "x": 400,
+      "y": 905,
+      "scala": 1.3,
+      "variante": "bambino",
+      "posa": "in_piedi"
+    },
+    {
+      "id": "bimbo-2",
+      "x": 510,
+      "y": 915,
+      "scala": 1.3,
+      "variante": "bambino",
+      "posa": "in_piedi"
+    },
+    {
+      "id": "bimbo-3",
+      "x": 640,
+      "y": 915,
+      "scala": 1.3,
+      "variante": "bambino",
+      "posa": "in_piedi"
+    },
+    {
+      "id": "anziano",
+      "x": 1000,
+      "y": 885,
+      "scala": 1.4,
+      "variante": "bastone",
+      "posa": "in_piedi",
+      "flip": true
+    },
+    {
+      "id": "vicino-1",
+      "x": 820,
+      "y": 900,
+      "scala": 1.4,
+      "variante": "nessuna",
+      "posa": "in_piedi",
+      "abito": "cappotto",
+      "cappello": null,
+      "flip": true
+    },
+    {
+      "id": "vicino-2",
+      "x": 1130,
+      "y": 905,
+      "scala": 1.4,
+      "variante": "scialle",
+      "posa": "in_piedi",
+      "flip": true
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "Si discute di rifare la divisione delle strisce: ciascuno guarda il proprio lotto.",
+      "passi": [
+        {
+          "azione": "speak",
+          "chi": "starosta",
+          "a": 0,
+          "cicli": 4
+        },
+        {
+          "azione": "listen",
+          "chi": [
+            "padre",
+            "madre",
+            "vicino-1",
+            "vicino-2",
+            "anziano"
+          ],
+          "a": 200,
+          "sfalsa": 150
+        },
+        {
+          "azione": "raise",
+          "chi": [
+            "padre",
+            "anziano"
+          ],
+          "da": "in_piedi",
+          "a": 3600,
+          "sfalsa": 600
+        },
+        {
+          "azione": "replace",
+          "esce": [
+            "strisce-prima"
+          ],
+          "entra": [
+            "strisce-dopo"
+          ],
+          "a": 2400,
+          "durata": 1200
+        }
+      ],
+      "battute": [
+        {
+          "a": 200,
+          "testo": "Chi ha più bocche vuole più terra."
+        },
+        {
+          "a": 2400,
+          "testo": "Le strisce si dividono di nuovo."
+        },
+        {
+          "a": 3600,
+          "testo": "Chi ha curato il suo lotto non vuole perderlo."
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

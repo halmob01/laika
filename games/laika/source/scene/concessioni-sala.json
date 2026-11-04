@@ -1,0 +1,110 @@
+{
+  "viewBox": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "id": "concessioni-sala",
+  "telefono": {
+    "centro": 0.5,
+    "zoom": 1.2
+  },
+  "etichetta": "A sinistra la sala di San Giorgio con l'aquila imperiale; a destra il palco di un teatro. In primo piano un giornale e tre persone che lo leggono in modi diversi.",
+  "elementi": [
+    {
+      "id": "sala",
+      "simbolo": "ambiente-sala",
+      "x": 400,
+      "y": 720,
+      "scala": 0.78
+    },
+    {
+      "id": "aquila",
+      "simbolo": "oggetto-aquila-imperiale",
+      "x": 400,
+      "y": 470,
+      "scala": 1.5
+    },
+    {
+      "id": "teatro",
+      "simbolo": "ambiente-teatro-palco",
+      "x": 1200,
+      "y": 730,
+      "scala": 0.72
+    },
+    {
+      "id": "giornale",
+      "simbolo": "oggetto-giornale",
+      "x": 760,
+      "y": 890,
+      "scala": 2.4
+    }
+  ],
+  "figure": [
+    {
+      "id": "lettore-1",
+      "x": 560,
+      "y": 850,
+      "scala": 1.25,
+      "variante": "nessuna",
+      "abito": "cappotto",
+      "cappello": null,
+      "posa": "legge"
+    },
+    {
+      "id": "lettrice",
+      "x": 980,
+      "y": 860,
+      "scala": 1.25,
+      "variante": "scialle",
+      "posa": "legge",
+      "flip": true
+    },
+    {
+      "id": "lettore-2",
+      "x": 1120,
+      "y": 850,
+      "scala": 1.25,
+      "variante": "nessuna",
+      "abito": "cappotto",
+      "cappello": null,
+      "posa": "legge",
+      "flip": true
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "Tre persone leggono lo stesso giornale.",
+      "passi": [
+        {
+          "azione": "listen",
+          "chi": [
+            "lettore-1",
+            "lettrice",
+            "lettore-2"
+          ],
+          "a": 0,
+          "durata": 2000,
+          "cicli": 2
+        }
+      ],
+      "battute": [
+        {
+          "a": 300,
+          "testo": "La stessa concessione, tre letture."
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

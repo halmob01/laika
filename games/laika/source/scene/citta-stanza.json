@@ -1,0 +1,76 @@
+{
+  "viewBox": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "id": "citta-stanza",
+  "telefono": {
+    "centro": 0.5,
+    "zoom": 1.2
+  },
+  "etichetta": "Un angolo di stanza in affitto: il letto di ferro, il baule, la stufetta. Sul tavolo il pane e una lettera da mandare al villaggio; il salario è poco e bisogna scegliere. Accanto alla porta il secchio del carbone.",
+  "elementi": [
+    {
+      "id": "stanza",
+      "simbolo": "citta-angolo-stanza",
+      "x": 800,
+      "y": 900,
+      "scala": 1.85
+    },
+    {
+      "id": "pane",
+      "simbolo": "citta-pane",
+      "x": 1000,
+      "y": 900,
+      "scala": 2.4
+    },
+    {
+      "id": "lettera",
+      "simbolo": "citta-lettera",
+      "x": 450,
+      "y": 900,
+      "scala": 1.8
+    },
+    {
+      "id": "carbone",
+      "simbolo": "citta-carbone",
+      "x": 1250,
+      "y": 900,
+      "scala": 1.5
+    }
+  ],
+  "figure": [
+    {
+      "id": "figlio",
+      "x": 700,
+      "y": 880,
+      "scala": 2.8,
+      "posa": "in_piedi"
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "Il salario della settimana è poco: bisogna scegliere.",
+      "passi": [
+        {
+          "azione": "speak",
+          "chi": "figlio",
+          "a": 0,
+          "cicli": 2
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

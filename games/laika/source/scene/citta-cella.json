@@ -1,0 +1,62 @@
+{
+  "viewBox": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "sfondo": "paper2",
+  "ruvido": false,
+  "id": "citta-cella",
+  "telefono": {
+    "centro": 0.5,
+    "zoom": 1.25
+  },
+  "etichetta": "Una cella: un uomo seduto disegna su un foglio; sopra di lui una finestrella lascia vedere un pezzo di cielo.",
+  "elementi": [
+    {
+      "id": "cella",
+      "simbolo": "citta-cella",
+      "x": 800,
+      "y": 900,
+      "scala": 1.85
+    },
+    {
+      "id": "foglio",
+      "simbolo": "citta-foglio-razzo",
+      "x": 1040,
+      "y": 900,
+      "scala": 1.5
+    }
+  ],
+  "figure": [
+    {
+      "id": "detenuto",
+      "x": 560,
+      "y": 880,
+      "scala": 2.8,
+      "posa": "seduto"
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "In attesa dell'esecuzione un uomo disegna una macchina che dovrebbe salire nel cielo.",
+      "passi": [
+        {
+          "azione": "speak",
+          "chi": "detenuto",
+          "a": 0,
+          "cicli": 2
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

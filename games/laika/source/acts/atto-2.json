@@ -122,12 +122,12 @@
         "placeLabel": "Pietroburgo"
       },
       "text": "Gennaio 1905. La guerra contro il Giappone va male e alle officine Putilov di Pietroburgo gli operai sono in sciopero. Prima del corteo di domenica si scrive la petizione da portare allo zar. Hai cinque righe. Puoi spenderle fra richieste di lavoro e di salario e richieste politiche o di pace.\n\nLe righe che scrivi sono una simulazione: la petizione vera ebbe un testo suo.",
-      "stageId": "a1-u4-domenica",
+      "stageId": "petizione-putilov",
       "motionId": "ingresso",
       "exposes": [
         "a1-petizione"
       ],
-      "visualExplanation": "Il corteo si prepara. Le righe della petizione sono indici della simulazione e non dati storici né voti.",
+      "visualExplanation": "Davanti alle officine Putilov gli operai in sciopero si raccolgono per scrivere la petizione. Le righe della petizione sono indici della simulazione e non dati storici né voti.",
       "buckets": [
         {
           "id": "economiche",
@@ -186,11 +186,11 @@
         "placeLabel": "Pietroburgo"
       },
       "text": "La guerra contro il Giappone va male. Domenica 22 gennaio 1905 (9 gennaio nel calendario russo) un corteo guidato da padre Gapon porta allo zar una petizione e le icone. Lo zar non è in città. La truppa spara sulla folla.\n\nChe cosa muore quella domenica oltre alle persone? La fiducia nello zar come padre.",
-      "stageId": "a1-u4-domenica",
+      "stageId": "petizione-domenica",
       "exposes": [
         "a1-domenica"
       ],
-      "visualExplanation": "Il corteo avanza con un foglio e le icone. Lo sparo non si vede: le figure si disperdono e il foglio resta nella neve.",
+      "visualExplanation": "Il corteo sale verso il Palazzo d'Inverno con il ritratto dello zar in testa. Lo sparo non si vede: le figure si disperdono e il foglio resta nella neve.",
       "shows": []
     },
     {
@@ -205,12 +205,12 @@
       },
       "text": "Ottobre 1905: sciopero generale. Nasce a Pietroburgo il soviet, un consiglio di delegati degli scioperanti.\n\nSei fra i delegati. Ogni giornata hai cinque punti azione. Le notizie arrivano a pezzi: indagare costa un punto e ti fa capire cosa pensano i delegati. Quello che non fai, intanto, costa.",
       "goal": "Tieni lo sciopero senza che la cassa si svuoti o il soviet si spacchi.",
-      "stageId": "a1-u4-soviet",
+      "stageId": "soviet-sala",
       "motionId": "ingresso",
       "exposes": [
         "a1-soviet"
       ],
-      "visualExplanation": "Nella sala i delegati del soviet portano notizie. Ogni azione cambia gli indicatori: sono indici della simulazione e non dati storici né voti.",
+      "visualExplanation": "Nella sala a colonne i delegati del soviet portano notizie attorno a un tavolo; un telegrafo batte le novità. Ogni azione cambia gli indicatori: sono indici della simulazione e non dati storici né voti.",
       "turnWord": "giornata",
       "nextLabel": "La giornata dopo",
       "phaseLabels": {
@@ -986,8 +986,10 @@
         "kind": "assessment"
       },
       "text": "Una domanda sul soviet del 1905. Non valuta le scelte che hai fatto nella partita.",
-      "stageId": "a1-u4-soviet",
-      "shows": []
+      "stageId": "soviet-ferrovia",
+      "shows": [],
+      "motionId": "ingresso",
+      "visualExplanation": "Un treno fermo sui binari e i ferrovieri con una bandiera rossa: lo sciopero ferma anche i trasporti. La domanda riguarda quello che hai visto nell'unità."
     },
     {
       "id": "a2-concessioni-schede",
@@ -1000,11 +1002,11 @@
         "placeLabel": "Pietroburgo"
       },
       "text": "Dopo lo sciopero lo zar concede il Manifesto di ottobre. Poi vengono le Leggi fondamentali e le Dume. Apri le tre schede e confrontale.",
-      "stageId": "a1-u4-soviet",
+      "stageId": "concessioni-sala",
       "exposes": [
         "a1-manifesto-ott"
       ],
-      "visualExplanation": "Tre schede sulla stessa concessione. Gli indicatori sono indici della simulazione e non dati storici né voti.",
+      "visualExplanation": "A sinistra la sala di San Giorgio con l'aquila imperiale, a destra il palco di un teatro; in primo piano un giornale e tre persone che lo leggono. Gli indicatori sono indici della simulazione: non sono dati storici né voti.",
       "sources": [
         {
           "id": "manifesto",
@@ -1045,7 +1047,8 @@
           "effects": []
         }
       ],
-      "shows": []
+      "shows": [],
+      "motionId": "ingresso"
     },
     {
       "id": "a2-stolypin-scelta",
@@ -1058,12 +1061,12 @@
         "placeLabel": "Un villaggio della Russia centrale"
       },
       "text": "Nel novembre 1906 un decreto permette ai contadini di uscire dal mir e di unire le strisce in un podere. Intanto i tribunali militari mandano alla forca i rivoltosi: la corda si chiama «la cravatta di Stolypin».\n\nLa tua famiglia può restare nel mir. Può uscire e consolidare le strisce. Può vendere e partire.",
-      "stageId": "a1-u2-mir",
+      "stageId": "stolypin-strisce",
       "motionId": "ingresso",
       "exposes": [
         "a1-stolypin"
       ],
-      "visualExplanation": "Davanti alle isbe la tua famiglia deve decidere se restare. Le scelte sono simulazione.",
+      "visualExplanation": "Davanti alle isbe la tua famiglia deve decidere se restare. Le strisce di terra si uniscono in un solo podere recintato. Le scelte sono simulazione.",
       "choices": [
         {
           "id": "resta",
@@ -1114,8 +1117,10 @@
         "kind": "assessment"
       },
       "text": "Una domanda su Stolypin. Non valuta le scelte che hai fatto nella partita.",
-      "stageId": "a1-u2-mir",
-      "shows": []
+      "stageId": "stolypin-strisce",
+      "shows": [],
+      "motionId": "ingresso",
+      "visualExplanation": "Il villaggio e il campo che diventa un podere. La domanda riguarda la riforma di Stolypin."
     },
     {
       "id": "a2-stolypin-ricorda",
@@ -1128,8 +1133,10 @@
         "dateLabel": "1905"
       },
       "text": "Il 22 gennaio 1905 la truppa spara su un corteo pacifico e la fiducia nello zar come padre si spezza. Nell'ottobre 1905 uno sciopero generale ferma il paese e a Pietroburgo nasce il soviet.\n\nIl soviet del 1905 è un contropotere: coordina uno sciopero e non governa. Lo zar concede il Manifesto di ottobre sotto la pressione dello sciopero: una concessione strappata può essere un diritto o una tregua.",
-      "stageId": "a1-u4-soviet",
-      "shows": []
+      "stageId": "stolypin-ricorda",
+      "shows": [],
+      "motionId": "ingresso",
+      "visualExplanation": "Tre persone con i bagagli lasciano il villaggio: chi vende parte, chi resta ricomincia."
     }
   ],
   "reconciliation": "Fine dell'Atto II (1905–1911). Una petizione portata allo zar è finita sotto i fucili; uno sciopero generale ha fatto nascere il soviet e ha strappato una Duma che lo zar ha presto svuotato; Stolypin ha aperto l'uscita dal mir e riempito i tribunali militari. Le tue scelte hanno cambiato soltanto la simulazione, non questi fatti. Segue l'Atto III: la guerra.",

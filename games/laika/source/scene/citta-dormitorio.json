@@ -1,0 +1,78 @@
+{
+  "viewBox": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "id": "citta-dormitorio",
+  "telefono": {
+    "centro": 0.5,
+    "zoom": 1.2
+  },
+  "etichetta": "Il dormitorio di una fabbrica: file di cuccette, una lampada a petrolio. Il figlio è seduto sul bordo di una cuccetta.",
+  "elementi": [
+    {
+      "id": "dormitorio",
+      "simbolo": "citta-dormitorio",
+      "x": 800,
+      "y": 900,
+      "scala": 1.8
+    }
+  ],
+  "figure": [
+    {
+      "id": "figlio",
+      "x": 640,
+      "y": 860,
+      "scala": 1.8,
+      "variante": "nessuna",
+      "abito": "cappotto",
+      "cappello": null,
+      "posa": "seduto",
+      "ruolo": "protagonista"
+    },
+    {
+      "id": "compagno",
+      "x": 1000,
+      "y": 870,
+      "scala": 1.8,
+      "variante": "nessuna",
+      "abito": "cappotto",
+      "cappello": null,
+      "posa": "in_piedi",
+      "flip": true
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "Nel dormitorio la sera: il figlio e un compagno di cuccetta.",
+      "passi": [
+        {
+          "azione": "walk",
+          "chi": "compagno",
+          "da": "destra",
+          "distanza": 240,
+          "a": 0,
+          "durata": 2200
+        }
+      ],
+      "battute": [
+        {
+          "a": 300,
+          "testo": "Si dorme in due su ogni cuccetta."
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

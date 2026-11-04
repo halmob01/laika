@@ -149,7 +149,7 @@
       },
       "text": "Nel registro di una tenuta il villaggio non ha nomi. Ha un numero.\n\nLa ricchezza di un nobile russo non si misura in campi ma in «anime». Si contano soltanto i maschi: le donne valgono meno e nei conti non entrano. Dal tempo dell'imperatrice Elisabetta, a metà del Settecento, il padrone può comprare e vendere i suoi servi e mandarli in Siberia per «insolenza» senza chiedere il permesso a nessuno.\n\nLe anime si regalano. Nel 1700 il nobile più ricco di Russia ne possiede trentatremila; vent'anni dopo il principe Menšikov, favorito di Pietro il Grande e poi di sua moglie Caterina I, arriva a trecentomila. Nel 1777 Caterina II congeda un favorito, Zorič, con una tenuta di settemila anime. Un villaggio intero cambia padrone per un dono. Chi ci vive continua a zappare lo stesso campo.\n\nIn uno di questi villaggi vive la famiglia che seguirai fino al 1861: cinque generazioni di servi nella stessa isba. Nel 1740 sono il nonno Foma, il padre Ivan, la madre Marfa e un bambino, Pëtr. In casa i posti restano quattro ma le persone cambiano. I figli nascono servi come i padri. La famiglia è inventata. Il mondo intorno a lei no.",
       "display": "cards",
-      "stageId": "a1-u1-anime",
+      "stageId": "servitu-anime",
       "motionId": "ingresso",
       "exposes": [
         "a1-anime"
@@ -182,7 +182,7 @@
         "placeLabel": "un villaggio della Russia centrale"
       },
       "text": "Una partita di otto anni, dal 1740 al 1861. Ogni anno arriva una notizia dall'alto. Poi decidi chi della famiglia va dove e quanto grano tenere per la semina. Poi qualcuno bussa alla porta.",
-      "stageId": "a1-u1-anno",
+      "stageId": "servitu-anno",
       "resultMotionId": "raccolto",
       "exposes": [
         "a1-feste",
@@ -191,7 +191,7 @@
         "a1-utopie",
         "a1-manifesto"
       ],
-      "visualExplanation": "Il tabellone è il villaggio. Tocca una persona e poi il posto dove la mandi, sulla mappa oppure nell'elenco. Il padre conta per tre braccia, il nonno per uno. Gli indicatori sono indici della simulazione: non sono dati storici né voti.",
+      "visualExplanation": "Il tabellone è il villaggio. Tocca una persona e poi il posto dove la mandi, sulla mappa oppure nell'elenco. Il padre conta per tre braccia, il nonno per uno. Ai margini si vedono la mucca, il cavallo da lavoro, i sacchi del raccolto e il banco della fiera. Gli indicatori sono indici della simulazione: non sono dati storici né voti.",
       "tokenLabel": "persone",
       "places": [
         {
@@ -533,7 +533,7 @@
             {
               "kind": "documented",
               "text": "Sulla Neva gelata l'imperatrice Anna fa costruire un palazzo di ghiaccio alto una decina di metri. Ci manda a passare la notte di nozze il suo buffone, un principe sposato per scherzo a una serva. Gli sposi arrivano in una gabbia, sul dorso di un elefante.",
-              "stageId": "a1-u1-feste",
+              "stageId": "servitu-feste",
               "motionId": "ghiaccio",
               "editorial": {
                 "fonti": [
@@ -657,7 +657,7 @@
             {
               "kind": "documented",
               "text": "Muore l'imperatrice Elisabetta. Nel suo guardaroba si contano quindicimila abiti. I suoi palazzi però sono costruiti in fretta: negli anni Quaranta una residenza di legno sprofonda mentre dentro ci sono i granduchi. Loro si salvano a stento; sedici servitori muoiono.",
-              "stageId": "a1-u1-feste",
+              "stageId": "servitu-feste",
               "motionId": "residenza",
               "editorial": {
                 "fonti": [
@@ -885,7 +885,7 @@
             {
               "kind": "documented",
               "text": "Caterina II chiude la storia con il favorito Zorič e lo congeda come si congeda un ospite di riguardo: con una tenuta di settemila anime. Settemila persone cambiano padrone con una firma.",
-              "stageId": "a1-u1-anime",
+              "stageId": "servitu-anime",
               "motionId": "ingresso",
               "editorial": {
                 "fonti": [
@@ -1058,7 +1058,7 @@
                   "I1-16"
                 ]
               },
-              "stageId": "a1-u1-feste",
+              "stageId": "servitu-feste",
               "motionId": "gemme"
             }
           ],
@@ -1296,7 +1296,7 @@
               "kind": "documented",
               "title": "Anni Venti dell'Ottocento",
               "text": "Aleksej Arakčeev, uomo di fiducia dello zar Alessandro I, ha costruito nella sua tenuta di Gruzino un villaggio perfetto: file di case rosa tutte uguali, strade dritte e lastricate. Lo zar lo visita e se ne innamora.",
-              "stageId": "a1-u1-utopie",
+              "stageId": "servitu-utopie",
               "motionId": "ingresso",
               "editorial": {
                 "fonti": [
@@ -1557,7 +1557,7 @@
               "kind": "documented",
               "title": "Anni Trenta e Quaranta",
               "text": "Intere comunità si mettono in cammino per cercare Belovod'e, il Regno delle Acque Bianche: una terra «oltre l'acqua» dove si va scalzi, si dividono i frutti della terra e non ci sono crimini né guerre.",
-              "stageId": "a1-u1-utopie",
+              "stageId": "servitu-utopie",
               "motionId": "ingresso",
               "editorial": {
                 "fonti": [
@@ -1673,7 +1673,7 @@
             {
               "kind": "source",
               "text": "In città esce un romanzo, Le anime morte di Gogol'. Il protagonista compra dai padroni i servi morti ancora iscritti nei registri fino al censimento successivo: sulla carta sono anime. E un'anima si può comprare. È letteratura, ma i lettori riconoscono il meccanismo.",
-              "stageId": "a1-u1-inventari",
+              "stageId": "servitu-inventari",
               "motionId": "ingresso",
               "editorial": {
                 "fonti": [
@@ -1793,7 +1793,7 @@
               "kind": "documented",
               "title": "3 marzo 1861 (g. 19 febbraio)",
               "text": "Lo zar Alessandro II firma il Manifesto: ventidue milioni di servi diventano liberi. Poco dopo il prete lo legge in tutte le chiese, anche nella vostra.",
-              "stageId": "a1-u1-manifesto",
+              "stageId": "servitu-manifesto",
               "motionId": "ingresso",
               "editorial": {
                 "fonti": [
@@ -1814,7 +1814,7 @@
             {
               "kind": "documented",
               "text": "Nei villaggi si aspettava una parola, volja. Nelle rivolte degli anni seguenti si dirà che la volja vera esiste e che qualcuno la tiene nascosta: come una cosa avvolta nella carta, chiusa in una scatola.",
-              "stageId": "a1-u1-manifesto",
+              "stageId": "servitu-manifesto",
               "motionId": "rate",
               "editorial": {
                 "fonti": [
@@ -2145,7 +2145,7 @@
       },
       "text": "Per un secolo e mezzo la ricchezza di un nobile russo si è contata in anime: servi maschi iscritti nei registri, che si potevano comprare, vendere e regalare a migliaia.\n\nLa corvée: una parte della settimana del servo apparteneva al signore. Non solo la terra, anche il tempo era del padrone.\n\nNel 1861 il Manifesto di Alessandro II libera ventidue milioni di servi. La libertà della persona arriva subito; la terra si riscatta a rate per quarantanove anni e il villaggio risponde insieme dei debiti.\n\nDal basso e dall'alto si sognava un mondo giusto: Belovod'e e le lettere d'oro da una parte, le colonie militari di Arakčeev dall'altra.",
       "display": "cards",
-      "stageId": "a1-u1-manifesto",
+      "stageId": "servitu-manifesto",
       "motionId": "rate",
       "visualExplanation": "I campi dopo il 1861: i cartellini sono le rate del riscatto.",
       "editorial": {
@@ -2176,13 +2176,14 @@
         "kind": "assessment"
       },
       "text": "Una domanda sul 1861. Non valuta le scelte che hai fatto nella partita.",
-      "stageId": "a1-u1-manifesto",
+      "stageId": "servitu-manifesto",
       "shows": [
         "grano",
         "occhio",
         "speranza",
         "legami"
-      ]
+      ],
+      "visualExplanation": "I campi dopo il 1861: i cartellini sono le rate del riscatto che il villaggio deve pagare. La domanda riguarda quello che hai appena visto."
     },
     {
       "id": "a1-mir-assemblea",
@@ -2196,12 +2197,12 @@
       },
       "text": "Dopo il 1861 la terra si riscatta insieme e il villaggio risponde insieme dei pagamenti. Sei il capofamiglia che l'assemblea ascolta di più.\n\nOgni assemblea una persona si alza e chiede qualcosa. Tu rispondi. Ogni risposta contenta qualcuno e ne scontenta un altro: tieni d'occhio i quattro gruppi del villaggio.",
       "goal": "Tieni insieme il villaggio: nessun gruppo deve scendere troppo e la cassa del riscatto deve reggere.",
-      "stageId": "a1-u2-mir",
+      "stageId": "mir-assemblea",
       "motionId": "ingresso",
       "exposes": [
         "a1-mir"
       ],
-      "visualExplanation": "Davanti alle isbe l'assemblea del villaggio. Ogni volta una persona si alza e chiede qualcosa: scegli la risposta. Le barre sono i gruppi del villaggio: sono indici della simulazione e non dati storici né voti.",
+      "visualExplanation": "Davanti alle isbe l'assemblea del villaggio. Sullo sfondo il campo a strisce: a metà scena i paletti si spostano e il campo viene diviso di nuovo. Il registro dei pagamenti sta accanto al presidente. Ogni volta una persona si alza e chiede qualcosa: scegli la risposta. Gli indicatori sono indici della simulazione: non sono dati storici né voti.",
       "turnWord": "assemblea",
       "nextLabel": "L'assemblea dopo",
       "phaseLabels": {
@@ -2975,7 +2976,7 @@
         "placeLabel": "Pietroburgo"
       },
       "text": "Il figlio della famiglia lascia il villaggio e arriva a Pietroburgo. Lì lo aspetta una fabbrica.\n\nIl salario è basso. La polizia può essere violenta. Gli operai non hanno libertà di associarsi né di stampare ciò che pensano: la vita dell'operaio dipende dalla forza del padrone.\n\nIl figlio dorme in un angolo di stanza in affitto. Spesso la sera pensa al villaggio.\n\nAnche chi veste una divisa trova porte chiuse. I soldati di truppa non possono prendere il tram né mangiare nei ristoranti: basta l'uniforme a tenerli fuori.\n\nSi è più liberi in città che al villaggio? In città nessuno può venderti o regalarti. Ma ogni gradino della società ha le sue porte chiuse.",
-      "stageId": "a1-u2-citta",
+      "stageId": "citta-arrivo",
       "motionId": "ingresso",
       "exposes": [
         "a1-citta"
@@ -3007,9 +3008,9 @@
       },
       "text": "Sei il figlio e lavori in fabbrica a Pietroburgo. Ogni sabato arriva il salario: otto monete (un indice della simulazione).\n\nNon bastano per tutto: pane per le forze, un angolo di stanza in affitto, carbone per l'inverno e soldi da mandare al villaggio. C'è anche un corso serale per imparare a leggere i fogli. Giochi otto settimane e il debito si porta dietro da una all'altra.",
       "goal": "Arriva alla fine dell'ottava settimana con le forze intere e il debito basso.",
-      "stageId": "a1-u2-stanza",
+      "stageId": "citta-stanza",
       "motionId": "ingresso",
-      "visualExplanation": "Un angolo di stanza in affitto: il letto di ferro, il baule e la stufetta. Tocca una moneta e poi il posto dove la spendi. Gli indicatori sono indici della simulazione e non dati storici né voti.",
+      "visualExplanation": "Un angolo di stanza in affitto: il letto di ferro, il baule e la stufetta con il secchio del carbone. Tocca una moneta e poi il posto dove la spendi. Gli indicatori sono indici della simulazione: non sono dati storici né voti.",
       "tokens": 8,
       "tokenLabel": "monete",
       "turnWord": "settimana",
@@ -3642,12 +3643,12 @@
         "placeLabel": "Pietroburgo e Kaluga"
       },
       "text": "Nel 1881 lo zar Alessandro II, detto il liberatore perché ha firmato la fine della servitù, è ucciso a Pietroburgo da una bomba dei rivoluzionari.\n\nUno di loro, Nikolaj Kibalčič, è arrestato. In cella aspetta l'esecuzione; e intanto disegna una macchina volante a razzo. Il progetto finisce in un archivio di polizia.\n\nResta lì per anni. Solo dopo la rivoluzione uno studioso, Rynin, lo ritrova negli archivi e lo pubblica. Oggi un cratere sul lato nascosto della Luna porta il nome di Kibalčič.\n\nNegli stessi anni un maestro di scuola quasi sordo, Konstantin Ciolkovskij, comincia a fare i conti per uscire dalla Terra. Dal 1892 vive a Kaluga.\n\nPerché chi vuole cambiare il mondo sogna di volare? Tieni a mente questo foglio: il cielo tornerà.",
-      "stageId": "a1-u2-cella",
+      "stageId": "citta-cella",
       "motionId": "ingresso",
       "exposes": [
         "a1-razzo"
       ],
-      "visualExplanation": "Una cella e un foglio: il disegno della cella e del razzo non esiste ancora nella bottega, per ora c'è solo la figura seduta con un foglio. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
+      "visualExplanation": "Una cella con una finestrella e un uomo seduto che disegna su un foglio: sul foglio c'è il disegno di un razzo. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
       "editorial": {
         "sources": [
           "I2-06",
@@ -3675,12 +3676,12 @@
         "placeLabel": "Mosca e Pietroburgo"
       },
       "text": "Alessandro III ha una forza fuori dal comune. Per divertire gli ospiti piega attizzatoi di ferro e strappa mazzi di carte. Considera troppo numerosa e costosa la famiglia dei Romanov: un granduca può ricevere 250.000 rubli l'anno e una granduchessa ha una dote di un milione. Restringe le regole su chi può avere certi titoli e privilegi.\n\nNel 1896 per l'incoronazione di Nicola II si promette a una folla immensa un piccolo dono: pane, dolci e una tazza smaltata. Sul campo di Chodynka l'organizzazione dei varchi e le condizioni del terreno provocano una calca mortale. Non è la follia della folla: la responsabilità sta nel modo in cui l'evento è stato preparato.\n\nIl ballo dell'ambasciatore francese si tiene lo stesso. La sorella di Nicola annota quanto è penoso sentire suonare l'inno mentre fuori portano ancora via i morti.\n\nNel 1903 la corte si traveste da Seicento: Nicola è lo zar Alessio e Aleksandra una zarina coperta di gemme. Il granduca Aleksandr Michajlovič ricorda che mentre la corte ballava gli operai scioperavano.\n\nChe cosa vede un sovrano dal suo palazzo? E che cosa non riesce più a vedere?",
-      "stageId": "a1-u2-corte",
+      "stageId": "citta-corte",
       "motionId": "ingresso",
       "exposes": [
         "a1-corte"
       ],
-      "visualExplanation": "A sinistra il palazzo con la corte che balla; a destra la fabbrica con gli operai fermi. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
+      "visualExplanation": "A sinistra il salone illuminato dai lampadari con la corte che balla; a destra la fabbrica con gli operai fermi. Gli indicatori sono indici della simulazione: non sono dati storici né voti.",
       "editorial": {
         "sources": [
           "C30",
@@ -3708,7 +3709,7 @@
         "placeLabel": "Fabbrica e villaggio"
       },
       "text": "Nella fabbrica e al villaggio circolano tre fogli. Il primo parla di costituzione e di parlamento. Il secondo parla di terra. Il terzo parla di operai.\n\nDal 1903 i socialdemocratici sono divisi in due gruppi: i bolscevichi di Lenin vogliono un partito di pochi rivoluzionari di mestiere; i menscevichi vogliono un partito più largo. Un vecchio operaio (personaggio inventato) lo spiega al figlio con parole sue: «Quelli di Lenin vogliono pochi che facciano solo quello; gli altri vogliono tanta gente e più pazienza».\n\nApri tutti e tre i fogli e confrontali.",
-      "stageId": "a1-u2-volantini",
+      "stageId": "citta-volantini",
       "motionId": "ingresso",
       "exposes": [
         "a1-volantini"
@@ -3784,8 +3785,8 @@
         "dateLabel": "1861–1904"
       },
       "text": "Tra il 1861 e il 1904 la Russia ha due volti. Nei villaggi il mir riscatta la terra insieme e ne ridistribuisce le strisce. In città le fabbriche crescono; ma gli operai non hanno la libertà di associarsi.\n\nIl mir non è un soviet né una democrazia moderna: è una comunità contadina con regole proprie. E molti operai restano legati al villaggio.\n\nLa corte vive come in un altro mondo. Nascono tre gruppi che parlano per persone diverse: i cadetti per una costituzione, i socialrivoluzionari per la terra e i socialdemocratici per gli operai.\n\nNel 1904 la sconfitta contro il Giappone si somma al malcontento che c'è già: salari bassi, mancanza di libertà e violenza della polizia.",
-      "stageId": "a1-u2-volantini",
-      "visualExplanation": "Il villaggio e la fabbrica nella stessa inquadratura. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
+      "stageId": "citta-fabbrica",
+      "visualExplanation": "Il cortile della fabbrica con le sue ciminiere: il figlio arriva e per terra restano dei volantini. Gli indicatori sono indici della simulazione: non sono dati storici né voti.",
       "editorial": {
         "sources": [
           "I2-01",
@@ -3799,7 +3800,8 @@
         "forze",
         "legami",
         "speranza"
-      ]
+      ],
+      "motionId": "ingresso"
     },
     {
       "id": "a1-citta-v2",
@@ -3811,12 +3813,14 @@
         "kind": "assessment"
       },
       "text": "Una domanda sui tre gruppi del 1904. Non valuta le scelte che hai fatto nella partita.",
-      "stageId": "a1-u2-volantini",
+      "stageId": "citta-dormitorio",
       "shows": [
         "forze",
         "legami",
         "speranza"
-      ]
+      ],
+      "motionId": "ingresso",
+      "visualExplanation": "Il dormitorio di una fabbrica: file di cuccette e una lampada. La domanda riguarda la vita degli operai che hai visto nell'unità."
     }
   ],
   "reconciliation": "Fine dell'Atto I (1700–1904). Per un secolo e mezzo la ricchezza si è contata in anime; il 1861 ha dato la libertà della persona senza la terra. La terra non bastava per tutti e i figli sono partiti per la fabbrica, dove circolavano i primi volantini. Le tue scelte hanno cambiato soltanto la simulazione, non questi fatti. Segue l'Atto II: il 1905.",

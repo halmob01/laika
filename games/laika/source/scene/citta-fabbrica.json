@@ -1,0 +1,115 @@
+{
+  "viewBox": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "id": "citta-fabbrica",
+  "telefono": {
+    "centro": 0.5,
+    "zoom": 1.2
+  },
+  "etichetta": "Il cortile di una fabbrica: l'edificio con le sue ciminiere, il figlio e due operai che escono dai turni; per terra restano dei volantini.",
+  "elementi": [
+    {
+      "id": "terra",
+      "simbolo": "suolo",
+      "x": 800,
+      "y": 900,
+      "scala": 3.4
+    },
+    {
+      "id": "fabbrica",
+      "simbolo": "ambiente-fabbrica",
+      "x": 800,
+      "y": 780,
+      "scala": 3.1
+    },
+    {
+      "id": "ciminiera-1",
+      "simbolo": "infra-ciminiera",
+      "x": 470,
+      "y": 750,
+      "scala": 2
+    },
+    {
+      "id": "ciminiera-2",
+      "simbolo": "infra-ciminiera",
+      "x": 1130,
+      "y": 750,
+      "scala": 2
+    },
+    {
+      "id": "volantini",
+      "simbolo": "oggetto-volantini",
+      "x": 1030,
+      "y": 870,
+      "scala": 2
+    }
+  ],
+  "figure": [
+    {
+      "id": "figlio",
+      "x": 560,
+      "y": 860,
+      "scala": 1.5,
+      "variante": "nessuna",
+      "abito": "cappotto",
+      "cappello": null,
+      "posa": "in_piedi",
+      "ruolo": "protagonista"
+    },
+    {
+      "id": "operaio-1",
+      "x": 1130,
+      "y": 860,
+      "scala": 1.5,
+      "variante": "nessuna",
+      "abito": "cappotto",
+      "cappello": null,
+      "posa": "in_piedi",
+      "flip": true
+    },
+    {
+      "id": "operaia",
+      "x": 1260,
+      "y": 870,
+      "scala": 1.5,
+      "variante": "scialle",
+      "posa": "in_piedi",
+      "flip": true
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "Il figlio arriva al cortile della fabbrica.",
+      "passi": [
+        {
+          "azione": "walk",
+          "chi": "figlio",
+          "da": "sinistra",
+          "distanza": 260,
+          "a": 0,
+          "durata": 2400
+        }
+      ],
+      "battute": [
+        {
+          "a": 300,
+          "testo": "La fabbrica ha le sue ciminiere."
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}
