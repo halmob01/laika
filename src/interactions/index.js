@@ -135,7 +135,7 @@ function managePlace(host,episode,act,state,go){
     const ctl=el('div',undefined,{class:'turn-reserve-ctl'}),minus=button('−',()=>go('reserve',{delta:-1}),{'data-reserve':'-1','aria-label':'Meno '+r.label.toLowerCase()}),plus=button('+',()=>go('reserve',{delta:1}),{'data-reserve':'1','aria-label':'Più '+r.label.toLowerCase()});
     minus.disabled=g.reserve<=0;plus.disabled=spent+r.step>have;ctl.append(minus,el('b',String(g.reserve),{'aria-label':g.reserve+' '+r.label.toLowerCase()}),plus);box.append(ctl);
     const pct=Math.round(100*yieldOf(episode,{...g,rules:{...g.rules,boost:{}}},r.places[0]));
-    box.append(el('p','Hai '+have+' di '+res.label.toLowerCase()+'. Per mangiare fino al raccolto ne servono '+need+'. Dopo la semina'+(spent>g.reserve?' e i lavori':'')+' ne restano '+left+'. Il campo renderà il '+pct+'% del possibile.',{role:'status'}));
+    box.append(el('p','Hai '+have+' di '+res.label.toLowerCase()+'. Per mangiare fino al raccolto ne servono '+need+'. Dopo la semina'+(spent>g.reserve?' e i lavori':'')+(left<0?' ne mancano '+(-left)+' per arrivare al raccolto':' ne restano '+left)+'. Il campo renderà il '+pct+'% del possibile.',{role:'status'}));
     if(left<0)box.append(el('p','Non basta: il grano finirà prima del raccolto.',{class:'turn-warning'}));host.append(box);}
   // 4. Il rischio, scritto prima di scegliere.
   const risk=el('div',undefined,{class:'turn-risk'});
@@ -235,7 +235,9 @@ function turnGame(ctx){
       b.disabled=!offerOpen(episode,g,o,state);const n=g.market.bought.filter(x=>x===o.id).length;if(n)b.append(el('small',o.repeat?'fatto '+n+(n===1?' volta':' volte'):'preso'));shop.append(b);}
     host.append(shop);
     if(g.market.log.length){const box=el('div',undefined,{class:'outcome turn-result',role:'status'});for(const line of g.market.log)box.append(el('p',line));box.append(changeList(act,g.market.changes));host.append(box);}
-    host.append(button(g.turn>=episode.turns.length-1?'Fine della partita':(episode.leaveLabel||'Torna a casa'),()=>go('leave'),{'data-turn':'leave',class:'primary'}));
+    // Con punti ancora da spendere il pulsante lo dice: chiudere la giornata non deve essere un tocco distratto.
+    const avanzo=g.market.left>0?' (restano '+g.market.left+(g.market.left===1?' punto)':' punti)'):'';
+    host.append(button((g.turn>=episode.turns.length-1?'Fine della partita':(episode.leaveLabel||'Torna a casa'))+avanzo,()=>go('leave'),{'data-turn':'leave',class:'primary'}));
   }
 }
 registerInteraction('turn_game',turnGame);

@@ -22,6 +22,8 @@ export function actPage(host,{act,session,actions}){
   for(const s of states)bar.append(el('i',undefined,{class:s.status}));
   host.append(bar,el('p',done+(done===1?' unità finita su ':' unità finite su ')+states.length,{class:'hub-count'}));
   if(current)host.append(button((started?'Riprendi':'Inizia')+' · '+unitLabel(act,current.index)+' '+current.unit.title,actions.go,{class:'primary hub-cta','data-hub':'go'}));
+  // Un atto aperto da fuori (un altro fascicolo): si comincia dalla sua prima unità giocabile.
+  else if(actions.browsing&&playable.length)host.append(button('Inizia · '+unitLabel(act,playable[0].index)+' '+playable[0].unit.title,()=>actions.start(playable[0].index),{class:'primary hub-cta','data-hub':'go'}));
   else host.append(button('Vedi il riepilogo',actions.go,{class:'primary hub-cta','data-hub':'go'}));
   const list=el('ol',undefined,{class:'hub-units'});
   for(const s of states){
@@ -43,11 +45,14 @@ export function unitPage(host,{act,session,index,actions}){
   host.append(button((started?'Riprendi':'Inizia')+' · '+unitLabel(act,index),actions.go,{class:'primary hub-cta','data-hub':'go'}),button('Torna all\'atto',actions.back,{class:'hub-back','data-hub':'back'}));
 }
 // Chiusura dell'unità: che cosa è successo davvero e che cosa viene dopo.
-export function closingPage(host,{act,index,nextIndex,complete,actions}){
+export function closingPage(host,{act,index,nextIndex,complete,nextAct=null,actions}){
   const u=act.units[index],next=nextIndex!==null&&nextIndex!==undefined?act.units[nextIndex]:null;
   host.replaceChildren(el('p',actNumber(act)+' › '+unitLabel(act,index),{class:'hub-crumb'}),el('span','Unità conclusa',{class:'hub-seal'}),...head(act,'',unitLabel(act,index),u.title,u.period).slice(1));
   const pair=el('div',undefined,{class:'hub-pair'});pair.append(box('Fatto documentato',u.closing.fact),box('Simulazione',u.closing.simulation));
   host.append(section('Che cosa hai fatto',el('p',u.closing.did)),section('Che cosa accadde davvero',pair));
   if(next&&next.episodes.length)host.append(section('Che cosa viene dopo',box(unitLabel(act,nextIndex)+' · '+next.title,next.summary)));
-  host.append(button(next&&next.episodes.length&&!complete?'Passa a '+unitLabel(act,nextIndex)+' · '+next.title:'Continua',actions.go,{class:'primary hub-cta','data-hub':'go'}),button('Torna all\'atto',actions.back,{class:'hub-back','data-hub':'back'}));
+  // Ultima unità di un atto: il bilancio dell'atto e il passaggio all'atto successivo.
+  if(complete&&act.reconciliation&&index===act.units.filter(u=>u.episodes.length).length-1)host.append(section('Fine dell\'atto',el('p',act.reconciliation)));
+  if(nextAct)host.append(section('Che cosa viene dopo',box(actNumber(nextAct)+' · '+actName(nextAct),nextAct.question||nextAct.period||'')));
+  host.append(button(nextAct?'Passa all\''+actNumber(nextAct)+' · '+actName(nextAct):next&&next.episodes.length&&!complete?'Passa a '+unitLabel(act,nextIndex)+' · '+next.title:'Continua',actions.go,{class:'primary hub-cta','data-hub':'go'}),button('Torna all\'atto',actions.back,{class:'hub-back','data-hub':'back'}));
 }

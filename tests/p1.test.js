@@ -52,7 +52,7 @@ test('progress reuses replay, preserves saves byte for byte and distinguishes ne
 test('LAIKA assembly is deterministic, validated and projects editorial metadata out',()=>{
  const first=buildLaika(undefined,{write:false});assert.equal(buildLaika(undefined,{write:false}),first);
  assert.equal(first,fs.readFileSync(new URL('../games/laika/game.json',import.meta.url),'utf8'));
- assert.ok(!first.includes('editorial'));assert.equal(validatePack(JSON.parse(first)).acts.length,1);
+ assert.ok(!first.includes('editorial'));assert.equal(validatePack(JSON.parse(first)).acts.length,3);
 });
 test('LAIKA build rejects missing references, duplicate IDs, unresolved questions and invalid schema before writing',()=>{
  const mutations=[
@@ -77,7 +77,7 @@ test('LAIKA resolves external stage/symbol/question data and keeps nested editor
   const course=read('course.json');course.exposureFlags=[...course.exposureFlags,'seen'];course.stages=['source/stages/test.json'];write('course.json',course);
   const act=read('source/acts/atto-1.json');act.roles[0].editorial={note:'PRIVATE_ROLE'};
   act.episodes[0].exposes=[...act.episodes[0].exposes,'seen'];act.episodes[0].stageId='test';delete act.episodes[0].motionId;
-  act.episodes.push({id:'test-question',type:'assessment',title:'Test',text:'Test',roleId:act.roles[0].id,questionRef:'question'});act.units.find(u=>u.id==='i6').episodes.push('test-question');write('source/acts/atto-1.json',act);
+  act.episodes.push({id:'test-question',type:'assessment',title:'Test',text:'Test',roleId:act.roles[0].id,questionRef:'question'});act.units.find(u=>u.id==='citta').episodes.push('test-question');write('source/acts/atto-1.json',act);
   write('questions/atto-1.json',[...read('questions/atto-1.json'),{id:'question',prompt:'Test?',rationale:'Explanation',source:'Runtime provenance',objectives:['Test'],requiredExposureFlags:['seen'],correctId:'a',options:[{id:'a',label:'A',editorial:{note:'PRIVATE_OPTION'}},{id:'b',label:'B'}],editorial:{note:'PRIVATE_QUESTION'}}]);
   write('assets/symbols.json',[{id:'symbol',editorial:{note:'PRIVATE_SYMBOL'},layers:[{id:'shape',tag:'rect',attrs:{width:20,height:20},editorial:{note:'PRIVATE_LAYER'}}]}]);
   write('source/stages/test.json',{id:'test',label:'Test',duration:0,components:[{id:'instance',symbol:'symbol'}],editorial:{note:'PRIVATE_STAGE'}});

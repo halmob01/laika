@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "laika",
-  "contentVersion": "p4-revisione-1",
+  "contentVersion": "riordino-tre-atti-1",
   "title": "LAIKA",
   "exposureFlags": [
     "a1-anime",
@@ -60733,134 +60733,6 @@
           "max": 100,
           "start": 0,
           "good": "high"
-        },
-        {
-          "id": "sciopero",
-          "label": "Estensione dello sciopero",
-          "min": 0,
-          "max": 100,
-          "start": 50,
-          "good": "high"
-        },
-        {
-          "id": "fondi",
-          "label": "Cassa di sciopero",
-          "min": 0,
-          "max": 100,
-          "start": 50,
-          "good": "high"
-        },
-        {
-          "id": "fiducia",
-          "label": "Fiducia dei delegati",
-          "min": 0,
-          "max": 100,
-          "start": 50,
-          "good": "high"
-        },
-        {
-          "id": "repressione",
-          "label": "Rischio di repressione",
-          "min": 0,
-          "max": 100,
-          "start": 40,
-          "good": "low"
-        },
-        {
-          "id": "pet_eco",
-          "label": "Richieste economiche",
-          "min": 0,
-          "max": 100,
-          "start": 0,
-          "good": "high"
-        },
-        {
-          "id": "pet_pol",
-          "label": "Richieste politiche",
-          "min": 0,
-          "max": 100,
-          "start": 0,
-          "good": "high"
-        },
-        {
-          "id": "pet_pace",
-          "label": "Richiesta di pace",
-          "min": 0,
-          "max": 100,
-          "start": 0,
-          "good": "high"
-        },
-        {
-          "id": "pane_citta",
-          "label": "Pane in città",
-          "min": 0,
-          "max": 100,
-          "start": 50,
-          "good": "high"
-        },
-        {
-          "id": "treni",
-          "label": "Treni utili",
-          "min": 0,
-          "max": 100,
-          "start": 50,
-          "good": "high"
-        },
-        {
-          "id": "grano_stato",
-          "label": "Grano in mano allo Stato",
-          "min": 0,
-          "max": 100,
-          "start": 50,
-          "good": "high"
-        },
-        {
-          "id": "scarto",
-          "label": "Scarto fra carta e realtà",
-          "min": 0,
-          "max": 100,
-          "start": 10,
-          "good": "low"
-        },
-        {
-          "id": "soldati",
-          "label": "Soldati con gli operai",
-          "min": 0,
-          "max": 100,
-          "start": 20,
-          "good": "high"
-        },
-        {
-          "id": "operai",
-          "label": "Operai in piazza",
-          "min": 0,
-          "max": 100,
-          "start": 40,
-          "good": "high"
-        },
-        {
-          "id": "ordine",
-          "label": "Forza del vecchio ordine",
-          "min": 0,
-          "max": 100,
-          "start": 70,
-          "good": "low"
-        },
-        {
-          "id": "notizie",
-          "label": "Notizie capite",
-          "min": 0,
-          "max": 100,
-          "start": 0,
-          "good": "high"
-        },
-        {
-          "id": "pazienza",
-          "label": "Pazienza della coda",
-          "min": 0,
-          "max": 100,
-          "start": 60,
-          "good": "high"
         }
       ],
       "resources": [
@@ -60889,25 +60761,14 @@
         "figlio_via",
         "padre_via",
         "figlio_in_citta",
-        "mir_diviso",
-        "linea_soviet",
-        "tratta_prefetto",
-        "uscita_dal_mir",
-        "stolypin_resta",
-        "stolypin_vende",
-        "coda_lunga",
-        "arsenale_aperto",
-        "verso_tauride",
-        "coda_corteo"
+        "mir_diviso"
       ],
-      "reconciliation": "Fine dell'Atto I (1700–marzo 1917). Per un secolo e mezzo la ricchezza si è contata in anime; il 1861 ha dato la libertà della persona senza la terra. La terra non bastava, i figli sono andati in fabbrica; nel 1905 uno sciopero ha fatto nascere il primo soviet; la guerra ha tolto il pane alle città. A marzo 1917 i soldati non hanno sparato e lo zar è caduto perché nessuno lo difendeva più. Le tue scelte hanno cambiato soltanto la simulazione, non questi fatti. Che cosa viene dopo era ancora da decidere: è l'Atto II, in preparazione.",
-      "period": "1700 – marzo 1917",
+      "reconciliation": "Fine dell'Atto I (1700–1904). Per un secolo e mezzo la ricchezza si è contata in anime; il 1861 ha dato la libertà della persona senza la terra. La terra non bastava per tutti e i figli sono partiti per la fabbrica, dove circolavano i primi volantini. Le tue scelte hanno cambiato soltanto la simulazione, non questi fatti. Segue l'Atto II: il 1905.",
+      "period": "1700–1904",
       "question": "Si può possedere un essere umano? Che cosa tiene in piedi un potere che si crede sacro?",
       "units": [
         {
-          "id": "i1",
-          "title": "Anime e semidei",
-          "period": "1700 – 1861",
+          "id": "servitu",
           "question": "Che cosa diventa un uomo quando il suo nome è una cifra in un registro?",
           "summary": "Un villaggio di servi contati in «anime» e una corte che vive come in un altro mondo. Arriva il Manifesto del 1861.",
           "game": "Gestisci la settimana di una famiglia di servi: chi lavora il campo del signore e chi il proprio. Cinque generazioni nello stesso villaggio.",
@@ -60919,21 +60780,21 @@
             "Manifesto del 1861"
           ],
           "episodes": [
-            "a1-u1-e1",
-            "a1-u1-settimana",
-            "a1-u1-ricorda",
-            "a1-u1-e7"
+            "a1-servitu-anime",
+            "a1-servitu-settimana",
+            "a1-servitu-ricorda",
+            "a1-servitu-v1"
           ],
           "closing": {
             "did": "Hai guidato una famiglia di servi per cinque generazioni.",
             "fact": "Fino al 1861 un servo era contato in «anime» e si poteva vendere con la terra o senza. Il Manifesto del 19 febbraio 1861 abolì la servitù della gleba.",
             "simulation": "Gli indicatori della settimana sono indici della simulazione. Non sono statistiche storiche."
-          }
+          },
+          "title": "Anime e semidei",
+          "period": "1700–1861"
         },
         {
-          "id": "i2",
-          "title": "La terra dopo il Manifesto",
-          "period": "1861 – 1904",
+          "id": "mir",
           "question": "Che cos'è giusto: dare a ciascuno lo stesso o a ciascuno secondo il bisogno?",
           "summary": "Libertà sulla carta. Il villaggio deve decidere chi ha diritto a quale terra e chi paga che cosa.",
           "game": "Sei il capofamiglia che l'assemblea ascolta: otto richieste, quattro gruppi da non scontentare troppo.",
@@ -60946,18 +60807,18 @@
           ],
           "carries": "La famiglia dell'ultima generazione di I.1.",
           "episodes": [
-            "a1-u2-mir"
+            "a1-mir-assemblea"
           ],
           "closing": {
             "did": "Hai risposto alle richieste dell'assemblea e hai visto che ogni risposta contentava qualcuno e ne scontentava un altro.",
             "fact": "Dopo il Manifesto la terra non passò ai contadini gratis: andava riscattata e il villaggio rispondeva insieme dei pagamenti. La terra non bastava per tutti e molti figli partirono per la città.",
             "simulation": "Le persone, le richieste e i numeri sono simulazione. Le tue scelte hanno cambiato come il villaggio ha diviso la terra: non hanno cambiato la legge."
-          }
+          },
+          "title": "La terra dopo il Manifesto",
+          "period": "1861–1904"
         },
         {
-          "id": "i3",
-          "title": "In città",
-          "period": "fine Ottocento – 1904",
+          "id": "citta",
           "question": "Si è più liberi in città che al villaggio?",
           "summary": "La terra non basta per tutti. Il figlio parte per Pietroburgo: fabbrica, una stanza in affitto e un salario da far durare otto settimane.",
           "game": "Fai durare il salario per otto settimane fra pane, stanza, carbone e soldi al villaggio. Poi leggi tre volantini e decidi di chi fidarti.",
@@ -60971,110 +60832,26 @@
           ],
           "carries": "Il figlio della famiglia di I.2: è lui che parte.",
           "episodes": [
-            "a1-u2-citta",
-            "a1-u2-salario",
-            "a1-u2-razzo",
-            "a1-u2-corte",
-            "a1-u2-volantini",
-            "a1-u2-ricorda",
-            "a1-u2-e7"
+            "a1-citta-arrivo",
+            "a1-citta-salario",
+            "a1-citta-razzo",
+            "a1-citta-corte",
+            "a1-citta-volantini",
+            "a1-citta-ricorda",
+            "a1-citta-v2"
           ],
           "closing": {
             "did": "Hai fatto durare un salario di fabbrica per otto settimane e hai letto che cosa promettevano i partiti.",
             "fact": "Gli operai di Pietroburgo lavoravano turni lunghissimi e non avevano sindacati legali. Le promesse dei partiti arrivavano in fabbrica sotto forma di volantini.",
             "simulation": "Il salario, le monete e le scelte sono simulazione. I numeri servono a capire i vincoli."
-          }
-        },
-        {
-          "id": "i4",
-          "title": "Il 1905",
-          "period": "1905 – 1907",
-          "question": "Che cosa muore quella domenica oltre alle persone?",
-          "summary": "La domenica di sangue e le giornate del soviet.",
-          "game": "Tre giornate del soviet nell'ottobre 1905: cinque azioni al giorno e notizie a pezzi.",
-          "concepts": [
-            "domenica di sangue",
-            "soviet",
-            "sciopero generale",
-            "contropotere",
-            "Manifesto di ottobre"
-          ],
-          "episodes": [
-            "a1-u4-petizione",
-            "a1-u4-domenica",
-            "a1-u4-soviet",
-            "a1-u4-manifesto",
-            "a1-u4-stolypin",
-            "a1-u4-ricorda",
-            "a1-u4-v3",
-            "a1-u4-v4"
-          ],
-          "carries": "Il figlio della famiglia di I.3: ora è fra i delegati.",
-          "closing": {
-            "did": "Hai speso le azioni di tre giornate di sciopero fra pane, delegati e trattative.",
-            "fact": "Nell'ottobre 1905 uno sciopero generale fermò la Russia e a Pietroburgo nacque il soviet dei delegati. Lo zar concesse il Manifesto di ottobre.",
-            "simulation": "Le persone, le notizie e i numeri sono simulazione. Il soviet del 1905 coordinò uno sciopero e non governò."
-          }
-        },
-        {
-          "id": "i5",
-          "title": "Pane e guerra",
-          "period": "1914 – 1916",
-          "question": "Il grano c'è. Ma arriva in città?",
-          "summary": "La guerra, i treni e le code per il pane.",
-          "game": "Quanto serve e quanto c'è: grano, treni e città.",
-          "concepts": [
-            "guerra",
-            "grano",
-            "treni",
-            "code per il pane",
-            "voci"
-          ],
-          "episodes": [
-            "a1-u5-ginocchio",
-            "a1-u5-grano",
-            "a1-u5-gioielli",
-            "a1-u5-semidei",
-            "a1-u5-v5"
-          ],
-          "closing": {
-            "did": "Hai deciso come lo Stato usava grano e treni in cinque stagioni di guerra.",
-            "fact": "Nella guerra le città restarono senza pane anche se il grano non mancava del tutto: contavano i trasporti e i prezzi fissati. Le code per il pane precedettero le giornate di febbraio.",
-            "simulation": "Le persone e i numeri sono simulazione. Le scelte non hanno cambiato la storia."
-          }
-        },
-        {
-          "id": "i6",
-          "title": "Otto giorni",
-          "period": "marzo 1917",
-          "question": "Chi fa davvero una rivoluzione?",
-          "summary": "Le code diventano un corteo.",
-          "game": "La coda che si scioglie in corteo e il soldato che non spara.",
-          "concepts": [
-            "8 marzo 1917",
-            "soldato che non spara",
-            "Comitato della Duma",
-            "soviet",
-            "abdicazione"
-          ],
-          "episodes": [
-            "a1-u6-donna",
-            "a1-u6-coda-gioco",
-            "a1-u6-soldato",
-            "a1-u6-treno",
-            "a1-u6-v6",
-            "a1-u6-confronto"
-          ],
-          "closing": {
-            "did": "Hai guidato il passaggio dalla coda per il pane alla fine dello zar.",
-            "fact": "Fra l'8 e il 16 marzo 1917 una protesta per il pane diventò una rivoluzione quando i soldati si rifiutarono di sparare. Lo zar abdicò. Al Palazzo di Tauride nacquero il Comitato provvisorio della Duma e il soviet di Pietrogrado.",
-            "simulation": "I giorni, i personaggi e le scelte sono simulazione."
-          }
+          },
+          "title": "In città",
+          "period": "fine Ottocento–1904"
         }
       ],
       "episodes": [
         {
-          "id": "a1-u1-e1",
+          "id": "a1-servitu-anime",
           "type": "narrative",
           "title": "Le anime",
           "text": "Nel registro di una tenuta il villaggio non ha nomi. Ha un numero.\n\nLa ricchezza di un nobile russo non si misura in campi ma in «anime». Si contano soltanto i maschi: le donne valgono meno e nei conti non entrano. Dal tempo dell'imperatrice Elisabetta, a metà del Settecento, il padrone può comprare e vendere i suoi servi e mandarli in Siberia per «insolenza» senza chiedere il permesso a nessuno.\n\nLe anime si regalano. Nel 1700 il nobile più ricco di Russia ne possiede trentatremila; vent'anni dopo il principe Menšikov, favorito di Pietro il Grande e poi di sua moglie Caterina I, arriva a trecentomila. Nel 1777 Caterina II congeda un favorito, Zorič, con una tenuta di settemila anime. Un villaggio intero cambia padrone per un dono. Chi ci vive continua a zappare lo stesso campo.\n\nIn uno di questi villaggi vive la famiglia che seguirai fino al 1861: cinque generazioni di servi nella stessa isba. Nel 1740 sono il nonno Foma, il padre Ivan, la madre Marfa e un bambino, Pëtr. In casa i posti restano quattro ma le persone cambiano. I figli nascono servi come i padri. La famiglia è inventata. Il mondo intorno a lei no.",
@@ -61099,7 +60876,7 @@
           ]
         },
         {
-          "id": "a1-u1-settimana",
+          "id": "a1-servitu-settimana",
           "type": "turn_game",
           "title": "La settimana",
           "text": "Una partita di otto anni, dal 1740 al 1861. Ogni anno arriva una notizia dall'alto. Poi decidi chi della famiglia va dove e quanto grano tenere per la semina. Poi qualcuno bussa alla porta.",
@@ -62985,7 +62762,7 @@
           "previewLabel": "Si dice in giro"
         },
         {
-          "id": "a1-u1-ricorda",
+          "id": "a1-servitu-ricorda",
           "type": "narrative",
           "title": "Cosa ti devi ricordare",
           "text": "Per un secolo e mezzo la ricchezza di un nobile russo si è contata in anime: servi maschi iscritti nei registri, che si potevano comprare, vendere e regalare a migliaia.\n\nLa corvée: una parte della settimana del servo apparteneva al signore. Non solo la terra, anche il tempo era del padrone.\n\nNel 1861 il Manifesto di Alessandro II libera ventidue milioni di servi. La libertà della persona arriva subito; la terra si riscatta a rate per quarantanove anni e il villaggio risponde insieme dei debiti.\n\nDal basso e dall'alto si sognava un mondo giusto: Belovod'e e le lettere d'oro da una parte, le colonie militari di Arakčeev dall'altra.",
@@ -63006,7 +62783,7 @@
           ]
         },
         {
-          "id": "a1-u1-e7",
+          "id": "a1-servitu-v1",
           "type": "assessment",
           "title": "Che cosa cambia nel 1861",
           "text": "Una domanda sul 1861. Non valuta le scelte che hai fatto nella partita.",
@@ -63050,7 +62827,7 @@
           }
         },
         {
-          "id": "a1-u2-mir",
+          "id": "a1-mir-assemblea",
           "type": "turn_game",
           "title": "L'assemblea del mir",
           "text": "Dopo il 1861 la terra si riscatta insieme e il villaggio risponde insieme dei pagamenti. Sei il capofamiglia che l'assemblea ascolta di più.\n\nOgni assemblea una persona si alza e chiede qualcosa. Tu rispondi. Ogni risposta contenta qualcuno e ne scontenta un altro: tieni d'occhio i quattro gruppi del villaggio.",
@@ -63821,7 +63598,7 @@
           "nextLabel": "L'assemblea dopo"
         },
         {
-          "id": "a1-u2-citta",
+          "id": "a1-citta-arrivo",
           "type": "narrative",
           "title": "In città",
           "text": "Il figlio della famiglia lascia il villaggio e arriva a Pietroburgo. Lì lo aspetta una fabbrica.\n\nIl salario è basso. La polizia può essere violenta. Gli operai non hanno libertà di associarsi né di stampare ciò che pensano: la vita dell'operaio dipende dalla forza del padrone.\n\nIl figlio dorme in un angolo di stanza in affitto. Spesso la sera pensa al villaggio.\n\nAnche chi veste una divisa trova porte chiuse. I soldati di truppa non possono prendere il tram né mangiare nei ristoranti: basta l'uniforme a tenerli fuori.\n\nSi è più liberi in città che al villaggio? In città nessuno può venderti o regalarti. Ma ogni gradino della società ha le sue porte chiuse.",
@@ -63845,7 +63622,7 @@
           ]
         },
         {
-          "id": "a1-u2-salario",
+          "id": "a1-citta-salario",
           "type": "turn_game",
           "title": "Il salario",
           "text": "Sei il figlio e lavori in fabbrica a Pietroburgo. Ogni sabato arriva il salario: otto monete (un indice della simulazione).\n\nNon bastano per tutto: pane per le forze, un angolo di stanza in affitto, carbone per l'inverno e soldi da mandare al villaggio. C'è anche un corso serale per imparare a leggere i fogli. Giochi otto settimane e il debito si porta dietro da una all'altra.",
@@ -64472,7 +64249,7 @@
           "upkeepHint": "Ogni settimana, comunque"
         },
         {
-          "id": "a1-u2-razzo",
+          "id": "a1-citta-razzo",
           "type": "narrative",
           "title": "Il razzo del condannato",
           "text": "Nel 1881 lo zar Alessandro II, detto il liberatore perché ha firmato la fine della servitù, è ucciso a Pietroburgo da una bomba dei rivoluzionari.\n\nUno di loro, Nikolaj Kibalčič, è arrestato. In cella aspetta l'esecuzione; e intanto disegna una macchina volante a razzo. Il progetto finisce in un archivio di polizia.\n\nResta lì per anni. Solo dopo la rivoluzione uno studioso, Rynin, lo ritrova negli archivi e lo pubblica. Oggi un cratere sul lato nascosto della Luna porta il nome di Kibalčič.\n\nNegli stessi anni un maestro di scuola quasi sordo, Konstantin Ciolkovskij, comincia a fare i conti per uscire dalla Terra. Dal 1892 vive a Kaluga.\n\nPerché chi vuole cambiare il mondo sogna di volare? Tieni a mente questo foglio: il cielo tornerà.",
@@ -64496,7 +64273,7 @@
           ]
         },
         {
-          "id": "a1-u2-corte",
+          "id": "a1-citta-corte",
           "type": "narrative",
           "title": "La corte dell'ultimo secolo",
           "text": "Alessandro III ha una forza fuori dal comune. Per divertire gli ospiti piega attizzatoi di ferro e strappa mazzi di carte. Considera troppo numerosa e costosa la famiglia dei Romanov: un granduca può ricevere 250.000 rubli l'anno e una granduchessa ha una dote di un milione. Restringe le regole su chi può avere certi titoli e privilegi.\n\nNel 1896 per l'incoronazione di Nicola II si promette a una folla immensa un piccolo dono: pane, dolci e una tazza smaltata. Sul campo di Chodynka l'organizzazione dei varchi e le condizioni del terreno provocano una calca mortale. Non è la follia della folla: la responsabilità sta nel modo in cui l'evento è stato preparato.\n\nIl ballo dell'ambasciatore francese si tiene lo stesso. La sorella di Nicola annota quanto è penoso sentire suonare l'inno mentre fuori portano ancora via i morti.\n\nNel 1903 la corte si traveste da Seicento: Nicola è lo zar Alessio e Aleksandra una zarina coperta di gemme. Il granduca Aleksandr Michajlovič ricorda che mentre la corte ballava gli operai scioperavano.\n\nChe cosa vede un sovrano dal suo palazzo? E che cosa non riesce più a vedere?",
@@ -64520,7 +64297,7 @@
           ]
         },
         {
-          "id": "a1-u2-volantini",
+          "id": "a1-citta-volantini",
           "type": "source_comparison",
           "title": "Tre volantini",
           "text": "Nella fabbrica e al villaggio circolano tre fogli. Il primo parla di costituzione e di parlamento. Il secondo parla di terra. Il terzo parla di operai.\n\nDal 1903 i socialdemocratici sono divisi in due gruppi: i bolscevichi di Lenin vogliono un partito di pochi rivoluzionari di mestiere; i menscevichi vogliono un partito più largo. Un vecchio operaio (personaggio inventato) lo spiega al figlio con parole sue: «Quelli di Lenin vogliono pochi che facciano solo quello; gli altri vogliono tanta gente e più pazienza».\n\nApri tutti e tre i fogli e confrontali.",
@@ -64589,13 +64366,12 @@
           ]
         },
         {
-          "id": "a1-u2-ricorda",
+          "id": "a1-citta-ricorda",
           "type": "narrative",
           "title": "Cosa ti devi ricordare",
           "text": "Tra il 1861 e il 1904 la Russia ha due volti. Nei villaggi il mir riscatta la terra insieme e ne ridistribuisce le strisce. In città le fabbriche crescono; ma gli operai non hanno la libertà di associarsi.\n\nIl mir non è un soviet né una democrazia moderna: è una comunità contadina con regole proprie. E molti operai restano legati al villaggio.\n\nLa corte vive come in un altro mondo. Nascono tre gruppi che parlano per persone diverse: i cadetti per una costituzione, i socialrivoluzionari per la terra e i socialdemocratici per gli operai.\n\nNel 1904 la sconfitta contro il Giappone si somma al malcontento che c'è già: salari bassi, mancanza di libertà e violenza della polizia.",
           "roleId": "figlio",
           "stageId": "a1-u2-volantini",
-          "motionId": "ingresso",
           "visualExplanation": "Il villaggio e la fabbrica nella stessa inquadratura. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
           "context": {
             "kind": "documented",
@@ -64609,7 +64385,7 @@
           ]
         },
         {
-          "id": "a1-u2-e7",
+          "id": "a1-citta-v2",
           "type": "assessment",
           "title": "Chi chiedeva che cosa",
           "text": "Una domanda sui tre gruppi del 1904. Non valuta le scelte che hai fatto nella partita.",
@@ -64650,9 +64426,224 @@
               "a1-volantini"
             ]
           }
+        }
+      ]
+    },
+    {
+      "id": "atto-2",
+      "title": "Atto II — 1905",
+      "actors": [
+        {
+          "id": "famiglia"
         },
         {
-          "id": "a1-u4-petizione",
+          "id": "corte"
+        }
+      ],
+      "roles": [
+        {
+          "id": "antenati",
+          "label": "La famiglia",
+          "actorId": "famiglia",
+          "mandate": "Far durare il raccolto fino al prossimo, sotto un padrone."
+        },
+        {
+          "id": "osservatore",
+          "label": "Un osservatore della corte",
+          "actorId": "corte",
+          "mandate": "Guardare da vicino la corte e ricordare che cosa succede intanto nei villaggi."
+        },
+        {
+          "id": "figlio",
+          "label": "Il figlio in città",
+          "actorId": "famiglia",
+          "mandate": "Sopravvivere in città senza perdere il legame con il villaggio."
+        },
+        {
+          "id": "capofamiglia",
+          "label": "Il capofamiglia ascoltato",
+          "actorId": "famiglia",
+          "mandate": "Tenere insieme il villaggio senza che nessuno resti senza terra o senza pane."
+        }
+      ],
+      "metrics": [
+        {
+          "id": "sciopero",
+          "label": "Estensione dello sciopero",
+          "min": 0,
+          "max": 100,
+          "start": 50,
+          "good": "high"
+        },
+        {
+          "id": "fondi",
+          "label": "Cassa di sciopero",
+          "min": 0,
+          "max": 100,
+          "start": 50,
+          "good": "high"
+        },
+        {
+          "id": "fiducia",
+          "label": "Fiducia dei delegati",
+          "min": 0,
+          "max": 100,
+          "start": 50,
+          "good": "high"
+        },
+        {
+          "id": "repressione",
+          "label": "Rischio di repressione",
+          "min": 0,
+          "max": 100,
+          "start": 40,
+          "good": "low"
+        },
+        {
+          "id": "pet_eco",
+          "label": "Richieste economiche",
+          "min": 0,
+          "max": 100,
+          "start": 0,
+          "good": "high"
+        },
+        {
+          "id": "pet_pol",
+          "label": "Richieste politiche",
+          "min": 0,
+          "max": 100,
+          "start": 0,
+          "good": "high"
+        },
+        {
+          "id": "pet_pace",
+          "label": "Richiesta di pace",
+          "min": 0,
+          "max": 100,
+          "start": 0,
+          "good": "high"
+        },
+        {
+          "id": "notizie",
+          "label": "Notizie capite",
+          "min": 0,
+          "max": 100,
+          "start": 0,
+          "good": "high"
+        }
+      ],
+      "resources": [],
+      "relations": [],
+      "flags": [
+        "linea_soviet",
+        "tratta_prefetto",
+        "uscita_dal_mir",
+        "stolypin_resta",
+        "stolypin_vende"
+      ],
+      "reconciliation": "Fine dell'Atto II (1905–1911). Una petizione portata allo zar è finita sotto i fucili; uno sciopero generale ha fatto nascere il soviet e ha strappato una Duma che lo zar ha presto svuotato; Stolypin ha aperto l'uscita dal mir e riempito i tribunali militari. Le tue scelte hanno cambiato soltanto la simulazione, non questi fatti. Segue l'Atto III: la guerra.",
+      "period": "1905–1911",
+      "question": "Che cosa muore quando un popolo smette di credere che lo zar sia un padre?",
+      "units": [
+        {
+          "id": "petizione",
+          "episodes": [
+            "a2-petizione-righe",
+            "a2-petizione-domenica"
+          ],
+          "question": "Che cosa muore quella domenica oltre alle persone?",
+          "summary": "La guerra contro il Giappone va male e alle officine Putilov gli operai scioperano. Si scrive una petizione da portare allo zar; la domenica dopo la truppa spara sul corteo.",
+          "game": "Scrivi la petizione: cinque righe da dividere fra salario, libertà e pace.",
+          "concepts": [
+            "petizione",
+            "padre Gapon",
+            "domenica di sangue",
+            "zar-padre"
+          ],
+          "carries": "Il figlio della famiglia lavora in fabbrica a Pietroburgo dall'Atto I.",
+          "closing": {
+            "did": "Hai scelto che cosa chiedere allo zar.",
+            "fact": "Il 22 gennaio 1905 (9 gennaio nel calendario russo) la truppa sparò sul corteo che portava allo zar la petizione di padre Gapon. La fiducia nello zar come padre si spezzò.",
+            "simulation": "Le righe della petizione sono simulazione: la petizione vera ebbe un testo suo."
+          },
+          "title": "La petizione",
+          "period": "gennaio 1905"
+        },
+        {
+          "id": "soviet",
+          "question": "Che cosa succede quando le persone comuni scoprono di poter fermare un impero incrociando le braccia?",
+          "summary": "Ottobre 1905: sciopero generale. A Pietroburgo nasce il soviet, un consiglio di delegati degli scioperanti.",
+          "game": "Tre giornate del soviet nell'ottobre 1905: cinque azioni al giorno e notizie a pezzi.",
+          "concepts": [
+            "sciopero generale",
+            "soviet",
+            "delegati",
+            "contropotere"
+          ],
+          "episodes": [
+            "a2-soviet-giornate",
+            "a2-soviet-v3"
+          ],
+          "carries": "Il figlio della famiglia: ora è fra i delegati.",
+          "closing": {
+            "did": "Hai speso le azioni di tre giornate di sciopero fra pane, delegati e trattative.",
+            "fact": "Nell'ottobre 1905 uno sciopero generale fermò la Russia e a Pietroburgo nacque il soviet dei delegati.",
+            "simulation": "Le persone, le notizie e i numeri sono simulazione. Il soviet del 1905 coordinò uno sciopero e non governò."
+          },
+          "title": "Il soviet",
+          "period": "ottobre 1905"
+        },
+        {
+          "id": "concessioni",
+          "episodes": [
+            "a2-concessioni-schede"
+          ],
+          "question": "Una concessione strappata è un diritto o una tregua?",
+          "summary": "Dopo lo sciopero lo zar firma il Manifesto di ottobre. Poi arrivano le Leggi fondamentali e due Dume sciolte.",
+          "game": "Confronta tre schede sulla stessa concessione e decidi che cosa è stata.",
+          "concepts": [
+            "Manifesto di ottobre",
+            "Duma",
+            "Leggi fondamentali",
+            "autocrazia"
+          ],
+          "closing": {
+            "did": "Hai confrontato che cosa lo zar promise e che cosa mantenne.",
+            "fact": "Il Manifesto del 30 ottobre 1905 (17 ottobre nel calendario russo) promise libertà civili e una Duma eletta. Le Leggi fondamentali del 1906 chiamarono ancora autocratico il potere dello zar e le prime due Dume furono sciolte.",
+            "simulation": "Le tre schede sono sintesi per il gioco, non i testi originali."
+          },
+          "title": "Che cosa concede lo zar",
+          "period": "ottobre 1905–giugno 1907"
+        },
+        {
+          "id": "stolypin",
+          "episodes": [
+            "a2-stolypin-scelta",
+            "a2-stolypin-v4",
+            "a2-stolypin-ricorda"
+          ],
+          "question": "Che cosa cambia e che cosa resta dopo il 1905?",
+          "summary": "Novembre 1906: un decreto permette ai contadini di uscire dal mir e di unire le strisce in un podere. Intanto i tribunali militari mandano alla forca i rivoltosi.",
+          "game": "Decidi se la famiglia resta nel mir, esce e unisce le strisce o vende e parte.",
+          "concepts": [
+            "Stolypin",
+            "podere",
+            "mir",
+            "tribunali militari"
+          ],
+          "carries": "La famiglia è rimasta al villaggio, nel mir dell'Atto I.",
+          "closing": {
+            "did": "Hai deciso che cosa fa la famiglia davanti alla riforma.",
+            "fact": "Dal novembre 1906 la riforma di Stolypin permise di uscire dal mir e di unire le strisce in un podere; non abolì il mir. I tribunali militari mandarono alla forca molti rivoltosi: la corda si chiamò «cravatta di Stolypin».",
+            "simulation": "La famiglia e la sua scelta sono simulazione."
+          },
+          "title": "Stolypin",
+          "period": "novembre 1906–1911"
+        }
+      ],
+      "episodes": [
+        {
+          "id": "a2-petizione-righe",
           "type": "resource_allocation",
           "title": "La petizione",
           "text": "Gennaio 1905. La guerra contro il Giappone va male e alle officine Putilov di Pietroburgo gli operai sono in sciopero. Prima del corteo di domenica si scrive la petizione da portare allo zar. Hai cinque righe. Puoi spenderle fra richieste di lavoro e di salario e richieste politiche o di pace.\n\nLe righe che scrivi sono una simulazione: la petizione vera ebbe un testo suo.",
@@ -64716,13 +64707,12 @@
           ]
         },
         {
-          "id": "a1-u4-domenica",
+          "id": "a2-petizione-domenica",
           "type": "narrative",
           "title": "La domenica di sangue",
           "text": "La guerra contro il Giappone va male. Domenica 22 gennaio 1905 (9 gennaio nel calendario russo) un corteo guidato da padre Gapon porta allo zar una petizione e le icone. Lo zar non è in città. La truppa spara sulla folla.\n\nChe cosa muore quella domenica oltre alle persone? La fiducia nello zar come padre.",
           "roleId": "figlio",
           "stageId": "a1-u4-domenica",
-          "motionId": "ingresso",
           "visualExplanation": "Il corteo avanza con un foglio e le icone. Lo sparo non si vede: le figure si disperdono e il foglio resta nella neve.",
           "context": {
             "kind": "documented",
@@ -64736,7 +64726,7 @@
           "shows": []
         },
         {
-          "id": "a1-u4-soviet",
+          "id": "a2-soviet-giornate",
           "type": "turn_game",
           "title": "Le giornate del soviet",
           "text": "Ottobre 1905: sciopero generale. Nasce a Pietroburgo il soviet, un consiglio di delegati degli scioperanti.\n\nSei fra i delegati. Ogni giornata hai cinque punti azione. Le notizie arrivano a pezzi: indagare costa un punto e ti fa capire cosa pensano i delegati. Quello che non fai, intanto, costa.",
@@ -65519,13 +65509,51 @@
           "pointsLabel": "Punti azione"
         },
         {
-          "id": "a1-u4-manifesto",
+          "id": "a2-soviet-v3",
+          "type": "assessment",
+          "title": "Che cos'era il soviet",
+          "text": "Una domanda sul soviet del 1905. Non valuta le scelte che hai fatto nella partita.",
+          "roleId": "figlio",
+          "stageId": "a1-u4-soviet",
+          "context": {
+            "kind": "assessment"
+          },
+          "shows": [],
+          "question": {
+            "id": "a1-v3",
+            "prompt": "Nell'ottobre 1905 nasce a Pietroburgo il soviet. Che cos'era?",
+            "rationale": "Il soviet del 1905 era un contropotere: un consiglio di delegati che coordinava lo sciopero. Non era un governo e non era la Duma.",
+            "source": "Episodio «Le giornate del soviet»: appunti «La Rivoluzione Russa»",
+            "objectives": [
+              "Distinguere il soviet del 1905 dal governo e dalla Duma"
+            ],
+            "options": [
+              {
+                "id": "contropotere",
+                "label": "Un consiglio di delegati degli scioperanti che coordinava lo sciopero senza governare"
+              },
+              {
+                "id": "governo",
+                "label": "Il nuovo governo che sostituì lo zar"
+              },
+              {
+                "id": "parlamento",
+                "label": "Il parlamento eletto concesso dal Manifesto di ottobre"
+              }
+            ],
+            "correctId": "contropotere",
+            "requiredExposureFlags": [
+              "a1-soviet"
+            ]
+          }
+        },
+        {
+          "id": "a2-concessioni-schede",
           "type": "source_comparison",
           "title": "Che cosa concede lo zar",
           "text": "Dopo lo sciopero lo zar concede il Manifesto di ottobre. Poi vengono le Leggi fondamentali e le Dume. Apri le tre schede e confrontale.",
           "roleId": "figlio",
           "stageId": "a1-u4-soviet",
-          "motionId": "ingresso",
           "visualExplanation": "Tre schede sulla stessa concessione. Gli indicatori sono indici della simulazione e non dati storici né voti.",
           "context": {
             "kind": "source",
@@ -65578,7 +65606,7 @@
           "shows": []
         },
         {
-          "id": "a1-u4-stolypin",
+          "id": "a2-stolypin-scelta",
           "type": "choice",
           "title": "Stolypin",
           "text": "Nel novembre 1906 un decreto permette ai contadini di uscire dal mir e di unire le strisce in un podere. Intanto i tribunali militari mandano alla forca i rivoltosi: la corda si chiama «la cravatta di Stolypin».\n\nLa tua famiglia può restare nel mir. Può uscire e consolidare le strisce. Può vendere e partire.",
@@ -65635,61 +65663,7 @@
           "shows": []
         },
         {
-          "id": "a1-u4-ricorda",
-          "type": "narrative",
-          "title": "Cosa ti devi ricordare",
-          "text": "Il 22 gennaio 1905 la truppa spara su un corteo pacifico e la fiducia nello zar come padre si spezza. Nell'ottobre 1905 uno sciopero generale ferma il paese e a Pietroburgo nasce il soviet.\n\nIl soviet del 1905 è un contropotere: coordina uno sciopero e non governa. Lo zar concede il Manifesto di ottobre sotto la pressione dello sciopero: una concessione strappata può essere un diritto o una tregua.",
-          "roleId": "figlio",
-          "stageId": "a1-u4-soviet",
-          "motionId": "ingresso",
-          "context": {
-            "kind": "documented",
-            "dateLabel": "1905"
-          },
-          "display": "cards",
-          "shows": []
-        },
-        {
-          "id": "a1-u4-v3",
-          "type": "assessment",
-          "title": "Che cos'era il soviet",
-          "text": "Una domanda sul soviet del 1905. Non valuta le scelte che hai fatto nella partita.",
-          "roleId": "figlio",
-          "stageId": "a1-u4-soviet",
-          "context": {
-            "kind": "assessment"
-          },
-          "shows": [],
-          "question": {
-            "id": "a1-v3",
-            "prompt": "Nell'ottobre 1905 nasce a Pietroburgo il soviet. Che cos'era?",
-            "rationale": "Il soviet del 1905 era un contropotere: un consiglio di delegati che coordinava lo sciopero. Non era un governo e non era la Duma.",
-            "source": "Episodio «Le giornate del soviet»: appunti «La Rivoluzione Russa»",
-            "objectives": [
-              "Distinguere il soviet del 1905 dal governo e dalla Duma"
-            ],
-            "options": [
-              {
-                "id": "contropotere",
-                "label": "Un consiglio di delegati degli scioperanti che coordinava lo sciopero senza governare"
-              },
-              {
-                "id": "governo",
-                "label": "Il nuovo governo che sostituì lo zar"
-              },
-              {
-                "id": "parlamento",
-                "label": "Il parlamento eletto concesso dal Manifesto di ottobre"
-              }
-            ],
-            "correctId": "contropotere",
-            "requiredExposureFlags": [
-              "a1-soviet"
-            ]
-          }
-        },
-        {
-          "id": "a1-u4-v4",
+          "id": "a2-stolypin-v4",
           "type": "assessment",
           "title": "Che cosa consente Stolypin",
           "text": "Una domanda su Stolypin. Non valuta le scelte che hai fatto nella partita.",
@@ -65728,7 +65702,204 @@
           }
         },
         {
-          "id": "a1-u5-ginocchio",
+          "id": "a2-stolypin-ricorda",
+          "type": "narrative",
+          "title": "Cosa ti devi ricordare",
+          "text": "Il 22 gennaio 1905 la truppa spara su un corteo pacifico e la fiducia nello zar come padre si spezza. Nell'ottobre 1905 uno sciopero generale ferma il paese e a Pietroburgo nasce il soviet.\n\nIl soviet del 1905 è un contropotere: coordina uno sciopero e non governa. Lo zar concede il Manifesto di ottobre sotto la pressione dello sciopero: una concessione strappata può essere un diritto o una tregua.",
+          "roleId": "figlio",
+          "stageId": "a1-u4-soviet",
+          "context": {
+            "kind": "documented",
+            "dateLabel": "1905"
+          },
+          "display": "cards",
+          "shows": []
+        }
+      ]
+    },
+    {
+      "id": "atto-3",
+      "title": "Atto III — Pane e guerra",
+      "actors": [
+        {
+          "id": "famiglia"
+        },
+        {
+          "id": "corte"
+        }
+      ],
+      "roles": [
+        {
+          "id": "antenati",
+          "label": "La famiglia",
+          "actorId": "famiglia",
+          "mandate": "Far durare il raccolto fino al prossimo, sotto un padrone."
+        },
+        {
+          "id": "osservatore",
+          "label": "Un osservatore della corte",
+          "actorId": "corte",
+          "mandate": "Guardare da vicino la corte e ricordare che cosa succede intanto nei villaggi."
+        },
+        {
+          "id": "figlio",
+          "label": "Il figlio in città",
+          "actorId": "famiglia",
+          "mandate": "Sopravvivere in città senza perdere il legame con il villaggio."
+        },
+        {
+          "id": "capofamiglia",
+          "label": "Il capofamiglia ascoltato",
+          "actorId": "famiglia",
+          "mandate": "Tenere insieme il villaggio senza che nessuno resti senza terra o senza pane."
+        }
+      ],
+      "metrics": [
+        {
+          "id": "pane_citta",
+          "label": "Pane in città",
+          "min": 0,
+          "max": 100,
+          "start": 50,
+          "good": "high"
+        },
+        {
+          "id": "treni",
+          "label": "Treni utili",
+          "min": 0,
+          "max": 100,
+          "start": 50,
+          "good": "high"
+        },
+        {
+          "id": "grano_stato",
+          "label": "Grano in mano allo Stato",
+          "min": 0,
+          "max": 100,
+          "start": 50,
+          "good": "high"
+        },
+        {
+          "id": "scarto",
+          "label": "Scarto fra carta e realtà",
+          "min": 0,
+          "max": 100,
+          "start": 10,
+          "good": "low"
+        },
+        {
+          "id": "soldati",
+          "label": "Soldati con gli operai",
+          "min": 0,
+          "max": 100,
+          "start": 20,
+          "good": "high"
+        },
+        {
+          "id": "operai",
+          "label": "Operai in piazza",
+          "min": 0,
+          "max": 100,
+          "start": 40,
+          "good": "high"
+        },
+        {
+          "id": "ordine",
+          "label": "Forza del vecchio ordine",
+          "min": 0,
+          "max": 100,
+          "start": 70,
+          "good": "low"
+        },
+        {
+          "id": "pazienza",
+          "label": "Pazienza della coda",
+          "min": 0,
+          "max": 100,
+          "start": 60,
+          "good": "high"
+        }
+      ],
+      "resources": [
+        {
+          "id": "grano",
+          "label": "Grano della famiglia",
+          "min": 0,
+          "max": 150,
+          "start": 60,
+          "good": "high"
+        }
+      ],
+      "relations": [],
+      "flags": [
+        "coda_lunga",
+        "arsenale_aperto",
+        "verso_tauride",
+        "coda_corteo"
+      ],
+      "reconciliation": "Fine dell'Atto III (1914–marzo 1917). La guerra ha tolto il pane alle città; a marzo 1917 le donne in coda sono uscite in strada, i soldati non hanno sparato e lo zar è caduto perché nessuno lo difendeva più. Le tue scelte hanno cambiato soltanto la simulazione, non questi fatti. Che cosa sarebbe venuto dopo era ancora da decidere.",
+      "period": "1914–marzo 1917",
+      "question": "Un potere sacro può sopravvivere quando non ci crede più nemmeno chi lo serve?",
+      "units": [
+        {
+          "id": "pane-guerra",
+          "question": "Il grano c'è. Ma arriva in città?",
+          "summary": "La guerra, i treni e le code per il pane.",
+          "game": "Quanto serve e quanto c'è: grano, treni e città.",
+          "concepts": [
+            "guerra",
+            "grano",
+            "treni",
+            "code per il pane",
+            "voci"
+          ],
+          "episodes": [
+            "a3-pane-guerra-ginocchio",
+            "a3-pane-guerra-grano",
+            "a3-pane-guerra-gioielli",
+            "a3-pane-guerra-semidei",
+            "a3-pane-guerra-v5"
+          ],
+          "closing": {
+            "did": "Hai deciso come lo Stato usava grano e treni in cinque stagioni di guerra.",
+            "fact": "Nella guerra le città restarono senza pane anche se il grano non mancava del tutto: contavano i trasporti e i prezzi fissati. Le code per il pane precedettero le giornate di febbraio.",
+            "simulation": "Le persone e i numeri sono simulazione. Le scelte non hanno cambiato la storia."
+          },
+          "title": "Pane e guerra",
+          "period": "agosto 1914–dicembre 1916"
+        },
+        {
+          "id": "otto-giorni",
+          "question": "Chi fa davvero una rivoluzione?",
+          "summary": "Le code diventano un corteo.",
+          "game": "La coda che si scioglie in corteo e il soldato che non spara.",
+          "concepts": [
+            "8 marzo 1917",
+            "soldato che non spara",
+            "Comitato della Duma",
+            "soviet",
+            "abdicazione"
+          ],
+          "episodes": [
+            "a3-otto-giorni-donna",
+            "a3-otto-giorni-coda",
+            "a3-otto-giorni-soldato",
+            "a3-otto-giorni-treno",
+            "a3-otto-giorni-v6",
+            "a3-otto-giorni-confronto"
+          ],
+          "closing": {
+            "did": "Hai guidato il passaggio dalla coda per il pane alla fine dello zar.",
+            "fact": "Fra l'8 e il 16 marzo 1917 una protesta per il pane diventò una rivoluzione quando i soldati si rifiutarono di sparare. Lo zar abdicò. Al Palazzo di Tauride nacquero il Comitato provvisorio della Duma e il soviet di Pietrogrado.",
+            "simulation": "I giorni, i personaggi e le scelte sono simulazione."
+          },
+          "title": "Otto giorni",
+          "period": "8–16 marzo 1917"
+        }
+      ],
+      "episodes": [
+        {
+          "id": "a3-pane-guerra-ginocchio",
           "type": "narrative",
           "title": "In ginocchio sulla stessa piazza",
           "text": "Il 2 agosto 1914 (20 luglio nel calendario russo) lo zar annuncia la guerra dal Palazzo d'Inverno e la folla si inginocchia sulla piazza. È la stessa piazza del 22 gennaio 1905.\n\nPoi vengono la sconfitta di Tannenberg e la ritirata. Nicola prende il comando supremo dell'esercito.\n\nPerché una folla che dieci anni prima è stata colpita torna a inginocchiarsi?",
@@ -65748,7 +65919,7 @@
           "shows": []
         },
         {
-          "id": "a1-u5-grano",
+          "id": "a3-pane-guerra-grano",
           "type": "turn_game",
           "title": "Quanto serve e quanto c'è",
           "text": "Il grano è lo stesso. I treni sono meno. Le città sono più affamate. Per cinque stagioni decidi come lo Stato usa quello che ha.\n\nSulla carta il grano può bastare. Nella realtà conta solo quello che arriva in città.",
@@ -66247,13 +66418,12 @@
           "nextLabel": "La stagione dopo"
         },
         {
-          "id": "a1-u5-gioielli",
+          "id": "a3-pane-guerra-gioielli",
           "type": "source_comparison",
           "title": "Gioielli e pane",
           "text": "Nell'inverno 1915–1916 in città mancano pane e combustibile. Intorno alla corte circolano voci. Apri le tre schede e confrontale.",
           "roleId": "capofamiglia",
           "stageId": "a1-u5-pane",
-          "motionId": "ingresso",
           "visualExplanation": "Una coda per il pane e le voci che circolano. Gli indicatori sono indici della simulazione.",
           "context": {
             "kind": "source",
@@ -66306,13 +66476,11 @@
           "shows": []
         },
         {
-          "id": "a1-u5-semidei",
+          "id": "a3-pane-guerra-semidei",
           "type": "narrative",
           "title": "La fine dei semidei comincia in famiglia",
           "text": "Nel dicembre 1916 Rasputin viene ucciso da un principe e da un granduca. Una granduchessa arriva a proporre di eliminare l'imperatrice.\n\nLo zar sembra non fidarsi più nemmeno di chi lo circonda. Il palazzo è isolato e attorno c'è il vuoto.\n\nPuò sopravvivere un potere sacro quando non ci crede più nemmeno la sua famiglia?",
           "roleId": "capofamiglia",
-          "stageId": "a1-u5-ginocchio",
-          "motionId": "ingresso",
           "context": {
             "kind": "documented",
             "dateLabel": "dicembre 1916",
@@ -66322,7 +66490,7 @@
           "shows": []
         },
         {
-          "id": "a1-u5-v5",
+          "id": "a3-pane-guerra-v5",
           "type": "assessment",
           "title": "Perché manca il pane",
           "text": "Una domanda sul pane nelle città. Non valuta le scelte che hai fatto nella partita.",
@@ -66361,7 +66529,7 @@
           }
         },
         {
-          "id": "a1-u6-donna",
+          "id": "a3-otto-giorni-donna",
           "type": "narrative",
           "title": "La Giornata della donna",
           "text": "Neve e gelo fermano i treni e le code per il pane cominciano di notte. L'8 marzo (23 febbraio nel calendario russo) le tessili del quartiere di Vyborg escono dalle fabbriche e chiamano i metallurgici.\n\nNessun partito aveva previsto che quel giorno aprisse una rivoluzione.\n\nChi fa davvero una rivoluzione? La coda si scioglie e le stesse persone diventano un corteo.",
@@ -66381,13 +66549,12 @@
           "shows": []
         },
         {
-          "id": "a1-u6-coda-gioco",
+          "id": "a3-otto-giorni-coda",
           "type": "turn_game",
           "title": "La coda per il pane",
           "text": "Una coda per il pane. Ognuno ha una pazienza che scende ogni ora e ogni notte di gelo. Il gesto di chi aspetta si vede prima che parli: batte i piedi, borbotta, se ne va.\n\nQuando la pazienza finisce la coda non scompare: porta il suo malcontento altrove.",
           "roleId": "figlio",
           "stageId": "a1-u5-pane",
-          "motionId": "ingresso",
           "visualExplanation": "Una fila davanti a una panetteria. Gli indicatori sono indici della simulazione e non dati storici né voti.",
           "context": {
             "kind": "simulation",
@@ -66947,7 +67114,7 @@
           "pointsLabel": "Punti azione"
         },
         {
-          "id": "a1-u6-soldato",
+          "id": "a3-otto-giorni-soldato",
           "type": "turn_game",
           "title": "Il soldato che non spara",
           "text": "Fra l'8 e il 16 marzo 1917 una protesta per il pane diventa una rivoluzione. Il punto di svolta è il soldato che non spara. Qui scegli che cosa viene dopo: ogni giornata hai quattro punti da spendere sulla scena.",
@@ -67631,13 +67798,11 @@
           "pointsLabel": "Punti azione"
         },
         {
-          "id": "a1-u6-treno",
+          "id": "a3-otto-giorni-treno",
           "type": "narrative",
           "title": "Il treno fermo nella neve",
           "text": "Al Palazzo di Tauride nascono lo stesso giorno il Comitato della Duma e il soviet. Il treno dello zar è deviato a Pskov.\n\nMentre arrivano i telegrammi Nicola annota nel diario la vita del treno. Poi abdica.\n\nChe cosa resta di un semidio quando smette di esserlo? Un uomo con un'abitudine.",
           "roleId": "figlio",
-          "stageId": "a1-u4-soviet",
-          "motionId": "ingresso",
           "context": {
             "kind": "documented",
             "dateLabel": "marzo 1917",
@@ -67650,7 +67815,7 @@
           "shows": []
         },
         {
-          "id": "a1-u6-v6",
+          "id": "a3-otto-giorni-v6",
           "type": "assessment",
           "title": "Dalla protesta alla rivoluzione",
           "text": "Una domanda sul passaggio dalla protesta alla rivoluzione. Non valuta le scelte che hai fatto nella partita.",
@@ -67689,13 +67854,11 @@
           }
         },
         {
-          "id": "a1-u6-confronto",
+          "id": "a3-otto-giorni-confronto",
           "type": "narrative",
           "title": "Confronto di fine atto",
           "text": "La terra aveva preparato il villaggio e il mir. La fabbrica aveva preparato gli operai. Il 1905 aveva mostrato il soviet. La guerra aveva tolto il pane. Alla fine decisero la piazza e i soldati.\n\nIl potere dello zar cadde perché nessuno più lo difese. Quello che veniva dopo era ancora da decidere.",
           "roleId": "figlio",
-          "stageId": "a1-u4-soviet",
-          "motionId": "ingresso",
           "context": {
             "kind": "documented",
             "dateLabel": "1861–1917",

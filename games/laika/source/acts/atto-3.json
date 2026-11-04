@@ -1,0 +1,2097 @@
+{
+  "id": "atto-3",
+  "actors": [
+    {
+      "id": "famiglia"
+    },
+    {
+      "id": "corte"
+    }
+  ],
+  "roles": [
+    {
+      "id": "antenati",
+      "label": "La famiglia",
+      "actorId": "famiglia",
+      "mandate": "Far durare il raccolto fino al prossimo, sotto un padrone."
+    },
+    {
+      "id": "osservatore",
+      "label": "Un osservatore della corte",
+      "actorId": "corte",
+      "mandate": "Guardare da vicino la corte e ricordare che cosa succede intanto nei villaggi."
+    },
+    {
+      "id": "figlio",
+      "label": "Il figlio in città",
+      "actorId": "famiglia",
+      "mandate": "Sopravvivere in città senza perdere il legame con il villaggio."
+    },
+    {
+      "id": "capofamiglia",
+      "label": "Il capofamiglia ascoltato",
+      "actorId": "famiglia",
+      "mandate": "Tenere insieme il villaggio senza che nessuno resti senza terra o senza pane."
+    }
+  ],
+  "metrics": [
+    {
+      "id": "pane_citta",
+      "label": "Pane in città",
+      "min": 0,
+      "max": 100,
+      "start": 50,
+      "good": "high"
+    },
+    {
+      "id": "treni",
+      "label": "Treni utili",
+      "min": 0,
+      "max": 100,
+      "start": 50,
+      "good": "high"
+    },
+    {
+      "id": "grano_stato",
+      "label": "Grano in mano allo Stato",
+      "min": 0,
+      "max": 100,
+      "start": 50,
+      "good": "high"
+    },
+    {
+      "id": "scarto",
+      "label": "Scarto fra carta e realtà",
+      "min": 0,
+      "max": 100,
+      "start": 10,
+      "good": "low"
+    },
+    {
+      "id": "soldati",
+      "label": "Soldati con gli operai",
+      "min": 0,
+      "max": 100,
+      "start": 20,
+      "good": "high"
+    },
+    {
+      "id": "operai",
+      "label": "Operai in piazza",
+      "min": 0,
+      "max": 100,
+      "start": 40,
+      "good": "high"
+    },
+    {
+      "id": "ordine",
+      "label": "Forza del vecchio ordine",
+      "min": 0,
+      "max": 100,
+      "start": 70,
+      "good": "low"
+    },
+    {
+      "id": "pazienza",
+      "label": "Pazienza della coda",
+      "min": 0,
+      "max": 100,
+      "start": 60,
+      "good": "high"
+    }
+  ],
+  "resources": [
+    {
+      "id": "grano",
+      "label": "Grano della famiglia",
+      "min": 0,
+      "max": 150,
+      "start": 60,
+      "good": "high"
+    }
+  ],
+  "relations": [],
+  "flags": [
+    "coda_lunga",
+    "arsenale_aperto",
+    "verso_tauride",
+    "coda_corteo"
+  ],
+  "episodes": [
+    {
+      "id": "a3-pane-guerra-ginocchio",
+      "type": "narrative",
+      "roleId": "capofamiglia",
+      "title": "In ginocchio sulla stessa piazza",
+      "display": "cards",
+      "context": {
+        "kind": "documented",
+        "dateLabel": "agosto 1914",
+        "placeLabel": "Pietroburgo"
+      },
+      "text": "Il 2 agosto 1914 (20 luglio nel calendario russo) lo zar annuncia la guerra dal Palazzo d'Inverno e la folla si inginocchia sulla piazza. È la stessa piazza del 22 gennaio 1905.\n\nPoi vengono la sconfitta di Tannenberg e la ritirata. Nicola prende il comando supremo dell'esercito.\n\nPerché una folla che dieci anni prima è stata colpita torna a inginocchiarsi?",
+      "stageId": "a1-u5-ginocchio",
+      "motionId": "ingresso",
+      "exposes": [
+        "a1-ginocchio"
+      ],
+      "visualExplanation": "Una folla si inginocchia sulla piazza. La scena riprende l'inquadratura della domenica del 1905 con il gesto opposto.",
+      "shows": []
+    },
+    {
+      "id": "a3-pane-guerra-grano",
+      "type": "turn_game",
+      "roleId": "capofamiglia",
+      "title": "Quanto serve e quanto c'è",
+      "context": {
+        "kind": "simulation",
+        "dateLabel": "1915–1917",
+        "placeLabel": "Russia"
+      },
+      "text": "Il grano è lo stesso. I treni sono meno. Le città sono più affamate. Per cinque stagioni decidi come lo Stato usa quello che ha.\n\nSulla carta il grano può bastare. Nella realtà conta solo quello che arriva in città.",
+      "goal": "Fai arrivare il pane in città senza che lo scarto fra carta e realtà esploda.",
+      "stageId": "a1-u5-pane",
+      "motionId": "ingresso",
+      "exposes": [
+        "a1-guerra-pane"
+      ],
+      "visualExplanation": "Davanti a una panetteria la fila aspetta il pane. Gli indicatori sono indici della simulazione e non dati storici né voti.",
+      "turnWord": "stagione",
+      "nextLabel": "La stagione dopo",
+      "phaseLabels": {
+        "cards": "Il quadro",
+        "event": "Una decisione"
+      },
+      "shows": [
+        "pane_citta",
+        "treni",
+        "grano_stato",
+        "scarto"
+      ],
+      "crises": [
+        {
+          "id": "code",
+          "when": {
+            "op": "lte",
+            "kind": "metric",
+            "id": "pane_citta",
+            "value": 10
+          },
+          "text": "Il pane manca: le code cominciano di notte e non si sciolgono più.",
+          "effects": [
+            {
+              "kind": "flag",
+              "id": "coda_lunga",
+              "value": true
+            },
+            {
+              "kind": "metric",
+              "id": "pane_citta",
+              "delta": 20
+            }
+          ]
+        },
+        {
+          "id": "smentita",
+          "when": {
+            "op": "gte",
+            "kind": "metric",
+            "id": "scarto",
+            "value": 70
+          },
+          "text": "Un giornale smentisce il rapporto ufficiale: nessuno crede più ai numeri dello Stato.",
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "scarto",
+              "delta": -30
+            },
+            {
+              "kind": "metric",
+              "id": "grano_stato",
+              "delta": -10
+            }
+          ]
+        },
+        {
+          "id": "treni-fermi",
+          "when": {
+            "op": "lte",
+            "kind": "metric",
+            "id": "treni",
+            "value": 10
+          },
+          "text": "I treni sono fermi: il grano c'è ma non arriva.",
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "pane_citta",
+              "delta": -15
+            },
+            {
+              "kind": "metric",
+              "id": "treni",
+              "delta": 25
+            }
+          ]
+        }
+      ],
+      "feedback": "Hai deciso cinque stagioni. Sulla carta il grano bastava: in città contava solo quello che arrivava. Le code per il pane sono l'inizio delle giornate di febbraio.",
+      "turns": [
+        {
+          "label": "Autunno 1915",
+          "cards": [
+            {
+              "kind": "simulation",
+              "title": "Quanto serve e quanto c'è",
+              "text": "Con gli uomini al fronte la campagna rende meno. Lo Stato compra il grano a prezzo fissato e lo manda ai soldati e alle città. Le persone e le richieste sono inventate per far vedere i vincoli."
+            }
+          ],
+          "event": {
+            "who": "Un funzionario dell'approvvigionamento",
+            "text": "I contadini vendono poco grano al prezzo fissato: con i rubli di oggi non comprano più niente. Lo Stato deve scegliere.",
+            "choices": [
+              {
+                "id": "alzare",
+                "label": "Alzare il prezzo fissato",
+                "text": "Più grano arriva agli ammassi ma la moneta vale ancora meno.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "grano_stato",
+                    "delta": 12
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "treni",
+                    "delta": -3
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "scarto",
+                    "delta": 5
+                  }
+                ]
+              },
+              {
+                "id": "lasciare",
+                "label": "Lasciare il prezzo fissato",
+                "text": "I contadini tengono il grano o lo vendono altrove.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "grano_stato",
+                    "delta": -10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "scarto",
+                    "delta": 6
+                  }
+                ]
+              },
+              {
+                "id": "quota",
+                "label": "Fissare una quota di consegna per villaggio",
+                "text": "Arriva più grano ma i contadini ricordano l'obbligo.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "grano_stato",
+                    "delta": 15
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "scarto",
+                    "delta": 12
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "Inverno 1915",
+          "event": {
+            "who": "Un capostazione",
+            "text": "I treni sono pochi e la ferrovia è ingolfata. Il grano e le munizioni per il fronte viaggiano sugli stessi binari.",
+            "choices": [
+              {
+                "id": "grano",
+                "label": "Dare la precedenza ai treni di grano",
+                "text": "Il grano arriva in città ma il fronte aspetta.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "treni",
+                    "delta": 10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": 12
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "scarto",
+                    "delta": 4
+                  }
+                ]
+              },
+              {
+                "id": "munizioni",
+                "label": "Dare la precedenza alle munizioni",
+                "text": "Il fronte riceve ma in città il pane tarda.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "treni",
+                    "delta": 8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": -12
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "grano_stato",
+                    "delta": -4
+                  }
+                ]
+              },
+              {
+                "id": "misto",
+                "label": "Dividere i convogli a metà",
+                "chance": {
+                  "base": 0.6
+                },
+                "success": {
+                  "text": "I convogli misti arrivano quasi tutti.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "treni",
+                      "delta": 6
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "pane_citta",
+                      "delta": 5
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "I convogli misti si bloccano a metà strada.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "treni",
+                      "delta": -8
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "pane_citta",
+                      "delta": -6
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "scarto",
+                      "delta": 6
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "label": "Inverno 1916",
+          "event": {
+            "who": "Un ministro",
+            "text": "Vuole un rapporto con numeri buoni da mostrare alla Duma. Sulla carta il grano basta. In realtà non arriva dove serve.",
+            "choices": [
+              {
+                "id": "aggiusta",
+                "label": "Aggiustare i numeri del rapporto",
+                "text": "La carta dice che va bene. Nei fatti il pane non arriva.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "scarto",
+                    "delta": 18
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": -4
+                  }
+                ]
+              },
+              {
+                "id": "vero",
+                "label": "Scrivere i numeri veri",
+                "text": "Il ministro si arrabbia ma ora si vede dove manca il pane.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "scarto",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "treni",
+                    "delta": 4
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "grano_stato",
+                    "delta": 3
+                  }
+                ]
+              },
+              {
+                "id": "tace",
+                "label": "Non scrivere niente",
+                "text": "Il problema resta senza nome.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "scarto",
+                    "delta": 8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": -3
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "Gennaio 1917",
+          "event": {
+            "who": "Un sindaco di città",
+            "text": "La gente fa la fila per il pane fin dalla notte. Le città chiedono una regola.",
+            "choices": [
+              {
+                "id": "tessere",
+                "label": "Distribuire il pane con le tessere",
+                "text": "Meno caos ma si vede quanto poco c'è.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": 8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "grano_stato",
+                    "delta": -6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "scarto",
+                    "delta": -3
+                  }
+                ]
+              },
+              {
+                "id": "libero",
+                "label": "Lasciare il mercato libero",
+                "text": "Chi ha soldi mangia: gli altri aspettano.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": -10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "grano_stato",
+                    "delta": 5
+                  }
+                ]
+              },
+              {
+                "id": "prestito",
+                "label": "Chiedere grano ai villaggi vicini",
+                "chance": {
+                  "base": 0.5
+                },
+                "success": {
+                  "text": "Arriva grano dai villaggi vicini.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "pane_citta",
+                      "delta": 12
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "grano_stato",
+                      "delta": -6
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "I villaggi non mandano niente.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "pane_citta",
+                      "delta": -6
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "scarto",
+                      "delta": 5
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "label": "Febbraio 1917",
+          "event": {
+            "who": "Il capo della ferrovia",
+            "text": "Gelo e neve fermano i treni. Il grano c'è ma non si muove.",
+            "choices": [
+              {
+                "id": "spazzare",
+                "label": "Mandare squadre a liberare i binari",
+                "chance": {
+                  "base": 0.6
+                },
+                "success": {
+                  "text": "Le squadre liberano i binari.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "treni",
+                      "delta": 10
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "pane_citta",
+                      "delta": 8
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "La neve ricopre i binari: lavoro perso.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "treni",
+                      "delta": -6
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "pane_citta",
+                      "delta": -8
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "scorte",
+                "label": "Aprire le scorte della città",
+                "text": "Si mangia un po' per qualche giorno.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": 8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "grano_stato",
+                    "delta": -10
+                  }
+                ]
+              },
+              {
+                "id": "aspetta",
+                "label": "Aspettare il disgelo",
+                "text": "Aspettare costa il pane di oggi.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": -12
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "treni",
+                    "delta": -4
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "a3-pane-guerra-gioielli",
+      "type": "source_comparison",
+      "roleId": "capofamiglia",
+      "title": "Gioielli e pane",
+      "context": {
+        "kind": "source",
+        "dateLabel": "inverno 1915–1916",
+        "placeLabel": "Pietroburgo"
+      },
+      "text": "Nell'inverno 1915–1916 in città mancano pane e combustibile. Intorno alla corte circolano voci. Apri le tre schede e confrontale.",
+      "stageId": "a1-u5-pane",
+      "exposes": [
+        "a1-voci"
+      ],
+      "visualExplanation": "Una coda per il pane e le voci che circolano. Gli indicatori sono indici della simulazione.",
+      "sources": [
+        {
+          "id": "gioielli",
+          "title": "I gioielli",
+          "text": "Il gioielliere della corte non ha mai venduto tanto. Nella stessa città mancano pane e combustibile.",
+          "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa»"
+        },
+        {
+          "id": "ballerina",
+          "title": "La ballerina",
+          "text": "Si mormora che una ballerina famosa decida le commesse d'artiglieria. È una voce.",
+          "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa»"
+        },
+        {
+          "id": "duma",
+          "title": "La domanda alla Duma",
+          "text": "Un deputato chiede dalla tribuna: stupidità o tradimento? Intanto circola la voce che l'imperatrice sia una spia.",
+          "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa»."
+        }
+      ],
+      "choices": [
+        {
+          "id": "fatto",
+          "label": "Il fatto vero è che manca il pane: le voci vengono dopo",
+          "feedback": "Il pane che manca è il fatto. Le voci lo riempiono di colpevoli e questo è ciò che le rende più forti.",
+          "effects": []
+        },
+        {
+          "id": "voci",
+          "label": "Le voci contano come i fatti perché la gente ci crede",
+          "feedback": "Una voce falsa può pesare quanto un fatto vero se spiega una sofferenza reale. Resta una voce.",
+          "effects": []
+        },
+        {
+          "id": "distinguere",
+          "label": "Bisogna distinguere ciò che si sa da ciò che si mormora",
+          "feedback": "La risposta più utile: separare i fatti dalle voci è il lavoro dello storico.",
+          "effects": []
+        }
+      ],
+      "shows": []
+    },
+    {
+      "id": "a3-pane-guerra-semidei",
+      "type": "narrative",
+      "roleId": "capofamiglia",
+      "title": "La fine dei semidei comincia in famiglia",
+      "display": "cards",
+      "context": {
+        "kind": "documented",
+        "dateLabel": "dicembre 1916",
+        "placeLabel": "Pietrogrado"
+      },
+      "text": "Nel dicembre 1916 Rasputin viene ucciso da un principe e da un granduca. Una granduchessa arriva a proporre di eliminare l'imperatrice.\n\nLo zar sembra non fidarsi più nemmeno di chi lo circonda. Il palazzo è isolato e attorno c'è il vuoto.\n\nPuò sopravvivere un potere sacro quando non ci crede più nemmeno la sua famiglia?",
+      "shows": []
+    },
+    {
+      "id": "a3-pane-guerra-v5",
+      "type": "assessment",
+      "roleId": "capofamiglia",
+      "title": "Perché manca il pane",
+      "questionRef": "a1-v5",
+      "context": {
+        "kind": "assessment"
+      },
+      "text": "Una domanda sul pane nelle città. Non valuta le scelte che hai fatto nella partita.",
+      "stageId": "a1-u5-pane",
+      "shows": []
+    },
+    {
+      "id": "a3-otto-giorni-donna",
+      "type": "narrative",
+      "roleId": "figlio",
+      "title": "La Giornata della donna",
+      "display": "cards",
+      "context": {
+        "kind": "documented",
+        "dateLabel": "8 marzo 1917",
+        "placeLabel": "Pietrogrado"
+      },
+      "text": "Neve e gelo fermano i treni e le code per il pane cominciano di notte. L'8 marzo (23 febbraio nel calendario russo) le tessili del quartiere di Vyborg escono dalle fabbriche e chiamano i metallurgici.\n\nNessun partito aveva previsto che quel giorno aprisse una rivoluzione.\n\nChi fa davvero una rivoluzione? La coda si scioglie e le stesse persone diventano un corteo.",
+      "stageId": "a1-u6-coda",
+      "motionId": "ingresso",
+      "exposes": [
+        "a1-donna"
+      ],
+      "visualExplanation": "Una coda per il pane si scioglie e diventa un corteo: stesse figure e nuova formazione.",
+      "shows": []
+    },
+    {
+      "id": "a3-otto-giorni-coda",
+      "type": "turn_game",
+      "roleId": "figlio",
+      "title": "La coda per il pane",
+      "context": {
+        "kind": "simulation",
+        "dateLabel": "febbraio–marzo 1917",
+        "placeLabel": "Pietrogrado"
+      },
+      "text": "Una coda per il pane. Ognuno ha una pazienza che scende ogni ora e ogni notte di gelo. Il gesto di chi aspetta si vede prima che parli: batte i piedi, borbotta, se ne va.\n\nQuando la pazienza finisce la coda non scompare: porta il suo malcontento altrove.",
+      "goal": "Tieni la coda paziente il più a lungo possibile. Se si scioglie, il malcontento va in piazza.",
+      "stageId": "a1-u5-pane",
+      "exposes": [
+        "a1-coda"
+      ],
+      "visualExplanation": "Una fila davanti a una panetteria. Gli indicatori sono indici della simulazione e non dati storici né voti.",
+      "turnWord": "giornata",
+      "nextLabel": "La giornata dopo",
+      "leaveLabel": "Finire la giornata",
+      "pointsLabel": "Punti azione",
+      "phaseLabels": {
+        "cards": "La giornata",
+        "market": "I punti azione"
+      },
+      "shows": [
+        "pazienza",
+        "pane_citta",
+        "operai"
+      ],
+      "crises": [
+        {
+          "id": "inverno-lungo",
+          "when": {
+            "op": "flag",
+            "id": "coda_lunga",
+            "value": true
+          },
+          "text": "Da mesi il pane scarseggia: la coda è già lunga e stanca prima di cominciare.",
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "pazienza",
+              "delta": -15
+            }
+          ]
+        },
+        {
+          "id": "pane-finito",
+          "when": {
+            "op": "lte",
+            "kind": "metric",
+            "id": "pane_citta",
+            "value": 10
+          },
+          "text": "Il pane è finito: la coda lo vede e la pazienza crolla.",
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "pazienza",
+              "delta": -20
+            },
+            {
+              "kind": "metric",
+              "id": "pane_citta",
+              "delta": 15
+            }
+          ]
+        },
+        {
+          "id": "batte-i-piedi",
+          "when": {
+            "op": "lte",
+            "kind": "metric",
+            "id": "pazienza",
+            "value": 45
+          },
+          "text": "Qualcuno guarda l'orologio e batte i piedi: la coda comincia a spazientirsi.",
+          "effects": []
+        },
+        {
+          "id": "borbotta",
+          "when": {
+            "op": "lte",
+            "kind": "metric",
+            "id": "pazienza",
+            "value": 25
+          },
+          "text": "La fila borbotta. Alcuni lasciano il posto e vanno verso la fabbrica.",
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "operai",
+              "delta": 8
+            }
+          ]
+        },
+        {
+          "id": "corteo",
+          "when": {
+            "op": "lte",
+            "kind": "metric",
+            "id": "pazienza",
+            "value": 15
+          },
+          "text": "La coda si scioglie: le stesse persone si mettono a camminare insieme. Diventa un corteo.",
+          "effects": [
+            {
+              "kind": "flag",
+              "id": "coda_corteo",
+              "value": true
+            },
+            {
+              "kind": "metric",
+              "id": "operai",
+              "delta": 20
+            },
+            {
+              "kind": "metric",
+              "id": "pazienza",
+              "delta": 20
+            }
+          ]
+        }
+      ],
+      "feedback": "Tre giornate in coda. La pazienza non è un numero: è una cosa che scende e che si vede. Quando finisce il malcontento va altrove: l'8 marzo 1917 va in piazza.",
+      "turns": [
+        {
+          "label": "Giorno 1",
+          "cards": [
+            {
+              "kind": "simulation",
+              "title": "Febbraio 1917",
+              "text": "Gelo e neve fermano i treni. La coda per il pane comincia di notte. Le persone sono inventate."
+            }
+          ],
+          "market": {
+            "who": "La coda",
+            "text": "Hai quattro punti. Tocca la fila o un luogo per spenderli. La pazienza scende ogni notte.",
+            "points": 4,
+            "offers": [
+              {
+                "id": "parola",
+                "label": "Dire una parola alla coda",
+                "short": "Una parola",
+                "at": {
+                  "x": 0.38,
+                  "y": 0.5
+                },
+                "repeat": true,
+                "text": "Una parola buona: la fila si calma un poco.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pazienza",
+                    "delta": 3
+                  }
+                ]
+              },
+              {
+                "id": "dividere",
+                "label": "Dividere il poco pane che c'è",
+                "short": "Dividere",
+                "at": {
+                  "x": 0.58,
+                  "y": 0.5
+                },
+                "repeat": true,
+                "text": "Si divide il pane: a ciascuno un pezzo piccolo.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "pazienza",
+                    "delta": 6
+                  }
+                ]
+              },
+              {
+                "id": "bambini",
+                "label": "Far passare i bambini per primi",
+                "short": "I bambini",
+                "at": {
+                  "x": 0.78,
+                  "y": 0.5
+                },
+                "text": "I bambini passano avanti: la coda lo accetta.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pazienza",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": -3
+                  }
+                ]
+              },
+              {
+                "id": "voce",
+                "label": "Ascoltare la voce che gira fra la fila",
+                "short": "La voce",
+                "at": {
+                  "x": 0.48,
+                  "y": 0.28
+                },
+                "text": "Si dice che il pane arriverà domani. Nessuno sa chi l'ha detto.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pazienza",
+                    "delta": 2
+                  }
+                ]
+              },
+              {
+                "id": "forno",
+                "label": "Andare al forno a chiedere (due punti)",
+                "short": "Il forno",
+                "at": {
+                  "x": 0.7,
+                  "y": 0.28
+                },
+                "cost": 2,
+                "chance": {
+                  "base": 0.5
+                },
+                "success": {
+                  "text": "Al forno ce n'è ancora un poco: arriva altro pane.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "pane_citta",
+                      "delta": 12
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "pazienza",
+                      "delta": 8
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Il fornaio non ha niente da dare.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "pazienza",
+                      "delta": -4
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "pazienza",
+              "delta": -8
+            }
+          ]
+        },
+        {
+          "label": "Giorno 2",
+          "cards": [
+            {
+              "kind": "simulation",
+              "title": "Una notte dopo",
+              "text": "È passata un'altra notte di gelo. La fila è più lunga e il pane è meno."
+            }
+          ],
+          "market": {
+            "who": "La coda",
+            "text": "Hai quattro punti. Tocca la fila o un luogo per spenderli. La pazienza scende ogni notte.",
+            "points": 4,
+            "offers": [
+              {
+                "id": "parola",
+                "label": "Dire una parola alla coda",
+                "short": "Una parola",
+                "at": {
+                  "x": 0.38,
+                  "y": 0.5
+                },
+                "repeat": true,
+                "text": "Una parola buona: la fila si calma un poco.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pazienza",
+                    "delta": 3
+                  }
+                ]
+              },
+              {
+                "id": "dividere",
+                "label": "Dividere il poco pane che c'è",
+                "short": "Dividere",
+                "at": {
+                  "x": 0.58,
+                  "y": 0.5
+                },
+                "repeat": true,
+                "text": "Si divide il pane: a ciascuno un pezzo piccolo.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "pazienza",
+                    "delta": 6
+                  }
+                ]
+              },
+              {
+                "id": "bambini",
+                "label": "Far passare i bambini per primi",
+                "short": "I bambini",
+                "at": {
+                  "x": 0.78,
+                  "y": 0.5
+                },
+                "text": "I bambini passano avanti: la coda lo accetta.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pazienza",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": -3
+                  }
+                ]
+              },
+              {
+                "id": "voce",
+                "label": "Ascoltare la voce che gira fra la fila",
+                "short": "La voce",
+                "at": {
+                  "x": 0.48,
+                  "y": 0.28
+                },
+                "text": "Si dice che il pane arriverà domani. Nessuno sa chi l'ha detto.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pazienza",
+                    "delta": 2
+                  }
+                ]
+              },
+              {
+                "id": "forno",
+                "label": "Andare al forno a chiedere (due punti)",
+                "short": "Il forno",
+                "at": {
+                  "x": 0.7,
+                  "y": 0.28
+                },
+                "cost": 2,
+                "chance": {
+                  "base": 0.5
+                },
+                "success": {
+                  "text": "Al forno ce n'è ancora un poco: arriva altro pane.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "pane_citta",
+                      "delta": 12
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "pazienza",
+                      "delta": 8
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Il fornaio non ha niente da dare.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "pazienza",
+                      "delta": -4
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "pazienza",
+              "delta": -18
+            },
+            {
+              "kind": "metric",
+              "id": "pane_citta",
+              "delta": -4
+            }
+          ]
+        },
+        {
+          "label": "Giorno 3",
+          "cards": [
+            {
+              "kind": "simulation",
+              "title": "L'8 marzo",
+              "text": "Le tessili sono uscite dalle fabbriche. La fila guarda verso la strada."
+            }
+          ],
+          "market": {
+            "who": "La coda",
+            "text": "Hai quattro punti. Tocca la fila o un luogo per spenderli. La pazienza scende ogni notte.",
+            "points": 4,
+            "offers": [
+              {
+                "id": "parola",
+                "label": "Dire una parola alla coda",
+                "short": "Una parola",
+                "at": {
+                  "x": 0.38,
+                  "y": 0.5
+                },
+                "repeat": true,
+                "text": "Una parola buona: la fila si calma un poco.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pazienza",
+                    "delta": 3
+                  }
+                ]
+              },
+              {
+                "id": "dividere",
+                "label": "Dividere il poco pane che c'è",
+                "short": "Dividere",
+                "at": {
+                  "x": 0.58,
+                  "y": 0.5
+                },
+                "repeat": true,
+                "text": "Si divide il pane: a ciascuno un pezzo piccolo.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "pazienza",
+                    "delta": 6
+                  }
+                ]
+              },
+              {
+                "id": "bambini",
+                "label": "Far passare i bambini per primi",
+                "short": "I bambini",
+                "at": {
+                  "x": 0.78,
+                  "y": 0.5
+                },
+                "text": "I bambini passano avanti: la coda lo accetta.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pazienza",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "pane_citta",
+                    "delta": -3
+                  }
+                ]
+              },
+              {
+                "id": "voce",
+                "label": "Ascoltare la voce che gira fra la fila",
+                "short": "La voce",
+                "at": {
+                  "x": 0.48,
+                  "y": 0.28
+                },
+                "text": "Si dice che il pane arriverà domani. Nessuno sa chi l'ha detto.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pazienza",
+                    "delta": 2
+                  }
+                ]
+              },
+              {
+                "id": "forno",
+                "label": "Andare al forno a chiedere (due punti)",
+                "short": "Il forno",
+                "at": {
+                  "x": 0.7,
+                  "y": 0.28
+                },
+                "cost": 2,
+                "chance": {
+                  "base": 0.5
+                },
+                "success": {
+                  "text": "Al forno ce n'è ancora un poco: arriva altro pane.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "pane_citta",
+                      "delta": 12
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "pazienza",
+                      "delta": 8
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Il fornaio non ha niente da dare.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "pazienza",
+                      "delta": -4
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "pazienza",
+              "delta": -22
+            },
+            {
+              "kind": "metric",
+              "id": "pane_citta",
+              "delta": -4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a3-otto-giorni-soldato",
+      "type": "turn_game",
+      "roleId": "figlio",
+      "title": "Il soldato che non spara",
+      "context": {
+        "kind": "simulation",
+        "dateLabel": "marzo 1917",
+        "placeLabel": "Pietrogrado"
+      },
+      "text": "Fra l'8 e il 16 marzo 1917 una protesta per il pane diventa una rivoluzione. Il punto di svolta è il soldato che non spara. Qui scegli che cosa viene dopo: ogni giornata hai quattro punti da spendere sulla scena.",
+      "goal": "Trasforma un gesto di disobbedienza in qualcosa che regge: soldati con gli operai e il vecchio ordine che perde forza.",
+      "stageId": "a1-u6-caserma",
+      "motionId": "ingresso",
+      "exposes": [
+        "a1-soldato"
+      ],
+      "visualExplanation": "In una caserma un soldato abbassa il fucile davanti agli operai. Gli indicatori sono indici della simulazione e non dati storici né voti.",
+      "turnWord": "giornata",
+      "nextLabel": "La giornata dopo",
+      "phaseLabels": {
+        "cards": "La giornata",
+        "market": "I punti azione"
+      },
+      "shows": [
+        "soldati",
+        "operai",
+        "ordine"
+      ],
+      "crises": [
+        {
+          "id": "disperso",
+          "when": {
+            "op": "lte",
+            "kind": "metric",
+            "id": "operai",
+            "value": 10
+          },
+          "text": "Gli operai in piazza sono pochi e si disperdono.",
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "operai",
+              "delta": 20
+            },
+            {
+              "kind": "metric",
+              "id": "ordine",
+              "delta": -5
+            }
+          ]
+        },
+        {
+          "id": "spara",
+          "when": {
+            "op": "gte",
+            "kind": "metric",
+            "id": "ordine",
+            "value": 95
+          },
+          "text": "Il vecchio ordine riprende il controllo della piazza.",
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "ordine",
+              "delta": -25
+            },
+            {
+              "kind": "metric",
+              "id": "soldati",
+              "delta": -10
+            }
+          ]
+        }
+      ],
+      "feedback": "Hai deciso tre giorni. Disobbedire è un gesto: diventa una rivoluzione quando altri lo seguono e quando nasce qualcosa che regge. Nessuna scelta riguardava lo sparare.",
+      "turns": [
+        {
+          "label": "Giorno 1",
+          "cards": [
+            {
+              "kind": "simulation",
+              "title": "12 marzo, sera",
+              "text": "Il 12 marzo (27 febbraio nel calendario russo) un reparto si rifiuta di sparare sulla folla. La scelta riguarda il dopo. Le persone e le scelte sono simulazione."
+            }
+          ],
+          "market": {
+            "who": "Il reparto",
+            "text": "Hai quattro punti. Tocca un luogo della scena per spendere un punto.",
+            "points": 4,
+            "offers": [
+              {
+                "id": "caserma",
+                "label": "Tornare in caserma e tenere unito il reparto",
+                "short": "La caserma",
+                "at": {
+                  "x": 0.3,
+                  "y": 0.55
+                },
+                "text": "Il reparto resta unito ma da solo.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "soldati",
+                    "delta": 4
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "ordine",
+                    "delta": 3
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "operai",
+                    "delta": -3
+                  }
+                ]
+              },
+              {
+                "id": "convincere",
+                "label": "Convincere un'altra caserma",
+                "short": "Altra caserma",
+                "at": {
+                  "x": 0.16,
+                  "y": 0.45
+                },
+                "repeat": true,
+                "chance": {
+                  "base": 0.4,
+                  "metric": "soldati",
+                  "factor": 0.004
+                },
+                "success": {
+                  "text": "Un altro reggimento passa con voi.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "soldati",
+                      "delta": 10
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "ordine",
+                      "delta": -6
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "operai",
+                      "delta": -2
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Gli ufficiali sorvegliano e nessuno si muove.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "soldati",
+                      "delta": -4
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "ordine",
+                      "delta": 4
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "operai",
+                      "delta": -2
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "arsenale",
+                "label": "Aprire l'arsenale agli operai (due punti)",
+                "short": "L'arsenale",
+                "at": {
+                  "x": 0.72,
+                  "y": 0.45
+                },
+                "cost": 2,
+                "text": "Gli operai si armano: la piazza si riempie.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "operai",
+                    "delta": 12
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "ordine",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "soldati",
+                    "delta": 3
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "arsenale_aperto",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "piazza",
+                "label": "Restare in piazza con gli operai",
+                "short": "La piazza",
+                "at": {
+                  "x": 0.86,
+                  "y": 0.55
+                },
+                "repeat": true,
+                "text": "La piazza si riempie un poco.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "operai",
+                    "delta": 7
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "soldati",
+                    "delta": 3
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "ordine",
+                    "delta": -3
+                  }
+                ]
+              },
+              {
+                "id": "tauride",
+                "label": "Marciare verso il Palazzo di Tauride (due punti)",
+                "short": "Tauride",
+                "at": {
+                  "x": 0.52,
+                  "y": 0.28
+                },
+                "cost": 2,
+                "text": "Il corteo cerca la Duma.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "operai",
+                    "delta": 5
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "soldati",
+                    "delta": 5
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "ordine",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "verso_tauride",
+                    "value": true
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "Giorno 2",
+          "cards": [
+            {
+              "kind": "simulation",
+              "title": "13 marzo",
+              "text": "Nella notte gli ufficiali hanno minacciato e qualche soldato è tornato in caserma. Gli operai aspettano in piazza."
+            }
+          ],
+          "market": {
+            "who": "Il reparto",
+            "text": "Hai quattro punti. Tocca un luogo della scena per spendere un punto.",
+            "points": 4,
+            "offers": [
+              {
+                "id": "caserma",
+                "label": "Tornare in caserma e tenere unito il reparto",
+                "short": "La caserma",
+                "at": {
+                  "x": 0.3,
+                  "y": 0.55
+                },
+                "text": "Il reparto resta unito ma da solo.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "soldati",
+                    "delta": 4
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "ordine",
+                    "delta": 3
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "operai",
+                    "delta": -3
+                  }
+                ]
+              },
+              {
+                "id": "convincere",
+                "label": "Convincere un'altra caserma",
+                "short": "Altra caserma",
+                "at": {
+                  "x": 0.16,
+                  "y": 0.45
+                },
+                "repeat": true,
+                "chance": {
+                  "base": 0.4,
+                  "metric": "soldati",
+                  "factor": 0.004
+                },
+                "success": {
+                  "text": "Un altro reggimento passa con voi.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "soldati",
+                      "delta": 10
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "ordine",
+                      "delta": -6
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "operai",
+                      "delta": -2
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Gli ufficiali sorvegliano e nessuno si muove.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "soldati",
+                      "delta": -4
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "ordine",
+                      "delta": 4
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "operai",
+                      "delta": -2
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "arsenale",
+                "label": "Aprire l'arsenale agli operai (due punti)",
+                "short": "L'arsenale",
+                "at": {
+                  "x": 0.72,
+                  "y": 0.45
+                },
+                "cost": 2,
+                "text": "Gli operai si armano: la piazza si riempie.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "operai",
+                    "delta": 12
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "ordine",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "soldati",
+                    "delta": 3
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "arsenale_aperto",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "piazza",
+                "label": "Restare in piazza con gli operai",
+                "short": "La piazza",
+                "at": {
+                  "x": 0.86,
+                  "y": 0.55
+                },
+                "repeat": true,
+                "text": "La piazza si riempie un poco.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "operai",
+                    "delta": 7
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "soldati",
+                    "delta": 3
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "ordine",
+                    "delta": -3
+                  }
+                ]
+              },
+              {
+                "id": "tauride",
+                "label": "Marciare verso il Palazzo di Tauride (due punti)",
+                "short": "Tauride",
+                "at": {
+                  "x": 0.52,
+                  "y": 0.28
+                },
+                "cost": 2,
+                "text": "Il corteo cerca la Duma.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "operai",
+                    "delta": 5
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "soldati",
+                    "delta": 5
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "ordine",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "verso_tauride",
+                    "value": true
+                  }
+                ]
+              }
+            ]
+          },
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "ordine",
+              "delta": 5
+            },
+            {
+              "kind": "metric",
+              "id": "soldati",
+              "delta": -4
+            }
+          ]
+        },
+        {
+          "label": "Giorno 3",
+          "cards": [
+            {
+              "kind": "simulation",
+              "title": "14 marzo",
+              "text": "Alla Duma arrivano soldati e operai insieme. Un deputato chiede che cosa devono fare. Il vecchio ordine cerca di riprendersi la piazza."
+            }
+          ],
+          "market": {
+            "who": "Il reparto",
+            "text": "Hai quattro punti. Tocca un luogo della scena per spendere un punto.",
+            "points": 4,
+            "offers": [
+              {
+                "id": "caserma",
+                "label": "Tornare in caserma e tenere unito il reparto",
+                "short": "La caserma",
+                "at": {
+                  "x": 0.3,
+                  "y": 0.55
+                },
+                "text": "Il reparto resta unito ma da solo.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "soldati",
+                    "delta": 4
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "ordine",
+                    "delta": 3
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "operai",
+                    "delta": -3
+                  }
+                ]
+              },
+              {
+                "id": "convincere",
+                "label": "Convincere un'altra caserma",
+                "short": "Altra caserma",
+                "at": {
+                  "x": 0.16,
+                  "y": 0.45
+                },
+                "repeat": true,
+                "chance": {
+                  "base": 0.4,
+                  "metric": "soldati",
+                  "factor": 0.004
+                },
+                "success": {
+                  "text": "Un altro reggimento passa con voi.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "soldati",
+                      "delta": 10
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "ordine",
+                      "delta": -6
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "operai",
+                      "delta": -2
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Gli ufficiali sorvegliano e nessuno si muove.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "soldati",
+                      "delta": -4
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "ordine",
+                      "delta": 4
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "operai",
+                      "delta": -2
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "arsenale",
+                "label": "Aprire l'arsenale agli operai (due punti)",
+                "short": "L'arsenale",
+                "at": {
+                  "x": 0.72,
+                  "y": 0.45
+                },
+                "cost": 2,
+                "text": "Gli operai si armano: la piazza si riempie.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "operai",
+                    "delta": 12
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "ordine",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "soldati",
+                    "delta": 3
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "arsenale_aperto",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "piazza",
+                "label": "Restare in piazza con gli operai",
+                "short": "La piazza",
+                "at": {
+                  "x": 0.86,
+                  "y": 0.55
+                },
+                "repeat": true,
+                "text": "La piazza si riempie un poco.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "operai",
+                    "delta": 7
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "soldati",
+                    "delta": 3
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "ordine",
+                    "delta": -3
+                  }
+                ]
+              },
+              {
+                "id": "tauride",
+                "label": "Marciare verso il Palazzo di Tauride (due punti)",
+                "short": "Tauride",
+                "at": {
+                  "x": 0.52,
+                  "y": 0.28
+                },
+                "cost": 2,
+                "text": "Il corteo cerca la Duma.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "operai",
+                    "delta": 5
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "soldati",
+                    "delta": 5
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "ordine",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "verso_tauride",
+                    "value": true
+                  }
+                ]
+              }
+            ]
+          },
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "ordine",
+              "delta": 6
+            },
+            {
+              "kind": "metric",
+              "id": "operai",
+              "delta": -4
+            }
+          ]
+        }
+      ],
+      "leaveLabel": "Finire la giornata",
+      "pointsLabel": "Punti azione"
+    },
+    {
+      "id": "a3-otto-giorni-treno",
+      "type": "narrative",
+      "roleId": "figlio",
+      "title": "Il treno fermo nella neve",
+      "display": "cards",
+      "context": {
+        "kind": "documented",
+        "dateLabel": "marzo 1917",
+        "placeLabel": "Pskov"
+      },
+      "text": "Al Palazzo di Tauride nascono lo stesso giorno il Comitato della Duma e il soviet. Il treno dello zar è deviato a Pskov.\n\nMentre arrivano i telegrammi Nicola annota nel diario la vita del treno. Poi abdica.\n\nChe cosa resta di un semidio quando smette di esserlo? Un uomo con un'abitudine.",
+      "exposes": [
+        "a1-treno"
+      ],
+      "shows": []
+    },
+    {
+      "id": "a3-otto-giorni-v6",
+      "type": "assessment",
+      "roleId": "figlio",
+      "title": "Dalla protesta alla rivoluzione",
+      "questionRef": "a1-v6",
+      "context": {
+        "kind": "assessment"
+      },
+      "text": "Una domanda sul passaggio dalla protesta alla rivoluzione. Non valuta le scelte che hai fatto nella partita.",
+      "stageId": "a1-u6-caserma",
+      "shows": []
+    },
+    {
+      "id": "a3-otto-giorni-confronto",
+      "type": "narrative",
+      "roleId": "figlio",
+      "title": "Confronto di fine atto",
+      "display": "cards",
+      "context": {
+        "kind": "documented",
+        "dateLabel": "1861–1917",
+        "placeLabel": "Russia"
+      },
+      "text": "La terra aveva preparato il villaggio e il mir. La fabbrica aveva preparato gli operai. Il 1905 aveva mostrato il soviet. La guerra aveva tolto il pane. Alla fine decisero la piazza e i soldati.\n\nIl potere dello zar cadde perché nessuno più lo difese. Quello che veniva dopo era ancora da decidere.",
+      "shows": []
+    }
+  ],
+  "reconciliation": "Fine dell'Atto III (1914–marzo 1917). La guerra ha tolto il pane alle città; a marzo 1917 le donne in coda sono uscite in strada, i soldati non hanno sparato e lo zar è caduto perché nessuno lo difendeva più. Le tue scelte hanno cambiato soltanto la simulazione, non questi fatti. Che cosa sarebbe venuto dopo era ancora da decidere.",
+  "units": [
+    {
+      "id": "pane-guerra",
+      "question": "Il grano c'è. Ma arriva in città?",
+      "summary": "La guerra, i treni e le code per il pane.",
+      "game": "Quanto serve e quanto c'è: grano, treni e città.",
+      "concepts": [
+        "guerra",
+        "grano",
+        "treni",
+        "code per il pane",
+        "voci"
+      ],
+      "episodes": [
+        "a3-pane-guerra-ginocchio",
+        "a3-pane-guerra-grano",
+        "a3-pane-guerra-gioielli",
+        "a3-pane-guerra-semidei",
+        "a3-pane-guerra-v5"
+      ],
+      "closing": {
+        "did": "Hai deciso come lo Stato usava grano e treni in cinque stagioni di guerra.",
+        "fact": "Nella guerra le città restarono senza pane anche se il grano non mancava del tutto: contavano i trasporti e i prezzi fissati. Le code per il pane precedettero le giornate di febbraio.",
+        "simulation": "Le persone e i numeri sono simulazione. Le scelte non hanno cambiato la storia."
+      }
+    },
+    {
+      "id": "otto-giorni",
+      "question": "Chi fa davvero una rivoluzione?",
+      "summary": "Le code diventano un corteo.",
+      "game": "La coda che si scioglie in corteo e il soldato che non spara.",
+      "concepts": [
+        "8 marzo 1917",
+        "soldato che non spara",
+        "Comitato della Duma",
+        "soviet",
+        "abdicazione"
+      ],
+      "episodes": [
+        "a3-otto-giorni-donna",
+        "a3-otto-giorni-coda",
+        "a3-otto-giorni-soldato",
+        "a3-otto-giorni-treno",
+        "a3-otto-giorni-v6",
+        "a3-otto-giorni-confronto"
+      ],
+      "closing": {
+        "did": "Hai guidato il passaggio dalla coda per il pane alla fine dello zar.",
+        "fact": "Fra l'8 e il 16 marzo 1917 una protesta per il pane diventò una rivoluzione quando i soldati si rifiutarono di sparare. Lo zar abdicò. Al Palazzo di Tauride nacquero il Comitato provvisorio della Duma e il soviet di Pietrogrado.",
+        "simulation": "I giorni, i personaggi e le scelte sono simulazione."
+      }
+    }
+  ],
+  "editorial": {
+    "canone": "games/laika/canone.json",
+    "schede": "docs/laika/atti/atto-3.md"
+  }
+}

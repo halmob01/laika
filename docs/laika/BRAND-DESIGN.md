@@ -87,6 +87,10 @@ Approvata dall'utente in tre revisioni (PR #19). Regole da conservare nelle modi
 
 **Dove sta.** `index.html`, `site/laika/home.css` (variabili in `:root` e per epoca in `.hero[data-epoca]`), `site/laika/home.js`, `site/laika/scene/`, tema `laika-grigio` in `bottega/temi.json`.
 
+### Fascicoli della home (4 novembre 2026)
+
+Decisioni D-024 e D-025. La sezione «Fascicoli» ha un fascicolo per ogni atto del canone (nove), con numero, periodo e titolo copiati dal canone (il test `tests/canone.test.js` li confronta). Un atto che ha almeno un'unità costruita è «In istruttoria»: il titolo e il comando «Apri il fascicolo →» portano alla pagina dell'atto; gli altri sono «Non declassificato» e grigi. Il primo fascicolo occupa due colonne su desktop. Il testo introduttivo dice quanti atti ci sono e che i primi tre si possono già aprire.
+
 ## 5ter. Player LAIKA (redesign, 22 ottobre 2026)
 
 Richiesta del docente: il player non deve più somigliare al gioco del feudo né alle demo del kit, ma alla home. Riferimenti forniti: la copertina di «Наши достижения» (1930) con la torre di Šuchov, il manifesto «Смена» con il traliccio rosso, una ciminiera nera con due figure minuscole sotto un disco rosso, l'«Izvestija» con il Decreto sulla pace, le etichette di fiammiferi sovietiche (pittogrammi, numeri come grafica), i palazzi a pannelli nella neve all'imbrunire, il monumento illuminato «Петроград 24–25 октября 1917». Idea guida: **illustrazioni grandi**, figure minuscole, poche masse, il rosso come piano e segnale.

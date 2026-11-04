@@ -56,7 +56,7 @@ Ricostruito il 4 novembre 2026 dai documenti, dal registro delle PR e dalle conv
 - **D-022 · 29 ottobre 2026 · Ogni PR aggiorna i documenti** con le scelte fatte e le novità: «se no si fanno danni». (AGENTS.md)
 - **D-023 · 21 ottobre 2026 · Opus e Sonnet.** Opus per il quadro generale (atti, aneddoti, libri, direzione) e per le revisioni; Sonnet per sviluppare le singole scene dalle schede. Le schede dicono quando serve Opus. (METODO §4–§5)
 - **D-025 · 4 novembre 2026 · Home e usabilità insieme alla struttura.** Con il passaggio ai tre atti si modificano anche la home e l'usabilità del sito. (chat del 4 novembre)
-- **D-026 · 4 novembre 2026 · Riordino dei documenti.** Si riordinano i documenti secondo [RIORDINO](RIORDINO.md): canone unico, questo registro, stato separato, piano degli atti diviso per atto, archivio. Fino alla fine della fase R3 gli incarichi di contenuto e di gioco sono fermi. (chat del 4 novembre)
+- **D-026 · 4 novembre 2026 · Riordino dei documenti.** Si riordinano i documenti secondo [RIORDINO](RIORDINO.md): canone unico, questo registro, stato separato, piano degli atti diviso per atto, archivio. Fino alla fine della fase R3 gli incarichi di contenuto e di gioco sono fermi (fase finita il 4 novembre con la PR R3). (chat del 4 novembre)
 
 ## Decisioni superate
 

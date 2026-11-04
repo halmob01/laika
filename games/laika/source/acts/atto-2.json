@@ -1,0 +1,1229 @@
+{
+  "id": "atto-2",
+  "actors": [
+    {
+      "id": "famiglia"
+    },
+    {
+      "id": "corte"
+    }
+  ],
+  "roles": [
+    {
+      "id": "antenati",
+      "label": "La famiglia",
+      "actorId": "famiglia",
+      "mandate": "Far durare il raccolto fino al prossimo, sotto un padrone."
+    },
+    {
+      "id": "osservatore",
+      "label": "Un osservatore della corte",
+      "actorId": "corte",
+      "mandate": "Guardare da vicino la corte e ricordare che cosa succede intanto nei villaggi."
+    },
+    {
+      "id": "figlio",
+      "label": "Il figlio in città",
+      "actorId": "famiglia",
+      "mandate": "Sopravvivere in città senza perdere il legame con il villaggio."
+    },
+    {
+      "id": "capofamiglia",
+      "label": "Il capofamiglia ascoltato",
+      "actorId": "famiglia",
+      "mandate": "Tenere insieme il villaggio senza che nessuno resti senza terra o senza pane."
+    }
+  ],
+  "metrics": [
+    {
+      "id": "sciopero",
+      "label": "Estensione dello sciopero",
+      "min": 0,
+      "max": 100,
+      "start": 50,
+      "good": "high"
+    },
+    {
+      "id": "fondi",
+      "label": "Cassa di sciopero",
+      "min": 0,
+      "max": 100,
+      "start": 50,
+      "good": "high"
+    },
+    {
+      "id": "fiducia",
+      "label": "Fiducia dei delegati",
+      "min": 0,
+      "max": 100,
+      "start": 50,
+      "good": "high"
+    },
+    {
+      "id": "repressione",
+      "label": "Rischio di repressione",
+      "min": 0,
+      "max": 100,
+      "start": 40,
+      "good": "low"
+    },
+    {
+      "id": "pet_eco",
+      "label": "Richieste economiche",
+      "min": 0,
+      "max": 100,
+      "start": 0,
+      "good": "high"
+    },
+    {
+      "id": "pet_pol",
+      "label": "Richieste politiche",
+      "min": 0,
+      "max": 100,
+      "start": 0,
+      "good": "high"
+    },
+    {
+      "id": "pet_pace",
+      "label": "Richiesta di pace",
+      "min": 0,
+      "max": 100,
+      "start": 0,
+      "good": "high"
+    },
+    {
+      "id": "notizie",
+      "label": "Notizie capite",
+      "min": 0,
+      "max": 100,
+      "start": 0,
+      "good": "high"
+    }
+  ],
+  "resources": [],
+  "relations": [],
+  "flags": [
+    "linea_soviet",
+    "tratta_prefetto",
+    "uscita_dal_mir",
+    "stolypin_resta",
+    "stolypin_vende"
+  ],
+  "episodes": [
+    {
+      "id": "a2-petizione-righe",
+      "type": "resource_allocation",
+      "roleId": "figlio",
+      "title": "La petizione",
+      "budget": 5,
+      "context": {
+        "kind": "simulation",
+        "dateLabel": "gennaio 1905",
+        "placeLabel": "Pietroburgo"
+      },
+      "text": "Gennaio 1905. La guerra contro il Giappone va male e alle officine Putilov di Pietroburgo gli operai sono in sciopero. Prima del corteo di domenica si scrive la petizione da portare allo zar. Hai cinque righe. Puoi spenderle fra richieste di lavoro e di salario e richieste politiche o di pace.\n\nLe righe che scrivi sono una simulazione: la petizione vera ebbe un testo suo.",
+      "stageId": "a1-u4-domenica",
+      "motionId": "ingresso",
+      "exposes": [
+        "a1-petizione"
+      ],
+      "visualExplanation": "Il corteo si prepara. Le righe della petizione sono indici della simulazione e non dati storici né voti.",
+      "buckets": [
+        {
+          "id": "economiche",
+          "label": "Salari e orario di lavoro",
+          "max": 4,
+          "perUnit": [
+            {
+              "kind": "metric",
+              "id": "pet_eco",
+              "delta": 20
+            }
+          ]
+        },
+        {
+          "id": "politiche",
+          "label": "Libertà e un'assemblea eletta",
+          "max": 4,
+          "perUnit": [
+            {
+              "kind": "metric",
+              "id": "pet_pol",
+              "delta": 20
+            }
+          ]
+        },
+        {
+          "id": "pace",
+          "label": "La fine della guerra",
+          "max": 3,
+          "perUnit": [
+            {
+              "kind": "metric",
+              "id": "pet_pace",
+              "delta": 20
+            }
+          ]
+        }
+      ],
+      "effects": [],
+      "feedback": "Hai scelto che cosa chiedere allo zar. Più una petizione chiede cose diverse e più è difficile rispondere con un sì o con un no. La petizione vera di padre Gapon chiedeva tutto insieme: la giornata di otto ore, un'assemblea eletta da tutti e la fine della guerra.",
+      "shows": [
+        "pet_eco",
+        "pet_pol",
+        "pet_pace"
+      ]
+    },
+    {
+      "id": "a2-petizione-domenica",
+      "type": "narrative",
+      "roleId": "figlio",
+      "title": "La domenica di sangue",
+      "display": "cards",
+      "context": {
+        "kind": "documented",
+        "dateLabel": "22 gennaio 1905",
+        "placeLabel": "Pietroburgo"
+      },
+      "text": "La guerra contro il Giappone va male. Domenica 22 gennaio 1905 (9 gennaio nel calendario russo) un corteo guidato da padre Gapon porta allo zar una petizione e le icone. Lo zar non è in città. La truppa spara sulla folla.\n\nChe cosa muore quella domenica oltre alle persone? La fiducia nello zar come padre.",
+      "stageId": "a1-u4-domenica",
+      "exposes": [
+        "a1-domenica"
+      ],
+      "visualExplanation": "Il corteo avanza con un foglio e le icone. Lo sparo non si vede: le figure si disperdono e il foglio resta nella neve.",
+      "shows": []
+    },
+    {
+      "id": "a2-soviet-giornate",
+      "type": "turn_game",
+      "roleId": "figlio",
+      "title": "Le giornate del soviet",
+      "context": {
+        "kind": "simulation",
+        "dateLabel": "ottobre 1905",
+        "placeLabel": "Pietroburgo"
+      },
+      "text": "Ottobre 1905: sciopero generale. Nasce a Pietroburgo il soviet, un consiglio di delegati degli scioperanti.\n\nSei fra i delegati. Ogni giornata hai cinque punti azione. Le notizie arrivano a pezzi: indagare costa un punto e ti fa capire cosa pensano i delegati. Quello che non fai, intanto, costa.",
+      "goal": "Tieni lo sciopero senza che la cassa si svuoti o il soviet si spacchi.",
+      "stageId": "a1-u4-soviet",
+      "motionId": "ingresso",
+      "exposes": [
+        "a1-soviet"
+      ],
+      "visualExplanation": "Nella sala i delegati del soviet portano notizie. Ogni azione cambia gli indicatori: sono indici della simulazione e non dati storici né voti.",
+      "turnWord": "giornata",
+      "nextLabel": "La giornata dopo",
+      "phaseLabels": {
+        "cards": "La giornata",
+        "market": "I punti azione"
+      },
+      "shows": [
+        "sciopero",
+        "fondi",
+        "fiducia",
+        "repressione",
+        "notizie"
+      ],
+      "crises": [
+        {
+          "id": "cassa-vuota",
+          "when": {
+            "op": "lte",
+            "kind": "metric",
+            "id": "fondi",
+            "value": 10
+          },
+          "text": "La cassa è vuota: in alcune fabbriche si torna al lavoro.",
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "sciopero",
+              "delta": -15
+            },
+            {
+              "kind": "metric",
+              "id": "fondi",
+              "delta": 20
+            }
+          ]
+        },
+        {
+          "id": "soviet-diviso",
+          "when": {
+            "op": "lte",
+            "kind": "metric",
+            "id": "fiducia",
+            "value": 10
+          },
+          "text": "Il soviet si spacca in due linee: i moderati e i radicali non si parlano più.",
+          "effects": [
+            {
+              "kind": "flag",
+              "id": "linea_soviet",
+              "value": true
+            },
+            {
+              "kind": "metric",
+              "id": "fiducia",
+              "delta": 25
+            },
+            {
+              "kind": "metric",
+              "id": "sciopero",
+              "delta": -8
+            }
+          ]
+        },
+        {
+          "id": "arresti",
+          "when": {
+            "op": "gte",
+            "kind": "metric",
+            "id": "repressione",
+            "value": 90
+          },
+          "text": "La polizia arresta una parte dei delegati.",
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "fiducia",
+              "delta": -10
+            },
+            {
+              "kind": "metric",
+              "id": "repressione",
+              "delta": -30
+            },
+            {
+              "kind": "metric",
+              "id": "sciopero",
+              "delta": -10
+            }
+          ]
+        },
+        {
+          "id": "sciopero-fermo",
+          "when": {
+            "op": "lte",
+            "kind": "metric",
+            "id": "sciopero",
+            "value": 10
+          },
+          "text": "Lo sciopero si sgonfia: restano pochi fermi.",
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "sciopero",
+              "delta": 25
+            },
+            {
+              "kind": "metric",
+              "id": "fiducia",
+              "delta": -10
+            }
+          ]
+        }
+      ],
+      "feedback": "Tre giornate sono passate. Il soviet del 1905 è un contropotere: coordina lo sciopero ma non governa. Con le notizie a pezzi ogni scelta dipende da chi te le racconta.",
+      "turns": [
+        {
+          "label": "Giorno 1",
+          "cards": [
+            {
+              "kind": "simulation",
+              "title": "Primo giorno · 17 ottobre",
+              "text": "Lo sciopero generale ferma Pietroburgo. Sono nate voci e notizie a pezzi: alla tessitrice mancano le compagne, il ferroviere non sa se fermare i treni, dal telegrafo arriva una voce di caserma. Personaggi e notizie sono inventati."
+            }
+          ],
+          "market": {
+            "who": "La sala del soviet",
+            "text": "Hai cinque punti. Tocca un delegato o un posto della sala per spendere un punto. Non puoi fare tutto: quello che lasci fermo costa.",
+            "points": 5,
+            "offers": [
+              {
+                "id": "indtess",
+                "label": "Indagare: la tessitrice",
+                "short": "La tessitrice",
+                "at": {
+                  "x": 0.3,
+                  "y": 0.55
+                },
+                "text": "Il delegato moderato: la paura passa se la cassa tiene; rassicura le operaie. Il delegato radicale: la paura passa se vedono gli altri fermi; serve un delegato che parli. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "notizie",
+                    "delta": 15
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 2
+                  }
+                ]
+              },
+              {
+                "id": "indferr",
+                "label": "Indagare: il ferroviere",
+                "short": "Il ferroviere",
+                "at": {
+                  "x": 0.7,
+                  "y": 0.55
+                },
+                "text": "Il delegato moderato: non tocchiamo i treni militari; sarebbe una provocazione. Il delegato radicale: un treno che passa è uno sciopero che perde; fermare tutto. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "notizie",
+                    "delta": 15
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 2
+                  }
+                ]
+              },
+              {
+                "id": "indtel",
+                "label": "Indagare: il telegrafo",
+                "short": "Il telegrafo",
+                "at": {
+                  "x": 0.5,
+                  "y": 0.48
+                },
+                "text": "Il delegato moderato: è una voce di caserma; meglio parlare col prefetto per non provocare. Il delegato radicale: vogliono fermarci con la forza; non si tratta con chi spara. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "notizie",
+                    "delta": 15
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 2
+                  }
+                ]
+              },
+              {
+                "id": "delegato",
+                "label": "Mandare un delegato dove lo sciopero esita",
+                "short": "Delegato",
+                "at": {
+                  "x": 0.36,
+                  "y": 0.3
+                },
+                "repeat": true,
+                "chance": {
+                  "base": 0.4,
+                  "metric": "notizie",
+                  "factor": 0.004
+                },
+                "success": {
+                  "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": 9
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 3
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fondi",
+                      "delta": -2
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": -3
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fiducia",
+                      "delta": -4
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 2
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "distribuire",
+                "label": "Distribuire pane e fondi della cassa",
+                "short": "Pane e fondi",
+                "at": {
+                  "x": 0.64,
+                  "y": 0.3
+                },
+                "repeat": true,
+                "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": 2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 1
+                  }
+                ]
+              },
+              {
+                "id": "trattare",
+                "label": "Trattare con le autorità (costa due punti)",
+                "short": "Il prefetto",
+                "at": {
+                  "x": 0.86,
+                  "y": 0.55
+                },
+                "cost": 2,
+                "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": -9
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": -6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -3
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "tratta_prefetto",
+                    "value": true
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "Giorno 2",
+          "cards": [
+            {
+              "kind": "simulation",
+              "title": "Secondo giorno · 18 ottobre",
+              "text": "La notte è passata fra freddo e fame: la cassa è calata e la polizia ha fermato due delegati per la strada. Arriva un foglio su una concessione dello zar: nessuno sa se è vera."
+            }
+          ],
+          "market": {
+            "who": "La sala del soviet",
+            "text": "Hai cinque punti. Tocca un delegato o un posto della sala per spendere un punto. Non puoi fare tutto: quello che lasci fermo costa.",
+            "points": 5,
+            "offers": [
+              {
+                "id": "indtess",
+                "label": "Indagare: la tessitrice",
+                "short": "La tessitrice",
+                "at": {
+                  "x": 0.3,
+                  "y": 0.55
+                },
+                "text": "Il delegato moderato: se la gente ha fame ci volta le spalle; distribuiamo pane. Il delegato radicale: la fame serve a vedere da che parte stanno; non ci si ferma per questo. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "notizie",
+                    "delta": 15
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 2
+                  }
+                ]
+              },
+              {
+                "id": "indferr",
+                "label": "Indagare: il ferroviere",
+                "short": "Il ferroviere",
+                "at": {
+                  "x": 0.7,
+                  "y": 0.55
+                },
+                "text": "Il delegato moderato: se il deposito si ferma da solo basta sostenerlo. Il delegato radicale: ogni deposito fermo è una vittoria da allargare. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "notizie",
+                    "delta": 15
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 2
+                  }
+                ]
+              },
+              {
+                "id": "indtel",
+                "label": "Indagare: il telegrafo",
+                "short": "Il telegrafo",
+                "at": {
+                  "x": 0.5,
+                  "y": 0.48
+                },
+                "text": "Il delegato moderato: se la concessione è vera si può trattare. Il delegato radicale: le concessioni si strappano scioperando; non si legge, si sciopera. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "notizie",
+                    "delta": 15
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 2
+                  }
+                ]
+              },
+              {
+                "id": "delegato",
+                "label": "Mandare un delegato dove lo sciopero esita",
+                "short": "Delegato",
+                "at": {
+                  "x": 0.36,
+                  "y": 0.3
+                },
+                "repeat": true,
+                "chance": {
+                  "base": 0.4,
+                  "metric": "notizie",
+                  "factor": 0.004
+                },
+                "success": {
+                  "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": 9
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 5
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fondi",
+                      "delta": -2
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": -3
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fiducia",
+                      "delta": -4
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 4
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "distribuire",
+                "label": "Distribuire pane e fondi della cassa",
+                "short": "Pane e fondi",
+                "at": {
+                  "x": 0.64,
+                  "y": 0.3
+                },
+                "repeat": true,
+                "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": 2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 3
+                  }
+                ]
+              },
+              {
+                "id": "trattare",
+                "label": "Trattare con le autorità (costa due punti)",
+                "short": "Il prefetto",
+                "at": {
+                  "x": 0.86,
+                  "y": 0.55
+                },
+                "cost": 2,
+                "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": -9
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": -6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -3
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "tratta_prefetto",
+                    "value": true
+                  }
+                ]
+              }
+            ]
+          },
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "fondi",
+              "delta": -8
+            },
+            {
+              "kind": "metric",
+              "id": "repressione",
+              "delta": 6
+            },
+            {
+              "kind": "metric",
+              "id": "sciopero",
+              "delta": -4
+            }
+          ]
+        },
+        {
+          "label": "Giorno 3",
+          "cards": [
+            {
+              "kind": "simulation",
+              "title": "Terzo giorno · 19 ottobre",
+              "text": "Un'altra notte: la cassa è quasi vuota e circola la voce di un manifesto dello zar. La fabbrica vuole riaprire e in strada ci sono cosacchi."
+            }
+          ],
+          "market": {
+            "who": "La sala del soviet",
+            "text": "Hai cinque punti. Tocca un delegato o un posto della sala per spendere un punto. Non puoi fare tutto: quello che lasci fermo costa.",
+            "points": 5,
+            "offers": [
+              {
+                "id": "indtess",
+                "label": "Indagare: la tessitrice",
+                "short": "La tessitrice",
+                "at": {
+                  "x": 0.3,
+                  "y": 0.55
+                },
+                "text": "Il delegato moderato: riaprire con una garanzia è meglio che perdere il posto. Il delegato radicale: riaprire ora vuol dire regalare la vittoria. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "notizie",
+                    "delta": 15
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 2
+                  }
+                ]
+              },
+              {
+                "id": "indferr",
+                "label": "Indagare: il ferroviere",
+                "short": "Il ferroviere",
+                "at": {
+                  "x": 0.7,
+                  "y": 0.55
+                },
+                "text": "Il delegato moderato: meglio non farsi trovare tutti insieme. Il delegato radicale: restare insieme è l'unica difesa. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "notizie",
+                    "delta": 15
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 2
+                  }
+                ]
+              },
+              {
+                "id": "indtel",
+                "label": "Indagare: il telegrafo",
+                "short": "Il telegrafo",
+                "at": {
+                  "x": 0.5,
+                  "y": 0.48
+                },
+                "text": "Il delegato moderato: il Manifesto è una concessione vera e va accolta. Il delegato radicale: è una tregua per fermarci; la Duma non basta. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "notizie",
+                    "delta": 15
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 2
+                  }
+                ]
+              },
+              {
+                "id": "delegato",
+                "label": "Mandare un delegato dove lo sciopero esita",
+                "short": "Delegato",
+                "at": {
+                  "x": 0.36,
+                  "y": 0.3
+                },
+                "repeat": true,
+                "chance": {
+                  "base": 0.4,
+                  "metric": "notizie",
+                  "factor": 0.004
+                },
+                "success": {
+                  "text": "Il delegato arriva in tempo: altri smettono di lavorare.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": 9
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 7
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fondi",
+                      "delta": -2
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Il delegato arriva tardi: la fabbrica ha già riaperto.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "sciopero",
+                      "delta": -3
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fiducia",
+                      "delta": -4
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "repressione",
+                      "delta": 6
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "distribuire",
+                "label": "Distribuire pane e fondi della cassa",
+                "short": "Pane e fondi",
+                "at": {
+                  "x": 0.64,
+                  "y": 0.3
+                },
+                "repeat": true,
+                "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": 2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 5
+                  }
+                ]
+              },
+              {
+                "id": "trattare",
+                "label": "Trattare con le autorità (costa due punti)",
+                "short": "Il prefetto",
+                "at": {
+                  "x": 0.86,
+                  "y": 0.55
+                },
+                "cost": 2,
+                "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": -9
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": -6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": -3
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "tratta_prefetto",
+                    "value": true
+                  }
+                ]
+              }
+            ]
+          },
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "fondi",
+              "delta": -10
+            },
+            {
+              "kind": "metric",
+              "id": "repressione",
+              "delta": 8
+            },
+            {
+              "kind": "metric",
+              "id": "sciopero",
+              "delta": -6
+            }
+          ]
+        }
+      ],
+      "leaveLabel": "Finire la giornata",
+      "pointsLabel": "Punti azione"
+    },
+    {
+      "id": "a2-soviet-v3",
+      "type": "assessment",
+      "roleId": "figlio",
+      "title": "Che cos'era il soviet",
+      "questionRef": "a1-v3",
+      "context": {
+        "kind": "assessment"
+      },
+      "text": "Una domanda sul soviet del 1905. Non valuta le scelte che hai fatto nella partita.",
+      "stageId": "a1-u4-soviet",
+      "shows": []
+    },
+    {
+      "id": "a2-concessioni-schede",
+      "type": "source_comparison",
+      "roleId": "figlio",
+      "title": "Che cosa concede lo zar",
+      "context": {
+        "kind": "source",
+        "dateLabel": "1905–1907",
+        "placeLabel": "Pietroburgo"
+      },
+      "text": "Dopo lo sciopero lo zar concede il Manifesto di ottobre. Poi vengono le Leggi fondamentali e le Dume. Apri le tre schede e confrontale.",
+      "stageId": "a1-u4-soviet",
+      "exposes": [
+        "a1-manifesto-ott"
+      ],
+      "visualExplanation": "Tre schede sulla stessa concessione. Gli indicatori sono indici della simulazione e non dati storici né voti.",
+      "sources": [
+        {
+          "id": "manifesto",
+          "title": "Il Manifesto di ottobre",
+          "text": "Lo zar promette libertà civili e una Duma eletta. Lo concede dopo lo sciopero generale.",
+          "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa»: non è il testo originale."
+        },
+        {
+          "id": "leggi",
+          "title": "Le Leggi fondamentali del 1906",
+          "text": "Le leggi chiamano ancora autocratico il potere dello zar. La Duma esiste ma lo zar conserva poteri molto larghi.",
+          "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa»: non è il testo originale."
+        },
+        {
+          "id": "dume",
+          "title": "Le due Dume sciolte",
+          "text": "La prima Duma viene sciolta dopo pochi mesi e la seconda dura ancora meno. La Duma non nasce con pieni poteri.",
+          "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa»."
+        }
+      ],
+      "choices": [
+        {
+          "id": "diritto",
+          "label": "È un diritto conquistato con lo sciopero",
+          "feedback": "Lo sciopero ha davvero strappato qualcosa: prima del 1905 non c'era una Duma. Ma le Leggi fondamentali e le Dume sciolte mostrano che quel diritto era debole.",
+          "effects": []
+        },
+        {
+          "id": "tregua",
+          "label": "È una tregua: lo zar concede per riprendere dopo",
+          "feedback": "Una concessione strappata può essere una tregua: le Leggi fondamentali e lo scioglimento delle Dume mostrano che lo zar teneva i poteri larghi.",
+          "effects": []
+        },
+        {
+          "id": "entrambe",
+          "label": "È l'una e l'altra cosa insieme",
+          "feedback": "È la risposta più prudente: qualcosa è cambiato davvero e il potere dello zar è rimasto largo. Le fonti non bastano a dire quale prevalga.",
+          "effects": []
+        }
+      ],
+      "shows": []
+    },
+    {
+      "id": "a2-stolypin-scelta",
+      "type": "choice",
+      "roleId": "capofamiglia",
+      "title": "Stolypin",
+      "context": {
+        "kind": "simulation",
+        "dateLabel": "novembre 1906",
+        "placeLabel": "Un villaggio della Russia centrale"
+      },
+      "text": "Nel novembre 1906 un decreto permette ai contadini di uscire dal mir e di unire le strisce in un podere. Intanto i tribunali militari mandano alla forca i rivoltosi: la corda si chiama «la cravatta di Stolypin».\n\nLa tua famiglia può restare nel mir. Può uscire e consolidare le strisce. Può vendere e partire.",
+      "stageId": "a1-u2-mir",
+      "motionId": "ingresso",
+      "exposes": [
+        "a1-stolypin"
+      ],
+      "visualExplanation": "Davanti alle isbe la tua famiglia deve decidere se restare. Le scelte sono simulazione.",
+      "choices": [
+        {
+          "id": "resta",
+          "label": "Restare nel mir",
+          "feedback": "Resti con i vicini: la terra resta divisa a strisce e la decisione resta all'assemblea. Stolypin consente di uscire dal mir ma non lo abolisce.",
+          "effects": [
+            {
+              "kind": "flag",
+              "id": "stolypin_resta",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": "esce",
+          "label": "Uscire e unire le strisce in un podere",
+          "feedback": "Esci dal mir con le tue strisce unite in un podere. Hai più libertà e meno protezione: i vicini non ti aiuteranno più come prima.",
+          "effects": [
+            {
+              "kind": "flag",
+              "id": "uscita_dal_mir",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": "vende",
+          "label": "Vendere e partire per la città",
+          "feedback": "Vendi la terra e parti: un altro figlio, un'altra famiglia in città.",
+          "effects": [
+            {
+              "kind": "flag",
+              "id": "stolypin_vende",
+              "value": true
+            }
+          ]
+        }
+      ],
+      "shows": []
+    },
+    {
+      "id": "a2-stolypin-v4",
+      "type": "assessment",
+      "roleId": "capofamiglia",
+      "title": "Che cosa consente Stolypin",
+      "questionRef": "a1-v4",
+      "context": {
+        "kind": "assessment"
+      },
+      "text": "Una domanda su Stolypin. Non valuta le scelte che hai fatto nella partita.",
+      "stageId": "a1-u2-mir",
+      "shows": []
+    },
+    {
+      "id": "a2-stolypin-ricorda",
+      "type": "narrative",
+      "roleId": "figlio",
+      "title": "Cosa ti devi ricordare",
+      "display": "cards",
+      "context": {
+        "kind": "documented",
+        "dateLabel": "1905"
+      },
+      "text": "Il 22 gennaio 1905 la truppa spara su un corteo pacifico e la fiducia nello zar come padre si spezza. Nell'ottobre 1905 uno sciopero generale ferma il paese e a Pietroburgo nasce il soviet.\n\nIl soviet del 1905 è un contropotere: coordina uno sciopero e non governa. Lo zar concede il Manifesto di ottobre sotto la pressione dello sciopero: una concessione strappata può essere un diritto o una tregua.",
+      "stageId": "a1-u4-soviet",
+      "shows": []
+    }
+  ],
+  "reconciliation": "Fine dell'Atto II (1905–1911). Una petizione portata allo zar è finita sotto i fucili; uno sciopero generale ha fatto nascere il soviet e ha strappato una Duma che lo zar ha presto svuotato; Stolypin ha aperto l'uscita dal mir e riempito i tribunali militari. Le tue scelte hanno cambiato soltanto la simulazione, non questi fatti. Segue l'Atto III: la guerra.",
+  "units": [
+    {
+      "id": "petizione",
+      "episodes": [
+        "a2-petizione-righe",
+        "a2-petizione-domenica"
+      ],
+      "question": "Che cosa muore quella domenica oltre alle persone?",
+      "summary": "La guerra contro il Giappone va male e alle officine Putilov gli operai scioperano. Si scrive una petizione da portare allo zar; la domenica dopo la truppa spara sul corteo.",
+      "game": "Scrivi la petizione: cinque righe da dividere fra salario, libertà e pace.",
+      "concepts": [
+        "petizione",
+        "padre Gapon",
+        "domenica di sangue",
+        "zar-padre"
+      ],
+      "carries": "Il figlio della famiglia lavora in fabbrica a Pietroburgo dall'Atto I.",
+      "closing": {
+        "did": "Hai scelto che cosa chiedere allo zar.",
+        "fact": "Il 22 gennaio 1905 (9 gennaio nel calendario russo) la truppa sparò sul corteo che portava allo zar la petizione di padre Gapon. La fiducia nello zar come padre si spezzò.",
+        "simulation": "Le righe della petizione sono simulazione: la petizione vera ebbe un testo suo."
+      }
+    },
+    {
+      "id": "soviet",
+      "question": "Che cosa succede quando le persone comuni scoprono di poter fermare un impero incrociando le braccia?",
+      "summary": "Ottobre 1905: sciopero generale. A Pietroburgo nasce il soviet, un consiglio di delegati degli scioperanti.",
+      "game": "Tre giornate del soviet nell'ottobre 1905: cinque azioni al giorno e notizie a pezzi.",
+      "concepts": [
+        "sciopero generale",
+        "soviet",
+        "delegati",
+        "contropotere"
+      ],
+      "episodes": [
+        "a2-soviet-giornate",
+        "a2-soviet-v3"
+      ],
+      "carries": "Il figlio della famiglia: ora è fra i delegati.",
+      "closing": {
+        "did": "Hai speso le azioni di tre giornate di sciopero fra pane, delegati e trattative.",
+        "fact": "Nell'ottobre 1905 uno sciopero generale fermò la Russia e a Pietroburgo nacque il soviet dei delegati.",
+        "simulation": "Le persone, le notizie e i numeri sono simulazione. Il soviet del 1905 coordinò uno sciopero e non governò."
+      }
+    },
+    {
+      "id": "concessioni",
+      "episodes": [
+        "a2-concessioni-schede"
+      ],
+      "question": "Una concessione strappata è un diritto o una tregua?",
+      "summary": "Dopo lo sciopero lo zar firma il Manifesto di ottobre. Poi arrivano le Leggi fondamentali e due Dume sciolte.",
+      "game": "Confronta tre schede sulla stessa concessione e decidi che cosa è stata.",
+      "concepts": [
+        "Manifesto di ottobre",
+        "Duma",
+        "Leggi fondamentali",
+        "autocrazia"
+      ],
+      "closing": {
+        "did": "Hai confrontato che cosa lo zar promise e che cosa mantenne.",
+        "fact": "Il Manifesto del 30 ottobre 1905 (17 ottobre nel calendario russo) promise libertà civili e una Duma eletta. Le Leggi fondamentali del 1906 chiamarono ancora autocratico il potere dello zar e le prime due Dume furono sciolte.",
+        "simulation": "Le tre schede sono sintesi per il gioco, non i testi originali."
+      }
+    },
+    {
+      "id": "stolypin",
+      "episodes": [
+        "a2-stolypin-scelta",
+        "a2-stolypin-v4",
+        "a2-stolypin-ricorda"
+      ],
+      "question": "Che cosa cambia e che cosa resta dopo il 1905?",
+      "summary": "Novembre 1906: un decreto permette ai contadini di uscire dal mir e di unire le strisce in un podere. Intanto i tribunali militari mandano alla forca i rivoltosi.",
+      "game": "Decidi se la famiglia resta nel mir, esce e unisce le strisce o vende e parte.",
+      "concepts": [
+        "Stolypin",
+        "podere",
+        "mir",
+        "tribunali militari"
+      ],
+      "carries": "La famiglia è rimasta al villaggio, nel mir dell'Atto I.",
+      "closing": {
+        "did": "Hai deciso che cosa fa la famiglia davanti alla riforma.",
+        "fact": "Dal novembre 1906 la riforma di Stolypin permise di uscire dal mir e di unire le strisce in un podere; non abolì il mir. I tribunali militari mandarono alla forca molti rivoltosi: la corda si chiamò «cravatta di Stolypin».",
+        "simulation": "La famiglia e la sua scelta sono simulazione."
+      }
+    }
+  ],
+  "editorial": {
+    "canone": "games/laika/canone.json",
+    "schede": "docs/laika/atti/atto-2.md"
+  }
+}

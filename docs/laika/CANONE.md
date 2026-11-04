@@ -28,7 +28,6 @@ Si può possedere un essere umano? Che cosa tiene in piedi un potere che si cred
 
 - I.1: Titolo provvisorio: «anime e semidei» nei testi per lo studente è la domanda aperta A-06.
 - I.2: Costruito come partita di sole decisioni: la revisione del 4 novembre lo giudica un questionario con barre.
-- I.3: Gli identificatori degli episodi nel gioco sono ancora a1-u2-*: da rinominare in R3.
 
 ## Atto II — 1905 (1905–1911)
 

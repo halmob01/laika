@@ -49,8 +49,7 @@
           "stato_gioco": "approvato",
           "stato": "bozza",
           "scheda_gioco": "docs/laika/giochi/salario.md",
-          "nel_gioco": "i3",
-          "nota": "Gli identificatori degli episodi nel gioco sono ancora a1-u2-*: da rinominare in R3."
+          "nel_gioco": "i3"
         }
       ]
     },

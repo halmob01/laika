@@ -47,3 +47,12 @@ test('decisioni: le decisioni citate dal canone esistono',()=>{
  const d=read('docs/laika/DECISIONI.md');
  for(const a of canone.atti)if(a.decisione)assert.match(d,new RegExp('\\*\\*'+a.decisione+' ·'),a.decisione);
 });
+
+test('home: un fascicolo per atto del canone, con numero, titolo e periodo; gli atti costruiti si aprono',()=>{
+ const h=read('index.html'),voci=[...h.matchAll(/<li class="voce-registro[^"]*" data-atto="([^"]+)">([\s\S]*?)<\/li>/g)];
+ assert.deepEqual(voci.map(v=>v[1]),canone.atti.map(a=>a.id));
+ voci.forEach((v,i)=>{const a=canone.atti[i],t=v[2].replace(/&amp;/g,'&');
+  assert.ok(t.includes('Atto '+a.numero+' · '+a.periodo),'periodo del fascicolo '+a.id);assert.ok(t.includes('>'+a.titolo+'<'),'titolo del fascicolo '+a.id);
+  const aperto=a.unita.some(u=>u.stato!=='da fare');assert.equal(t.includes('play.html?game=laika&atto='+a.id),aperto,'collegamento del fascicolo '+a.id);});
+ assert.match(h,new RegExp('diviso in '+['uno','due','tre','quattro','cinque','sei','sette','otto','nove','dieci'][canone.atti.length-1]+' atti'));
+});

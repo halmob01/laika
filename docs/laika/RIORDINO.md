@@ -1,6 +1,6 @@
 # LAIKA — Piano di riordino
 
-4 novembre 2026 · approvato dal docente lo stesso giorno (D-024, D-025, D-026) · base: PR #38 (revisione con l'allievo finto)
+4 novembre 2026 · approvato dal docente lo stesso giorno (D-024, D-025, D-026) · base: PR #38 (revisione con l'allievo finto) · **eseguito**: R1 nella PR #40, R2 e R3 nella PR successiva; R4–R6 sono il lavoro elencato in [STATO](STATO.md)
 
 Questo piano ha due scopi. Il primo è rimettere il gioco nella struttura che il docente aveva deciso. Il secondo è cambiare il modo in cui sono scritti i documenti, perché gli agenti che continuano il lavoro non possano più spostare la struttura senza che il docente se ne accorga. Finché il riordino non è finito (fase R3), **non si avviano nuovi incarichi di contenuto o di gioco** (D-026, avviso in testa ad `AGENTS.md`). Stato delle fasi in [STATO](STATO.md).
 
