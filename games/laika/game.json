@@ -99888,7 +99888,7 @@
                   },
                   {
                     "id": "forno",
-                    "label": "Andare al forno a chiedere (due punti)",
+                    "label": "Andare al forno a chiedere",
                     "short": "Il forno",
                     "at": {
                       "x": 0.5,
@@ -100080,7 +100080,7 @@
                   },
                   {
                     "id": "forno",
-                    "label": "Andare al forno a chiedere (due punti)",
+                    "label": "Andare al forno a chiedere",
                     "short": "Il forno",
                     "at": {
                       "x": 0.5,
@@ -100277,7 +100277,7 @@
                   },
                   {
                     "id": "forno",
-                    "label": "Andare al forno a chiedere (due punti)",
+                    "label": "Andare al forno a chiedere",
                     "short": "Il forno",
                     "at": {
                       "x": 0.5,
@@ -100469,7 +100469,7 @@
                   },
                   {
                     "id": "forno",
-                    "label": "Andare al forno a chiedere (due punti)",
+                    "label": "Andare al forno a chiedere",
                     "short": "Il forno",
                     "at": {
                       "x": 0.5,
@@ -100919,9 +100919,9 @@
               "label": "12 marzo (27 febbraio)",
               "cards": [
                 {
-                  "kind": "simulation",
-                  "title": "12 marzo, sera",
-                  "text": "Il 12 marzo (27 febbraio nel calendario russo) il reggimento Volynskij si rifiuta di sparare sulla folla. Le persone e le scelte sono simulazione."
+                  "kind": "documented",
+                  "title": "12 marzo (27 febbraio), mattina",
+                  "text": "Il 12 marzo (27 febbraio nel calendario russo) il reggimento Volynskij si rifiuta di sparare sulla folla. Le persone e le scelte che seguono sono simulazione."
                 }
               ],
               "market": {
@@ -101013,7 +101013,7 @@
                   },
                   {
                     "id": "arsenale",
-                    "label": "Aprire l'arsenale agli operai (due punti)",
+                    "label": "Aprire l'arsenale agli operai",
                     "short": "L'arsenale",
                     "at": {
                       "x": 0.72,
@@ -101074,7 +101074,7 @@
                   },
                   {
                     "id": "tauride",
-                    "label": "Marciare verso il Palazzo di Tauride (due punti)",
+                    "label": "Marciare verso il Palazzo di Tauride",
                     "short": "Tauride",
                     "at": {
                       "x": 0.52,
@@ -101206,7 +101206,7 @@
                   },
                   {
                     "id": "arsenale",
-                    "label": "Aprire l'arsenale agli operai (due punti)",
+                    "label": "Aprire l'arsenale agli operai",
                     "short": "L'arsenale",
                     "at": {
                       "x": 0.72,
@@ -101267,7 +101267,7 @@
                   },
                   {
                     "id": "tauride",
-                    "label": "Marciare verso il Palazzo di Tauride (due punti)",
+                    "label": "Marciare verso il Palazzo di Tauride",
                     "short": "Tauride",
                     "at": {
                       "x": 0.52,
@@ -101411,7 +101411,7 @@
                   },
                   {
                     "id": "arsenale",
-                    "label": "Aprire l'arsenale agli operai (due punti)",
+                    "label": "Aprire l'arsenale agli operai",
                     "short": "L'arsenale",
                     "at": {
                       "x": 0.72,
@@ -101472,7 +101472,7 @@
                   },
                   {
                     "id": "tauride",
-                    "label": "Marciare verso il Palazzo di Tauride (due punti)",
+                    "label": "Marciare verso il Palazzo di Tauride",
                     "short": "Tauride",
                     "at": {
                       "x": 0.52,
