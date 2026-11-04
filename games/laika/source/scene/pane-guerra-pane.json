@@ -65,9 +65,9 @@
     {
       "id": "vetrina",
       "simbolo": "vetrina-gioielliere",
-      "x": 1450,
+      "x": 1470,
       "y": 900,
-      "scala": 1.0
+      "scala": 0.85
     }
   ],
   "figure": [

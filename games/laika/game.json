@@ -40010,9 +40010,9 @@
       ]
     },
     {
-      "id": "fig-uomo-fedora-uniforme",
+      "id": "fig-uomo-nudo-uniforme",
       "meta": {
-        "label": "Figura uomo fedora uniforme",
+        "label": "Figura uomo nudo uniforme",
         "family": "figure",
         "source": "bottega/figura/figura.js#figuraSymbol"
       },
@@ -40276,27 +40276,6 @@
             "cx": 0,
             "cy": 0,
             "r": 8.5,
-            "fill": "ink"
-          }
-        },
-        {
-          "id": "hat-brim",
-          "tag": "ellipse",
-          "parent": "head",
-          "attrs": {
-            "cx": 0,
-            "cy": -6.5,
-            "rx": 13,
-            "ry": 2.6,
-            "fill": "ink"
-          }
-        },
-        {
-          "id": "hat-crown",
-          "tag": "path",
-          "parent": "head",
-          "attrs": {
-            "d": "M -7 -6.5 L -5 -14 L 5 -14 L 7 -6.5 Z",
             "fill": "ink"
           }
         },
@@ -52317,7 +52296,7 @@
     },
     {
       "id": "servitu-utopie",
-      "label": "Due villaggi ideali, uno accanto all'altro. A sinistra una carovana cammina verso un villaggio lontano che svanisce nella foschia. A destra file di case identiche e allineate, coloni in uniforme azzurra in fila e un ufficiale con un registro. La colonia è una fila di case tutte uguali su una linea retta.",
+      "label": "Due villaggi ideali, uno accanto all'altro. A sinistra una carovana cammina verso un villaggio lontano che svanisce nella foschia. A destra file di case identiche e allineate, coloni in uniforme azzurra in fila e un ufficiale con un registro.",
       "viewBox": [
         0,
         0,
@@ -64939,7 +64918,7 @@
           "pose": {
             "translateX": 960,
             "translateY": 900,
-            "scale": 1.6
+            "scale": 0.9
           }
         },
         {
@@ -73117,8 +73096,9 @@
           "symbol": "vetrina-gioielliere",
           "parent": "world",
           "pose": {
-            "translateX": 1450,
-            "translateY": 900
+            "translateX": 1470,
+            "translateY": 900,
+            "scale": 0.85
           }
         },
         {
@@ -83896,7 +83876,7 @@
         },
         {
           "id": "dignitario",
-          "symbol": "fig-uomo-fedora-uniforme",
+          "symbol": "fig-uomo-nudo-uniforme",
           "rigPose": "in_piedi",
           "pose": {
             "translateX": 300,

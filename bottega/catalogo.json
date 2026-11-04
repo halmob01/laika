@@ -22,7 +22,7 @@
   "generatore": "bottega/figura/figura.js",
   "dati": "bottega/figura/pose.js",
   "fonte": "prototypes/laika-studi-originali/studio personaggi.html#buildOminoSVG",
-  "descrizione": "Figura articolata con 14 giunture, 29 pose/azioni, 18 varianti, 3 corpi, 4 ruoli. Oggetti in mano agganciati a prese. Le quattro varianti aggiuntive sono bozze registrate qui sotto.",
+  "descrizione": "Figura articolata con 14 giunture, 29 pose/azioni, 18 varianti, 3 corpi, 4 ruoli. Oggetti in mano agganciati a prese. Le cinque varianti aggiuntive sono bozze registrate qui sotto.",
   "varianti": [
    {
     "id": "marinaio",

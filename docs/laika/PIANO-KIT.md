@@ -20,7 +20,7 @@ Regole:
 
 ## 2. Che cosa c'è già
 
-- **Bottega:** 136 disegni a catalogo, di cui 32 in bozza; figura articolata con 25 pose, 17 varianti (4 in bozza), 3 corpi; 10 formazioni (fra cui `fila` e `coda`); 21 azioni (fra cui `queue`, `disperse`, `transfer`, `replace`, `reveal`, `camera`).
+- **Bottega:** 136 disegni a catalogo, di cui 32 in bozza; figura articolata con 29 pose, 18 varianti (5 in bozza), 3 corpi; 10 formazioni (fra cui `fila` e `coda`); 21 azioni (fra cui `queue`, `disperse`, `transfer`, `replace`, `reveal`, `camera`).
 - **Motore:** episodi a racconto, scelta, distribuzione, fonti, verifica; partita a turni con gestione (persone e posti, lavori lunghi, semina, fiera), sole decisioni, monete, giornate a punti azione.
 - **Disegni mai usati:** con S1 (4 novembre 2026) tutti i disegni elencati qui sotto, sia in bozza sia pronti, sono in almeno una scena di LAIKA; restano da usare solo quelli dei kit non ancora importati (K4) e quelli degli atti successivi.
 

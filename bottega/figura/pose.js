@@ -67,7 +67,7 @@ export const VARIANTI = {
   soldato_guarnigione: { label: 'Soldato di guarnigione', body: 'uomo', hat: 'visiera', coat: 'tunica', acc: null },
   soldatessa:     { label: 'Soldatessa',     body: 'donna',   hat: 'visiera',  coat: 'tunica',   acc: null },
   uomo_cappello:  { label: 'Uomo senza barba con cappello', body: 'uomo', hat: 'berretto', coat: null, acc: null },
-  dignitario:     { label: 'Dignitario in uniforme', body: 'uomo', hat: 'fedora', coat: 'uniforme', acc: null }
+  dignitario:     { label: 'Dignitario in uniforme', body: 'uomo', hat: null, coat: 'uniforme', acc: null }
 };
 
 // Ruoli: colore della figura come scambio di token, più eventuali segni.
