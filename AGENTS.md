@@ -4,6 +4,10 @@ Repository di un **kit di giochi didattici** (motore riutilizzabile) e del primo
 
 **Regola di stile per tutti i testi del gioco e della home:** in italiano non si mette la virgola prima di «e», «ed», «o», «od», «né» (niente «virgola di Oxford»). Se la frase senza virgola diventa ambigua o troppo lunga, si spezza in due frasi o si usa il punto e virgola. Il test `tests/laika-virgola.test.js` la controlla.
 
+## Fermo: riordino in corso (dal 4 novembre 2026)
+
+Il docente ha fermato i nuovi incarichi di contenuto e di gioco finché non è finito il riordino descritto in [docs/PIANO-RIORDINO.md](docs/PIANO-RIORDINO.md) (fasi R1–R3). Si lavora solo sulle PR di quel piano. In particolare non si cambiano atti, unità, numerazione e giochi delle unità: la struttura dell'Atto I è in discussione (decisione D1 del piano).
+
 ## Prima di tutto
 
 1. Leggi questo file e il documento della parte che tocchi:

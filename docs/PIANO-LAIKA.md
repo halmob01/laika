@@ -101,6 +101,8 @@ Reduced motion conserva tutti i contenuti e le conseguenze in una posa statica s
 
 ## 4. Fasi, dipendenze e cancelli
 
+**Dal 4 novembre 2026 le fasi P4–P7 sono ferme** per il riordino di struttura e documenti: ordine e motivi in [PIANO-RIORDINO](PIANO-RIORDINO.md). La tabella sotto resta come stato al 4 novembre e verrà sostituita da `docs/STATO.md` nella fase R1.
+
 | Fase | Stato | Risultato e confine | Claude | GPT | Uscita richiesta |
 |---|---|---|---|---|---|
 | P0 | conclusa (#7) | Baseline, documenti, inventario asset/font e fonti | — | — | — |

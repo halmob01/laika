@@ -4,6 +4,10 @@
 
 Usare con [PIANO-LAIKA.md](PIANO-LAIKA.md) e [BRIEF-HOME-ATTI.md](BRIEF-HOME-ATTI.md). Non affidare l'intero piano a un agente con il solo comando «fai tutto».
 
+## Fermo dal 4 novembre 2026
+
+Gli incarichi di questo documento sono sospesi fino alla fine del riordino ([PIANO-RIORDINO](PIANO-RIORDINO.md), fasi R1–R3). Dopo il riordino questo documento sarà sostituito dal modello di incarico del piano (§6).
+
 ## Contratto comune da incollare all'inizio di ogni incarico
 
 > **Aggiornamento 20 ottobre 2026.** Ogni incarico parte da [AGENTS.md](../AGENTS.md). Per scene, illustrazioni e animazioni si usa la [bottega](../bottega/README.md): schede scena JSON, catalogo, figura articolata e azioni già pronte. Non si disegnano SVG né si scrivono tracce a mano dentro gli atti.
