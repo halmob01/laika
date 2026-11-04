@@ -18,6 +18,7 @@ export function canoneMarkdown(c){
    const gioco=u.scheda_gioco?'['+u.gioco+']('+path.relative('docs/laika',u.scheda_gioco)+')':u.gioco;
    r.push('| '+u.numero+' | `'+u.id+'` | '+u.titolo+' | '+u.periodo+' | '+gioco+' | '+u.stato_gioco+' | '+u.stato+(u.approvata?' ('+u.approvata+')':'')+' |');
   }
+  const ob=a.unita.filter(u=>u.obiettivi?.length);if(ob.length){r.push('','**Obiettivi: alla fine dell\'unità lo studente sa…**','');for(const u of ob){r.push('- '+u.numero+' `'+u.id+'`:');for(const o of u.obiettivi)r.push('  - '+o);}}
   const note=a.unita.filter(u=>u.nota);if(note.length){r.push('');for(const u of note)r.push('- '+u.numero+': '+u.nota);}
  }
  return r.join('\n')+'\n';

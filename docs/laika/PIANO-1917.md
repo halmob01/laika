@@ -1,32 +1,42 @@
 # LAIKA — Piano fino al 1917
 
-**File generato da `docs/laika/piano-1917.json` con `npm run piano`: non si modifica a mano.** Piano degli incarichi fino al 1917 (D-038, D-039). Gli agenti prendono sempre il primo incarico «da fare» le cui dipendenze sono «fatto» (npm run prossimo), lo portano a termine con i controlli di METODO §7 e lo segnano «fatto» con PR ed evidenze. L'ordine non si cambia senza il docente; le osservazioni del docente diventano incarichi nuovi. Dopo ogni modifica: npm run piano.
+**File generato da `docs/laika/piano-1917.json` con `npm run piano`: non si modifica a mano.** Piano degli incarichi fino al 1917 (D-038, D-039, D-040). Gli agenti prendono sempre il primo incarico «da fare» le cui dipendenze sono «fatto» (npm run prossimo), lo portano a termine con i controlli di METODO §7, lo segnano «fatto» con PR ed evidenze e passano subito al successivo. L'ordine non si cambia; si possono solo inserire incarichi nuovi: un motore che serve a un'unità (K…, subito prima dell'unità) e le osservazioni del docente. Dopo ogni modifica: npm run piano.
 
 Come si lavora in autonomia, controlli e condizioni di arresto: [METODO](METODO.md) §7. Il prossimo incarico e il messaggio da dare all'agente: `npm run prossimo`.
 
-Incarichi fatti: 0 su 19. Prossimo: K1.
+Incarichi fatti: 0 su 20. Prossimo: S1.
 
 | # | Incarico | Tipo | Modello | Dopo | Stato |
 |---:|---|---|---|---|---|
-| 1 | **K1** Motore: la coda con la pazienza | motore | Opus | — | da fare |
-| 2 | **U-otto-giorni** III.2 Otto giorni: la coda vera, il soldato, il treno, Tauride | unità | Opus | K1 | da fare |
-| 3 | **K4** Bottega: i disegni che mancano agli Atti I–III | bottega | Sonnet | — | da fare |
-| 4 | **K2** Motore: le merci che camminano | motore | Opus | — | da fare |
-| 5 | **U-pane-guerra** III.1 Pane e guerra: grano, treni e città | unità | Opus | K2, K4 | da fare |
-| 6 | **C-III** Il docente prova l'Atto III dal telefono | controllo | — | U-pane-guerra, U-otto-giorni | da fare |
-| 7 | **U-mir** I.2 Il mir: da questionario a gioco | unità | Opus | K4 | da fare |
-| 8 | **U-citta** I.3 In città: un salario che mette alle strette e il confronto di fine atto | unità | Sonnet | K4 | da fare |
-| 9 | **U-servitu** I.1 La terra e lo zar: rifiniture | unità | Sonnet | K4 | da fare |
-| 10 | **C-I** Il docente prova l'Atto I dal telefono | controllo | — | U-mir, U-citta, U-servitu | da fare |
-| 11 | **U-soviet** II.2 Il soviet: notizie che contano | unità | Opus | — | da fare |
-| 12 | **U-petizione** II.1 La petizione: il gioco e la domenica di sangue | unità | Opus | K4 | da fare |
-| 13 | **U-concessioni** II.3 Che cosa concede lo zar: il gioco e gli aneddoti | unità | Opus | K4, U-soviet | da fare |
-| 14 | **U-stolypin** II.4 Stolypin: il gioco e il confronto di fine atto | unità | Sonnet | K4 | da fare |
-| 15 | **C-II** Il docente prova l'Atto II dal telefono | controllo | — | U-soviet, U-petizione, U-concessioni, U-stolypin | da fare |
-| 16 | **K3** Motore e contenuti: il ponte fra gli atti e la famiglia | motore | Opus | U-citta, U-stolypin, U-pane-guerra | da fare |
-| 17 | **U-sito** Il sito sul telefono: pagine, pesi, ripresa | trasversale | Sonnet | K3 | da fare |
-| 18 | **V-1917** Verifica finale degli Atti I–III | verifica | Opus | U-sito, C-I, C-II, C-III | da fare |
-| 19 | **C-1917** Il docente prova il percorso fino al 1917 | controllo | — | V-1917 | da fare |
+| 1 | **S1** Le scene delle unità già fatte con i disegni che ci sono | scene | Sonnet | — | da fare |
+| 2 | **K1** Motore: la coda con la pazienza | motore | Opus | S1 | da fare |
+| 3 | **U-otto-giorni** III.2 Otto giorni: la coda vera, il soldato, il treno, Tauride | unità | Opus | S1, K1 | da fare |
+| 4 | **K4** Bottega: i disegni che mancano agli Atti I–III | bottega | Sonnet | S1 | da fare |
+| 5 | **K2** Motore: le merci che camminano | motore | Opus | S1 | da fare |
+| 6 | **U-pane-guerra** III.1 Pane e guerra: grano, treni e città | unità | Opus | S1, K2, K4 | da fare |
+| 7 | **C-III** Il docente prova l'Atto III dal telefono | controllo | — | U-pane-guerra, U-otto-giorni | da fare |
+| 8 | **U-mir** I.2 Il mir: da questionario a gioco | unità | Opus | S1, K4 | da fare |
+| 9 | **U-citta** I.3 In città: un salario che mette alle strette e il confronto di fine atto | unità | Sonnet | S1, K4 | da fare |
+| 10 | **U-servitu** I.1 La terra e lo zar: rifiniture | unità | Sonnet | S1, K4 | da fare |
+| 11 | **C-I** Il docente prova l'Atto I dal telefono | controllo | — | U-mir, U-citta, U-servitu | da fare |
+| 12 | **U-soviet** II.2 Il soviet: notizie che contano | unità | Opus | S1 | da fare |
+| 13 | **U-petizione** II.1 La petizione: il gioco e la domenica di sangue | unità | Opus | S1, K4 | da fare |
+| 14 | **U-concessioni** II.3 Che cosa concede lo zar: il gioco e gli aneddoti | unità | Opus | S1, K4, U-soviet | da fare |
+| 15 | **U-stolypin** II.4 Stolypin: il gioco e il confronto di fine atto | unità | Sonnet | S1, K4 | da fare |
+| 16 | **C-II** Il docente prova l'Atto II dal telefono | controllo | — | U-soviet, U-petizione, U-concessioni, U-stolypin | da fare |
+| 17 | **K3** Motore e contenuti: il ponte fra gli atti e la famiglia | motore | Opus | U-citta, U-stolypin, U-pane-guerra | da fare |
+| 18 | **U-sito** Il sito sul telefono: pagine, pesi, ripresa | trasversale | Sonnet | K3 | da fare |
+| 19 | **V-1917** Verifica finale degli Atti I–III | verifica | Opus | U-sito, C-I, C-II, C-III | da fare |
+| 20 | **C-1917** Il docente prova il percorso fino al 1917 | controllo | — | V-1917 | da fare |
+
+## S1 — Le scene delle unità già fatte con i disegni che ci sono
+
+- Usare nelle scene delle unità esistenti i disegni già a catalogo e mai usati (53 su 100 fino al 1917), rispettando l'epoca scritta nel catalogo. Assegnazione: I.1 `campagna-mucca`, `campagna-sacchi`, `campagna-banco-fiera`, `campagna-cavallo` (fiera, raccolto, mucca venduta); I.2 `mir-strisce-prima`, `mir-strisce-dopo`, `mir-registro`, `mir-covone`; I.3 `ambiente-fabbrica`, `infra-ciminiera`, `citta-dormitorio`, `citta-carbone`, `oggetto-volantini`, `ambiente-salone-lampadari` (la corte); II.1 `luogo-fabbrica` (Putilov), `oggetto-ritratto-zar` e il Palazzo d'Inverno sulla piazza; II.2 `soviet-tavolo`, `soviet-telegrafo`, `soviet-bandiera`, `mezzo-treno` e `infra-binari` (i ferrovieri); II.3 una scena propria con `ambiente-sala` (sala di San Giorgio), `oggetto-aquila-imperiale`, `ambiente-teatro-palco`, `oggetto-giornale`; II.4 una scena propria con le strisce che si uniscono e le isbe; III.1 `ambiente-trincea`, `ambiente-parapetto`, `ambiente-stazione`, `mezzo-treno`, `infra-binari`, `campagna-sacchi`, `oggetto-manifesto-prestito`, `oggetto-cartello-pane`; III.2 una scena propria per la coda con `coda-tessera` e `oggetto-cartello-pane`, le tessili all'uscita della fabbrica, il soldato con `oggetto-fucile` abbassato, il treno fermo nella neve (`mezzo-treno`, `infra-binari`, `atmo-neve`) e il confronto con `luogo-palazzo` e `luogo-palazzo-tauride`.
+- Ogni unità ha almeno una scena propria e nessun episodio usa la scena di un'altra unità; treno, fine dello zar in famiglia e confronto dell'Atto III tornano ad avere una scena.
+- Le schede scena prendono i nomi stabili (`servitu-*`, `mir-*`, `citta-*`, `petizione-*`, `soviet-*`, `concessioni-*`, `stolypin-*`, `pane-guerra-*`, `otto-giorni-*`) al posto di `a1-u*-*`; si aggiornano i riferimenti negli atti e nei test.
+- Ogni episodio ha una `visualExplanation` che descrive la sua scena.
+
+È fatto quando: Le regole sulle scene di `tests/unita-ludiche.test.js` passano per tutte le unità (diventano vincolanti quando S1 è «fatto»); Schermate prima e dopo di ogni unità in `docs/evidence/S1/`; Controlli comuni G1–G5 passati (METODO §7).
 
 ## K1 — Motore: la coda con la pazienza
 
@@ -41,12 +51,14 @@ Incarichi fatti: 0 su 19. Prossimo: K1.
 Unità del canone: `otto-giorni`.
 
 - Scheda di gioco `docs/laika/giochi/otto-giorni.md` con la sezione «Elementi del kit» (PIANO-KIT, III.2), passata alla revisione indipendente prima del codice.
+- Se il gioco richiede una meccanica che il motore non ha, l'agente non la improvvisa dentro l'unità e non la semplifica: inserisce nel piano un incarico di motore K… subito prima di questo, lo costruisce (generico, con test e documentazione in CREARE-UN-GIOCO), lo unisce e poi torna all'unità.
 - La coda per il pane sulla coda del motore K1: chi lascia la fila va in fabbrica o in corteo; il pane in città arriva da III.1.
 - Il soldato che non spara resta a punti azione; si ricontrollano gli effetti delle azioni.
 - Scene da comporre: il treno fermo nella neve (`mezzo-treno`, `infra-binari`, `atmo-neve`); il confronto con il disco rosso dal Palazzo d'Inverno al Palazzo di Tauride (`luogo-palazzo`, `luogo-palazzo-tauride`, `transfer`). Le schede scena dell'unità prendono il nome stabile (`otto-giorni-*`).
 - Aneddoti R08 e R15 (lo zar che si tocca i baffi e torna nel vagone; il diario del treno) e Frederiks che annuncia in francese: dall'atlante e dai libri se il docente li ha caricati, in parafrasi, registrati in MATRICE.
+- Didattica (PERCORSO §7): gli obiettivi dell'unità nel canone guidano gioco e testi; «Cosa ti devi ricordare» dice gli obiettivi in parole semplici; almeno una verifica formativa legata a un obiettivo, scritta con la skill `verifiche-didattiche`; due aneddoti concreti con le fonti registrate.
 
-È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie); Test di bilanciamento della coda: almeno tre strategie arrivano in fondo con esiti diversi; nessuna vince su tutti gli indicatori; Controlli comuni G1–G5 passati (METODO §7).
+È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche; domanda, obiettivi, verifica legata a un obiettivo, «Cosa ti devi ricordare», concetti, chiusura, fonti registrate; scene proprie); Test di bilanciamento della coda: almeno tre strategie arrivano in fondo con esiti diversi; nessuna vince su tutti gli indicatori; Controlli comuni G1–G5 passati (METODO §7).
 
 ## K4 — Bottega: i disegni che mancano agli Atti I–III
 
@@ -67,11 +79,13 @@ Unità del canone: `otto-giorni`.
 Unità del canone: `pane-guerra`.
 
 - Scheda di gioco `docs/laika/giochi/pane-guerra.md` con «Elementi del kit», passata alla revisione indipendente prima del codice.
+- Se il gioco richiede una meccanica che il motore non ha, l'agente non la improvvisa dentro l'unità e non la semplifica: inserisce nel piano un incarico di motore K… subito prima di questo, lo costruisce (generico, con test e documentazione in CREARE-UN-GIOCO), lo unisce e poi torna all'unità.
 - Il gioco «quanto serve e quanto c'è» sulla catena del motore K2, con le prime code; il pane che resta passa a III.2.
 - Scene: la catena del grano, la trincea, il manifesto del prestito, la vetrina del gioielliere accanto alla coda, il palazzo isolato nella foschia per «La fine dello zar comincia in famiglia».
 - Aneddoti C39 (Fabergé), C42 (Kšesinskaja e l'artiglieria), Miljukov («stupidità o tradimento?»), C43 (Rodzjanko), la battuta dello zar all'ambasciatore britannico: dall'atlante e dai libri, in parafrasi, registrati in MATRICE.
+- Didattica (PERCORSO §7): gli obiettivi dell'unità nel canone guidano gioco e testi; «Cosa ti devi ricordare» dice gli obiettivi in parole semplici; almeno una verifica formativa legata a un obiettivo, scritta con la skill `verifiche-didattiche`; due aneddoti concreti con le fonti registrate.
 
-È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie); Test di bilanciamento: almeno tre strategie con esiti diversi; nessuna vince su tutto; Controlli comuni G1–G5 passati (METODO §7).
+È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche; domanda, obiettivi, verifica legata a un obiettivo, «Cosa ti devi ricordare», concetti, chiusura, fonti registrate; scene proprie); Test di bilanciamento: almeno tre strategie con esiti diversi; nessuna vince su tutto; Controlli comuni G1–G5 passati (METODO §7).
 
 ## C-III — Il docente prova l'Atto III dal telefono
 
@@ -87,30 +101,35 @@ Unità del canone: `pane-guerra`, `otto-giorni`.
 Unità del canone: `mir`.
 
 - Scheda di gioco `docs/laika/giochi/mir.md` riscritta (la versione approvata il 3 novembre va in archivio): le strisce come posti da assegnare alle famiglie e la cassa come risorsa, così fra una richiesta e l'altra c'è qualcosa da gestire (PIANO-KIT, I.2). Revisione indipendente prima del codice.
-- Il gioco usa solo le modalità del motore che ci sono (gestione con persone e posti, monete, richieste, giornate a punti azione) o quelle costruite da K1 e K2; se la scheda chiede una meccanica nuova è una condizione di arresto.
+- Se il gioco richiede una meccanica che il motore non ha, l'agente non la improvvisa dentro l'unità e non la semplifica: inserisce nel piano un incarico di motore K… subito prima di questo, lo costruisce (generico, con test e documentazione in CREARE-UN-GIOCO), lo unisce e poi torna all'unità.
 - Scene: le strisce che cambiano (`mir-strisce-prima`, `mir-strisce-dopo`), il registro, il covone.
+- Didattica (PERCORSO §7): gli obiettivi dell'unità nel canone guidano gioco e testi; «Cosa ti devi ricordare» dice gli obiettivi in parole semplici; almeno una verifica formativa legata a un obiettivo, scritta con la skill `verifiche-didattiche`; due aneddoti concreti con le fonti registrate.
 
-È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie); Test di bilanciamento del mir: almeno tre strategie; ogni gruppo può andare in crisi; Controlli comuni G1–G5 passati (METODO §7).
+È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche; domanda, obiettivi, verifica legata a un obiettivo, «Cosa ti devi ricordare», concetti, chiusura, fonti registrate; scene proprie); Test di bilanciamento del mir: almeno tre strategie; ogni gruppo può andare in crisi; Controlli comuni G1–G5 passati (METODO §7).
 
 ## U-citta — I.3 In città: un salario che mette alle strette e il confronto di fine atto
 
 Unità del canone: `citta`.
 
 - Ribilanciare il salario con eventi che costringono a scegliere fra pane e stanza (aumento dell'affitto, multa che pesa, freddo lungo): con la stessa mossa ogni settimana non si deve più reggere.
+- Se il gioco richiede una meccanica che il motore non ha, l'agente non la improvvisa dentro l'unità e non la semplifica: inserisce nel piano un incarico di motore K… subito prima di questo, lo costruisce (generico, con test e documentazione in CREARE-UN-GIOCO), lo unisce e poi torna all'unità.
 - Scene: dormitorio e carbone; la corte del 1896 nella sala con i lampadari e la tazza smaltata di Chodynka.
 - Scrivere I.3-e7, il confronto di fine atto, e la sua scena.
+- Didattica (PERCORSO §7): gli obiettivi dell'unità nel canone guidano gioco e testi; «Cosa ti devi ricordare» dice gli obiettivi in parole semplici; almeno una verifica formativa legata a un obiettivo, scritta con la skill `verifiche-didattiche`; due aneddoti concreti con le fonti registrate.
 
-È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie); Test di bilanciamento del salario: la mossa fissa non regge tutte le settimane; almeno tre strategie con esiti diversi; Controlli comuni G1–G5 passati (METODO §7).
+È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche; domanda, obiettivi, verifica legata a un obiettivo, «Cosa ti devi ricordare», concetti, chiusura, fonti registrate; scene proprie); Test di bilanciamento del salario: la mossa fissa non regge tutte le settimane; almeno tre strategie con esiti diversi; Controlli comuni G1–G5 passati (METODO §7).
 
 ## U-servitu — I.1 La terra e lo zar: rifiniture
 
 Unità del canone: `servitu`.
 
 - Previsione ed esito del grano: un solo verdetto, coerente con la previsione.
+- Se il gioco richiede una meccanica che il motore non ha, l'agente non la improvvisa dentro l'unità e non la semplifica: inserisce nel piano un incarico di motore K… subito prima di questo, lo costruisce (generico, con test e documentazione in CREARE-UN-GIOCO), lo unisce e poi torna all'unità.
 - Telefono: tabellone più corto (migliorie chiuse in un pannello), etichette dei posti dentro la scena.
 - Scena delle utopie con la colonia militare (K4).
+- Didattica (PERCORSO §7): gli obiettivi dell'unità nel canone guidano gioco e testi; «Cosa ti devi ricordare» dice gli obiettivi in parole semplici; almeno una verifica formativa legata a un obiettivo, scritta con la skill `verifiche-didattiche`; due aneddoti concreti con le fonti registrate.
 
-È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie); Controlli comuni G1–G5 passati (METODO §7).
+È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche; domanda, obiettivi, verifica legata a un obiettivo, «Cosa ti devi ricordare», concetti, chiusura, fonti registrate; scene proprie); Controlli comuni G1–G5 passati (METODO §7).
 
 ## C-I — Il docente prova l'Atto I dal telefono
 
@@ -125,42 +144,47 @@ Unità del canone: `servitu`, `mir`, `citta`.
 Unità del canone: `soviet`.
 
 - Scheda `docs/laika/giochi/soviet.md` aggiornata: dopo aver indagato si sceglie a quale lettura dare peso e la scelta cambia gli effetti dei giorni dopo. Se le condizioni `when` del motore non bastano, prima una PR di motore piccola (K5) con test.
+- Se il gioco richiede una meccanica che il motore non ha, l'agente non la improvvisa dentro l'unità e non la semplifica: inserisce nel piano un incarico di motore K… subito prima di questo, lo costruisce (generico, con test e documentazione in CREARE-UN-GIOCO), lo unisce e poi torna all'unità.
 - Scena: tavolo, telegrafo e bandiera nella sala; etichette dei posti senza sovrapposizioni.
+- Didattica (PERCORSO §7): gli obiettivi dell'unità nel canone guidano gioco e testi; «Cosa ti devi ricordare» dice gli obiettivi in parole semplici; almeno una verifica formativa legata a un obiettivo, scritta con la skill `verifiche-didattiche`; due aneddoti concreti con le fonti registrate.
 
-È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie); Test di bilanciamento: seguire una lettura o l'altra porta a esiti diversi; Controlli comuni G1–G5 passati (METODO §7).
+È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche; domanda, obiettivi, verifica legata a un obiettivo, «Cosa ti devi ricordare», concetti, chiusura, fonti registrate; scene proprie); Test di bilanciamento: seguire una lettura o l'altra porta a esiti diversi; Controlli comuni G1–G5 passati (METODO §7).
 
 ## U-petizione — II.1 La petizione: il gioco e la domenica di sangue
 
 Unità del canone: `petizione`.
 
 - Scheda di gioco `docs/laika/giochi/petizione.md`: un gioco del repertorio al posto del modulo con cinque righe (proposta da valutare nella scheda: decisioni sui gruppi fra operai, Gapon e polizia mentre si raccolgono le firme). Revisione indipendente prima del codice.
-- Il gioco usa solo le modalità del motore che ci sono (gestione con persone e posti, monete, richieste, giornate a punti azione) o quelle costruite da K1 e K2; se la scheda chiede una meccanica nuova è una condizione di arresto.
+- Se il gioco richiede una meccanica che il motore non ha, l'agente non la improvvisa dentro l'unità e non la semplifica: inserisce nel piano un incarico di motore K… subito prima di questo, lo costruisce (generico, con test e documentazione in CREARE-UN-GIOCO), lo unisce e poi torna all'unità.
 - Scene: le officine Putilov, il Palazzo d'Inverno sullo sfondo della piazza, il corteo con le icone e il ritratto dello zar.
 - Aneddoto: il diario di Nicola («Giornata terribile!» e subito dopo il pranzo con la madre), in parafrasi se il passo non si riscontra.
+- Didattica (PERCORSO §7): gli obiettivi dell'unità nel canone guidano gioco e testi; «Cosa ti devi ricordare» dice gli obiettivi in parole semplici; almeno una verifica formativa legata a un obiettivo, scritta con la skill `verifiche-didattiche`; due aneddoti concreti con le fonti registrate.
 
-È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie); Test di bilanciamento; Controlli comuni G1–G5 passati (METODO §7).
+È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche; domanda, obiettivi, verifica legata a un obiettivo, «Cosa ti devi ricordare», concetti, chiusura, fonti registrate; scene proprie); Test di bilanciamento; Controlli comuni G1–G5 passati (METODO §7).
 
 ## U-concessioni — II.3 Che cosa concede lo zar: il gioco e gli aneddoti
 
 Unità del canone: `concessioni`.
 
 - Scheda di gioco `docs/laika/giochi/concessioni.md` (un gioco del repertorio, non tre schede da leggere); la scelta nel soviet (II.2) apre o chiude un'opzione qui.
-- Il gioco usa solo le modalità del motore che ci sono (gestione con persone e posti, monete, richieste, giornate a punti azione) o quelle costruite da K1 e K2; se la scheda chiede una meccanica nuova è una condizione di arresto.
+- Se il gioco richiede una meccanica che il motore non ha, l'agente non la improvvisa dentro l'unità e non la semplifica: inserisce nel piano un incarico di motore K… subito prima di questo, lo costruisce (generico, con test e documentazione in CREARE-UN-GIOCO), lo unisce e poi torna all'unità.
 - Scene: la sala di San Giorgio con uniformi e giacche in due blocchi; il palco del teatro; l'aquila imperiale.
 - Aneddoti: il granduca Nikolaj che minaccia di spararsi se lo zar non firma; la ballerina insultata a teatro per le corazzate perdute (C36).
+- Didattica (PERCORSO §7): gli obiettivi dell'unità nel canone guidano gioco e testi; «Cosa ti devi ricordare» dice gli obiettivi in parole semplici; almeno una verifica formativa legata a un obiettivo, scritta con la skill `verifiche-didattiche`; due aneddoti concreti con le fonti registrate.
 
-È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie); Test di bilanciamento; Controlli comuni G1–G5 passati (METODO §7).
+È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche; domanda, obiettivi, verifica legata a un obiettivo, «Cosa ti devi ricordare», concetti, chiusura, fonti registrate; scene proprie); Test di bilanciamento; Controlli comuni G1–G5 passati (METODO §7).
 
 ## U-stolypin — II.4 Stolypin: il gioco e il confronto di fine atto
 
 Unità del canone: `stolypin`.
 
 - Scheda di gioco `docs/laika/giochi/stolypin.md`: restare nel mir, uscire e unire le strisce, vendere e partire, con conseguenze in più anni (gestione), non una scelta sola.
-- Il gioco usa solo le modalità del motore che ci sono (gestione con persone e posti, monete, richieste, giornate a punti azione) o quelle costruite da K1 e K2; se la scheda chiede una meccanica nuova è una condizione di arresto.
+- Se il gioco richiede una meccanica che il motore non ha, l'agente non la improvvisa dentro l'unità e non la semplifica: inserisce nel piano un incarico di motore K… subito prima di questo, lo costruisce (generico, con test e documentazione in CREARE-UN-GIOCO), lo unisce e poi torna all'unità.
 - Scena: le strisce che diventano un podere (K4).
 - Scrivere II.4-e3, il confronto di fine atto, e la sua scena.
+- Didattica (PERCORSO §7): gli obiettivi dell'unità nel canone guidano gioco e testi; «Cosa ti devi ricordare» dice gli obiettivi in parole semplici; almeno una verifica formativa legata a un obiettivo, scritta con la skill `verifiche-didattiche`; due aneddoti concreti con le fonti registrate.
 
-È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche, domanda e chiusura, fonti registrate, scene proprie); Test di bilanciamento; Controlli comuni G1–G5 passati (METODO §7).
+È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche; domanda, obiettivi, verifica legata a un obiettivo, «Cosa ti devi ricordare», concetti, chiusura, fonti registrate; scene proprie); Test di bilanciamento; Controlli comuni G1–G5 passati (METODO §7).
 
 ## C-II — Il docente prova l'Atto II dal telefono
 

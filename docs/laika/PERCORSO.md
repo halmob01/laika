@@ -79,3 +79,17 @@ Il diario delle scelte è il ponte: all'inizio di ogni atto l'episodio breve «C
 - Le date sono gregoriane; fino al febbraio 1918 si aggiunge tra parentesi la data giuliana preceduta da «g.».
 - Le meccaniche di gioco sono descritte in [GIOCHI](GIOCHI.md) (22 ottobre 2026): ogni unità ha un gioco principale (gestione, decisioni sui gruppi, code, punti azione, città che resiste, fiducia, corsa). Il gioco di ogni unità è scritto nel [canone](CANONE.md). Le schede degli atti dicono che cosa si vive; il canone dice con quale gioco. Dove una scheda descrive un episodio di sola lettura, il contenuto entra nel gioco come notizia, richiesta o regola che cambia.
 
+
+## 7. Che cosa deve avere ogni unità (standard didattico)
+
+Decisione D-040. Un'unità è finita solo se ha tutte queste cose; le prime sette le controlla `tests/unita-ludiche.test.js`, le altre la revisione indipendente (METODO §7, G4).
+
+1. **La domanda dell'unità**, che il gioco rende inevitabile senza scriverla come domanda d'esame.
+2. **Due o tre obiettivi osservabili** nel canone: che cosa lo studente sa dire o fare alla fine. Ogni scelta di contenuto e di gioco serve almeno a uno di questi obiettivi.
+3. **Un gioco** in cui si vive il nesso dell'obiettivo principale: si sceglie, si paga un prezzo, si vede la conseguenza (GIOCHI §1).
+4. **Almeno un contenuto documentato** con due aneddoti concreti presi dalla scheda dell'atto o dall'atlante, con le fonti registrate nelle note.
+5. **«Cosa ti devi ricordare»**: tre o quattro card che dicono in parole semplici gli obiettivi dell'unità.
+6. **Almeno una verifica formativa**, scritta con la skill `verifiche-didattiche`, legata a un obiettivo (campo `objectives` della domanda), con distrattori spiegati.
+7. **La chiusura** che separa che cosa hai fatto, che cosa accadde davvero e che cosa era simulazione; almeno tre concetti nella pagina dell'unità.
+8. **Il filo**: l'unità richiama almeno uno dei fili (§4) e, dove la scheda lo prevede, la famiglia (§5).
+9. **Linguaggio**: frasi brevi, parole concrete, nessuna nota di lavoro, date nei due calendari fino al febbraio 1918.

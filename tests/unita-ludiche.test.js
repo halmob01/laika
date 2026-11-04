@@ -7,7 +7,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 const root=path.resolve(import.meta.dirname,'..');
 const json=p=>JSON.parse(fs.readFileSync(path.join(root,p),'utf8'));
-const game=json('games/laika/game.json'),sorgenti=[1,2,3].map(n=>json('games/laika/source/acts/atto-'+n+'.json')),piano=json('docs/laika/piano-1917.json'),catalogo=json('bottega/catalogo.json');
+const canone=json('games/laika/canone.json'),game=json('games/laika/game.json'),sorgenti=[1,2,3].map(n=>json('games/laika/source/acts/atto-'+n+'.json')),piano=json('docs/laika/piano-1917.json'),catalogo=json('bottega/catalogo.json');
+const scenaFatta=piano.incarichi.some(i=>i.id==='S1'&&i.stato==='fatto');
 const fatte=new Set(piano.incarichi.filter(i=>i.tipo==='unità'&&i.stato==='fatto').flatMap(i=>i.unita));
 const sceneFiles=[...fs.readdirSync(path.join(root,'games/laika/source/scene')).filter(f=>f.endsWith('.json')).map(f=>'games/laika/source/scene/'+f),...fs.readdirSync(path.join(root,'site/laika/scene')).filter(f=>f.endsWith('.json')).map(f=>'site/laika/scene/'+f)];
 const simboli=f=>[...fs.readFileSync(path.join(root,f),'utf8').matchAll(/"(?:simbolo|symbol|disegno)":\s*"([^"]+)"/g)].map(m=>m[1]);
@@ -35,6 +36,14 @@ export function analisi(act,u){
  const src=sorgenti.flatMap(a=>a.episodes).filter(e=>u.episodes.includes(e.id)),registra=o=>o&&typeof o==='object'&&(Array.isArray(o)?o.some(registra):((o.editorial&&(o.editorial.fonti||o.editorial.sources))||Object.values(o).some(registra)));
  if(!src.some(registra))problemi.push('nessuna fonte registrata nelle note degli episodi');
  if(!eps.some(e=>e.context?.kind==='documented'||e.context?.kind==='source'||(e.turns||[]).some(t=>JSON.stringify(t).includes('"documented"'))))problemi.push('nessun contenuto documentato');
+ // Standard didattico (PERCORSO §7): obiettivi nel canone, verifica legata a un obiettivo, «Cosa ti devi ricordare», concetti.
+ const cu=canone.atti.flatMap(x=>x.unita).find(x=>x.id===u.id);
+ if(!(cu?.obiettivi?.length>=2))problemi.push('meno di due obiettivi nel canone');
+ const verifiche=eps.filter(e=>e.type==='assessment');
+ if(!verifiche.length)problemi.push('nessuna verifica formativa');
+ for(const v of verifiche)if(!(v.question?.objectives?.length))problemi.push(v.id+': verifica senza obiettivo');
+ if(!eps.some(e=>e.type==='narrative'&&/ricordare/i.test(e.title)))problemi.push('manca «Cosa ti devi ricordare»');
+ if((u.concepts||[]).length<3)problemi.push('meno di tre concetti nella pagina dell\'unità');
  // Scene: almeno una propria; nessuna presa da un'altra unità.
  const proprie=new Set(),altrui=[];
  for(const e of eps){if(!e.stageId)continue;const owner=act.units.find(x=>x.episodes.some(id=>E[id].stageId===e.stageId));if(owner===u)proprie.add(e.stageId);else altrui.push(e.id+' usa la scena di '+owner.id);}
@@ -53,6 +62,8 @@ test('unità: gioco vero, didattica e scene proprie per le unità il cui incaric
   const E=Object.fromEntries(a.episodes.map(e=>[e.id,e]));
   for(const id of u.episodes){const s=E[id].stageId;if(s&&owners.get(s)!==u.id&&!p.some(x=>x.startsWith(id+' usa')))p.push(id+' usa la scena di '+owners.get(s));}
   if(fatte.has(u.id))assert.deepEqual(p,[],u.id+': regole delle unità non rispettate');
+  // Dopo l'incarico S1 le regole sulle scene valgono per tutte le unità.
+  else if(scenaFatta){const sc=p.filter(x=>/scena/.test(x));assert.deepEqual(sc,[],u.id+': regole sulle scene (S1)');}
   else rapporto.push(u.id+(p.length?': '+p.join('; '):': ok'));
  }
  if(rapporto.length&&process.env.LAIKA_RAPPORTO)console.log('Unità non ancora rifatte:\n- '+rapporto.join('\n- '));

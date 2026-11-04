@@ -56,3 +56,7 @@ test('home: un fascicolo per atto del canone, con numero, titolo e periodo; gli 
   const aperto=a.unita.some(u=>u.stato!=='da fare');assert.equal(t.includes('play.html?game=laika&atto='+a.id),aperto,'collegamento del fascicolo '+a.id);});
  assert.match(h,new RegExp('diviso in '+['uno','due','tre','quattro','cinque','sei','sette','otto','nove','dieci'][canone.atti.length-1]+' atti'));
 });
+
+test('canone: ogni unità degli Atti I–III ha da due a tre obiettivi osservabili',()=>{
+ for(const a of canone.atti.slice(0,3))for(const u of a.unita)assert.ok(Array.isArray(u.obiettivi)&&u.obiettivi.length>=2&&u.obiettivi.length<=3,'obiettivi di '+u.id);
+});

@@ -26,6 +26,21 @@ Si può possedere un essere umano? Che cosa tiene in piedi un potere che si cred
 | I.2 | `mir` | La terra dopo il Manifesto | 1861–1904 | [decisioni sui gruppi (l'assemblea del mir)](giochi/mir.md) | approvato | bozza |
 | I.3 | `citta` | In città | fine Ottocento–1904 | [gestione (il salario, più settimane)](giochi/salario.md) | approvato | bozza |
 
+**Obiettivi: alla fine dell'unità lo studente sa…**
+
+- I.1 `servitu`:
+  - Spiegare che cosa voleva dire contare le persone in «anime» e perché una parte della settimana del servo apparteneva al signore (corvée).
+  - Mettere accanto, nello stesso anno, la vita della corte e quella del villaggio.
+  - Dire che cosa dà e che cosa non dà il Manifesto del 1861: la libertà della persona sì, la terra solo a riscatto e con il villaggio che risponde dei debiti.
+- I.2 `mir`:
+  - Spiegare come il mir divideva le strisce di terra e rispondeva insieme dei pagamenti.
+  - Riconoscere che ogni regola di divisione (a tutti lo stesso o secondo il bisogno) favorisce qualcuno e ne scontenta altri.
+  - Distinguere il mir da un soviet e da una democrazia moderna.
+- I.3 `citta`:
+  - Descrivere la vita di un operaio a Pietroburgo (turni, salario, alloggio, niente sindacati legali) e il suo legame con il villaggio.
+  - Collegare la corte di fine Ottocento (Chodynka, il ballo del 1903) alla distanza fra il trono e il paese.
+  - Distinguere cadetti, socialrivoluzionari e socialdemocratici (bolscevichi e menscevichi) per chi rappresentano e che cosa chiedono.
+
 - I.2: Costruito come partita di sole decisioni: la revisione del 4 novembre lo giudica un questionario con barre.
 
 ## Atto II — 1905 (1905–1911)
@@ -39,6 +54,21 @@ Che cosa muore quando un popolo smette di credere che lo zar sia un padre? Strut
 | II.3 | `concessioni` | Che cosa concede lo zar | ottobre 1905–giugno 1907 | da assegnare (oggi: confronto di tre schede) | da assegnare | bozza |
 | II.4 | `stolypin` | Stolypin | novembre 1906–1911 | da assegnare (oggi: una scelta) | da assegnare | bozza |
 
+**Obiettivi: alla fine dell'unità lo studente sa…**
+
+- II.1 `petizione`:
+  - Raccontare la domenica di sangue del 22 gennaio 1905 (9 gennaio nel calendario russo) e che cosa chiedeva la petizione.
+  - Spiegare perché quella domenica si spezza la fiducia nello zar come padre.
+- II.2 `soviet`:
+  - Spiegare che cos'era il soviet del 1905: un consiglio di delegati che coordina uno sciopero, un contropotere e non un governo.
+  - Riconoscere come notizie a pezzi e letture opposte pesano sulle decisioni prese insieme.
+- II.3 `concessioni`:
+  - Dire che cosa promette il Manifesto di ottobre e che cosa lasciano allo zar le Leggi fondamentali del 1906.
+  - Sostenere con due fatti se una concessione strappata è un diritto o una tregua.
+- II.4 `stolypin`:
+  - Dire che cosa permette la riforma di Stolypin (uscire dal mir, unire le strisce in un podere) e che cosa non fa (non abolisce il mir).
+  - Collegare riforma e repressione (i tribunali militari) come due facce della stessa politica.
+
 - II.1: Divisione dell'atto in quattro unità decisa il 4 novembre 2026 (D-038).
 
 ## Atto III — Pane e guerra (1914–marzo 1917)
@@ -49,6 +79,17 @@ Un potere sacro può sopravvivere quando non ci crede più nemmeno chi lo serve?
 |---|---|---|---|---|---|---|
 | III.1 | `pane-guerra` | Pane e guerra | agosto 1914–dicembre 1916 | quanto serve e quanto c'è (grano, treni, città), prime code | approvato | da rifare |
 | III.2 | `otto-giorni` | Otto giorni | 8–16 marzo 1917 | code che diventano corteo, poi punti azione (il soldato che non spara) | approvato | da rifare |
+
+**Obiettivi: alla fine dell'unità lo studente sa…**
+
+- III.1 `pane-guerra`:
+  - Spiegare perché le città restano senza pane anche se il grano c'è: trasporti, prezzi fissati, guerra.
+  - Riconoscere come le voci sulla corte diventano più forti dei fatti.
+  - Spiegare perché il trono perde anche il sostegno della sua famiglia e delle élite.
+- III.2 `otto-giorni`:
+  - Ricostruire la sequenza dalle code e dalla Giornata della donna dell'8 marzo 1917 all'abdicazione dello zar.
+  - Spiegare perché il rifiuto dei soldati di sparare trasforma una protesta in una rivoluzione.
+  - Distinguere i due poteri nati al Palazzo di Tauride: il Comitato provvisorio della Duma e il soviet di Pietrogrado.
 
 - III.1: Costruita il 3 novembre come partita di sole decisioni: non è il gioco approvato.
 - III.2: La coda è una versione semplice a punti azione, senza figure che lasciano la fila: non è il gioco approvato.
