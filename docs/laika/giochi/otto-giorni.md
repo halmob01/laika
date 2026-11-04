@@ -1,6 +1,6 @@
 # Gioco di III.2 — Otto giorni (`otto-giorni`)
 
-Scheda di gioco dell'unità `otto-giorni` (canone: III.2). Versione 4 · 4 novembre 2026 · le versioni 1, 2 e 3 non sono passate alla revisione indipendente (data sbagliata nel racconto del treno, obiettivo 3 solo nominato, numeri della coda che non sostenevano la tesi; poi due meccaniche mancanti nel motore, ora costruite con K6; poi una strategia che dominava le altre: organizzarsi solo l'ultimo giorno); questa la corregge. Gioco del canone: «code che diventano corteo, poi punti azione (il soldato che non spara)». Regole comuni: [GIOCHI](../GIOCHI.md) §2, §3.5 (le code) e §3.8 (la giornata a punti azione). Motore: la coda con la pazienza (K1 e K6, [CREARE-UN-GIOCO](../../CREARE-UN-GIOCO.md)).
+Scheda di gioco dell'unità `otto-giorni` (canone: III.2). Versione 5 · 4 novembre 2026 · le versioni 1, 2, 3 e 4 non sono passate alla revisione indipendente (data sbagliata nel racconto del treno, obiettivo 3 solo nominato, numeri della coda che non sostenevano la tesi; poi due meccaniche mancanti nel motore, ora costruite con K6; poi una strategia che dominava le altre: organizzarsi solo l'ultimo giorno; infine un forno senza costo che permetteva di riempire la piazza e tenere il pane); questa la corregge. Gioco del canone: «code che diventano corteo, poi punti azione (il soldato che non spara)». Regole comuni: [GIOCHI](../GIOCHI.md) §2, §3.5 (le code) e §3.8 (la giornata a punti azione). Motore: la coda con la pazienza (K1 e K6, [CREARE-UN-GIOCO](../../CREARE-UN-GIOCO.md)).
 
 Tutti i numeri sono indici della simulazione, non statistiche storiche. Le date sono nei due calendari: 8 marzo (23 febbraio nel calendario russo), 12 marzo (27 febbraio), 15 marzo (2 marzo), 16 marzo (3 marzo). Gli appunti dello studio riportano «22 febbraio» e «primo marzo»: in contrasto con le schede dell'atto, si usano le date della scheda e si lasciano fuori dal testo dello studente quelle non riscontrate.
 
@@ -31,11 +31,13 @@ L'unità ha due giochi collegati dagli stessi indicatori (lo stato dell'atto pas
 
 **Indicatori visibili (tre):** Pane in città; Voci che girano (nuovo, da 0 a 100, parte da 20); Operai in piazza (lo stesso indicatore della parte 2). La forza del vecchio ordine si muove ma si mostra solo nella parte 2.
 
+**Il primo giorno** i gruppi sono già alla pazienza massima: le azioni che alzano la pazienza non servono (lo dice il testo del giorno).
+
 **Le azioni di una giornata** (quattro punti; ogni azione dichiara che cosa fa):
 1. **Parlare alle tessili** (1 punto, ripetibile): le tessili +2 di pazienza; voci −2.
 2. **Far passare le madri con i bambini** (1 punto, una volta al giorno): le madri +3; pane −3.
 3. **Dividere il poco pane** (1 punto, ripetibile): tutti +1; pane −6.
-4. **Andare al forno a chiedere** (2 punti, **5 su 10**, scritto prima): se va bene, pane +12 e tutti +1; se va male il fornaio non ha niente e le voci salgono di 6.
+4. **Andare al forno a chiedere** (2 punti, **5 su 10**, scritto prima): se va bene, pane +12 e tutti +1; se va male il fornaio non ha niente: le voci salgono di 6 e a tutti i gruppi ancora in fila la pazienza scende di 1 (si è perso tempo).
 5. **Dire alle tessili che a Vyborg si è già usciti dalle fabbriche** (1 punto, ripetibile): voci +8, operai +4, le tessili −2 di pazienza.
 6. **Ascoltare le voci della fila** (1 punto, ripetibile): voci +2; i vecchi +1.
 
@@ -50,11 +52,11 @@ I gruppi escono nell'ordine in cui sono scritti (tessili, madri, vecchi) e ciasc
 **Strategie diverse (esiti diversi, verificati con la simulazione).**
 - **Calmare** (parole, bambini, pane diviso): la fila di solito regge fino all'ultima giornata (con la coda lunga di III.1 o con poco pane in partenza i vecchi escono il terzo giorno) e le voci restano basse; ma il pane in città finisce e, con le voci basse e la piazza vuota, tutti i gruppi tornano a casa: la protesta non nasce.
 - **Organizzare** (dire che a Vyborg si è già usciti): le tessili escono subito e tornano in fabbrica, la piazza si riempie e le madri vanno al corteo; i vecchi tornano a casa; le voci salgono molto.
-- **Cercare il pane** (il forno, due punti): con fortuna il pane resta; ma con la fila intatta fino all'ultimo giorno tutti tornano a casa, e le voci salgono un poco per i forni che non hanno niente.
+- **Cercare il pane** (il forno, due punti): con fortuna il pane resta; con sfortuna si perde tempo e la fila scende; con la fila intatta fino all'ultimo giorno tutti tornano a casa, e le voci salgono un poco per i forni che non hanno niente.
 - **Organizzare tardi** (calmare tre giorni e dire di Vyborg solo l'ultimo): non funziona, perché l'ultima giornata è «troppo tardi»: tutti tornano a casa. Per partire bisogna organizzare prima.
 - **Mista** (forno e parole il primo giorno, poi Vyborg): le tessili escono il terzo giorno in fabbrica; madri e vecchi tornano a casa.
 
-Le voci hanno una conseguenza nella parte 2: con le voci a 60 o più (crisi, una sola volta, all'inizio della parte 2) le notizie arrivano nelle caserme: soldati +6, forza del vecchio ordine −6. Nessuna strategia tiene insieme il pane, le voci basse e la piazza piena: chi salva il pane e la calma non ha operai in piazza; chi riempie la piazza ha il pane finito e la città piena di voci. Una prova con un modello semplificato (200 partite per strategia) dà, a fine parte 1 (pane, voci, operai, ordine): calmare 0, 22, 40, 70; cercare il pane 65, 62, 40, 70; non fare niente 18, 38, 40, 70; organizzare 18, 100, 100, 54; organizzare tardi 0, 58, 66, 64; mista 18, 86, 90, 59. La simulazione col motore vero (`tests/laika-otto-giorni.test.js`) la sostituisce.
+Nella parte 2 contano le voci e la fame (crisi, una sola volta ciascuna, controllate dopo la prima azione o risposta della parte 2): con le voci a 60 o più le notizie arrivano nelle caserme (soldati +6, forza del vecchio ordine −6); con il pane in città a 20 o meno la fame spinge i soldati verso gli operai (soldati +6, ordine −6). Il pane è dunque una scelta vera: salvarlo toglie benzina alla rivoluzione, e il gioco non dice che sia sbagliato. Nessuna strategia tiene insieme il pane, le voci basse e la piazza piena con un vecchio ordine debole: chi salva il pane e la calma non ha operai in piazza; chi riempie la piazza e poi cerca il pane tiene più pane ma arriva alla parte 2 con meno soldati e un ordine più forte di chi non l'ha cercato. Una prova con un modello semplificato (200 partite per strategia) dà, a fine parte 1, con le due crisi della parte 2 contate (pane, voci, operai, ordine, soldati): calmare 0, 22, 40, 64, 26; cercare il pane 65, 62, 49, 62, 24; non fare niente 18, 38, 40, 64, 26; organizzare 18, 100, 100, 42, 32; organizzare e poi cercare il pane 42, 100, 100, 48, 26; organizzare tardi 0, 58, 66, 58, 26; mista 18, 86, 91, 48, 30. La simulazione col motore vero (`tests/laika-otto-giorni.test.js`) la sostituisce.
 
 **Esito.** Il testo finale dice dove sono finiti i tre gruppi (fabbrica, corteo, casa). Nessuna sconfitta.
 
