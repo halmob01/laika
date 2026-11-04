@@ -18,7 +18,7 @@
     "centro": 0.5,
     "zoom": 1.2
   },
-  "etichetta": "Un corteo di operai sale verso il Palazzo d'Inverno con il ritratto dello zar in testa; il corteo si disperde e un foglio resta nella neve.",
+  "etichetta": "Un corteo di operai sale verso il Palazzo d'Inverno con il ritratto dello zar e un'icona in testa; il corteo si disperde e un foglio resta nella neve.",
   "elementi": [
     {
       "id": "terra",
@@ -68,6 +68,13 @@
       "x": 1340,
       "y": 360,
       "scala": 1.7
+    },
+    {
+      "id": "icona",
+      "simbolo": "icona-processione",
+      "x": 1130,
+      "y": 900,
+      "scala": 1.5
     }
   ],
   "figure": [

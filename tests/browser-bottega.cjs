@@ -56,12 +56,12 @@ module.exports=async function(browser,root,artifacts){
   await page.selectOption('#variante',variant);
   for(const role of ['popolo','protagonista','esercito','partigiano']){
    await page.selectOption('#ruolo',role);
-   assert.equal(await page.locator('#pose .thumb svg').count(),28,variant+'/'+role);
+   assert.equal(await page.locator('#pose .thumb svg').count(),29,variant+'/'+role);
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),true,variant+': senza overflow');
   }
   if(variant==='soldatessa'){
    assert.equal(await page.locator('#pose [data-layer="f-chignon"]').count(),0);
-   assert.equal(await page.locator('#pose [data-layer="f-torso-cintura"]').count(),28);
+   assert.equal(await page.locator('#pose [data-layer="f-torso-cintura"]').count(),29);
   }
  }
  await page.locator('[data-tab=catalogo]').click();await page.waitForTimeout(300);assert.equal(await page.locator('#catalogo .card').count(),studi.symbols.length);

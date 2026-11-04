@@ -80,6 +80,13 @@ export function figuraSymbol(d) {
     L.push(path('torso-colletto', 'root', 'M -4 -25 L 0 -22 L 4 -25 M 0 -22 L 0 -10', 'none', { stroke: 'paper', 'stroke-width': 1.2 }));
     L.push(path('torso-cintura', 'root', 'M -9 -3 L 9 -3', 'none', { stroke: 'paper', 'stroke-width': 2 }));
     L.push({ id: 'torso-fibbia', tag: 'rect', parent: 'root', attrs: { x: -2, y: -5, width: 4, height: 4, fill: 'ink', stroke: 'paper', 'stroke-width': 1 } });
+  } else if (coat === 'uniforme') {
+    // Uniforme di dignitario: colletto alto, spalline e fila di bottoni; nessuna insegna né decorazione.
+    L.push(path('torso', 'root', 'M -8 -27 L -10.5 14 L 10.5 14 L 8 -27 Z'));
+    L.push(path('torso-colletto', 'root', 'M -5 -26 L -5 -21 L 5 -21 L 5 -26', 'none', { stroke: 'paper', 'stroke-width': 1.4 }));
+    L.push(path('torso-spalline', 'root', 'M -12 -25 L -6 -27 M 12 -25 L 6 -27', 'none', { stroke: 'paper', 'stroke-width': 2.4, 'stroke-linecap': 'round' }));
+    L.push(path('torso-bottoni', 'root', 'M 0 -19 L 0 -17 M 0 -13 L 0 -11 M 0 -7 L 0 -5 M 0 -1 L 0 1', 'none', { stroke: 'paper', 'stroke-width': 2, 'stroke-linecap': 'round' }));
+    L.push(path('torso-fascia', 'root', 'M -9 -2 L 9 -2', 'none', { stroke: 'paper', 'stroke-width': 1.4 }));
   } else if (coat === 'mantello') {
     L.push(path('torso', 'root', 'M -7 -27 C -18 -10 -24 16 -20 24 L 20 24 C 24 16 18 -10 7 -27 Z'));
     L.push(path('torso-pieghe', 'root', 'M -5 -18 L -9 18 M 4 -18 L 8 18', 'none', { stroke: 'paper', 'stroke-width': 1.5, 'stroke-linecap': 'round' }));
@@ -123,7 +130,7 @@ export function figuraSymbol(d) {
   joint('grip-near', 'forearm-near', 0, 12);
   L.push({ id: 'slot-front', tag: 'g', parent: 'root' });
   const poses = Object.fromEntries(Object.entries(POSE).map(([name, p]) => [name, jointsFor(p)]));
-  const aggiunta = ['casacca', 'tunica'].includes(coat) || ['marinaio', 'visiera'].includes(d.hat);
+  const aggiunta = ['casacca', 'tunica', 'uniforme'].includes(coat) || ['marinaio', 'visiera'].includes(d.hat);
   return { id: figuraId(d), meta: { label: 'Figura ' + figuraId(d).slice(4).replace(/-/g, ' '), family: 'figure', source: aggiunta ? 'bottega/figura/figura.js#figuraSymbol' : 'studio personaggi.html#buildOminoSVG' }, layers: L, rig: { joints: RANGES, poses } };
 }
 
@@ -140,6 +147,7 @@ const P = {
   'fucile-sparo':   { presa: 'grip-near', markup: '<g transform="rotate(-14)"><path d="M -22,4 L -6,4 L -2,0 L 38,0 L 38,3 L -2,4 L -8,9 L -22,10 Z" fill="ink"/><path d="M 42,1 L 56,-4 M 43,2 L 59,2 M 42,3 L 55,8" stroke="red" stroke-width="2.4" stroke-linecap="round"/></g>' },
   'megafono-in-mano': { presa: 'hand-near', markup: '<path d="M -2,-4 L 28,-18 L 28,8 L -2,0 Z" fill="red"/><path d="M 33,-14 L 40,-18 M 34,-4 L 42,-4 M 33,5 L 40,9" stroke="ink" stroke-width="2" stroke-linecap="round"/>' },
   'martello-in-mano': { presa: 'hand-near', markup: '<line x1="-4" y1="6" x2="10" y2="-16" stroke="ink" stroke-width="3" stroke-linecap="round"/><path d="M 3,-21 L 19,-11 L 15,-6 L -1,-16 Z" fill="ink"/>' },
+  'penna-in-mano': { presa: 'grip-near', markup: '<path d="M -2,2 L 14,-12" fill="none" stroke="ink" stroke-width="2.2" stroke-linecap="round"/><path d="M -2,2 L -4,5" fill="none" stroke="ink" stroke-width="1.4" stroke-linecap="round"/>' },
   'giornale-in-mano': { presa: 'grip-near', markup: '<path d="M 0,-18 L 16,-24 L 16,6 L 0,12 L -14,8 L -14,-20 Z" fill="paper" stroke="ink" stroke-width="2.2"/><line x1="0" y1="-18" x2="0" y2="12" stroke="ink" stroke-width="2"/><line x1="4" y1="-15" x2="12" y2="-18" stroke="ink" stroke-width="1.6"/><line x1="4" y1="-9" x2="12" y2="-12" stroke="ink" stroke-width="1.6"/><line x1="4" y1="-3" x2="12" y2="-6" stroke="ink" stroke-width="1.6"/>' },
   'mattone-in-mano': { presa: 'forearm-far', markup: '<rect x="-12" y="8" width="22" height="6" fill="sand" stroke="ink" stroke-width="1.8" transform="rotate(28)"/>' },
   'cartello-alzato': { presa: 'slot-front', markup: '<g transform="translate(0, -68) rotate(-4)"><line x1="-11" y1="12" x2="-11" y2="24" stroke="ink" stroke-width="2.6"/><line x1="11" y1="12" x2="11" y2="24" stroke="ink" stroke-width="2.6"/><rect x="-26" y="-18" width="52" height="30" rx="1.5" fill="paper" stroke="ink" stroke-width="2.5"/><text x="0" y="2" text-anchor="middle" font-family="monospace" font-weight="900" font-size="12" fill="ink">ХЛЕБ</text></g>' },

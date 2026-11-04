@@ -4,7 +4,7 @@
 
 Come si lavora in autonomia, controlli e condizioni di arresto: [METODO](METODO.md) §7. Il prossimo incarico e il messaggio da dare all'agente: `npm run prossimo`.
 
-Incarichi fatti: 4 su 21. Prossimo: K4.
+Incarichi fatti: 5 su 21. Prossimo: K2.
 
 | # | Incarico | Tipo | Modello | Dopo | Stato |
 |---:|---|---|---|---|---|
@@ -12,7 +12,7 @@ Incarichi fatti: 4 su 21. Prossimo: K4.
 | 2 | **K1** Motore: la coda con la pazienza | motore | Opus | S1 | fatto (PR #48) |
 | 3 | **K6** Motore: le crisi dopo la coda e le uscite che dipendono dalla partita | motore | Opus | K1 | fatto (PR #49) |
 | 4 | **U-otto-giorni** III.2 Otto giorni: la coda vera, il soldato, il treno, Tauride | unità | Opus | S1, K1, K6 | fatto (PR #50) |
-| 5 | **K4** Bottega: i disegni che mancano agli Atti I–III | bottega | Sonnet | S1 | da fare |
+| 5 | **K4** Bottega: i disegni che mancano agli Atti I–III | bottega | Sonnet | S1 | fatto (PR #51) |
 | 6 | **K2** Motore: le merci che camminano | motore | Opus | S1 | da fare |
 | 7 | **U-pane-guerra** III.1 Pane e guerra: grano, treni e città | unità | Opus | S1, K2, K4 | da fare |
 | 8 | **C-III** Il docente prova l'Atto III dal telefono | controllo | — | U-pane-guerra, U-otto-giorni | da fare |
@@ -84,6 +84,8 @@ Evidenze: docs/evidence/U-otto-giorni/, tests/laika-otto-giorni.test.js, docs/la
 - Epoca e fonte registrate nel catalogo, stato «bozza»; confronto al pixel nel test della bottega.
 
 È fatto quando: Disegni a catalogo con epoca e fonte; galleria aggiornata; Controlli comuni G1–G5 passati (METODO §7).
+
+Evidenze: docs/evidence/K4/, prototypes/kit-atti-i-iii/kit-atti-i-iii.html, bottega/catalogo.json.
 
 ## K2 — Motore: le merci che camminano
 

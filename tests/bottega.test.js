@@ -96,7 +96,7 @@ test('figura: le 13 varianti esistenti conservano esattamente output, pose e ruo
 });
 
 test('figura: le nuove varianti sono registrate come bozze e gli abiti mancanti restano proposte', () => {
-  const nuove = ['marinaio', 'soldato_guarnigione', 'soldatessa', 'uomo_cappello'];
+  const nuove = ['marinaio', 'soldato_guarnigione', 'soldatessa', 'uomo_cappello', 'dignitario'];
   const baseline = read('tests/fixtures/figure-stabili.json');
   assert.deepEqual(Object.keys(VARIANTI), [...Object.keys(baseline.varianti), ...nuove]);
   assert.deepEqual(catalogo.figure.varianti.map(v => v.id), nuove);

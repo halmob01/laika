@@ -43,10 +43,10 @@
     },
     {
       "id": "podere",
-      "simbolo": "campagna-orto-finito",
-      "x": 1050,
+      "simbolo": "podere-chutor",
+      "x": 1100,
       "y": 700,
-      "scala": 1.35
+      "scala": 1.0
     }
   ],
   "figure": [

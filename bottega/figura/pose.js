@@ -42,7 +42,9 @@ export const POSE = {
   // e allargarli cambierebbe il disegno delle figure esistenti (test «baseline»).
   guarda_orologio:{ label: 'Guarda l\'orologio', shL: 14, elL: 4,  shR: -96, elR: -55, hipL: 10, knL: 0, hipR: -10, knR: 0,  lean: 3,  yOff: 0 },
   batte_piedi:    { label: 'Batte i piedi',   shL: 12,  elL: -28, shR: -12, elR: 28,  hipL: 22, knL: 22, hipR: -6,  knR: 0,  lean: 0,  yOff: 0 },
-  si_stringe:     { label: 'Si stringe nello scialle', shL: -20, elL: -50, shR: -52, elR: 65, hipL: 8, knL: 8, hipR: -8, knR: 8, lean: 9,  yOff: 4 }
+  si_stringe:     { label: 'Si stringe nello scialle', shL: -20, elL: -50, shR: -52, elR: 65, hipL: 8, knL: 8, hipR: -8, knR: 8, lean: 9,  yOff: 4 },
+  // Aggiunta 4 novembre 2026 (K4): scrive con una penna. Angoli dentro gli intervalli esistenti.
+  scrive:         { label: 'Scrive', shL: -30, elL: -20, shR: -75, elR: -45, hipL: 10, knL: 0, hipR: -10, knR: 0, lean: 12, yOff: 0, prop: 'penna-in-mano' }
 };
 
 // Varianti dello studio: corpo, copricapo, abito, accessorio.
@@ -64,7 +66,8 @@ export const VARIANTI = {
   marinaio:       { label: 'Marinaio',       body: 'uomo',    hat: 'marinaio', coat: 'casacca',  acc: null },
   soldato_guarnigione: { label: 'Soldato di guarnigione', body: 'uomo', hat: 'visiera', coat: 'tunica', acc: null },
   soldatessa:     { label: 'Soldatessa',     body: 'donna',   hat: 'visiera',  coat: 'tunica',   acc: null },
-  uomo_cappello:  { label: 'Uomo senza barba con cappello', body: 'uomo', hat: 'berretto', coat: null, acc: null }
+  uomo_cappello:  { label: 'Uomo senza barba con cappello', body: 'uomo', hat: 'berretto', coat: null, acc: null },
+  dignitario:     { label: 'Dignitario in uniforme', body: 'uomo', hat: 'fedora', coat: 'uniforme', acc: null }
 };
 
 // Ruoli: colore della figura come scambio di token, più eventuali segni.

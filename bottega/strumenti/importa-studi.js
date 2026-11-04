@@ -82,6 +82,14 @@ export const KIT = [
     ]
   },
   {
+    file: 'prototypes/kit-atti-i-iii/kit-atti-i-iii.html', palette: 'C',
+    token: { bg: 'paper', p2: 'paper2', ink: 'ink', red: 'red', sand: 'sand', cLight: 'concrete-light', cMid: 'concrete-mid', cDark: 'concrete-dark', sky: 'sky', tree: 'tree' },
+    definizioni: { funzione: 'getDefs', argomenti: [], texture: 'atti-i-iii', motivi: { grana: 'grana-ambienti' } },
+    famiglie: [
+      { famiglia: 'atti-i-iii', prefisso: '', funzione: 'drawAtti', voci: 'ATTI', argomenti: ['$id', 0, 0], terra: 400 }
+    ]
+  },
+  {
     file: 'prototypes/kit-soviet-coda/kit-soviet-coda.html', palette: 'C',
     token: { bg: 'paper', p2: 'paper2', ink: 'ink', red: 'red', sand: 'sand', cLight: 'concrete-light', cMid: 'concrete-mid', cDark: 'concrete-dark', sky: 'sky', tree: 'tree' },
     definizioni: { funzione: 'getDefs', argomenti: [], texture: 'soviet-coda', motivi: { grana: 'grana-ambienti' } },
