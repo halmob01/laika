@@ -42,7 +42,7 @@ Nessuna è ancora stata provata e approvata dal docente dal telefono.
 |---|---|---|---|
 | I.1 `servitu` | La settimana del servo: otto anni dal 1740 al 1861, cinque generazioni, migliorie, fiera, chi bussa, verifica V1 | Previsione ed esito del grano che si contraddicono; numeri negativi; pagina lunga sul telefono | `tests/browser-i1.cjs`; [revisione del 4 novembre](revisioni/2026-11-04-allievo-atto-I.md) |
 | I.2 `mir` | Otto assemblee, quattro gruppi | È un questionario con barre: niente da gestire fra una richiesta e l'altra | revisione del 4 novembre §5 |
-| I.3 `citta` | In città, il salario (otto settimane), il razzo, la corte, i tre volantini, verifica V2 | Il salario si vince con la stessa mossa ogni settimana; manca il confronto di fine atto | revisione §5 |
+| I.3 `citta` | In città, il salario (otto settimane), il razzo, la corte, i tre volantini, verifica V2 | Risolti il 5 novembre 2026 (U-citta): il salario ora mette alle strette e c'è il confronto di fine atto | revisione §5 |
 | Atto II (II.1–II.4) | Petizione e domenica di sangue (II.1), giornate del soviet a punti azione e V3 (II.2), che cosa concede lo zar (II.3), Stolypin, V4 e «Cosa ti devi ricordare» (II.4) | giochi di petizione, concessioni e Stolypin; aneddoti dei libri (diario di Nicola, il granduca, Baletta); le notizie del soviet non servono a niente; confronto di fine atto | revisione §3 e §5 |
 | III.1 `pane-guerra` | In ginocchio, il grano e i treni come partita di sole decisioni, gioielli e pane, la fine dello zar, verifica V5 | **Da rifare**: il gioco approvato (quanto serve e quanto c'è, prime code) non c'è; aneddoti (Fabergé, Kšesinskaja, Rodzjanko) | revisione §3 |
 | III.2 `otto-giorni` | Giornata della donna, la coda a punti azione, il soldato a punti azione, il treno, verifica V6, confronto | **Da rifare**: la coda vera (figure che lasciano la fila); aneddoti del treno (baffi, Frederiks); scene del treno nella neve e del Palazzo di Tauride da comporre con disegni che ci sono già ([PIANO-KIT](PIANO-KIT.md)); oggi treno, fine dello zar in famiglia e confronto sono senza scena invece di riusare scene sbagliate | revisione §3 e §4 |
@@ -55,7 +55,7 @@ Uscita di `LAIKA_RAPPORTO=1 node tests/unita-ludiche.test.js` (regole di METODO 
 |---|---|
 | I.1 `servitu` | niente |
 | I.2 `mir` | solo richieste a scelta multipla, niente da distribuire o spendere; nessun contenuto documentato |
-| I.3 `citta` | niente (ma il salario si vince con una mossa fissa: lo controlla G3) |
+| I.3 `citta` | niente (il test G3 del salario prova tutte le mosse fisse) |
 | II.1 `petizione` | nessun gioco; un modulo con caselle numeriche; nessuna fonte registrata |
 | II.2 `soviet` | nessuna fonte registrata; nessun contenuto documentato (le notizie che non contano le vede G4) |
 | II.3 `concessioni` | nessun gioco; nessuna fonte registrata; nessuna scena propria |

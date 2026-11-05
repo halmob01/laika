@@ -3212,7 +3212,7 @@
         "dateLabel": "fine Ottocento–1904",
         "placeLabel": "Pietroburgo"
       },
-      "text": "Sei il figlio e lavori in fabbrica a Pietroburgo. Ogni sabato arriva il salario: otto monete (un indice della simulazione).\n\nNon bastano per tutto: pane per le forze, un angolo di stanza in affitto, carbone per il freddo e soldi da mandare al villaggio. C'è anche un corso serale per imparare a leggere i fogli. Giochi otto settimane e il debito si porta dietro da una all'altra. Le cose non restano ferme: l'affitto sale, il freddo si mette e una settimana la fabbrica si ferma.",
+      "text": "Sei il figlio e lavori in fabbrica a Pietroburgo. Ogni sabato arriva il salario: otto monete (un indice della simulazione).\n\nNon bastano per tutto: pane per le forze, un angolo di stanza in affitto, carbone per il freddo (fuori dal freddo non serve) e soldi da mandare al villaggio. C'è anche un corso serale per imparare a leggere i fogli. Giochi otto settimane e il debito si porta dietro da una all'altra. Le cose non restano ferme: l'affitto sale, il freddo si mette e una settimana la fabbrica si ferma.",
       "goal": "Arriva alla fine dell'ottava settimana con le forze intere e il debito basso.",
       "stageId": "citta-stanza",
       "motionId": "ingresso",
@@ -3271,7 +3271,7 @@
         },
         {
           "id": "carbone",
-          "label": "Carbone",
+          "label": "Carbone (serve nel freddo)",
           "short": "Carbone",
           "x": 0.82,
           "y": 0.78,
@@ -3896,7 +3896,7 @@
             {
               "kind": "simulation",
               "title": "Il freddo passa",
-              "text": "Dopo tre settimane la stufetta si spegne con meno pena. Resta il conto di quello che si è dato e di quello che non si è dato."
+              "text": "Dopo tre settimane la stufetta si spegne con meno pena. Fuori dal freddo il carbone non serve più: le monete vanno altrove. Resta il conto di quello che si è dato e di quello che non si è dato."
             }
           ],
           "rules": {
