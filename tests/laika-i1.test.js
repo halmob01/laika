@@ -141,7 +141,7 @@ test('I.2 e I.3: la partita completa passa da mir, città, salario, razzo, corte
 
 test('I.1: cinque generazioni, card di passaggio senza varianti sbagliate, giudizio dell\'anno, indicatori dell\'unità', () => {
   const a = game.acts[0], e = a.episodes.find(x => x.type === 'turn_game');
-  assert.deepEqual(e.turns.filter(t => t.effects).map(t => t.label), ['1761', '1787', '1820', '1840', '1861'], 'passaggi di generazione');
+  assert.deepEqual(e.turns.filter(t => t.effects?.some(x => x.id !== 'crisi_anno')).map(t => t.label), ['1761', '1787', '1820', '1840', '1861'], 'passaggi di generazione');
   for (const ep of a.episodes.filter(x => x.id.startsWith('a1-servitu-'))) assert.deepEqual(ep.shows, ['grano', 'occhio', 'speranza', 'legami']);
   assert.match(a.episodes[0].text, /cinque generazioni/);
   let s = newSession(game, 'gen');

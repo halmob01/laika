@@ -12,6 +12,8 @@ Schede degli episodi dell'atto. Numeri, titoli, periodi e gioco di ogni unità: 
 ## I.1 — La terra e lo zar (1700–1861) · `servitu`
 Ruoli: gli antenati della famiglia; un osservatore della corte. Fili: la terra e lo zar; la terra; il cielo.
 
+**Rifiniture di I.1 (5 novembre 2026, U-servitu).** Un solo giudizio dell'anno, coerente con la previsione e con le crisi del grano; sul telefono i lavori lunghi in un pannello e le etichette dei posti dentro la scena; la scena delle utopie con le case in fila della colonia di Arakčeev (`colonia-case`, K4). Scheda di gioco: [servitu](../giochi/servitu.md).
+
 **I.1-e1 · narrative [D] · Le anime**
 - **Scena.** La ricchezza di un nobile si misura in «anime», i servi maschi; le donne non si contano nemmeno. Si vendono con la terra o senza, si giocano a carte, si esiliano in Siberia per «insolenza». Caterina II regala anime come gioielli: a Zorič, congedato, una tenuta con settemila anime; Potëmkin arriva a trecentomila servi.
 - **Sotto la scena.** Che cosa diventa un uomo quando il suo nome è una cifra in un registro?
