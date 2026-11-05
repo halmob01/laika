@@ -1,0 +1,14 @@
+Politica 0
+  firme         97  100   57   45   15    0    0 || Salari,Salari,Salari
+  economica     71   50   18  100   15    0    0 || Salari,Salari,Salari
+  politica      58   50   77    0  100   90    1 arresti|arresti|arresti Politica,Politica,Politica
+  gapon         62  100    4    0   15    0    0 || Poco e vago,Poco e vago,Poco e vago
+  senzafirme    36   97    4    0   15   45    0 sciopero-stanco|| Poco e vago,Poco e vago,Poco e vago
+  tutto         71   80   49   45   54   45    0 || Chiede tutto,Chiede tutto,Chiede tutto
+Politica 1
+  firme        100  100   51   45    0    0    0 || Salari,Salari,Salari
+  economica     71   46   12  100    0    0    0 || Salari,Salari,Salari
+  politica      58   46   72    0  100   90    1 arresti|arresti|arresti Politica,Politica,Politica
+  gapon         62  100    2    0    0    0    0 || Poco e vago,Poco e vago,Poco e vago
+  senzafirme    41  100    2    0    0   45    1 sciopero-stanco||sciopero-stanco Poco e vago,Poco e vago,Poco e vago
+  tutto         71   76   43   45   39   45    0 || Chiede tutto,Chiede tutto,Chiede tutto

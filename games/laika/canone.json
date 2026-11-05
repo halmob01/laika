@@ -85,11 +85,12 @@
             "Raccontare la domenica di sangue del 22 gennaio 1905 (9 gennaio nel calendario russo) e che cosa chiedeva la petizione.",
             "Spiegare perché quella domenica si spezza la fiducia nello zar come padre."
           ],
-          "gioco": "da assegnare (oggi: distribuzione di cinque righe)",
-          "stato_gioco": "da assegnare",
+          "gioco": "gestione di tre sere (la petizione alle officine Putilov)",
+          "stato_gioco": "da confermare",
           "stato": "bozza",
           "nel_gioco": "i4",
-          "nota": "Divisione dell'atto in quattro unità decisa il 4 novembre 2026 (D-038)."
+          "nota": "Divisione dell'atto in quattro unità decisa il 4 novembre 2026 (D-038). Gioco scelto dall'agente il 5 novembre 2026 al posto del modulo con cinque righe: da provare dal telefono (C-II).",
+          "scheda_gioco": "docs/laika/giochi/petizione.md"
         },
         {
           "numero": "II.2",

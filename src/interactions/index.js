@@ -64,7 +64,7 @@ function hotspots(stageHost,episode,game,dispatch,state){
     for(const f of t.market.offers.filter(x=>x.at)){const n=game.market.bought.filter(x=>x===f.id).length,b=button((f.short||f.label)+(f.cost>1?' · '+f.cost:'')+(n&&f.repeat?' ×'+n:''),()=>dispatch({type:'turn',step:'buy',offerId:f.id}),{tabindex:'-1','data-hotspot':f.id,title:f.label});
       at(b,f.at.x,f.at.y);b.disabled=!offerOpen(episode,game,f,state);o.layer.append(b);}keepInside(o.layer);return;}
   const o=game.phase==='place'?overlay(stageHost):(clearOverlay(stageHost),null);if(!o)return;
-  for(const p of episode.places||[]){const b=button(String(game.placement[p.id]),()=>dispatch({type:'turn',step:'place',placeId:p.id,delta:1}),{tabindex:'-1','data-hotspot':p.id,title:placeLabel(episode,game,p)});
+  for(const p of episode.places||[]){const b=button((episode.hotspotNames&&p.short?p.short+' ':'')+String(game.placement[p.id]),()=>dispatch({type:'turn',step:'place',placeId:p.id,delta:1}),{tabindex:'-1','data-hotspot':p.id,title:placeLabel(episode,game,p)});
     at(b,p.x,p.y);b.disabled=placed(game)>=game.rules.tokens;o.layer.append(b);}
   keepInside(o.layer);
 }
@@ -108,6 +108,8 @@ const verso=label=>{const m=/^(il|lo|la|i|gli|le|l')\s*(.*)$/i.exec(label);const
 // «I numeri dell'anno», «della settimana», «della giornata».
 const diTurno=w=>/^[aeiou]/i.test(w)?'dell’'+w:/(a|ione)$/i.test(w)?'della '+w:'del '+w;
 const one=e=>e.strengthOne||e.strengthLabel;
+// «nel 46%» ma «nell'80%», «nell'8%», «nell'11%»: l'articolo davanti alla percentuale.
+const nelPerc=p=>(p===8||p===11||(p>=80&&p<90)?'nell’':'nel ')+p+'%';
 function managePlace(host,episode,act,state,go){
   const g=state.game,people=workersOf(episode,g),chosen=pickFor(episode,g),targets=targetsOf(episode,g,state);
   const nameOf=id=>{const t=targets.find(x=>x.id===id)||[...episode.places,...(episode.projects||[])].find(x=>x.id===id);return t?(t.kind==='project'||episode.projects?.some(p=>p.id===id)?t.label:placeLabel(episode,g,t)):'';};
@@ -268,7 +270,7 @@ function turnGame(ctx){
   if(g.phase==='event'){
     host.append(el('p',t.event.who,{class:'turn-who'}),el('p',t.event.text,{class:'lead'}));
     for(const c of t.event.choices){const p=c.chance?Math.round(chanceOf(c.chance,act,state)*100):null;
-      const b=button(c.label+(p===null?'':' · riesce nel '+p+'% dei casi'),()=>go('choose',{choiceId:c.id}),{'data-turn-choice':c.id});b.disabled=!!c.when&&!matches(c.when,state);if(b.disabled)b.title='Non si può, in questa situazione';host.append(b);}
+      const b=button(c.label+(p===null?'':' · riesce '+nelPerc(p)+' dei casi'),()=>go('choose',{choiceId:c.id}),{'data-turn-choice':c.id});b.disabled=!!c.when&&!matches(c.when,state);if(b.disabled)b.title='Non si può, in questa situazione';host.append(b);}
     return;
   }
   if(g.phase==='eventResult'){
@@ -284,7 +286,7 @@ function turnGame(ctx){
     if(g.market.left!=null){const pts=el('div',undefined,{class:'turn-tokens','aria-label':(episode.pointsLabel||'Punti azione')+': '+g.market.left+' su '+m.points});for(let i=0;i<m.points;i++)pts.append(el('i',undefined,{class:i<m.points-g.market.left?'used':''}));host.append(el('p',(episode.pointsLabel||'Punti azione')+': '+g.market.left+' su '+m.points,{class:'turn-pool',role:'status'}),pts);}
     for(const o of m.offers){const b=button('',()=>go('buy',{offerId:o.id}),{'data-offer':o.id});b.append(el('strong',o.label));
       if(o.cost>1)b.append(el('span','Costa '+o.cost+' punti'));
-      if(o.chance){const pc=Math.round(chanceOf(o.chance,act,state)*100);b.append(el('span','riesce nel '+pc+'% dei casi'));}
+      if(o.chance){const pc=Math.round(chanceOf(o.chance,act,state)*100);b.append(el('span','riesce '+nelPerc(pc)+' dei casi'));}
       else if(o.effects?.length)b.append(el('span',effectsText(act,o.effects.filter(x=>x.kind!=='flag'))));
       {const ct=o.chance?[chainText(episode,o.success?.chain)&&'se riesce: '+chainText(episode,o.success.chain),chainText(episode,o.failure?.chain)&&'se no: '+chainText(episode,o.failure.chain)].filter(Boolean).join('; '):chainText(episode,o.chain);if(ct)b.append(el('span',ct));}
       {const qt=o.chance?[queueText(episode,o.success?.queue)&&'se riesce: '+queueText(episode,o.success.queue),queueText(episode,o.failure?.queue)&&'se no: '+queueText(episode,o.failure.queue)].filter(Boolean).join('; '):queueText(episode,o.queue);if(qt)b.append(el('span',qt));}

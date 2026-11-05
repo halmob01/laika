@@ -15,16 +15,19 @@ Divisione in quattro unità decisa il 4 novembre 2026 (D-024, D-038). Le schede 
 
 ## II.1 — La petizione (gennaio 1905) · `petizione`
 
-**II.1-e1 · resource_allocation [S] · La petizione**
-- **Scena.** Prima del corteo: cinque righe da scrivere fra richieste economiche, politiche e di pace.
-- **Chi la sviluppa.** Sonnet.
+**II.1-e1 · turn_game [S] · La petizione** (riscritta il 5 novembre 2026 come gestione di tre sere, scheda [petizione](../giochi/petizione.md); la scheda precedente, cinque righe da distribuire, è in [docs/archivio](../../archivio/ATTO-2-II1-e1-v1-2026-11-05.md))
+- **Scena.** Alle officine Putilov, prima del corteo: ogni sera sei ore da spendere fra le firme, le righe di richieste (salario, libertà, pace), padre Gapon e la polizia. Chi bussa: Gapon con le icone, uno studente con l'assemblea eletta, un impiegato con una notizia dal prefetto.
+- **Sotto la scena.** Che cosa si chiede a chi comanda quando si pensa che ascolterà?
+- **Chi la sviluppa.** Opus (gioco), Sonnet (testi).
 
-**II.1-e2 · narrative [D] · La domenica di sangue**
-- **Scena.** La guerra con il Giappone va male. Il 6 gennaio (g.), alla benedizione delle acque sulla Neva, un cannone spara una carica vera verso il palazzo: un incidente, dicono [verificare: non in Montefiore, cercare altra fonte]. Domenica 22 gennaio (g. 9) il corteo di padre Gapon porta allo zar una petizione e le icone; lo zar è partito di nascosto per Carskoe Selo. La fanteria spara. Nel diario Nicola scrive «Giornata terribile!» e subito dopo annota il pranzo con la madre.
+**II.1-e2 · narrative [D] · La domenica di sangue** (riscritta il 5 novembre 2026, date con il calendario occidentale per primo; la scheda precedente è in [docs/archivio](../../archivio/ATTO-2-II1-e2-v1-2026-11-05.md))
+- **Scena.** Il 19 gennaio (6 gennaio nel calendario russo) la benedizione delle acque sulla Neva finisce male: una salva dalla fortezza di Pietro e Paolo, con proiettili veri, rompe le finestre del Palazzo d'Inverno; Nicola è illeso (Montefiore). 22 gennaio 1905 (9 gennaio nel calendario russo): un corteo guidato da padre Gapon porta allo zar una petizione e le icone; lo zar non è in città; la truppa spara. Serge racconta gli operai in supplica davanti ai soldati (atlante, R01). Nel diario lo zar scrive «A terrible day!» e annota che arriva la madre e che si pranza tutti insieme (Montefiore).
 - **Sotto la scena.** Che cosa muore quella domenica, oltre alle persone? La fiducia nello zar-padre.
-- **Materiali.** R01 (Serge, «Treat them like rebels»: Serge non è in archivio, solo citato dall'atlante); diario di Nicola: Montefiore [verificare il passo].
+- **Materiali.** Montefiore (cannone e diario, MATRICE); R01 (Serge, «Treat them like rebels»: Serge non è in archivio, solo citato dall'atlante).
 - **Regia.** Il corteo si aggrega attorno al foglio e alle icone; lo sparo non si vede: il suono cessa, le figure si disperdono, il foglio resta nella neve.
 - **Chi la sviluppa.** Sonnet.
+
+**II.1-e3 · narrative [D] · Cosa ti devi ricordare** (aggiunta il 5 novembre 2026): i due obiettivi dell'unità in parole semplici. **II.1-e4 · assessment [V] · Verifica V8**: che cosa cambia quella domenica.
 
 ## II.2 — Il soviet (ottobre 1905) · `soviet`
 
@@ -65,4 +68,4 @@ Divisione in quattro unità decisa il 4 novembre 2026 (D-024, D-038). Le schede 
 
 **Confronto obbligatorio.** Nessuna scelta riguarda lo sparare. Il soviet del 1905 è un contropotere, non un governo. La Duma non nasce a suffragio universale né con pieni poteri. Stolypin consente di uscire dal mir, non lo abolisce.
 
-**Verifiche dell'Atto II:** V3 che cosa mostra la petizione del 1905 e che cos'era il soviet; V4 che cosa cambia e che cosa resta dopo il 1905.
+**Verifiche dell'Atto II:** V8 che cosa cambia la domenica di sangue (II.1); V3 che cos'era il soviet (II.2); V4 che cosa cambia e che cosa resta dopo il 1905 (II.4).

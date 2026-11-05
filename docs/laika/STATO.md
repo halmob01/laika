@@ -4,6 +4,8 @@ A che punto è ogni cosa, con le evidenze. Si aggiorna in ogni PR. La struttura 
 
 Aggiornato al 5 novembre 2026.
 
+**Per un nuovo agente: leggere prima [PASSAGGIO](PASSAGGIO.md)** (dove siamo, come si lavora, come si verifica, che cosa resta aperto). La PR #61 (U-petizione) può non essere ancora unita: lo dice il passaggio.
+
 ## Adesso
 
 **Riordino finito** ([RIORDINO](RIORDINO.md)). Il gioco segue il canone: tre atti fino al 1917, unità con i nomi stabili, identificatori degli episodi derivati dai nomi (`a1-citta-salario`, `a2-soviet-giornate`, `a3-otto-giorni-coda`). Il build legge titoli, periodi e domande dal canone e si ferma se gli atti o le unità non coincidono; `tests/canone.test.js` e `tests/units.test.js` lo controllano anche per la home.
@@ -15,6 +17,8 @@ Aggiornato al 5 novembre 2026.
 | R2 e R3 | Il build legge il canone; il gioco in tre atti; home con nove fascicoli; usabilità | PR R3 |
 
 **K1 fatto** (motore della coda con la pazienza; revisione indipendente al primo giro: passa): modulo `src/core/queue.js` e test, pannello «La coda» nel gioco, tre pose di attesa (`guarda_orologio`, `batte_piedi`, `si_stringe`), scena di prova `esempio-coda-pazienza` nella galleria, sezione in `docs/CREARE-UN-GIOCO.md`. Evidenze in `docs/evidence/K1/`.
+
+**U-petizione fatto** (II.1 La petizione, 5 novembre 2026): da modulo con cinque righe a gestione di tre sere alle officine Putilov (sei ore da dare fra firme, righe di richieste, padre Gapon e polizia; chi bussa con scelte e una probabilità scritta; due crisi); la domenica di sangue con due aneddoti registrati (cannone del 6 gennaio e diario di Nicola, Montefiore) e la voce di Serge (atlante); «Cosa ti devi ricordare» e verifica V8; i punti sulla scena mostrano il nome del posto (`hotspotNames`). Gioco scelto dall'agente: nel canone resta «da confermare» (prova C-II). Test di bilanciamento sul motore vero. Evidenze in `docs/evidence/U-petizione/`.
 
 **U-soviet fatto** (II.2 Il soviet, 5 novembre 2026): dopo aver indagato si sceglie a quale lettura dare peso (linea del soviet da 0 a 100) e la scelta apre o chiude azioni nei giorni dopo (trattare in nome del soviet con i moderati, fermare i treni con i radicali); nessuna meccanica nuova (bastavano `when` sui flag e sulle metriche, K5 non serve); scena con tavolo, telegrafo e bandiera; etichette su tre file senza sovrapposizioni; «Cosa ti devi ricordare» e fonti registrate (nessun aneddoto trovato sul 1905). Test di bilanciamento sul motore vero. Evidenze in `docs/evidence/U-soviet/`.
 
@@ -51,20 +55,19 @@ Nessuna è ancora stata provata e approvata dal docente dal telefono.
 | I.1 `servitu` | La settimana del servo: otto anni dal 1740 al 1861, cinque generazioni, migliorie, fiera, chi bussa, verifica V1 | Risolti il 5 novembre 2026 (U-servitu): previsione ed esito del grano coerenti, nessun numero negativo, tabellone più corto sul telefono, disegni non più sospesi nel vuoto | `tests/browser-i1.cjs`; [revisione del 4 novembre](revisioni/2026-11-04-allievo-atto-I.md) |
 | I.2 `mir` | Otto assemblee, quattro gruppi | È un questionario con barre: niente da gestire fra una richiesta e l'altra | revisione del 4 novembre §5 |
 | I.3 `citta` | In città, il salario (otto settimane), il razzo, la corte, i tre volantini, verifica V2, confronto di fine atto | Risolti il 5 novembre 2026 (U-citta): il salario ora mette alle strette e c'è il confronto di fine atto | revisione §5 |
-| Atto II (II.1–II.4) | Petizione e domenica di sangue (II.1), giornate del soviet a punti azione e V3 (II.2), che cosa concede lo zar (II.3), Stolypin, V4 e «Cosa ti devi ricordare» (II.4) | giochi di petizione, concessioni e Stolypin; aneddoti dei libri (diario di Nicola, il granduca, Baletta); le notizie del soviet non servivano a niente (risolto il 5 novembre 2026: la scelta della lettura apre azioni nei giorni dopo); confronto di fine atto | revisione §3 e §5 |
+| Atto II (II.1–II.4) | Petizione e domenica di sangue (II.1), giornate del soviet a punti azione e V3 (II.2), che cosa concede lo zar (II.3), Stolypin, V4 e «Cosa ti devi ricordare» (II.4) | giochi di concessioni e Stolypin (il gioco della petizione c'è dal 5 novembre 2026, con il diario di Nicola); aneddoti dei libri (il granduca, Baletta); le notizie del soviet non servivano a niente (risolto il 5 novembre 2026: la scelta della lettura apre azioni nei giorni dopo); confronto di fine atto | revisione §3 e §5 |
 | III.1 `pane-guerra` | In ginocchio, il grano e i treni come partita di sole decisioni, gioielli e pane, la fine dello zar, verifica V5 | **Da rifare**: il gioco approvato (quanto serve e quanto c'è, prime code) non c'è; aneddoti (Fabergé, Kšesinskaja, Rodzjanko) | revisione §3 |
 | III.2 `otto-giorni` | Giornata della donna, la coda a punti azione, il soldato a punti azione, il treno, verifica V6, confronto | **Da rifare**: la coda vera (figure che lasciano la fila); aneddoti del treno (baffi, Frederiks); scene del treno nella neve e del Palazzo di Tauride da comporre con disegni che ci sono già ([PIANO-KIT](PIANO-KIT.md)); oggi treno, fine dello zar in famiglia e confronto sono senza scena invece di riusare scene sbagliate | revisione §3 e §4 |
 
 ## Controllo automatico delle unità (4 novembre 2026)
 
-Uscita di `LAIKA_RAPPORTO=1 node tests/unita-ludiche.test.js` (regole di METODO §7, G3a). Diventa vincolante per ogni unità quando il suo incarico è «fatto». Dal 4 novembre controlla anche lo standard didattico (D-040): a petizione e concessioni manca anche la verifica e «Cosa ti devi ricordare».
+Uscita di `LAIKA_RAPPORTO=1 node tests/unita-ludiche.test.js` (regole di METODO §7, G3a). Diventa vincolante per ogni unità quando il suo incarico è «fatto». Dal 4 novembre controlla anche lo standard didattico (D-040): a concessioni manca anche la verifica e «Cosa ti devi ricordare».
 
 | Unità | Che cosa manca |
 |---|---|
 | I.1 `servitu` | niente |
 | I.2 `mir` | solo richieste a scelta multipla, niente da distribuire o spendere; nessun contenuto documentato |
 | I.3 `citta` | niente (il test G3 del salario prova tutte le mosse fisse) |
-| II.1 `petizione` | nessun gioco; un modulo con caselle numeriche; nessuna fonte registrata |
 | II.3 `concessioni` | nessun gioco; nessuna fonte registrata; nessuna scena propria |
 | II.4 `stolypin` | nessun gioco; nessuna fonte registrata; scene prese dal mir e dal soviet |
 | III.1 `pane-guerra` | solo richieste a scelta multipla; nessuna fonte registrata |

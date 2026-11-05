@@ -24,7 +24,7 @@ test('LAIKA: tre atti fino al 1917 con le unità del canone e i nomi stabili',()
   game.acts.forEach((a,k)=>{const c=canone.atti[k];assert.deepEqual(a.units.map(u=>u.id),c.unita.map(u=>u.id));
     assert.deepEqual(a.units.map((u,i)=>unitLabel(a,i)),c.unita.map(u=>u.numero));assert.deepEqual(a.units.map(u=>u.title),c.unita.map(u=>u.titolo));
     for(const u of a.units)for(const e of u.episodes)assert.ok(e.startsWith('a'+(k+1)+'-'+u.id+'-'),'identificatore senza il nome stabile: '+e);});
-  assert.deepEqual(game.acts[1].units[0].episodes,['a2-petizione-righe','a2-petizione-domenica'],'la petizione prima del corteo');
+  assert.deepEqual(game.acts[1].units[0].episodes,['a2-petizione-righe','a2-petizione-domenica','a2-petizione-ricorda','a2-petizione-v8'],'la petizione prima del corteo');
 });
 test('stato delle unità dall\'episodio corrente',()=>{
   const first=unitStates(act,'a1-servitu-settimana');
