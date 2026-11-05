@@ -20,8 +20,8 @@ Divisione in quattro unità decisa il 4 novembre 2026 (D-024, D-038). Le schede 
 - **Sotto la scena.** Che cosa si chiede a chi comanda quando si pensa che ascolterà?
 - **Chi la sviluppa.** Opus (gioco), Sonnet (testi).
 
-**II.1-e2 · narrative [D] · La domenica di sangue** (riscritta il 5 novembre 2026; la scheda precedente è in [docs/archivio](../../archivio/ATTO-2-II1-e2-v1-2026-11-05.md))
-- **Scena.** Il 6 gennaio (19 gennaio nel calendario occidentale) la benedizione delle acque sulla Neva finisce male: una salva dalla fortezza di Pietro e Paolo, con proiettili veri, rompe le finestre del Palazzo d'Inverno; Nicola è illeso (Montefiore). Domenica 22 gennaio 1905 (9 gennaio nel calendario russo) un corteo guidato da padre Gapon porta allo zar una petizione e le icone; lo zar non è in città; la truppa spara. Serge racconta gli operai in supplica davanti ai soldati (atlante, R01). Nel diario lo zar scrive «A terrible day!» e annota che arriva la madre e che si pranza tutti insieme (Montefiore).
+**II.1-e2 · narrative [D] · La domenica di sangue** (riscritta il 5 novembre 2026, date con il calendario occidentale per primo; la scheda precedente è in [docs/archivio](../../archivio/ATTO-2-II1-e2-v1-2026-11-05.md))
+- **Scena.** Il 19 gennaio (6 gennaio nel calendario russo) la benedizione delle acque sulla Neva finisce male: una salva dalla fortezza di Pietro e Paolo, con proiettili veri, rompe le finestre del Palazzo d'Inverno; Nicola è illeso (Montefiore). 22 gennaio 1905 (9 gennaio nel calendario russo): un corteo guidato da padre Gapon porta allo zar una petizione e le icone; lo zar non è in città; la truppa spara. Serge racconta gli operai in supplica davanti ai soldati (atlante, R01). Nel diario lo zar scrive «A terrible day!» e annota che arriva la madre e che si pranza tutti insieme (Montefiore).
 - **Sotto la scena.** Che cosa muore quella domenica, oltre alle persone? La fiducia nello zar-padre.
 - **Materiali.** Montefiore (cannone e diario, MATRICE); R01 (Serge, «Treat them like rebels»: Serge non è in archivio, solo citato dall'atlante).
 - **Regia.** Il corteo si aggrega attorno al foglio e alle icone; lo sparo non si vede: il suono cessa, le figure si disperdono, il foglio resta nella neve.
@@ -68,4 +68,4 @@ Divisione in quattro unità decisa il 4 novembre 2026 (D-024, D-038). Le schede 
 
 **Confronto obbligatorio.** Nessuna scelta riguarda lo sparare. Il soviet del 1905 è un contropotere, non un governo. La Duma non nasce a suffragio universale né con pieni poteri. Stolypin consente di uscire dal mir, non lo abolisce.
 
-**Verifiche dell'Atto II:** V3 che cosa mostra la petizione del 1905 e che cos'era il soviet; V4 che cosa cambia e che cosa resta dopo il 1905.
+**Verifiche dell'Atto II:** V8 che cosa cambia la domenica di sangue (II.1); V3 che cos'era il soviet (II.2); V4 che cosa cambia e che cosa resta dopo il 1905 (II.4).
