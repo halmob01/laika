@@ -103375,7 +103375,7 @@
           "id": "a2-petizione-domenica",
           "type": "narrative",
           "title": "La domenica di sangue",
-          "text": "Il 6 gennaio (19 gennaio nel calendario occidentale) la benedizione delle acque sulla Neva finisce male: una salva dalla fortezza di Pietro e Paolo, con proiettili veri, manda in frantumi le finestre del Palazzo d'Inverno. Lo zar Nicola è illeso (lo racconta Montefiore). La guerra contro il Giappone va male.\n\nDomenica 22 gennaio 1905 (9 gennaio nel calendario russo) un corteo guidato da padre Gapon porta allo zar una petizione e le icone. Lo zar non è in città. La truppa spara sulla folla.\n\nLo scrittore Victor Serge racconta gli operai che marciano con intenzioni di supplica e si trovano davanti i soldati: l'autorità risponde con le armi a una richiesta che si rivolge ancora al sovrano e li considera ribelli.\n\nNel suo diario lo zar scrive che è stata una giornata terribile («A terrible day! Lord how painful and sad!») e annota che dalla città è arrivata la madre e che si è pranzato tutti insieme (anche questo lo riporta Montefiore).\n\nChe cosa muore quella domenica oltre alle persone? La fiducia nello zar come padre.",
+          "text": "Il 19 gennaio 1905 (6 gennaio nel calendario russo) la benedizione delle acque sulla Neva finisce male: una salva dalla fortezza di Pietro e Paolo, con proiettili veri, manda in frantumi le finestre del Palazzo d'Inverno. Lo zar Nicola è illeso (lo racconta Montefiore). La guerra contro il Giappone va male.\n\nDomenica 22 gennaio 1905 (9 gennaio nel calendario russo) un corteo guidato da padre Gapon porta allo zar una petizione e le icone. Lo zar non è in città. La truppa spara sulla folla.\n\nLo scrittore Victor Serge racconta gli operai che marciano con intenzioni di supplica e si trovano davanti i soldati: l'autorità risponde con le armi a una richiesta che si rivolge ancora al sovrano e li considera ribelli.\n\nNel suo diario lo zar scrive che è stata una giornata terribile («A terrible day! Lord how painful and sad!») e annota che dalla città è arrivata la madre e che si è pranzato tutti insieme (anche questo lo riporta Montefiore).\n\nChe cosa muore quella domenica oltre alle persone? La fiducia nello zar come padre.",
           "roleId": "figlio",
           "stageId": "petizione-domenica",
           "visualExplanation": "Il corteo sale verso il Palazzo d'Inverno con il ritratto dello zar in testa. Lo sparo non si vede: le figure si disperdono e il foglio resta nella neve.",
@@ -103422,7 +103422,7 @@
           "question": {
             "id": "a1-v8",
             "prompt": "Il 22 gennaio 1905 (9 gennaio nel calendario russo) un corteo di operai porta allo zar una petizione con le icone e il suo ritratto. Che cosa cambia quella domenica?",
-            "rationale": "Il corteo andava a chiedere aiuto allo zar e trovò i soldati: la truppa sparò sulla folla. Da quella domenica per molti la fiducia nello zar come padre non c'era più. Le concessioni vennero dopo, con lo sciopero dell'ottobre.",
+            "rationale": "Il corteo andava a chiedere aiuto allo zar e trovò i soldati: la truppa sparò sulla folla. Da quella domenica per molti la fiducia nello zar come padre non c'era più.",
             "source": "Episodio «La domenica di sangue»: appunti «La Rivoluzione Russa» e atlante degli aneddoti (R01)",
             "objectives": [
               "Spiegare perché quella domenica si spezza la fiducia nello zar come padre"

@@ -30,4 +30,4 @@ Scheda di gioco dell'unità `petizione` (canone: II.1). Versione 1 (costruita) �
 
 ## Dati da riscontrare
 
-La data esatta del 6 gennaio nel calendario occidentale (19 gennaio) è un calcolo, non una fonte; il testo della petizione di Gapon non è usato; le cifre delle vittime non compaiono.
+La data del 6 gennaio nel calendario occidentale (19 gennaio) è un calcolo, non una fonte; **che cosa chiedeva la petizione vera** (otto ore, un'assemblea eletta, la fine della guerra) e il ruolo di Gapon alla guida del corteo non sono negli appunti né nell'atlante: restano da riscontrare su un libro (MATRICE); il testo letterale della petizione non è usato; le cifre delle vittime non compaiono.
