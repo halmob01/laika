@@ -8,7 +8,7 @@ import {newSession, transition, currentScene} from '../src/runner/index.js';
 const game = JSON.parse(fs.readFileSync(new URL('../games/laika/game.json', import.meta.url), 'utf8'));
 const e = game.acts[0].episodes.find(x => x.id === 'a1-servitu-settimana');
 const GRANO = new Set(['mucca', 'vicini', 'lontano']);
-function anni(seme, scorta) {
+function anni(seme, scorta, salta) {
   let s = newSession(game, seme);
   const T = (step, x = {}) => { s = transition(game, s, {type: 'turn', step, ...x}).nextState; };
   while (currentScene(game, s).type !== 'turn_game') s = transition(game, s, {type: 'advance'}).nextState;
@@ -18,7 +18,7 @@ function anni(seme, scorta) {
     if (g().phase === 'place') {
       while (g().reserve > scorta) T('reserve', {delta: -1});
       const vivi = e.workers.filter(w => !(g().rules.workers[w.id]?.away));
-      const piani = {padre: 'corvee', madre: 'corvee', nonno: 'campo', figlio: 'campo'};
+      const piani = salta ? {padre: 'campo', madre: 'campo', nonno: 'campo', figlio: 'campo'} : {padre: 'corvee', madre: 'corvee', nonno: 'campo', figlio: 'campo'};
       for (const w of vivi) { try { T('assign', {workerId: w.id, placeId: piani[w.id]}); } catch { /* posto non disponibile */ } }
       T('confirm');
       const r = g().result;
@@ -33,10 +33,10 @@ function anni(seme, scorta) {
 }
 test('Il servo: il giudizio dell\'anno dice la fame quando il grano è finito prima del raccolto, e solo allora', () => {
   let con = 0, senza = 0;
-  for (const seme of ['a', 'b', 'c', 'd', 'e', 'f']) for (const scorta of [0, 15]) for (const x of anni(seme, scorta)) {
+  for (const seme of ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']) for (const scorta of [0, 15]) for (const salta of [false, true]) for (const x of anni(seme, scorta, salta)) {
     const fame = x.crisi.some(c => GRANO.has(c));
-    if (fame) { con++; assert.equal(x.verdetto.stamp, 'Fame', x.anno + ': grano finito, ma il giudizio è «' + x.verdetto.text + '»'); assert.match(x.verdetto.text, /finito prima del raccolto/); }
-    else { senza++; assert.doesNotMatch(x.verdetto.text, /finito prima del raccolto/, x.anno + ': nessuna crisi del grano, ma il giudizio parla di grano finito'); }
+    if (fame) { con++; assert.equal(x.verdetto.stamp, 'Fame', x.anno + ': grano finito, ma il giudizio è «' + x.verdetto.text + '»'); assert.match(x.verdetto.text, /Il grano è finito/); }
+    else { senza++; assert.doesNotMatch(x.verdetto.text, /Il grano è finito:/, x.anno + ': nessuna crisi del grano, ma il giudizio parla di grano finito'); }
   }
   assert.ok(con > 0 && senza > 0, 'servono anni con e senza la fame: con ' + con + ', senza ' + senza);
 });

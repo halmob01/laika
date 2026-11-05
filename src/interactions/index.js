@@ -70,6 +70,8 @@ function hotspots(stageHost,episode,game,dispatch,state){
 }
 // Gestione: la persona scelta (stato dell'interfaccia, non della partita) e le figure sulla scena.
 let pick={key:'',worker:null},seenGeneration=-1;
+// Il pannello dei lavori lunghi resta com'è stato lasciato dallo studente fino alla fine dell'anno (stato dell'interfaccia, non della partita).
+let projectsPanel={key:'',open:false};
 function pickFor(episode,g){const key=episode.id+':'+g.turn;if(pick.key!==key)pick={key,worker:workersOf(episode,g).find(w=>!g.assign[w.id])?.id||null};
   if(pick.worker&&!workersOf(episode,g).some(w=>w.id===pick.worker))pick.worker=null;return pick.worker;}
 function board(stageHost,stage,episode,act,state,dispatch){
@@ -139,7 +141,8 @@ function managePlace(host,episode,act,state,go){
   // I lavori lunghi stanno in un pannello: chiuso sul telefono finché nessuno ci lavora, così il tabellone resta corto.
   if(lavori.children.length){const attivi=targets.some(p=>p.kind==='project'&&((g.placement[p.id]||0)>0||g.started.includes(p.id)||g.progress[p.id]>0));
     const grande=typeof matchMedia==='function'&&matchMedia('(min-width: 760px)').matches;
-    const pannello=el('details',undefined,{class:'turn-projects','data-projects':''});pannello.open=attivi||grande;
+    const chiave=episode.id+':'+g.turn,pannello=el('details',undefined,{class:'turn-projects','data-projects':''});pannello.open=projectsPanel.key===chiave?projectsPanel.open:attivi||grande;
+    pannello.addEventListener('toggle',()=>{projectsPanel={key:chiave,open:pannello.open};});
     pannello.append(el('summary','Lavori lunghi ('+[...lavori.children].length+')'),lavori);host.append(pannello);}
   // 3. La semina: la domanda, il controllo e che cosa resta.
   if(episode.reserve){const r=episode.reserve,res=(act.resources||[]).find(d=>d.id===r.from),have=state.resources[r.from],need=-[...(episode.upkeep||[]),...g.rules.upkeep].filter(m=>m.id===r.from).reduce((n,m)=>n+m.delta,0);
@@ -149,7 +152,8 @@ function managePlace(host,episode,act,state,go){
     minus.disabled=g.reserve<=0;plus.disabled=spent+r.step>have;ctl.append(minus,el('b',String(g.reserve),{'aria-label':g.reserve+' '+r.label.toLowerCase()}),plus);box.append(ctl);
     const pct=Math.round(100*yieldOf(episode,{...g,rules:{...g.rules,boost:{}}},r.places[0]));
     box.append(el('p','Hai '+have+' di '+res.label.toLowerCase()+'. Per mangiare fino al raccolto ne servono '+need+'. Dopo la semina'+(spent>g.reserve?' e i lavori':'')+(left<0?' ne mancano '+(-left)+' per arrivare al raccolto':' ne restano '+left)+'. Il campo renderà il '+pct+'% del possibile.',{role:'status'}));
-    if(left<0)box.append(el('p','Non basta: il grano finirà prima del raccolto.',{class:'turn-warning'}));host.append(box);}
+    if(left<0)box.append(el('p','Non basta: il grano finirà prima del raccolto.',{class:'turn-warning'}));
+    else if(left===0)box.append(el('p','Così non resta niente: basta un imprevisto e il grano finisce.',{class:'turn-warning'}));host.append(box);}
   // 4. Il rischio, scritto prima di scegliere.
   const risk=el('div',undefined,{class:'turn-risk'});
   risk.append(el('p',(episode.luckLabel||'Il tempo che farà')+': '+luckOdds(episode).map(l=>l.label+' '+l.p+'%').join(' · ')+'.'));

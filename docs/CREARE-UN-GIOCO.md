@@ -137,6 +137,7 @@ Con questi campi la partita diventa una gestione: le pedine sono persone, alcuni
 - `reserve`: `{from, label, text?, step, start, full, floor, places}`. Prima dell'anno il giocatore mette da parte una quantità di `from` (a passi di `step`); quella quantità si toglie e la resa dei `places` vale `floor + (1 - floor) × min(1, riserva / full)`. È la semina: più si mette da parte meno si mangia.
 - `turns[].market`: `{who, text, offers}`. Dopo chi bussa si apre il mercato; ogni offerta `{id, label, text, when?, once?, effects, rules?}` si prende una volta per visita (`once`: una volta nella partita).
 - Le risposte di chi bussa accettano `when`: se la condizione è falsa la risposta resta visibile ma non si può scegliere.
+- **Telefono (5 novembre 2026).** I `projects` stanno in un pannello «Lavori lunghi» (`<details>`): chiuso sul telefono finché nessuno ci lavora, aperto sul desktop; lo stato che lo studente gli dà resta fino alla fine dell'anno. I pulsanti e le etichette sulla scena (`places[].x/y`) restano dentro i bordi della scena: il centro si sposta quanto basta. Un effetto di zero non si mostra («nessun effetto»).
 - `upkeepLabel`, `yearlyLabel`, `crisisLabel` e `control.label` danno il nome alle voci dell'esito: il player mostra, per ogni anno, da dove viene ogni variazione (`result.steps`) e poi il totale.
 
 #### Partita di sole decisioni e parole della partita (facoltative)
