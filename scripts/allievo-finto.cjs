@@ -52,9 +52,10 @@ let n=0,finito=false,bloccato=false;const testi=[];const rnd=(()=>{let s=+(proce
   // settimana con persone
   if(await p.locator('[data-turn=confirm]').count()&&await p.locator('[data-worker]').count()){
     const ws=await p.locator('[data-worker]').evaluateAll(l=>l.map(x=>x.dataset.worker));
-    for(const w of ws){await click(p.locator('[data-worker="'+w+'"]'));const t=p.locator('[data-target]:not([disabled])');const c=await t.count();if(c){const ids=await t.evaluateAll(l=>l.map(x=>x.dataset.target));const pref=['corvee','campo'];let id=ids[Math.floor(rnd()*ids.length)];if(rnd()<0.6)id=pref.find(x=>ids.includes(x))||id;await click(p.locator('[data-target="'+id+'"]:not([disabled])'));}}
+    {const sm=p.locator('.turn-projects>summary');if(await sm.count()&&!(await p.locator('.turn-projects[open]').count())&&rnd()<0.5){log.write('\n> APRO il pannello dei lavori lunghi\n');await click(sm);}}
+    for(const w of ws){await click(p.locator('[data-worker="'+w+'"]'));const t=p.locator('[data-target]:not([disabled]):visible');const c=await t.count();if(c){const ids=await t.evaluateAll(l=>l.map(x=>x.dataset.target));const pref=['corvee','campo'];let id=ids[Math.floor(rnd()*ids.length)];if(rnd()<0.6)id=pref.find(x=>ids.includes(x))||id;await click(p.locator('[data-target="'+id+'"]:not([disabled])'));}}
     await dump('tabellone');if(await p.locator('[data-turn=confirm]:disabled').count()){log.write('\n> BLOCCATO tabellone\n');await dump('bloccato');
-      for(const w of ws){await click(p.locator('[data-worker="'+w+'"]'));const t=p.locator('[data-target=campo]:not([disabled])');if(await t.count())await click(t);}}
+      for(const w of ws){await click(p.locator('[data-worker="'+w+'"]'));const t=p.locator('[data-target=campo]:not([disabled]):visible');if(await t.count())await click(t);}}
     await click(p.locator('[data-turn=confirm]'));await dump('tabellone-esito');continue;}
   if(await p.locator('[data-turn=confirm]').count()&&!(await p.locator('[data-turn=confirm]:disabled').count())&&!(await p.locator('[data-hotspot]:not([disabled])').count())){await dump('conferma');await click(p.locator('[data-turn=confirm]'));continue;}
   if(await p.locator('[data-turn=leave]').count()){await dump('fiera');const isPool=await p.locator('.turn-pool').count();

@@ -392,7 +392,13 @@
         "Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche; domanda, obiettivi, verifica legata a un obiettivo, «Cosa ti devi ricordare», concetti, chiusura, fonti registrate; scene proprie)",
         "Controlli comuni G1–G5 passati (METODO §7)"
       ],
-      "stato": "da fare"
+      "stato": "fatto",
+      "pr": 57,
+      "evidenze": [
+        "docs/evidence/U-servitu/",
+        "tests/laika-servitu.test.js",
+        "docs/laika/giochi/servitu.md"
+      ]
     },
     {
       "id": "C-I",

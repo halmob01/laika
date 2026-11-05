@@ -63,6 +63,8 @@ module.exports=async(browser,root,artifacts)=>{
       const box=await hot.boundingBox(),stb=await page.locator('#stage').boundingBox();assert.ok(box.y>=stb.y&&box.y+box.height<=stb.y+stb.height+1,'posto dentro la scena');
       const prima=await page.locator('#stage [data-layer=madre]').getAttribute('transform');await hot.click();await page.waitForFunction(()=>document.querySelector('#stage').dataset.motion!=='playing',null,{timeout:5000});
       const dopo=await page.locator('#stage [data-layer=madre]').getAttribute('transform');assert.notEqual(dopo,prima,'la figura della madre va al campo');tappedOnStage=true;}
+    // Il pannello dei lavori lunghi resta com'è stato lasciato dallo studente anche quando la pagina si ridisegna.
+    if(!run.pannello&&await page.locator('.turn-projects>summary').count()){run.pannello=true;const prima=await page.locator('.turn-projects[open]').count();await page.locator('.turn-projects>summary').click();await page.locator('[data-worker]').first().click();const dopo=await page.locator('.turn-projects[open]').count();assert.notEqual(dopo,prima,'il pannello dei lavori lunghi si è ridisegnato come prima');await page.locator('.turn-projects>summary').click();}
     for(const [w,dove] of Object.entries(piano)){const ora=await page.locator('[data-worker="'+w+'"]').getAttribute('data-at');if(ora===dove)continue;
       await page.locator('[data-worker="'+w+'"]').click();const t=page.locator('[data-target="'+dove+'"]:not([disabled])');if(await t.count())await t.click();}
     if(anno===1)await shot('01-settimana');

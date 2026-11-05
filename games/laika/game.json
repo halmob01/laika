@@ -45683,7 +45683,7 @@
           "parent": "world",
           "pose": {
             "translateX": 330,
-            "translateY": 606,
+            "translateY": 610,
             "scale": 0.95
           }
         },
@@ -45693,7 +45693,7 @@
           "parent": "world",
           "pose": {
             "translateX": 1290,
-            "translateY": 606,
+            "translateY": 610,
             "scale": 0.95,
             "scaleX": -1
           }
@@ -45704,7 +45704,7 @@
           "parent": "world",
           "pose": {
             "translateX": 110,
-            "translateY": 606,
+            "translateY": 610,
             "scale": 0.6
           }
         },
@@ -45733,7 +45733,7 @@
           "symbol": "oggetto-cartello-vuoto",
           "parent": "world",
           "pose": {
-            "translateX": 900,
+            "translateX": 920,
             "translateY": 578,
             "scale": 0.6
           }
@@ -45743,7 +45743,7 @@
           "symbol": "oggetto-cartello-vuoto",
           "parent": "world",
           "pose": {
-            "translateX": 1000,
+            "translateX": 1022,
             "translateY": 578,
             "scale": 0.6
           }
@@ -45753,7 +45753,7 @@
           "symbol": "oggetto-cartello-vuoto",
           "parent": "world",
           "pose": {
-            "translateX": 1100,
+            "translateX": 1132,
             "translateY": 578,
             "scale": 0.6
           }
@@ -46743,8 +46743,7 @@
             },
             {
               "targets": [
-                "villaggio",
-                "cartello-1"
+                "villaggio"
               ],
               "relative": true,
               "at": 3800,
@@ -46775,6 +46774,37 @@
             },
             {
               "targets": [
+                "cartello-1"
+              ],
+              "relative": true,
+              "at": 3800,
+              "duration": 2600,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateX": -460,
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "translateX": -230,
+                    "translateY": -60
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateX": 0,
+                    "translateY": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
                 "cartello-2"
               ],
               "relative": true,
@@ -46784,14 +46814,14 @@
                 {
                   "offset": 0,
                   "values": {
-                    "translateX": -540,
+                    "translateX": -562,
                     "translateY": 0
                   }
                 },
                 {
                   "offset": 0.5,
                   "values": {
-                    "translateX": -270,
+                    "translateX": -281,
                     "translateY": -60
                   }
                 },
@@ -46815,14 +46845,14 @@
                 {
                   "offset": 0,
                   "values": {
-                    "translateX": -640,
+                    "translateX": -672,
                     "translateY": 0
                   }
                 },
                 {
                   "offset": 0.5,
                   "values": {
-                    "translateX": -320,
+                    "translateX": -336,
                     "translateY": -60
                   }
                 },
@@ -47014,6 +47044,16 @@
           }
         },
         {
+          "id": "campi-lontano",
+          "symbol": "luogo-pianura",
+          "parent": "world",
+          "pose": {
+            "translateX": 960,
+            "translateY": 942,
+            "scale": 3.4
+          }
+        },
+        {
           "id": "campi",
           "symbol": "luogo-pianura",
           "parent": "world",
@@ -47029,7 +47069,7 @@
           "parent": "world",
           "pose": {
             "translateX": 420,
-            "translateY": 735,
+            "translateY": 738,
             "scale": 0.55
           }
         },
@@ -47039,7 +47079,7 @@
           "parent": "world",
           "pose": {
             "translateX": 980,
-            "translateY": 736,
+            "translateY": 738,
             "scale": 0.7
           }
         },
@@ -47049,7 +47089,7 @@
           "parent": "world",
           "pose": {
             "translateX": 1520,
-            "translateY": 735,
+            "translateY": 738,
             "scale": 0.6
           }
         },
@@ -49853,7 +49893,7 @@
           "parent": "world",
           "pose": {
             "translateX": 1250,
-            "translateY": 606,
+            "translateY": 610,
             "scale": 0.95
           }
         },
@@ -49895,7 +49935,7 @@
           "parent": "world",
           "pose": {
             "translateX": 600,
-            "translateY": 590,
+            "translateY": 613,
             "scale": 0.8
           },
           "opacity": 0
@@ -49906,7 +49946,7 @@
           "parent": "world",
           "pose": {
             "translateX": 600,
-            "translateY": 590,
+            "translateY": 613,
             "scale": 0.8
           },
           "opacity": 0
@@ -49917,7 +49957,7 @@
           "parent": "world",
           "pose": {
             "translateX": 880,
-            "translateY": 585,
+            "translateY": 615,
             "scale": 0.75
           },
           "opacity": 0
@@ -49928,7 +49968,7 @@
           "parent": "world",
           "pose": {
             "translateX": 880,
-            "translateY": 585,
+            "translateY": 615,
             "scale": 0.75
           },
           "opacity": 0
@@ -49950,7 +49990,7 @@
           "parent": "world",
           "pose": {
             "translateX": 1040,
-            "translateY": 600,
+            "translateY": 612,
             "scale": 0.55
           }
         },
@@ -59235,7 +59275,7 @@
           "parent": "world",
           "pose": {
             "translateX": 1300,
-            "translateY": 606,
+            "translateY": 610,
             "scale": 0.8
           }
         },
@@ -100459,6 +100499,12 @@
           },
           "verdicts": [
             {
+              "tone": "bad",
+              "text": "Il grano è finito: la famiglia ha tirato avanti solo con quello che ha dovuto vendere, chiedere o lasciare.",
+              "stamp": "Fame",
+              "floored": "grano"
+            },
+            {
               "when": {
                 "op": "gte",
                 "kind": "resource",
@@ -100482,8 +100528,8 @@
             },
             {
               "tone": "bad",
-              "text": "Il grano non basta: quest'inverno si fa la fame.",
-              "stamp": "Fame"
+              "text": "Si arriva al raccolto, ma per l'inverno che viene il grano non basta.",
+              "stamp": "Poco grano"
             }
           ],
           "strengthOne": "braccio",

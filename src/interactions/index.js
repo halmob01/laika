@@ -52,21 +52,26 @@ const metricLabel=(act,m)=>[...(act.metrics||[]),...(act.resources||[])].find(d=
 function changeList(act,changes){const ul=el('ul',undefined,{class:'turn-changes'}),hidden=new Set([...(act.metrics||[]),...(act.resources||[])].filter(d=>d.hidden).map(d=>d.id));for(const c of changes.filter(x=>!hidden.has(x.id)))ul.append(el('li',c.label+': '+c.before+' → '+c.after));return ul;}
 function overlay(stageHost){stageHost?.querySelector('.turn-overlay')?.remove();fitObserver?.disconnect();fitObserver=null;
   const svg=stageHost?.querySelector('svg');if(!svg)return null;const layer=el('div',undefined,{class:'turn-overlay','aria-hidden':'true'});stageHost.append(layer);
-  const fit=()=>{const a=stageHost.getBoundingClientRect(),r=svg.getBoundingClientRect();Object.assign(layer.style,{left:(r.left-a.left)+'px',top:(r.top-a.top)+'px',width:r.width+'px',height:r.height+'px'});};
+  const fit=()=>{const a=stageHost.getBoundingClientRect(),r=svg.getBoundingClientRect();Object.assign(layer.style,{left:(r.left-a.left)+'px',top:(r.top-a.top)+'px',width:r.width+'px',height:r.height+'px'});keepInside(layer);};
   fit();if(typeof ResizeObserver==='function'){fitObserver=new ResizeObserver(fit);fitObserver.observe(stageHost);}return {layer,svg};}
-const at=(node,x,y)=>{node.style.left=(x*100)+'%';node.style.top=(y*100)+'%';return node;};
+const at=(node,x,y)=>{node.dataset.x=String(x);node.style.left=(x*100)+'%';node.style.top=(y*100)+'%';return node;};
+// Le etichette restano dentro la scena: il centro si sposta quanto basta perché la metà della larghezza non esca dal bordo.
+function keepInside(layer){const w=layer.clientWidth;if(!w)return;for(const n of layer.children){const x=parseFloat(n.dataset.x);if(!Number.isFinite(x))continue;const half=n.offsetWidth/2+2;n.style.left=Math.min(Math.max(x*w,half),Math.max(half,w-half))+'px';}}
 function clearOverlay(stageHost){stageHost?.querySelector('.turn-overlay')?.remove();fitObserver?.disconnect();fitObserver=null;}
 function hotspots(stageHost,episode,game,dispatch,state){
   // Giornata a punti: le azioni con un punto sulla scena (at) si toccano sulla scena.
   if(game.phase==='market'&&state?.phase==='scene'){const t=episode.turns[game.turn],o=overlay(stageHost);if(!o)return;
     for(const f of t.market.offers.filter(x=>x.at)){const n=game.market.bought.filter(x=>x===f.id).length,b=button((f.short||f.label)+(f.cost>1?' · '+f.cost:'')+(n&&f.repeat?' ×'+n:''),()=>dispatch({type:'turn',step:'buy',offerId:f.id}),{tabindex:'-1','data-hotspot':f.id,title:f.label});
-      at(b,f.at.x,f.at.y);b.disabled=!offerOpen(episode,game,f,state);o.layer.append(b);}return;}
+      at(b,f.at.x,f.at.y);b.disabled=!offerOpen(episode,game,f,state);o.layer.append(b);}keepInside(o.layer);return;}
   const o=game.phase==='place'?overlay(stageHost):(clearOverlay(stageHost),null);if(!o)return;
   for(const p of episode.places||[]){const b=button(String(game.placement[p.id]),()=>dispatch({type:'turn',step:'place',placeId:p.id,delta:1}),{tabindex:'-1','data-hotspot':p.id,title:placeLabel(episode,game,p)});
     at(b,p.x,p.y);b.disabled=placed(game)>=game.rules.tokens;o.layer.append(b);}
+  keepInside(o.layer);
 }
 // Gestione: la persona scelta (stato dell'interfaccia, non della partita) e le figure sulla scena.
 let pick={key:'',worker:null},seenGeneration=-1;
+// Il pannello dei lavori lunghi resta com'è stato lasciato dallo studente fino alla fine dell'anno (stato dell'interfaccia, non della partita).
+let projectsPanel={key:'',open:false};
 function pickFor(episode,g){const key=episode.id+':'+g.turn;if(pick.key!==key)pick={key,worker:workersOf(episode,g).find(w=>!g.assign[w.id])?.id||null};
   if(pick.worker&&!workersOf(episode,g).some(w=>w.id===pick.worker))pick.worker=null;return pick.worker;}
 function board(stageHost,stage,episode,act,state,dispatch){
@@ -78,6 +83,7 @@ function board(stageHost,stage,episode,act,state,dispatch){
       b.disabled=!pick.worker;o.layer.append(at(b,p.x,p.y));}
     else if(p.kind==='project'&&g.progress[p.id])o.layer.append(at(el('span',(p.short?p.short+' ':'')+(g.progress[p.id]||0)+'/'+p.work,{class:'turn-stamp work',title:label}),p.x,p.y));}
   for(const p of (episode.projects||[]).filter(x=>g.built.includes(x.id)))o.layer.append(at(el('span',p.short||p.label,{class:'turn-stamp built','data-built':p.id}),p.x,p.y));
+  keepInside(o.layer);
   // Le figure delle persone vanno dove sono state mandate; chi non ha un posto resta al punto di partenza.
   if(!stage)return;const vb=(o.svg.getAttribute('viewBox')||'0 0 1 1').split(/\s+/).map(Number),groups=new Map();
   for(const w of workersOf(episode,g))if(w.figure&&g.assign[w.id]){const k=g.assign[w.id];groups.set(k,[...(groups.get(k)||[]),w]);}
@@ -115,7 +121,7 @@ function managePlace(host,episode,act,state,go){
     b.append(el('strong',w.label),force,el('small',g.assign[w.id]?'→ '+nameOf(g.assign[w.id]):'senza posto'));crew.append(b);}
   host.append(crew);
   // 2. I posti: una riga ciascuno, l'effetto in parole.
-  const list=el('div',undefined,{class:'turn-places'});
+  const list=el('div',undefined,{class:'turn-places'}),lavori=el('div',undefined,{class:'turn-places'});
   for(const p of targets){
     const there=people.filter(w=>g.assign[w.id]===p.id),row=button('',()=>{if(chosen)go('assign',{workerId:chosen,placeId:p.id});},{class:'turn-target'+(p.kind==='project'?' project':''),'data-target':p.id});
     row.disabled=!chosen||g.assign[chosen]===p.id;
@@ -129,9 +135,15 @@ function managePlace(host,episode,act,state,go){
       if(req)row.append(el('span','Il signore ne vuole '+amount(episode,req)+'.',{class:'turn-due'}));}
     row.append(el('small',there.length?there.map(w=>w.label).join(', ')+' · '+amount(episode,n):'nessuno',{class:'turn-there'}));
     if(req&&n<req)row.append(el('small','Ne '+manca(req-n)+' '+amount(episode,req-n)+'.',{class:'turn-warning'}));
-    list.append(row);
+    (p.kind==='project'?lavori:list).append(row);
   }
   host.append(list);
+  // I lavori lunghi stanno in un pannello: chiuso sul telefono finché nessuno ci lavora, così il tabellone resta corto.
+  if(lavori.children.length){const attivi=targets.some(p=>p.kind==='project'&&((g.placement[p.id]||0)>0||g.started.includes(p.id)||g.progress[p.id]>0));
+    const grande=typeof matchMedia==='function'&&matchMedia('(min-width: 760px)').matches;
+    const chiave=episode.id+':'+g.turn,pannello=el('details',undefined,{class:'turn-projects','data-projects':''});pannello.open=projectsPanel.key===chiave?projectsPanel.open:attivi||grande;
+    pannello.addEventListener('toggle',()=>{projectsPanel={key:chiave,open:pannello.open};});
+    pannello.append(el('summary','Lavori lunghi ('+[...lavori.children].length+')'),lavori);host.append(pannello);}
   // 3. La semina: la domanda, il controllo e che cosa resta.
   if(episode.reserve){const r=episode.reserve,res=(act.resources||[]).find(d=>d.id===r.from),have=state.resources[r.from],need=-[...(episode.upkeep||[]),...g.rules.upkeep].filter(m=>m.id===r.from).reduce((n,m)=>n+m.delta,0);
     const spent=committed(episode,g)[r.from]||0,left=have-spent-need,box=el('div',undefined,{class:'turn-reserve'});
@@ -140,7 +152,7 @@ function managePlace(host,episode,act,state,go){
     minus.disabled=g.reserve<=0;plus.disabled=spent+r.step>have;ctl.append(minus,el('b',String(g.reserve),{'aria-label':g.reserve+' '+r.label.toLowerCase()}),plus);box.append(ctl);
     const pct=Math.round(100*yieldOf(episode,{...g,rules:{...g.rules,boost:{}}},r.places[0]));
     box.append(el('p','Hai '+have+' di '+res.label.toLowerCase()+'. Per mangiare fino al raccolto ne servono '+need+'. Dopo la semina'+(spent>g.reserve?' e i lavori':'')+(left<0?' ne mancano '+(-left)+' per arrivare al raccolto':' ne restano '+left)+'. Il campo renderà il '+pct+'% del possibile.',{role:'status'}));
-    if(left<0)box.append(el('p','Non basta: il grano finirà prima del raccolto.',{class:'turn-warning'}));host.append(box);}
+    if(left<=0)box.append(el('p','Non basta: il grano finirà prima del raccolto.',{class:'turn-warning'}));host.append(box);}
   // 4. Il rischio, scritto prima di scegliere.
   const risk=el('div',undefined,{class:'turn-risk'});
   risk.append(el('p',(episode.luckLabel||'Il tempo che farà')+': '+luckOdds(episode).map(l=>l.label+' '+l.p+'%').join(' · ')+'.'));
