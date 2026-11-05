@@ -14,7 +14,7 @@ Scheda di gioco dell'unità `concessioni` (canone: II.3). Versione 1 (costruita)
 
 **Le stagioni:** il Manifesto riempie la carta (+20) e porta qualche potere (+4); nel 1906 le Leggi fondamentali tolgono potere vero (−8) e aprono la Duma; nel 1907 la reazione dello zar sale (+6). **Crisi (una volta ciascuna):** la reazione a 60 o più (lo zar scioglie la Duma: poteri e carta calano), la carta a 40 o più con i poteri a 10 o meno («sulla carta c'è tutto e nelle mani non c'è niente»).
 
-**Esito.** Nessuna vittoria o sconfitta: un testo che rimanda al giudizio. Poi le tre schede (II.3-e2, «Diritto o tregua?»): il Manifesto, le Leggi fondamentali, le due Dume sciolte, e la scelta con due fatti.
+**Esito.** Nessuna vittoria o sconfitta: un testo che rimanda al giudizio. Poi le tre schede (II.3-e2, «Diritto o tregua?»): il Manifesto, le Leggi fondamentali, le due Dume sciolte; la scelta con due fatti.
 
 **Regola di bilanciamento (G3 di METODO §7), controllata da `tests/laika-concessioni.test.js` sul motore vero (cinque piani, tre stagioni, tre semi, il soviet che ha trattato o no).** Nessuna strategia è la migliore su tutti gli indicatori insieme; la scelta del soviet apre azioni diverse e porta a esiti diversi (chi minaccia senza trattativa alza la reazione di almeno 10 punti rispetto a chi tratta); la carta è sempre almeno quanto i poteri; ogni azione serve; ogni crisi si può provocare; le etichette sulla scena non si sovrappongono.
 

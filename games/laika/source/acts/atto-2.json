@@ -2583,7 +2583,7 @@
             {
               "kind": "documented",
               "title": "Le Dume sciolte",
-              "text": "La prima Duma viene sciolta dopo pochi mesi e la seconda dura ancora meno. La Duma non nasce con pieni poteri."
+              "text": "Lo zar scioglie la prima Duma dopo pochi mesi e poi anche la seconda. La Duma non nasce con pieni poteri."
             },
             {
               "kind": "simulation",
@@ -2803,7 +2803,7 @@
         {
           "id": "dume",
           "title": "Le due Dume sciolte",
-          "text": "La prima Duma viene sciolta dopo pochi mesi e la seconda dura ancora meno. La Duma non nasce con pieni poteri.",
+          "text": "Lo zar scioglie la prima Duma dopo pochi mesi e poi anche la seconda. La Duma non nasce con pieni poteri.",
           "provenance": "Sintesi per il gioco dagli appunti «La Rivoluzione Russa»."
         }
       ],
@@ -2840,7 +2840,7 @@
         "kind": "documented",
         "dateLabel": "ottobre 1905–giugno 1907"
       },
-      "text": "Dopo lo sciopero generale lo zar firma il Manifesto di ottobre: promette libertà civili e una Duma eletta. Ma nel 1906 le Leggi fondamentali chiamano ancora autocratico il suo potere e la Duma ha una funzione consultiva: lo zar conserva poteri molto larghi.\n\nLe prime due Dume vengono sciolte e la seconda dura ancora meno della prima. Quello che stava sulla carta era più di quello che i deputati potevano fare davvero.\n\nUna concessione strappata con lo sciopero è un diritto o una tregua? Con due fatti si può sostenere l'una o l'altra: qualcosa è cambiato davvero e il potere dello zar è rimasto largo.",
+      "text": "Dopo lo sciopero generale lo zar firma il Manifesto di ottobre: promette libertà civili e una Duma eletta. Ma nel 1906 le Leggi fondamentali chiamano ancora autocratico il suo potere e la Duma ha una funzione consultiva: lo zar conserva poteri molto larghi.\n\nLe prime due Dume vengono sciolte dallo zar. Quello che stava sulla carta era più di quello che i deputati potevano fare davvero.\n\nUna concessione strappata con lo sciopero è un diritto o una tregua? Con due fatti si può sostenere l'una o l'altra: qualcosa è cambiato davvero e il potere dello zar è rimasto largo.",
       "stageId": "concessioni-sala",
       "motionId": "ingresso",
       "visualExplanation": "La sala di San Giorgio con l'aquila imperiale e il palco di un teatro. Gli indicatori sono indici della simulazione: non sono dati storici né voti.",
