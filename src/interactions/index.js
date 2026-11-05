@@ -222,7 +222,7 @@ function turnGame(ctx){
     for(const p of episode.places){
       const row=el('div',undefined,{class:'turn-place'}),info=el('div');
       const req=g.rules.min[p.id];
-      info.append(el('strong',placeLabel(episode,g,p)),el('span',(perToken(episode,g,p).map(m=>sign(m.delta)+' '+metricLabel(act,m)).join(', ')||'nessun effetto')+' per ciascuno'+(req?' · dovuti: '+req:'')));
+      info.append(el('strong',placeLabel(episode,g,p)),el('span',(perToken(episode,g,p).filter(m=>m.delta).map(m=>sign(m.delta)+' '+metricLabel(act,m)).join(', ')||'nessun effetto')+' per ciascuno'+(req?' · dovuti: '+req:'')));
       const minus=button('−',()=>go('place',{placeId:p.id,delta:-1}),{'data-place':p.id,'data-delta':'-1','aria-label':'Togli uno da '+placeLabel(episode,g,p)});minus.disabled=!g.placement[p.id];
       const plus=button('+',()=>go('place',{placeId:p.id,delta:1}),{'data-place':p.id,'data-delta':'1','aria-label':'Aggiungi uno a '+placeLabel(episode,g,p)});plus.disabled=!left||(p.max!==undefined&&g.placement[p.id]>=p.max);
       row.append(info,minus,el('b',String(g.placement[p.id]),{'aria-label':g.placement[p.id]+' su '+placeLabel(episode,g,p)}),plus);list.append(row);

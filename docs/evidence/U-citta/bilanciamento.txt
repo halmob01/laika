@@ -1,0 +1,18 @@
+Caso 0 no credito
+  fissa       55   16   27   20    2 a-letto,dormitorio|dormitorio,a-letto  forze: 46 36 32 54 48 53 53 40
+  equilibrata    57   15   55   20    2 dormitorio,a-letto|dormitorio  forze: 53 50 53 45 36 63 63 50
+  caldo        6    2   47   20    1 a-letto|a-letto  forze: 37 18 41 21 16 30 12 6
+  casa         7   15  100   20    2 a-letto,dormitorio|a-letto,dormitorio  forze: 43 30 23 42 9 8 8 5
+  studio       8   15    7  100    3 a-letto,dormitorio,silenzio|a-letto,dormitorio,silenzio  forze: 42 28 50 20 2 10 10 5
+Caso 1 no credito
+  fissa       65   17   17    0    2 dormitorio,a-letto,silenzio|dormitorio  forze: 46 42 38 32 65 70 70 62
+  equilibrata    77   16   32    0    1 dormitorio|dormitorio  forze: 53 56 59 57 54 51 59 61
+  caldo        6    4   24    0    1 a-letto|a-letto  forze: 37 24 41 27 16 30 12 6
+  casa         7   16  100    0    2 a-letto,dormitorio|a-letto,dormitorio  forze: 43 36 29 42 15 8 8 5
+  studio       8   16    0  100    3 a-letto,silenzio,dormitorio|silenzio,a-letto,dormitorio  forze: 42 34 26 39 14 10 10 5
+Caso 0 credito
+  fissa       64   19   35   20    2 dormitorio,a-letto|dormitorio  forze: 46 36 32 60 64 69 79 66
+  equilibrata    79   19   55   20    1 dormitorio|dormitorio  forze: 53 50 63 55 56 53 71 63
+  caldo        0    7   47   20    2 a-letto,dormitorio|a-letto,dormitorio  forze: 37 18 45 25 18 24 10 0
+  casa         7   19  100   20    2 a-letto,dormitorio|dormitorio,a-letto  forze: 43 30 33 42 19 8 8 5
+  studio      13   19    7  100    3 a-letto,dormitorio,silenzio|dormitorio,a-letto,silenzio  forze: 42 28 30 44 23 10 10 5

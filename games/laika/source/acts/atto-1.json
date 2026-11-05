@@ -134,7 +134,8 @@
     "figlio_via",
     "padre_via",
     "figlio_in_citta",
-    "mir_diviso"
+    "mir_diviso",
+    "affitto_alzato"
   ],
   "episodes": [
     {
@@ -3211,7 +3212,7 @@
         "dateLabel": "fine Ottocento–1904",
         "placeLabel": "Pietroburgo"
       },
-      "text": "Sei il figlio e lavori in fabbrica a Pietroburgo. Ogni sabato arriva il salario: otto monete (un indice della simulazione).\n\nNon bastano per tutto: pane per le forze, un angolo di stanza in affitto, carbone per l'inverno e soldi da mandare al villaggio. C'è anche un corso serale per imparare a leggere i fogli. Giochi otto settimane e il debito si porta dietro da una all'altra.",
+      "text": "Sei il figlio e lavori in fabbrica a Pietroburgo. Ogni sabato arriva il salario: otto monete (un indice della simulazione).\n\nNon bastano per tutto: pane per le forze, un angolo di stanza in affitto, carbone per il freddo (fuori dal freddo non serve) e soldi da mandare al villaggio. C'è anche un corso serale per imparare a leggere i fogli. Giochi otto settimane e il debito si porta dietro da una all'altra. Le cose non restano ferme: l'affitto sale, il freddo si mette e una settimana la fabbrica si ferma.",
       "goal": "Arriva alla fine dell'ottava settimana con le forze intere e il debito basso.",
       "stageId": "citta-stanza",
       "motionId": "ingresso",
@@ -3270,7 +3271,7 @@
         },
         {
           "id": "carbone",
-          "label": "Carbone",
+          "label": "Carbone (serve nel freddo)",
           "short": "Carbone",
           "x": 0.82,
           "y": 0.78,
@@ -3278,7 +3279,7 @@
             {
               "kind": "resource",
               "id": "forze",
-              "delta": 5
+              "delta": 0
             }
           ]
         },
@@ -3327,6 +3328,11 @@
           "kind": "resource",
           "id": "forze",
           "delta": -24
+        },
+        {
+          "kind": "metric",
+          "id": "legami",
+          "delta": -8
         }
       ],
       "luck": [
@@ -3344,8 +3350,8 @@
           }
         },
         {
-          "id": "freddo",
-          "label": "freddo forte",
+          "id": "carbone-umido",
+          "label": "carbone umido",
           "weight": 2,
           "yield": {
             "carbone": 0.4
@@ -3353,9 +3359,9 @@
         }
       ],
       "control": {
-        "label": "La padrona di casa",
-        "text": "La padrona di casa bussa: l'affitto è in arretrato e le monete che mancano diventano debito.",
-        "escaped": "L'affitto è in ritardo ma questa volta la padrona di casa non se ne accorge.",
+        "label": "I conti in arretrato",
+        "text": "Bussano per i conti in arretrato (l'affitto o il carbone): le monete che mancano diventano debito.",
+        "escaped": "I conti sono in arretrato ma questa volta nessuno bussa.",
         "chance": {
           "base": 0.8
         },
@@ -3381,7 +3387,7 @@
             "op": "lte",
             "kind": "resource",
             "id": "forze",
-            "value": 10
+            "value": 5
           },
           "text": "Non ti reggi più in piedi: resti a letto qualche giorno e da qui in poi guadagni di meno.",
           "effects": [
@@ -3398,10 +3404,20 @@
         {
           "id": "dormitorio",
           "when": {
-            "op": "gte",
-            "kind": "metric",
-            "id": "debito",
-            "value": 8
+            "op": "all",
+            "items": [
+              {
+                "op": "gte",
+                "kind": "metric",
+                "id": "debito",
+                "value": 8
+              },
+              {
+                "op": "flag",
+                "id": "affitto_alzato",
+                "value": true
+              }
+            ]
           },
           "text": "Il debito è troppo: perdi l'angolo di stanza e ti sistemi in un dormitorio di fabbrica. Non paghi più la stanza ma dormi male.",
           "effects": [
@@ -3610,7 +3626,26 @@
                 ]
               }
             ]
-          }
+          },
+          "cards": [
+            {
+              "kind": "simulation",
+              "title": "L'affitto sale",
+              "text": "La padrona di casa ha trovato chi paga di più per l'angolo: o dai tre monete a settimana o cerchi un altro posto. Il salario è sempre lo stesso."
+            }
+          ],
+          "rules": {
+            "min": {
+              "stanza": 3
+            }
+          },
+          "effects": [
+            {
+              "kind": "flag",
+              "id": "affitto_alzato",
+              "value": true
+            }
+          ]
         },
         {
           "label": "Settimana 4",
@@ -3672,6 +3707,36 @@
                 ]
               }
             ]
+          },
+          "cards": [
+            {
+              "kind": "simulation",
+              "title": "Il freddo si mette",
+              "text": "Gela anche dentro la stanza. Senza carbone la stufetta non scalda: da questa settimana il carbone va comprato (almeno tre monete) perché chi ha freddo consuma più forza."
+            }
+          ],
+          "rules": {
+            "min": {
+              "carbone": 3
+            },
+            "upkeep": [
+              {
+                "kind": "resource",
+                "id": "forze",
+                "delta": -6
+              }
+            ],
+            "places": {
+              "carbone": {
+                "perToken": [
+                  {
+                    "kind": "resource",
+                    "id": "forze",
+                    "delta": 8
+                  }
+                ]
+              }
+            }
           }
         },
         {
@@ -3724,6 +3789,17 @@
                 }
               }
             ]
+          },
+          "cards": [
+            {
+              "kind": "simulation",
+              "title": "La fabbrica si ferma",
+              "text": "Una caldaia è saltata e per un giorno non si lavora. Il salario di questa settimana è di sette monete: la stanza non aspetta.",
+              "stageId": "citta-fabbrica"
+            }
+          ],
+          "rules": {
+            "tokensDelta": -1
           }
         },
         {
@@ -3767,6 +3843,16 @@
                 ]
               }
             ]
+          },
+          "cards": [
+            {
+              "kind": "simulation",
+              "title": "Si riparte",
+              "text": "La caldaia è riparata e la fabbrica riprende. Il freddo no: dura ancora."
+            }
+          ],
+          "rules": {
+            "tokensDelta": 1
           }
         },
         {
@@ -3805,6 +3891,30 @@
                 ]
               }
             ]
+          },
+          "cards": [
+            {
+              "kind": "simulation",
+              "title": "Il freddo passa",
+              "text": "Dopo tre settimane la stufetta si spegne con meno pena. Fuori dal freddo il carbone non serve più: le monete vanno altrove. Resta il conto di quello che si è dato e di quello che non si è dato."
+            }
+          ],
+          "rules": {
+            "min": {
+              "carbone": 0
+            },
+            "upkeep": [],
+            "places": {
+              "carbone": {
+                "perToken": [
+                  {
+                    "kind": "resource",
+                    "id": "forze",
+                    "delta": 0
+                  }
+                ]
+              }
+            }
           }
         },
         {
@@ -4026,6 +4136,34 @@
       ],
       "motionId": "ingresso",
       "visualExplanation": "Il dormitorio di una fabbrica: file di cuccette e una lampada. La domanda riguarda la vita degli operai che hai visto nell'unità."
+    },
+    {
+      "id": "a1-citta-confronto",
+      "type": "narrative",
+      "roleId": "figlio",
+      "title": "Il villaggio e la fabbrica",
+      "display": "cards",
+      "context": {
+        "kind": "documented",
+        "dateLabel": "1861–1904"
+      },
+      "text": "Quattro cose ha lasciato questo mezzo secolo.\n\nLa servitù ha lasciato un modo di contare le persone: un servo era un'«anima» in un registro e un nobile valeva per le anime che possedeva.\n\nIl 1861 ha lasciato una libertà con un prezzo. Il Manifesto del 19 febbraio (3 marzo) 1861 abolì la servitù della gleba ma la terra non passò gratis ai contadini: andava riscattata.\n\nIl mir ha lasciato un obbligo comune: il villaggio rispondeva insieme dei pagamenti e ridivideva le strisce. Era una comunità con regole proprie e non un soviet né una democrazia moderna.\n\nLa fabbrica ha lasciato un salario e un affitto. In città nessuno poteva venderti ma ogni sabato bisognava scegliere fra pane, stanza, carbone e soldi a casa.\n\nIl diario della famiglia (nella simulazione) ha due case. Al villaggio qualcuno è rimasto con il mir e il raccolto; in città qualcuno è partito con il salario. Le due case si parlano con una lettera e una moneta: chi parte non smette di appartenere al villaggio e chi resta dipende da quello che arriva dalla città.\n\nChe cosa lega ancora il villaggio alla fabbrica?",
+      "stageId": "citta-confronto",
+      "motionId": "ingresso",
+      "visualExplanation": "A sinistra il villaggio con le isbe e la famiglia; a destra la fabbrica con il figlio. In mezzo una lettera con una moneta. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
+      "editorial": {
+        "sources": [
+          "I1-01",
+          "I2-01",
+          "I2-03"
+        ],
+        "scheda": "I.3-e7"
+      },
+      "shows": [
+        "forze",
+        "legami",
+        "speranza"
+      ]
     }
   ],
   "reconciliation": "Fine dell'Atto I (1700–1904). Per un secolo e mezzo la ricchezza si è contata in anime; il 1861 ha dato la libertà della persona senza la terra. La terra non bastava per tutti e i figli sono partiti per la fabbrica, dove circolavano i primi volantini. Le tue scelte hanno cambiato soltanto la simulazione, non questi fatti. Segue l'Atto II: il 1905.",
@@ -4099,7 +4237,8 @@
         "a1-citta-corte",
         "a1-citta-volantini",
         "a1-citta-ricorda",
-        "a1-citta-v2"
+        "a1-citta-v2",
+        "a1-citta-confronto"
       ],
       "closing": {
         "did": "Hai fatto durare un salario di fabbrica per otto settimane e hai letto che cosa promettevano i partiti.",

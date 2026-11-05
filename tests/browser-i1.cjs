@@ -46,7 +46,7 @@ module.exports=async(browser,root,artifacts)=>{
     for(const [id,n] of Object.entries({pane:3,stanza:2,carbone:1,villaggio:1,corso:1}))for(let i=0;i<n;i++){const b=page.locator('[data-place="'+id+'"][data-delta="1"]');if(await b.count()&&await b.isEnabled())await b.click();}
     // Altre gestioni a pedine (le strisce del mir): si completano le pedine che restano su posti a rotazione.
     for(let k=0;k<30&&await page.locator('[data-turn=confirm]:disabled').count();k++){const plus=page.locator('[data-place][data-delta="1"]:enabled'),n=await plus.count();if(!n)break;await plus.nth(k%n).click();}
-    await shot('91-salario');if(await page.locator('[data-turn=confirm]:disabled').count())throw new Error('salario non confermabile');
+    await shot('91-salario');if(/[−+]0\s/.test(await page.locator('body').innerText()))throw new Error('un posto mostra un effetto di zero («−0»)');if(await page.locator('[data-turn=confirm]:disabled').count())throw new Error('salario non confermabile');
     await page.locator('[data-turn=confirm]').click();await shot('91-salario-esito');continue;}
    if(await page.locator('[data-turn=confirm]').count()){
     assert.match(await page.locator('#caption').textContent(),/tabellone/,'didascalia del tabellone, non della card precedente');

@@ -2,7 +2,7 @@
 
 A che punto è ogni cosa, con le evidenze. Si aggiorna in ogni PR. La struttura che fa fede è nel [canone](CANONE.md); qui si dice solo che cosa c'è e che cosa manca.
 
-Aggiornato al 4 novembre 2026.
+Aggiornato al 5 novembre 2026.
 
 ## Adesso
 
@@ -15,6 +15,8 @@ Aggiornato al 4 novembre 2026.
 | R2 e R3 | Il build legge il canone; il gioco in tre atti; home con nove fascicoli; usabilità | PR R3 |
 
 **K1 fatto** (motore della coda con la pazienza; revisione indipendente al primo giro: passa): modulo `src/core/queue.js` e test, pannello «La coda» nel gioco, tre pose di attesa (`guarda_orologio`, `batte_piedi`, `si_stringe`), scena di prova `esempio-coda-pazienza` nella galleria, sezione in `docs/CREARE-UN-GIOCO.md`. Evidenze in `docs/evidence/K1/`.
+
+**U-citta fatto** (I.3 In città, 5 novembre 2026): il salario ribilanciato con le pressioni della scheda v2 (affitto che sale a tre monete, freddo lungo, settimana di sette monete, multa), la regola G3 fissata in `tests/laika-citta.test.js` (nessuna mossa fissa regge, esiste una strategia senza crisi, nessuna domina); nuovo confronto di fine atto I.3-e7 «Il villaggio e la fabbrica» con la scena `citta-confronto`. Il diario personalizzato aspetta K3. Evidenze in `docs/evidence/U-citta/`.
 
 **U-mir fatto** (I.2 Il mir, 4 novembre 2026): da questionario con barre a gestione, con sei strisce da assegnare a quattro gruppi, la cassa del riscatto come obbligo comune, l'esattore e il raccolto incerti, le richieste dopo l'esito; «Cosa ti devi ricordare» e verifica V7 (obiettivo: distinguere il mir da un soviet e da una democrazia moderna); nessun aneddoto trovato per il mir. Test di bilanciamento sul motore vero. Evidenze in `docs/evidence/U-mir/`.
 
@@ -40,7 +42,7 @@ Nessuna è ancora stata provata e approvata dal docente dal telefono.
 |---|---|---|---|
 | I.1 `servitu` | La settimana del servo: otto anni dal 1740 al 1861, cinque generazioni, migliorie, fiera, chi bussa, verifica V1 | Previsione ed esito del grano che si contraddicono; numeri negativi; pagina lunga sul telefono | `tests/browser-i1.cjs`; [revisione del 4 novembre](revisioni/2026-11-04-allievo-atto-I.md) |
 | I.2 `mir` | Otto assemblee, quattro gruppi | È un questionario con barre: niente da gestire fra una richiesta e l'altra | revisione del 4 novembre §5 |
-| I.3 `citta` | In città, il salario (otto settimane), il razzo, la corte, i tre volantini, verifica V2 | Il salario si vince con la stessa mossa ogni settimana; manca il confronto di fine atto | revisione §5 |
+| I.3 `citta` | In città, il salario (otto settimane), il razzo, la corte, i tre volantini, verifica V2, confronto di fine atto | Risolti il 5 novembre 2026 (U-citta): il salario ora mette alle strette e c'è il confronto di fine atto | revisione §5 |
 | Atto II (II.1–II.4) | Petizione e domenica di sangue (II.1), giornate del soviet a punti azione e V3 (II.2), che cosa concede lo zar (II.3), Stolypin, V4 e «Cosa ti devi ricordare» (II.4) | giochi di petizione, concessioni e Stolypin; aneddoti dei libri (diario di Nicola, il granduca, Baletta); le notizie del soviet non servono a niente; confronto di fine atto | revisione §3 e §5 |
 | III.1 `pane-guerra` | In ginocchio, il grano e i treni come partita di sole decisioni, gioielli e pane, la fine dello zar, verifica V5 | **Da rifare**: il gioco approvato (quanto serve e quanto c'è, prime code) non c'è; aneddoti (Fabergé, Kšesinskaja, Rodzjanko) | revisione §3 |
 | III.2 `otto-giorni` | Giornata della donna, la coda a punti azione, il soldato a punti azione, il treno, verifica V6, confronto | **Da rifare**: la coda vera (figure che lasciano la fila); aneddoti del treno (baffi, Frederiks); scene del treno nella neve e del Palazzo di Tauride da comporre con disegni che ci sono già ([PIANO-KIT](PIANO-KIT.md)); oggi treno, fine dello zar in famiglia e confronto sono senza scena invece di riusare scene sbagliate | revisione §3 e §4 |
@@ -53,7 +55,7 @@ Uscita di `LAIKA_RAPPORTO=1 node tests/unita-ludiche.test.js` (regole di METODO 
 |---|---|
 | I.1 `servitu` | niente |
 | I.2 `mir` | solo richieste a scelta multipla, niente da distribuire o spendere; nessun contenuto documentato |
-| I.3 `citta` | niente (ma il salario si vince con una mossa fissa: lo controlla G3) |
+| I.3 `citta` | niente (il test G3 del salario prova tutte le mosse fisse) |
 | II.1 `petizione` | nessun gioco; un modulo con caselle numeriche; nessuna fonte registrata |
 | II.2 `soviet` | nessuna fonte registrata; nessun contenuto documentato (le notizie che non contano le vede G4) |
 | II.3 `concessioni` | nessun gioco; nessuna fonte registrata; nessuna scena propria |

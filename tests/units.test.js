@@ -32,7 +32,7 @@ test('stato delle unità dall\'episodio corrente',()=>{
   const third=unitStates(act,'a1-citta-salario');
   assert.deepEqual(third.map(s=>s.status),['done','done','current']);
   assert.deepEqual(unitStates(act,'a1-citta-v2',true).map(s=>s.status),['done','done','done']);
-  assert.equal(unitIndexOf(act,'a1-mir-assemblea'),1);assert.deepEqual(positionInUnit(act,'a1-citta-salario'),{index:2,total:7});
+  assert.equal(unitIndexOf(act,'a1-mir-assemblea'),1);assert.deepEqual(positionInUnit(act,'a1-citta-salario'),{index:2,total:8});
 });
 test('unità iniziata o da iniziare',()=>{
   const s=newSession(game,'seed');assert.equal(unitStarted(act,s),false);

@@ -79,8 +79,8 @@ Gioco di gestione a più settimane ([GIOCHI](../GIOCHI.md) §3.1; scheda [salari
 - **Regia.** Panorama villaggio-città; la figura attraversa la soglia, cambiano densità e ritmo.
 - **Chi la sviluppa.** Sonnet.
 
-**I.3-e2 · turn_game [S] · Il salario** (ex «Il salario della settimana»; gioco di gestione, vedi il canone)
-- **Scena.** Il salario va diviso fra pane, angolo di stanza, carbone e soldi per il villaggio.
+**I.3-e2 · turn_game [S] · Il salario** (ex «Il salario della settimana»; gioco di gestione, scheda [salario](../giochi/salario.md), v2 del 5 novembre 2026)
+- **Scena.** Il salario va diviso fra pane, angolo di stanza, carbone, soldi per il villaggio e corso serale. Durante le otto settimane l'affitto sale, il freddo dura e una settimana la fabbrica si ferma: con la stessa mossa ogni settimana non si regge.
 - **Chi la sviluppa.** Sonnet.
 
 **I.3-e3 · narrative [D] · Il razzo del condannato**
@@ -108,7 +108,7 @@ Gioco di gestione a più settimane ([GIOCHI](../GIOCHI.md) §3.1; scheda [salari
 **Confronto obbligatorio.** Il mir non è un soviet né una democrazia moderna. Molti operai restano legati al villaggio.
 
 **I.3-e7 · narrative [D] · Confronto di fine atto** (nuovo, 4 novembre 2026)
-- **Scena.** Che cosa ha lasciato la servitù, che cosa il 1861, che cosa il mir, che cosa la fabbrica. Poi il diario: chi della famiglia è al villaggio e chi in città.
+- **Scena.** Che cosa ha lasciato la servitù, che cosa il 1861, che cosa il mir, che cosa la fabbrica. Poi il diario: chi della famiglia è al villaggio e chi in città (oggi un testo unico per tutte le famiglie; quello personalizzato aspetta K3). Episodio `a1-citta-confronto`, titolo «Il villaggio e la fabbrica», scena `citta-confronto`: villaggio e fabbrica nella stessa inquadratura, con la lettera e la moneta in mezzo.
 - **Chi la sviluppa.** Opus (raccordo d'atto).
 
 **Verifiche dell'Atto I** (con la skill `verifiche-didattiche`): V1 che cosa cambia nel 1861; V2 partiti e gruppi sociali. Chiavi e distrattori della v4.1 restano validi.
