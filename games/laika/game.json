@@ -98485,7 +98485,8 @@
         "figlio_via",
         "padre_via",
         "figlio_in_citta",
-        "mir_diviso"
+        "mir_diviso",
+        "affitto_alzato"
       ],
       "reconciliation": "Fine dell'Atto I (1700–1904). Per un secolo e mezzo la ricchezza si è contata in anime; il 1861 ha dato la libertà della persona senza la terra. La terra non bastava per tutti e i figli sono partiti per la fabbrica, dove circolavano i primi volantini. Le tue scelte hanno cambiato soltanto la simulazione, non questi fatti. Segue l'Atto II: il 1905.",
       "period": "1700–1904",
@@ -101576,7 +101577,7 @@
           "id": "a1-citta-salario",
           "type": "turn_game",
           "title": "Il salario",
-          "text": "Sei il figlio e lavori in fabbrica a Pietroburgo. Ogni sabato arriva il salario: otto monete (un indice della simulazione).\n\nNon bastano per tutto: pane per le forze, un angolo di stanza in affitto, carbone per l'inverno e soldi da mandare al villaggio. C'è anche un corso serale per imparare a leggere i fogli. Giochi otto settimane e il debito si porta dietro da una all'altra. Le cose non restano ferme: l'affitto sale, il freddo si mette e una settimana la fabbrica si ferma.",
+          "text": "Sei il figlio e lavori in fabbrica a Pietroburgo. Ogni sabato arriva il salario: otto monete (un indice della simulazione).\n\nNon bastano per tutto: pane per le forze, un angolo di stanza in affitto, carbone per il freddo e soldi da mandare al villaggio. C'è anche un corso serale per imparare a leggere i fogli. Giochi otto settimane e il debito si porta dietro da una all'altra. Le cose non restano ferme: l'affitto sale, il freddo si mette e una settimana la fabbrica si ferma.",
           "roleId": "figlio",
           "stageId": "citta-stanza",
           "motionId": "ingresso",
@@ -101627,7 +101628,7 @@
                 {
                   "kind": "resource",
                   "id": "forze",
-                  "delta": 6
+                  "delta": 0
                 }
               ]
             },
@@ -101700,8 +101701,8 @@
               }
             },
             {
-              "id": "freddo",
-              "label": "freddo forte",
+              "id": "carbone-umido",
+              "label": "carbone umido",
               "weight": 2,
               "yield": {
                 "carbone": 0.4
@@ -101709,9 +101710,9 @@
             }
           ],
           "control": {
-            "label": "La padrona di casa",
-            "text": "La padrona di casa bussa: l'affitto è in arretrato e le monete che mancano diventano debito.",
-            "escaped": "L'affitto è in ritardo ma questa volta la padrona di casa non se ne accorge.",
+            "label": "I conti in arretrato",
+            "text": "Bussano per i conti in arretrato (l'affitto o il carbone): le monete che mancano diventano debito.",
+            "escaped": "I conti sono in arretrato ma questa volta nessuno bussa.",
             "chance": {
               "base": 0.8
             },
@@ -101737,7 +101738,7 @@
                 "op": "lte",
                 "kind": "resource",
                 "id": "forze",
-                "value": 10
+                "value": 5
               },
               "text": "Non ti reggi più in piedi: resti a letto qualche giorno e da qui in poi guadagni di meno.",
               "effects": [
@@ -101754,10 +101755,20 @@
             {
               "id": "dormitorio",
               "when": {
-                "op": "gte",
-                "kind": "metric",
-                "id": "debito",
-                "value": 8
+                "op": "all",
+                "items": [
+                  {
+                    "op": "gte",
+                    "kind": "metric",
+                    "id": "debito",
+                    "value": 8
+                  },
+                  {
+                    "op": "flag",
+                    "id": "affitto_alzato",
+                    "value": true
+                  }
+                ]
               },
               "text": "Il debito è troppo: perdi l'angolo di stanza e ti sistemi in un dormitorio di fabbrica. Non paghi più la stanza ma dormi male.",
               "effects": [
@@ -101940,7 +101951,14 @@
                 "min": {
                   "stanza": 3
                 }
-              }
+              },
+              "effects": [
+                {
+                  "kind": "flag",
+                  "id": "affitto_alzato",
+                  "value": true
+                }
+              ]
             },
             {
               "label": "Settimana 4",
@@ -102007,17 +102025,31 @@
                 {
                   "kind": "simulation",
                   "title": "Il freddo si mette",
-                  "text": "Gela anche dentro la stanza. La stufetta mangia carbone e chi ha freddo mangia di più: si consuma più forza ogni settimana."
+                  "text": "Gela anche dentro la stanza. Senza carbone la stufetta non scalda: da questa settimana il carbone va comprato (almeno tre monete) perché chi ha freddo consuma più forza."
                 }
               ],
               "rules": {
+                "min": {
+                  "carbone": 3
+                },
                 "upkeep": [
                   {
                     "kind": "resource",
                     "id": "forze",
-                    "delta": -12
+                    "delta": -6
                   }
-                ]
+                ],
+                "places": {
+                  "carbone": {
+                    "perToken": [
+                      {
+                        "kind": "resource",
+                        "id": "forze",
+                        "delta": 8
+                      }
+                    ]
+                  }
+                }
               }
             },
             {
@@ -102129,7 +102161,7 @@
                 {
                   "kind": "simulation",
                   "title": "Si riparte",
-                  "text": "La caldaia è riparata e il salario torna intero. Il freddo no: dura ancora."
+                  "text": "La caldaia è riparata e la fabbrica riprende. Il freddo no: dura ancora."
                 }
               ],
               "rules": {
@@ -102181,7 +102213,21 @@
                 }
               ],
               "rules": {
-                "upkeep": []
+                "min": {
+                  "carbone": 0
+                },
+                "upkeep": [],
+                "places": {
+                  "carbone": {
+                    "perToken": [
+                      {
+                        "kind": "resource",
+                        "id": "forze",
+                        "delta": 0
+                      }
+                    ]
+                  }
+                }
               }
             },
             {
@@ -102449,7 +102495,7 @@
           "id": "a1-citta-confronto",
           "type": "narrative",
           "title": "Il villaggio e la fabbrica",
-          "text": "Quattro cose ha lasciato questo mezzo secolo.\n\nLa servitù ha lasciato un modo di contare le persone: una famiglia valeva per le «anime» che aveva. Il Manifesto del 19 febbraio 1861 la abolì ma la terra non passò gratis ai contadini: andava riscattata.\n\nIl mir ha lasciato un obbligo comune: il villaggio rispondeva insieme dei pagamenti e ridivideva le strisce. Era una comunità con regole proprie e non un soviet né una democrazia moderna.\n\nLa fabbrica ha lasciato un salario e un affitto. In città nessuno poteva venderti ma ogni sabato bisognava scegliere fra pane, stanza, carbone e soldi a casa.\n\nNel diario della famiglia ci sono due case. Al villaggio qualcuno è rimasto con il mir e il raccolto; in città qualcuno è partito con il salario. Le due case si parlano con una lettera e una moneta: chi parte non smette di appartenere al villaggio e chi resta dipende da quello che arriva dalla città.\n\nChe cosa lega ancora il villaggio alla fabbrica?",
+          "text": "Quattro cose ha lasciato questo mezzo secolo.\n\nLa servitù ha lasciato un modo di contare le persone: un servo era un'«anima» in un registro e un nobile valeva per le anime che possedeva.\n\nIl 1861 ha lasciato una libertà con un prezzo. Il Manifesto del 19 febbraio (3 marzo) 1861 abolì la servitù della gleba ma la terra non passò gratis ai contadini: andava riscattata.\n\nIl mir ha lasciato un obbligo comune: il villaggio rispondeva insieme dei pagamenti e ridivideva le strisce. Era una comunità con regole proprie e non un soviet né una democrazia moderna.\n\nLa fabbrica ha lasciato un salario e un affitto. In città nessuno poteva venderti ma ogni sabato bisognava scegliere fra pane, stanza, carbone e soldi a casa.\n\nIl diario della famiglia (nella simulazione) ha due case. Al villaggio qualcuno è rimasto con il mir e il raccolto; in città qualcuno è partito con il salario. Le due case si parlano con una lettera e una moneta: chi parte non smette di appartenere al villaggio e chi resta dipende da quello che arriva dalla città.\n\nChe cosa lega ancora il villaggio alla fabbrica?",
           "roleId": "figlio",
           "stageId": "citta-confronto",
           "motionId": "ingresso",

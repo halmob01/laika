@@ -11,23 +11,24 @@ Scheda di gioco dell'unità `citta` (canone: I.3). Versione 2 (costruita) · 5 n
 **Ogni settimana, comunque.** Le forze scendono di 24 e i legami con il villaggio di 8: con tre monete di pane le forze restano ferme; senza lettere e soldi a casa il villaggio smette di rispondere.
 
 **La pressione (eventi delle settimane, regole del motore).**
-- **Settimana 3, «L'affitto sale»:** la stanza vuole 3 monete e non più 2, fino alla fine. Se mancano, la padrona di casa può bussare (8 volte su 10) e le monete che mancano diventano debito.
-- **Settimane 4–6, «Il freddo si mette»:** le forze scendono di altre 12 a settimana. Il carbone serve (3 monete) e un freddo forte nell'imprevisto lo rende meno efficace.
-- **Settimana 5, «La fabbrica si ferma»:** il salario è di sette monete. Il giorno dopo torna intero.
-- **Settimana 7, «Il freddo passa».**
+- **Settimana 3, «L'affitto sale»:** la stanza vuole 3 monete e non più 2, fino alla fine. Se mancano, i conti in arretrato possono bussare (8 volte su 10) e le monete che mancano diventano debito.
+- **Settimane 4–6, «Il freddo si mette»:** le forze scendono di altre 6 a settimana e il carbone diventa un obbligo di 3 monete. Fuori dal freddo il carbone non dà forze (nel secchio non serve); nel freddo ne dà 8 a moneta. Chi non lo compra accumula debito e non lo può sostituire con il pane.
+- **Settimana 5, «La fabbrica si ferma»:** il salario è di sette monete. Dalla settimana dopo la fabbrica riprende.
+- **Settimana 7, «Il freddo passa»:** il carbone torna a non servire.
 - **La multa del caposquadra** (settimana 5): accettare costa forze e debito; protestare riesce 4 volte su 10, scritto prima.
 - **Chi bussa:** il compagno malato, la sorella dal villaggio, l'operaio con il foglio, il vecchio operaio, la lettera da casa.
 - **Il negozio a credito** (settimane 2, 4 e 6): pane o carbone subito e debito dopo.
+- **Il dormitorio** scatta solo dopo l'aumento dell'affitto (il debito si accumula ma la stanza non si perde prima della settimana 3); chi lo raggiunge non paga più la stanza fino alla fine.
 
-**Imprevisti con probabilità scritta prima di confermare:** pane più caro (3 su 10), freddo forte (2 su 10). **Crisi (una volta ciascuna):** le forze a 10 o meno (a letto: si guadagna di meno), il debito a 8 o più (si perde la stanza e si va nel dormitorio), i legami a 0 (a casa non rispondono più).
+**Imprevisti con probabilità scritta prima di confermare:** pane più caro (3 su 10), carbone umido che rende meno (2 su 10). **Crisi (una volta ciascuna):** le forze a 5 o meno (a letto: si guadagna di meno), il debito a 8 o più dopo l'aumento dell'affitto (si perde la stanza e si va nel dormitorio), i legami a 0 (a casa non rispondono più).
 
 **Indicatori visibili (quattro):** Forze, Debito, Legami con il villaggio, Quanto sai leggere i fogli.
 
-**Regola di bilanciamento (G3 di METODO §7), controllata da `tests/laika-citta.test.js` sul motore vero (cinque piani, tre blocchi di settimane, tre modi di rispondere alle richieste e di comprare a credito).**
-1. Con la stessa mossa ogni settimana non si regge: ciascuno dei cinque piani applicato per tutte le otto settimane provoca almeno una crisi in tutti i casi.
-2. Cambiando mossa a tempo esiste una strategia senza crisi, ma ogni scelta ha un prezzo (chi tiene la stanza e il pane lascia cadere i legami; chi manda soldi a casa o studia finisce a letto).
+**Regola di bilanciamento (G3 di METODO §7), controllata da `tests/laika-citta.test.js` sul motore vero (cinque piani, tre blocchi di settimane, due modi di rispondere alle richieste, credito del negozio, e l'esame di tutte le ripartizioni fisse).**
+1. Con la stessa mossa ogni settimana non si regge: nessuna delle ripartizioni fisse delle otto monete (oltre 300, tutte provate con risposte prudenti e due semi) arriva in fondo senza crisi. Chi non compra carbone nel freddo accumula debito; chi lo compra sempre spreca monete quando non serve e perde forze.
+2. Cambiando mossa a tempo esiste una strategia senza crisi (stanza, pane e un po' di villaggio; carbone nel freddo; di nuovo pane): ma chi la segue manda poco a casa e non studia.
 3. Nessuna strategia è la migliore su tutti gli indicatori insieme (forze, debito, legami, lettura).
-4. Strategie diverse portano a esiti diversi; ogni crisi si può provocare; chi compra a credito finisce più spesso nel dormitorio; ogni posto serve in qualche piano.
+4. Strategie diverse portano a esiti diversi; ogni crisi si può provocare; chi compra a credito finisce più spesso nel dormitorio; ogni posto serve in qualche piano; chi ha perso la stanza non la ripaga dopo l'aumento.
 
 **Esito.** Un giudizio di una riga («Allo stremo», «Si tira avanti», «Si regge») e il riepilogo degli indicatori. Nessuna sconfitta.
 

@@ -12,10 +12,10 @@ const t = (s, step, extra = {}) => transition(game, s, { type: 'turn', step, ...
 // Un piano è l'elenco dei posti in ordine di priorità con le monete che si vogliono dare; le monete che avanzano vanno al pane.
 const PIANI = {
   fissa: [['pane', 3], ['stanza', 2], ['carbone', 2], ['villaggio', 1]],
-  sicura: [['stanza', 3], ['pane', 3], ['carbone', 2]],
+  equilibrata: [['stanza', 3], ['pane', 3], ['villaggio', 1]],
+  caldo: [['stanza', 3], ['carbone', 3], ['villaggio', 1]],
   casa: [['stanza', 3], ['villaggio', 3], ['pane', 2]],
-  studio: [['stanza', 3], ['pane', 2], ['corso', 2], ['carbone', 1]],
-  caldo: [['stanza', 3], ['carbone', 3], ['pane', 2]]
+  studio: [['stanza', 3], ['corso', 2], ['pane', 3]]
 };
 const NOMI = Object.keys(PIANI);
 function gioca(blocchi, politica, credito, seed, perSettimana) {
@@ -62,15 +62,47 @@ if (process.env.LAIKA_RAPPORTO) for (const c of risultati) {
 test('Il salario: tutte le strategie arrivano in fondo', () => {
   for (const c of risultati) for (const x of c.r) assert.ok(x.ok, x.st.join('/'));
 });
-test('Il salario: con la stessa mossa ogni settimana non si regge fino in fondo', () => {
+// Ogni ripartizione fissa delle otto monete fra i cinque posti (nei limiti dei posti), ripetuta per tutte le otto settimane.
+// Nelle settimane con sette monete si toglie una moneta dal pane (o dal posto più pieno).
+function giocaFissa(alloc, politica, seed) {
+  let s = newSession(game, seed, ep.id), n = 0;
+  while (s.currentAct.game.phase !== 'done' && s.currentAct.phase === 'scene' && n++ < 600) {
+    const g = s.currentAct.game;
+    if (g.phase === 'cards') s = t(s, 'card');
+    else if (g.phase === 'place') {
+      const d = { ...alloc }; let extra = Object.values(d).reduce((a, b) => a + b, 0) - g.rules.tokens;
+      while (extra-- > 0) { const k = d.pane > 0 ? 'pane' : Object.keys(d).sort((a, b) => d[b] - d[a])[0]; d[k]--; }
+      for (const [p, k] of Object.entries(d)) for (let i = 0; i < k; i++) s = t(s, 'place', { placeId: p, delta: 1 });
+      s = t(s, 'confirm');
+    } else if (g.phase === 'result') s = t(s, 'continue');
+    else if (g.phase === 'event') { const ch = ep.turns[g.turn].event.choices; s = t(s, 'choose', { choiceId: ch[Math.min(politica, ch.length - 1)].id }); }
+    else if (g.phase === 'eventResult') s = t(s, 'continue');
+    else if (g.phase === 'market') s = t(s, 'leave');
+    else break;
+  }
+  return s.currentAct.game.fired.length;
+}
+test('Il salario: con la stessa mossa ogni settimana non si regge fino in fondo (tutte le ripartizioni fisse)', () => {
+  let provate = 0;
+  for (let pane = 0; pane <= 8; pane++) for (let stanza = 0; stanza <= 3; stanza++) for (let carbone = 0; carbone <= 8; carbone++) for (let corso = 0; corso <= 2; corso++) {
+    const villaggio = 8 - pane - stanza - carbone - corso;
+    if (villaggio < 0) continue;
+    const alloc = { pane, stanza, carbone, corso, villaggio };
+    // La partita più favorevole: si risponde con prudenza alle richieste (seconda scelta), senza credito.
+    for (const seed of ['fx-a', 'fx-b']) { provate++; assert.ok(giocaFissa(alloc, 1, seed) > 0, 'la mossa fissa ' + JSON.stringify(alloc) + ' arriva in fondo senza crisi (seme ' + seed + ')'); }
+  }
+  assert.ok(provate > 500, 'ripartizioni provate: ' + provate);
+  // Anche i cinque piani, ripetuti per tutte le otto settimane, in tutti i casi.
   for (const c of risultati) for (const nome of NOMI) {
     const x = c.r.find(y => y.st.every(p => p === nome));
-    assert.ok(x.crisi > 0, 'caso ' + JSON.stringify({ p: c.politica, c: c.credito }) + ', ' + nome + ' ogni settimana: nessuna crisi, la mossa fissa regge');
+    assert.ok(x.crisi > 0, 'caso ' + JSON.stringify({ p: c.politica, c: c.credito }) + ', ' + nome + ' ogni settimana: nessuna crisi');
   }
 });
 test('Il salario: cambiando mossa a tempo si arriva in fondo senza crisi, ma ogni scelta ha un prezzo', () => {
-  const noCredito = risultati.filter(c => !c.credito).flatMap(c => c.r);
+  const noCredito = risultati.filter(c => !c.credito && c.politica === 1).flatMap(c => c.r);
   assert.ok(noCredito.some(x => x.crisi === 0), 'esiste una strategia senza crisi');
+  const buona = noCredito.find(x => x.crisi === 0 && x.st.join() === 'equilibrata,caldo,equilibrata');
+  assert.ok(buona && buona.forze >= 50, 'equilibrata, poi carbone nel freddo, poi di nuovo equilibrata: arriva in fondo con le forze alte');
   for (const id of ['a-letto', 'dormitorio', 'silenzio']) assert.ok(risultati.some(c => c.r.some(x => x.fired.includes(id))), id + ': nessuna strategia la provoca');
   // Chi compra a credito finisce nel dormitorio più spesso di chi non lo fa.
   const dorm = c => c.r.filter(x => x.fired.includes('dormitorio')).length;
@@ -103,5 +135,27 @@ test('Il salario: ogni posto serve, i rischi sono scritti prima, gli eventi di p
   assert.equal(ep.turns[2].rules.min.stanza, 3, 'l\'affitto sale a tre monete');
   assert.ok(ep.turns.some(x => x.rules?.upkeep?.some(u => u.id === 'forze' && u.delta < 0)), 'c\'è un freddo che dura');
   assert.ok(ep.turns.some(x => x.rules?.tokensDelta < 0), 'c\'è una settimana con meno monete');
+  // Il carbone non dà forze fuori dal freddo e nel freddo è un obbligo: non si può sostituire con il pane.
+  assert.equal(ep.places.find(p => p.id === 'carbone').perToken[0].delta, 0);
+  assert.equal(ep.turns[3].rules.min.carbone, 3, 'nel freddo il carbone è un obbligo');
+  assert.ok(ep.turns[3].rules.places.carbone.perToken[0].delta > 0 && ep.turns[6].rules.min.carbone === 0, 'il carbone serve solo nel freddo');
+  // La stanza persa non si ripaga: il dormitorio scatta solo dopo l'aumento dell'affitto.
+  assert.ok(JSON.stringify(ep.crises.find(c => c.id === 'dormitorio').when).includes('affitto_alzato') && ep.turns[2].effects.some(x => x.id === 'affitto_alzato'));
   assert.ok(ep.turns.some(x => x.event?.choices.some(c => c.chance)), 'c\'è una scelta con probabilità scritta (la multa)');
+});
+test('Il salario: chi ha perso la stanza non la paga più, nemmeno dopo l\'aumento dell\'affitto', () => {
+  let s = newSession(game, 'dorm', ep.id), n = 0, fuori = null;
+  while (s.currentAct.game.phase !== 'done' && s.currentAct.phase === 'scene' && n++ < 600) {
+    const g = s.currentAct.game;
+    if (g.phase === 'cards') s = t(s, 'card');
+    else if (g.phase === 'place') { for (let i = 0; i < g.rules.tokens; i++) s = t(s, 'place', { placeId: 'pane', delta: 1 }); s = t(s, 'confirm'); }
+    else if (g.phase === 'result') { if (g.fired.includes('dormitorio')) fuori ??= g.turn; s = t(s, 'continue'); }
+    else if (g.phase === 'event') s = t(s, 'choose', { choiceId: ep.turns[g.turn].event.choices[0].id });
+    else if (g.phase === 'eventResult') s = t(s, 'continue');
+    else if (g.phase === 'market') s = t(s, 'leave');
+    else break;
+  }
+  const g = s.currentAct.game;
+  assert.ok(g.fired.includes('dormitorio') && fuori >= 2, 'il dormitorio scatta, ma non prima della settimana 3 (turno ' + fuori + ')');
+  assert.equal(g.rules.min.stanza, 0, 'dopo il dormitorio la stanza non è più un obbligo');
 });
