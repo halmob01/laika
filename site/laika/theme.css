@@ -494,3 +494,6 @@ html{font-synthesis:none}
 #hub-title:focus{outline:none}
 /* Etichette della mappa sul telefono: il serif è più largo del condensato di prima, quindi più piccole e senza spaziatura. */
 @media (max-width:640px){.turn-overlay button{font-size:10px!important;letter-spacing:0!important;padding:0 5px!important}}
+
+/* Le note tecniche sul salvataggio non fanno parte dell'esperienza narrativa. */
+.privacy{display:none}
