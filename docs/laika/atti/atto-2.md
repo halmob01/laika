@@ -28,15 +28,20 @@ Divisione in quattro unità decisa il 4 novembre 2026 (D-024, D-038). Le schede 
 
 ## II.2 — Il soviet (ottobre 1905) · `soviet`
 
-**II.2-e1 · role_crisis [S] · Il primo soviet**
-- **Scena.** Ottobre 1905: sciopero generale, nasce il soviet di Pietroburgo. Un ferroviere, una delegata tessile e un militante vedono parti diverse; lo studente decide come continuare lo sciopero.
+**II.2-e1 · turn_game [S] · Le giornate del soviet** (riscritta il 5 novembre 2026 come gioco a punti azione, scheda [soviet](../giochi/soviet.md) v2; la scheda precedente, una scelta fra tre ruoli, è in [docs/archivio](../../archivio/ATTO-2-II2-e1-v1-2026-11-05.md))
+- **Scena.** Ottobre 1905: sciopero generale, nasce il soviet di Pietroburgo. Tre giornate da cinque punti azione nella sala a colonne (tavolo del comitato, telegrafo, bandiera rossa senza scritte): si indaga una notizia (due letture, una prudente e una dura), si sceglie a quale dare peso e la scelta apre o chiude azioni nei giorni dopo (trattare in nome del soviet con i moderati, fermare i treni con i radicali).
 - **Sotto la scena.** Che cosa succede quando le persone comuni scoprono di poter fermare un impero incrociando le braccia?
 - **Regia.** Le ciminiere si spengono una a una, i binari si svuotano.
-- **Chi la sviluppa.** Sonnet.
+- **Chi la sviluppa.** Opus (gioco), Sonnet (testi).
+- **Fra le unità.** Il flag `tratta_prefetto` (si è trattato col prefetto) resta nello stato: **II.3 («Che cosa concede lo zar») dovrà leggerlo** per aprire o chiudere un'opzione sulle concessioni; oggi non lo legge nessuno.
+
+**II.2-e1b · narrative [D] · Cosa ti devi ricordare** (aggiunta il 5 novembre 2026, U-soviet): i due obiettivi dell'unità in parole semplici.
 
 **II.2-e2 · assessment [V] · Verifica V3.**
 
 ## II.3 — Che cosa concede lo zar (ottobre 1905–giugno 1907) · `concessioni`
+
+**Dal soviet (II.2).** Il flag `tratta_prefetto` dice se il soviet ha trattato col prefetto: II.3 dovrà leggerlo (U-concessioni) per aprire o chiudere un'opzione su che cosa concede lo zar.
 
 **II.3-e1 · source_comparison [F] · Che cosa concede lo zar**
 - **Scena.** Il granduca Nikolaj minaccia di spararsi se lo zar non firma il Manifesto di ottobre. Accanto: il Manifesto del 30 ottobre (g. 17); le Leggi fondamentali del 1906, che chiamano ancora «autocratico» il potere dello zar; la cronologia delle due Dume sciolte. Dopo Tsushima, a teatro, il pubblico grida alla ballerina Baletta, amante del capo della Marina, che porta addosso le corazzate perdute (C36).

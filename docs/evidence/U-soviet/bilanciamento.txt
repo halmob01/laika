@@ -1,0 +1,6 @@
+moderata      25   22   89   21   14    1 tratta
+radicale      83   21   33   67   86    1 
+mista         46   20   76   82   50    1 
+indaga        61   29   66   74   50    0 
+corsa         40   22   26   89   50    2 
+cassa         37    0   86   62   50    1 

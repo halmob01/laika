@@ -98,6 +98,13 @@
       "max": 100,
       "start": 0,
       "good": "high"
+    },
+    {
+      "id": "linea",
+      "label": "Linea del soviet",
+      "min": 0,
+      "max": 100,
+      "start": 50
     }
   ],
   "resources": [],
@@ -107,7 +114,8 @@
     "tratta_prefetto",
     "uscita_dal_mir",
     "stolypin_resta",
-    "stolypin_vende"
+    "stolypin_vende",
+    "ha_indagato"
   ],
   "episodes": [
     {
@@ -203,14 +211,14 @@
         "dateLabel": "ottobre 1905",
         "placeLabel": "Pietroburgo"
       },
-      "text": "Ottobre 1905: sciopero generale. Nasce a Pietroburgo il soviet, un consiglio di delegati degli scioperanti.\n\nSei fra i delegati. Ogni giornata hai cinque punti azione. Le notizie arrivano a pezzi: indagare costa un punto e ti fa capire cosa pensano i delegati. Quello che non fai, intanto, costa.",
-      "goal": "Tieni lo sciopero senza che la cassa si svuoti o il soviet si spacchi.",
+      "text": "Ottobre 1905: sciopero generale. Nasce a Pietroburgo il soviet, un consiglio di delegati degli scioperanti.\n\nSei fra i delegati. Ogni giornata hai cinque punti azione. Le notizie arrivano a pezzi e ognuna ha due letture: quella dei moderati e quella dei radicali. Dopo aver indagato puoi dare più peso a una delle due: la sala si sposta e le giornate dopo cambiano. Quello che non fai, intanto, costa.",
+      "goal": "Tieni lo sciopero senza che la cassa si svuoti o il soviet si spacchi. Decidi a quale lettura dare peso.",
       "stageId": "soviet-sala",
       "motionId": "ingresso",
       "exposes": [
         "a1-soviet"
       ],
-      "visualExplanation": "Nella sala a colonne i delegati del soviet portano notizie attorno a un tavolo; un telegrafo batte le novità. Ogni azione cambia gli indicatori: sono indici della simulazione e non dati storici né voti.",
+      "visualExplanation": "Nella sala a colonne i delegati del soviet portano notizie attorno a un tavolo; un telegrafo batte le novità e una bandiera rossa senza scritte sta in fondo. Ogni azione cambia gli indicatori e la linea del soviet (da 0, moderata, a 100, radicale): sono indici della simulazione e non dati storici né voti.",
       "turnWord": "giornata",
       "nextLabel": "La giornata dopo",
       "phaseLabels": {
@@ -324,14 +332,19 @@
           ]
         }
       ],
-      "feedback": "Tre giornate sono passate. Il soviet del 1905 è un contropotere: coordina lo sciopero ma non governa. Con le notizie a pezzi ogni scelta dipende da chi te le racconta.",
+      "feedback": "Tre giornate sono passate. Il soviet del 1905 è un contropotere: coordina lo sciopero ma non governa. Dare peso a una lettura ha aperto alcune strade e ne ha chiuse altre: con le notizie a pezzi ogni scelta dipende da chi te le racconta.",
       "turns": [
         {
           "label": "Giorno 1",
           "cards": [
             {
+              "kind": "documented",
+              "title": "Che cos'è il soviet",
+              "text": "Nel 1905 gli oppositori dello zarismo si organizzano in assemblee e in consigli di cui fanno parte operai, soldati e studenti: sono i soviet. Il soviet di Pietroburgo coordina lo sciopero e diventa un contropotere nella Russia: non governa. I socialdemocratici, che hanno una cultura di partito, ne prendono presto la maggioranza."
+            },
+            {
               "kind": "simulation",
-              "title": "Primo giorno · 17 ottobre",
+              "title": "Primo giorno",
               "text": "Lo sciopero generale ferma Pietroburgo. Sono nate voci e notizie a pezzi: alla tessitrice mancano le compagne, il ferroviere non sa se fermare i treni, dal telegrafo arriva una voce di caserma. Personaggi e notizie sono inventati."
             }
           ],
@@ -345,8 +358,8 @@
                 "label": "Indagare: la tessitrice",
                 "short": "La tessitrice",
                 "at": {
-                  "x": 0.3,
-                  "y": 0.55
+                  "x": 0.2,
+                  "y": 0.46
                 },
                 "text": "Il delegato moderato: la paura passa se la cassa tiene; rassicura le operaie. Il delegato radicale: la paura passa se vedono gli altri fermi; serve un delegato che parli. Le due letture non coincidono: scegli tu a chi dare più peso.",
                 "effects": [
@@ -359,28 +372,11 @@
                     "kind": "metric",
                     "id": "fiducia",
                     "delta": 2
-                  }
-                ]
-              },
-              {
-                "id": "indferr",
-                "label": "Indagare: il ferroviere",
-                "short": "Il ferroviere",
-                "at": {
-                  "x": 0.7,
-                  "y": 0.55
-                },
-                "text": "Il delegato moderato: non tocchiamo i treni militari; sarebbe una provocazione. Il delegato radicale: un treno che passa è uno sciopero che perde; fermare tutto. Le due letture non coincidono: scegli tu a chi dare più peso.",
-                "effects": [
-                  {
-                    "kind": "metric",
-                    "id": "notizie",
-                    "delta": 15
                   },
                   {
-                    "kind": "metric",
-                    "id": "fiducia",
-                    "delta": 2
+                    "kind": "flag",
+                    "id": "ha_indagato",
+                    "value": true
                   }
                 ]
               },
@@ -390,7 +386,7 @@
                 "short": "Il telegrafo",
                 "at": {
                   "x": 0.5,
-                  "y": 0.48
+                  "y": 0.46
                 },
                 "text": "Il delegato moderato: è una voce di caserma; meglio parlare col prefetto per non provocare. Il delegato radicale: vogliono fermarci con la forza; non si tratta con chi spara. Le due letture non coincidono: scegli tu a chi dare più peso.",
                 "effects": [
@@ -403,16 +399,107 @@
                     "kind": "metric",
                     "id": "fiducia",
                     "delta": 2
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "ha_indagato",
+                    "value": true
                   }
                 ]
+              },
+              {
+                "id": "indferr",
+                "label": "Indagare: il ferroviere",
+                "short": "Il ferroviere",
+                "at": {
+                  "x": 0.8,
+                  "y": 0.46
+                },
+                "text": "Il delegato moderato: non tocchiamo i treni militari; sarebbe una provocazione. Il delegato radicale: un treno che passa è uno sciopero che perde; fermare tutto. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "notizie",
+                    "delta": 15
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 2
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "ha_indagato",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "peso-moderato",
+                "label": "Dare più peso ai moderati (dopo aver indagato)",
+                "short": "Moderati",
+                "when": {
+                  "op": "flag",
+                  "id": "ha_indagato",
+                  "value": true
+                },
+                "text": "Ti fidi della lettura prudente: la sala si sposta verso la trattativa e si apre la strada al prefetto.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "linea",
+                    "delta": -12
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 3
+                  }
+                ],
+                "at": {
+                  "x": 0.25,
+                  "y": 0.72
+                }
+              },
+              {
+                "id": "peso-radicale",
+                "label": "Dare più peso ai radicali (dopo aver indagato)",
+                "short": "Radicali",
+                "when": {
+                  "op": "flag",
+                  "id": "ha_indagato",
+                  "value": true
+                },
+                "text": "Ti fidi della lettura dura: la sala si sposta verso lo scontro e si apre la strada ai treni fermi.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "linea",
+                    "delta": 12
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": 3
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 2
+                  }
+                ],
+                "at": {
+                  "x": 0.75,
+                  "y": 0.72
+                }
               },
               {
                 "id": "delegato",
                 "label": "Mandare un delegato dove lo sciopero esita",
                 "short": "Delegato",
                 "at": {
-                  "x": 0.36,
-                  "y": 0.3
+                  "x": 0.2,
+                  "y": 0.2
                 },
                 "repeat": true,
                 "chance": {
@@ -466,8 +553,8 @@
                 "label": "Distribuire pane e fondi della cassa",
                 "short": "Pane e fondi",
                 "at": {
-                  "x": 0.64,
-                  "y": 0.3
+                  "x": 0.5,
+                  "y": 0.2
                 },
                 "repeat": true,
                 "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
@@ -492,51 +579,131 @@
                     "id": "repressione",
                     "delta": 1
                   }
-                ]
+                ],
+                "when": {
+                  "op": "gte",
+                  "kind": "metric",
+                  "id": "fondi",
+                  "value": 10
+                }
               },
               {
-                "id": "trattare",
-                "label": "Trattare con le autorità (costa due punti)",
+                "id": "tavolo",
+                "label": "Trattare in nome del soviet (se la sala segue i moderati)",
                 "short": "Il prefetto",
-                "at": {
-                  "x": 0.86,
-                  "y": 0.55
-                },
                 "cost": 2,
-                "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                "when": {
+                  "op": "lte",
+                  "kind": "metric",
+                  "id": "linea",
+                  "value": 44
+                },
+                "text": "Una delegazione del soviet va dal prefetto con la sala dietro: la tensione scende.",
                 "effects": [
                   {
                     "kind": "metric",
                     "id": "repressione",
-                    "delta": -9
+                    "delta": -14
                   },
                   {
                     "kind": "metric",
                     "id": "fiducia",
-                    "delta": -6
+                    "delta": 2
                   },
                   {
                     "kind": "metric",
                     "id": "sciopero",
-                    "delta": -3
+                    "delta": -2
                   },
                   {
                     "kind": "flag",
                     "id": "tratta_prefetto",
                     "value": true
                   }
-                ]
+                ],
+                "at": {
+                  "x": 0.5,
+                  "y": 0.72
+                }
+              },
+              {
+                "id": "treni",
+                "label": "Fermare anche i treni (se la sala segue i radicali)",
+                "short": "I treni",
+                "cost": 2,
+                "when": {
+                  "op": "gte",
+                  "kind": "metric",
+                  "id": "linea",
+                  "value": 56
+                },
+                "text": "La sala ha deciso: i treni si fermano e lo sciopero si allarga, ma la polizia si irrigidisce.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": 14
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -3
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": -2
+                  }
+                ],
+                "at": {
+                  "x": 0.8,
+                  "y": 0.2
+                }
               }
             ]
-          }
+          },
+          "effects": [
+            {
+              "kind": "flag",
+              "id": "ha_indagato",
+              "value": false
+            }
+          ]
         },
         {
           "label": "Giorno 2",
           "cards": [
             {
               "kind": "simulation",
-              "title": "Secondo giorno · 18 ottobre",
+              "title": "Secondo giorno",
               "text": "La notte è passata fra freddo e fame: la cassa è calata e la polizia ha fermato due delegati per la strada. Arriva un foglio su una concessione dello zar: nessuno sa se è vera."
+            },
+            {
+              "when": {
+                "op": "lte",
+                "kind": "metric",
+                "id": "linea",
+                "value": 44
+              },
+              "kind": "simulation",
+              "title": "La sala ha seguito i moderati",
+              "text": "Nella notte i delegati hanno discusso fino all'alba e la lettura prudente ha prevalso: si può trattare e il fronte è più unito. I più decisi mormorano."
+            },
+            {
+              "when": {
+                "op": "gte",
+                "kind": "metric",
+                "id": "linea",
+                "value": 56
+              },
+              "kind": "simulation",
+              "title": "La sala ha seguito i radicali",
+              "text": "Nella notte i delegati hanno discusso fino all'alba e la lettura dura ha prevalso: lo sciopero si può allargare e la polizia lo sa. I più prudenti hanno paura."
             }
           ],
           "market": {
@@ -549,8 +716,8 @@
                 "label": "Indagare: la tessitrice",
                 "short": "La tessitrice",
                 "at": {
-                  "x": 0.3,
-                  "y": 0.55
+                  "x": 0.2,
+                  "y": 0.46
                 },
                 "text": "Il delegato moderato: se la gente ha fame ci volta le spalle; distribuiamo pane. Il delegato radicale: la fame serve a vedere da che parte stanno; non ci si ferma per questo. Le due letture non coincidono: scegli tu a chi dare più peso.",
                 "effects": [
@@ -563,28 +730,11 @@
                     "kind": "metric",
                     "id": "fiducia",
                     "delta": 2
-                  }
-                ]
-              },
-              {
-                "id": "indferr",
-                "label": "Indagare: il ferroviere",
-                "short": "Il ferroviere",
-                "at": {
-                  "x": 0.7,
-                  "y": 0.55
-                },
-                "text": "Il delegato moderato: se il deposito si ferma da solo basta sostenerlo. Il delegato radicale: ogni deposito fermo è una vittoria da allargare. Le due letture non coincidono: scegli tu a chi dare più peso.",
-                "effects": [
-                  {
-                    "kind": "metric",
-                    "id": "notizie",
-                    "delta": 15
                   },
                   {
-                    "kind": "metric",
-                    "id": "fiducia",
-                    "delta": 2
+                    "kind": "flag",
+                    "id": "ha_indagato",
+                    "value": true
                   }
                 ]
               },
@@ -594,7 +744,7 @@
                 "short": "Il telegrafo",
                 "at": {
                   "x": 0.5,
-                  "y": 0.48
+                  "y": 0.46
                 },
                 "text": "Il delegato moderato: se la concessione è vera si può trattare. Il delegato radicale: le concessioni si strappano scioperando; non si legge, si sciopera. Le due letture non coincidono: scegli tu a chi dare più peso.",
                 "effects": [
@@ -607,16 +757,107 @@
                     "kind": "metric",
                     "id": "fiducia",
                     "delta": 2
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "ha_indagato",
+                    "value": true
                   }
                 ]
+              },
+              {
+                "id": "indferr",
+                "label": "Indagare: il ferroviere",
+                "short": "Il ferroviere",
+                "at": {
+                  "x": 0.8,
+                  "y": 0.46
+                },
+                "text": "Il delegato moderato: se il deposito si ferma da solo basta sostenerlo. Il delegato radicale: ogni deposito fermo è una vittoria da allargare. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "notizie",
+                    "delta": 15
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 2
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "ha_indagato",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "peso-moderato",
+                "label": "Dare più peso ai moderati (dopo aver indagato)",
+                "short": "Moderati",
+                "when": {
+                  "op": "flag",
+                  "id": "ha_indagato",
+                  "value": true
+                },
+                "text": "Ti fidi della lettura prudente: la sala si sposta verso la trattativa e si apre la strada al prefetto.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "linea",
+                    "delta": -12
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 3
+                  }
+                ],
+                "at": {
+                  "x": 0.25,
+                  "y": 0.72
+                }
+              },
+              {
+                "id": "peso-radicale",
+                "label": "Dare più peso ai radicali (dopo aver indagato)",
+                "short": "Radicali",
+                "when": {
+                  "op": "flag",
+                  "id": "ha_indagato",
+                  "value": true
+                },
+                "text": "Ti fidi della lettura dura: la sala si sposta verso lo scontro e si apre la strada ai treni fermi.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "linea",
+                    "delta": 12
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": 3
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 2
+                  }
+                ],
+                "at": {
+                  "x": 0.75,
+                  "y": 0.72
+                }
               },
               {
                 "id": "delegato",
                 "label": "Mandare un delegato dove lo sciopero esita",
                 "short": "Delegato",
                 "at": {
-                  "x": 0.36,
-                  "y": 0.3
+                  "x": 0.2,
+                  "y": 0.2
                 },
                 "repeat": true,
                 "chance": {
@@ -670,8 +911,8 @@
                 "label": "Distribuire pane e fondi della cassa",
                 "short": "Pane e fondi",
                 "at": {
-                  "x": 0.64,
-                  "y": 0.3
+                  "x": 0.5,
+                  "y": 0.2
                 },
                 "repeat": true,
                 "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
@@ -696,44 +937,100 @@
                     "id": "repressione",
                     "delta": 3
                   }
-                ]
+                ],
+                "when": {
+                  "op": "gte",
+                  "kind": "metric",
+                  "id": "fondi",
+                  "value": 10
+                }
               },
               {
-                "id": "trattare",
-                "label": "Trattare con le autorità (costa due punti)",
+                "id": "tavolo",
+                "label": "Trattare in nome del soviet (se la sala segue i moderati)",
                 "short": "Il prefetto",
-                "at": {
-                  "x": 0.86,
-                  "y": 0.55
-                },
                 "cost": 2,
-                "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                "when": {
+                  "op": "lte",
+                  "kind": "metric",
+                  "id": "linea",
+                  "value": 44
+                },
+                "text": "Una delegazione del soviet va dal prefetto con la sala dietro: la tensione scende.",
                 "effects": [
                   {
                     "kind": "metric",
                     "id": "repressione",
-                    "delta": -9
+                    "delta": -14
                   },
                   {
                     "kind": "metric",
                     "id": "fiducia",
-                    "delta": -6
+                    "delta": 2
                   },
                   {
                     "kind": "metric",
                     "id": "sciopero",
-                    "delta": -3
+                    "delta": -2
                   },
                   {
                     "kind": "flag",
                     "id": "tratta_prefetto",
                     "value": true
                   }
-                ]
+                ],
+                "at": {
+                  "x": 0.5,
+                  "y": 0.72
+                }
+              },
+              {
+                "id": "treni",
+                "label": "Fermare anche i treni (se la sala segue i radicali)",
+                "short": "I treni",
+                "cost": 2,
+                "when": {
+                  "op": "gte",
+                  "kind": "metric",
+                  "id": "linea",
+                  "value": 56
+                },
+                "text": "La sala ha deciso: i treni si fermano e lo sciopero si allarga, ma la polizia si irrigidisce.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": 14
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -3
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": -2
+                  }
+                ],
+                "at": {
+                  "x": 0.8,
+                  "y": 0.2
+                }
               }
             ]
           },
           "effects": [
+            {
+              "kind": "flag",
+              "id": "ha_indagato",
+              "value": false
+            },
             {
               "kind": "metric",
               "id": "fondi",
@@ -756,8 +1053,30 @@
           "cards": [
             {
               "kind": "simulation",
-              "title": "Terzo giorno · 19 ottobre",
+              "title": "Terzo giorno",
               "text": "Un'altra notte: la cassa è quasi vuota e circola la voce di un manifesto dello zar. La fabbrica vuole riaprire e in strada ci sono cosacchi."
+            },
+            {
+              "when": {
+                "op": "lte",
+                "kind": "metric",
+                "id": "linea",
+                "value": 44
+              },
+              "kind": "simulation",
+              "title": "La linea dei moderati regge",
+              "text": "Il soviet continua a seguire la strada della trattativa: le autorità ascoltano ma lo sciopero perde slancio."
+            },
+            {
+              "when": {
+                "op": "gte",
+                "kind": "metric",
+                "id": "linea",
+                "value": 56
+              },
+              "kind": "simulation",
+              "title": "La linea dei radicali regge",
+              "text": "Il soviet continua a seguire la strada dello scontro: lo sciopero tiene ma ogni giorno costa di più."
             }
           ],
           "market": {
@@ -770,8 +1089,8 @@
                 "label": "Indagare: la tessitrice",
                 "short": "La tessitrice",
                 "at": {
-                  "x": 0.3,
-                  "y": 0.55
+                  "x": 0.2,
+                  "y": 0.46
                 },
                 "text": "Il delegato moderato: riaprire con una garanzia è meglio che perdere il posto. Il delegato radicale: riaprire ora vuol dire regalare la vittoria. Le due letture non coincidono: scegli tu a chi dare più peso.",
                 "effects": [
@@ -784,28 +1103,11 @@
                     "kind": "metric",
                     "id": "fiducia",
                     "delta": 2
-                  }
-                ]
-              },
-              {
-                "id": "indferr",
-                "label": "Indagare: il ferroviere",
-                "short": "Il ferroviere",
-                "at": {
-                  "x": 0.7,
-                  "y": 0.55
-                },
-                "text": "Il delegato moderato: meglio non farsi trovare tutti insieme. Il delegato radicale: restare insieme è l'unica difesa. Le due letture non coincidono: scegli tu a chi dare più peso.",
-                "effects": [
-                  {
-                    "kind": "metric",
-                    "id": "notizie",
-                    "delta": 15
                   },
                   {
-                    "kind": "metric",
-                    "id": "fiducia",
-                    "delta": 2
+                    "kind": "flag",
+                    "id": "ha_indagato",
+                    "value": true
                   }
                 ]
               },
@@ -815,7 +1117,7 @@
                 "short": "Il telegrafo",
                 "at": {
                   "x": 0.5,
-                  "y": 0.48
+                  "y": 0.46
                 },
                 "text": "Il delegato moderato: il Manifesto è una concessione vera e va accolta. Il delegato radicale: è una tregua per fermarci; la Duma non basta. Le due letture non coincidono: scegli tu a chi dare più peso.",
                 "effects": [
@@ -828,16 +1130,107 @@
                     "kind": "metric",
                     "id": "fiducia",
                     "delta": 2
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "ha_indagato",
+                    "value": true
                   }
                 ]
+              },
+              {
+                "id": "indferr",
+                "label": "Indagare: il ferroviere",
+                "short": "Il ferroviere",
+                "at": {
+                  "x": 0.8,
+                  "y": 0.46
+                },
+                "text": "Il delegato moderato: meglio non farsi trovare tutti insieme. Il delegato radicale: restare insieme è l'unica difesa. Le due letture non coincidono: scegli tu a chi dare più peso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "notizie",
+                    "delta": 15
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 2
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "ha_indagato",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "peso-moderato",
+                "label": "Dare più peso ai moderati (dopo aver indagato)",
+                "short": "Moderati",
+                "when": {
+                  "op": "flag",
+                  "id": "ha_indagato",
+                  "value": true
+                },
+                "text": "Ti fidi della lettura prudente: la sala si sposta verso la trattativa e si apre la strada al prefetto.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "linea",
+                    "delta": -12
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": 3
+                  }
+                ],
+                "at": {
+                  "x": 0.25,
+                  "y": 0.72
+                }
+              },
+              {
+                "id": "peso-radicale",
+                "label": "Dare più peso ai radicali (dopo aver indagato)",
+                "short": "Radicali",
+                "when": {
+                  "op": "flag",
+                  "id": "ha_indagato",
+                  "value": true
+                },
+                "text": "Ti fidi della lettura dura: la sala si sposta verso lo scontro e si apre la strada ai treni fermi.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "linea",
+                    "delta": 12
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": 3
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 2
+                  }
+                ],
+                "at": {
+                  "x": 0.75,
+                  "y": 0.72
+                }
               },
               {
                 "id": "delegato",
                 "label": "Mandare un delegato dove lo sciopero esita",
                 "short": "Delegato",
                 "at": {
-                  "x": 0.36,
-                  "y": 0.3
+                  "x": 0.2,
+                  "y": 0.2
                 },
                 "repeat": true,
                 "chance": {
@@ -891,8 +1284,8 @@
                 "label": "Distribuire pane e fondi della cassa",
                 "short": "Pane e fondi",
                 "at": {
-                  "x": 0.64,
-                  "y": 0.3
+                  "x": 0.5,
+                  "y": 0.2
                 },
                 "repeat": true,
                 "text": "Il pane passa di mano in mano e il fronte regge un po' di più.",
@@ -917,44 +1310,100 @@
                     "id": "repressione",
                     "delta": 5
                   }
-                ]
+                ],
+                "when": {
+                  "op": "gte",
+                  "kind": "metric",
+                  "id": "fondi",
+                  "value": 10
+                }
               },
               {
-                "id": "trattare",
-                "label": "Trattare con le autorità (costa due punti)",
+                "id": "tavolo",
+                "label": "Trattare in nome del soviet (se la sala segue i moderati)",
                 "short": "Il prefetto",
-                "at": {
-                  "x": 0.86,
-                  "y": 0.55
-                },
                 "cost": 2,
-                "text": "Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.",
+                "when": {
+                  "op": "lte",
+                  "kind": "metric",
+                  "id": "linea",
+                  "value": 44
+                },
+                "text": "Una delegazione del soviet va dal prefetto con la sala dietro: la tensione scende.",
                 "effects": [
                   {
                     "kind": "metric",
                     "id": "repressione",
-                    "delta": -9
+                    "delta": -14
                   },
                   {
                     "kind": "metric",
                     "id": "fiducia",
-                    "delta": -6
+                    "delta": 2
                   },
                   {
                     "kind": "metric",
                     "id": "sciopero",
-                    "delta": -3
+                    "delta": -2
                   },
                   {
                     "kind": "flag",
                     "id": "tratta_prefetto",
                     "value": true
                   }
-                ]
+                ],
+                "at": {
+                  "x": 0.5,
+                  "y": 0.72
+                }
+              },
+              {
+                "id": "treni",
+                "label": "Fermare anche i treni (se la sala segue i radicali)",
+                "short": "I treni",
+                "cost": 2,
+                "when": {
+                  "op": "gte",
+                  "kind": "metric",
+                  "id": "linea",
+                  "value": 56
+                },
+                "text": "La sala ha deciso: i treni si fermano e lo sciopero si allarga, ma la polizia si irrigidisce.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "sciopero",
+                    "delta": 14
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "repressione",
+                    "delta": 8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fondi",
+                    "delta": -3
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia",
+                    "delta": -2
+                  }
+                ],
+                "at": {
+                  "x": 0.8,
+                  "y": 0.2
+                }
               }
             ]
           },
           "effects": [
+            {
+              "kind": "flag",
+              "id": "ha_indagato",
+              "value": false
+            },
             {
               "kind": "metric",
               "id": "fondi",
@@ -974,7 +1423,42 @@
         }
       ],
       "leaveLabel": "Finire la giornata",
-      "pointsLabel": "Punti azione"
+      "pointsLabel": "Punti azione",
+      "editorial": {
+        "sources": [
+          "A1-03"
+        ],
+        "scheda": "II.2-e1",
+        "nota": "Il soviet come consiglio di delegati e contropotere è sugli appunti; le notizie, i delegati e i numeri sono simulazione."
+      }
+    },
+    {
+      "id": "a2-soviet-ricorda",
+      "type": "narrative",
+      "roleId": "figlio",
+      "title": "Cosa ti devi ricordare",
+      "display": "cards",
+      "context": {
+        "kind": "documented",
+        "dateLabel": "ottobre 1905"
+      },
+      "text": "Il soviet del 1905 è un consiglio di delegati che coordina uno sciopero: un contropotere e non un governo. Ne fanno parte operai, militari e studenti.\n\nLe notizie arrivano a pezzi e ognuna si può leggere in due modi: la lettura prudente dei moderati e quella dura dei radicali. Dare peso all'una o all'altra non è un dettaglio: sposta la sala e cambia che cosa si può fare i giorni dopo.\n\nOgni punto speso è un punto che non spendi altrove. Chi decide con notizie incomplete sceglie spesso in base a chi gliele racconta.",
+      "stageId": "soviet-sala",
+      "motionId": "ingresso",
+      "visualExplanation": "La sala del soviet con il tavolo, il telegrafo e la bandiera rossa senza scritte. Gli indicatori sono indici della simulazione: non sono dati storici né voti.",
+      "editorial": {
+        "sources": [
+          "A1-03"
+        ],
+        "scheda": "II.2 confronto"
+      },
+      "shows": [
+        "sciopero",
+        "fondi",
+        "fiducia",
+        "repressione",
+        "notizie"
+      ]
     },
     {
       "id": "a2-soviet-v3",
@@ -1167,7 +1651,7 @@
       "id": "soviet",
       "question": "Che cosa succede quando le persone comuni scoprono di poter fermare un impero incrociando le braccia?",
       "summary": "Ottobre 1905: sciopero generale. A Pietroburgo nasce il soviet, un consiglio di delegati degli scioperanti.",
-      "game": "Tre giornate del soviet nell'ottobre 1905: cinque azioni al giorno e notizie a pezzi.",
+      "game": "Tre giornate del soviet nell'ottobre 1905: cinque azioni al giorno, notizie a pezzi con due letture e la scelta di quale dei due delegati ascoltare.",
       "concepts": [
         "sciopero generale",
         "soviet",
@@ -1176,11 +1660,12 @@
       ],
       "episodes": [
         "a2-soviet-giornate",
+        "a2-soviet-ricorda",
         "a2-soviet-v3"
       ],
       "carries": "Il figlio della famiglia: ora è fra i delegati.",
       "closing": {
-        "did": "Hai speso le azioni di tre giornate di sciopero fra pane, delegati e trattative.",
+        "did": "Hai indagato notizie a pezzi, scelto a quale lettura dare peso e speso le azioni di tre giornate di sciopero.",
         "fact": "Nell'ottobre 1905 uno sciopero generale fermò la Russia e a Pietroburgo nacque il soviet dei delegati.",
         "simulation": "Le persone, le notizie e i numeri sono simulazione. Il soviet del 1905 coordinò uno sciopero e non governò."
       }
