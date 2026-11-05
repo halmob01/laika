@@ -84739,7 +84739,7 @@
       "introSequence": "ingresso",
       "mobile": {
         "center": 0.5,
-        "zoom": 1.2
+        "zoom": 1
       }
     },
     {
@@ -102700,6 +102700,38 @@
           "max": 100,
           "start": 30,
           "good": "low"
+        },
+        {
+          "id": "carta",
+          "label": "Promesso sulla carta",
+          "min": 0,
+          "max": 100,
+          "start": 0,
+          "good": "high"
+        },
+        {
+          "id": "poteri",
+          "label": "Poteri veri",
+          "min": 0,
+          "max": 100,
+          "start": 0,
+          "good": "high"
+        },
+        {
+          "id": "piazza",
+          "label": "Piazza organizzata",
+          "min": 0,
+          "max": 100,
+          "start": 30,
+          "good": "high"
+        },
+        {
+          "id": "reazione",
+          "label": "Reazione dello zar",
+          "min": 0,
+          "max": 100,
+          "start": 20,
+          "good": "low"
         }
       ],
       "resources": [],
@@ -102710,7 +102742,8 @@
         "uscita_dal_mir",
         "stolypin_resta",
         "stolypin_vende",
-        "ha_indagato"
+        "ha_indagato",
+        "duma_aperta"
       ],
       "reconciliation": "Fine dell'Atto II (1905–1911). Una petizione portata allo zar è finita sotto i fucili; uno sciopero generale ha fatto nascere il soviet e ha strappato una Duma che lo zar ha presto svuotato; Stolypin ha aperto l'uscita dal mir e riempito i tribunali militari. Le tue scelte hanno cambiato soltanto la simulazione, non questi fatti. Segue l'Atto III: la guerra.",
       "period": "1905–1911",
@@ -102770,11 +102803,14 @@
         {
           "id": "concessioni",
           "episodes": [
-            "a2-concessioni-schede"
+            "a2-concessioni-gioco",
+            "a2-concessioni-schede",
+            "a2-concessioni-ricorda",
+            "a2-concessioni-v9"
           ],
           "question": "Una concessione strappata è un diritto o una tregua?",
           "summary": "Dopo lo sciopero lo zar firma il Manifesto di ottobre. Poi arrivano le Leggi fondamentali e due Dume sciolte.",
-          "game": "Confronta tre schede sulla stessa concessione e decidi che cosa è stata.",
+          "game": "Tre stagioni dopo il Manifesto di ottobre: quattro punti a stagione per far diventare vero quello che sta sulla carta; poi tre schede per decidere se è un diritto o una tregua.",
           "concepts": [
             "Manifesto di ottobre",
             "Duma",
@@ -102782,7 +102818,7 @@
             "autocrazia"
           ],
           "closing": {
-            "did": "Hai confrontato che cosa lo zar promise e che cosa mantenne.",
+            "did": "Hai provato a far diventare vero quello che lo zar aveva promesso e hai confrontato che cosa promise e che cosa mantenne.",
             "fact": "Il Manifesto del 30 ottobre 1905 (17 ottobre nel calendario russo) promise libertà civili e una Duma eletta. Le Leggi fondamentali del 1906 chiamarono ancora autocratico il potere dello zar e le prime due Dume furono sciolte.",
             "simulation": "Le tre schede sono sintesi per il gioco, non i testi originali."
           },
@@ -104735,10 +104771,699 @@
           }
         },
         {
+          "id": "a2-concessioni-gioco",
+          "type": "turn_game",
+          "title": "Le tre stagioni delle concessioni",
+          "text": "Dopo lo sciopero lo zar firma il Manifesto di ottobre. Poi vengono le Leggi fondamentali e le Dume.\n\nSei fra chi, dentro e fuori il soviet, prova a far diventare vero quello che è stato promesso. In tre stagioni hai quattro punti a testa. Da una parte c'è quello che sta scritto sulla carta, dall'altra i poteri veri; in mezzo la piazza e la reazione dello zar. Se il soviet aveva trattato col prefetto si apre una strada; se non l'aveva fatto se ne apre un'altra.",
+          "roleId": "figlio",
+          "stageId": "concessioni-sala",
+          "motionId": "ingresso",
+          "visualExplanation": "A sinistra la sala di San Giorgio con l'aquila imperiale, a destra il palco di un teatro. I punti sulla scena sono le azioni: se il soviet aveva trattato col prefetto si apre «Il ministro», altrimenti «Lo sciopero». Gli indicatori sono indici della simulazione: non sono dati storici né voti.",
+          "context": {
+            "kind": "simulation",
+            "dateLabel": "ottobre 1905–giugno 1907",
+            "placeLabel": "Pietroburgo"
+          },
+          "exposes": [
+            "a1-manifesto-ott"
+          ],
+          "feedback": "Tre stagioni sono passate. Sulla carta il Manifesto prometteva molto; quanto è diventato vero dipendeva da quanto reggeva la pressione e da quanto lo zar lasciava fare. Ora leggi le tre schede e decidi che cosa è stata questa concessione.",
+          "crises": [
+            {
+              "id": "duma-sciolta",
+              "when": {
+                "op": "gte",
+                "kind": "metric",
+                "id": "reazione",
+                "value": 60
+              },
+              "text": "Lo zar scioglie la Duma: quello che era sulla carta resta, quello che era vero si perde in fretta.",
+              "effects": [
+                {
+                  "kind": "metric",
+                  "id": "poteri",
+                  "delta": -15
+                },
+                {
+                  "kind": "metric",
+                  "id": "carta",
+                  "delta": -8
+                },
+                {
+                  "kind": "metric",
+                  "id": "reazione",
+                  "delta": -20
+                }
+              ]
+            },
+            {
+              "id": "carta-vuota",
+              "when": {
+                "op": "all",
+                "items": [
+                  {
+                    "op": "gte",
+                    "kind": "metric",
+                    "id": "carta",
+                    "value": 40
+                  },
+                  {
+                    "op": "lte",
+                    "kind": "metric",
+                    "id": "poteri",
+                    "value": 10
+                  }
+                ]
+              },
+              "text": "Sulla carta c'è tutto e nelle mani non c'è niente: le promesse non diventano leggi.",
+              "effects": [
+                {
+                  "kind": "metric",
+                  "id": "carta",
+                  "delta": -10
+                },
+                {
+                  "kind": "metric",
+                  "id": "piazza",
+                  "delta": 8
+                }
+              ]
+            }
+          ],
+          "turns": [
+            {
+              "label": "Ottobre 1905",
+              "cards": [
+                {
+                  "kind": "documented",
+                  "title": "Il Manifesto di ottobre",
+                  "text": "Dopo lo sciopero generale lo zar firma il Manifesto di ottobre: promette libertà civili e una Duma eletta. È la prima volta che il potere dello zar si lega a una promessa scritta."
+                },
+                {
+                  "kind": "documented",
+                  "title": "La ballerina e le corazzate",
+                  "text": "Quell'anno la Russia ha perso la flotta a Tsushima. A teatro il pubblico riconosce la ballerina Eliza Baletta, amante del granduca Aleksej che aveva diretto la Marina. Qualcuno le grida che «indossa le nostre corazzate». Lo racconta Montefiore: è il grido di un pubblico arrabbiato, non un fatto da tribunale."
+                },
+                {
+                  "kind": "simulation",
+                  "title": "La prima stagione",
+                  "text": "Il Manifesto è firmato. Per ora è una carta: bisogna vedere chi la fa pesare. Persone e numeri sono inventati."
+                }
+              ],
+              "market": {
+                "who": "La sala di San Giorgio",
+                "text": "Hai quattro punti. Tocca un posto della sala per spendere un punto. Non puoi fare tutto: quello che lasci fermo costa.",
+                "points": 4,
+                "offers": [
+                  {
+                    "id": "chiedere",
+                    "label": "Chiedere le libertà per iscritto",
+                    "short": "Per iscritto",
+                    "at": {
+                      "x": 0.2,
+                      "y": 0.2
+                    },
+                    "text": "Le richieste vanno messe nero su bianco e consegnate: la carta si riempie.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "carta",
+                        "delta": 12
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "reazione",
+                        "delta": 3
+                      }
+                    ]
+                  },
+                  {
+                    "id": "piazza",
+                    "label": "Tenere la piazza organizzata",
+                    "short": "La piazza",
+                    "at": {
+                      "x": 0.5,
+                      "y": 0.2
+                    },
+                    "text": "Il soviet e i sindacati restano uniti: lo zar vede che la forza c'è ancora.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "piazza",
+                        "delta": 12
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "reazione",
+                        "delta": 4
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "poteri",
+                        "delta": 2
+                      }
+                    ],
+                    "repeat": true
+                  },
+                  {
+                    "id": "duma",
+                    "label": "Mandare deputati in Duma",
+                    "short": "La Duma",
+                    "at": {
+                      "x": 0.8,
+                      "y": 0.2
+                    },
+                    "when": {
+                      "op": "flag",
+                      "id": "duma_aperta",
+                      "value": true
+                    },
+                    "chance": {
+                      "base": 0.35,
+                      "metric": "piazza",
+                      "factor": 0.005
+                    },
+                    "success": {
+                      "text": "Una legge passa davvero: i deputati portano a casa un potere concreto.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "poteri",
+                          "delta": 12
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "carta",
+                          "delta": 3
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "reazione",
+                          "delta": 3
+                        }
+                      ]
+                    },
+                    "failure": {
+                      "text": "I deputati parlano ma non votano nulla: la Duma ascolta e basta.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "poteri",
+                          "delta": 1
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "reazione",
+                          "delta": 4
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "ministro",
+                    "label": "Trattare con il ministro (se il soviet ha trattato col prefetto)",
+                    "short": "Il ministro",
+                    "at": {
+                      "x": 0.25,
+                      "y": 0.45
+                    },
+                    "text": "Il soviet aveva già trattato: il ministro vi riceve e qualcosa si sblocca senza irritare lo zar.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "poteri",
+                        "delta": 8
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "reazione",
+                        "delta": -7
+                      }
+                    ],
+                    "when": {
+                      "op": "flag",
+                      "id": "tratta_prefetto",
+                      "value": true
+                    }
+                  },
+                  {
+                    "id": "sciopero",
+                    "label": "Minacciare un altro sciopero (se il soviet non ha trattato)",
+                    "short": "Lo sciopero",
+                    "at": {
+                      "x": 0.75,
+                      "y": 0.45
+                    },
+                    "text": "Nessuno ha mai trattato: resta solo la forza dello sciopero, che costa cara.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "piazza",
+                        "delta": 8
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "poteri",
+                        "delta": 7
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "reazione",
+                        "delta": 9
+                      }
+                    ],
+                    "when": {
+                      "op": "flag",
+                      "id": "tratta_prefetto",
+                      "value": false
+                    }
+                  }
+                ]
+              },
+              "effects": [
+                {
+                  "kind": "metric",
+                  "id": "carta",
+                  "delta": 20
+                },
+                {
+                  "kind": "metric",
+                  "id": "poteri",
+                  "delta": 4
+                }
+              ]
+            },
+            {
+              "label": "1906",
+              "cards": [
+                {
+                  "kind": "documented",
+                  "title": "Le Leggi fondamentali",
+                  "text": "Nel 1906 le Leggi fondamentali chiamano ancora autocratico il potere dello zar. La Duma esiste ma ha una funzione consultiva: lo zar conserva poteri molto larghi."
+                },
+                {
+                  "kind": "simulation",
+                  "title": "La seconda stagione",
+                  "text": "I deputati si preparano a entrare in Duma. Chi aveva trattato col prefetto trova una porta aperta; gli altri hanno solo la piazza."
+                }
+              ],
+              "market": {
+                "who": "La sala di San Giorgio",
+                "text": "Hai quattro punti. Tocca un posto della sala per spendere un punto. Non puoi fare tutto: quello che lasci fermo costa.",
+                "points": 4,
+                "offers": [
+                  {
+                    "id": "chiedere",
+                    "label": "Chiedere le libertà per iscritto",
+                    "short": "Per iscritto",
+                    "at": {
+                      "x": 0.2,
+                      "y": 0.2
+                    },
+                    "text": "Le richieste vanno messe nero su bianco e consegnate: la carta si riempie.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "carta",
+                        "delta": 12
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "reazione",
+                        "delta": 3
+                      }
+                    ]
+                  },
+                  {
+                    "id": "piazza",
+                    "label": "Tenere la piazza organizzata",
+                    "short": "La piazza",
+                    "at": {
+                      "x": 0.5,
+                      "y": 0.2
+                    },
+                    "text": "Il soviet e i sindacati restano uniti: lo zar vede che la forza c'è ancora.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "piazza",
+                        "delta": 12
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "reazione",
+                        "delta": 4
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "poteri",
+                        "delta": 2
+                      }
+                    ],
+                    "repeat": true
+                  },
+                  {
+                    "id": "duma",
+                    "label": "Mandare deputati in Duma",
+                    "short": "La Duma",
+                    "at": {
+                      "x": 0.8,
+                      "y": 0.2
+                    },
+                    "when": {
+                      "op": "flag",
+                      "id": "duma_aperta",
+                      "value": true
+                    },
+                    "chance": {
+                      "base": 0.35,
+                      "metric": "piazza",
+                      "factor": 0.005
+                    },
+                    "success": {
+                      "text": "Una legge passa davvero: i deputati portano a casa un potere concreto.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "poteri",
+                          "delta": 12
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "carta",
+                          "delta": 3
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "reazione",
+                          "delta": 3
+                        }
+                      ]
+                    },
+                    "failure": {
+                      "text": "I deputati parlano ma non votano nulla: la Duma ascolta e basta.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "poteri",
+                          "delta": 1
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "reazione",
+                          "delta": 4
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "ministro",
+                    "label": "Trattare con il ministro (se il soviet ha trattato col prefetto)",
+                    "short": "Il ministro",
+                    "at": {
+                      "x": 0.25,
+                      "y": 0.45
+                    },
+                    "text": "Il soviet aveva già trattato: il ministro vi riceve e qualcosa si sblocca senza irritare lo zar.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "poteri",
+                        "delta": 8
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "reazione",
+                        "delta": -7
+                      }
+                    ],
+                    "when": {
+                      "op": "flag",
+                      "id": "tratta_prefetto",
+                      "value": true
+                    }
+                  },
+                  {
+                    "id": "sciopero",
+                    "label": "Minacciare un altro sciopero (se il soviet non ha trattato)",
+                    "short": "Lo sciopero",
+                    "at": {
+                      "x": 0.75,
+                      "y": 0.45
+                    },
+                    "text": "Nessuno ha mai trattato: resta solo la forza dello sciopero, che costa cara.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "piazza",
+                        "delta": 8
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "poteri",
+                        "delta": 7
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "reazione",
+                        "delta": 9
+                      }
+                    ],
+                    "when": {
+                      "op": "flag",
+                      "id": "tratta_prefetto",
+                      "value": false
+                    }
+                  }
+                ]
+              },
+              "effects": [
+                {
+                  "kind": "metric",
+                  "id": "poteri",
+                  "delta": -8
+                },
+                {
+                  "kind": "flag",
+                  "id": "duma_aperta",
+                  "value": true
+                }
+              ]
+            },
+            {
+              "label": "1907",
+              "cards": [
+                {
+                  "kind": "documented",
+                  "title": "Le Dume sciolte",
+                  "text": "La prima Duma viene sciolta dopo pochi mesi e la seconda dura ancora meno. La Duma non nasce con pieni poteri."
+                },
+                {
+                  "kind": "simulation",
+                  "title": "La terza stagione",
+                  "text": "Lo zar ha ripreso fiato. Quello che hai costruito regge o si sgretola a seconda di quanta forza avevi davvero."
+                }
+              ],
+              "market": {
+                "who": "La sala di San Giorgio",
+                "text": "Hai quattro punti. Tocca un posto della sala per spendere un punto. Non puoi fare tutto: quello che lasci fermo costa.",
+                "points": 4,
+                "offers": [
+                  {
+                    "id": "chiedere",
+                    "label": "Chiedere le libertà per iscritto",
+                    "short": "Per iscritto",
+                    "at": {
+                      "x": 0.2,
+                      "y": 0.2
+                    },
+                    "text": "Le richieste vanno messe nero su bianco e consegnate: la carta si riempie.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "carta",
+                        "delta": 12
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "reazione",
+                        "delta": 3
+                      }
+                    ]
+                  },
+                  {
+                    "id": "piazza",
+                    "label": "Tenere la piazza organizzata",
+                    "short": "La piazza",
+                    "at": {
+                      "x": 0.5,
+                      "y": 0.2
+                    },
+                    "text": "Il soviet e i sindacati restano uniti: lo zar vede che la forza c'è ancora.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "piazza",
+                        "delta": 12
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "reazione",
+                        "delta": 4
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "poteri",
+                        "delta": 2
+                      }
+                    ],
+                    "repeat": true
+                  },
+                  {
+                    "id": "duma",
+                    "label": "Mandare deputati in Duma",
+                    "short": "La Duma",
+                    "at": {
+                      "x": 0.8,
+                      "y": 0.2
+                    },
+                    "when": {
+                      "op": "flag",
+                      "id": "duma_aperta",
+                      "value": true
+                    },
+                    "chance": {
+                      "base": 0.35,
+                      "metric": "piazza",
+                      "factor": 0.005
+                    },
+                    "success": {
+                      "text": "Una legge passa davvero: i deputati portano a casa un potere concreto.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "poteri",
+                          "delta": 12
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "carta",
+                          "delta": 3
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "reazione",
+                          "delta": 3
+                        }
+                      ]
+                    },
+                    "failure": {
+                      "text": "I deputati parlano ma non votano nulla: la Duma ascolta e basta.",
+                      "effects": [
+                        {
+                          "kind": "metric",
+                          "id": "poteri",
+                          "delta": 1
+                        },
+                        {
+                          "kind": "metric",
+                          "id": "reazione",
+                          "delta": 4
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "ministro",
+                    "label": "Trattare con il ministro (se il soviet ha trattato col prefetto)",
+                    "short": "Il ministro",
+                    "at": {
+                      "x": 0.25,
+                      "y": 0.45
+                    },
+                    "text": "Il soviet aveva già trattato: il ministro vi riceve e qualcosa si sblocca senza irritare lo zar.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "poteri",
+                        "delta": 8
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "reazione",
+                        "delta": -7
+                      }
+                    ],
+                    "when": {
+                      "op": "flag",
+                      "id": "tratta_prefetto",
+                      "value": true
+                    }
+                  },
+                  {
+                    "id": "sciopero",
+                    "label": "Minacciare un altro sciopero (se il soviet non ha trattato)",
+                    "short": "Lo sciopero",
+                    "at": {
+                      "x": 0.75,
+                      "y": 0.45
+                    },
+                    "text": "Nessuno ha mai trattato: resta solo la forza dello sciopero, che costa cara.",
+                    "effects": [
+                      {
+                        "kind": "metric",
+                        "id": "piazza",
+                        "delta": 8
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "poteri",
+                        "delta": 7
+                      },
+                      {
+                        "kind": "metric",
+                        "id": "reazione",
+                        "delta": 9
+                      }
+                    ],
+                    "when": {
+                      "op": "flag",
+                      "id": "tratta_prefetto",
+                      "value": false
+                    }
+                  }
+                ]
+              },
+              "effects": [
+                {
+                  "kind": "metric",
+                  "id": "reazione",
+                  "delta": 6
+                }
+              ]
+            }
+          ],
+          "goal": "Fai arrivare i poteri veri il più vicino possibile a quello che sta sulla carta, senza svegliare la reazione dello zar.",
+          "shows": [
+            "carta",
+            "poteri",
+            "piazza",
+            "reazione"
+          ],
+          "phaseLabels": {
+            "cards": "La stagione",
+            "market": "I punti azione"
+          },
+          "turnWord": "stagione",
+          "nextLabel": "La stagione dopo",
+          "leaveLabel": "Finire la stagione",
+          "pointsLabel": "Punti azione"
+        },
+        {
           "id": "a2-concessioni-schede",
           "type": "source_comparison",
-          "title": "Che cosa concede lo zar",
-          "text": "Dopo lo sciopero lo zar concede il Manifesto di ottobre. Poi vengono le Leggi fondamentali e le Dume. Apri le tre schede e confrontale.",
+          "title": "Diritto o tregua?",
+          "text": "Hai giocato le tre stagioni: quello che stava sulla carta e quello che era vero non coincidevano. Ora apri le tre schede e confrontale: dopo lo sciopero lo zar concede il Manifesto di ottobre, poi vengono le Leggi fondamentali e le Dume. Che cosa è stata questa concessione?",
           "roleId": "figlio",
           "stageId": "concessioni-sala",
           "motionId": "ingresso",
@@ -104792,6 +105517,63 @@
             }
           ],
           "shows": []
+        },
+        {
+          "id": "a2-concessioni-ricorda",
+          "type": "narrative",
+          "title": "Cosa ti devi ricordare",
+          "text": "Dopo lo sciopero generale lo zar firma il Manifesto di ottobre: promette libertà civili e una Duma eletta. Ma nel 1906 le Leggi fondamentali chiamano ancora autocratico il suo potere e la Duma ha una funzione consultiva: lo zar conserva poteri molto larghi.\n\nLe prime due Dume vengono sciolte e la seconda dura ancora meno della prima. Quello che stava sulla carta era più di quello che i deputati potevano fare davvero.\n\nUna concessione strappata con lo sciopero è un diritto o una tregua? Con due fatti si può sostenere l'una o l'altra: qualcosa è cambiato davvero e il potere dello zar è rimasto largo.",
+          "roleId": "figlio",
+          "stageId": "concessioni-sala",
+          "motionId": "ingresso",
+          "visualExplanation": "La sala di San Giorgio con l'aquila imperiale e il palco di un teatro. Gli indicatori sono indici della simulazione: non sono dati storici né voti.",
+          "context": {
+            "kind": "documented",
+            "dateLabel": "ottobre 1905–giugno 1907"
+          },
+          "display": "cards",
+          "shows": []
+        },
+        {
+          "id": "a2-concessioni-v9",
+          "type": "assessment",
+          "title": "Che cosa lascia allo zar",
+          "text": "Una domanda sulle Leggi fondamentali. Non valuta le scelte che hai fatto nella partita.",
+          "roleId": "figlio",
+          "stageId": "concessioni-sala",
+          "motionId": "ingresso",
+          "visualExplanation": "La sala di San Giorgio con l'aquila imperiale: la domanda riguarda quello che hai visto nell'unità.",
+          "context": {
+            "kind": "assessment"
+          },
+          "shows": [],
+          "question": {
+            "id": "a1-v9",
+            "prompt": "Dopo il Manifesto di ottobre del 1905, che cosa lasciano allo zar le Leggi fondamentali del 1906?",
+            "rationale": "Il Manifesto promise libertà civili e una Duma eletta, ma le Leggi fondamentali del 1906 chiamano ancora autocratico il potere dello zar e la Duma ha una funzione consultiva. Lo zar conserva poteri molto larghi.",
+            "source": "Episodio «Diritto o tregua?»: sintesi dagli appunti «La Rivoluzione Russa»",
+            "objectives": [
+              "Dire che cosa promette il Manifesto di ottobre e che cosa lasciano allo zar le Leggi fondamentali del 1906"
+            ],
+            "options": [
+              {
+                "id": "larghi",
+                "label": "Poteri ancora molto larghi: il suo potere è ancora chiamato autocratico e la Duma è consultiva"
+              },
+              {
+                "id": "re",
+                "label": "Quasi nessun potere: la Duma governa e lo zar firma soltanto"
+              },
+              {
+                "id": "abolito",
+                "label": "Nessun potere: la monarchia è abolita e nasce una repubblica"
+              }
+            ],
+            "correctId": "larghi",
+            "requiredExposureFlags": [
+              "a1-manifesto-ott"
+            ]
+          }
         },
         {
           "id": "a2-stolypin-scelta",

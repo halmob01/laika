@@ -116,10 +116,12 @@
             "Dire che cosa promette il Manifesto di ottobre e che cosa lasciano allo zar le Leggi fondamentali del 1906.",
             "Sostenere con due fatti se una concessione strappata è un diritto o una tregua."
           ],
-          "gioco": "da assegnare (oggi: confronto di tre schede)",
-          "stato_gioco": "da assegnare",
+          "gioco": "punti azione (le tre stagioni delle concessioni)",
+          "stato_gioco": "da confermare",
           "stato": "bozza",
-          "nel_gioco": "i4"
+          "nel_gioco": "i4",
+          "scheda_gioco": "docs/laika/giochi/concessioni.md",
+          "nota": "Gioco scelto dall'agente il 5 novembre 2026 al posto del confronto di tre schede, che resta come giudizio finale («Diritto o tregua?»): da provare dal telefono (C-II)."
         },
         {
           "numero": "II.4",

@@ -16,7 +16,7 @@
   "id": "concessioni-sala",
   "telefono": {
     "centro": 0.5,
-    "zoom": 1.2
+    "zoom": 1.0
   },
   "etichetta": "A sinistra la sala di San Giorgio con l'aquila imperiale; a destra il palco di un teatro. In primo piano un giornale e tre persone che lo leggono in modi diversi.",
   "elementi": [

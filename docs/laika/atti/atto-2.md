@@ -44,14 +44,17 @@ Divisione in quattro unità decisa il 4 novembre 2026 (D-024, D-038). Le schede 
 
 ## II.3 — Che cosa concede lo zar (ottobre 1905–giugno 1907) · `concessioni`
 
-**Dal soviet (II.2).** Il flag `tratta_prefetto` dice se il soviet ha trattato col prefetto: II.3 dovrà leggerlo (U-concessioni) per aprire o chiudere un'opzione su che cosa concede lo zar.
+**Dal soviet (II.2).** Il flag `tratta_prefetto` dice se il soviet ha trattato col prefetto: II.3 lo legge dal 5 novembre 2026 (U-concessioni) e apre «Il ministro» se è vero e «Lo sciopero» se è falso.
 
-**II.3-e1 · source_comparison [F] · Che cosa concede lo zar**
-- **Scena.** Il granduca Nikolaj minaccia di spararsi se lo zar non firma il Manifesto di ottobre. Accanto: il Manifesto del 30 ottobre (g. 17); le Leggi fondamentali del 1906, che chiamano ancora «autocratico» il potere dello zar; la cronologia delle due Dume sciolte. Dopo Tsushima, a teatro, il pubblico grida alla ballerina Baletta, amante del capo della Marina, che porta addosso le corazzate perdute (C36).
+**II.3-e1 · turn_game [S] · Le tre stagioni delle concessioni** (nuovo il 5 novembre 2026, scheda [concessioni](../giochi/concessioni.md); la scheda precedente è in [docs/archivio](../../archivio/ATTO-2-II3-e1-v1-2026-11-05.md))
+- **Scena.** Tre stagioni (ottobre 1905, 1906, 1907) nella sala di San Giorgio, quattro punti a stagione: far diventare vero quello che il Manifesto promette (promesso sulla carta, poteri veri, piazza organizzata, reazione dello zar). Se il soviet (II.2) aveva trattato col prefetto si apre «Il ministro»; se no, «Lo sciopero». Una carta documentata per stagione: il Manifesto, la ballerina Baletta («Indossi le nostre corazzate», C36, Montefiore), le Leggi fondamentali, le Dume sciolte.
 - **Sotto la scena.** Una concessione strappata è un diritto o una tregua?
-- **Materiali.** Montefiore: «mi sparerò», C36 («Baletta»).
-- **Regia.** Due blocchi di figure nella sala di San Giorgio: uniformi da una parte, giacche dall'altra.
-- **Chi la sviluppa.** Sonnet.
+- **Regia.** Due blocchi di figure nella sala di San Giorgio: uniformi da una parte, giacche dall'altra; l'aquila imperiale sulla sala, il palco del teatro a destra.
+- **Chi la sviluppa.** Opus (gioco), Sonnet (testi).
+
+**II.3-e2 · source_comparison [F] · Diritto o tregua?** (l'ex «Che cosa concede lo zar»): dopo il gioco si aprono le tre schede (Manifesto, Leggi fondamentali, le due Dume sciolte) e si sceglie con due fatti.
+
+**II.3-e3 · narrative [D] · Cosa ti devi ricordare** e **II.3-e4 · assessment [V] · Verifica V9** (che cosa lasciano allo zar le Leggi fondamentali): aggiunti il 5 novembre 2026. Il granduca Nikolaj che minaccia di spararsi («mi sparerò», Montefiore) **non si usa**: il passo non è riscontrato nelle fonti dell'archivio (MATRICE).
 
 ## II.4 — Stolypin (novembre 1906–1911) · `stolypin`
 
@@ -68,4 +71,4 @@ Divisione in quattro unità decisa il 4 novembre 2026 (D-024, D-038). Le schede 
 
 **Confronto obbligatorio.** Nessuna scelta riguarda lo sparare. Il soviet del 1905 è un contropotere, non un governo. La Duma non nasce a suffragio universale né con pieni poteri. Stolypin consente di uscire dal mir, non lo abolisce.
 
-**Verifiche dell'Atto II:** V8 che cosa cambia la domenica di sangue (II.1); V3 che cos'era il soviet (II.2); V4 che cosa cambia e che cosa resta dopo il 1905 (II.4).
+**Verifiche dell'Atto II:** V8 che cosa cambia la domenica di sangue (II.1); V3 che cos'era il soviet (II.2); V9 che cosa lasciano allo zar le Leggi fondamentali (II.3); V4 che cosa cambia e che cosa resta dopo il 1905 (II.4).
