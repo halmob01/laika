@@ -4,7 +4,7 @@
 
 Come si lavora in autonomia, controlli e condizioni di arresto: [METODO](METODO.md) §7. Il prossimo incarico e il messaggio da dare all'agente: `npm run prossimo`.
 
-Incarichi fatti: 11 su 22. Prossimo: U-soviet.
+Incarichi fatti: 12 su 22. Prossimo: U-petizione.
 
 | # | Incarico | Tipo | Modello | Dopo | Stato |
 |---:|---|---|---|---|---|
@@ -21,7 +21,7 @@ Incarichi fatti: 11 su 22. Prossimo: U-soviet.
 | 11 | **K7** Motore: il giudizio dell'anno sa quando una risorsa è arrivata al minimo | motore | Opus | S1 | fatto (PR #58) |
 | 12 | **U-servitu** I.1 La terra e lo zar: rifiniture | unità | Sonnet | S1, K4, K7 | fatto (PR #57) |
 | 13 | **C-I** Il docente prova l'Atto I dal telefono | controllo | — | U-mir, U-citta, U-servitu | aspetta il docente |
-| 14 | **U-soviet** II.2 Il soviet: notizie che contano | unità | Opus | S1 | da fare |
+| 14 | **U-soviet** II.2 Il soviet: notizie che contano | unità | Opus | S1 | fatto (PR #60) |
 | 15 | **U-petizione** II.1 La petizione: il gioco e la domenica di sangue | unità | Opus | S1, K4 | da fare |
 | 16 | **U-concessioni** II.3 Che cosa concede lo zar: il gioco e gli aneddoti | unità | Opus | S1, K4, U-soviet | da fare |
 | 17 | **U-stolypin** II.4 Stolypin: il gioco e il confronto di fine atto | unità | Sonnet | S1, K4 | da fare |
@@ -190,6 +190,8 @@ Unità del canone: `soviet`.
 - Didattica (PERCORSO §7): gli obiettivi dell'unità nel canone guidano gioco e testi; «Cosa ti devi ricordare» dice gli obiettivi in parole semplici; almeno una verifica formativa legata a un obiettivo, scritta con la skill `verifiche-didattiche`; due aneddoti concreti con le fonti registrate.
 
 È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche; domanda, obiettivi, verifica legata a un obiettivo, «Cosa ti devi ricordare», concetti, chiusura, fonti registrate; scene proprie); Test di bilanciamento: seguire una lettura o l'altra porta a esiti diversi; Controlli comuni G1–G5 passati (METODO §7).
+
+Evidenze: docs/evidence/U-soviet/, tests/laika-soviet.test.js, docs/laika/giochi/soviet.md.
 
 ## U-petizione — II.1 La petizione: il gioco e la domenica di sangue
 

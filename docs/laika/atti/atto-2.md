@@ -34,6 +34,10 @@ Divisione in quattro unità decisa il 4 novembre 2026 (D-024, D-038). Le schede 
 - **Regia.** Le ciminiere si spengono una a una, i binari si svuotano.
 - **Chi la sviluppa.** Sonnet.
 
+**II.2-e1b · narrative [D] · Cosa ti devi ricordare** (aggiunta il 5 novembre 2026, U-soviet): i due obiettivi dell'unità in parole semplici.
+
+**II.2-e1 (gioco, 5 novembre 2026).** Il gioco della sala non è più una scelta fra tre ruoli: sono tre giornate a punti azione (scheda [soviet](../giochi/soviet.md), v2) in cui, dopo aver indagato, si sceglie a quale delle due letture dare peso e la scelta apre o chiude azioni nei giorni dopo.
+
 **II.2-e2 · assessment [V] · Verifica V3.**
 
 ## II.3 — Che cosa concede lo zar (ottobre 1905–giugno 1907) · `concessioni`

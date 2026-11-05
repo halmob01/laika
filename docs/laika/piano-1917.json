@@ -451,7 +451,13 @@
         "Test di bilanciamento: seguire una lettura o l'altra porta a esiti diversi",
         "Controlli comuni G1–G5 passati (METODO §7)"
       ],
-      "stato": "da fare"
+      "stato": "fatto",
+      "pr": 60,
+      "evidenze": [
+        "docs/evidence/U-soviet/",
+        "tests/laika-soviet.test.js",
+        "docs/laika/giochi/soviet.md"
+      ]
     },
     {
       "id": "U-petizione",

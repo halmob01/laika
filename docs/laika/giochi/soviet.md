@@ -1,72 +1,41 @@
-# Gioco di IV.2 — Le giornate del soviet (`soviet`)
+# Gioco di II.2 — Le giornate del soviet (`soviet`)
 
-Scheda di gioco dell'unità `soviet` (canone: IV.2; fino al 4 novembre 2026 era la vecchia unità Atto IV «Il 1905»). Approvata dal docente il 3 novembre 2026 (D-020).
+Scheda di gioco dell'unità `soviet` (canone: II.2). Versione 2 (costruita) · 5 novembre 2026. La versione 1 (approvata il 3 novembre 2026, D-020) è in [docs/archivio](../../archivio/GIOCO-SOVIET-v1-2026-11-05.md): indagare dava sempre le due letture ma nessuna scelta le faceva pesare. La v2 aggiunge «le letture che contano» e fissa il bilanciamento in un test sul motore vero (`tests/laika-soviet.test.js`). Applica [GIOCHI](../GIOCHI.md) §2 (regole comuni) e §3.8 (la giornata a punti azione). I contenuti degli episodi sono in [atto-2](../atti/atto-2.md). I numeri sono indici della simulazione; le notizie e i delegati sono inventati.
 
-Versione 1 · 3 novembre 2026 · **approvata dal docente il 3 novembre 2026** con le impostazioni proposte (tre giornate da cinque azioni; due letture date da un delegato moderato e uno radicale senza nome di partito; il gioco sostituisce la scelta di ruolo di II.2-e1) · **costruita lo stesso giorno** (vedi «Scostamenti dalla scheda»). Applica [GIOCHI](../GIOCHI.md) §2 (regole comuni) e §3.8 (la giornata a punti azione). I contenuti degli episodi sono in [atto-2](../atti/atto-2.md).
+## Il gioco
 
-I numeri sono indici della simulazione. I fatti non riscontrati sono segnati **[da riscontrare]** e non entrano nel testo per lo studente come dati.
+**Forma:** punti azione con informazioni incomplete. **Durata:** circa dieci minuti, tre giornate dell'ottobre 1905 (sciopero generale, nascita del soviet), cinque punti ciascuna. **Chi è il giocatore:** un delegato che il soviet ha mandato a coordinare.
 
-**Forma:** punti azione con informazioni incomplete. **Durata:** circa dieci minuti, tre giornate dell'ottobre 1905 (sciopero generale, nascita del soviet). Si colloca come II.2-e1 «Il primo soviet», al posto della scelta semplice tra tre ruoli.
+**Gli indicatori visibili (cinque):** Estensione dello sciopero, Cassa di sciopero, Fiducia dei delegati, Rischio di repressione, Notizie capite. In più la **Linea del soviet** (da 0, i moderati, a 100, i radicali; parte a 50): non è fra i cinque ma compare nelle variazioni dei pulsanti e dell'esito.
 
-## Che cosa vede lo studente
+**Le azioni (un punto, salvo dove scritto):**
+1. **Indagare** una notizia (la tessitrice, il ferroviere, il telegrafo): due letture opposte (il delegato moderato e il delegato radicale), le notizie capite salgono e si sblocca la scelta qui sotto.
+2. **Dare più peso ai moderati** o **ai radicali** (solo dopo aver indagato; una volta ciascuno al giorno): la linea del soviet si sposta di 12 punti. Dare peso a tutte e due la lascia al centro.
+3. **Mandare un delegato** dove lo sciopero esita (ripetibile, incerto: la probabilità cresce con le notizie capite).
+4. **Distribuire pane e fondi** della cassa (ripetibile).
+5. **Trattare in nome del soviet** (due punti): si apre solo se la sala segue i moderati (linea 44 o meno); abbassa molto la repressione e mette il flag `tratta_prefetto` che II.3 legge.
+6. **Fermare anche i treni** (due punti): si apre solo se la sala segue i radicali (linea 56 o più); allarga lo sciopero ma alza la repressione.
 
-In alto la sala del soviet (o la strada con le ciminiere); sotto, quattro indicatori; al centro la giornata: **cinque punti azione** da spendere, un'azione per volta, toccando un pulsante. Le notizie non sono complete: arrivano a pezzi e ognuno le legge a modo suo.
+**Le letture che contano.** La linea resta da un giorno all'altro. Il giorno dopo una card racconta che la sala ha seguito i moderati o i radicali e le azioni a due punti si aprono o si chiudono di conseguenza: la scelta cambia che cosa si può fare nei giorni dopo, non solo i numeri di oggi. Ogni giorno si indaga di nuovo prima di poter dare peso.
 
-## Chi è il giocatore
+**La notte:** un freddo, la fame, un arresto: effetti di inizio giornata (fondi, repressione, sciopero in calo). **Crisi (una volta ciascuna):** la cassa a 10 o meno (alcune fabbriche tornano al lavoro), la fiducia a 10 o meno (il soviet si spacca e si segna `linea_soviet`), la repressione a 90 o più (arresti), lo sciopero a 10 o meno (si sgonfia).
 
-Lo studente che il soviet ha mandato a coordinare: non sceglie per tutti ma sceglie dove spendere il proprio tempo. Resta il ruolo della scheda (II.2-e1: «lo studente decide come continuare lo sciopero»).
+**Regola di bilanciamento (G3 di METODO §7), controllata da `tests/laika-soviet.test.js` sul motore vero (cinque piani di giornata, tre giornate, quattro semi).** Nessuna strategia è la migliore su tutti gli indicatori insieme; seguire sempre la lettura dei moderati porta a una repressione bassa e a uno sciopero stretto, seguire sempre quella dei radicali a uno sciopero largo e a una repressione alta (differenze di almeno 10 punti); solo i moderati possono trattare; dare peso a tutte e due non sblocca niente; ogni azione serve in qualche piano; le etichette sulla scena non si sovrappongono.
 
-## Le azioni (ognuna costa 1 punto)
+**Esito.** Nessuna vittoria o sconfitta: un giudizio sullo stato dello sciopero e il riepilogo degli indicatori.
 
-1. **Indagare** una notizia (una fabbrica che esita, una voce sui cosacchi, il telegrafo che tace): svela un pezzo in più; ogni notizia ha due letture opposte, date da un delegato moderato e da uno radicale.
-2. **Mandare un delegato** a una fabbrica o a una linea ferroviaria: allarga lo sciopero ma lascia scoperto un altro posto.
-3. **Distribuire** pane e fondi alla cassa di sciopero: tiene unito il fronte ma consuma la cassa.
-4. **Trattare** con un'autorità (il prefetto, il direttore della fabbrica): abbassa il rischio di repressione ma fa calare la fiducia dei più radicali.
-5. **Riposare / aspettare:** non fa nulla ma evita un errore.
+## Il resto dell'unità
 
-Le azioni non si annullano. Alla fine della giornata arriva una notte: il freddo, la fame, un arresto, una voce confermata o smentita.
+- **Cosa ti devi ricordare** (`a2-soviet-ricorda`): i due obiettivi in parole semplici (il soviet è un consiglio di delegati che coordina uno sciopero e non governa; le notizie a pezzi hanno letture opposte che pesano sulle decisioni).
+- **Verifica V3** (`a2-soviet-v3`).
+- **Che cos'è il soviet** (card documentata del primo giorno): consiglio di delegati di operai, soldati e studenti; contropotere; i socialdemocratici ne prendono presto la maggioranza (appunti «La Rivoluzione Russa», MATRICE A1-03).
+- **Aneddoti:** nessuno trovato per il soviet del 1905 negli atlanti e negli appunti (la ricerca è registrata in MATRICE): non se ne inventano.
 
-## Gli indicatori (da 0 a 100, partono a 50)
+## Elementi del kit
 
-- **Estensione dello sciopero** (alto è meglio ai fini dello sciopero).
-- **Cassa di sciopero** (alto è meglio).
-- **Fiducia dei delegati** (alto è meglio).
-- **Rischio di repressione** (basso è meglio).
+- **Motore:** `turn_game` a punti azione con offerte `when` sui flag e sui valori delle metriche e un'offerta con `cost` 2; nessuna meccanica nuova (la condizione `when` bastava, K5 non serve).
+- **Scena:** `soviet-sala`: tavolo del comitato, telegrafo e bandiera rossa senza scritte (`soviet-tavolo`, `soviet-telegrafo`, `soviet-bandiera`). Le azioni stanno su tre file (alto, centro, basso) con almeno 0,2 di distanza: nessuna etichetta si sovrappone a un'altra su 390 px.
 
-## Regole della crisi
+## Dati da riscontrare
 
-Un indicatore a 10 o meno apre una crisi, una sola volta: la cassa vuota rompe lo sciopero in alcune fabbriche; la fiducia a zero spezza il soviet in due linee; la repressione a 90 porta un arresto dei delegati.
-
-## Il rischio si vede
-
-Le azioni incerte mostrano la probabilità prima di spendere il punto («il delegato arriva in tempo: 7 volte su 10»).
-
-## Che cosa deve capire lo studente
-
-- Il soviet del 1905 è un contropotere: coordina uno sciopero, non governa.
-- Chi decide con notizie incomplete sceglie spesso in base a chi gliele racconta.
-- Una concessione ottenuta con lo sciopero (il Manifesto di ottobre) dipende da quanto regge lo sciopero stesso. **[da riscontrare]** la cronologia di dettaglio dei giorni.
-
-## Esito
-
-Nessuna vittoria o sconfitta. Un giudizio di una riga sullo stato dello sciopero e il riepilogo dei quattro indicatori. Si porta avanti il flag `linea_soviet` (a II.3-e1 e a II.4-e1, poi a IV.2).
-
-## Il codice
-
-Serve una modalità generica del motore: **giornata a punti azione** (azioni con costo e effetti, notizie con due letture, notte come evento). Parte in `src/` con test; contenuto in `games/laika/source/`. Disegni: sala del soviet e strada con ciminiere (il catalogo ha già le ciminiere e le figure; mancano il tavolo dei delegati e il telegrafo).
-
-## Domande per il docente
-
-1. Tre giornate e cinque punti sono giuste o preferisci una giornata sola più lunga?
-2. Le due letture della stessa notizia le dà un delegato moderato e uno radicale (come in [GIOCHI](../GIOCHI.md) §3.8): va bene tenerli senza nome di partito nel testo dello studente?
-3. Il gioco sostituisce la scelta di ruolo di II.2-e1 oppure la precede?
-
-## Scostamenti dalla scheda (costruzione del 3 novembre 2026)
-
-- **Modalità a punti azione del motore (3 novembre 2026):** il gioco usa il `market` con `points`: tre giornate da cinque punti, azioni toccabili sulla scena (le due letture opposte si vedono indagando, un punto ciascuna), delegato ripetibile e incerto (la probabilità cresce con le notizie capite), la notte come effetti di inizio giornata. Sostituisce la prima versione a 15 turni di scelte.
-- **Disegni:** nessun disegno nuovo. Scena della sala con `ambiente-sala` e figure del catalogo; il tavolo dei delegati e il telegrafo non ci sono.
-- **Episodi di Atto IV costruiti:** tutti e sei (e1 domenica di sangue, e2 petizione a cinque righe, e3 giornate del soviet, e4 confronto sul Manifesto di ottobre, e5 Stolypin, e6 verifiche V3 e V4) più la pagina «Cosa ti devi ricordare». Le fonti di e4 sono sintesi per il gioco dagli appunti, non testi originali; la scelta di Stolypin (`uscita_dal_mir`, `stolypin_resta`, `stolypin_vende`) non ha ancora effetti a valle.
-- **Taratura:** simulazioni su sei strategie fisse e venti partite ciascuna: nessuna strategia vince senza costi, ma «mandare sempre un delegato» rende molto. Da ritoccare.
-- **Fatti da riscontrare:** la cronologia dei giorni è indicativa; i personaggi e le notizie sono inventati e dichiarati simulazione.
-
-III.2 usa la stessa modalità per «La coda per il pane» e «Il soldato che non spara» (episodi `a1-u6-coda-gioco` e `a1-u6-soldato`).
+La cronologia dei giorni (17–19 ottobre) è solo la cornice; delegati, notizie e numeri sono simulazione dichiarata.

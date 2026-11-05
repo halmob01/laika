@@ -18,7 +18,7 @@
     "centro": 0.5,
     "zoom": 1.2
   },
-  "etichetta": "Nella sala a colonne i delegati del soviet discutono attorno a un tavolo con fogli e lampada; un telegrafo batte le notizie.",
+  "etichetta": "Nella sala a colonne i delegati del soviet discutono attorno a un tavolo con fogli e lampada; un telegrafo batte le notizie e una bandiera rossa senza scritte sta in fondo alla sala.",
   "elementi": [
     {
       "id": "sala",
@@ -40,6 +40,13 @@
       "x": 1340,
       "y": 880,
       "scala": 1.5
+    },
+    {
+      "id": "bandiera",
+      "simbolo": "soviet-bandiera",
+      "x": 1500,
+      "y": 900,
+      "scala": 1.4
     }
   ],
   "figure": [
