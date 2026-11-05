@@ -49,7 +49,7 @@ Divisione in quattro unità decisa il 4 novembre 2026 (D-024, D-038). Le schede 
 **II.3-e1 · turn_game [S] · Le tre stagioni delle concessioni** (nuovo il 5 novembre 2026, scheda [concessioni](../giochi/concessioni.md); la scheda precedente è in [docs/archivio](../../archivio/ATTO-2-II3-e1-v1-2026-11-05.md))
 - **Scena.** Tre stagioni (ottobre 1905, 1906, 1907) nella sala di San Giorgio, quattro punti a stagione: far diventare vero quello che il Manifesto promette (promesso sulla carta, poteri veri, piazza organizzata, reazione dello zar). Se il soviet (II.2) aveva trattato col prefetto si apre «Il ministro»; se no, «Lo sciopero». Una carta documentata per stagione: il Manifesto, la ballerina Baletta («Indossi le nostre corazzate», C36, Montefiore), le Leggi fondamentali, le Dume sciolte.
 - **Sotto la scena.** Una concessione strappata è un diritto o una tregua?
-- **Regia.** Due blocchi di figure nella sala di San Giorgio: uniformi da una parte, giacche dall'altra; l'aquila imperiale sulla sala, il palco del teatro a destra.
+- **Regia.** La sala di San Giorgio con l'aquila imperiale sul cornicione, il palco del teatro a destra e, in primo piano, un giornale con tre persone che lo leggono in modi diversi e un dignitario in piedi.
 - **Chi la sviluppa.** Opus (gioco), Sonnet (testi).
 
 **II.3-e2 · source_comparison [F] · Diritto o tregua?** (l'ex «Che cosa concede lo zar»): dopo il gioco si aprono le tre schede (Manifesto, Leggi fondamentali, le due Dume sciolte) e si sceglie con due fatti.

@@ -88,6 +88,12 @@ test('Le concessioni: ogni azione serve, le crisi si possono provocare, le etich
   assert.ok(tutte.some(x => x.crisi === 0), 'si arriva in fondo anche senza crisi');
   const duma = ep.turns[0].market.offers.find(o => o.id === 'duma');
   assert.ok(duma.chance.base > 0 && duma.chance.base < 1 && duma.chance.factor > 0, 'la Duma ha una probabilità scritta che cresce con la piazza');
+  // Un'azione chiusa dice quando si apre: la Duma nella prima stagione, il ministro e lo sciopero secondo il soviet.
+  assert.match(ep.turns[0].market.offers.find(o => o.id === 'duma').label, /dal 1906/);
+  assert.match(ep.turns[0].market.offers.find(o => o.id === 'ministro').label, /se il soviet ha trattato/);
+  assert.match(ep.turns[0].market.offers.find(o => o.id === 'sciopero').label, /se il soviet non ha trattato/);
+  const sc = ep.turns[0].market.offers.find(o => o.id === 'sciopero').effects.find(x => x.id === 'reazione').delta;
+  assert.ok(sc >= 8, 'minacciare lo sciopero sveglia la reazione dello zar: ' + sc);
   assert.ok(ep.shows.length >= 2 && ep.shows.length <= 5);
   for (const turn of ep.turns) {
     const at = turn.market.offers.map(o => ({ id: o.id, ...o.at }));
