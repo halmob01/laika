@@ -346,7 +346,7 @@ SI TIRA AVANTI
 
 Si mangia fino al raccolto, ma non avanza niente.
 
-Il tempo: buona annata.
+Il tempo: annata normale.
 I NUMERI DELL’ANNO
 
 SI DICE IN GIRO
@@ -380,7 +380,7 @@ SI TIRA AVANTI
 
 Si mangia fino al raccolto, ma non avanza niente.
 
-Il tempo: buona annata.
+Il tempo: annata normale.
 I NUMERI DELL’ANNO
 
 SI DICE IN GIRO
@@ -1052,11 +1052,12 @@ LA SETTIMANA
 L'ANNO
 CHI BUSSA
 
-Non riuscito (77%).
+Riuscito (77%).
 
-L'amministratore annota i nomi di chi ha parlato. Il vostro è il primo.
+Sono in troppi a dire di no. L'amministratore rinuncia, per questa volta.
 
-Occhio del padrone: 0 → 18
+Speranza: 15 → 23
+Legami nel villaggio: 84 → 88
 L’ANNO DOPO
 
 
@@ -1239,7 +1240,7 @@ Il grano messo da parte non si mangia: torna nel campo. Se ne metti poco il camp
 
 Hai 35 di grano della famiglia. Per mangiare fino al raccolto ne servono 20. Dopo la semina ne restano 0. Il campo renderà il 100% del possibile.
 
-Così non resta niente: basta un imprevisto e il grano finisce.
+Non basta: il grano finirà prima del raccolto.
 
 Il tempo che farà: buona annata 25% · annata normale 50% · gelo tardivo 25%.
 
@@ -1267,11 +1268,11 @@ L'ANNO
 CHI BUSSA
 LA FIERA
 
-SI TIRA AVANTI
+FAME
 
-Si mangia fino al raccolto, ma non avanza niente.
+Il grano è finito: la famiglia ha tirato avanti solo con quello che ha dovuto vendere, chiedere o lasciare.
 
-Il tempo: gelo tardivo.
+Il tempo: annata normale.
 I NUMERI DELL’ANNO
 CHI BUSSA
 
@@ -1297,11 +1298,11 @@ L'ANNO
 CHI BUSSA
 LA FIERA
 
-SI TIRA AVANTI
+FAME
 
-Si mangia fino al raccolto, ma non avanza niente.
+Il grano è finito: la famiglia ha tirato avanti solo con quello che ha dovuto vendere, chiedere o lasciare.
 
-Il tempo: gelo tardivo.
+Il tempo: annata normale.
 I NUMERI DELL’ANNO
 CHI BUSSA
 
@@ -1361,8 +1362,8 @@ LA FIERA
 
 La sera si ride delle case nuove da un lato solo. Ridere insieme tiene unito il villaggio.
 
-Legami nel villaggio: 84 → 92
-Occhio del padrone: 6 → 12
+Legami nel villaggio: 88 → 96
+Occhio del padrone: 0 → 6
 ALLA FIERA
 
 
@@ -1579,9 +1580,7 @@ Il grano messo da parte non si mangia: torna nel campo. Se ne metti poco il camp
 15
 +
 
-Hai 20 di grano della famiglia. Per mangiare fino al raccolto ne servono 20. Dopo la semina ne mancano 15 per arrivare al raccolto. Il campo renderà il 100% del possibile.
-
-Non basta: il grano finirà prima del raccolto.
+Hai 40 di grano della famiglia. Per mangiare fino al raccolto ne servono 20. Dopo la semina ne restano 5. Il campo renderà il 100% del possibile.
 
 Il tempo che farà: buona annata 25% · annata normale 50% · gelo tardivo 25%.
 
@@ -1703,7 +1702,7 @@ LA FIERA
 
 L'ufficiale scrive qualcosa e se ne va. La casa è vecchia, ma il tetto è vostro.
 
-Speranza: 15 → 21
+Speranza: 23 → 29
 ALLA FIERA
 
 
@@ -1882,7 +1881,7 @@ Il grano messo da parte non si mangia: torna nel campo. Se ne metti poco il camp
 15
 +
 
-Hai 25 di grano della famiglia. Per mangiare fino al raccolto ne servono 20. Dopo la semina ne mancano 10 per arrivare al raccolto. Il campo renderà il 100% del possibile.
+Hai 30 di grano della famiglia. Per mangiare fino al raccolto ne servono 20. Dopo la semina ne mancano 5 per arrivare al raccolto. Il campo renderà il 100% del possibile.
 
 Non basta: il grano finirà prima del raccolto.
 
@@ -1911,9 +1910,9 @@ LA SETTIMANA
 L'ANNO
 CHI BUSSA
 
-SI MANGIA
+FAME
 
-Si mangia fino al raccolto e avanza qualcosa.
+Il grano è finito: la famiglia ha tirato avanti solo con quello che ha dovuto vendere, chiedere o lasciare.
 
 Il tempo: annata normale.
 I NUMERI DELL’ANNO
@@ -1945,9 +1944,9 @@ LA SETTIMANA
 L'ANNO
 CHI BUSSA
 
-SI MANGIA
+FAME
 
-Si mangia fino al raccolto e avanza qualcosa.
+Il grano è finito: la famiglia ha tirato avanti solo con quello che ha dovuto vendere, chiedere o lasciare.
 
 Il tempo: annata normale.
 I NUMERI DELL’ANNO
@@ -2012,8 +2011,8 @@ CHI BUSSA
 
 Il pellegrino parla fino a tardi. Da quella sera, nel villaggio, Belovod'e ha un nome.
 
-Speranza: 21 → 29
-Legami nel villaggio: 92 → 95
+Speranza: 29 → 37
+Legami nel villaggio: 96 → 99
 L’ANNO DOPO
 
 
@@ -2105,7 +2104,7 @@ Il grano messo da parte non si mangia: torna nel campo. Se ne metti poco il camp
 
 Hai 40 di grano della famiglia. Per mangiare fino al raccolto ne servono 20. Dopo la semina e i lavori ne restano 0. Il campo renderà il 100% del possibile.
 
-Così non resta niente: basta un imprevisto e il grano finisce.
+Non basta: il grano finirà prima del raccolto.
 
 Il tempo che farà: buona annata 25% · annata normale 50% · gelo tardivo 25%.
 
@@ -2134,9 +2133,9 @@ CHI BUSSA
 
 FAME
 
-Il grano non basta: quest'inverno si fa la fame.
+Il grano è finito: la famiglia ha tirato avanti solo con quello che ha dovuto vendere, chiedere o lasciare.
 
-Il tempo: buona annata.
+Il tempo: annata normale.
 L'orto dietro l'isba: L'orto è pronto: ogni anno qualche sacco in più, qualunque tempo faccia.
 I NUMERI DELL’ANNO
 
@@ -2169,9 +2168,9 @@ CHI BUSSA
 
 FAME
 
-Il grano non basta: quest'inverno si fa la fame.
+Il grano è finito: la famiglia ha tirato avanti solo con quello che ha dovuto vendere, chiedere o lasciare.
 
-Il tempo: buona annata.
+Il tempo: annata normale.
 L'orto dietro l'isba: L'orto è pronto: ogni anno qualche sacco in più, qualunque tempo faccia.
 I NUMERI DELL’ANNO
 
@@ -2490,9 +2489,9 @@ LA SETTIMANA
 L'ANNO
 CHI BUSSA
 
-SI MANGIA
+FAME
 
-Si mangia fino al raccolto e avanza qualcosa.
+Il grano è finito: la famiglia ha tirato avanti solo con quello che ha dovuto vendere, chiedere o lasciare.
 
 Il tempo: annata normale.
 I NUMERI DELL’ANNO
@@ -2519,9 +2518,9 @@ LA SETTIMANA
 L'ANNO
 CHI BUSSA
 
-SI MANGIA
+FAME
 
-Si mangia fino al raccolto e avanza qualcosa.
+Il grano è finito: la famiglia ha tirato avanti solo con quello che ha dovuto vendere, chiedere o lasciare.
 
 Il tempo: annata normale.
 I NUMERI DELL’ANNO
@@ -2580,7 +2579,7 @@ CHI BUSSA
 
 Il prete scuote la testa: la firma è falsa. La speranza si raffredda, ma resta.
 
-Speranza: 29 → 21
+Speranza: 37 → 29
 Legami nel villaggio: 90 → 94
 FINE DELLA PARTITA
 
@@ -3211,7 +3210,7 @@ ASSEMBLEA 3 DI 8
 LE STRISCE
 L'ESITO
 UNA RICHIESTA
-Il raccolto di quest'anno: raccolto buono.
+Il raccolto di quest'anno: raccolto normale.
 I NUMERI DELL’ASSEMBLEA
 UNA RICHIESTA
 
@@ -3234,7 +3233,7 @@ ASSEMBLEA 3 DI 8
 LE STRISCE
 L'ESITO
 UNA RICHIESTA
-Il raccolto di quest'anno: raccolto buono.
+Il raccolto di quest'anno: raccolto normale.
 I NUMERI DELL’ASSEMBLEA
 UNA RICHIESTA
 
@@ -3292,7 +3291,7 @@ Pagano di più i lotti più grandi. Chi ha curato il proprio lotto protesta.
 
 La cassa del riscatto: 45 → 55
 Chi ha curato il proprio lotto: 100 → 85
-Le famiglie numerose: 86 → 91
+Le famiglie numerose: 82 → 87
 LA PROSSIMA ASSEMBLEA
 
 
@@ -3363,7 +3362,7 @@ ASSEMBLEA 4 DI 8
 LE STRISCE
 L'ESITO
 UNA RICHIESTA
-Il raccolto di quest'anno: raccolto buono.
+Il raccolto di quest'anno: raccolto normale.
 I NUMERI DELL’ASSEMBLEA
 UNA RICHIESTA
 
@@ -3386,7 +3385,7 @@ ASSEMBLEA 4 DI 8
 LE STRISCE
 L'ESITO
 UNA RICHIESTA
-Il raccolto di quest'anno: raccolto buono.
+Il raccolto di quest'anno: raccolto normale.
 I NUMERI DELL’ASSEMBLEA
 UNA RICHIESTA
 
@@ -3443,7 +3442,7 @@ UNA RICHIESTA
 Il lotto della vedova viene lavorato a turno. Le altre famiglie perdono giornate di lavoro.
 
 Le vedove e gli anziani soli: 63 → 83
-Le famiglie numerose: 100 → 90
+Le famiglie numerose: 97 → 87
 LA PROSSIMA ASSEMBLEA
 
 
@@ -3593,6 +3592,7 @@ UNA RICHIESTA
 
 Il giovane parte. Le prime monete arrivano a primavera. In casa c’è una bocca di meno.
 
+Le famiglie numerose: 97 → 100
 La cassa del riscatto: 55 → 65
 Le vedove e gli anziani soli: 85 → 80
 LA PROSSIMA ASSEMBLEA
@@ -3665,7 +3665,7 @@ ASSEMBLEA 6 DI 8
 LE STRISCE
 L'ESITO
 UNA RICHIESTA
-Il raccolto di quest'anno: raccolto buono.
+Il raccolto di quest'anno: raccolto normale.
 I NUMERI DELL’ASSEMBLEA
 UNA RICHIESTA
 
@@ -3688,7 +3688,7 @@ ASSEMBLEA 6 DI 8
 LE STRISCE
 L'ESITO
 UNA RICHIESTA
-Il raccolto di quest'anno: raccolto buono.
+Il raccolto di quest'anno: raccolto normale.
 I NUMERI DELL’ASSEMBLEA
 UNA RICHIESTA
 
@@ -3966,7 +3966,7 @@ ASSEMBLEA 8 DI 8
 LE STRISCE
 L'ESITO
 UNA RICHIESTA
-Il raccolto di quest'anno: raccolto normale.
+Il raccolto di quest'anno: raccolto buono.
 I NUMERI DELL’ASSEMBLEA
 UNA RICHIESTA
 
@@ -3989,7 +3989,7 @@ ASSEMBLEA 8 DI 8
 LE STRISCE
 L'ESITO
 UNA RICHIESTA
-Il raccolto di quest'anno: raccolto normale.
+Il raccolto di quest'anno: raccolto buono.
 I NUMERI DELL’ASSEMBLEA
 UNA RICHIESTA
 
@@ -4143,8 +4143,8 @@ Una domanda sul mir. Non valuta le scelte che hai fatto nella partita.
 
 Che cos'è il mir?
 Un consiglio di delegati che decide per alzata di mano
-Una comunità contadina che divide la terra fra le famiglie e paga insieme
 Un'assemblea in cui ogni abitante vota alla pari per leggi uguali per tutti
+Una comunità contadina che divide la terra fra le famiglie e paga insieme
 
 > SCELGO: Un consiglio di delegati che decide per alzata di mano
 
@@ -4626,7 +4626,7 @@ SI TIRA AVANTI
 
 Si tira avanti.
 
-La settimana: carbone umido.
+La settimana: settimana normale.
 I NUMERI DELLA SETTIMANA
 
 SI DICE IN FABBRICA
@@ -4659,7 +4659,7 @@ SI TIRA AVANTI
 
 Si tira avanti.
 
-La settimana: carbone umido.
+La settimana: settimana normale.
 I NUMERI DELLA SETTIMANA
 
 SI DICE IN FABBRICA
@@ -5019,7 +5019,7 @@ SI TIRA AVANTI
 
 Si tira avanti.
 
-La settimana: pane più caro.
+La settimana: settimana normale.
 Bussano per i conti in arretrato (l'affitto o il carbone): le monete che mancano diventano debito.
 Il debito è troppo: perdi l'angolo di stanza e ti sistemi in un dormitorio di fabbrica. Non paghi più la stanza ma dormi male.
 I NUMERI DELLA SETTIMANA
@@ -5056,7 +5056,7 @@ SI TIRA AVANTI
 
 Si tira avanti.
 
-La settimana: pane più caro.
+La settimana: settimana normale.
 Bussano per i conti in arretrato (l'affitto o il carbone): le monete che mancano diventano debito.
 Il debito è troppo: perdi l'angolo di stanza e ti sistemi in un dormitorio di fabbrica. Non paghi più la stanza ma dormi male.
 I NUMERI DELLA SETTIMANA
@@ -5122,7 +5122,7 @@ IL NEGOZIO
 
 Hai bisogno di dormire.
 
-Forze del figlio: 26 → 29
+Forze del figlio: 34 → 37
 ALLA FIERA
 
 
@@ -5263,13 +5263,12 @@ IL SALARIO
 LA SETTIMANA
 CHI BUSSA
 
-SI REGGE
+SI TIRA AVANTI
 
-Hai mangiato e dormito: la settimana tiene.
+Si tira avanti.
 
-La settimana: settimana normale.
-I conti sono in arretrato ma questa volta nessuno bussa.
-Non ti reggi più in piedi: resti a letto qualche giorno e da qui in poi guadagni di meno.
+La settimana: carbone umido.
+Bussano per i conti in arretrato (l'affitto o il carbone): le monete che mancano diventano debito.
 I NUMERI DELLA SETTIMANA
 CHI BUSSA
 
@@ -5294,13 +5293,12 @@ IL SALARIO
 LA SETTIMANA
 CHI BUSSA
 
-SI REGGE
+SI TIRA AVANTI
 
-Hai mangiato e dormito: la settimana tiene.
+Si tira avanti.
 
-La settimana: settimana normale.
-I conti sono in arretrato ma questa volta nessuno bussa.
-Non ti reggi più in piedi: resti a letto qualche giorno e da qui in poi guadagni di meno.
+La settimana: carbone umido.
+Bussano per i conti in arretrato (l'affitto o il carbone): le monete che mancano diventano debito.
 I NUMERI DELLA SETTIMANA
 CHI BUSSA
 
@@ -5359,8 +5357,7 @@ Non riuscito (40%).
 
 Il caposquadra si irrita e raddoppia la multa.
 
-Forze del figlio: 62 → 57
-Debito: 12 → 16
+Forze del figlio: 34 → 29
 LA SETTIMANA DOPO
 
 
@@ -5414,7 +5411,7 @@ IL SALARIO
 LA SETTIMANA
 IL NEGOZIO
 
-Hai 7 monete. Niente da mettere.
+Hai 8 monete. Niente da mettere.
 
 Pane
 +8 Forze del figlio per ciascuno
@@ -5439,7 +5436,7 @@ Soldi al villaggio
 Il corso serale
 +10 Quanto sai leggere i fogli, −3 Forze del figlio per ciascuno
 −
-0
+1
 +
 
 Che cosa può succedere: settimana normale 50% · pane più caro 30% · carbone umido 20%.
@@ -5476,7 +5473,8 @@ SI REGGE
 Hai mangiato e dormito: la settimana tiene.
 
 La settimana: settimana normale.
-I conti sono in arretrato ma questa volta nessuno bussa.
+Bussano per i conti in arretrato (l'affitto o il carbone): le monete che mancano diventano debito.
+Non ti reggi più in piedi: resti a letto qualche giorno e da qui in poi guadagni di meno.
 I NUMERI DELLA SETTIMANA
 IL NEGOZIO
 
@@ -5506,7 +5504,8 @@ SI REGGE
 Hai mangiato e dormito: la settimana tiene.
 
 La settimana: settimana normale.
-I conti sono in arretrato ma questa volta nessuno bussa.
+Bussano per i conti in arretrato (l'affitto o il carbone): le monete che mancano diventano debito.
+Non ti reggi più in piedi: resti a letto qualche giorno e da qui in poi guadagni di meno.
 I NUMERI DELLA SETTIMANA
 IL NEGOZIO
 
@@ -5818,7 +5817,7 @@ SI REGGE
 
 Hai mangiato e dormito: la settimana tiene.
 
-La settimana: settimana normale.
+La settimana: carbone umido.
 I NUMERI DELLA SETTIMANA
 CHI BUSSA
 
@@ -5846,7 +5845,7 @@ SI REGGE
 
 Hai mangiato e dormito: la settimana tiene.
 
-La settimana: settimana normale.
+La settimana: carbone umido.
 I NUMERI DELLA SETTIMANA
 CHI BUSSA
 
@@ -6279,11 +6278,11 @@ CHI CHIEDEVA CHE COSA
 Una domanda sui tre gruppi del 1904. Non valuta le scelte che hai fatto nella partita.
 
 Nel 1904 circolano tre fogli. Quale gruppo chiede soprattutto di distribuire la terra a chi la lavora?
+I socialrivoluzionari, un partito di ispirazione contadina
 I socialdemocratici, che vedono negli operai la forza del cambiamento
 I cadetti, che vogliono una costituzione e un parlamento eletto
-I socialrivoluzionari, un partito di ispirazione contadina
 
-> SCELGO: I socialdemocratici, che vedono negli operai la forza del cambiamento
+> SCELGO: I socialrivoluzionari, un partito di ispirazione contadina
 
 
 ## 204 · verifica-esito (204-verifica-esito.png)
@@ -7669,13 +7668,13 @@ Il delegato moderato: riaprire con una garanzia è meglio che perdere il posto. 
 
 Si parla col prefetto o col direttore: la tensione scende ma i più decisi storcono il naso.
 
-Il delegato arriva tardi: la fabbrica ha già riaperto.
+Il delegato arriva in tempo: altri smettono di lavorare.
 
 Notizie capite: 75 → 100
-Fiducia dei delegati: 72 → 66
-Estensione dello sciopero: 43 → 22
-Cassa di sciopero: 2 → 22
-Rischio di repressione: 48 → 45
+Fiducia dei delegati: 72 → 70
+Estensione dello sciopero: 43 → 34
+Cassa di sciopero: 2 → 20
+Rischio di repressione: 48 → 46
 FINE DELLA PARTITA
 
 
@@ -7712,10 +7711,10 @@ Una domanda sul soviet del 1905. Non valuta le scelte che hai fatto nella partit
 
 Nell'ottobre 1905 nasce a Pietroburgo il soviet. Che cos'era?
 Il nuovo governo che sostituì lo zar
-Il parlamento eletto concesso dal Manifesto di ottobre
 Un consiglio di delegati degli scioperanti che coordinava lo sciopero senza governare
+Il parlamento eletto concesso dal Manifesto di ottobre
 
-> SCELGO: Un consiglio di delegati degli scioperanti che coordinava lo sciopero senza governare
+> SCELGO: Il parlamento eletto concesso dal Manifesto di ottobre
 
 
 ## 242 · verifica-esito (242-verifica-esito.png)
@@ -8007,11 +8006,11 @@ CHE COSA CONSENTE STOLYPIN
 Una domanda su Stolypin. Non valuta le scelte che hai fatto nella partita.
 
 Che cosa permette a un contadino la riforma di Stolypin del 1906?
-Avere la terra del signore gratis
-Abolire il mir in tutta la Russia
 Uscire dal mir e unire le sue strisce in un podere
+Abolire il mir in tutta la Russia
+Avere la terra del signore gratis
 
-> SCELGO: Avere la terra del signore gratis
+> SCELGO: Uscire dal mir e unire le sue strisce in un podere
 
 
 ## 252 · verifica-esito (252-verifica-esito.png)
@@ -8512,11 +8511,11 @@ In magazzino: 24. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 0. Passano 8 per stagione.
 I treni
-In magazzino: 0. Passano 3 per stagione.
+In magazzino: 0. Passano 4 per stagione.
 Le città
 Arrivato: 0.
 
-Sulla carta: 20. In realtà (arrivato): 0. Scarto: 20.
+Sulla carta: 15. In realtà (arrivato): 0. Scarto: 15.
 
 IL MINISTERO
 
@@ -8551,10 +8550,9 @@ La fila davanti ai forni +1 pazienza
 
 La fila si calma, ma i fornai tengono il pane per il mercato nero.
 
-L'ispettore non trova niente di utile e in città si parla di corruzione.
+L'ispettore trova vagoni fermi e li fa ripartire. Il rapporto si corregge.
 
 Pane in città: 42 → 38
-Voci che girano: 23 → 27
 FINIRE LA STAGIONE (RESTANO 2 PUNTI)
 
 > SCELGO: Imporre una quota di consegna ai villaggi +5 Voci che girano Gli ammassi dello Stato +10 in magazzino
@@ -8590,11 +8588,11 @@ In magazzino: 24. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 10. Passano 8 per stagione.
 I treni
-In magazzino: 0. Passano 3 per stagione.
+In magazzino: 0. Passano 4 per stagione.
 Le città
 Arrivato: 0.
 
-Sulla carta: 20. In realtà (arrivato): 0. Scarto: 20.
+Sulla carta: 15. In realtà (arrivato): 0. Scarto: 15.
 
 IL MINISTERO
 
@@ -8630,12 +8628,12 @@ La fila davanti ai forni +1 pazienza
 
 La fila si calma, ma i fornai tengono il pane per il mercato nero.
 
-L'ispettore non trova niente di utile e in città si parla di corruzione.
+L'ispettore trova vagoni fermi e li fa ripartire. Il rapporto si corregge.
 
 Arriva più grano agli ammassi, ma i contadini ricordano l'obbligo.
 
 Pane in città: 42 → 38
-Voci che girano: 23 → 32
+Voci che girano: 23 → 28
 FINIRE LA STAGIONE (RESTA 1 PUNTO)
 
 > SCELGO: Alzare il prezzo fissato del grano +3 Voci che girano Gli ammassi dello Stato +6 in magazzino
@@ -8671,11 +8669,11 @@ In magazzino: 24. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 16. Passano 8 per stagione.
 I treni
-In magazzino: 0. Passano 3 per stagione.
+In magazzino: 0. Passano 4 per stagione.
 Le città
 Arrivato: 0.
 
-Sulla carta: 20. In realtà (arrivato): 0. Scarto: 20.
+Sulla carta: 15. In realtà (arrivato): 0. Scarto: 15.
 
 IL MINISTERO
 
@@ -8712,14 +8710,14 @@ La fila davanti ai forni +1 pazienza
 
 La fila si calma, ma i fornai tengono il pane per il mercato nero.
 
-L'ispettore non trova niente di utile e in città si parla di corruzione.
+L'ispettore trova vagoni fermi e li fa ripartire. Il rapporto si corregge.
 
 Arriva più grano agli ammassi, ma i contadini ricordano l'obbligo.
 
 I contadini vendono di più allo Stato, ma con i rubli di oggi non comprano niente.
 
 Pane in città: 42 → 38
-Voci che girano: 23 → 35
+Voci che girano: 23 → 31
 FINIRE LA STAGIONE
 
 
@@ -8753,11 +8751,11 @@ In magazzino: 28. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 16. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 8. Passano 3 per stagione.
+In magazzino: 8. Passano 4 per stagione.
 Le città
 Arrivato: 0.
 
-Sulla carta: 20. In realtà (arrivato): 0. Scarto: 20.
+Sulla carta: 15. In realtà (arrivato): 0. Scarto: 15.
 
 Arrivati questo turno: 0 (grano).
 
@@ -8803,11 +8801,11 @@ In magazzino: 28. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 16. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 8. Passano 2 per stagione.
+In magazzino: 8. Passano 3 per stagione.
 Le città
 Arrivato: 0.
 
-Sulla carta: 20. In realtà (arrivato): 0. Scarto: 20.
+Sulla carta: 15. In realtà (arrivato): 0. Scarto: 15.
 
 Arrivati questo turno: 0 (grano).
 
@@ -8848,11 +8846,11 @@ In magazzino: 28. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 16. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 8. Passano 2 per stagione.
+In magazzino: 8. Passano 3 per stagione.
 Le città
 Arrivato: 0.
 
-Sulla carta: 20. In realtà (arrivato): 0. Scarto: 20.
+Sulla carta: 15. In realtà (arrivato): 0. Scarto: 15.
 
 Arrivati questo turno: 0 (grano).
 
@@ -8921,11 +8919,11 @@ In magazzino: 28. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 16. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 8. Passano 2 per stagione.
+In magazzino: 8. Passano 3 per stagione.
 Le città
 Arrivato: 0.
 
-Sulla carta: 20. In realtà (arrivato): 0. Scarto: 20.
+Sulla carta: 15. In realtà (arrivato): 0. Scarto: 15.
 
 Arrivati questo turno: 0 (grano).
 
@@ -8999,11 +8997,11 @@ In magazzino: 28. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 22. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 8. Passano 2 per stagione.
+In magazzino: 8. Passano 3 per stagione.
 Le città
 Arrivato: 0.
 
-Sulla carta: 20. In realtà (arrivato): 0. Scarto: 20.
+Sulla carta: 15. In realtà (arrivato): 0. Scarto: 15.
 
 Arrivati questo turno: 0 (grano).
 
@@ -9045,7 +9043,7 @@ La fila si calma, ma i fornai tengono il pane per il mercato nero.
 I contadini vendono di più allo Stato, ma con i rubli di oggi non comprano niente.
 
 Pane in città: 30 → 26
-Voci che girano: 35 → 38
+Voci che girano: 31 → 34
 FINIRE LA STAGIONE (RESTANO 2 PUNTI)
 
 > SCELGO: Mandare un ispettore sui treni riesce nel 50% dei casi se riesce: I treni +1 di capacità, Carta −5
@@ -9081,11 +9079,11 @@ In magazzino: 28. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 22. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 8. Passano 3 per stagione.
+In magazzino: 8. Passano 4 per stagione.
 Le città
 Arrivato: 0.
 
-Sulla carta: 15. In realtà (arrivato): 0. Scarto: 15.
+Sulla carta: 10. In realtà (arrivato): 0. Scarto: 10.
 
 Arrivati questo turno: 0 (grano).
 
@@ -9130,7 +9128,7 @@ I contadini vendono di più allo Stato, ma con i rubli di oggi non comprano nien
 L'ispettore trova vagoni fermi e li fa ripartire. Il rapporto si corregge.
 
 Pane in città: 30 → 26
-Voci che girano: 35 → 38
+Voci che girano: 31 → 34
 FINIRE LA STAGIONE (RESTA 1 PUNTO)
 
 > SCELGO: Dividere il pane della città −5 Pane in città La fila davanti ai forni +1 pazienza
@@ -9166,11 +9164,11 @@ In magazzino: 28. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 22. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 8. Passano 3 per stagione.
+In magazzino: 8. Passano 4 per stagione.
 Le città
 Arrivato: 0.
 
-Sulla carta: 15. In realtà (arrivato): 0. Scarto: 15.
+Sulla carta: 10. In realtà (arrivato): 0. Scarto: 10.
 
 Arrivati questo turno: 0 (grano).
 
@@ -9218,7 +9216,7 @@ L'ispettore trova vagoni fermi e li fa ripartire. Il rapporto si corregge.
 Si divide il pane: a ciascuno un pezzo più piccolo.
 
 Pane in città: 30 → 21
-Voci che girano: 35 → 38
+Voci che girano: 31 → 34
 FINIRE LA STAGIONE
 
 
@@ -9254,13 +9252,13 @@ In magazzino: 22. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 26. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 9. Passano 3 per stagione.
+In magazzino: 8. Passano 4 per stagione.
 Le città
-Arrivato: 3.
+Arrivato: 4.
 
-Sulla carta: 15. In realtà (arrivato): 3. Scarto: 12.
+Sulla carta: 10. In realtà (arrivato): 4. Scarto: 6.
 
-Arrivati questo turno: 3 (grano).
+Arrivati questo turno: 4 (grano).
 
 IL QUARTIER GENERALE
 
@@ -9304,17 +9302,17 @@ In magazzino: 22. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 26. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 9. Passano 3 per stagione.
+In magazzino: 8. Passano 4 per stagione.
 Le città
-Arrivato: 3.
+Arrivato: 4.
 
-Sulla carta: 15. In realtà (arrivato): 3. Scarto: 12.
+Sulla carta: 10. In realtà (arrivato): 4. Scarto: 6.
 
-Arrivati questo turno: 3 (grano).
+Arrivati questo turno: 4 (grano).
 
 I generali protestano e in città se ne parla.
 
-Voci che girano: 38 → 41
+Voci che girano: 34 → 37
 ALLA FIERA
 
 
@@ -9350,13 +9348,13 @@ In magazzino: 22. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 26. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 9. Passano 3 per stagione.
+In magazzino: 8. Passano 4 per stagione.
 Le città
-Arrivato: 3.
+Arrivato: 4.
 
-Sulla carta: 15. In realtà (arrivato): 3. Scarto: 12.
+Sulla carta: 10. In realtà (arrivato): 4. Scarto: 6.
 
-Arrivati questo turno: 3 (grano).
+Arrivati questo turno: 4 (grano).
 
 IL MINISTERO
 
@@ -9423,13 +9421,13 @@ In magazzino: 22. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 26. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 9. Passano 3 per stagione.
+In magazzino: 8. Passano 4 per stagione.
 Le città
-Arrivato: 3.
+Arrivato: 4.
 
-Sulla carta: 15. In realtà (arrivato): 3. Scarto: 12.
+Sulla carta: 10. In realtà (arrivato): 4. Scarto: 6.
 
-Arrivati questo turno: 3 (grano).
+Arrivati questo turno: 4 (grano).
 
 IL MINISTERO
 
@@ -9463,7 +9461,7 @@ La fila davanti ai forni +1 pazienza
 
 La fila si calma, ma i fornai tengono il pane per il mercato nero.
 
-Pane in città: 19 → 15
+Pane in città: 21 → 17
 FINIRE LA STAGIONE (RESTANO 3 PUNTI)
 
 > SCELGO: Alzare il prezzo fissato del grano +3 Voci che girano Gli ammassi dello Stato +6 in magazzino
@@ -9501,13 +9499,13 @@ In magazzino: 22. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 32. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 9. Passano 3 per stagione.
+In magazzino: 8. Passano 4 per stagione.
 Le città
-Arrivato: 3.
+Arrivato: 4.
 
-Sulla carta: 15. In realtà (arrivato): 3. Scarto: 12.
+Sulla carta: 10. In realtà (arrivato): 4. Scarto: 6.
 
-Arrivati questo turno: 3 (grano).
+Arrivati questo turno: 4 (grano).
 
 IL MINISTERO
 
@@ -9544,8 +9542,8 @@ La fila si calma, ma i fornai tengono il pane per il mercato nero.
 
 I contadini vendono di più allo Stato, ma con i rubli di oggi non comprano niente.
 
-Pane in città: 19 → 15
-Voci che girano: 41 → 44
+Pane in città: 21 → 17
+Voci che girano: 37 → 40
 FINIRE LA STAGIONE (RESTANO 2 PUNTI)
 
 > SCELGO: Imporre una quota di consegna ai villaggi +5 Voci che girano Gli ammassi dello Stato +10 in magazzino
@@ -9583,13 +9581,13 @@ In magazzino: 22. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 42. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 9. Passano 3 per stagione.
+In magazzino: 8. Passano 4 per stagione.
 Le città
-Arrivato: 3.
+Arrivato: 4.
 
-Sulla carta: 15. In realtà (arrivato): 3. Scarto: 12.
+Sulla carta: 10. In realtà (arrivato): 4. Scarto: 6.
 
-Arrivati questo turno: 3 (grano).
+Arrivati questo turno: 4 (grano).
 
 IL MINISTERO
 
@@ -9629,8 +9627,8 @@ I contadini vendono di più allo Stato, ma con i rubli di oggi non comprano nien
 
 Arriva più grano agli ammassi, ma i contadini ricordano l'obbligo.
 
-Pane in città: 19 → 15
-Voci che girano: 41 → 49
+Pane in città: 21 → 17
+Voci che girano: 37 → 45
 FINIRE LA STAGIONE (RESTA 1 PUNTO)
 
 > SCELGO: Dividere il pane della città −5 Pane in città La fila davanti ai forni +1 pazienza
@@ -9668,13 +9666,13 @@ In magazzino: 22. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 42. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 9. Passano 3 per stagione.
+In magazzino: 8. Passano 4 per stagione.
 Le città
-Arrivato: 3.
+Arrivato: 4.
 
-Sulla carta: 15. In realtà (arrivato): 3. Scarto: 12.
+Sulla carta: 10. In realtà (arrivato): 4. Scarto: 6.
 
-Arrivati questo turno: 3 (grano).
+Arrivati questo turno: 4 (grano).
 
 IL MINISTERO
 
@@ -9717,10 +9715,8 @@ Arriva più grano agli ammassi, ma i contadini ricordano l'obbligo.
 
 Si divide il pane: a ciascuno un pezzo più piccolo.
 
-Il pane manca: le code cominciano di notte e non si sciolgono più.
-
-Pane in città: 19 → 25
-Voci che girano: 41 → 49
+Pane in città: 21 → 12
+Voci che girano: 37 → 45
 FINIRE LA STAGIONE
 
 
@@ -9743,10 +9739,12 @@ IL FRONTE
 I PUNTI AZIONE
 La fila davanti ai forni
 La fila davanti ai forni (12)
-Pazienza 5 su 6. Di questo passo se ne vanno tra 3 stagioni (a casa).
-Prossimo segnale: si stringono nello scialle, tra 1 stagione.
+Pazienza 4 su 6. Di questo passo se ne vanno tra 2 stagioni (a casa).
+Prossimo segnale: guardano l'orologio, tra 1 stagione.
 
 Ogni stagione la pazienza scende di 2 (la fame).
+
+La fila davanti ai forni: si stringono nello scialle.
 
 Il grano verso la città
 I campi
@@ -9754,13 +9752,13 @@ In magazzino: 16. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 46. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 10. Passano 3 per stagione.
+In magazzino: 8. Passano 4 per stagione.
 Le città
-Arrivato: 6.
+Arrivato: 8.
 
-Sulla carta: 15. In realtà (arrivato): 6. Scarto: 9.
+Sulla carta: 10. In realtà (arrivato): 8. Scarto: 2.
 
-Arrivati questo turno: 3 (grano).
+Arrivati questo turno: 4 (grano).
 
 IL QUARTIER GENERALE
 
@@ -9791,10 +9789,12 @@ IL FRONTE
 I PUNTI AZIONE
 La fila davanti ai forni
 La fila davanti ai forni (12)
-Pazienza 5 su 6. Di questo passo se ne vanno tra 3 stagioni (a casa).
-Prossimo segnale: si stringono nello scialle, tra 1 stagione.
+Pazienza 4 su 6. Di questo passo se ne vanno tra 2 stagioni (a casa).
+Prossimo segnale: guardano l'orologio, tra 1 stagione.
 
 Ogni stagione la pazienza scende di 2 (la fame).
+
+La fila davanti ai forni: si stringono nello scialle.
 
 Il grano verso la città
 I campi
@@ -9802,13 +9802,13 @@ In magazzino: 16. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 46. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 10. Passano 2 per stagione.
+In magazzino: 8. Passano 3 per stagione.
 Le città
-Arrivato: 6.
+Arrivato: 8.
 
-Sulla carta: 15. In realtà (arrivato): 6. Scarto: 9.
+Sulla carta: 10. In realtà (arrivato): 8. Scarto: 2.
 
-Arrivati questo turno: 3 (grano).
+Arrivati questo turno: 4 (grano).
 
 I treni del grano passano meno carri.
 
@@ -9834,10 +9834,12 @@ IL FRONTE
 I PUNTI AZIONE
 La fila davanti ai forni
 La fila davanti ai forni (12)
-Pazienza 5 su 6. Di questo passo se ne vanno tra 3 stagioni (a casa).
-Prossimo segnale: si stringono nello scialle, tra 1 stagione.
+Pazienza 4 su 6. Di questo passo se ne vanno tra 2 stagioni (a casa).
+Prossimo segnale: guardano l'orologio, tra 1 stagione.
 
 Ogni stagione la pazienza scende di 2 (la fame).
+
+La fila davanti ai forni: si stringono nello scialle.
 
 Il grano verso la città
 I campi
@@ -9845,13 +9847,13 @@ In magazzino: 16. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 46. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 10. Passano 2 per stagione.
+In magazzino: 8. Passano 3 per stagione.
 Le città
-Arrivato: 6.
+Arrivato: 8.
 
-Sulla carta: 15. In realtà (arrivato): 6. Scarto: 9.
+Sulla carta: 10. In realtà (arrivato): 8. Scarto: 2.
 
-Arrivati questo turno: 3 (grano).
+Arrivati questo turno: 4 (grano).
 
 IL MINISTERO
 
@@ -9905,10 +9907,12 @@ IL FRONTE
 I PUNTI AZIONE
 La fila davanti ai forni
 La fila davanti ai forni (12)
-Pazienza 5 su 6. Di questo passo se ne vanno tra 3 stagioni (a casa).
-Prossimo segnale: si stringono nello scialle, tra 1 stagione.
+Pazienza 4 su 6. Di questo passo se ne vanno tra 2 stagioni (a casa).
+Prossimo segnale: guardano l'orologio, tra 1 stagione.
 
 Ogni stagione la pazienza scende di 2 (la fame).
+
+La fila davanti ai forni: si stringono nello scialle.
 
 Il grano verso la città
 I campi
@@ -9916,13 +9920,13 @@ In magazzino: 16. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 46. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 10. Passano 2 per stagione.
+In magazzino: 8. Passano 3 per stagione.
 Le città
-Arrivato: 6.
+Arrivato: 8.
 
-Sulla carta: 30. In realtà (arrivato): 6. Scarto: 24.
+Sulla carta: 25. In realtà (arrivato): 8. Scarto: 17.
 
-Arrivati questo turno: 3 (grano).
+Arrivati questo turno: 4 (grano).
 
 IL MINISTERO
 
@@ -9956,7 +9960,7 @@ La fila davanti ai forni +1 pazienza
 
 Sulla carta il grano basta: nessuno al ministero ha bisogno di sapere altro.
 
-Voci che girano: 49 → 47
+Voci che girano: 45 → 43
 FINIRE LA STAGIONE (RESTANO 3 PUNTI)
 
 > SCELGO: Dividere il pane della città −5 Pane in città La fila davanti ai forni +1 pazienza
@@ -9981,10 +9985,12 @@ IL FRONTE
 I PUNTI AZIONE
 La fila davanti ai forni
 La fila davanti ai forni (12)
-Pazienza 6 su 6. Di questo passo se ne vanno tra 3 stagioni (a casa).
+Pazienza 5 su 6. Di questo passo se ne vanno tra 3 stagioni (a casa).
 Prossimo segnale: si stringono nello scialle, tra 1 stagione.
 
 Ogni stagione la pazienza scende di 2 (la fame).
+
+La fila davanti ai forni: si stringono nello scialle.
 
 Il grano verso la città
 I campi
@@ -9992,13 +9998,13 @@ In magazzino: 16. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 46. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 10. Passano 2 per stagione.
+In magazzino: 8. Passano 3 per stagione.
 Le città
-Arrivato: 6.
+Arrivato: 8.
 
-Sulla carta: 30. In realtà (arrivato): 6. Scarto: 24.
+Sulla carta: 25. In realtà (arrivato): 8. Scarto: 17.
 
-Arrivati questo turno: 3 (grano).
+Arrivati questo turno: 4 (grano).
 
 IL MINISTERO
 
@@ -10035,8 +10041,10 @@ Sulla carta il grano basta: nessuno al ministero ha bisogno di sapere altro.
 
 Si divide il pane: a ciascuno un pezzo più piccolo.
 
-Voci che girano: 49 → 47
-Pane in città: 23 → 18
+Il pane manca: le code cominciano di notte e non si sciolgono più.
+
+Voci che girano: 45 → 43
+Pane in città: 12 → 22
 FINIRE LA STAGIONE (RESTANO 2 PUNTI)
 
 > SCELGO: Alzare il prezzo fissato del grano +3 Voci che girano Gli ammassi dello Stato +6 in magazzino
@@ -10061,10 +10069,12 @@ IL FRONTE
 I PUNTI AZIONE
 La fila davanti ai forni
 La fila davanti ai forni (12)
-Pazienza 6 su 6. Di questo passo se ne vanno tra 3 stagioni (a casa).
+Pazienza 5 su 6. Di questo passo se ne vanno tra 3 stagioni (a casa).
 Prossimo segnale: si stringono nello scialle, tra 1 stagione.
 
 Ogni stagione la pazienza scende di 2 (la fame).
+
+La fila davanti ai forni: si stringono nello scialle.
 
 Il grano verso la città
 I campi
@@ -10072,13 +10082,13 @@ In magazzino: 16. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 52. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 10. Passano 2 per stagione.
+In magazzino: 8. Passano 3 per stagione.
 Le città
-Arrivato: 6.
+Arrivato: 8.
 
-Sulla carta: 30. In realtà (arrivato): 6. Scarto: 24.
+Sulla carta: 25. In realtà (arrivato): 8. Scarto: 17.
 
-Arrivati questo turno: 3 (grano).
+Arrivati questo turno: 4 (grano).
 
 IL MINISTERO
 
@@ -10116,10 +10126,12 @@ Sulla carta il grano basta: nessuno al ministero ha bisogno di sapere altro.
 
 Si divide il pane: a ciascuno un pezzo più piccolo.
 
+Il pane manca: le code cominciano di notte e non si sciolgono più.
+
 I contadini vendono di più allo Stato, ma con i rubli di oggi non comprano niente.
 
-Voci che girano: 49 → 50
-Pane in città: 23 → 18
+Voci che girano: 45 → 46
+Pane in città: 12 → 22
 FINIRE LA STAGIONE (RESTA 1 PUNTO)
 
 > SCELGO: Dividere il pane della città −5 Pane in città La fila davanti ai forni +1 pazienza fatto 1 volta
@@ -10149,19 +10161,21 @@ Prossimo segnale: si stringono nello scialle, tra 1 stagione.
 
 Ogni stagione la pazienza scende di 2 (la fame).
 
+La fila davanti ai forni: si stringono nello scialle.
+
 Il grano verso la città
 I campi
 In magazzino: 16. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 52. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 10. Passano 2 per stagione.
+In magazzino: 8. Passano 3 per stagione.
 Le città
-Arrivato: 6.
+Arrivato: 8.
 
-Sulla carta: 30. In realtà (arrivato): 6. Scarto: 24.
+Sulla carta: 25. In realtà (arrivato): 8. Scarto: 17.
 
-Arrivati questo turno: 3 (grano).
+Arrivati questo turno: 4 (grano).
 
 IL MINISTERO
 
@@ -10199,12 +10213,14 @@ Sulla carta il grano basta: nessuno al ministero ha bisogno di sapere altro.
 
 Si divide il pane: a ciascuno un pezzo più piccolo.
 
+Il pane manca: le code cominciano di notte e non si sciolgono più.
+
 I contadini vendono di più allo Stato, ma con i rubli di oggi non comprano niente.
 
 Si divide il pane: a ciascuno un pezzo più piccolo.
 
-Voci che girano: 49 → 50
-Pane in città: 23 → 13
+Voci che girano: 45 → 46
+Pane in città: 12 → 17
 FINIRE LA STAGIONE
 
 
@@ -10240,13 +10256,13 @@ In magazzino: 20. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 56. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 12. Passano 2 per stagione.
+In magazzino: 9. Passano 3 per stagione.
 Le città
-Arrivato: 8.
+Arrivato: 11.
 
-Sulla carta: 30. In realtà (arrivato): 8. Scarto: 22.
+Sulla carta: 25. In realtà (arrivato): 11. Scarto: 14.
 
-Arrivati questo turno: 2 (grano).
+Arrivati questo turno: 3 (grano).
 
 IL QUARTIER GENERALE
 
@@ -10290,17 +10306,17 @@ In magazzino: 20. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 56. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 12. Passano 2 per stagione.
+In magazzino: 9. Passano 3 per stagione.
 Le città
-Arrivato: 8.
+Arrivato: 11.
 
-Sulla carta: 30. In realtà (arrivato): 8. Scarto: 22.
+Sulla carta: 25. In realtà (arrivato): 11. Scarto: 14.
 
-Arrivati questo turno: 2 (grano).
+Arrivati questo turno: 3 (grano).
 
 I generali protestano e in città se ne parla.
 
-Voci che girano: 50 → 53
+Voci che girano: 46 → 49
 ALLA FIERA
 
 
@@ -10336,13 +10352,13 @@ In magazzino: 20. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 56. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 12. Passano 2 per stagione.
+In magazzino: 9. Passano 3 per stagione.
 Le città
-Arrivato: 8.
+Arrivato: 11.
 
-Sulla carta: 30. In realtà (arrivato): 8. Scarto: 22.
+Sulla carta: 25. In realtà (arrivato): 11. Scarto: 14.
 
-Arrivati questo turno: 2 (grano).
+Arrivati questo turno: 3 (grano).
 
 IL MINISTERO
 
@@ -10409,13 +10425,13 @@ In magazzino: 20. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 56. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 12. Passano 2 per stagione.
+In magazzino: 9. Passano 3 per stagione.
 Le città
-Arrivato: 8.
+Arrivato: 11.
 
-Sulla carta: 30. In realtà (arrivato): 8. Scarto: 22.
+Sulla carta: 25. In realtà (arrivato): 11. Scarto: 14.
 
-Arrivati questo turno: 2 (grano).
+Arrivati questo turno: 3 (grano).
 
 IL MINISTERO
 
@@ -10449,7 +10465,7 @@ fatto 1 volta
 
 Si divide il pane: a ciascuno un pezzo più piccolo.
 
-Pane in città: 9 → 4
+Pane in città: 15 → 10
 FINE DELLA PARTITA (RESTANO 3 PUNTI)
 
 > SCELGO: Dividere il pane della città −5 Pane in città La fila davanti ai forni +1 pazienza fatto 1 volta
@@ -10487,13 +10503,13 @@ In magazzino: 20. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 56. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 12. Passano 2 per stagione.
+In magazzino: 9. Passano 3 per stagione.
 Le città
-Arrivato: 8.
+Arrivato: 11.
 
-Sulla carta: 30. In realtà (arrivato): 8. Scarto: 22.
+Sulla carta: 25. In realtà (arrivato): 11. Scarto: 14.
 
-Arrivati questo turno: 2 (grano).
+Arrivati questo turno: 3 (grano).
 
 IL MINISTERO
 
@@ -10529,7 +10545,7 @@ Si divide il pane: a ciascuno un pezzo più piccolo.
 
 Si divide il pane: a ciascuno un pezzo più piccolo.
 
-Pane in città: 9 → 0
+Pane in città: 15 → 5
 FINE DELLA PARTITA (RESTANO 2 PUNTI)
 
 > SCELGO: Mandare un ispettore sui treni riesce nel 50% dei casi se riesce: I treni +1 di capacità, Carta −5
@@ -10567,13 +10583,13 @@ In magazzino: 20. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 56. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 12. Passano 2 per stagione.
+In magazzino: 9. Passano 4 per stagione.
 Le città
-Arrivato: 8.
+Arrivato: 11.
 
-Sulla carta: 30. In realtà (arrivato): 8. Scarto: 22.
+Sulla carta: 20. In realtà (arrivato): 11. Scarto: 9.
 
-Arrivati questo turno: 2 (grano).
+Arrivati questo turno: 3 (grano).
 
 IL MINISTERO
 
@@ -10610,10 +10626,9 @@ Si divide il pane: a ciascuno un pezzo più piccolo.
 
 Si divide il pane: a ciascuno un pezzo più piccolo.
 
-L'ispettore non trova niente di utile e in città si parla di corruzione.
+L'ispettore trova vagoni fermi e li fa ripartire. Il rapporto si corregge.
 
-Pane in città: 9 → 0
-Voci che girano: 53 → 57
+Pane in città: 15 → 5
 FINE DELLA PARTITA (RESTA 1 PUNTO)
 
 > SCELGO: Fissare il prezzo del pane −4 Pane in città La fila davanti ai forni +2 pazienza
@@ -10651,13 +10666,13 @@ In magazzino: 20. Passano 8 per stagione.
 Gli ammassi dello Stato
 In magazzino: 56. Passano 4 per stagione: inceppato, è pieno e il grano aspetta.
 I treni
-In magazzino: 12. Passano 2 per stagione.
+In magazzino: 9. Passano 4 per stagione.
 Le città
-Arrivato: 8.
+Arrivato: 11.
 
-Sulla carta: 30. In realtà (arrivato): 8. Scarto: 22.
+Sulla carta: 20. In realtà (arrivato): 11. Scarto: 9.
 
-Arrivati questo turno: 2 (grano).
+Arrivati questo turno: 3 (grano).
 
 IL MINISTERO
 
@@ -10695,12 +10710,11 @@ Si divide il pane: a ciascuno un pezzo più piccolo.
 
 Si divide il pane: a ciascuno un pezzo più piccolo.
 
-L'ispettore non trova niente di utile e in città si parla di corruzione.
+L'ispettore trova vagoni fermi e li fa ripartire. Il rapporto si corregge.
 
 La fila si calma, ma i fornai tengono il pane per il mercato nero.
 
-Pane in città: 9 → 0
-Voci che girano: 53 → 57
+Pane in città: 15 → 1
 FINE DELLA PARTITA
 
 
@@ -10716,7 +10730,7 @@ Simulazione · 1915–1917 · Russia
 
 IL GRANO, I TRENI, LA CITTÀ
 
-La fila davanti ai forni: si stringono nello scialle. I treni: sono carichi e passano meno vagoni. Cinque stagioni sono passate. Sulla carta il grano bastava; in città contava solo quello che arrivava. Le code per il pane precedono i giorni di marzo. Le persone, i treni e i numeri sono simulazione.
+La fila davanti ai forni: si stringono nello scialle. Cinque stagioni sono passate. Sulla carta il grano bastava; in città contava solo quello che arrivava. Le code per il pane precedono i giorni di marzo. Le persone, i treni e i numeri sono simulazione.
 
 CONTINUA
 
@@ -10912,10 +10926,10 @@ Una domanda sul pane nelle città. Non valuta le scelte che hai fatto nella part
 
 Perché le città russe restano senza pane nel 1916 anche se il grano non manca del tutto?
 Perché i contadini hanno smesso di coltivare ovunque
-Perché lo zar ha vietato di vendere il pane
 Il grano c'è ma non arriva dove serve: treni ingolfati e prezzi fissati
+Perché lo zar ha vietato di vendere il pane
 
-> SCELGO: Il grano c'è ma non arriva dove serve: treni ingolfati e prezzi fissati
+> SCELGO: Perché lo zar ha vietato di vendere il pane
 
 
 ## 306 · verifica-esito (306-verifica-esito.png)
@@ -11231,7 +11245,7 @@ fatto 1 volta
 
 Si parla di tutto: del pane che manca e di chi esce dalle fabbriche.
 
-Voci che girano: 57 → 59
+Voci che girano: 49 → 51
 FINIRE LA GIORNATA (RESTANO 3 PUNTI)
 
 > SCELGO: Dividere il poco pane che c'è −6 Pane in città Tutti +1 pazienza
@@ -11299,7 +11313,8 @@ Si parla di tutto: del pane che manca e di chi esce dalle fabbriche.
 
 Si divide il pane: a ciascuno un pezzo piccolo.
 
-Voci che girano: 57 → 59
+Voci che girano: 49 → 51
+Pane in città: 1 → 0
 FINIRE LA GIORNATA (RESTANO 2 PUNTI)
 
 > SCELGO: Far passare le madri con i bambini −3 Pane in città Le madri con i bambini +3 pazienza
@@ -11370,7 +11385,8 @@ Si divide il pane: a ciascuno un pezzo piccolo.
 
 Le madri passano avanti: la fila lo accetta.
 
-Voci che girano: 57 → 59
+Voci che girano: 49 → 51
+Pane in città: 1 → 0
 FINIRE LA GIORNATA (RESTA 1 PUNTO)
 
 > SCELGO: Dividere il poco pane che c'è −6 Pane in città Tutti +1 pazienza fatto 1 volta
@@ -11443,7 +11459,8 @@ Le madri passano avanti: la fila lo accetta.
 
 Si divide il pane: a ciascuno un pezzo piccolo.
 
-Voci che girano: 57 → 59
+Voci che girano: 49 → 51
+Pane in città: 1 → 0
 FINIRE LA GIORNATA
 
 
@@ -11585,7 +11602,7 @@ I vecchi e gli invalidi (5)
 Pazienza 4 su 6. Di questo passo se ne vanno tra 1 giornata (a casa).
 Prossimo segnale: guardano l'orologio, tra 1 giornata.
 
-Ogni giornata la pazienza scende di 5 (il gelo, la fame, le voci, la coda già lunga dei mesi scorsi).
+Ogni giornata la pazienza scende di 4 (il gelo, la fame, la coda già lunga dei mesi scorsi).
 
 Le tessili di Vyborg: si stringono nello scialle.
 
@@ -11622,7 +11639,7 @@ fatto 1 volta
 
 Si parla di tutto: del pane che manca e di chi esce dalle fabbriche.
 
-Voci che girano: 59 → 61
+Voci che girano: 51 → 53
 FINIRE LA GIORNATA (RESTANO 3 PUNTI)
 
 > SCELGO: Andare al forno a chiedere Costa 2 punti riesce nel 50% dei casi se riesce: Tutti +1 pazienza; se no: Tutti −1 pazienza
@@ -11647,15 +11664,16 @@ LA GIORNATA
 I PUNTI AZIONE
 La coda del pane
 Le tessili di Vyborg (8)
-Pazienza 2 su 6. Di questo passo se ne vanno tra 1 giornata (in fabbrica).
-Prossimo segnale: battono i piedi, tra 1 giornata.
-Le madri con i bambini (6)
-Pazienza 1 su 5. Di questo passo se ne vanno tra 1 giornata (a casa).
-I vecchi e gli invalidi (5)
-Pazienza 3 su 6. Di questo passo se ne vanno tra 1 giornata (a casa).
+Pazienza 4 su 6. Di questo passo se ne vanno tra 1 giornata (in fabbrica).
 Prossimo segnale: guardano l'orologio, tra 1 giornata.
+Le madri con i bambini (6)
+Pazienza 3 su 5. Di questo passo se ne vanno tra 1 giornata (a casa).
+Prossimo segnale: guardano l'orologio, tra 1 giornata.
+I vecchi e gli invalidi (5)
+Pazienza 5 su 6. Di questo passo se ne vanno tra 2 giornate (a casa).
+Prossimo segnale: si stringono nello scialle, tra 1 giornata.
 
-Ogni giornata la pazienza scende di 5 (il gelo, la fame, le voci, la coda già lunga dei mesi scorsi).
+Ogni giornata la pazienza scende di 4 (il gelo, la fame, la coda già lunga dei mesi scorsi).
 
 Le tessili di Vyborg: si stringono nello scialle.
 
@@ -11693,9 +11711,10 @@ fatto 1 volta
 
 Si parla di tutto: del pane che manca e di chi esce dalle fabbriche.
 
-Il fornaio non ha niente e si è perso tempo: la fila si innervosisce.
+Al forno ce n'è ancora un poco: arriva altro pane.
 
-Voci che girano: 59 → 67
+Voci che girano: 51 → 53
+Pane in città: 0 → 12
 FINIRE LA GIORNATA (RESTA 1 PUNTO)
 
 > SCELGO: Far passare le madri con i bambini −3 Pane in città Le madri con i bambini +3 pazienza
@@ -11720,16 +11739,16 @@ LA GIORNATA
 I PUNTI AZIONE
 La coda del pane
 Le tessili di Vyborg (8)
-Pazienza 2 su 6. Di questo passo se ne vanno tra 1 giornata (in fabbrica).
-Prossimo segnale: battono i piedi, tra 1 giornata.
+Pazienza 4 su 6. Di questo passo se ne vanno tra 1 giornata (in fabbrica).
+Prossimo segnale: guardano l'orologio, tra 1 giornata.
 Le madri con i bambini (6)
-Pazienza 4 su 5. Di questo passo se ne vanno tra 1 giornata (a casa).
-Prossimo segnale: guardano l'orologio, tra 1 giornata.
+Pazienza 5 su 5. Di questo passo se ne vanno tra 2 giornate (a casa).
+Prossimo segnale: si stringono nello scialle, tra 1 giornata.
 I vecchi e gli invalidi (5)
-Pazienza 3 su 6. Di questo passo se ne vanno tra 1 giornata (a casa).
-Prossimo segnale: guardano l'orologio, tra 1 giornata.
+Pazienza 5 su 6. Di questo passo se ne vanno tra 2 giornate (a casa).
+Prossimo segnale: si stringono nello scialle, tra 1 giornata.
 
-Ogni giornata la pazienza scende di 5 (il gelo, la fame, le voci, la coda già lunga dei mesi scorsi).
+Ogni giornata la pazienza scende di 4 (il gelo, la fame, la coda già lunga dei mesi scorsi).
 
 Le tessili di Vyborg: si stringono nello scialle.
 
@@ -11768,11 +11787,12 @@ fatto 1 volta
 
 Si parla di tutto: del pane che manca e di chi esce dalle fabbriche.
 
-Il fornaio non ha niente e si è perso tempo: la fila si innervosisce.
+Al forno ce n'è ancora un poco: arriva altro pane.
 
 Le madri passano avanti: la fila lo accetta.
 
-Voci che girano: 59 → 67
+Voci che girano: 51 → 53
+Pane in città: 0 → 9
 FINIRE LA GIORNATA
 
 
@@ -11797,17 +11817,17 @@ La coda del pane
 Le tessili di Vyborg (8)
 Se ne sono andati: in fabbrica.
 Le madri con i bambini (6)
-Se ne sono andati: nel corteo.
+Pazienza 1 su 5. Di questo passo se ne vanno tra 1 giornata (nel corteo).
 I vecchi e gli invalidi (5)
-Se ne sono andati: a casa.
+Pazienza 1 su 6. Di questo passo se ne vanno tra 1 giornata (a casa).
 
-Ogni giornata la pazienza scende di 5 (il gelo, la fame, le voci, la coda già lunga dei mesi scorsi).
+Ogni giornata la pazienza scende di 4 (il gelo, la fame, la coda già lunga dei mesi scorsi).
 
 Le tessili di Vyborg: tornano in fabbrica e portano fuori le compagne.
 
-Le madri con i bambini: si uniscono al corteo.
+Le madri con i bambini: battono i piedi.
 
-I vecchi e gli invalidi: tornano a casa e raccontano quello che hanno visto.
+I vecchi e gli invalidi: battono i piedi.
 
 In piazza ci sono tanti operai che le fabbriche si fermano.
 
@@ -11840,17 +11860,17 @@ La coda del pane
 Le tessili di Vyborg (8)
 Se ne sono andati: in fabbrica.
 Le madri con i bambini (6)
-Se ne sono andati: nel corteo.
+Pazienza 1 su 5. Di questo passo se ne vanno tra 1 giornata (nel corteo).
 I vecchi e gli invalidi (5)
-Se ne sono andati: a casa.
+Pazienza 1 su 6. Di questo passo se ne vanno tra 1 giornata (a casa).
 
-Ogni giornata la pazienza scende di 5 (il gelo, la fame, le voci, la coda già lunga dei mesi scorsi).
+Ogni giornata la pazienza scende di 4 (il gelo, la fame, la coda già lunga dei mesi scorsi).
 
 Le tessili di Vyborg: tornano in fabbrica e portano fuori le compagne.
 
-Le madri con i bambini: si uniscono al corteo.
+Le madri con i bambini: battono i piedi.
 
-I vecchi e gli invalidi: tornano a casa e raccontano quello che hanno visto.
+I vecchi e gli invalidi: battono i piedi.
 
 In piazza ci sono tanti operai che le fabbriche si fermano.
 
@@ -11905,17 +11925,17 @@ La coda del pane
 Le tessili di Vyborg (8)
 Se ne sono andati: in fabbrica.
 Le madri con i bambini (6)
-Se ne sono andati: nel corteo.
+Pazienza 1 su 5. Di questo passo se ne vanno tra 1 giornata (nel corteo).
 I vecchi e gli invalidi (5)
-Se ne sono andati: a casa.
+Pazienza 1 su 6. Di questo passo se ne vanno tra 1 giornata (a casa).
 
 Ogni giornata la pazienza scende di 5 (il gelo, la fame, le voci, la coda già lunga dei mesi scorsi).
 
 Le tessili di Vyborg: tornano in fabbrica e portano fuori le compagne.
 
-Le madri con i bambini: si uniscono al corteo.
+Le madri con i bambini: battono i piedi.
 
-I vecchi e gli invalidi: tornano a casa e raccontano quello che hanno visto.
+I vecchi e gli invalidi: battono i piedi.
 
 In piazza ci sono tanti operai che le fabbriche si fermano.
 
@@ -11946,9 +11966,9 @@ Ascoltare le voci della fila
 +2 Voci che girano
 I vecchi e gli invalidi +1 pazienza
 
-Al forno ce n'è ancora un poco: arriva altro pane.
+Il fornaio non ha niente e si è perso tempo: la fila si innervosisce.
 
-Pane in città: 0 → 12
+Voci che girano: 59 → 65
 FINIRE LA GIORNATA (RESTANO 2 PUNTI)
 
 > SCELGO: Dire alle tessili che a Vyborg si è già usciti dalle fabbriche +8 Voci che girano, +4 Operai in piazza Le tessili di Vyb
@@ -11975,17 +11995,17 @@ La coda del pane
 Le tessili di Vyborg (8)
 Se ne sono andati: in fabbrica.
 Le madri con i bambini (6)
-Se ne sono andati: nel corteo.
+Pazienza 1 su 5. Di questo passo se ne vanno tra 1 giornata (nel corteo).
 I vecchi e gli invalidi (5)
-Se ne sono andati: a casa.
+Pazienza 1 su 6. Di questo passo se ne vanno tra 1 giornata (a casa).
 
 Ogni giornata la pazienza scende di 5 (il gelo, la fame, le voci, la coda già lunga dei mesi scorsi).
 
 Le tessili di Vyborg: tornano in fabbrica e portano fuori le compagne.
 
-Le madri con i bambini: si uniscono al corteo.
+Le madri con i bambini: battono i piedi.
 
-I vecchi e gli invalidi: tornano a casa e raccontano quello che hanno visto.
+I vecchi e gli invalidi: battono i piedi.
 
 In piazza ci sono tanti operai che le fabbriche si fermano.
 
@@ -12017,13 +12037,12 @@ Ascoltare le voci della fila
 +2 Voci che girano
 I vecchi e gli invalidi +1 pazienza
 
-Al forno ce n'è ancora un poco: arriva altro pane.
+Il fornaio non ha niente e si è perso tempo: la fila si innervosisce.
 
 La voce corre lungo la fila: le tessili vogliono uscire.
 
-Pane in città: 0 → 12
-Voci che girano: 79 → 87
-Operai in piazza: 74 → 78
+Voci che girano: 59 → 73
+Operai in piazza: 64 → 68
 FINIRE LA GIORNATA (RESTA 1 PUNTO)
 
 > SCELGO: Far passare le madri con i bambini −3 Pane in città Le madri con i bambini +3 pazienza
@@ -12050,17 +12069,18 @@ La coda del pane
 Le tessili di Vyborg (8)
 Se ne sono andati: in fabbrica.
 Le madri con i bambini (6)
-Se ne sono andati: nel corteo.
+Pazienza 4 su 5. Di questo passo se ne vanno tra 1 giornata (nel corteo).
+Prossimo segnale: guardano l'orologio, tra 1 giornata.
 I vecchi e gli invalidi (5)
-Se ne sono andati: a casa.
+Pazienza 1 su 6. Di questo passo se ne vanno tra 1 giornata (a casa).
 
 Ogni giornata la pazienza scende di 5 (il gelo, la fame, le voci, la coda già lunga dei mesi scorsi).
 
 Le tessili di Vyborg: tornano in fabbrica e portano fuori le compagne.
 
-Le madri con i bambini: si uniscono al corteo.
+Le madri con i bambini: battono i piedi.
 
-I vecchi e gli invalidi: tornano a casa e raccontano quello che hanno visto.
+I vecchi e gli invalidi: battono i piedi.
 
 In piazza ci sono tanti operai che le fabbriche si fermano.
 
@@ -12093,15 +12113,15 @@ Ascoltare le voci della fila
 +2 Voci che girano
 I vecchi e gli invalidi +1 pazienza
 
-Al forno ce n'è ancora un poco: arriva altro pane.
+Il fornaio non ha niente e si è perso tempo: la fila si innervosisce.
 
 La voce corre lungo la fila: le tessili vogliono uscire.
 
 Le madri passano avanti: la fila lo accetta.
 
-Pane in città: 0 → 9
-Voci che girano: 79 → 87
-Operai in piazza: 74 → 78
+Voci che girano: 59 → 73
+Operai in piazza: 64 → 68
+Pane in città: 1 → 0
 FINIRE LA GIORNATA
 
 
@@ -12131,6 +12151,10 @@ I vecchi e gli invalidi (5)
 Se ne sono andati: a casa.
 
 Ogni giornata la pazienza scende di 10 (il gelo, la fame, le voci, la coda già lunga dei mesi scorsi).
+
+Le madri con i bambini: si uniscono al corteo.
+
+I vecchi e gli invalidi: tornano a casa e raccontano quello che hanno visto.
 
 SIMULAZIONE
 
@@ -12166,6 +12190,10 @@ I vecchi e gli invalidi (5)
 Se ne sono andati: a casa.
 
 Ogni giornata la pazienza scende di 10 (il gelo, la fame, le voci, la coda già lunga dei mesi scorsi).
+
+Le madri con i bambini: si uniscono al corteo.
+
+I vecchi e gli invalidi: tornano a casa e raccontano quello che hanno visto.
 
 LA CODA
 
@@ -12224,6 +12252,10 @@ Se ne sono andati: a casa.
 
 Ogni giornata la pazienza scende di 10 (il gelo, la fame, le voci, la coda già lunga dei mesi scorsi).
 
+Le madri con i bambini: si uniscono al corteo.
+
+I vecchi e gli invalidi: tornano a casa e raccontano quello che hanno visto.
+
 LA CODA
 
 Ultima giornata della coda. Hai quattro punti.
@@ -12253,7 +12285,7 @@ I vecchi e gli invalidi +1 pazienza
 
 La voce corre lungo la fila: le tessili vogliono uscire.
 
-Voci che girano: 87 → 95
+Voci che girano: 79 → 87
 Operai in piazza: 78 → 82
 FINE DELLA PARTITA (RESTANO 3 PUNTI)
 
@@ -12287,6 +12319,10 @@ Se ne sono andati: a casa.
 
 Ogni giornata la pazienza scende di 10 (il gelo, la fame, le voci, la coda già lunga dei mesi scorsi).
 
+Le madri con i bambini: si uniscono al corteo.
+
+I vecchi e gli invalidi: tornano a casa e raccontano quello che hanno visto.
+
 LA CODA
 
 Ultima giornata della coda. Hai quattro punti.
@@ -12319,9 +12355,8 @@ La voce corre lungo la fila: le tessili vogliono uscire.
 
 Si divide il pane: a ciascuno un pezzo piccolo.
 
-Voci che girano: 87 → 95
+Voci che girano: 79 → 87
 Operai in piazza: 78 → 82
-Pane in città: 1 → 0
 FINE DELLA PARTITA (RESTANO 2 PUNTI)
 
 > SCELGO: Far passare le madri con i bambini −3 Pane in città Le madri con i bambini +3 pazienza
@@ -12353,6 +12388,10 @@ I vecchi e gli invalidi (5)
 Se ne sono andati: a casa.
 
 Ogni giornata la pazienza scende di 10 (il gelo, la fame, le voci, la coda già lunga dei mesi scorsi).
+
+Le madri con i bambini: si uniscono al corteo.
+
+I vecchi e gli invalidi: tornano a casa e raccontano quello che hanno visto.
 
 LA CODA
 
@@ -12389,9 +12428,8 @@ Si divide il pane: a ciascuno un pezzo piccolo.
 
 Le madri passano avanti: la fila lo accetta.
 
-Voci che girano: 87 → 95
+Voci che girano: 79 → 87
 Operai in piazza: 78 → 82
-Pane in città: 1 → 0
 FINE DELLA PARTITA (RESTA 1 PUNTO)
 
 > SCELGO: Dividere il poco pane che c'è −6 Pane in città Tutti +1 pazienza fatto 1 volta
@@ -12423,6 +12461,10 @@ I vecchi e gli invalidi (5)
 Se ne sono andati: a casa.
 
 Ogni giornata la pazienza scende di 10 (il gelo, la fame, le voci, la coda già lunga dei mesi scorsi).
+
+Le madri con i bambini: si uniscono al corteo.
+
+I vecchi e gli invalidi: tornano a casa e raccontano quello che hanno visto.
 
 LA CODA
 
@@ -12461,9 +12503,8 @@ Le madri passano avanti: la fila lo accetta.
 
 Si divide il pane: a ciascuno un pezzo piccolo.
 
-Voci che girano: 87 → 95
+Voci che girano: 79 → 87
 Operai in piazza: 78 → 82
-Pane in città: 1 → 0
 FINE DELLA PARTITA
 
 
@@ -13445,7 +13486,7 @@ La bandiera passa dal Palazzo d'Inverno al Palazzo di Tauride.
 ‹ Atto III · III.2 · 7 / 7Contesto documentato · 1861–1917 · RussiaConfronto di fine attoCard 2 di 2Il potere dello zar cadde perché nessuno più lo difese. Quello che veniva dopo era ancora da decidere.IndietroContinua
 
 
-# Fine. Click: 523. Tempo: 321s. Errori: []
+# Fine. Click: 524. Tempo: 321s. Errori: []
 
 # Controlli
 - ok partita arrivata al riepilogo finale
