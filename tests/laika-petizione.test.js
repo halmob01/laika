@@ -80,6 +80,8 @@ test('La petizione: ogni posto serve, i rischi sono scritti prima, i punti sono 
   const nelPiano = new Set(Object.values(PIANI).flatMap(p => p.map(x => x[0])));
   for (const p of ep.places) assert.ok(nelPiano.has(p.id), p.id + ': nessun piano la usa');
   assert.equal(ep.tokens, 6);
+  assert.equal(ep.hotspotNames, true, 'i punti sulla scena dicono il nome del posto');
+  for (const p of ep.places) assert.ok(p.short && p.short.length <= 9, p.id + ': nome breve del punto sulla scena');
   assert.equal(ep.rules.min.firme, 1, 'almeno un\'ora di firme');
   assert.ok(ep.control.chance.base > 0 && ep.control.chance.base < 1);
   assert.ok(ep.luck.length >= 3 && ep.luck.every(l => l.weight > 0));

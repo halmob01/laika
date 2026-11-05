@@ -103368,7 +103368,8 @@
           "nextLabel": "La sera dopo",
           "luckLabel": "Che cosa può succedere",
           "luckResultLabel": "La serata",
-          "upkeepHint": "Ogni sera, comunque"
+          "upkeepHint": "Ogni sera, comunque",
+          "hotspotNames": true
         },
         {
           "id": "a2-petizione-domenica",

@@ -16,6 +16,8 @@ Aggiornato al 5 novembre 2026.
 
 **K1 fatto** (motore della coda con la pazienza; revisione indipendente al primo giro: passa): modulo `src/core/queue.js` e test, pannello «La coda» nel gioco, tre pose di attesa (`guarda_orologio`, `batte_piedi`, `si_stringe`), scena di prova `esempio-coda-pazienza` nella galleria, sezione in `docs/CREARE-UN-GIOCO.md`. Evidenze in `docs/evidence/K1/`.
 
+**U-petizione fatto** (II.1 La petizione, 5 novembre 2026): da modulo con cinque righe a gestione di tre sere alle officine Putilov (sei ore da dare fra firme, righe di richieste, padre Gapon e polizia; chi bussa con scelte e una probabilità scritta; due crisi); la domenica di sangue con due aneddoti registrati (cannone del 6 gennaio e diario di Nicola, Montefiore) e la voce di Serge (atlante); «Cosa ti devi ricordare» e verifica V8; i punti sulla scena mostrano il nome del posto (`hotspotNames`). Gioco scelto dall'agente: nel canone resta «da confermare» (prova C-II). Test di bilanciamento sul motore vero. Evidenze in `docs/evidence/U-petizione/`.
+
 **U-soviet fatto** (II.2 Il soviet, 5 novembre 2026): dopo aver indagato si sceglie a quale lettura dare peso (linea del soviet da 0 a 100) e la scelta apre o chiude azioni nei giorni dopo (trattare in nome del soviet con i moderati, fermare i treni con i radicali); nessuna meccanica nuova (bastavano `when` sui flag e sulle metriche, K5 non serve); scena con tavolo, telegrafo e bandiera; etichette su tre file senza sovrapposizioni; «Cosa ti devi ricordare» e fonti registrate (nessun aneddoto trovato sul 1905). Test di bilanciamento sul motore vero. Evidenze in `docs/evidence/U-soviet/`.
 
 **C-I pronto** (5 novembre 2026): la pagina per la prova dell'Atto I dal telefono è in `docs/laika/revisioni/atto-I-per-il-docente.md`. L'incarico aspetta il docente e non blocca il piano.
@@ -57,14 +59,13 @@ Nessuna è ancora stata provata e approvata dal docente dal telefono.
 
 ## Controllo automatico delle unità (4 novembre 2026)
 
-Uscita di `LAIKA_RAPPORTO=1 node tests/unita-ludiche.test.js` (regole di METODO §7, G3a). Diventa vincolante per ogni unità quando il suo incarico è «fatto». Dal 4 novembre controlla anche lo standard didattico (D-040): a petizione e concessioni manca anche la verifica e «Cosa ti devi ricordare».
+Uscita di `LAIKA_RAPPORTO=1 node tests/unita-ludiche.test.js` (regole di METODO §7, G3a). Diventa vincolante per ogni unità quando il suo incarico è «fatto». Dal 4 novembre controlla anche lo standard didattico (D-040): a concessioni manca anche la verifica e «Cosa ti devi ricordare».
 
 | Unità | Che cosa manca |
 |---|---|
 | I.1 `servitu` | niente |
 | I.2 `mir` | solo richieste a scelta multipla, niente da distribuire o spendere; nessun contenuto documentato |
 | I.3 `citta` | niente (il test G3 del salario prova tutte le mosse fisse) |
-| II.1 `petizione` | nessun gioco; un modulo con caselle numeriche; nessuna fonte registrata |
 | II.3 `concessioni` | nessun gioco; nessuna fonte registrata; nessuna scena propria |
 | II.4 `stolypin` | nessun gioco; nessuna fonte registrata; scene prese dal mir e dal soviet |
 | III.1 `pane-guerra` | solo richieste a scelta multipla; nessuna fonte registrata |

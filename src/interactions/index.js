@@ -64,7 +64,7 @@ function hotspots(stageHost,episode,game,dispatch,state){
     for(const f of t.market.offers.filter(x=>x.at)){const n=game.market.bought.filter(x=>x===f.id).length,b=button((f.short||f.label)+(f.cost>1?' · '+f.cost:'')+(n&&f.repeat?' ×'+n:''),()=>dispatch({type:'turn',step:'buy',offerId:f.id}),{tabindex:'-1','data-hotspot':f.id,title:f.label});
       at(b,f.at.x,f.at.y);b.disabled=!offerOpen(episode,game,f,state);o.layer.append(b);}keepInside(o.layer);return;}
   const o=game.phase==='place'?overlay(stageHost):(clearOverlay(stageHost),null);if(!o)return;
-  for(const p of episode.places||[]){const b=button(String(game.placement[p.id]),()=>dispatch({type:'turn',step:'place',placeId:p.id,delta:1}),{tabindex:'-1','data-hotspot':p.id,title:placeLabel(episode,game,p)});
+  for(const p of episode.places||[]){const b=button((episode.hotspotNames&&p.short?p.short+' ':'')+String(game.placement[p.id]),()=>dispatch({type:'turn',step:'place',placeId:p.id,delta:1}),{tabindex:'-1','data-hotspot':p.id,title:placeLabel(episode,game,p)});
     at(b,p.x,p.y);b.disabled=placed(game)>=game.rules.tokens;o.layer.append(b);}
   keepInside(o.layer);
 }

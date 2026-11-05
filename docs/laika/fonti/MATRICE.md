@@ -228,3 +228,16 @@ Simulazione, non fatto: le richieste, le persone, le strisce da assegnare, il ra
 | Aneddoti sul soviet del 1905 | Cercati nell'atlante degli aneddoti e nei nuovi aneddoti | Nessuna voce sull'ottobre 1905 | **Nessun aneddoto trovato**: non compare (METODO §7) |
 
 Da riscontrare: la cronologia dei giorni 17–19 ottobre (usata solo come cornice) e il Manifesto di ottobre, che appartiene a II.3.
+
+## II.1 «La petizione» — riscontri del 5 novembre 2026 (U-petizione)
+
+| Dove | Che cosa si dice | Fonte | Esito |
+|---|---|---|---|
+| II.1-e2 / cannone del 6 gennaio | Il 6 gennaio (19 gennaio nel calendario occidentale) una salva dalla fortezza di Pietro e Paolo, con proiettili veri, rompe le finestre del Palazzo d'Inverno; Nicola è illeso | Montefiore, Act III, Scene 4 «Master of the Land» (riga «I.4-e1 · cannone alla benedizione delle acque» di questa matrice) | Confermato. La data nel calendario occidentale è un calcolo (13 giorni nel 1905), non una fonte. Il testo non dice che sia stato un incidente (non è in Montefiore) |
+| II.1-e2 / diario di Nicola | «A terrible day! Lord how painful and sad!»; arriva la madre e si pranza con tutti | Montefiore, Act III, Scene 4 (riga «I.4-e1 · diario di Nicola») | Confermato; il testo riporta la citazione e la parafrasi del pranzo «tutti insieme» (non «con la madre») e attribuisce a Montefiore |
+| II.1-e2 / Serge | Gli operai marciano con intenzioni di supplica e si trovano di fronte i soldati; li trattano da ribelli | Atlante degli aneddoti, R01 (Victor Serge, *Year One of the Russian Revolution*, «Treat them like rebels») | Serge non è in archivio: è citato dall'atlante e il testo lo attribuisce; nessuna citazione letterale |
+| II.1-e2 / domenica | Domenica 22 gennaio 1905 (9 gennaio nel calendario russo): corteo di padre Gapon con petizione e icone; lo zar non è in città; la truppa spara | Appunti «La Rivoluzione Russa» (soldati sparano, «domenica di sangue»); il resto (Gapon, icone, assenza dello zar) viene dalla scheda dell'atto | Gli appunti confermano la domenica e la repressione; Gapon e l'assenza dello zar restano **da riscontrare** su un libro e non vanno oltre quello che il testo già dice. Cifre delle vittime: non usate |
+| II.1-e3 / ricorda e V8 | La domenica di sangue spezza la fiducia nello zar come padre | R01 («rottura irreparabile fra il linguaggio della supplica e il comportamento dello Stato»), appunti | Lettura dell'atlante; il testo la scrive come spiegazione e non come citazione |
+| II.1-e1 / gioco | Le righe, i promotori, le sere, i numeri | Nessuna | Simulazione, dichiarata nel testo e nell'`editorial` |
+
+Aneddoti dell'unità: due con la fonte registrata (il cannone del 6 gennaio e il diario di Nicola, Montefiore) più la voce di Serge (atlante R01).

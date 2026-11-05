@@ -700,7 +700,8 @@
             ]
           }
         }
-      ]
+      ],
+      "hotspotNames": true
     },
     {
       "id": "a2-petizione-domenica",

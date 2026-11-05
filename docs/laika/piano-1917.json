@@ -488,7 +488,13 @@
         "Test di bilanciamento",
         "Controlli comuni G1–G5 passati (METODO §7)"
       ],
-      "stato": "da fare"
+      "stato": "fatto",
+      "pr": 61,
+      "evidenze": [
+        "docs/evidence/U-petizione/",
+        "tests/laika-petizione.test.js",
+        "docs/laika/giochi/petizione.md"
+      ]
     },
     {
       "id": "U-concessioni",
