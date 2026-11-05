@@ -209,11 +209,11 @@
     "options": [
       {
         "id": "comunita",
-        "label": "Una comunità contadina che divide la terra fra le famiglie e risponde insieme dei pagamenti"
+        "label": "Una comunità contadina che divide la terra fra le famiglie e paga insieme"
       },
       {
         "id": "soviet",
-        "label": "Un consiglio di delegati di operai e soldati che decide per alzata di mano"
+        "label": "Un consiglio di delegati che decide per alzata di mano"
       },
       {
         "id": "democrazia",
@@ -221,7 +221,7 @@
       }
     ],
     "correctId": "comunita",
-    "rationale": "Il mir è una comunità contadina con regole proprie: divide le strisce di terra fra le famiglie e il villaggio risponde insieme dei pagamenti dovuti dopo il 1861. Non è un soviet (un consiglio di delegati nato nel 1905) e non è una democrazia moderna: decidono i capifamiglia.",
+    "rationale": "Il mir è una comunità contadina con regole proprie: divide le strisce di terra fra le famiglie e il villaggio risponde insieme dei pagamenti dovuti dopo il 1861. Non è un soviet (un consiglio di delegati che decide per alzata di mano, nato nel 1905) e non è una democrazia moderna: decidono i capifamiglia.",
     "objectives": [
       "Distinguere il mir da un soviet e da una democrazia moderna"
     ],

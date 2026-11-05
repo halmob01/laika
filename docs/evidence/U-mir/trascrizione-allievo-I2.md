@@ -84,7 +84,7 @@ Alla cassa del riscatto
 
 Il raccolto: raccolto buono 25% · raccolto normale 50% · raccolto scarso 25%.
 
-Ogni anno, comunque: −6 Le famiglie numerose, −6 Chi ha curato il proprio lotto, −6 Le vedove e gli anziani soli, −10 La cassa del riscatto.
+Ogni assemblea, comunque: −6 Le famiglie numerose, −6 Chi ha curato il proprio lotto, −6 Le vedove e gli anziani soli, −10 La cassa del riscatto.
 
 ASSEGNARE LE STRISCE
 
@@ -108,7 +108,7 @@ NOTIZIE
 LE STRISCE
 L'ESITO
 UNA RICHIESTA
-Il raccolto di quest'anno: raccolto buono.
+Il raccolto di quest'anno: raccolto normale.
 I NUMERI DELL’ASSEMBLEA
 UNA RICHIESTA
 
@@ -132,7 +132,7 @@ NOTIZIE
 LE STRISCE
 L'ESITO
 UNA RICHIESTA
-Il raccolto di quest'anno: raccolto buono.
+Il raccolto di quest'anno: raccolto normale.
 I NUMERI DELL’ASSEMBLEA
 UNA RICHIESTA
 
@@ -190,8 +190,8 @@ UNA RICHIESTA
 
 Le strisce vengono misurate di nuovo. La famiglia numerosa ha più terra. Chi aveva concimato la sua ne perde un pezzo.
 
-Le famiglie numerose: 64 → 84
-Chi ha curato il proprio lotto: 68 → 48
+Le famiglie numerose: 60 → 80
+Chi ha curato il proprio lotto: 60 → 40
 LA PROSSIMA ASSEMBLEA
 
 
@@ -239,7 +239,7 @@ Alla cassa del riscatto
 
 Il raccolto: raccolto buono 25% · raccolto normale 50% · raccolto scarso 25%.
 
-Ogni anno, comunque: −6 Le famiglie numerose, −6 Chi ha curato il proprio lotto, −6 Le vedove e gli anziani soli, −10 La cassa del riscatto.
+Ogni assemblea, comunque: −6 Le famiglie numerose, −6 Chi ha curato il proprio lotto, −6 Le vedove e gli anziani soli, −10 La cassa del riscatto.
 
 ASSEGNARE LE STRISCE
 
@@ -341,8 +341,8 @@ UNA RICHIESTA
 
 Accetta a malincuore. La cassa si alleggerisce.
 
-Chi ha curato il proprio lotto: 66 → 61
-Le famiglie numerose: 98 → 100
+Chi ha curato il proprio lotto: 58 → 53
+Le famiglie numerose: 94 → 100
 La cassa del riscatto: 50 → 40
 LA PROSSIMA ASSEMBLEA
 
@@ -391,7 +391,7 @@ Alla cassa del riscatto
 
 Il raccolto: raccolto buono 25% · raccolto normale 50% · raccolto scarso 25%.
 
-Ogni anno, comunque: −6 Le famiglie numerose, −6 Chi ha curato il proprio lotto, −6 Le vedove e gli anziani soli, −10 La cassa del riscatto.
+Ogni assemblea, comunque: −6 Le famiglie numerose, −6 Chi ha curato il proprio lotto, −6 Le vedove e gli anziani soli, −10 La cassa del riscatto.
 
 ASSEGNARE LE STRISCE
 
@@ -414,7 +414,7 @@ ASSEMBLEA 3 DI 8
 LE STRISCE
 L'ESITO
 UNA RICHIESTA
-Il raccolto di quest'anno: raccolto buono.
+Il raccolto di quest'anno: raccolto normale.
 I NUMERI DELL’ASSEMBLEA
 UNA RICHIESTA
 
@@ -437,7 +437,7 @@ ASSEMBLEA 3 DI 8
 LE STRISCE
 L'ESITO
 UNA RICHIESTA
-Il raccolto di quest'anno: raccolto buono.
+Il raccolto di quest'anno: raccolto normale.
 I NUMERI DELL’ASSEMBLEA
 UNA RICHIESTA
 
@@ -461,7 +461,7 @@ LE STRISCE
 L'ESITO
 UNA RICHIESTA
 
-UN RACCOLTO SCARSO
+L'ESATTORE E I PAGAMENTI
 
 L’esattore chiede la quota dei pagamenti della terra. Il villaggio risponde insieme: se qualcuno non paga devono pagare gli altri.
 
@@ -494,7 +494,7 @@ UNA RICHIESTA
 Pagano di più i lotti più grandi. Chi ha curato il proprio lotto protesta.
 
 La cassa del riscatto: 40 → 50
-Chi ha curato il proprio lotto: 79 → 64
+Chi ha curato il proprio lotto: 63 → 48
 LA PROSSIMA ASSEMBLEA
 
 
@@ -542,7 +542,7 @@ Alla cassa del riscatto
 
 Il raccolto: raccolto buono 25% · raccolto normale 50% · raccolto scarso 25%.
 
-Ogni anno, comunque: −6 Le famiglie numerose, −6 Chi ha curato il proprio lotto, −6 Le vedove e gli anziani soli, −10 La cassa del riscatto.
+Ogni assemblea, comunque: −6 Le famiglie numerose, −6 Chi ha curato il proprio lotto, −6 Le vedove e gli anziani soli, −10 La cassa del riscatto.
 
 ASSEGNARE LE STRISCE
 
@@ -565,7 +565,7 @@ ASSEMBLEA 4 DI 8
 LE STRISCE
 L'ESITO
 UNA RICHIESTA
-Il raccolto di quest'anno: raccolto buono.
+Il raccolto di quest'anno: raccolto scarso.
 I NUMERI DELL’ASSEMBLEA
 UNA RICHIESTA
 
@@ -588,7 +588,7 @@ ASSEMBLEA 4 DI 8
 LE STRISCE
 L'ESITO
 UNA RICHIESTA
-Il raccolto di quest'anno: raccolto buono.
+Il raccolto di quest'anno: raccolto scarso.
 I NUMERI DELL’ASSEMBLEA
 UNA RICHIESTA
 
@@ -644,7 +644,7 @@ UNA RICHIESTA
 
 Il lotto della vedova viene lavorato a turno. Le altre famiglie perdono giornate di lavoro.
 
-Le vedove e gli anziani soli: 58 → 78
+Le vedove e gli anziani soli: 54 → 74
 Le famiglie numerose: 100 → 90
 LA PROSSIMA ASSEMBLEA
 
@@ -693,7 +693,7 @@ Alla cassa del riscatto
 
 Il raccolto: raccolto buono 25% · raccolto normale 50% · raccolto scarso 25%.
 
-Ogni anno, comunque: −6 Le famiglie numerose, −6 Chi ha curato il proprio lotto, −6 Le vedove e gli anziani soli, −10 La cassa del riscatto.
+Ogni assemblea, comunque: −6 Le famiglie numerose, −6 Chi ha curato il proprio lotto, −6 Le vedove e gli anziani soli, −10 La cassa del riscatto.
 
 ASSEGNARE LE STRISCE
 
@@ -716,7 +716,7 @@ ASSEMBLEA 5 DI 8
 LE STRISCE
 L'ESITO
 UNA RICHIESTA
-Il raccolto di quest'anno: raccolto normale.
+Il raccolto di quest'anno: raccolto scarso.
 I NUMERI DELL’ASSEMBLEA
 UNA RICHIESTA
 
@@ -739,7 +739,7 @@ ASSEMBLEA 5 DI 8
 LE STRISCE
 L'ESITO
 UNA RICHIESTA
-Il raccolto di quest'anno: raccolto normale.
+Il raccolto di quest'anno: raccolto scarso.
 I NUMERI DELL’ASSEMBLEA
 UNA RICHIESTA
 
@@ -795,9 +795,9 @@ UNA RICHIESTA
 
 Il giovane resta. Sul lotto c’è un paio di braccia in più.
 
-Le famiglie numerose: 100 → 90
-Chi ha curato il proprio lotto: 92 → 97
-Le vedove e gli anziani soli: 80 → 85
+Le famiglie numerose: 92 → 82
+Chi ha curato il proprio lotto: 52 → 57
+Le vedove e gli anziani soli: 72 → 77
 LA PROSSIMA ASSEMBLEA
 
 
@@ -845,7 +845,7 @@ Alla cassa del riscatto
 
 Il raccolto: raccolto buono 25% · raccolto normale 50% · raccolto scarso 25%.
 
-Ogni anno, comunque: −6 Le famiglie numerose, −6 Chi ha curato il proprio lotto, −6 Le vedove e gli anziani soli, −10 La cassa del riscatto.
+Ogni assemblea, comunque: −6 Le famiglie numerose, −6 Chi ha curato il proprio lotto, −6 Le vedove e gli anziani soli, −10 La cassa del riscatto.
 
 ASSEGNARE LE STRISCE
 
@@ -868,7 +868,7 @@ ASSEMBLEA 6 DI 8
 LE STRISCE
 L'ESITO
 UNA RICHIESTA
-Il raccolto di quest'anno: raccolto buono.
+Il raccolto di quest'anno: raccolto scarso.
 I NUMERI DELL’ASSEMBLEA
 UNA RICHIESTA
 
@@ -891,7 +891,7 @@ ASSEMBLEA 6 DI 8
 LE STRISCE
 L'ESITO
 UNA RICHIESTA
-Il raccolto di quest'anno: raccolto buono.
+Il raccolto di quest'anno: raccolto scarso.
 I NUMERI DELL’ASSEMBLEA
 UNA RICHIESTA
 
@@ -917,7 +917,7 @@ UNA RICHIESTA
 
 UN CONCIME IN COMUNE
 
-Alcune famiglie propongono di drenare insieme il terreno più basso: lavoro di tutti e frutto di tutti.
+Alcune famiglie propongono di concimare insieme il terreno più magro: lavoro di tutti e frutto di tutti.
 
 Farlo insieme · riesce nel 60% dei casi
 Lasciar fare a chi ha i mezzi
@@ -947,7 +947,7 @@ UNA RICHIESTA
 
 Il terreno resta com’è.
 
-Le famiglie numerose: 100 → 95
+Le famiglie numerose: 84 → 79
 LA PROSSIMA ASSEMBLEA
 
 
@@ -995,7 +995,7 @@ Alla cassa del riscatto
 
 Il raccolto: raccolto buono 25% · raccolto normale 50% · raccolto scarso 25%.
 
-Ogni anno, comunque: −6 Le famiglie numerose, −6 Chi ha curato il proprio lotto, −6 Le vedove e gli anziani soli, −10 La cassa del riscatto.
+Ogni assemblea, comunque: −6 Le famiglie numerose, −6 Chi ha curato il proprio lotto, −6 Le vedove e gli anziani soli, −10 La cassa del riscatto.
 
 ASSEGNARE LE STRISCE
 
@@ -1097,8 +1097,8 @@ UNA RICHIESTA
 
 La famiglia resta sola. Gli altri non dimenticheranno.
 
-Le famiglie numerose: 97 → 82
-Le vedove e gli anziani soli: 85 → 75
+Le famiglie numerose: 81 → 66
+Le vedove e gli anziani soli: 73 → 63
 La cassa del riscatto: 50 → 55
 LA PROSSIMA ASSEMBLEA
 
@@ -1147,7 +1147,7 @@ Alla cassa del riscatto
 
 Il raccolto: raccolto buono 25% · raccolto normale 50% · raccolto scarso 25%.
 
-Ogni anno, comunque: −6 Le famiglie numerose, −6 Chi ha curato il proprio lotto, −6 Le vedove e gli anziani soli, −10 La cassa del riscatto.
+Ogni assemblea, comunque: −6 Le famiglie numerose, −6 Chi ha curato il proprio lotto, −6 Le vedove e gli anziani soli, −10 La cassa del riscatto.
 
 ASSEGNARE LE STRISCE
 
@@ -1170,7 +1170,7 @@ ASSEMBLEA 8 DI 8
 LE STRISCE
 L'ESITO
 UNA RICHIESTA
-Il raccolto di quest'anno: raccolto normale.
+Il raccolto di quest'anno: raccolto buono.
 I NUMERI DELL’ASSEMBLEA
 UNA RICHIESTA
 
@@ -1193,7 +1193,7 @@ ASSEMBLEA 8 DI 8
 LE STRISCE
 L'ESITO
 UNA RICHIESTA
-Il raccolto di quest'anno: raccolto normale.
+Il raccolto di quest'anno: raccolto buono.
 I NUMERI DELL’ASSEMBLEA
 UNA RICHIESTA
 
@@ -1249,9 +1249,9 @@ UNA RICHIESTA
 
 Il suo posto resta suo. Chi lavora la terra ogni giorno storce il naso.
 
-Le famiglie numerose: 92 → 100
-Le vedove e gli anziani soli: 77 → 72
-Chi ha curato il proprio lotto: 100 → 95
+Le famiglie numerose: 80 → 90
+Le vedove e gli anziani soli: 65 → 60
+Chi ha curato il proprio lotto: 79 → 74
 FINE DELLA PARTITA
 
 
@@ -1347,8 +1347,8 @@ CHE COS'È IL MIR
 Una domanda sul mir. Non valuta le scelte che hai fatto nella partita.
 
 Che cos'è il mir?
-Un consiglio di delegati di operai e soldati che decide per alzata di mano
-Una comunità contadina che divide la terra fra le famiglie e risponde insieme dei pagamenti
+Un consiglio di delegati che decide per alzata di mano
+Una comunità contadina che divide la terra fra le famiglie e paga insieme
 Un'assemblea in cui ogni abitante vota alla pari per leggi uguali per tutti
 
 > SCELGO: Un'assemblea in cui ogni abitante vota alla pari per leggi uguali per tutti
@@ -1368,7 +1368,7 @@ CHE COS'È IL MIR
 
 Una domanda sul mir. Non valuta le scelte che hai fatto nella partita.
 
-Il mir è una comunità contadina con regole proprie: divide le strisce di terra fra le famiglie e il villaggio risponde insieme dei pagamenti dovuti dopo il 1861. Non è un soviet (un consiglio di delegati nato nel 1905) e non è una democrazia moderna: decidono i capifamiglia.
+Il mir è una comunità contadina con regole proprie: divide le strisce di terra fra le famiglie e il villaggio risponde insieme dei pagamenti dovuti dopo il 1861. Non è un soviet (un consiglio di delegati che decide per alzata di mano, nato nel 1905) e non è una democrazia moderna: decidono i capifamiglia.
 
 CONTINUA
 
@@ -1384,7 +1384,7 @@ I.2 LA TERRA DOPO IL MANIFESTO
 
 CHE COSA HAI FATTO
 
-Hai risposto alle richieste dell'assemblea e hai visto che ogni risposta contentava qualcuno e ne scontentava un altro.
+Hai assegnato le strisce di terra e risposto alle richieste dell'assemblea: ogni scelta contentava qualcuno e ne scontentava un altro.
 
 CHE COSA ACCADDE DAVVERO
 
@@ -1409,7 +1409,7 @@ Che cos'è il mir
 ---
 Il villaggio con l'assemblea riunita davanti alle isbe. La domanda riguarda quello che hai appena visto.
 ---
-‹ Atto I · I.2 · 3 / 3Verifica formativaChe cos'è il mirUna domanda sul mir. Non valuta le scelte che hai fatto nella partita.Il mir è una comunità contadina con regole proprie: divide le strisce di terra fra le famiglie e il villaggio risponde insieme dei pagamenti dovuti dopo il 1861. Non è un soviet (un consiglio di delegati nato nel 1905) e non è una democrazia moderna: decidono i capifamiglia.Continua
+‹ Atto I · I.2 · 3 / 3Verifica formativaChe cos'è il mirUna domanda sul mir. Non valuta le scelte che hai fatto nella partita.Il mir è una comunità contadina con regole proprie: divide le strisce di terra fra le famiglie e il villaggio risponde insieme dei pagamenti dovuti dopo il 1861. Non è un soviet (un consiglio di delegati che decide per alzata di mano, nato nel 1905) e non è una democrazia moderna: decidono i capifamiglia.Continua
 
 
 ## 135 · hub (135-hub.png)

@@ -76,3 +76,23 @@ test('Il mir: ogni posto e ogni risposta servono, i rischi sono scritti prima, D
   assert.ok(ep.shows.length >= 2 && ep.shows.length <= 5);
   assert.ok(ep.turns.length >= 3);
 });
+
+test('Il mir: senza strisce alla cassa l\'esattore può presentarsi o no, e il testo è quello giusto', () => {
+  // Nessuna striscia alla cassa del riscatto per tutte le otto assemblee, con semi diversi.
+  const visti = new Set(), testi = new Set();
+  for (const seme of ['s1', 's2', 's3', 's4', 's5', 's6']) {
+    let s = newSession(game, seme, ep.id), n = 0;
+    while (s.currentAct.phase === 'scene' && s.currentAct.game.phase !== 'done' && n++ < 300) {
+      const g = s.currentAct.game;
+      if (g.phase === 'cards') s = t(s, 'card');
+      else if (g.phase === 'place') { for (const p of ['numerose', 'numerose', 'curato', 'curato', 'soli', 'soli']) s = t(s, 'place', { placeId: p, delta: 1 }); s = t(s, 'confirm'); const c = s.currentAct.game.result.control; visti.add(c.caught); if (c.text) testi.add(c.text); }
+      else if (g.phase === 'result') s = t(s, 'continue');
+      else if (g.phase === 'event') s = t(s, 'choose', { choiceId: ep.turns[g.turn].event.choices[0].id });
+      else if (g.phase === 'eventResult') s = t(s, 'continue');
+      else break;
+    }
+  }
+  assert.deepEqual([...visti].sort(), [false, true], 'l\'esattore a volte si presenta e a volte no');
+  assert.ok(ep.control.escaped && /esattore/i.test(ep.control.escaped), 'c\'è un testo per l\'esattore che non si presenta');
+  assert.ok(ep.control.text && /esattore/i.test(ep.control.text));
+});

@@ -97800,7 +97800,7 @@
           "id": "mir",
           "question": "Che cos'è giusto: dare a ciascuno lo stesso o a ciascuno secondo il bisogno?",
           "summary": "Libertà sulla carta. Il villaggio deve decidere chi ha diritto a quale terra e chi paga che cosa.",
-          "game": "Sei il capofamiglia che l'assemblea ascolta: otto richieste, quattro gruppi da non scontentare troppo.",
+          "game": "Sei il capofamiglia che l'assemblea ascolta: otto assemblee, sei strisce da assegnare a quattro gruppi e una cassa del riscatto da non lasciare vuota.",
           "concepts": [
             "mir",
             "riscatto",
@@ -97815,7 +97815,7 @@
             "a1-mir-v7"
           ],
           "closing": {
-            "did": "Hai risposto alle richieste dell'assemblea e hai visto che ogni risposta contentava qualcuno e ne scontentava un altro.",
+            "did": "Hai assegnato le strisce di terra e risposto alle richieste dell'assemblea: ogni scelta contentava qualcuno e ne scontentava un altro.",
             "fact": "Dopo il Manifesto la terra non passò ai contadini gratis: andava riscattata e il villaggio rispondeva insieme dei pagamenti. La terra non bastava per tutti e molti figli partirono per la città.",
             "simulation": "Le persone, le richieste e i numeri sono simulazione. Le tue scelte hanno cambiato come il villaggio ha diviso la terra: non hanno cambiato la legge."
           },
@@ -100008,7 +100008,8 @@
                 "id": "soli",
                 "delta": -3
               }
-            ]
+            ],
+            "escaped": "Questa volta l'esattore non si presenta: i pagamenti restano dovuti e il villaggio li deve ancora."
           },
           "crises": [
             {
@@ -100276,7 +100277,7 @@
             {
               "label": "1874",
               "event": {
-                "who": "Un raccolto scarso",
+                "who": "L'esattore e i pagamenti",
                 "text": "L’esattore chiede la quota dei pagamenti della terra. Il villaggio risponde insieme: se qualcuno non paga devono pagare gli altri.",
                 "choices": [
                   {
@@ -100517,7 +100518,7 @@
               "label": "1893",
               "event": {
                 "who": "Un concime in comune",
-                "text": "Alcune famiglie propongono di drenare insieme il terreno più basso: lavoro di tutti e frutto di tutti.",
+                "text": "Alcune famiglie propongono di concimare insieme il terreno più magro: lavoro di tutti e frutto di tutti.",
                 "choices": [
                   {
                     "id": "insieme",
@@ -100766,7 +100767,8 @@
           "confirmLabel": "Assegnare le strisce",
           "nextLabel": "La prossima assemblea",
           "luckLabel": "Il raccolto",
-          "luckResultLabel": "Il raccolto di quest'anno"
+          "luckResultLabel": "Il raccolto di quest'anno",
+          "upkeepHint": "Ogni assemblea, comunque"
         },
         {
           "id": "a1-mir-ricorda",
@@ -100799,7 +100801,7 @@
           "question": {
             "id": "a1-v7",
             "prompt": "Che cos'è il mir?",
-            "rationale": "Il mir è una comunità contadina con regole proprie: divide le strisce di terra fra le famiglie e il villaggio risponde insieme dei pagamenti dovuti dopo il 1861. Non è un soviet (un consiglio di delegati nato nel 1905) e non è una democrazia moderna: decidono i capifamiglia.",
+            "rationale": "Il mir è una comunità contadina con regole proprie: divide le strisce di terra fra le famiglie e il villaggio risponde insieme dei pagamenti dovuti dopo il 1861. Non è un soviet (un consiglio di delegati che decide per alzata di mano, nato nel 1905) e non è una democrazia moderna: decidono i capifamiglia.",
             "source": "Episodio «Il mir»: riscontri I1-09 e I1-10 (MATRICE)",
             "objectives": [
               "Distinguere il mir da un soviet e da una democrazia moderna"
@@ -100807,11 +100809,11 @@
             "options": [
               {
                 "id": "comunita",
-                "label": "Una comunità contadina che divide la terra fra le famiglie e risponde insieme dei pagamenti"
+                "label": "Una comunità contadina che divide la terra fra le famiglie e paga insieme"
               },
               {
                 "id": "soviet",
-                "label": "Un consiglio di delegati di operai e soldati che decide per alzata di mano"
+                "label": "Un consiglio di delegati che decide per alzata di mano"
               },
               {
                 "id": "democrazia",
