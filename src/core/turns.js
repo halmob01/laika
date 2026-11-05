@@ -110,7 +110,7 @@ export function validateTurnGame(e, act, stages) {
   // Nomi delle fasi per la barra dei passi e giudizi dell'anno (il primo che vale).
   if (e.phaseLabels !== undefined) { assert(e.phaseLabels && typeof e.phaseLabels === 'object' && Object.entries(e.phaseLabels).every(([k, v]) => STEP_PHASES.includes(k) && text(v)), 'Nomi delle fasi non validi'); }
   if (e.previewLabel !== undefined) assert(text(e.previewLabel) && e.previewLabel.length <= 40, 'Etichetta delle voci non valida');
-  if (e.verdicts !== undefined) { assert(Array.isArray(e.verdicts) && e.verdicts.length <= 8, 'Giudizi non validi'); for (const v of e.verdicts) { assert(v && text(v.text) && ['good', 'bad', 'neutral'].includes(v.tone ?? 'neutral') && (v.stamp === undefined || (text(v.stamp) && v.stamp.length <= 24)), 'Giudizio non valido'); if (v.when !== undefined) condition(v.when, act); } }
+  if (e.verdicts !== undefined) { assert(Array.isArray(e.verdicts) && e.verdicts.length <= 8, 'Giudizi non validi'); for (const v of e.verdicts) { assert(v && text(v.text) && ['good', 'bad', 'neutral'].includes(v.tone ?? 'neutral') && (v.stamp === undefined || (text(v.stamp) && v.stamp.length <= 24)), 'Giudizio non valido'); if (v.when !== undefined) condition(v.when, act); if (v.floored !== undefined) assert([...(act.metrics || []), ...(act.resources || [])].some(d => d.id === v.floored), 'Giudizio: «floored» non è una metrica o una risorsa: ' + v.floored); } }
   for (const k of ['upkeepLabel', 'yearlyLabel', 'crisisLabel']) if (e[k] !== undefined) assert(text(e[k]), 'Etichetta vuota: ' + k);
   // Lavori lunghi: si scelgono come un posto, avanzano con la forza messa e alla fine cambiano le regole.
   const targets = new Set(places);
@@ -340,6 +340,15 @@ function nextTurn(e, state, g, act, sink = []) {
   if (g.turn >= e.turns.length) { g.phase = 'done'; return true; }
   enterTurn(e, g, state, act); return false;
 }
+// Chi è arrivato al minimo durante l'anno: una risorsa che un effetto negativo ha portato a zero (o al suo minimo) anche se poi un raccolto la rialza.
+// Serve ai giudizi con `floored: id` («Il grano è finito») e non dipende dalle crisi, che scattano una volta sola.
+function noteFloors(act, state, list, floored) {
+  for (const x of list) {
+    if (x.kind === 'flag' || !(x.delta < 0)) continue;
+    const def = [...(act.metrics || []), ...(act.resources || [])].find(d => d.id === x.id), now = (x.kind === 'metric' ? state.metrics : state.resources)[x.id];
+    if (def && now <= def.min) floored.add(x.id);
+  }
+}
 function openMarket(e, g) { g.phase = 'market'; g.market = { bought: [], log: [], changes: [], left: e.turns[g.turn].market.points ?? null }; }
 function afterEvent(e, state, g, t, act, sink) { if (t.market) openMarket(e, g); else nextTurn(e, state, g, act, sink); }
 
@@ -400,7 +409,7 @@ export function turnAction(act, e, previous, action, seed) {
       assert(g.phase === 'place' && ready(e, g), e.workers ? 'Mandare tutti da qualche parte' : 'Piazzare tutte le pedine');
       assert(affordable(e, g, state), 'Non ce n\'è abbastanza');
       // Ogni gruppo di effetti è annotato con la sua voce: l'esito dell'anno spiega da dove viene ogni variazione.
-      const steps = [], step = (label, list) => { const applied = applyEffects(act, state, list, cause + ':' + steps.length); changes.push(...applied); const net = netChanges(applied); if (net.length) steps.push({ label, changes: net.map(c => ({ kind: c.kind, id: c.id, label: c.label, delta: c.after - c.before })) }); };
+      const steps = [], floored = new Set(), step = (label, list) => { const applied = applyEffects(act, state, list, cause + ':' + steps.length); changes.push(...applied); noteFloors(act, state, list, floored); const net = netChanges(applied); if (net.length) steps.push({ label, changes: net.map(c => ({ kind: c.kind, id: c.id, label: c.label, delta: c.after - c.before })) }); };
       // 1. Si paga ciò che comincia e si mette da parte la riserva.
       for (const p of e.projects || []) if (!g.started.includes(p.id) && g.placement[p.id]) { g.started.push(p.id); step(p.label, p.cost || []); }
       if (e.reserve && g.reserve) step(e.reserve.label, [{ kind: 'resource', id: e.reserve.from, delta: -g.reserve }]);
@@ -439,8 +448,8 @@ export function turnAction(act, e, previous, action, seed) {
       }
       const c = fireCrises(act, e, state, g, cause); changes.push(...c.changes); crisisStep(c.changes);
       const crises = [...early.crises, ...c.crises];
-      const verdict = (e.verdicts || []).find(v => !v.when || matches(v.when, state));
-      g.result = { luck: { id: luck.id, label: luck.label }, control, crises, built, steps, changes: netChanges(changes), preview: t.preview || null, ...(verdict ? { verdict: { text: verdict.text, tone: verdict.tone || 'neutral', ...(verdict.stamp ? { stamp: verdict.stamp } : {}) } } : {}) };
+      const verdict = (e.verdicts || []).find(v => (!v.when || matches(v.when, state)) && (v.floored === undefined || floored.has(v.floored)));
+      g.result = { luck: { id: luck.id, label: luck.label }, control, crises, built, steps, floored: [...floored], changes: netChanges(changes), preview: t.preview || null, ...(verdict ? { verdict: { text: verdict.text, tone: verdict.tone || 'neutral', ...(verdict.stamp ? { stamp: verdict.stamp } : {}) } } : {}) };
       feedback = [t.label + ': ' + luck.label + '.', ...built.map(x => x.text), control?.caught ? e.control.text : null, ...crises.map(x => x.text)].filter(Boolean).join(' ');
       g.phase = 'result'; break;
     }

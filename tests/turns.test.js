@@ -326,3 +326,39 @@ test('punti azione: punto sulla scena e nome breve', () => {
   const ok = giocoGiornata(); ok.acts[0].episodes[0].turns[0].market.offers[0].at = { x: 0.3, y: 0.4 }; ok.acts[0].episodes[0].turns[0].market.offers[0].short = 'Indagare'; validateGame(ok);
   for (const c of [x => { x.acts[0].episodes[0].turns[0].market.offers[0].at = { x: 2, y: 0.4 }; }, x => { x.acts[0].episodes[0].turns[0].market.offers[0].short = 'Un nome molto troppo lungo'; }]) { const g = giocoGiornata(); c(g); assert.throws(() => validateGame(g)); }
 });
+
+test('giudizi: «floored» vale quando una risorsa è arrivata al minimo durante l\'anno, anche se poi il raccolto la rialza o la crisi è già scattata', () => {
+  const g = gioco(), p = g.acts[0].episodes[0];
+  p.verdicts = [
+    { floored: 'cibo', tone: 'bad', text: 'Il cibo è finito.', stamp: 'Fame' },
+    { tone: 'good', text: 'Si mangia.', stamp: 'Si mangia' }
+  ];
+  p.turns.push({ label: 'Terzo' }, { label: 'Quarto' });
+  p.crises[0].effects = [{ kind: 'resource', id: 'cibo', delta: 12 }]; // la crisi aiuta poco: il cibo tornerà a finire
+  validateGame(g);
+  // Una risorsa o una metrica che non esistono non sono un giudizio valido.
+  const sbagliato = gioco(); sbagliato.acts[0].episodes[0].verdicts = [{ floored: 'niente', tone: 'bad', text: 'x' }];
+  assert.throws(() => validateGame(sbagliato), /floored/);
+  let s = newSession(g, 'f', 'p');
+  const giudizi = [];
+  while (s.currentAct.game.phase !== 'done' && s.currentAct.phase === 'scene') {
+    const gm = s.currentAct.game;
+    if (gm.phase === 'cards') s = t(g, s, 'card');
+    else if (gm.phase === 'place') {
+      // Tutto alla bottega (dove sta l'obbligo): il cibo non cresce e il mantenimento lo porta a zero.
+      for (let i = 0; i < gm.rules.tokens; i++) s = t(g, s, 'place', { placeId: 'bottega', delta: 1 });
+      s = t(g, s, 'confirm'); const r = s.currentAct.game.result; giudizi.push({ cibo: s.currentAct.resources.cibo, floored: r.floored, stamp: r.verdict.stamp, crisi: r.crises.map(c => c.id) });
+    } else if (gm.phase === 'result') s = t(g, s, 'continue');
+    else if (gm.phase === 'event') s = t(g, s, 'choose', { choiceId: 'si' });
+    else if (gm.phase === 'eventResult') s = t(g, s, 'continue');
+    else break;
+  }
+  assert.equal(giudizi.length, 4);
+  // Primo anno: 20 - 10 = 10, nessun minimo raggiunto.
+  assert.deepEqual([giudizi[0].floored, giudizi[0].stamp], [[], 'Si mangia']);
+  // Dal secondo anno il cibo arriva a zero: giudizio di fame, con la crisi (una volta sola) o senza.
+  assert.ok(giudizi.slice(1).some(x => x.floored.includes('cibo') && x.stamp === 'Fame'), 'il minimo raggiunto dà il giudizio di fame');
+  const senzaCrisi = giudizi.slice(1).filter(x => x.floored.includes('cibo') && x.crisi.length === 0);
+  assert.ok(senzaCrisi.length >= 1 && senzaCrisi.every(x => x.stamp === 'Fame'), 'anche quando la crisi è già scattata (una volta sola) il giudizio dice la fame');
+  assert.ok(giudizi.every(x => (x.floored.includes('cibo')) === (x.stamp === 'Fame')), 'il giudizio dice la fame solo se il minimo è stato raggiunto');
+});
