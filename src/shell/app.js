@@ -148,7 +148,7 @@ $('import').onchange=async e=>{const file=e.target.files[0];if(!file)return;
   if(file.size>2_000_000){notice('Backup troppo grande.');return;}
   const result=restore(game,await file.text());if(!result.ok){notice(result.error);return;}
   if(!confirm('Sostituire il progresso corrente con questo backup verificato?'))return;
-  state=result.state;blocked=false;$('raw').hidden=true;stageId=null;notice('Backup ripristinato.');persist();render();($(state.complete?'summary-title':'scene-title'))?.focus({preventScroll:true});e.target.value='';};
+  state=result.state;blocked=false;$('raw').hidden=true;stageId=null;notice('');persist();render();($(state.complete?'summary-title':'scene-title'))?.focus({preventScroll:true});e.target.value='';};
 async function start(){
   const config=validateRegistry(await (await fetch('./config.json')).json());const selected=new URLSearchParams(location.search).get('game')||config.defaultGame;
   const item=config.games.find(g=>g.id===selected);if(!item)throw new Error('Gioco non configurato');
@@ -164,7 +164,7 @@ async function start(){
   blocked=!result.ok;
   state=result.ok&&result.state?result.state:newSession(game,crypto.randomUUID());
   if(blocked){notice(/^Archivio locale/.test(result.error)?result.error:STALE);$('raw').hidden=false;}
-  else if(result.state)notice('Progresso ripreso. Nel diario trovi le decisioni che spiegano la situazione attuale.');
+  // La ripresa è silenziosa: il diario resta accessibile senza un avviso tecnico.
   // ?atto=<id>: si apre la pagina di quell'atto (per esempio da un fascicolo della home) senza toccare la partita salvata.
   const asked=game.acts.findIndex(a=>a.id===new URLSearchParams(location.search).get('atto'));
   if(asked>=0&&hasUnits(game.acts[asked])&&(asked!==state.actIndex||state.complete)){browse=asked;view='act';pendingIntro=true;render();}
