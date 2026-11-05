@@ -45733,7 +45733,7 @@
           "symbol": "oggetto-cartello-vuoto",
           "parent": "world",
           "pose": {
-            "translateX": 900,
+            "translateX": 920,
             "translateY": 578,
             "scale": 0.6
           }
@@ -45743,7 +45743,7 @@
           "symbol": "oggetto-cartello-vuoto",
           "parent": "world",
           "pose": {
-            "translateX": 1000,
+            "translateX": 1022,
             "translateY": 578,
             "scale": 0.6
           }
@@ -45753,7 +45753,7 @@
           "symbol": "oggetto-cartello-vuoto",
           "parent": "world",
           "pose": {
-            "translateX": 1100,
+            "translateX": 1132,
             "translateY": 578,
             "scale": 0.6
           }
@@ -46743,8 +46743,7 @@
             },
             {
               "targets": [
-                "villaggio",
-                "cartello-1"
+                "villaggio"
               ],
               "relative": true,
               "at": 3800,
@@ -46775,6 +46774,37 @@
             },
             {
               "targets": [
+                "cartello-1"
+              ],
+              "relative": true,
+              "at": 3800,
+              "duration": 2600,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateX": -460,
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "translateX": -230,
+                    "translateY": -60
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateX": 0,
+                    "translateY": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
                 "cartello-2"
               ],
               "relative": true,
@@ -46784,14 +46814,14 @@
                 {
                   "offset": 0,
                   "values": {
-                    "translateX": -540,
+                    "translateX": -562,
                     "translateY": 0
                   }
                 },
                 {
                   "offset": 0.5,
                   "values": {
-                    "translateX": -270,
+                    "translateX": -281,
                     "translateY": -60
                   }
                 },
@@ -46815,14 +46845,14 @@
                 {
                   "offset": 0,
                   "values": {
-                    "translateX": -640,
+                    "translateX": -672,
                     "translateY": 0
                   }
                 },
                 {
                   "offset": 0.5,
                   "values": {
-                    "translateX": -320,
+                    "translateX": -336,
                     "translateY": -60
                   }
                 },
