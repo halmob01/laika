@@ -6,7 +6,7 @@ Scheda di gioco dell'unità `petizione` (canone: II.1). Versione 1 (costruita) �
 
 **Forma:** gestione di tre sere, come il salario di I.3, ma con gruppi che si contendono il tempo. **Durata:** circa otto minuti. **Chi è il giocatore:** il figlio della famiglia, operaio alle officine Putilov, che fa parte del comitato dei promotori.
 
-**Le ore.** Ogni sera sei ore, da dare toccando un'ora e poi il posto: **Firme alle officine** (consenso degli operai, un po' di attenzione della polizia), **Righe sul salario e sull'orario**, **Righe sulla libertà e sull'assemblea eletta** (costano attenzione della polizia), **Righe sulla fine della guerra**, **Parlare con padre Gapon** (la fiducia nello zar sale, la polizia tollera) e **Tenere d'occhio la polizia** (l'attenzione scende, gli operai si sentono trascurati). Almeno un'ora alle firme ogni sera, altrimenti il comitato si disperde (8 volte su 10 se ne accorgono).
+**Le ore.** Ogni sera sei ore, da dare toccando un'ora e poi il posto: **Firme alle officine** (consenso degli operai, un po' di attenzione della polizia), **Righe sul salario e sull'orario**, **Righe sulla libertà e sull'assemblea eletta** (costano attenzione della polizia), **Righe sulla fine della guerra**, **Parlare con padre Gapon** (la fiducia nello zar sale, la polizia tollera) e **Tenere d'occhio la polizia** (l'attenzione scende, gli operai si sentono trascurati). Almeno un'ora alle firme ogni sera, altrimenti il comitato si disperde (7 volte su 10 se ne accorgono).
 
 **Ogni sera, comunque.** Il consenso cala di 5, la polizia sale di 5 e la fiducia nello zar scende di 3.
 
