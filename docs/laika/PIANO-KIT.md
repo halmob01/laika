@@ -61,9 +61,8 @@ Regole:
 - Da comporre: la sala di San Giorgio (`ambiente-sala`) con due blocchi di figure, uniformi da una parte e giacche dall'altra (formazione `righe`); il palco del teatro per la ballerina insultata (`ambiente-teatro-palco`); l'aquila imperiale per le Leggi fondamentali.
 - Figure: la variante `dignitario` (uniforme con spalline) c'è dal 4 novembre 2026 (K4), in bozza.
 
-**II.4 `stolypin` · gioco da scegliere nella scheda di gioco**
-- Scene: oggi riusa il mir.
-- Da comporre: le strisce che si uniscono in un podere.
+**II.4 `stolypin` · il podere e il mir (costruito il 5 novembre 2026)**
+- Scene: `stolypin-strisce` (le strisce che si uniscono in un podere), `stolypin-ricorda`, `stolypin-confronto` (quattro segni in fila: icona del corteo, bandiera, Palazzo di Tauride, podere).
 - Disegni: il podere consolidato (`podere-chutor`) con casa isolata c'è dal 4 novembre 2026 (K4). La forca non si disegna: la violenza si vede nelle conseguenze (D-006).
 
 **III.1 `pane-guerra` · quanto serve e quanto c'è, da rifare**

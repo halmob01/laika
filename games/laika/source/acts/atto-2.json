@@ -160,6 +160,38 @@
       "max": 100,
       "start": 20,
       "good": "low"
+    },
+    {
+      "id": "pane",
+      "label": "Pane in casa",
+      "min": 0,
+      "max": 100,
+      "start": 40,
+      "good": "high"
+    },
+    {
+      "id": "aiuto",
+      "label": "Chi ti aiuta",
+      "min": 0,
+      "max": 100,
+      "start": 50,
+      "good": "high"
+    },
+    {
+      "id": "debiti",
+      "label": "Debiti",
+      "min": 0,
+      "max": 100,
+      "start": 10,
+      "good": "low"
+    },
+    {
+      "id": "tribunali",
+      "label": "Ombra dei tribunali",
+      "min": 0,
+      "max": 100,
+      "start": 10,
+      "good": "low"
     }
   ],
   "resources": [],
@@ -2868,61 +2900,2129 @@
       "visualExplanation": "La sala di San Giorgio con l'aquila imperiale: la domanda riguarda quello che hai visto nell'unità."
     },
     {
-      "id": "a2-stolypin-scelta",
-      "type": "choice",
+      "id": "a2-stolypin-gioco",
+      "type": "turn_game",
       "roleId": "capofamiglia",
-      "title": "Stolypin",
+      "title": "Il podere e il mir",
       "context": {
         "kind": "simulation",
-        "dateLabel": "novembre 1906",
+        "dateLabel": "novembre 1906–1911",
         "placeLabel": "Un villaggio della Russia centrale"
       },
-      "text": "Nel novembre 1906 un decreto permette ai contadini di uscire dal mir e di unire le strisce in un podere. Intanto i tribunali militari mandano alla forca i rivoltosi: la corda si chiama «la cravatta di Stolypin».\n\nLa tua famiglia può restare nel mir. Può uscire e consolidare le strisce. Può vendere e partire.",
+      "text": "Nel novembre 1906 un decreto permette ai contadini di uscire dal mir e di unire le strisce in un podere. Intanto i tribunali militari mandano alla forca i rivoltosi: la corda si chiama «la cravatta di Stolypin».\n\nSei il capofamiglia. In quattro anni (1906, 1907, 1909 e 1911) hai quattro punti a testa: puoi restare nel mir, uscire e unire le strisce oppure vendere e partire. Ogni strada apre azioni sue e ne chiude altre; quello che scegli il primo anno pesa anche sugli anni dopo.",
+      "goal": "Porta la famiglia al 1911 con il pane in casa e con chi ti aiuta intorno, senza debiti e senza attirare i tribunali.",
       "stageId": "stolypin-strisce",
       "motionId": "ingresso",
       "exposes": [
         "a1-stolypin"
       ],
-      "visualExplanation": "Davanti alle isbe la tua famiglia deve decidere se restare. Le strisce di terra si uniscono in un solo podere recintato. Le scelte sono simulazione.",
-      "choices": [
+      "visualExplanation": "Il villaggio a sinistra e le strisce di terra a destra, che si possono unire in un podere. I punti sulla scena sono le azioni: quelle di una strada si aprono solo dopo averla scelta. Gli indicatori sono indici della simulazione: non sono dati storici né voti.",
+      "turnWord": "anno",
+      "nextLabel": "L'anno dopo",
+      "phaseLabels": {
+        "cards": "L'anno",
+        "market": "I punti azione"
+      },
+      "hotspotNames": true,
+      "shows": [
+        "pane",
+        "aiuto",
+        "debiti",
+        "tribunali"
+      ],
+      "crises": [
         {
-          "id": "resta",
-          "label": "Restare nel mir",
-          "feedback": "Resti con i vicini: la terra resta divisa a strisce e la decisione resta all'assemblea. Stolypin consente di uscire dal mir ma non lo abolisce.",
+          "id": "forca-al-villaggio",
+          "when": {
+            "op": "gte",
+            "kind": "metric",
+            "id": "tribunali",
+            "value": 40
+          },
+          "text": "I tribunali militari arrivano al villaggio: un giovane che conoscevi finisce alla forca. Le assemblee si svuotano e nessuno parla più ad alta voce.",
           "effects": [
             {
-              "kind": "flag",
-              "id": "stolypin_resta",
-              "value": true
+              "kind": "metric",
+              "id": "aiuto",
+              "delta": -10
+            },
+            {
+              "kind": "metric",
+              "id": "tribunali",
+              "delta": -20
             }
           ]
         },
         {
-          "id": "esce",
-          "label": "Uscire e unire le strisce in un podere",
-          "feedback": "Esci dal mir con le tue strisce unite in un podere. Hai più libertà e meno protezione: i vicini non ti aiuteranno più come prima.",
+          "id": "solo-sul-podere",
+          "when": {
+            "op": "all",
+            "items": [
+              {
+                "op": "flag",
+                "id": "uscita_dal_mir",
+                "value": true
+              },
+              {
+                "op": "lte",
+                "kind": "metric",
+                "id": "aiuto",
+                "value": 20
+              }
+            ]
+          },
+          "text": "Nessuno viene più ad aiutarti alla semina: il podere è tuo e il lavoro pure.",
           "effects": [
             {
-              "kind": "flag",
-              "id": "uscita_dal_mir",
-              "value": true
+              "kind": "metric",
+              "id": "pane",
+              "delta": -12
+            },
+            {
+              "kind": "metric",
+              "id": "debiti",
+              "delta": 6
             }
           ]
         },
         {
-          "id": "vende",
-          "label": "Vendere e partire per la città",
-          "feedback": "Vendi la terra e parti: un altro figlio, un'altra famiglia in città.",
+          "id": "creditore",
+          "when": {
+            "op": "gte",
+            "kind": "metric",
+            "id": "debiti",
+            "value": 40
+          },
+          "text": "Il creditore bussa alla porta e si prende parte del raccolto. Il debito cala ma il pane pure.",
           "effects": [
             {
-              "kind": "flag",
-              "id": "stolypin_vende",
-              "value": true
+              "kind": "metric",
+              "id": "pane",
+              "delta": -12
+            },
+            {
+              "kind": "metric",
+              "id": "debiti",
+              "delta": -15
             }
           ]
         }
       ],
-      "shows": []
+      "feedback": "Quattro anni sono passati. La riforma offriva a ogni famiglia di uscire dal mir e di unire le strisce. Nello stesso tempo i tribunali militari mandavano alla forca i rivoltosi. Ora guarda che cosa è cambiato e che cosa è rimasto.",
+      "leaveLabel": "Finire l'anno",
+      "pointsLabel": "Punti azione",
+      "editorial": {
+        "sources": [
+          "A1-05"
+        ],
+        "scheda": "II.4-e1",
+        "nota": "La riforma e la cravatta di Stolypin sono sintesi per il gioco; le azioni e i numeri sono simulazione."
+      },
+      "turns": [
+        {
+          "label": "Novembre 1906",
+          "cards": [
+            {
+              "kind": "documented",
+              "title": "Il decreto di novembre",
+              "text": "Nel novembre 1906 un decreto permette ai contadini di uscire dal mir e di unire le loro strisce in un podere. Non abolisce il mir: chi vuole resta."
+            },
+            {
+              "kind": "documented",
+              "title": "La cravatta di Stolypin",
+              "text": "Intanto i tribunali militari mandano alla forca i rivoltosi. La corda si chiama «la cravatta di Stolypin»: la riforma e la repressione vengono dallo stesso governo."
+            },
+            {
+              "kind": "simulation",
+              "title": "Il primo anno",
+              "text": "La famiglia ha tre strisce di terra sparse nel campo e un debito piccolo. Persone e numeri sono inventati."
+            }
+          ],
+          "market": {
+            "who": "Il villaggio",
+            "text": "Hai quattro punti. Tocca un posto della scena per spendere un punto. Non puoi fare tutto: quello che lasci fermo costa.",
+            "points": 4,
+            "offers": [
+              {
+                "id": "resta",
+                "label": "Restare nel mir",
+                "short": "Restare",
+                "at": {
+                  "x": 0.18,
+                  "y": 0.12
+                },
+                "when": {
+                  "op": "all",
+                  "items": [
+                    {
+                      "op": "flag",
+                      "id": "stolypin_resta",
+                      "value": false
+                    },
+                    {
+                      "op": "flag",
+                      "id": "uscita_dal_mir",
+                      "value": false
+                    },
+                    {
+                      "op": "flag",
+                      "id": "stolypin_vende",
+                      "value": false
+                    }
+                  ]
+                },
+                "text": "Confermi la tua parte all'assemblea: la terra resta a strisce e i vicini restano vicini.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": 8
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "stolypin_resta",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "esce",
+                "label": "Uscire dal mir e unire le strisce (2 punti)",
+                "short": "Uscire",
+                "cost": 2,
+                "at": {
+                  "x": 0.5,
+                  "y": 0.12
+                },
+                "when": {
+                  "op": "all",
+                  "items": [
+                    {
+                      "op": "flag",
+                      "id": "stolypin_resta",
+                      "value": false
+                    },
+                    {
+                      "op": "flag",
+                      "id": "uscita_dal_mir",
+                      "value": false
+                    },
+                    {
+                      "op": "flag",
+                      "id": "stolypin_vende",
+                      "value": false
+                    }
+                  ]
+                },
+                "text": "Chiedi di uscire: le tue strisce diventano un solo podere. Hai più terra in mano e meno gente attorno.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": -16
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "debiti",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "pane",
+                    "delta": 4
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "uscita_dal_mir",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "vende",
+                "label": "Vendere la terra e partire (2 punti)",
+                "short": "Partire",
+                "cost": 2,
+                "at": {
+                  "x": 0.82,
+                  "y": 0.12
+                },
+                "when": {
+                  "op": "all",
+                  "items": [
+                    {
+                      "op": "flag",
+                      "id": "stolypin_resta",
+                      "value": false
+                    },
+                    {
+                      "op": "flag",
+                      "id": "uscita_dal_mir",
+                      "value": false
+                    },
+                    {
+                      "op": "flag",
+                      "id": "stolypin_vende",
+                      "value": false
+                    }
+                  ]
+                },
+                "text": "Vendi e parti per la città: il debito si paga e il viaggio costa. Il villaggio resta alle spalle.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "debiti",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": -20
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "pane",
+                    "delta": -6
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "stolypin_vende",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "assemblea",
+                "label": "Dividere le strisce all'assemblea (se resti nel mir)",
+                "short": "Assemblea",
+                "at": {
+                  "x": 0.18,
+                  "y": 0.36
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "stolypin_resta",
+                  "value": true
+                },
+                "text": "Si discute di chi lavora quale striscia e chi ha bisogno di più: nessuno è lasciato solo.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": 7
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "pane",
+                    "delta": 2
+                  }
+                ]
+              },
+              {
+                "id": "recinto",
+                "label": "Recintare e dissodare il podere (se esci; 2 punti)",
+                "short": "Lo steccato",
+                "cost": 2,
+                "at": {
+                  "x": 0.5,
+                  "y": 0.36
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "uscita_dal_mir",
+                  "value": true
+                },
+                "text": "Steccato nuovo e terra rivoltata: il podere rende più delle strisce ma lo lavori da solo.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane",
+                    "delta": 16
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "debiti",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": -4
+                  }
+                ]
+              },
+              {
+                "id": "lavoro",
+                "label": "Cercare lavoro in fabbrica (se parti)",
+                "short": "La fabbrica",
+                "repeat": true,
+                "at": {
+                  "x": 0.82,
+                  "y": 0.36
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "stolypin_vende",
+                  "value": true
+                },
+                "chance": {
+                  "base": 0.4,
+                  "metric": "aiuto",
+                  "factor": 0.005
+                },
+                "success": {
+                  "text": "Un parente ti presenta al capo reparto: c'è un posto e una paga.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "pane",
+                      "delta": 14
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "debiti",
+                      "delta": -4
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Ti dicono di tornare domani: il giorno è perso e il debito cresce.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "pane",
+                      "delta": -6
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "debiti",
+                      "delta": 6
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "strisce",
+                "label": "Lavorare le strisce (se resti nel mir)",
+                "short": "Le strisce",
+                "repeat": true,
+                "at": {
+                  "x": 0.18,
+                  "y": 0.6
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "stolypin_resta",
+                  "value": true
+                },
+                "text": "Tre strisce sparse nel campo: si perde tempo a camminare da una all'altra.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane",
+                    "delta": 5
+                  }
+                ]
+              },
+              {
+                "id": "lavorapodere",
+                "label": "Lavorare il podere (se esci)",
+                "short": "Il podere",
+                "repeat": true,
+                "at": {
+                  "x": 0.82,
+                  "y": 0.84
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "uscita_dal_mir",
+                  "value": true
+                },
+                "text": "Un pezzo solo: si lavora meglio e si fa di più ma da soli.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane",
+                    "delta": 9
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": -2
+                  }
+                ]
+              },
+              {
+                "id": "prestito",
+                "label": "Prendere denaro a prestito per gli attrezzi (se esci)",
+                "short": "Il prestito",
+                "repeat": true,
+                "at": {
+                  "x": 0.5,
+                  "y": 0.6
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "uscita_dal_mir",
+                  "value": true
+                },
+                "text": "Un aratro nuovo e un cavallo: il raccolto cresce ma il debito pure.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane",
+                    "delta": 10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "debiti",
+                    "delta": 14
+                  }
+                ]
+              },
+              {
+                "id": "parenti",
+                "label": "Scrivere ai parenti già partiti (se parti)",
+                "short": "I parenti",
+                "at": {
+                  "x": 0.82,
+                  "y": 0.6
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "stolypin_vende",
+                  "value": true
+                },
+                "text": "Una lettera a chi è arrivato prima di te: un letto, un nome da fare, qualche consiglio.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": 10
+                  }
+                ]
+              },
+              {
+                "id": "riunione",
+                "label": "Aprire la casa a una riunione del villaggio (se non parti)",
+                "short": "La riunione",
+                "at": {
+                  "x": 0.18,
+                  "y": 0.84
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "stolypin_vende",
+                  "value": false
+                },
+                "text": "Si parla di terra e di tasse. Si stringono i legami ma qualcuno prende nota di chi c'era.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": 10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "tribunali",
+                    "delta": 14
+                  }
+                ]
+              },
+              {
+                "id": "mietitura",
+                "label": "Chiedere ai vicini di aiutare alla mietitura (se esci)",
+                "short": "La mietitura",
+                "at": {
+                  "x": 0.5,
+                  "y": 0.82
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "uscita_dal_mir",
+                  "value": true
+                },
+                "chance": {
+                  "base": 0.3,
+                  "metric": "aiuto",
+                  "factor": 0.006
+                },
+                "success": {
+                  "text": "I vicini vengono: la mietitura è fatta in due giorni.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "pane",
+                      "delta": 10
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "aiuto",
+                      "delta": 4
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Nessuno viene: hai lasciato il mir e il mir si ricorda.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "pane",
+                      "delta": -4
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "aiuto",
+                      "delta": -4
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "tribunali",
+              "delta": 8
+            }
+          ]
+        },
+        {
+          "label": "1907",
+          "cards": [
+            {
+              "when": {
+                "op": "flag",
+                "id": "stolypin_resta",
+                "value": true
+              },
+              "kind": "simulation",
+              "title": "Un anno nel mir",
+              "text": "Hai confermato la tua parte all'assemblea. I vicini ti vedono ogni settimana; la terra resta a strisce."
+            },
+            {
+              "when": {
+                "op": "flag",
+                "id": "uscita_dal_mir",
+                "value": true
+              },
+              "kind": "simulation",
+              "title": "Un anno sul podere",
+              "text": "Il tuo podere è un pezzo solo con lo steccato. I vicini ti salutano meno di prima."
+            },
+            {
+              "when": {
+                "op": "flag",
+                "id": "stolypin_vende",
+                "value": true
+              },
+              "kind": "simulation",
+              "title": "Un anno in città",
+              "text": "Hai venduto e sei partito. La terra non è più tua e il pane lo compri."
+            },
+            {
+              "when": {
+                "op": "all",
+                "items": [
+                  {
+                    "op": "flag",
+                    "id": "stolypin_resta",
+                    "value": false
+                  },
+                  {
+                    "op": "flag",
+                    "id": "uscita_dal_mir",
+                    "value": false
+                  },
+                  {
+                    "op": "flag",
+                    "id": "stolypin_vende",
+                    "value": false
+                  }
+                ]
+              },
+              "kind": "simulation",
+              "title": "Un anno senza scegliere",
+              "text": "Non hai ancora scelto: la terra resta a strisce e l'assemblea decide per te."
+            }
+          ],
+          "market": {
+            "who": "Il villaggio",
+            "text": "Hai quattro punti. Tocca un posto della scena per spendere un punto. Non puoi fare tutto: quello che lasci fermo costa.",
+            "points": 4,
+            "offers": [
+              {
+                "id": "resta",
+                "label": "Restare nel mir",
+                "short": "Restare",
+                "at": {
+                  "x": 0.18,
+                  "y": 0.12
+                },
+                "when": {
+                  "op": "all",
+                  "items": [
+                    {
+                      "op": "flag",
+                      "id": "stolypin_resta",
+                      "value": false
+                    },
+                    {
+                      "op": "flag",
+                      "id": "uscita_dal_mir",
+                      "value": false
+                    },
+                    {
+                      "op": "flag",
+                      "id": "stolypin_vende",
+                      "value": false
+                    }
+                  ]
+                },
+                "text": "Confermi la tua parte all'assemblea: la terra resta a strisce e i vicini restano vicini.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": 8
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "stolypin_resta",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "esce",
+                "label": "Uscire dal mir e unire le strisce (2 punti)",
+                "short": "Uscire",
+                "cost": 2,
+                "at": {
+                  "x": 0.5,
+                  "y": 0.12
+                },
+                "when": {
+                  "op": "all",
+                  "items": [
+                    {
+                      "op": "flag",
+                      "id": "stolypin_resta",
+                      "value": false
+                    },
+                    {
+                      "op": "flag",
+                      "id": "uscita_dal_mir",
+                      "value": false
+                    },
+                    {
+                      "op": "flag",
+                      "id": "stolypin_vende",
+                      "value": false
+                    }
+                  ]
+                },
+                "text": "Chiedi di uscire: le tue strisce diventano un solo podere. Hai più terra in mano e meno gente attorno.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": -16
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "debiti",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "pane",
+                    "delta": 4
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "uscita_dal_mir",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "vende",
+                "label": "Vendere la terra e partire (2 punti)",
+                "short": "Partire",
+                "cost": 2,
+                "at": {
+                  "x": 0.82,
+                  "y": 0.12
+                },
+                "when": {
+                  "op": "all",
+                  "items": [
+                    {
+                      "op": "flag",
+                      "id": "stolypin_resta",
+                      "value": false
+                    },
+                    {
+                      "op": "flag",
+                      "id": "uscita_dal_mir",
+                      "value": false
+                    },
+                    {
+                      "op": "flag",
+                      "id": "stolypin_vende",
+                      "value": false
+                    }
+                  ]
+                },
+                "text": "Vendi e parti per la città: il debito si paga e il viaggio costa. Il villaggio resta alle spalle.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "debiti",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": -20
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "pane",
+                    "delta": -6
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "stolypin_vende",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "assemblea",
+                "label": "Dividere le strisce all'assemblea (se resti nel mir)",
+                "short": "Assemblea",
+                "at": {
+                  "x": 0.18,
+                  "y": 0.36
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "stolypin_resta",
+                  "value": true
+                },
+                "text": "Si discute di chi lavora quale striscia e chi ha bisogno di più: nessuno è lasciato solo.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": 7
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "pane",
+                    "delta": 2
+                  }
+                ]
+              },
+              {
+                "id": "recinto",
+                "label": "Recintare e dissodare il podere (se esci; 2 punti)",
+                "short": "Lo steccato",
+                "cost": 2,
+                "at": {
+                  "x": 0.5,
+                  "y": 0.36
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "uscita_dal_mir",
+                  "value": true
+                },
+                "text": "Steccato nuovo e terra rivoltata: il podere rende più delle strisce ma lo lavori da solo.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane",
+                    "delta": 16
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "debiti",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": -4
+                  }
+                ]
+              },
+              {
+                "id": "lavoro",
+                "label": "Cercare lavoro in fabbrica (se parti)",
+                "short": "La fabbrica",
+                "repeat": true,
+                "at": {
+                  "x": 0.82,
+                  "y": 0.36
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "stolypin_vende",
+                  "value": true
+                },
+                "chance": {
+                  "base": 0.4,
+                  "metric": "aiuto",
+                  "factor": 0.005
+                },
+                "success": {
+                  "text": "Un parente ti presenta al capo reparto: c'è un posto e una paga.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "pane",
+                      "delta": 14
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "debiti",
+                      "delta": -4
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Ti dicono di tornare domani: il giorno è perso e il debito cresce.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "pane",
+                      "delta": -6
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "debiti",
+                      "delta": 6
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "strisce",
+                "label": "Lavorare le strisce (se resti nel mir)",
+                "short": "Le strisce",
+                "repeat": true,
+                "at": {
+                  "x": 0.18,
+                  "y": 0.6
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "stolypin_resta",
+                  "value": true
+                },
+                "text": "Tre strisce sparse nel campo: si perde tempo a camminare da una all'altra.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane",
+                    "delta": 5
+                  }
+                ]
+              },
+              {
+                "id": "lavorapodere",
+                "label": "Lavorare il podere (se esci)",
+                "short": "Il podere",
+                "repeat": true,
+                "at": {
+                  "x": 0.82,
+                  "y": 0.84
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "uscita_dal_mir",
+                  "value": true
+                },
+                "text": "Un pezzo solo: si lavora meglio e si fa di più ma da soli.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane",
+                    "delta": 9
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": -2
+                  }
+                ]
+              },
+              {
+                "id": "prestito",
+                "label": "Prendere denaro a prestito per gli attrezzi (se esci)",
+                "short": "Il prestito",
+                "repeat": true,
+                "at": {
+                  "x": 0.5,
+                  "y": 0.6
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "uscita_dal_mir",
+                  "value": true
+                },
+                "text": "Un aratro nuovo e un cavallo: il raccolto cresce ma il debito pure.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane",
+                    "delta": 10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "debiti",
+                    "delta": 14
+                  }
+                ]
+              },
+              {
+                "id": "parenti",
+                "label": "Scrivere ai parenti già partiti (se parti)",
+                "short": "I parenti",
+                "at": {
+                  "x": 0.82,
+                  "y": 0.6
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "stolypin_vende",
+                  "value": true
+                },
+                "text": "Una lettera a chi è arrivato prima di te: un letto, un nome da fare, qualche consiglio.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": 10
+                  }
+                ]
+              },
+              {
+                "id": "riunione",
+                "label": "Aprire la casa a una riunione del villaggio (se non parti)",
+                "short": "La riunione",
+                "at": {
+                  "x": 0.18,
+                  "y": 0.84
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "stolypin_vende",
+                  "value": false
+                },
+                "text": "Si parla di terra e di tasse. Si stringono i legami ma qualcuno prende nota di chi c'era.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": 10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "tribunali",
+                    "delta": 14
+                  }
+                ]
+              },
+              {
+                "id": "mietitura",
+                "label": "Chiedere ai vicini di aiutare alla mietitura (se esci)",
+                "short": "La mietitura",
+                "at": {
+                  "x": 0.5,
+                  "y": 0.82
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "uscita_dal_mir",
+                  "value": true
+                },
+                "chance": {
+                  "base": 0.3,
+                  "metric": "aiuto",
+                  "factor": 0.006
+                },
+                "success": {
+                  "text": "I vicini vengono: la mietitura è fatta in due giorni.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "pane",
+                      "delta": 10
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "aiuto",
+                      "delta": 4
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Nessuno viene: hai lasciato il mir e il mir si ricorda.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "pane",
+                      "delta": -4
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "aiuto",
+                      "delta": -4
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "pane",
+              "delta": -6
+            },
+            {
+              "kind": "metric",
+              "id": "debiti",
+              "delta": 4
+            },
+            {
+              "kind": "metric",
+              "id": "tribunali",
+              "delta": 4
+            }
+          ]
+        },
+        {
+          "label": "1909",
+          "cards": [
+            {
+              "when": {
+                "op": "flag",
+                "id": "stolypin_resta",
+                "value": true
+              },
+              "kind": "simulation",
+              "title": "Chi resta",
+              "text": "Nel mir si litiga e ci si aiuta. Qualcuno dei vicini è uscito: il suo podere è lì in mezzo ai vostri campi."
+            },
+            {
+              "when": {
+                "op": "flag",
+                "id": "uscita_dal_mir",
+                "value": true
+              },
+              "kind": "simulation",
+              "title": "Chi è uscito",
+              "text": "Il podere rende ma si lavora in pochi. Se la mietitura va male nessuno corre ad aiutarti."
+            },
+            {
+              "when": {
+                "op": "flag",
+                "id": "stolypin_vende",
+                "value": true
+              },
+              "kind": "simulation",
+              "title": "Chi è partito",
+              "text": "In città hai un letto in una stanza in affitto. Il villaggio si fa lontano."
+            },
+            {
+              "when": {
+                "op": "all",
+                "items": [
+                  {
+                    "op": "flag",
+                    "id": "stolypin_resta",
+                    "value": false
+                  },
+                  {
+                    "op": "flag",
+                    "id": "uscita_dal_mir",
+                    "value": false
+                  },
+                  {
+                    "op": "flag",
+                    "id": "stolypin_vende",
+                    "value": false
+                  }
+                ]
+              },
+              "kind": "simulation",
+              "title": "Chi non ha scelto",
+              "text": "Gli altri hanno deciso. Tu stai a guardare e il tempo passa."
+            }
+          ],
+          "market": {
+            "who": "Il villaggio",
+            "text": "Hai quattro punti. Tocca un posto della scena per spendere un punto. Non puoi fare tutto: quello che lasci fermo costa.",
+            "points": 4,
+            "offers": [
+              {
+                "id": "resta",
+                "label": "Restare nel mir",
+                "short": "Restare",
+                "at": {
+                  "x": 0.18,
+                  "y": 0.12
+                },
+                "when": {
+                  "op": "all",
+                  "items": [
+                    {
+                      "op": "flag",
+                      "id": "stolypin_resta",
+                      "value": false
+                    },
+                    {
+                      "op": "flag",
+                      "id": "uscita_dal_mir",
+                      "value": false
+                    },
+                    {
+                      "op": "flag",
+                      "id": "stolypin_vende",
+                      "value": false
+                    }
+                  ]
+                },
+                "text": "Confermi la tua parte all'assemblea: la terra resta a strisce e i vicini restano vicini.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": 8
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "stolypin_resta",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "esce",
+                "label": "Uscire dal mir e unire le strisce (2 punti)",
+                "short": "Uscire",
+                "cost": 2,
+                "at": {
+                  "x": 0.5,
+                  "y": 0.12
+                },
+                "when": {
+                  "op": "all",
+                  "items": [
+                    {
+                      "op": "flag",
+                      "id": "stolypin_resta",
+                      "value": false
+                    },
+                    {
+                      "op": "flag",
+                      "id": "uscita_dal_mir",
+                      "value": false
+                    },
+                    {
+                      "op": "flag",
+                      "id": "stolypin_vende",
+                      "value": false
+                    }
+                  ]
+                },
+                "text": "Chiedi di uscire: le tue strisce diventano un solo podere. Hai più terra in mano e meno gente attorno.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": -16
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "debiti",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "pane",
+                    "delta": 4
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "uscita_dal_mir",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "vende",
+                "label": "Vendere la terra e partire (2 punti)",
+                "short": "Partire",
+                "cost": 2,
+                "at": {
+                  "x": 0.82,
+                  "y": 0.12
+                },
+                "when": {
+                  "op": "all",
+                  "items": [
+                    {
+                      "op": "flag",
+                      "id": "stolypin_resta",
+                      "value": false
+                    },
+                    {
+                      "op": "flag",
+                      "id": "uscita_dal_mir",
+                      "value": false
+                    },
+                    {
+                      "op": "flag",
+                      "id": "stolypin_vende",
+                      "value": false
+                    }
+                  ]
+                },
+                "text": "Vendi e parti per la città: il debito si paga e il viaggio costa. Il villaggio resta alle spalle.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "debiti",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": -20
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "pane",
+                    "delta": -6
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "stolypin_vende",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "assemblea",
+                "label": "Dividere le strisce all'assemblea (se resti nel mir)",
+                "short": "Assemblea",
+                "at": {
+                  "x": 0.18,
+                  "y": 0.36
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "stolypin_resta",
+                  "value": true
+                },
+                "text": "Si discute di chi lavora quale striscia e chi ha bisogno di più: nessuno è lasciato solo.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": 7
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "pane",
+                    "delta": 2
+                  }
+                ]
+              },
+              {
+                "id": "recinto",
+                "label": "Recintare e dissodare il podere (se esci; 2 punti)",
+                "short": "Lo steccato",
+                "cost": 2,
+                "at": {
+                  "x": 0.5,
+                  "y": 0.36
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "uscita_dal_mir",
+                  "value": true
+                },
+                "text": "Steccato nuovo e terra rivoltata: il podere rende più delle strisce ma lo lavori da solo.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane",
+                    "delta": 16
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "debiti",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": -4
+                  }
+                ]
+              },
+              {
+                "id": "lavoro",
+                "label": "Cercare lavoro in fabbrica (se parti)",
+                "short": "La fabbrica",
+                "repeat": true,
+                "at": {
+                  "x": 0.82,
+                  "y": 0.36
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "stolypin_vende",
+                  "value": true
+                },
+                "chance": {
+                  "base": 0.4,
+                  "metric": "aiuto",
+                  "factor": 0.005
+                },
+                "success": {
+                  "text": "Un parente ti presenta al capo reparto: c'è un posto e una paga.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "pane",
+                      "delta": 14
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "debiti",
+                      "delta": -4
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Ti dicono di tornare domani: il giorno è perso e il debito cresce.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "pane",
+                      "delta": -6
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "debiti",
+                      "delta": 6
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "strisce",
+                "label": "Lavorare le strisce (se resti nel mir)",
+                "short": "Le strisce",
+                "repeat": true,
+                "at": {
+                  "x": 0.18,
+                  "y": 0.6
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "stolypin_resta",
+                  "value": true
+                },
+                "text": "Tre strisce sparse nel campo: si perde tempo a camminare da una all'altra.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane",
+                    "delta": 5
+                  }
+                ]
+              },
+              {
+                "id": "lavorapodere",
+                "label": "Lavorare il podere (se esci)",
+                "short": "Il podere",
+                "repeat": true,
+                "at": {
+                  "x": 0.82,
+                  "y": 0.84
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "uscita_dal_mir",
+                  "value": true
+                },
+                "text": "Un pezzo solo: si lavora meglio e si fa di più ma da soli.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane",
+                    "delta": 9
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": -2
+                  }
+                ]
+              },
+              {
+                "id": "prestito",
+                "label": "Prendere denaro a prestito per gli attrezzi (se esci)",
+                "short": "Il prestito",
+                "repeat": true,
+                "at": {
+                  "x": 0.5,
+                  "y": 0.6
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "uscita_dal_mir",
+                  "value": true
+                },
+                "text": "Un aratro nuovo e un cavallo: il raccolto cresce ma il debito pure.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane",
+                    "delta": 10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "debiti",
+                    "delta": 14
+                  }
+                ]
+              },
+              {
+                "id": "parenti",
+                "label": "Scrivere ai parenti già partiti (se parti)",
+                "short": "I parenti",
+                "at": {
+                  "x": 0.82,
+                  "y": 0.6
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "stolypin_vende",
+                  "value": true
+                },
+                "text": "Una lettera a chi è arrivato prima di te: un letto, un nome da fare, qualche consiglio.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": 10
+                  }
+                ]
+              },
+              {
+                "id": "riunione",
+                "label": "Aprire la casa a una riunione del villaggio (se non parti)",
+                "short": "La riunione",
+                "at": {
+                  "x": 0.18,
+                  "y": 0.84
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "stolypin_vende",
+                  "value": false
+                },
+                "text": "Si parla di terra e di tasse. Si stringono i legami ma qualcuno prende nota di chi c'era.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": 10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "tribunali",
+                    "delta": 14
+                  }
+                ]
+              },
+              {
+                "id": "mietitura",
+                "label": "Chiedere ai vicini di aiutare alla mietitura (se esci)",
+                "short": "La mietitura",
+                "at": {
+                  "x": 0.5,
+                  "y": 0.82
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "uscita_dal_mir",
+                  "value": true
+                },
+                "chance": {
+                  "base": 0.3,
+                  "metric": "aiuto",
+                  "factor": 0.006
+                },
+                "success": {
+                  "text": "I vicini vengono: la mietitura è fatta in due giorni.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "pane",
+                      "delta": 10
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "aiuto",
+                      "delta": 4
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Nessuno viene: hai lasciato il mir e il mir si ricorda.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "pane",
+                      "delta": -4
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "aiuto",
+                      "delta": -4
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "pane",
+              "delta": -6
+            },
+            {
+              "kind": "metric",
+              "id": "debiti",
+              "delta": 4
+            },
+            {
+              "kind": "metric",
+              "id": "aiuto",
+              "delta": -6
+            },
+            {
+              "kind": "metric",
+              "id": "tribunali",
+              "delta": -3
+            }
+          ]
+        },
+        {
+          "label": "1911",
+          "cards": [
+            {
+              "kind": "documented",
+              "title": "Il mir non è abolito",
+              "text": "Il decreto del 1906 consentiva di uscire dal mir e non obbligava nessuno: il mir non è stato abolito. Chi è uscito ha ottenuto un podere e ha perso la protezione dei vicini."
+            },
+            {
+              "kind": "simulation",
+              "title": "L'ultimo anno",
+              "text": "Cinque anni dopo il decreto la famiglia fa i conti. Persone e numeri sono inventati."
+            }
+          ],
+          "market": {
+            "who": "Il villaggio",
+            "text": "Hai quattro punti. Tocca un posto della scena per spendere un punto. Non puoi fare tutto: quello che lasci fermo costa.",
+            "points": 4,
+            "offers": [
+              {
+                "id": "resta",
+                "label": "Restare nel mir",
+                "short": "Restare",
+                "at": {
+                  "x": 0.18,
+                  "y": 0.12
+                },
+                "when": {
+                  "op": "all",
+                  "items": [
+                    {
+                      "op": "flag",
+                      "id": "stolypin_resta",
+                      "value": false
+                    },
+                    {
+                      "op": "flag",
+                      "id": "uscita_dal_mir",
+                      "value": false
+                    },
+                    {
+                      "op": "flag",
+                      "id": "stolypin_vende",
+                      "value": false
+                    }
+                  ]
+                },
+                "text": "Confermi la tua parte all'assemblea: la terra resta a strisce e i vicini restano vicini.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": 8
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "stolypin_resta",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "esce",
+                "label": "Uscire dal mir e unire le strisce (2 punti)",
+                "short": "Uscire",
+                "cost": 2,
+                "at": {
+                  "x": 0.5,
+                  "y": 0.12
+                },
+                "when": {
+                  "op": "all",
+                  "items": [
+                    {
+                      "op": "flag",
+                      "id": "stolypin_resta",
+                      "value": false
+                    },
+                    {
+                      "op": "flag",
+                      "id": "uscita_dal_mir",
+                      "value": false
+                    },
+                    {
+                      "op": "flag",
+                      "id": "stolypin_vende",
+                      "value": false
+                    }
+                  ]
+                },
+                "text": "Chiedi di uscire: le tue strisce diventano un solo podere. Hai più terra in mano e meno gente attorno.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": -16
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "debiti",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "pane",
+                    "delta": 4
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "uscita_dal_mir",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "vende",
+                "label": "Vendere la terra e partire (2 punti)",
+                "short": "Partire",
+                "cost": 2,
+                "at": {
+                  "x": 0.82,
+                  "y": 0.12
+                },
+                "when": {
+                  "op": "all",
+                  "items": [
+                    {
+                      "op": "flag",
+                      "id": "stolypin_resta",
+                      "value": false
+                    },
+                    {
+                      "op": "flag",
+                      "id": "uscita_dal_mir",
+                      "value": false
+                    },
+                    {
+                      "op": "flag",
+                      "id": "stolypin_vende",
+                      "value": false
+                    }
+                  ]
+                },
+                "text": "Vendi e parti per la città: il debito si paga e il viaggio costa. Il villaggio resta alle spalle.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "debiti",
+                    "delta": -8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": -20
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "pane",
+                    "delta": -6
+                  },
+                  {
+                    "kind": "flag",
+                    "id": "stolypin_vende",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "id": "assemblea",
+                "label": "Dividere le strisce all'assemblea (se resti nel mir)",
+                "short": "Assemblea",
+                "at": {
+                  "x": 0.18,
+                  "y": 0.36
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "stolypin_resta",
+                  "value": true
+                },
+                "text": "Si discute di chi lavora quale striscia e chi ha bisogno di più: nessuno è lasciato solo.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": 7
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "pane",
+                    "delta": 2
+                  }
+                ]
+              },
+              {
+                "id": "recinto",
+                "label": "Recintare e dissodare il podere (se esci; 2 punti)",
+                "short": "Lo steccato",
+                "cost": 2,
+                "at": {
+                  "x": 0.5,
+                  "y": 0.36
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "uscita_dal_mir",
+                  "value": true
+                },
+                "text": "Steccato nuovo e terra rivoltata: il podere rende più delle strisce ma lo lavori da solo.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane",
+                    "delta": 16
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "debiti",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": -4
+                  }
+                ]
+              },
+              {
+                "id": "lavoro",
+                "label": "Cercare lavoro in fabbrica (se parti)",
+                "short": "La fabbrica",
+                "repeat": true,
+                "at": {
+                  "x": 0.82,
+                  "y": 0.36
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "stolypin_vende",
+                  "value": true
+                },
+                "chance": {
+                  "base": 0.4,
+                  "metric": "aiuto",
+                  "factor": 0.005
+                },
+                "success": {
+                  "text": "Un parente ti presenta al capo reparto: c'è un posto e una paga.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "pane",
+                      "delta": 14
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "debiti",
+                      "delta": -4
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Ti dicono di tornare domani: il giorno è perso e il debito cresce.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "pane",
+                      "delta": -6
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "debiti",
+                      "delta": 6
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "strisce",
+                "label": "Lavorare le strisce (se resti nel mir)",
+                "short": "Le strisce",
+                "repeat": true,
+                "at": {
+                  "x": 0.18,
+                  "y": 0.6
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "stolypin_resta",
+                  "value": true
+                },
+                "text": "Tre strisce sparse nel campo: si perde tempo a camminare da una all'altra.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane",
+                    "delta": 5
+                  }
+                ]
+              },
+              {
+                "id": "lavorapodere",
+                "label": "Lavorare il podere (se esci)",
+                "short": "Il podere",
+                "repeat": true,
+                "at": {
+                  "x": 0.82,
+                  "y": 0.84
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "uscita_dal_mir",
+                  "value": true
+                },
+                "text": "Un pezzo solo: si lavora meglio e si fa di più ma da soli.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane",
+                    "delta": 9
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": -2
+                  }
+                ]
+              },
+              {
+                "id": "prestito",
+                "label": "Prendere denaro a prestito per gli attrezzi (se esci)",
+                "short": "Il prestito",
+                "repeat": true,
+                "at": {
+                  "x": 0.5,
+                  "y": 0.6
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "uscita_dal_mir",
+                  "value": true
+                },
+                "text": "Un aratro nuovo e un cavallo: il raccolto cresce ma il debito pure.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pane",
+                    "delta": 10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "debiti",
+                    "delta": 14
+                  }
+                ]
+              },
+              {
+                "id": "parenti",
+                "label": "Scrivere ai parenti già partiti (se parti)",
+                "short": "I parenti",
+                "at": {
+                  "x": 0.82,
+                  "y": 0.6
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "stolypin_vende",
+                  "value": true
+                },
+                "text": "Una lettera a chi è arrivato prima di te: un letto, un nome da fare, qualche consiglio.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": 10
+                  }
+                ]
+              },
+              {
+                "id": "riunione",
+                "label": "Aprire la casa a una riunione del villaggio (se non parti)",
+                "short": "La riunione",
+                "at": {
+                  "x": 0.18,
+                  "y": 0.84
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "stolypin_vende",
+                  "value": false
+                },
+                "text": "Si parla di terra e di tasse. Si stringono i legami ma qualcuno prende nota di chi c'era.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "aiuto",
+                    "delta": 10
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "tribunali",
+                    "delta": 14
+                  }
+                ]
+              },
+              {
+                "id": "mietitura",
+                "label": "Chiedere ai vicini di aiutare alla mietitura (se esci)",
+                "short": "La mietitura",
+                "at": {
+                  "x": 0.5,
+                  "y": 0.82
+                },
+                "when": {
+                  "op": "flag",
+                  "id": "uscita_dal_mir",
+                  "value": true
+                },
+                "chance": {
+                  "base": 0.3,
+                  "metric": "aiuto",
+                  "factor": 0.006
+                },
+                "success": {
+                  "text": "I vicini vengono: la mietitura è fatta in due giorni.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "pane",
+                      "delta": 10
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "aiuto",
+                      "delta": 4
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Nessuno viene: hai lasciato il mir e il mir si ricorda.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "pane",
+                      "delta": -4
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "aiuto",
+                      "delta": -4
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "pane",
+              "delta": -6
+            },
+            {
+              "kind": "metric",
+              "id": "debiti",
+              "delta": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2-stolypin-ricorda",
+      "type": "narrative",
+      "roleId": "figlio",
+      "title": "Cosa ti devi ricordare",
+      "display": "cards",
+      "context": {
+        "kind": "documented",
+        "dateLabel": "novembre 1906–1911"
+      },
+      "text": "Dal novembre 1906 un decreto permette ai contadini di uscire dal mir e di unire le strisce in un podere. Non abolisce il mir: chi vuole resta.\n\nChi esce ottiene un podere e perde la protezione dei vicini; chi resta tiene il vecchio patto ma non cambia la sua terra. Chi vende parte per la città.\n\nIntanto i tribunali militari mandano alla forca i rivoltosi: la corda si chiama «la cravatta di Stolypin». La riforma e la repressione sono due facce della stessa politica.",
+      "stageId": "stolypin-ricorda",
+      "shows": [],
+      "motionId": "ingresso",
+      "visualExplanation": "Tre persone con i bagagli lasciano il villaggio: chi vende parte e chi resta ricomincia.",
+      "editorial": {
+        "sources": [
+          "A1-05"
+        ],
+        "scheda": "II.4 confronto"
+      }
     },
     {
       "id": "a2-stolypin-v4",
@@ -2940,20 +5040,27 @@
       "visualExplanation": "Il villaggio e il campo che diventa un podere. La domanda riguarda la riforma di Stolypin."
     },
     {
-      "id": "a2-stolypin-ricorda",
+      "id": "a2-stolypin-confronto",
       "type": "narrative",
       "roleId": "figlio",
-      "title": "Cosa ti devi ricordare",
+      "title": "Che cosa è cambiato dopo il 1905",
       "display": "cards",
       "context": {
         "kind": "documented",
-        "dateLabel": "1905"
+        "dateLabel": "gennaio 1905–1911"
       },
-      "text": "Il 22 gennaio 1905 la truppa spara su un corteo pacifico e la fiducia nello zar come padre si spezza. Nell'ottobre 1905 uno sciopero generale ferma il paese e a Pietroburgo nasce il soviet.\n\nIl soviet del 1905 è un contropotere: coordina uno sciopero e non governa. Lo zar concede il Manifesto di ottobre sotto la pressione dello sciopero: una concessione strappata può essere un diritto o una tregua.",
-      "stageId": "stolypin-ricorda",
-      "shows": [],
+      "text": "Nel gennaio 1905 una petizione portata allo zar in ginocchio finisce sotto i fucili. Nell'ottobre dello stesso anno uno sciopero generale ferma il paese e lo zar firma il Manifesto: promette libertà civili e una Duma eletta.\n\nPoi le Leggi fondamentali chiamano ancora autocratico il suo potere e le prime due Dume vengono sciolte. Nel novembre 1906 Stolypin apre ai contadini l'uscita dal mir e intanto i tribunali militari mandano alla forca i rivoltosi.\n\nIn un anno la Russia è passata dalla petizione in ginocchio allo sciopero generale e poi a una Duma senza pieni poteri e a un potere ancora largo: molto meno di quanto prometteva il Manifesto sulla carta. Le stesse piazze e le stesse parole torneranno nel 1917 con un esito opposto.",
+      "stageId": "stolypin-confronto",
       "motionId": "ingresso",
-      "visualExplanation": "Tre persone con i bagagli lasciano il villaggio: chi vende parte, chi resta ricomincia."
+      "shows": [],
+      "visualExplanation": "In fila da sinistra a destra: la petizione del 1905 (l'icona del corteo) e lo sciopero (la bandiera) e la Duma (il Palazzo di Tauride) e il podere di Stolypin.",
+      "editorial": {
+        "sources": [
+          "A1-04",
+          "A1-05"
+        ],
+        "scheda": "II.4-e3"
+      }
     }
   ],
   "reconciliation": "Fine dell'Atto II (1905–1911). Una petizione portata allo zar è finita sotto i fucili; uno sciopero generale ha fatto nascere il soviet e ha strappato una Duma che lo zar ha presto svuotato; Stolypin ha aperto l'uscita dal mir e riempito i tribunali militari. Le tue scelte hanno cambiato soltanto la simulazione, non questi fatti. Segue l'Atto III: la guerra.",
@@ -3031,13 +5138,14 @@
     {
       "id": "stolypin",
       "episodes": [
-        "a2-stolypin-scelta",
+        "a2-stolypin-gioco",
+        "a2-stolypin-ricorda",
         "a2-stolypin-v4",
-        "a2-stolypin-ricorda"
+        "a2-stolypin-confronto"
       ],
       "question": "Che cosa cambia e che cosa resta dopo il 1905?",
       "summary": "Novembre 1906: un decreto permette ai contadini di uscire dal mir e di unire le strisce in un podere. Intanto i tribunali militari mandano alla forca i rivoltosi.",
-      "game": "Decidi se la famiglia resta nel mir, esce e unisce le strisce o vende e parte.",
+      "game": "Quattro anni dopo il decreto di Stolypin: quattro punti all'anno per restare nel mir o uscire e unire le strisce o vendere e partire. Ogni strada apre azioni sue e pesa sugli anni dopo.",
       "concepts": [
         "Stolypin",
         "podere",
@@ -3046,9 +5154,9 @@
       ],
       "carries": "La famiglia è rimasta al villaggio, nel mir dell'Atto I.",
       "closing": {
-        "did": "Hai deciso che cosa fa la famiglia davanti alla riforma.",
+        "did": "Hai guidato una famiglia per quattro anni dopo il decreto: restare nel mir o uscire o vendere e partire, con i debiti e i vicini che pesano sugli anni dopo.",
         "fact": "Dal novembre 1906 la riforma di Stolypin permise di uscire dal mir e di unire le strisce in un podere; non abolì il mir. I tribunali militari mandarono alla forca molti rivoltosi: la corda si chiamò «cravatta di Stolypin».",
-        "simulation": "La famiglia e la sua scelta sono simulazione."
+        "simulation": "La famiglia e i suoi anni sono simulazione. Gli indicatori sono indici e non dati storici."
       }
     }
   ],

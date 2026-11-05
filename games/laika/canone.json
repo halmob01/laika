@@ -132,10 +132,12 @@
             "Dire che cosa permette la riforma di Stolypin (uscire dal mir, unire le strisce in un podere) e che cosa non fa (non abolisce il mir).",
             "Collegare riforma e repressione (i tribunali militari) come due facce della stessa politica."
           ],
-          "gioco": "da assegnare (oggi: una scelta)",
-          "stato_gioco": "da assegnare",
+          "gioco": "punti azione su quattro anni (il podere e il mir)",
+          "stato_gioco": "da confermare",
           "stato": "bozza",
-          "nel_gioco": "i4"
+          "nel_gioco": "i4",
+          "scheda_gioco": "docs/laika/giochi/stolypin.md",
+          "nota": "Gioco costruito dall'agente il 5 novembre 2026 al posto della scelta unica: quattro anni da quattro punti con le tre strade (restare, uscire, partire) e conseguenze che si sommano; da provare dal telefono (C-II)."
         }
       ]
     },
