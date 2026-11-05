@@ -105826,7 +105826,7 @@
           "id": "a2-stolypin-gioco",
           "type": "turn_game",
           "title": "Il podere e il mir",
-          "text": "Nel novembre 1906 un decreto permette ai contadini di uscire dal mir e di unire le strisce in un podere. Intanto i tribunali militari mandano alla forca i rivoltosi: la corda si chiama «la cravatta di Stolypin».\n\nSei il capofamiglia. In quattro anni (1906, 1907, 1909 e 1911) hai quattro punti all'anno: puoi restare nel mir, uscire e unire le strisce oppure vendere e partire. Ogni strada apre azioni sue e ne chiude altre; quello che scegli il primo anno pesa anche sugli anni dopo. Ogni anno ha il suo costo fisso: l'inverno mangia il pane e gli interessi fanno salire i debiti.",
+          "text": "Nel novembre 1906 un decreto permette ai contadini di uscire dal mir e di unire le strisce in un podere. Intanto i tribunali militari mandano alla forca i rivoltosi: la corda si chiama «la cravatta di Stolypin».\n\nSei il capofamiglia. In quattro anni (1906, 1907, 1909 e 1911) hai quattro punti all'anno: puoi restare nel mir, uscire e unire le strisce oppure vendere e partire. Ogni strada apre azioni sue e ne chiude altre; quello che scegli il primo anno pesa anche sugli anni dopo. Ogni anno ha il suo costo fisso: nel 1906 salgono i tribunali; dal 1907 l'inverno mangia il pane e gli interessi fanno salire i debiti.",
           "roleId": "capofamiglia",
           "stageId": "stolypin-strisce",
           "motionId": "ingresso",
@@ -107437,7 +107437,7 @@
                 {
                   "kind": "documented",
                   "title": "Il mir non è abolito",
-                  "text": "Il decreto del 1906 consentiva di uscire dal mir e non obbligava nessuno: il mir non è stato abolito. Chi è uscito ha ottenuto un podere e ha perso la protezione dei vicini."
+                  "text": "Il decreto del 1906 consentiva di uscire dal mir: il mir non è stato abolito. Chi è uscito ha ottenuto un podere e ha perso la protezione dei vicini."
                 },
                 {
                   "kind": "simulation",
