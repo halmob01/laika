@@ -5,7 +5,8 @@ Per un nuovo agente che continua il piano. Si legge dopo [AGENTS.md](../../AGENT
 ## 1. Dove siamo
 
 - **In `main`:** S1, K1, K2, K4, K6, K7, U-otto-giorni, U-pane-guerra, U-mir, U-citta, U-servitu, U-soviet; C-I e C-III preparate (la pagina per il docente c'è, la prova la fa il docente: «aspetta il docente», non blocca il piano).
-- **U-petizione (II.1), PR #61, branch `u-petizione`:** lavoro finito e pushato; il piano la segna «fatto (PR #61)» ma **la PR non è unita** finché il docente non dà l'ok e la CI non è verde su Chromium e WebKit sull'ultimo commit. Ha avuto due revisioni indipendenti «non passa» di seguito (sempre per righe di documenti, tutte corrette) e per METODO §7 serve l'ok del docente (come è stato per U-citta e U-servitu: ok a unire a CI verde, senza un terzo giro completo). **Se all'inizio la PR è già unita, `npm run prossimo` dice U-concessioni. Se non lo è, non cominciare altro: controlla la CI della PR #61, chiedi o verifica l'ok del docente e unisci con `expectedHeadSha`.**
+- **U-petizione (II.1), PR #61:** unita il 5 novembre 2026 con l'ok del docente.
+- **U-concessioni (II.3), PR #62, branch `u-concessioni`:** gioco e documenti finiti e pushati; il piano la segna «fatto (PR #62)» ma **la PR non è unita** finché la revisione indipendente non passa e la CI non è verde su Chromium e WebKit sull'ultimo commit. Se all'inizio la PR è già unita, `npm run prossimo` dice H-testi; se non lo è, controlla la revisione e la CI della PR #62 e unisci con `expectedHeadSha`.
 - **Da fare, nell'ordine del piano:** U-concessioni (II.3), U-stolypin (II.4), C-II (prova del docente: solo pagina, come C-I), K3 (ponte fra gli atti e famiglia), U-sito, V-1917, C-1917. `npm run prossimo` stampa il messaggio giusto.
 - **Dal docente in attesa:** prove C-I, C-III (e poi C-II, C-1917); conferma del gioco di II.1 (nel canone `stato_gioco` è «da confermare»: l'ha scelto l'agente); chiarimento sui disegni sospesi (corretti: vedi sotto).
 
@@ -56,7 +57,7 @@ Per un nuovo agente che continua il piano. Si legge dopo [AGENTS.md](../../AGENT
 
 ## 7. Prossimi passi, in ordine
 
-1. Chiudere U-petizione (PR #61): CI verde sull'ultima head, ok del docente, unione.
-2. U-concessioni (II.3): scheda in `docs/laika/giochi/concessioni.md`, il gioco al posto del confronto di tre schede, i flag `tratta_prefetto`; aneddoti dal granduca Nikolaj (C36 Baletta e il «mi sparerò»: da riscontrare in MATRICE); scena della sala di San Giorgio.
+1. **U-concessioni (II.3), PR #62:** gioco e documenti fatti; in revisione (primo giro «non passa» per un'etichetta, corretta; secondo giro in corso). Poi CI verde e unione. Il granduca Nikolaj non si usa (non riscontrato).
+2. **H-testi (inserito il 5 novembre 2026 su richiesta del docente):** portare in `index.html` i testi di [TESTI-HOME](TESTI-HOME.md) (manifesto, Atti VI, VII e IX; la frase dell'Atto II va aggiornata alla verità); tre voci non riportate dal file restano invariate finché il docente non conferma.
 3. U-stolypin (II.4): gioco e confronto di fine atto; gli effetti dei flag di Stolypin a valle.
 4. C-II (pagina per il docente come C-I), K3, U-sito, V-1917, C-1917.

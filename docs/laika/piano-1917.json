@@ -535,6 +535,30 @@
       ]
     },
     {
+      "id": "H-testi",
+      "titolo": "La home: i testi del docente",
+      "tipo": "trasversale",
+      "modello": "Sonnet",
+      "unita": [],
+      "dipende": [
+        "U-concessioni"
+      ],
+      "leggere": [
+        "docs/laika/TESTI-HOME.md",
+        "docs/laika/BRAND-DESIGN.md"
+      ],
+      "fare": [
+        "Inserito il 5 novembre 2026 su richiesta del docente («correggi anche i testi della home con questi»): portare in `index.html` i testi di `docs/laika/TESTI-HOME.md`. Differenze trovate: il manifesto («La rivoluzione non è un pranzo di gala. Si confida nella collaborazione dei presenti», al posto di «Il piano è stato approvato. La storia non è stata informata.», con le bande e l'accento grave della grafica attuale); Atto VI con «La rivoluzione comincia a divorare i suoi figli.»; Atto VII con il testo nuovo («La promessa di trasformare un paese contadino in una potenza industriale…»); Atto IX con «Il tentativo di cambiare tutto perché nulla finisse.».",
+        "Aggiornare `docs/laika/BRAND-DESIGN.md` (il tono «Il piano è stato approvato…» è citato come esempio) e controllare i test della home (`tests/home.test.js`, `tests/browser-home.cjs`: peso, righe a 360 e 390 px, accenti).",
+        "Non riportati nel file e lasciati invariati finché il docente non conferma: l'occhiello «Edizione didattica», «Sezione storica» sul protocollo della testata, la frase «I progressi restano in questo browser» nel piede. Il file riporta ancora «cinque righe da portare allo zar» per l'Atto II: non è più vero dopo U-petizione, la frase della home va aggiornata alla verità («Si apre con «La petizione» (gennaio 1905): tre sere alle officine Putilov, sei ore fra firme, richieste, padre Gapon e polizia») e il docente lo sa."
+      ],
+      "fatto_quando": [
+        "`index.html` ha i testi del docente e i test della home passano (`npm test`, `tests/browser-home.cjs` in CI)",
+        "Controlli comuni G1–G5 passati (METODO §7)"
+      ],
+      "stato": "da fare"
+    },
+    {
       "id": "U-stolypin",
       "titolo": "II.4 Stolypin: il gioco e il confronto di fine atto",
       "tipo": "unità",
