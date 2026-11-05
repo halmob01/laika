@@ -104881,7 +104881,7 @@
                     "short": "Per iscritto",
                     "at": {
                       "x": 0.2,
-                      "y": 0.2
+                      "y": 0.15
                     },
                     "text": "Le richieste vanno messe nero su bianco e consegnate: la carta si riempie.",
                     "effects": [
@@ -104903,7 +104903,7 @@
                     "short": "La piazza",
                     "at": {
                       "x": 0.5,
-                      "y": 0.2
+                      "y": 0.15
                     },
                     "text": "Il soviet e i sindacati restano uniti: lo zar vede che la forza c'è ancora.",
                     "effects": [
@@ -104931,7 +104931,7 @@
                     "short": "La Duma",
                     "at": {
                       "x": 0.8,
-                      "y": 0.2
+                      "y": 0.15
                     },
                     "when": {
                       "op": "flag",
@@ -104985,7 +104985,7 @@
                     "short": "Il ministro",
                     "at": {
                       "x": 0.25,
-                      "y": 0.45
+                      "y": 0.62
                     },
                     "text": "Il soviet aveva già trattato: il ministro vi riceve e qualcosa si sblocca senza irritare lo zar.",
                     "effects": [
@@ -105012,7 +105012,7 @@
                     "short": "Lo sciopero",
                     "at": {
                       "x": 0.75,
-                      "y": 0.45
+                      "y": 0.62
                     },
                     "text": "Nessuno ha mai trattato: resta solo la forza dello sciopero, che costa cara.",
                     "effects": [
@@ -105078,7 +105078,7 @@
                     "short": "Per iscritto",
                     "at": {
                       "x": 0.2,
-                      "y": 0.2
+                      "y": 0.15
                     },
                     "text": "Le richieste vanno messe nero su bianco e consegnate: la carta si riempie.",
                     "effects": [
@@ -105100,7 +105100,7 @@
                     "short": "La piazza",
                     "at": {
                       "x": 0.5,
-                      "y": 0.2
+                      "y": 0.15
                     },
                     "text": "Il soviet e i sindacati restano uniti: lo zar vede che la forza c'è ancora.",
                     "effects": [
@@ -105128,7 +105128,7 @@
                     "short": "La Duma",
                     "at": {
                       "x": 0.8,
-                      "y": 0.2
+                      "y": 0.15
                     },
                     "when": {
                       "op": "flag",
@@ -105182,7 +105182,7 @@
                     "short": "Il ministro",
                     "at": {
                       "x": 0.25,
-                      "y": 0.45
+                      "y": 0.62
                     },
                     "text": "Il soviet aveva già trattato: il ministro vi riceve e qualcosa si sblocca senza irritare lo zar.",
                     "effects": [
@@ -105209,7 +105209,7 @@
                     "short": "Lo sciopero",
                     "at": {
                       "x": 0.75,
-                      "y": 0.45
+                      "y": 0.62
                     },
                     "text": "Nessuno ha mai trattato: resta solo la forza dello sciopero, che costa cara.",
                     "effects": [
@@ -105275,7 +105275,7 @@
                     "short": "Per iscritto",
                     "at": {
                       "x": 0.2,
-                      "y": 0.2
+                      "y": 0.15
                     },
                     "text": "Le richieste vanno messe nero su bianco e consegnate: la carta si riempie.",
                     "effects": [
@@ -105297,7 +105297,7 @@
                     "short": "La piazza",
                     "at": {
                       "x": 0.5,
-                      "y": 0.2
+                      "y": 0.15
                     },
                     "text": "Il soviet e i sindacati restano uniti: lo zar vede che la forza c'è ancora.",
                     "effects": [
@@ -105325,7 +105325,7 @@
                     "short": "La Duma",
                     "at": {
                       "x": 0.8,
-                      "y": 0.2
+                      "y": 0.15
                     },
                     "when": {
                       "op": "flag",
@@ -105379,7 +105379,7 @@
                     "short": "Il ministro",
                     "at": {
                       "x": 0.25,
-                      "y": 0.45
+                      "y": 0.62
                     },
                     "text": "Il soviet aveva già trattato: il ministro vi riceve e qualcosa si sblocca senza irritare lo zar.",
                     "effects": [
@@ -105406,7 +105406,7 @@
                     "short": "Lo sciopero",
                     "at": {
                       "x": 0.75,
-                      "y": 0.45
+                      "y": 0.62
                     },
                     "text": "Nessuno ha mai trattato: resta solo la forza dello sciopero, che costa cara.",
                     "effects": [

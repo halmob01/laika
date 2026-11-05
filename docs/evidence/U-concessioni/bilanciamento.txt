@@ -1,0 +1,12 @@
+Soviet ha trattato: true
+  carta         49   13   38   42    1 carta-vuota|carta-vuota|carta-vuota
+  piazza        12    6  100   54    1 duma-sciolta|duma-sciolta|duma-sciolta
+  trattare      59   39   66   33    0 ||
+  minaccia      57   21   69   54    0 ||carta-vuota
+  tutto         50   43   74   33    1 carta-vuota|carta-vuota|carta-vuota
+Soviet ha trattato: false
+  carta         49   13   38   42    1 carta-vuota|carta-vuota|carta-vuota
+  piazza        12    6  100   54    1 duma-sciolta|duma-sciolta|duma-sciolta
+  trattare      52   17   71   54    1 |carta-vuota|carta-vuota
+  minaccia      49   25   93   61    1 duma-sciolta|duma-sciolta|duma-sciolta,carta-vuota
+  tutto         42   25   98   61    2 carta-vuota,duma-sciolta|carta-vuota,duma-sciolta|carta-vuota,duma-sciolta
