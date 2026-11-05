@@ -63,7 +63,7 @@ Approvata dall'utente in tre revisioni (PR #19). Regole da conservare nelle modi
 **Due registri insieme.** Illustrazioni grigie, brutaliste nel mood, disegnate a mano: figure minuscole in luoghi grandiosi d'epoca. Impaginazione costruttivista-editoriale, da prodotto d'avanguardia di oggi: riferimenti Rodčenko, copertine di «Наши достижения», scatole di fiammiferi, l'«Izvestija» del 1917. Le illustrazioni non si cambiano per adattarle all'impaginazione.
 
 **Hero.**
-1. Occhiello d'edizione in monospazio: «Edizione didattica · N. 1 · 1861–1917».
+1. Occhiello d'edizione in monospazio: «N. 1 · 1700–1991» (dal 5 novembre 2026 senza «Edizione didattica», su indicazione del docente).
 2. Titolo «Come cambia un mondo?» in Propaganda su tre fasce sfalsate verso destra: nera piena, solo contorno, rossa piena.
 3. Piano rosso in diagonale (dal 50% in alto al 67% in basso) con sommario, CTA nera e stato della pratica in carta su rosso.
 4. Denominazione esatta in verticale, dal basso verso l'alto, lungo il bordo destro, come la colonna di testata di una rivista.
@@ -83,7 +83,7 @@ Approvata dall'utente in tre revisioni (PR #19). Regole da conservare nelle modi
 
 **Rosso.** È un piano e un segnale, mai una sfumatura. In una scena c'è una sola figura rossa (protagonista). Nel 1905 niente bandiere rosse: il corteo di Gapon portava icone e ritratti dello zar.
 
-**Tono.** Ironia burocratica solo in etichette, titoli e claim («Il piano è stato approvato. La storia non è stata informata.»). I testi di lettura sono divulgativi e piani.
+**Tono.** Ironia burocratica solo in etichette, titoli e claim («La rivoluzione non è un pranzo di gala. Si confida nella collaborazione dei presenti.»). I testi di lettura sono divulgativi e piani.
 
 **Dove sta.** `index.html`, `site/laika/home.css` (variabili in `:root` e per epoca in `.hero[data-epoca]`), `site/laika/home.js`, `site/laika/scene/`, tema `laika-grigio` in `bottega/temi.json`.
 

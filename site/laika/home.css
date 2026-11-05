@@ -122,6 +122,7 @@ button{font:inherit;color:inherit}
 .banda+.banda{margin-left:.6em}
 .banda-rossa{background:var(--red);color:var(--paper);margin-left:1.2em}
 .banda-rossa+.banda-rossa{margin-left:2.1em}
+@media (max-width:420px){.manifesto-frase{font-size:32px}.banda+.banda{margin-left:.3em}.banda-rossa{margin-left:.6em}.banda-rossa+.banda-rossa{margin-left:.9em}}
 .manifesto-nota{margin-top:40px;color:var(--concrete);padding-top:14px;border-top:1px solid var(--slab2);max-width:44ch}
 
 .archivio-corpo{grid-column:4/13;display:grid;gap:48px}

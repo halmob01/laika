@@ -6,8 +6,8 @@ Per un nuovo agente che continua il piano. Si legge dopo [AGENTS.md](../../AGENT
 
 - **In `main`:** S1, K1, K2, K4, K6, K7, U-otto-giorni, U-pane-guerra, U-mir, U-citta, U-servitu, U-soviet; C-I e C-III preparate (la pagina per il docente c'è, la prova la fa il docente: «aspetta il docente», non blocca il piano).
 - **U-petizione (II.1), PR #61:** unita il 5 novembre 2026 con l'ok del docente.
-- **U-concessioni (II.3), PR #62, branch `u-concessioni`:** gioco e documenti finiti e pushati; il piano la segna «fatto (PR #62)» ma **la PR non è unita**: servono l'ok del docente (due «non passa» di fila) e la CI verde su Chromium e WebKit sull'ultimo commit. Se all'inizio la PR è già unita, `npm run prossimo` dice H-testi; se non lo è, controlla la revisione e la CI della PR #62 e unisci con `expectedHeadSha`.
-- **Da fare, nell'ordine del piano:** U-concessioni (II.3), U-stolypin (II.4), C-II (prova del docente: solo pagina, come C-I), K3 (ponte fra gli atti e famiglia), U-sito, V-1917, C-1917. `npm run prossimo` stampa il messaggio giusto.
+- **U-concessioni (II.3), PR #62:** unita. **H-testi (la home), PR #63:** vedi sotto; se la PR è già unita `npm run prossimo` dice U-stolypin.
+- **Da fare, nell'ordine del piano:** U-stolypin (II.4), C-II (prova del docente: solo pagina, come C-I), K3 (ponte fra gli atti e famiglia), U-sito, V-1917, C-1917. `npm run prossimo` stampa il messaggio giusto.
 - **Dal docente in attesa:** prove C-I, C-III (e poi C-II, C-1917); conferma del gioco di II.1 (nel canone `stato_gioco` è «da confermare»: l'ha scelto l'agente); chiarimento sui disegni sospesi (corretti: vedi sotto).
 
 ## 2. Come si lavora (lezioni di questi giorni)
@@ -48,7 +48,7 @@ Per un nuovo agente che continua il piano. Si legge dopo [AGENTS.md](../../AGENT
 
 - **Fatti da riscontrare su un libro** (registrati in MATRICE, non nei testi come note): Gapon alla guida del corteo e lo zar non in città; il contenuto della petizione (otto ore, assemblea eletta, fine della guerra); la cronologia di dettaglio dei giorni del soviet; multe e negozio a credito del salario.
 - **Il diario personalizzato di I.3-e7** (chi è partito e chi è rimasto) aspetta K3.
-- **`tratta_prefetto`:** lo imposta il soviet (II.2) e **II.3 deve ancora leggerlo** (U-concessioni): è scritto in `atto-2.md`.
+- **`tratta_prefetto`:** lo imposta il soviet (II.2) e lo legge II.3 (U-concessioni, dal 5 novembre 2026: «Il ministro» se è vero, «Lo sciopero» se è falso). Restano senza effetti a valle i flag di II.4 (`uscita_dal_mir`, `stolypin_resta`, `stolypin_vende`).
 - **Linea del soviet** e le altre metriche di II.1-II.2 sono solo dell'unità; II.4 legge solo i flag dichiarati (`uscita_dal_mir`, `stolypin_resta`, `stolypin_vende`) che non hanno ancora effetti a valle.
 - **Tabellone di I.1 sul telefono** resta alto (circa 2000 px con il pannello chiuso): un'idea è accorciare ancora la sezione della semina; oggi non è un difetto bloccante.
 - **Fiducia nello zar** arriva a 100 in quattro piani su sei in II.1: distingue poco come indicatore (osservazione non bloccante di G4).
@@ -57,7 +57,7 @@ Per un nuovo agente che continua il piano. Si legge dopo [AGENTS.md](../../AGENT
 
 ## 7. Prossimi passi, in ordine
 
-1. **U-concessioni (II.3), PR #62:** gioco e documenti fatti e corretti dopo due revisioni «non passa» (un'etichetta della Duma chiusa senza spiegazione; un fatto sbagliato: la seconda Duma durò più della prima, già presente nella vecchia scheda). Per METODO §7 serve l'ok del docente a unire senza un terzo giro completo; poi CI verde sull'ultima head e unione. Il granduca Nikolaj non si usa (non riscontrato).
-2. **H-testi (inserito il 5 novembre 2026 su richiesta del docente):** portare in `index.html` i testi di [TESTI-HOME](TESTI-HOME.md) (manifesto, Atti VI, VII e IX; la frase dell'Atto II va aggiornata alla verità); tre voci non riportate dal file restano invariate finché il docente non conferma.
+1. **U-concessioni (II.3), PR #62:** unita il 5 novembre 2026 (dopo due «non passa» corretti e l'ok del docente).
+2. **H-testi, PR #63:** testi della home del docente in `index.html`; se non è ancora unita controlla la CI e unisci.
 3. U-stolypin (II.4): gioco e confronto di fine atto; gli effetti dei flag di Stolypin a valle.
 4. C-II (pagina per il docente come C-I), K3, U-sito, V-1917, C-1917.
