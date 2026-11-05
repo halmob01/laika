@@ -5,7 +5,7 @@ Per un nuovo agente che continua il piano. Si legge dopo [AGENTS.md](../../AGENT
 ## 1. Dove siamo
 
 - **In `main` (5 novembre 2026, sera):** S1, K1, K2, K4, K6, K7; unità U-otto-giorni, U-pane-guerra, U-mir, U-citta, U-servitu, U-soviet, U-petizione (PR #61), U-concessioni (PR #62), U-stolypin (PR #64); H-testi, i testi della home del docente (PR #63); C-I e C-III preparate (pagine per il docente, «aspetta il docente»).
-- **PR #65 (C-II, branch `c-ii`, solo documenti):** pagina `docs/laika/revisioni/atto-II-per-il-docente.md`, piano e STATO aggiornati. Il docente ha detto «vai in main» (D-042): si unisce appena la CI (Chromium e WebKit) è verde sull'ultima head. Appena verde si unisce con `expectedHeadSha` (`merge_method: merge`): l'ok del docente a unire le PR degli incarichi a CI verde vale (D-038, D-039). Questo passaggio è nello stesso branch: controlla che la run sia quella dell'ultima head.
+- **C-II, PR #65:** unita il 5 novembre 2026 con CI verde (pagina `docs/laika/revisioni/atto-II-per-il-docente.md`; incarico «aspetta il docente»). Non c'è nessuna PR aperta.
 - **Dopo C-II: K3** (ponte fra gli atti e famiglia), poi U-sito, V-1917, C-1917. `npm run prossimo` stampa il messaggio giusto.
 - **Il piano di adesso finisce con C-1917.** Il docente ha detto di **non aggiungere** per ora gli Atti IV e V al piano.
 - **Dal docente in attesa:** prove C-I, C-II, C-III (e poi C-1917), «più avanti» e senza data. I giochi di II.1, II.3 e II.4 sono **confermati dal docente il 5 novembre 2026** (D-042: `stato_gioco` «approvato»); le unità restano «bozza» finché non fa le prove.
@@ -58,7 +58,7 @@ Per un nuovo agente che continua il piano. Si legge dopo [AGENTS.md](../../AGENT
 
 ## 7. Prossimi passi, in ordine
 
-1. **Unire la PR #65 (C-II)** quando la CI è verde sull'ultima head; poi `git checkout main && git pull`.
-2. **K3** (incarico di motore, Opus consigliato): flag e righe del diario che passano da un atto al successivo (oggi lo stato riparte da capo); contenuti: l'episodio breve «Che cosa porti con te» all'inizio degli Atti II e III, i tre effetti differiti previsti dalle schede (chi parte per la città, il soviet e le concessioni, il raccolto e la coda), il filo della famiglia in ogni unità; usa i flag di Stolypin. Test: un flag dell'Atto I cambia un testo dell'Atto II e uno dell'Atto III. Leggi `docs/laika/PERCORSO.md` §5 (la famiglia), `docs/CREARE-UN-GIOCO.md` (`carries`, effetti differiti `delayed`). Un incarico di motore ha la sua PR, la sua voce in CREARE-UN-GIOCO e la revisione G4.
+1. **Cominciare da K3** (nessuna PR da unire prima): `git checkout main && git pull`, poi `npm run prossimo`.
+2. **K3 in dettaglio** (incarico di motore, Opus consigliato): flag e righe del diario che passano da un atto al successivo (oggi lo stato riparte da capo); contenuti: l'episodio breve «Che cosa porti con te» all'inizio degli Atti II e III, i tre effetti differiti previsti dalle schede (chi parte per la città, il soviet e le concessioni, il raccolto e la coda), il filo della famiglia in ogni unità; usa i flag di Stolypin. Test: un flag dell'Atto I cambia un testo dell'Atto II e uno dell'Atto III. Leggi `docs/laika/PERCORSO.md` §5 (la famiglia), `docs/CREARE-UN-GIOCO.md` (`carries`, effetti differiti `delayed`). Un incarico di motore ha la sua PR, la sua voce in CREARE-UN-GIOCO e la revisione G4.
 3. **U-sito:** home entro 500 KB, «Riprendi» dopo un ingresso diretto, pagine lunghe.
 4. **V-1917 e C-1917.**
