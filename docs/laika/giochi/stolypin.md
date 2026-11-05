@@ -1,6 +1,6 @@
 # Gioco di II.4 — Il podere e il mir (`stolypin`)
 
-Scheda di gioco dell'unità `stolypin` (canone: II.4). Versione 1 (costruita) · 5 novembre 2026 · gioco scelto dall'agente fra quelli del repertorio (D-038, D-039) al posto della scelta unica fra tre risposte; nel canone lo stato è «da confermare» finché il docente non lo prova (C-II). Applica [GIOCHI](../GIOCHI.md) §2 e §3.8 (la giornata a punti azione, qui «anno»). I contenuti degli episodi sono in [atto-2](../atti/atto-2.md). I numeri sono indici della simulazione; la famiglia e i suoi anni sono inventati.
+Scheda di gioco dell'unità `stolypin` (canone: II.4). Versione 1 (costruita) · 5 novembre 2026 · gioco scelto dall'agente fra quelli del repertorio (D-038, D-039) al posto della scelta unica fra tre risposte; confermato dal docente il 5 novembre 2026 (D-042); la prova dal telefono (C-II) resta. Applica [GIOCHI](../GIOCHI.md) §2 e §3.8 (la giornata a punti azione, qui «anno»). I contenuti degli episodi sono in [atto-2](../atti/atto-2.md). I numeri sono indici della simulazione; la famiglia e i suoi anni sono inventati.
 
 ## Il gioco
 

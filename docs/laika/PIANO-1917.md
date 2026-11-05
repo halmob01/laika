@@ -4,7 +4,7 @@
 
 Come si lavora in autonomia, controlli e condizioni di arresto: [METODO](METODO.md) §7. Il prossimo incarico e il messaggio da dare all'agente: `npm run prossimo`.
 
-Incarichi fatti: 16 su 23. Prossimo: C-II.
+Incarichi fatti: 16 su 23. Prossimo: K3.
 
 | # | Incarico | Tipo | Modello | Dopo | Stato |
 |---:|---|---|---|---|---|
@@ -26,7 +26,7 @@ Incarichi fatti: 16 su 23. Prossimo: C-II.
 | 16 | **U-concessioni** II.3 Che cosa concede lo zar: il gioco e gli aneddoti | unità | Opus | S1, K4, U-soviet | fatto (PR #62) |
 | 17 | **H-testi** La home: i testi del docente | trasversale | Sonnet | U-concessioni | fatto (PR #63) |
 | 18 | **U-stolypin** II.4 Stolypin: il gioco e il confronto di fine atto | unità | Sonnet | S1, K4 | fatto (PR #64) |
-| 19 | **C-II** Il docente prova l'Atto II dal telefono | controllo | — | U-soviet, U-petizione, U-concessioni, U-stolypin | da fare |
+| 19 | **C-II** Il docente prova l'Atto II dal telefono | controllo | — | U-soviet, U-petizione, U-concessioni, U-stolypin | aspetta il docente |
 | 20 | **K3** Motore e contenuti: il ponte fra gli atti e la famiglia | motore | Opus | U-citta, U-stolypin, U-pane-guerra | da fare |
 | 21 | **U-sito** Il sito sul telefono: pagine, pesi, ripresa | trasversale | Sonnet | K3 | da fare |
 | 22 | **V-1917** Verifica finale degli Atti I–III | verifica | Opus | U-sito, C-I, C-II, C-III | da fare |
@@ -253,6 +253,8 @@ Unità del canone: `petizione`, `soviet`, `concessioni`, `stolypin`.
 - Come C-III, con `docs/laika/revisioni/atto-II-per-il-docente.md`. Non blocca il piano.
 
 È fatto quando: Il docente ha giocato e ha scritto «va bene» oppure un elenco di cose da cambiare.
+
+Evidenze: docs/laika/revisioni/atto-II-per-il-docente.md.
 
 ## K3 — Motore e contenuti: il ponte fra gli atti e la famiglia
 

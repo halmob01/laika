@@ -86,10 +86,10 @@
             "Spiegare perché quella domenica si spezza la fiducia nello zar come padre."
           ],
           "gioco": "gestione di tre sere (la petizione alle officine Putilov)",
-          "stato_gioco": "da confermare",
+          "stato_gioco": "approvato",
           "stato": "bozza",
           "nel_gioco": "i4",
-          "nota": "Divisione dell'atto in quattro unità decisa il 4 novembre 2026 (D-038). Gioco scelto dall'agente il 5 novembre 2026 al posto del modulo con cinque righe: da provare dal telefono (C-II).",
+          "nota": "Divisione dell'atto in quattro unità decisa il 4 novembre 2026 (D-038). Gioco scelto dall'agente il 5 novembre 2026 al posto del modulo con cinque righe; giochi di II.1, II.3 e II.4 confermati dal docente il 5 novembre 2026 (D-042); la prova dal telefono (C-II) resta.",
           "scheda_gioco": "docs/laika/giochi/petizione.md"
         },
         {
@@ -117,11 +117,11 @@
             "Sostenere con due fatti se una concessione strappata è un diritto o una tregua."
           ],
           "gioco": "punti azione (le tre stagioni delle concessioni)",
-          "stato_gioco": "da confermare",
+          "stato_gioco": "approvato",
           "stato": "bozza",
           "nel_gioco": "i4",
           "scheda_gioco": "docs/laika/giochi/concessioni.md",
-          "nota": "Gioco scelto dall'agente il 5 novembre 2026 al posto del confronto di tre schede, che resta come giudizio finale («Diritto o tregua?»): da provare dal telefono (C-II)."
+          "nota": "Gioco scelto dall'agente il 5 novembre 2026 al posto del confronto di tre schede, che resta come giudizio finale («Diritto o tregua?»). Gioco confermato dal docente il 5 novembre 2026 (D-042); la prova dal telefono (C-II) resta."
         },
         {
           "numero": "II.4",
@@ -133,11 +133,11 @@
             "Collegare riforma e repressione (i tribunali militari) come due facce della stessa politica."
           ],
           "gioco": "punti azione su quattro anni (il podere e il mir)",
-          "stato_gioco": "da confermare",
+          "stato_gioco": "approvato",
           "stato": "bozza",
           "nel_gioco": "i4",
           "scheda_gioco": "docs/laika/giochi/stolypin.md",
-          "nota": "Gioco costruito dall'agente il 5 novembre 2026 al posto della scelta unica: quattro anni da quattro punti con le tre strade (restare, uscire, partire) e conseguenze che si sommano; da provare dal telefono (C-II)."
+          "nota": "Gioco costruito dall'agente il 5 novembre 2026 al posto della scelta unica: quattro anni da quattro punti con le tre strade (restare, uscire, partire) e conseguenze che si sommano. Gioco confermato dal docente il 5 novembre 2026 (D-042); la prova dal telefono (C-II) resta."
         }
       ]
     },
