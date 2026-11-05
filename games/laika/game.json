@@ -70139,7 +70139,7 @@
       "introSequence": "ingresso",
       "mobile": {
         "center": 0.5,
-        "zoom": 1.2
+        "zoom": 1
       }
     },
     {
@@ -102891,7 +102891,7 @@
           "exposes": [
             "a1-soviet"
           ],
-          "feedback": "Tre giornate sono passate. Il soviet del 1905 è un contropotere: coordina lo sciopero ma non governa. Con le notizie a pezzi ogni scelta dipende da chi te le racconta.",
+          "feedback": "Tre giornate sono passate. Il soviet del 1905 è un contropotere: coordina lo sciopero ma non governa. Dare peso a una lettura ha aperto alcune strade e ne ha chiuse altre: con le notizie a pezzi ogni scelta dipende da chi te le racconta.",
           "crises": [
             {
               "id": "cassa-vuota",
@@ -103003,7 +103003,7 @@
                 },
                 {
                   "kind": "simulation",
-                  "title": "Primo giorno · 17 ottobre",
+                  "title": "Primo giorno",
                   "text": "Lo sciopero generale ferma Pietroburgo. Sono nate voci e notizie a pezzi: alla tessitrice mancano le compagne, il ferroviere non sa se fermare i treni, dal telegrafo arriva una voce di caserma. Personaggi e notizie sono inventati."
                 }
               ],
@@ -103095,7 +103095,7 @@
                   },
                   {
                     "id": "peso-moderato",
-                    "label": "Dare più peso ai moderati",
+                    "label": "Dare più peso ai moderati (dopo aver indagato)",
                     "short": "Moderati",
                     "when": {
                       "op": "flag",
@@ -103122,7 +103122,7 @@
                   },
                   {
                     "id": "peso-radicale",
-                    "label": "Dare più peso ai radicali",
+                    "label": "Dare più peso ai radicali (dopo aver indagato)",
                     "short": "Radicali",
                     "when": {
                       "op": "flag",
@@ -103238,7 +103238,13 @@
                         "id": "repressione",
                         "delta": 1
                       }
-                    ]
+                    ],
+                    "when": {
+                      "op": "gte",
+                      "kind": "metric",
+                      "id": "fondi",
+                      "value": 10
+                    }
                   },
                   {
                     "id": "tavolo",
@@ -103333,7 +103339,7 @@
               "cards": [
                 {
                   "kind": "simulation",
-                  "title": "Secondo giorno · 18 ottobre",
+                  "title": "Secondo giorno",
                   "text": "La notte è passata fra freddo e fame: la cassa è calata e la polizia ha fermato due delegati per la strada. Arriva un foglio su una concessione dello zar: nessuno sa se è vera."
                 },
                 {
@@ -103447,7 +103453,7 @@
                   },
                   {
                     "id": "peso-moderato",
-                    "label": "Dare più peso ai moderati",
+                    "label": "Dare più peso ai moderati (dopo aver indagato)",
                     "short": "Moderati",
                     "when": {
                       "op": "flag",
@@ -103474,7 +103480,7 @@
                   },
                   {
                     "id": "peso-radicale",
-                    "label": "Dare più peso ai radicali",
+                    "label": "Dare più peso ai radicali (dopo aver indagato)",
                     "short": "Radicali",
                     "when": {
                       "op": "flag",
@@ -103590,7 +103596,13 @@
                         "id": "repressione",
                         "delta": 3
                       }
-                    ]
+                    ],
+                    "when": {
+                      "op": "gte",
+                      "kind": "metric",
+                      "id": "fondi",
+                      "value": 10
+                    }
                   },
                   {
                     "id": "tavolo",
@@ -103700,7 +103712,7 @@
               "cards": [
                 {
                   "kind": "simulation",
-                  "title": "Terzo giorno · 19 ottobre",
+                  "title": "Terzo giorno",
                   "text": "Un'altra notte: la cassa è quasi vuota e circola la voce di un manifesto dello zar. La fabbrica vuole riaprire e in strada ci sono cosacchi."
                 },
                 {
@@ -103814,7 +103826,7 @@
                   },
                   {
                     "id": "peso-moderato",
-                    "label": "Dare più peso ai moderati",
+                    "label": "Dare più peso ai moderati (dopo aver indagato)",
                     "short": "Moderati",
                     "when": {
                       "op": "flag",
@@ -103841,7 +103853,7 @@
                   },
                   {
                     "id": "peso-radicale",
-                    "label": "Dare più peso ai radicali",
+                    "label": "Dare più peso ai radicali (dopo aver indagato)",
                     "short": "Radicali",
                     "when": {
                       "op": "flag",
@@ -103957,7 +103969,13 @@
                         "id": "repressione",
                         "delta": 5
                       }
-                    ]
+                    ],
+                    "when": {
+                      "op": "gte",
+                      "kind": "metric",
+                      "id": "fondi",
+                      "value": 10
+                    }
                   },
                   {
                     "id": "tavolo",

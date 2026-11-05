@@ -14,6 +14,7 @@ const PIANI = {
   moderata: ['indtess', 'peso-moderato', 'tavolo', 'distribuire'],
   radicale: ['indtess', 'peso-radicale', 'treni', 'delegato'],
   mista: ['indtess', 'peso-moderato', 'peso-radicale', 'delegato', 'distribuire'],
+  indaga: ['indtel', 'indferr', 'peso-moderato', 'peso-radicale', 'delegato'],
   corsa: ['delegato', 'delegato', 'delegato', 'delegato', 'delegato'],
   cassa: ['distribuire', 'distribuire', 'distribuire', 'distribuire', 'distribuire']
 };
@@ -49,7 +50,7 @@ const risultati = STRATEGIE.map(st => {
 });
 const di = (...st) => risultati.find(x => x.st.join() === st.join());
 
-if (process.env.LAIKA_RAPPORTO) for (const nome of ['moderata', 'radicale', 'mista', 'corsa', 'cassa']) {
+if (process.env.LAIKA_RAPPORTO) for (const nome of ['moderata', 'radicale', 'mista', 'indaga', 'corsa', 'cassa']) {
   const x = di(nome, nome, nome);
   console.log(nome.padEnd(10), [x.sciopero, x.fondi, x.fiducia, x.repressione, x.linea, x.crisi].map(v => String(Math.round(v)).padStart(5)).join(''), x.trattato ? 'tratta' : '');
 }
@@ -92,10 +93,16 @@ test('Il soviet: la scelta della lettura cambia le azioni dei giorni dopo', () =
   // Le card del giorno dopo raccontano la linea scelta.
   const turno = ep.turns[s.currentAct.game.turn], lette = s.currentAct.game.cardList.map(i => turno.cards[i].title);
   assert.ok(lette.includes('La sala ha seguito i moderati'), 'la card dice che la sala ha seguito i moderati: ' + lette.join(' | '));
+  assert.ok(!lette.includes('La sala ha seguito i radicali'), 'la card dei radicali non si legge se ha vinto la linea dei moderati');
 });
 test('Il soviet: ogni azione serve, i rischi sono scritti prima, le etichette non si sovrappongono', () => {
   const nelPiano = new Set(Object.values(PIANI).flat());
-  for (const o of ep.turns[0].market.offers) if (o.id !== 'indferr' && o.id !== 'indtel') assert.ok(nelPiano.has(o.id), o.id + ': nessun piano la usa');
+  for (const o of ep.turns[0].market.offers) assert.ok(nelPiano.has(o.id), o.id + ': nessun piano la usa');
+  // I treni fermi allargano lo sciopero e alzano la repressione: nessuna linea è gratis.
+  const treni = ep.turns[0].market.offers.find(o => o.id === 'treni'), eff = (o, id) => o.effects.find(x => x.id === id)?.delta;
+  assert.ok(eff(treni, 'sciopero') > 0 && eff(treni, 'repressione') > 0, 'fermare i treni allarga lo sciopero e alza la repressione');
+  const tavolo = ep.turns[0].market.offers.find(o => o.id === 'tavolo');
+  assert.ok(eff(tavolo, 'repressione') < 0 && tavolo.effects.some(x => x.id === 'tratta_prefetto'), 'trattare abbassa la repressione e segna il flag');
   for (const turn of ep.turns) assert.equal(turn.market.points, 5);
   const d = ep.turns[0].market.offers.find(o => o.id === 'delegato');
   assert.ok(d.chance.base > 0 && d.chance.base < 1, 'il delegato ha una probabilità scritta');

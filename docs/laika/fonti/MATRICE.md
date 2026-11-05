@@ -223,7 +223,7 @@ Simulazione, non fatto: le richieste, le persone, le strisce da assegnare, il ra
 
 | Dove | Che cosa si dice | Fonte | Esito |
 |---|---|---|---|
-| A1-03 / card «Che cos'è il soviet», ricorda | Nel 1905 gli oppositori dello zarismo si organizzano in assemblee e consigli di operai, soldati e studenti: i soviet; il soviet di Pietroburgo coordina lo sciopero ed è un contropotere, non un governo; i socialdemocratici, che hanno una cultura di partito, ne prendono presto la maggioranza | Appunti «La Rivoluzione Russa», paragrafo «Nascono i SOVIET» (`references/fonti/appunti/la-rivoluzione-russa.txt`) | Confermato sugli appunti; i nomi dei partiti non sono dati per fatti sul 1905 |
+| A1-03 / card «Che cos'è il soviet», ricorda | Nel 1905 gli oppositori dello zarismo si organizzano in assemblee e consigli di operai, soldati e studenti: i soviet; il soviet di Pietroburgo coordina lo sciopero ed è un contropotere, non un governo; i socialdemocratici, che hanno una cultura di partito, ne prendono presto la maggioranza | Appunti «La Rivoluzione Russa», paragrafo «Nascono i SOVIET» (`references/fonti/appunti/la-rivoluzione-russa.txt`) | Sugli appunti: assemblee e consigli di militari, studenti e operai; contropotere; i socialdemocratici prendono presto la maggioranza. «Coordina lo sciopero» e «non governa» vengono dagli obiettivi del canone (II.2), non dagli appunti |
 | Giornate del soviet / notizie e letture | La tessitrice, il ferroviere, il telegrafo, i due delegati e ogni numero | Nessuna | Simulazione, dichiarata nel testo e nell'`editorial` |
 | Aneddoti sul soviet del 1905 | Cercati nell'atlante degli aneddoti e nei nuovi aneddoti | Nessuna voce sull'ottobre 1905 | **Nessun aneddoto trovato**: non compare (METODO §7) |
 
