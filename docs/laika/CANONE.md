@@ -49,7 +49,7 @@ Che cosa muore quando un popolo smette di credere che lo zar sia un padre? Strut
 
 | Unità | Nome stabile | Titolo | Periodo | Gioco | Gioco deciso | Stato |
 |---|---|---|---|---|---|---|
-| II.1 | `petizione` | La petizione | gennaio 1905 | da assegnare (oggi: distribuzione di cinque righe) | da assegnare | bozza |
+| II.1 | `petizione` | La petizione | gennaio 1905 | [gestione di tre sere (la petizione alle officine Putilov)](giochi/petizione.md) | da confermare | bozza |
 | II.2 | `soviet` | Il soviet | ottobre 1905 | [punti azione (le giornate del soviet)](giochi/soviet.md) | approvato | bozza |
 | II.3 | `concessioni` | Che cosa concede lo zar | ottobre 1905–giugno 1907 | da assegnare (oggi: confronto di tre schede) | da assegnare | bozza |
 | II.4 | `stolypin` | Stolypin | novembre 1906–1911 | da assegnare (oggi: una scelta) | da assegnare | bozza |
@@ -69,7 +69,7 @@ Che cosa muore quando un popolo smette di credere che lo zar sia un padre? Strut
   - Dire che cosa permette la riforma di Stolypin (uscire dal mir, unire le strisce in un podere) e che cosa non fa (non abolisce il mir).
   - Collegare riforma e repressione (i tribunali militari) come due facce della stessa politica.
 
-- II.1: Divisione dell'atto in quattro unità decisa il 4 novembre 2026 (D-038).
+- II.1: Divisione dell'atto in quattro unità decisa il 4 novembre 2026 (D-038). Gioco scelto dall'agente il 5 novembre 2026 al posto del modulo con cinque righe: da provare dal telefono (C-II).
 
 ## Atto III — Pane e guerra (1914–marzo 1917)
 

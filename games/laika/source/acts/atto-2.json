@@ -105,6 +105,29 @@
       "min": 0,
       "max": 100,
       "start": 50
+    },
+    {
+      "id": "consenso",
+      "label": "Operai con te",
+      "min": 0,
+      "max": 100,
+      "start": 40,
+      "good": "high"
+    },
+    {
+      "id": "fiducia_zar",
+      "label": "Fiducia nello zar",
+      "min": 0,
+      "max": 100,
+      "start": 50
+    },
+    {
+      "id": "polizia",
+      "label": "Attenzione della polizia",
+      "min": 0,
+      "max": 100,
+      "start": 30,
+      "good": "low"
     }
   ],
   "resources": [],
@@ -120,66 +143,563 @@
   "episodes": [
     {
       "id": "a2-petizione-righe",
-      "type": "resource_allocation",
+      "type": "turn_game",
       "roleId": "figlio",
       "title": "La petizione",
-      "budget": 5,
       "context": {
         "kind": "simulation",
         "dateLabel": "gennaio 1905",
         "placeLabel": "Pietroburgo"
       },
-      "text": "Gennaio 1905. La guerra contro il Giappone va male e alle officine Putilov di Pietroburgo gli operai sono in sciopero. Prima del corteo di domenica si scrive la petizione da portare allo zar. Hai cinque righe. Puoi spenderle fra richieste di lavoro e di salario e richieste politiche o di pace.\n\nLe righe che scrivi sono una simulazione: la petizione vera ebbe un testo suo.",
+      "text": "Gennaio 1905. La guerra contro il Giappone va male e alle officine Putilov gli operai sono in sciopero. Prima del corteo di domenica si scrive la petizione da portare allo zar.\n\nOgni sera hai sei ore: le puoi spendere raccogliendo firme, scrivendo righe di richieste (salario, libertà, pace), parlando con padre Gapon oppure tenendo d'occhio la polizia. Le righe che scrivi sono una simulazione: la petizione vera ebbe un testo suo.",
+      "goal": "Arriva a domenica con gli operai dalla tua parte e la polizia lontana. Decidi che cosa chiedere allo zar.",
       "stageId": "petizione-putilov",
       "motionId": "ingresso",
       "exposes": [
         "a1-petizione"
       ],
-      "visualExplanation": "Davanti alle officine Putilov gli operai in sciopero si raccolgono per scrivere la petizione. Le righe della petizione sono indici della simulazione e non dati storici né voti.",
-      "buckets": [
+      "visualExplanation": "Davanti alle officine Putilov gli operai in sciopero si raccolgono per scrivere la petizione. Tocca un'ora e poi il posto dove la spendi. Gli indicatori sono indici della simulazione: non sono dati storici né voti.",
+      "tokens": 6,
+      "tokenLabel": "ore",
+      "turnWord": "sera",
+      "confirmLabel": "Chiudi la serata",
+      "nextLabel": "La sera dopo",
+      "luckLabel": "Che cosa può succedere",
+      "luckResultLabel": "La serata",
+      "upkeepHint": "Ogni sera, comunque",
+      "phaseLabels": {
+        "cards": "La serata",
+        "place": "Le ore",
+        "result": "La serata",
+        "event": "Chi bussa"
+      },
+      "previewLabel": "Si dice alle officine",
+      "shows": [
+        "consenso",
+        "fiducia_zar",
+        "polizia"
+      ],
+      "places": [
         {
-          "id": "economiche",
-          "label": "Salari e orario di lavoro",
-          "max": 4,
-          "perUnit": [
+          "id": "firme",
+          "label": "Firme alle officine",
+          "short": "Firme",
+          "x": 0.2,
+          "y": 0.17,
+          "max": 3,
+          "perToken": [
             {
               "kind": "metric",
-              "id": "pet_eco",
-              "delta": 20
+              "id": "consenso",
+              "delta": 9
+            },
+            {
+              "kind": "metric",
+              "id": "polizia",
+              "delta": 2
             }
           ]
         },
         {
-          "id": "politiche",
-          "label": "Libertà e un'assemblea eletta",
-          "max": 4,
-          "perUnit": [
+          "id": "salario",
+          "label": "Righe sul salario e sull'orario",
+          "short": "Salario",
+          "x": 0.5,
+          "y": 0.17,
+          "max": 3,
+          "perToken": [
+            {
+              "kind": "metric",
+              "id": "pet_eco",
+              "delta": 15
+            },
+            {
+              "kind": "metric",
+              "id": "consenso",
+              "delta": 3
+            }
+          ]
+        },
+        {
+          "id": "libera",
+          "label": "Righe sulla libertà e sull'assemblea eletta",
+          "short": "Libertà",
+          "x": 0.8,
+          "y": 0.17,
+          "max": 3,
+          "perToken": [
             {
               "kind": "metric",
               "id": "pet_pol",
-              "delta": 20
+              "delta": 15
+            },
+            {
+              "kind": "metric",
+              "id": "polizia",
+              "delta": 4
+            },
+            {
+              "kind": "metric",
+              "id": "consenso",
+              "delta": 1
             }
           ]
         },
         {
           "id": "pace",
-          "label": "La fine della guerra",
+          "label": "Righe sulla fine della guerra",
+          "short": "Pace",
+          "x": 0.2,
+          "y": 0.4,
           "max": 3,
-          "perUnit": [
+          "perToken": [
             {
               "kind": "metric",
               "id": "pet_pace",
-              "delta": 20
+              "delta": 15
+            },
+            {
+              "kind": "metric",
+              "id": "polizia",
+              "delta": 2
+            },
+            {
+              "kind": "metric",
+              "id": "consenso",
+              "delta": 2
+            }
+          ]
+        },
+        {
+          "id": "gapon",
+          "label": "Parlare con padre Gapon",
+          "short": "Gapon",
+          "x": 0.5,
+          "y": 0.4,
+          "max": 3,
+          "perToken": [
+            {
+              "kind": "metric",
+              "id": "fiducia_zar",
+              "delta": 10
+            },
+            {
+              "kind": "metric",
+              "id": "consenso",
+              "delta": 2
+            },
+            {
+              "kind": "metric",
+              "id": "polizia",
+              "delta": -2
+            }
+          ]
+        },
+        {
+          "id": "polizia",
+          "label": "Tenere d'occhio la polizia",
+          "short": "Polizia",
+          "x": 0.8,
+          "y": 0.4,
+          "max": 2,
+          "perToken": [
+            {
+              "kind": "metric",
+              "id": "polizia",
+              "delta": -7
+            },
+            {
+              "kind": "metric",
+              "id": "consenso",
+              "delta": -1
             }
           ]
         }
       ],
-      "effects": [],
-      "feedback": "Hai scelto che cosa chiedere allo zar. Più una petizione chiede cose diverse e più è difficile rispondere con un sì o con un no. La petizione vera di padre Gapon chiedeva tutto insieme: la giornata di otto ore, un'assemblea eletta da tutti e la fine della guerra.",
-      "shows": [
-        "pet_eco",
-        "pet_pol",
-        "pet_pace"
+      "rules": {
+        "min": {
+          "firme": 1
+        }
+      },
+      "upkeep": [
+        {
+          "kind": "metric",
+          "id": "consenso",
+          "delta": -5
+        },
+        {
+          "kind": "metric",
+          "id": "polizia",
+          "delta": 5
+        },
+        {
+          "kind": "metric",
+          "id": "fiducia_zar",
+          "delta": -3
+        }
+      ],
+      "luck": [
+        {
+          "id": "normale",
+          "label": "serata tranquilla",
+          "weight": 5
+        },
+        {
+          "id": "perquisizione",
+          "label": "la polizia perquisisce le officine",
+          "weight": 2,
+          "yield": {
+            "firme": 0.3,
+            "libera": 0.6
+          }
+        },
+        {
+          "id": "tormenta",
+          "label": "tormenta di neve",
+          "weight": 2,
+          "yield": {
+            "firme": 0.6
+          }
+        }
+      ],
+      "control": {
+        "label": "Il comitato dei promotori",
+        "text": "Il comitato aspettava almeno un'ora di firme e non sono arrivate: una parte degli operai torna a casa.",
+        "escaped": "Il comitato aspettava le firme ma questa sera nessuno se ne accorge.",
+        "chance": {
+          "base": 0.7
+        },
+        "effects": [
+          {
+            "kind": "metric",
+            "id": "consenso",
+            "delta": -8
+          }
+        ]
+      },
+      "crises": [
+        {
+          "id": "arresti",
+          "when": {
+            "op": "gte",
+            "kind": "metric",
+            "id": "polizia",
+            "value": 85
+          },
+          "text": "La polizia arresta due promotori: gli operai hanno paura e il comitato si riorganizza in fretta.",
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "consenso",
+              "delta": -12
+            },
+            {
+              "kind": "metric",
+              "id": "polizia",
+              "delta": -25
+            }
+          ]
+        },
+        {
+          "id": "sciopero-stanco",
+          "when": {
+            "op": "lte",
+            "kind": "metric",
+            "id": "consenso",
+            "value": 25
+          },
+          "text": "Lo sciopero si sgonfia: restano in pochi a firmare e a crederci.",
+          "effects": [
+            {
+              "kind": "metric",
+              "id": "consenso",
+              "delta": 15
+            },
+            {
+              "kind": "metric",
+              "id": "fiducia_zar",
+              "delta": -8
+            }
+          ]
+        }
+      ],
+      "verdicts": [
+        {
+          "when": {
+            "op": "all",
+            "items": [
+              {
+                "op": "gte",
+                "kind": "metric",
+                "id": "pet_pol",
+                "value": 30
+              },
+              {
+                "op": "gte",
+                "kind": "metric",
+                "id": "pet_eco",
+                "value": 30
+              },
+              {
+                "op": "gte",
+                "kind": "metric",
+                "id": "pet_pace",
+                "value": 15
+              }
+            ]
+          },
+          "tone": "neutral",
+          "text": "La petizione chiede tutto insieme: salario, libertà e pace.",
+          "stamp": "Chiede tutto"
+        },
+        {
+          "when": {
+            "op": "gte",
+            "kind": "metric",
+            "id": "pet_pol",
+            "value": 30
+          },
+          "tone": "neutral",
+          "text": "La petizione è soprattutto politica: chiede libertà e un'assemblea eletta.",
+          "stamp": "Politica"
+        },
+        {
+          "when": {
+            "op": "gte",
+            "kind": "metric",
+            "id": "pet_eco",
+            "value": 30
+          },
+          "tone": "neutral",
+          "text": "La petizione è soprattutto economica: chiede salari e orario.",
+          "stamp": "Salari"
+        },
+        {
+          "tone": "neutral",
+          "text": "La petizione chiede poco e di tutto un po'.",
+          "stamp": "Poco e vago"
+        }
+      ],
+      "feedback": "Tre sere sono passate. Più una petizione chiede cose diverse e più è difficile rispondere con un sì o con un no. La petizione vera di padre Gapon chiedeva tutto insieme: la giornata di otto ore, un'assemblea eletta da tutti e la fine della guerra. Domenica il corteo la porta allo zar.",
+      "editorial": {
+        "sources": [
+          "A1-02"
+        ],
+        "scheda": "II.1-e1",
+        "nota": "Il testo della petizione, le persone e i numeri sono simulazione."
+      },
+      "turns": [
+        {
+          "label": "Prima sera",
+          "cards": [
+            {
+              "kind": "simulation",
+              "title": "La prima sera",
+              "text": "Lo sciopero alle officine Putilov tiene. In un angolo si scrive la petizione da portare allo zar e tutti chiedono di leggerla. Personaggi e numeri sono inventati."
+            }
+          ],
+          "preview": "Padre Gapon passerà a parlare con i promotori.",
+          "event": {
+            "who": "Padre Gapon",
+            "text": "Passa a trovarti e propone di portare la petizione in corteo, di domenica, con le icone e il ritratto dello zar: una supplica senza armi.",
+            "choices": [
+              {
+                "id": "icone",
+                "label": "Accettare le icone e il ritratto in testa al corteo",
+                "text": "Gapon è contento: sarà una supplica e non una sfida.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fiducia_zar",
+                    "delta": 8
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "consenso",
+                    "delta": 4
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "polizia",
+                    "delta": 3
+                  }
+                ]
+              },
+              {
+                "id": "leggere",
+                "label": "Chiedere di leggere le richieste ad alta voce prima di partire",
+                "text": "Gli operai ascoltano con attenzione e si sentono più decisi.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "consenso",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "polizia",
+                    "delta": 5
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "fiducia_zar",
+                    "delta": 1
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "Seconda sera",
+          "cards": [
+            {
+              "kind": "simulation",
+              "title": "La seconda sera",
+              "text": "Il foglio gira da una squadra all'altra. Qualcuno firma e qualcuno guarda se arriva la polizia."
+            },
+            {
+              "when": {
+                "op": "gte",
+                "kind": "metric",
+                "id": "consenso",
+                "value": 55
+              },
+              "kind": "simulation",
+              "title": "Gli operai sono con te",
+              "text": "Alle officine non si parla d'altro: la petizione è di tutti."
+            },
+            {
+              "when": {
+                "op": "lte",
+                "kind": "metric",
+                "id": "consenso",
+                "value": 30
+              },
+              "kind": "simulation",
+              "title": "Gli operai esitano",
+              "text": "Molti hanno paura di perdere il posto e le firme arrivano con fatica."
+            }
+          ],
+          "event": {
+            "who": "Uno studente",
+            "text": "Ti porta la richiesta di un'assemblea eletta da tutti: dice che molti la firmerebbero.",
+            "choices": [
+              {
+                "id": "assemblea",
+                "label": "Metterla fra le richieste",
+                "text": "La riga entra nella petizione e cambia il tono del foglio.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "pet_pol",
+                    "delta": 15
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "polizia",
+                    "delta": 6
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "consenso",
+                    "delta": 3
+                  }
+                ]
+              },
+              {
+                "id": "fuori",
+                "label": "Lasciarla fuori per non spaventare nessuno",
+                "text": "Il foglio resta più prudente e lo studente se ne va deluso.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "consenso",
+                    "delta": -2
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "polizia",
+                    "delta": -3
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "La vigilia",
+          "cards": [
+            {
+              "kind": "simulation",
+              "title": "La vigilia del corteo",
+              "text": "Domani è domenica. Le firme sono arrivate e le icone sono pronte. Alle officine si dice che le autorità non vedono di buon occhio il corteo."
+            }
+          ],
+          "preview": "Un impiegato dice di avere notizie dall'ufficio del prefetto.",
+          "event": {
+            "who": "Un impiegato",
+            "text": "Dice di aver sentito che le autorità non vogliono il corteo in piazza. Chi ascoltare?",
+            "choices": [
+              {
+                "id": "garanzie",
+                "label": "Mandare una delegazione a chiedere garanzie",
+                "chance": {
+                  "base": 0.35,
+                  "metric": "consenso",
+                  "factor": 0.005
+                },
+                "success": {
+                  "text": "Qualcuno li ascolta e promette di non fermare la folla.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "polizia",
+                      "delta": -8
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "fiducia_zar",
+                      "delta": 4
+                    }
+                  ]
+                },
+                "failure": {
+                  "text": "Nessuno li riceve: la polizia ora sa che il corteo si farà.",
+                  "effects": [
+                    {
+                      "kind": "metric",
+                      "id": "polizia",
+                      "delta": 6
+                    },
+                    {
+                      "kind": "metric",
+                      "id": "consenso",
+                      "delta": -4
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "comunque",
+                "label": "Non farci caso: la petizione va portata comunque",
+                "text": "Si va avanti come stabilito.",
+                "effects": [
+                  {
+                    "kind": "metric",
+                    "id": "fiducia_zar",
+                    "delta": 4
+                  },
+                  {
+                    "kind": "metric",
+                    "id": "polizia",
+                    "delta": 2
+                  }
+                ]
+              }
+            ]
+          }
+        }
       ]
     },
     {
@@ -193,13 +713,58 @@
         "dateLabel": "22 gennaio 1905",
         "placeLabel": "Pietroburgo"
       },
-      "text": "La guerra contro il Giappone va male. Domenica 22 gennaio 1905 (9 gennaio nel calendario russo) un corteo guidato da padre Gapon porta allo zar una petizione e le icone. Lo zar non è in città. La truppa spara sulla folla.\n\nChe cosa muore quella domenica oltre alle persone? La fiducia nello zar come padre.",
+      "text": "Il 6 gennaio (19 gennaio nel calendario occidentale) la benedizione delle acque sulla Neva finisce male: una salva dalla fortezza di Pietro e Paolo, con proiettili veri, manda in frantumi le finestre del Palazzo d'Inverno. Lo zar Nicola è illeso (lo racconta Montefiore). La guerra contro il Giappone va male.\n\nDomenica 22 gennaio 1905 (9 gennaio nel calendario russo) un corteo guidato da padre Gapon porta allo zar una petizione e le icone. Lo zar non è in città. La truppa spara sulla folla.\n\nLo scrittore Victor Serge racconta gli operai che marciano con intenzioni di supplica e si trovano davanti i soldati: l'autorità risponde con le armi a una richiesta che si rivolge ancora al sovrano e li considera ribelli.\n\nNel suo diario lo zar scrive che è stata una giornata terribile («A terrible day! Lord how painful and sad!») e annota che dalla città è arrivata la madre e che si è pranzato tutti insieme (anche questo lo riporta Montefiore).\n\nChe cosa muore quella domenica oltre alle persone? La fiducia nello zar come padre.",
       "stageId": "petizione-domenica",
       "exposes": [
         "a1-domenica"
       ],
       "visualExplanation": "Il corteo sale verso il Palazzo d'Inverno con il ritratto dello zar in testa. Lo sparo non si vede: le figure si disperdono e il foglio resta nella neve.",
+      "shows": [],
+      "editorial": {
+        "sources": [
+          "A1-02",
+          "R01"
+        ],
+        "scheda": "II.1-e2"
+      }
+    },
+    {
+      "id": "a2-petizione-ricorda",
+      "type": "narrative",
+      "roleId": "figlio",
+      "title": "Cosa ti devi ricordare",
+      "display": "cards",
+      "context": {
+        "kind": "documented",
+        "dateLabel": "gennaio 1905"
+      },
+      "text": "Nel gennaio 1905 la guerra contro il Giappone va male e a Pietroburgo gli operai scioperano. Domenica 22 gennaio (9 gennaio nel calendario russo) un corteo porta allo zar una petizione con le icone e il suo ritratto: non è una rivolta ma una supplica. La truppa spara sulla folla.\n\nLa petizione chiedeva tutto insieme: lavoro e salario, un'assemblea eletta e la fine della guerra. Più si chiede e meno è facile rispondere con un sì o con un no.\n\nDa quella domenica la fiducia nello zar come padre si spezza: chi andava a chiedere aiuto si trova davanti i soldati. È per questo che si chiama domenica di sangue e che molti smettono di sperare in una grazia dall'alto.",
+      "stageId": "petizione-domenica",
+      "motionId": "ingresso",
+      "visualExplanation": "Il corteo davanti al Palazzo d'Inverno con le icone e il ritratto dello zar. Gli indicatori sono indici della simulazione: non sono dati storici né voti.",
+      "editorial": {
+        "sources": [
+          "A1-02",
+          "R01"
+        ],
+        "scheda": "II.1 confronto"
+      },
       "shows": []
+    },
+    {
+      "id": "a2-petizione-v8",
+      "type": "assessment",
+      "roleId": "figlio",
+      "title": "Che cosa cambia quella domenica",
+      "questionRef": "a1-v8",
+      "context": {
+        "kind": "assessment"
+      },
+      "text": "Una domanda sulla domenica di sangue. Non valuta le scelte che hai fatto nella partita.",
+      "stageId": "petizione-putilov",
+      "shows": [],
+      "motionId": "ingresso",
+      "visualExplanation": "Davanti alle officine Putilov gli operai in sciopero: la domanda riguarda quello che hai visto nell'unità."
     },
     {
       "id": "a2-soviet-giornate",
@@ -1629,11 +2194,13 @@
       "id": "petizione",
       "episodes": [
         "a2-petizione-righe",
-        "a2-petizione-domenica"
+        "a2-petizione-domenica",
+        "a2-petizione-ricorda",
+        "a2-petizione-v8"
       ],
       "question": "Che cosa muore quella domenica oltre alle persone?",
       "summary": "La guerra contro il Giappone va male e alle officine Putilov gli operai scioperano. Si scrive una petizione da portare allo zar; la domenica dopo la truppa spara sul corteo.",
-      "game": "Scrivi la petizione: cinque righe da dividere fra salario, libertà e pace.",
+      "game": "Tre sere alle officine Putilov: sei ore da spendere fra firme, righe di richieste, padre Gapon e la polizia, mentre si scrive la petizione da portare allo zar.",
       "concepts": [
         "petizione",
         "padre Gapon",
@@ -1642,9 +2209,9 @@
       ],
       "carries": "Il figlio della famiglia lavora in fabbrica a Pietroburgo dall'Atto I.",
       "closing": {
-        "did": "Hai scelto che cosa chiedere allo zar.",
+        "did": "Hai deciso come spendere tre sere: firme, righe della petizione, padre Gapon e la polizia.",
         "fact": "Il 22 gennaio 1905 (9 gennaio nel calendario russo) la truppa sparò sul corteo che portava allo zar la petizione di padre Gapon. La fiducia nello zar come padre si spezzò.",
-        "simulation": "Le righe della petizione sono simulazione: la petizione vera ebbe un testo suo."
+        "simulation": "Le righe della petizione, le persone e i numeri sono simulazione: la petizione vera ebbe un testo suo."
       }
     },
     {

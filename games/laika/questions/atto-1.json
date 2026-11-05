@@ -236,5 +236,39 @@
         "democrazia": "proietta sul villaggio una regola moderna"
       }
     }
+  },
+  {
+    "id": "a1-v8",
+    "prompt": "Il 22 gennaio 1905 (9 gennaio nel calendario russo) un corteo di operai porta allo zar una petizione con le icone e il suo ritratto. Che cosa cambia quella domenica?",
+    "options": [
+      {
+        "id": "fiducia",
+        "label": "La fiducia nello zar come padre si spezza: a una supplica lo Stato risponde con le armi"
+      },
+      {
+        "id": "concessione",
+        "label": "Lo zar riceve la petizione e concede subito una Duma eletta"
+      },
+      {
+        "id": "ritorno",
+        "label": "Gli operai tornano al lavoro convinti che lo zar ascolterà"
+      }
+    ],
+    "correctId": "fiducia",
+    "rationale": "Il corteo andava a chiedere aiuto allo zar e trovò i soldati: la truppa sparò sulla folla. Da quella domenica per molti la fiducia nello zar come padre non c'era più. Le concessioni vennero dopo, con lo sciopero dell'ottobre.",
+    "objectives": [
+      "Spiegare perché quella domenica si spezza la fiducia nello zar come padre"
+    ],
+    "source": "Episodio «La domenica di sangue»: appunti «La Rivoluzione Russa» e atlante degli aneddoti (R01)",
+    "requiredExposureFlags": [
+      "a1-domenica"
+    ],
+    "editorial": {
+      "verifica": "V8",
+      "distrattori": {
+        "concessione": "anticipa le concessioni di ottobre",
+        "ritorno": "ignora la rottura della fiducia"
+      }
+    }
   }
 ]
