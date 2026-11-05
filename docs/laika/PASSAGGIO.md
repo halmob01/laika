@@ -7,7 +7,7 @@ Per un nuovo agente che continua il piano. Si legge dopo [AGENTS.md](../../AGENT
 - **In `main`:** S1, K1, K2, K4, K6, K7, U-otto-giorni, U-pane-guerra, U-mir, U-citta, U-servitu, U-soviet; C-I e C-III preparate (la pagina per il docente c'è, la prova la fa il docente: «aspetta il docente», non blocca il piano).
 - **U-petizione (II.1), PR #61:** unita il 5 novembre 2026 con l'ok del docente.
 - **U-concessioni (II.3), PR #62:** unita. **H-testi (la home), PR #63:** vedi sotto; se la PR è già unita `npm run prossimo` dice U-stolypin.
-- **Da fare, nell'ordine del piano:** U-concessioni (II.3), U-stolypin (II.4), C-II (prova del docente: solo pagina, come C-I), K3 (ponte fra gli atti e famiglia), U-sito, V-1917, C-1917. `npm run prossimo` stampa il messaggio giusto.
+- **Da fare, nell'ordine del piano:** U-stolypin (II.4), C-II (prova del docente: solo pagina, come C-I), K3 (ponte fra gli atti e famiglia), U-sito, V-1917, C-1917. `npm run prossimo` stampa il messaggio giusto.
 - **Dal docente in attesa:** prove C-I, C-III (e poi C-II, C-1917); conferma del gioco di II.1 (nel canone `stato_gioco` è «da confermare»: l'ha scelto l'agente); chiarimento sui disegni sospesi (corretti: vedi sotto).
 
 ## 2. Come si lavora (lezioni di questi giorni)

@@ -83,7 +83,7 @@ Approvata dall'utente in tre revisioni (PR #19). Regole da conservare nelle modi
 
 **Rosso.** È un piano e un segnale, mai una sfumatura. In una scena c'è una sola figura rossa (protagonista). Nel 1905 niente bandiere rosse: il corteo di Gapon portava icone e ritratti dello zar.
 
-**Tono.** Ironia burocratica solo in etichette, titoli e claim («La rivoluzione non è un pranzo di gala. Si confida nella collaborazione dei presenti.»). I testi di lettura sono divulgativi e piani.
+**Tono.** Ironia burocratica solo in etichette, titoli e claim («La rivoluzione non è un pranzo di gala. Si confida nella collaborazione dei presenti»). I testi di lettura sono divulgativi e piani.
 
 **Dove sta.** `index.html`, `site/laika/home.css` (variabili in `:root` e per epoca in `.hero[data-epoca]`), `site/laika/home.js`, `site/laika/scene/`, tema `laika-grigio` in `bottega/temi.json`.
 
