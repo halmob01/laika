@@ -202,5 +202,39 @@
         "zar": "confonde con il 1905"
       }
     }
+  },
+  {
+    "id": "a1-v7",
+    "prompt": "Che cos'è il mir?",
+    "options": [
+      {
+        "id": "comunita",
+        "label": "Una comunità contadina che divide la terra fra le famiglie e paga insieme"
+      },
+      {
+        "id": "soviet",
+        "label": "Un consiglio di delegati che decide per alzata di mano"
+      },
+      {
+        "id": "democrazia",
+        "label": "Un'assemblea in cui ogni abitante vota alla pari per leggi uguali per tutti"
+      }
+    ],
+    "correctId": "comunita",
+    "rationale": "Il mir è una comunità contadina con regole proprie: divide le strisce di terra fra le famiglie e il villaggio risponde insieme dei pagamenti dovuti dopo il 1861. Non è un soviet (un consiglio di delegati che decide per alzata di mano, nato nel 1905) e non è una democrazia moderna: decidono i capifamiglia.",
+    "objectives": [
+      "Distinguere il mir da un soviet e da una democrazia moderna"
+    ],
+    "source": "Episodio «Il mir»: riscontri I1-09 e I1-10 (MATRICE)",
+    "requiredExposureFlags": [
+      "a1-mir"
+    ],
+    "editorial": {
+      "verifica": "V7",
+      "distrattori": {
+        "soviet": "confonde con il 1905",
+        "democrazia": "proietta sul villaggio una regola moderna"
+      }
+    }
   }
 ]

@@ -2195,18 +2195,20 @@
         "dateLabel": "1861–1904",
         "placeLabel": "Un villaggio della Russia centrale"
       },
-      "text": "Dopo il 1861 la terra si riscatta insieme e il villaggio risponde insieme dei pagamenti. Sei il capofamiglia che l'assemblea ascolta di più.\n\nOgni assemblea una persona si alza e chiede qualcosa. Tu rispondi. Ogni risposta contenta qualcuno e ne scontenta un altro: tieni d'occhio i quattro gruppi del villaggio.",
+      "text": "Dopo il 1861 la terra si riscatta insieme e il villaggio risponde insieme dei pagamenti. Sei il capofamiglia che l'assemblea ascolta di più.\n\nA ogni assemblea hai sei strisce di terra da assegnare: alle famiglie numerose, a chi ha curato il proprio lotto, alle vedove e agli anziani soli o alla cassa del riscatto. Poi una persona si alza e chiede qualcosa. Ogni scelta contenta qualcuno e ne scontenta un altro: tieni d'occhio i quattro gruppi del villaggio.",
       "goal": "Tieni insieme il villaggio: nessun gruppo deve scendere troppo e la cassa del riscatto deve reggere.",
       "stageId": "mir-assemblea",
       "motionId": "ingresso",
       "exposes": [
         "a1-mir"
       ],
-      "visualExplanation": "Davanti alle isbe l'assemblea del villaggio. Sullo sfondo il campo a strisce: a metà scena i paletti si spostano e il campo viene diviso di nuovo. Il registro dei pagamenti sta accanto al presidente. Ogni volta una persona si alza e chiede qualcosa: scegli la risposta. Gli indicatori sono indici della simulazione: non sono dati storici né voti.",
+      "visualExplanation": "Davanti alle isbe l'assemblea del villaggio. Tocca una striscia di terra e poi il gruppo a cui la assegni, sulla scena oppure nell'elenco. Sullo sfondo il campo a strisce: dopo la divisione i paletti spostati sono rossi. Il registro dei pagamenti sta accanto a chi presiede. Gli indicatori sono indici della simulazione: non sono dati storici né voti.",
       "turnWord": "assemblea",
-      "nextLabel": "L'assemblea dopo",
+      "nextLabel": "La prossima assemblea",
       "phaseLabels": {
         "cards": "Notizie",
+        "place": "Le strisce",
+        "result": "L'esito",
         "event": "Una richiesta"
       },
       "shows": [
@@ -2408,9 +2410,9 @@
           },
           "cards": [
             {
-              "kind": "simulation",
-              "title": "Le assemblee del mir",
-              "text": "Dopo il 1861 la terra si riscatta insieme e il villaggio risponde insieme dei pagamenti. In molti villaggi l'assemblea rifà ogni tanto la divisione delle strisce di terra. Le persone e le richieste che seguono sono inventate per far vedere le ragioni di ciascuno."
+              "kind": "documented",
+              "title": "Dopo il 1861",
+              "text": "Dopo il 1861 la terra non passa ai contadini gratis: va riscattata e il villaggio risponde insieme dei pagamenti. Le persone e le richieste che seguono sono inventate per far vedere le ragioni opposte di chi vuole rifare la divisione delle strisce e di chi teme di perdere quello che ha migliorato."
             }
           ]
         },
@@ -2482,7 +2484,7 @@
         {
           "label": "1874",
           "event": {
-            "who": "Un raccolto scarso",
+            "who": "L'esattore e i pagamenti",
             "text": "L’esattore chiede la quota dei pagamenti della terra. Il villaggio risponde insieme: se qualcuno non paga devono pagare gli altri.",
             "choices": [
               {
@@ -2723,7 +2725,7 @@
           "label": "1893",
           "event": {
             "who": "Un concime in comune",
-            "text": "Alcune famiglie propongono di drenare insieme il terreno più basso: lavoro di tutti e frutto di tutti.",
+            "text": "Alcune famiglie propongono di concimare insieme il terreno più magro: lavoro di tutti e frutto di tutti.",
             "choices": [
               {
                 "id": "insieme",
@@ -2957,12 +2959,215 @@
       ],
       "editorial": {
         "sources": [
-          "I2-01",
+          "I1-09",
+          "I1-10",
           "I2-02"
         ],
-        "scheda": "I.2-e1",
-        "nota": "Le persone e le richieste sono simulazione."
-      }
+        "scheda": "I.2 (forma nuova, docs/laika/giochi/mir.md)"
+      },
+      "tokens": 6,
+      "tokenLabel": "strisce",
+      "places": [
+        {
+          "id": "numerose",
+          "label": "Alle famiglie numerose",
+          "short": "Numerose",
+          "x": 0.28,
+          "y": 0.8,
+          "perToken": [
+            {
+              "kind": "metric",
+              "id": "numerose",
+              "delta": 8
+            }
+          ],
+          "stand": {
+            "x": 0.28,
+            "y": 0.93
+          }
+        },
+        {
+          "id": "curato",
+          "label": "A chi ha curato il proprio lotto",
+          "short": "Lotti curati",
+          "x": 0.55,
+          "y": 0.78,
+          "perToken": [
+            {
+              "kind": "metric",
+              "id": "curato",
+              "delta": 8
+            }
+          ],
+          "stand": {
+            "x": 0.55,
+            "y": 0.93
+          }
+        },
+        {
+          "id": "soli",
+          "label": "Alle vedove e agli anziani soli",
+          "short": "Soli",
+          "x": 0.13,
+          "y": 0.85,
+          "perToken": [
+            {
+              "kind": "metric",
+              "id": "soli",
+              "delta": 8
+            }
+          ],
+          "stand": {
+            "x": 0.13,
+            "y": 0.95
+          }
+        },
+        {
+          "id": "riscatto",
+          "label": "Alla cassa del riscatto",
+          "short": "Il riscatto",
+          "x": 0.83,
+          "y": 0.72,
+          "perToken": [
+            {
+              "kind": "metric",
+              "id": "cassa",
+              "delta": 10
+            }
+          ],
+          "stand": {
+            "x": 0.83,
+            "y": 0.9
+          }
+        }
+      ],
+      "rules": {
+        "min": {
+          "riscatto": 1
+        }
+      },
+      "upkeep": [
+        {
+          "kind": "metric",
+          "id": "numerose",
+          "delta": -6
+        },
+        {
+          "kind": "metric",
+          "id": "curato",
+          "delta": -6
+        },
+        {
+          "kind": "metric",
+          "id": "soli",
+          "delta": -6
+        },
+        {
+          "kind": "metric",
+          "id": "cassa",
+          "delta": -10
+        }
+      ],
+      "upkeepLabel": "Ogni assemblea: i bisogni del villaggio e i pagamenti",
+      "luck": [
+        {
+          "id": "buona",
+          "label": "raccolto buono",
+          "weight": 1,
+          "yield": {
+            "curato": 1.5,
+            "numerose": 1.25
+          }
+        },
+        {
+          "id": "normale",
+          "label": "raccolto normale",
+          "weight": 2,
+          "yield": {}
+        },
+        {
+          "id": "scarso",
+          "label": "raccolto scarso",
+          "weight": 1,
+          "yield": {
+            "curato": 0.5,
+            "numerose": 0.5,
+            "soli": 0.5
+          }
+        }
+      ],
+      "luckLabel": "Il raccolto",
+      "luckResultLabel": "Il raccolto di quest'anno",
+      "control": {
+        "label": "L'esattore",
+        "text": "L'esattore trova la cassa senza i pagamenti dovuti e si prende una parte del bestiame del villaggio.",
+        "chance": {
+          "base": 0.5
+        },
+        "effects": [
+          {
+            "kind": "metric",
+            "id": "cassa",
+            "delta": -8
+          },
+          {
+            "kind": "metric",
+            "id": "numerose",
+            "delta": -3
+          },
+          {
+            "kind": "metric",
+            "id": "curato",
+            "delta": -3
+          },
+          {
+            "kind": "metric",
+            "id": "soli",
+            "delta": -3
+          }
+        ],
+        "escaped": "Questa volta l'esattore non si presenta: i pagamenti restano dovuti e il villaggio li deve ancora."
+      },
+      "confirmLabel": "Assegnare le strisce",
+      "upkeepHint": "Ogni assemblea, comunque"
+    },
+    {
+      "id": "a1-mir-ricorda",
+      "type": "narrative",
+      "roleId": "capofamiglia",
+      "title": "Cosa ti devi ricordare",
+      "display": "cards",
+      "context": {
+        "kind": "documented",
+        "dateLabel": "1861–1904"
+      },
+      "text": "Dopo il Manifesto del 1861 i contadini sono liberi ma la terra va riscattata. Il villaggio, il mir, divide le strisce di terra fra le famiglie e risponde insieme dei pagamenti: se una famiglia non paga, pagano gli altri.\n\nOgni modo di dividere la terra (a tutti lo stesso oppure a ciascuno secondo il bisogno) favorisce qualcuno e ne scontenta un altro.\n\nIl mir non è un soviet né una democrazia moderna: è una comunità contadina con regole proprie, in cui decidono i capifamiglia. Quando la terra non basta più per tutti, i figli partono per la città.",
+      "stageId": "mir-assemblea",
+      "motionId": "ingresso",
+      "visualExplanation": "Il villaggio con le strisce di terra e il registro dei pagamenti. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
+      "editorial": {
+        "sources": [
+          "I1-09",
+          "I1-10",
+          "I2-02"
+        ],
+        "scheda": "I.2 ricordo"
+      },
+      "shows": []
+    },
+    {
+      "id": "a1-mir-v7",
+      "type": "assessment",
+      "roleId": "capofamiglia",
+      "title": "Che cos'è il mir",
+      "questionRef": "a1-v7",
+      "context": {
+        "kind": "assessment"
+      },
+      "text": "Una domanda sul mir. Non valuta le scelte che hai fatto nella partita.",
+      "stageId": "mir-assemblea",
+      "shows": [],
+      "visualExplanation": "Il villaggio con l'assemblea riunita davanti alle isbe. La domanda riguarda quello che hai appena visto."
     },
     {
       "id": "a1-citta-arrivo",
@@ -3853,7 +4058,7 @@
       "id": "mir",
       "question": "Che cos'è giusto: dare a ciascuno lo stesso o a ciascuno secondo il bisogno?",
       "summary": "Libertà sulla carta. Il villaggio deve decidere chi ha diritto a quale terra e chi paga che cosa.",
-      "game": "Sei il capofamiglia che l'assemblea ascolta: otto richieste, quattro gruppi da non scontentare troppo.",
+      "game": "Sei il capofamiglia che l'assemblea ascolta: otto assemblee, sei strisce da assegnare a quattro gruppi e una cassa del riscatto da non lasciare vuota.",
       "concepts": [
         "mir",
         "riscatto",
@@ -3863,10 +4068,12 @@
       ],
       "carries": "La famiglia dell'ultima generazione di I.1.",
       "episodes": [
-        "a1-mir-assemblea"
+        "a1-mir-assemblea",
+        "a1-mir-ricorda",
+        "a1-mir-v7"
       ],
       "closing": {
-        "did": "Hai risposto alle richieste dell'assemblea e hai visto che ogni risposta contentava qualcuno e ne scontentava un altro.",
+        "did": "Hai assegnato le strisce di terra e risposto alle richieste dell'assemblea: ogni scelta contentava qualcuno e ne scontentava un altro.",
         "fact": "Dopo il Manifesto la terra non passò ai contadini gratis: andava riscattata e il villaggio rispondeva insieme dei pagamenti. La terra non bastava per tutti e molti figli partirono per la città.",
         "simulation": "Le persone, le richieste e i numeri sono simulazione. Le tue scelte hanno cambiato come il villaggio ha diviso la terra: non hanno cambiato la legge."
       }

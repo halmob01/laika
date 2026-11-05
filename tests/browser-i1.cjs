@@ -44,6 +44,8 @@ module.exports=async(browser,root,artifacts)=>{
    // I.3: salario in monete (pedine senza persone): si aggiungono monete ai posti con i pulsanti «+».
    if(await page.locator('[data-turn=confirm]').count()&&await page.locator('[data-place][data-delta="1"]').count()){
     for(const [id,n] of Object.entries({pane:3,stanza:2,carbone:1,villaggio:1,corso:1}))for(let i=0;i<n;i++){const b=page.locator('[data-place="'+id+'"][data-delta="1"]');if(await b.count()&&await b.isEnabled())await b.click();}
+    // Altre gestioni a pedine (le strisce del mir): si completano le pedine che restano su posti a rotazione.
+    for(let k=0;k<30&&await page.locator('[data-turn=confirm]:disabled').count();k++){const plus=page.locator('[data-place][data-delta="1"]:enabled'),n=await plus.count();if(!n)break;await plus.nth(k%n).click();}
     await shot('91-salario');if(await page.locator('[data-turn=confirm]:disabled').count())throw new Error('salario non confermabile');
     await page.locator('[data-turn=confirm]').click();await shot('91-salario-esito');continue;}
    if(await page.locator('[data-turn=confirm]').count()){

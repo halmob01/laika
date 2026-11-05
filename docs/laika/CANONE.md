@@ -41,7 +41,7 @@ Si può possedere un essere umano? Che cosa tiene in piedi un potere che si cred
   - Collegare la corte di fine Ottocento (Chodynka, il ballo del 1903) alla distanza fra il trono e il paese.
   - Distinguere cadetti, socialrivoluzionari e socialdemocratici (bolscevichi e menscevichi) per chi rappresentano e che cosa chiedono.
 
-- I.2: Costruito come partita di sole decisioni: la revisione del 4 novembre lo giudica un questionario con barre.
+- I.2: Rifatto il 4 novembre 2026 come gestione: sei strisce da assegnare a quattro gruppi, cassa del riscatto come obbligo comune, esattore e raccolto incerti, richieste dopo l'esito; da provare dal telefono (C-I).
 
 ## Atto II — 1905 (1905–1911)
 

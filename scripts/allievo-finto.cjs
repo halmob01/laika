@@ -45,6 +45,8 @@ let n=0,finito=false,bloccato=false;const testi=[];const rnd=(()=>{let s=+(proce
   // salario a monete
   if(await p.locator('[data-turn=confirm]').count()&&await p.locator('[data-place][data-delta="1"]').count()){
     for(const [id,k] of Object.entries({pane:3,stanza:2,carbone:1,villaggio:1,corso:1}))for(let i=0;i<k;i++){const x=p.locator('[data-place="'+id+'"][data-delta="1"]');if(await x.count()&&await x.isEnabled())await click(x);}
+    // Gestioni con altre pedine (strisce del mir, monete del salario): si completano le pedine che restano su posti a rotazione.
+    for(let k=0;k<30&&await p.locator('[data-turn=confirm]:disabled').count();k++){const plus=p.locator('[data-place][data-delta="1"]:enabled'),n=await plus.count();if(!n)break;await click(plus.nth(k%n));}
     await dump('salario');if(await p.locator('[data-turn=confirm]:disabled').count()){log.write('\n> BLOCCATO salario\n');break;}
     await click(p.locator('[data-turn=confirm]'));await dump('salario-esito');continue;}
   // settimana con persone

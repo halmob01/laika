@@ -59,10 +59,15 @@ Ruoli: gli antenati della famiglia; un osservatore della corte. Fili: la terra e
 ## I.2 — La terra dopo il Manifesto (1861–1904) · `mir`
 Unità di un solo episodio giocato: il villaggio dopo il riscatto. Gioco di decisioni sui gruppi ([GIOCHI](../GIOCHI.md) §3.2; scheda [mir](../giochi/mir.md)): il mir. Ruoli: la famiglia nel mir; le altre famiglie dell'assemblea. Fili: la terra; chi rappresenta chi.
 
-**I.2-e1 · turn_game [S] · Il mir** (ex «L'assemblea del mir» A0.3; gioco di decisioni sui gruppi, vedi il canone)
-- **Scena.** Si decide la ridistribuzione delle strisce. La famiglia numerosa e l'anziano che ha migliorato il proprio lotto vedono cose diverse.
+**I.2-e1 · turn_game [S] · Il mir** (ex «L'assemblea del mir» A0.3; riscritta il 4 novembre 2026 come gestione, scheda [mir](../giochi/mir.md))
+- **Scena.** A ogni assemblea (otto, dal 1862 al 1903) il capofamiglia che l'assemblea ascolta assegna sei strisce di terra a quattro posti: le famiglie numerose, chi ha curato il proprio lotto, le vedove e gli anziani soli, la cassa del riscatto (obbligo comune: se manca l'esattore può presentarsi). Il raccolto è incerto. Poi una persona si alza e chiede qualcosa.
 - **Sotto la scena.** Che cos'è giusto: dare a ciascuno lo stesso o a ciascuno secondo il bisogno?
-- **Chi la sviluppa.** Sonnet.
+- **Gioco.** Gestione con richieste: posti, pedine (le strisce), raccolto e controllo già nel motore.
+- **Chi la sviluppa.** Opus.
+
+**I.2-e2 · narrative [D] · Cosa ti devi ricordare.** Aggiunta il 4 novembre 2026 (standard didattico, PERCORSO §7): i tre obiettivi dell'unità in parole semplici.
+
+**I.2-e3 · assessment [V] · Verifica V7.** «Che cos'è il mir?»: distingue il mir da un soviet e da una democrazia moderna.
 
 ## I.3 — In città (fine Ottocento–1904) · `citta`
 Gioco di gestione a più settimane ([GIOCHI](../GIOCHI.md) §3.1; scheda [salario](../giochi/salario.md)): il salario. Ruoli: il figlio emigrato a Pietroburgo; un operaio anziano; un osservatore della corte. Fili: chi rappresenta chi; la terra e lo zar; il cielo.

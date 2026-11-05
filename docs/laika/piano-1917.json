@@ -258,7 +258,7 @@
       "fatto_quando": [
         "Il docente ha giocato e ha scritto «va bene» oppure un elenco di cose da cambiare"
       ],
-      "stato": "da fare"
+      "stato": "aspetta il docente"
     },
     {
       "id": "U-mir",
@@ -288,7 +288,13 @@
         "Test di bilanciamento del mir: almeno tre strategie; ogni gruppo può andare in crisi",
         "Controlli comuni G1–G5 passati (METODO §7)"
       ],
-      "stato": "da fare"
+      "stato": "fatto",
+      "pr": 55,
+      "evidenze": [
+        "docs/evidence/U-mir/",
+        "tests/laika-mir.test.js",
+        "docs/laika/giochi/mir.md"
+      ]
     },
     {
       "id": "U-citta",
