@@ -48,7 +48,7 @@ Per un nuovo agente che continua il piano. Si legge dopo [AGENTS.md](../../AGENT
 
 - **Fatti da riscontrare su un libro** (registrati in MATRICE, non nei testi come note): Gapon alla guida del corteo e lo zar non in città; il contenuto della petizione (otto ore, assemblea eletta, fine della guerra); la cronologia di dettaglio dei giorni del soviet; multe e negozio a credito del salario.
 - **Il diario personalizzato di I.3-e7** (chi è partito e chi è rimasto) aspetta K3.
-- **`tratta_prefetto`:** lo imposta il soviet (II.2) e **II.3 deve ancora leggerlo** (U-concessioni): è scritto in `atto-2.md`.
+- **`tratta_prefetto`:** lo imposta il soviet (II.2) e lo legge II.3 (U-concessioni, dal 5 novembre 2026: «Il ministro» se è vero, «Lo sciopero» se è falso). Restano senza effetti a valle i flag di II.4 (`uscita_dal_mir`, `stolypin_resta`, `stolypin_vende`).
 - **Linea del soviet** e le altre metriche di II.1-II.2 sono solo dell'unità; II.4 legge solo i flag dichiarati (`uscita_dal_mir`, `stolypin_resta`, `stolypin_vende`) che non hanno ancora effetti a valle.
 - **Tabellone di I.1 sul telefono** resta alto (circa 2000 px con il pannello chiuso): un'idea è accorciare ancora la sezione della semina; oggi non è un difetto bloccante.
 - **Fiducia nello zar** arriva a 100 in quattro piani su sei in II.1: distingue poco come indicatore (osservazione non bloccante di G4).

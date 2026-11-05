@@ -4,7 +4,7 @@ A che punto è ogni cosa, con le evidenze. Si aggiorna in ogni PR. La struttura 
 
 Aggiornato al 5 novembre 2026.
 
-**Per un nuovo agente: leggere prima [PASSAGGIO](PASSAGGIO.md)** (dove siamo, come si lavora, come si verifica, che cosa resta aperto). La PR #61 (U-petizione) può non essere ancora unita: lo dice il passaggio.
+**Per un nuovo agente: leggere prima [PASSAGGIO](PASSAGGIO.md)** (dove siamo, come si lavora, come si verifica, che cosa resta aperto). Le PR fino alla #62 sono unite; lo stato delle altre lo dice il passaggio.
 
 ## Adesso
 

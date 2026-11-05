@@ -5,3 +5,7 @@
 - Schermate (`manifesto-telefono.png`, `manifesto-desktop.png`, `fascicoli-*.png`, `piede-*.png`, `testata-*.png`): la home sul telefono (390x844) e su desktop (1440x900).
 - Test: `node scripts/browser-solo.cjs home` (nuovo script che esegue solo `tests/browser-home.cjs`): «Home PASS» a 360, 390, 768 e 1440 px, 659 KB per il primo quadro (il budget di 500 KB era già superato: restano 626/659 KB, argomento di U-sito). `npm test`.
 - Limiti: WebKit e `npm run test:browser` completo in CI; nessun telefono vero.
+
+## Revisione indipendente (G4)
+
+- Primo e secondo giro (5 novembre 2026): NON PASSA, per documenti rimasti indietro e non per la home (il testo visibile coincide con quello del docente salvo le eccezioni dichiarate; nessuno scorrimento a 360, 390, 768 e 1440 px): `PASSAGGIO.md` elencava U-concessioni fra le cose da fare e diceva che II.3 non legge `tratta_prefetto` (lo legge dal 5 novembre); la stessa frase era in `atto-2.md`, `soviet.md` e `STATO.md`. Cercate e corrette tutte con una ricerca su `docs/laika`.

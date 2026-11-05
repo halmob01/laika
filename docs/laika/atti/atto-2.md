@@ -36,7 +36,7 @@ Divisione in quattro unità decisa il 4 novembre 2026 (D-024, D-038). Le schede 
 - **Sotto la scena.** Che cosa succede quando le persone comuni scoprono di poter fermare un impero incrociando le braccia?
 - **Regia.** Le ciminiere si spengono una a una, i binari si svuotano.
 - **Chi la sviluppa.** Opus (gioco), Sonnet (testi).
-- **Fra le unità.** Il flag `tratta_prefetto` (si è trattato col prefetto) resta nello stato: **II.3 («Che cosa concede lo zar») dovrà leggerlo** per aprire o chiudere un'opzione sulle concessioni; oggi non lo legge nessuno.
+- **Fra le unità.** Il flag `tratta_prefetto` (si è trattato col prefetto) resta nello stato e II.3 («Che cosa concede lo zar») lo legge dal 5 novembre 2026 per aprire «Il ministro» (se è vero) o «Lo sciopero» (se è falso).
 
 **II.2-e1b · narrative [D] · Cosa ti devi ricordare** (aggiunta il 5 novembre 2026, U-soviet): i due obiettivi dell'unità in parole semplici.
 
