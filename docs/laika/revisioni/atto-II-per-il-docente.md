@@ -13,7 +13,7 @@ Scritta il 5 novembre 2026 (incarico C-II). Dal telefono, aprendo la home di LAI
 7. **II.4, il confronto di fine atto.** «Che cosa è cambiato dopo il 1905»: quattro segni in fila (l'icona del corteo, la bandiera dello sciopero, il Palazzo di Tauride, il podere) e un testo che ricapitola l'atto. Funziona come chiusura? Il diario della famiglia aspetta K3.
 8. **Il telefono.** Le etichette sui punti della scena (a punti azione le azioni sono sulla scena, con il nome breve), l'elenco sotto, i pannelli, lo scorrimento: nulla sfora lo schermo? Prova anche con il testo ingrandito e in orizzontale.
 9. **Il divertimento.** Quale delle quattro unità ti ha fatto venire voglia di rigiocare? Quale ti ha annoiato? Tre giochi su quattro sono a punti azione: ti sembrano troppo simili?
-10. **Che cosa cambieresti per prima.** Ogni osservazione diventa un incarico nuovo inserito subito dopo quello in corso. In particolare conferma o cambia i giochi delle tre unità il cui gioco ha scelto l'agente (II.1, II.3, II.4: nel canone «da confermare»).
+10. **Che cosa cambieresti per prima.** Ogni osservazione diventa un incarico nuovo inserito subito dopo quello in corso. I giochi di II.1, II.3 e II.4 li hai già confermati il 5 novembre 2026 (D-042): qui dici se ti convincono davvero sul telefono.
 
 ## Che cosa è cambiato dall'ultima versione dell'Atto II
 

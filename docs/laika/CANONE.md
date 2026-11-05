@@ -49,10 +49,10 @@ Che cosa muore quando un popolo smette di credere che lo zar sia un padre? Strut
 
 | Unità | Nome stabile | Titolo | Periodo | Gioco | Gioco deciso | Stato |
 |---|---|---|---|---|---|---|
-| II.1 | `petizione` | La petizione | gennaio 1905 | [gestione di tre sere (la petizione alle officine Putilov)](giochi/petizione.md) | da confermare | bozza |
+| II.1 | `petizione` | La petizione | gennaio 1905 | [gestione di tre sere (la petizione alle officine Putilov)](giochi/petizione.md) | approvato | bozza |
 | II.2 | `soviet` | Il soviet | ottobre 1905 | [punti azione (le giornate del soviet)](giochi/soviet.md) | approvato | bozza |
-| II.3 | `concessioni` | Che cosa concede lo zar | ottobre 1905–giugno 1907 | [punti azione (le tre stagioni delle concessioni)](giochi/concessioni.md) | da confermare | bozza |
-| II.4 | `stolypin` | Stolypin | novembre 1906–1911 | [punti azione su quattro anni (il podere e il mir)](giochi/stolypin.md) | da confermare | bozza |
+| II.3 | `concessioni` | Che cosa concede lo zar | ottobre 1905–giugno 1907 | [punti azione (le tre stagioni delle concessioni)](giochi/concessioni.md) | approvato | bozza |
+| II.4 | `stolypin` | Stolypin | novembre 1906–1911 | [punti azione su quattro anni (il podere e il mir)](giochi/stolypin.md) | approvato | bozza |
 
 **Obiettivi: alla fine dell'unità lo studente sa…**
 
@@ -69,9 +69,9 @@ Che cosa muore quando un popolo smette di credere che lo zar sia un padre? Strut
   - Dire che cosa permette la riforma di Stolypin (uscire dal mir, unire le strisce in un podere) e che cosa non fa (non abolisce il mir).
   - Collegare riforma e repressione (i tribunali militari) come due facce della stessa politica.
 
-- II.1: Divisione dell'atto in quattro unità decisa il 4 novembre 2026 (D-038). Gioco scelto dall'agente il 5 novembre 2026 al posto del modulo con cinque righe: da provare dal telefono (C-II).
-- II.3: Gioco scelto dall'agente il 5 novembre 2026 al posto del confronto di tre schede, che resta come giudizio finale («Diritto o tregua?»): da provare dal telefono (C-II).
-- II.4: Gioco costruito dall'agente il 5 novembre 2026 al posto della scelta unica: quattro anni da quattro punti con le tre strade (restare, uscire, partire) e conseguenze che si sommano; da provare dal telefono (C-II).
+- II.1: Divisione dell'atto in quattro unità decisa il 4 novembre 2026 (D-038). Gioco scelto dall'agente il 5 novembre 2026 al posto del modulo con cinque righe; giochi di II.1, II.3 e II.4 confermati dal docente il 5 novembre 2026 (D-042); la prova dal telefono (C-II) resta.
+- II.3: Gioco scelto dall'agente il 5 novembre 2026 al posto del confronto di tre schede, che resta come giudizio finale («Diritto o tregua?»). Gioco confermato dal docente il 5 novembre 2026 (D-042); la prova dal telefono (C-II) resta.
+- II.4: Gioco costruito dall'agente il 5 novembre 2026 al posto della scelta unica: quattro anni da quattro punti con le tre strade (restare, uscire, partire) e conseguenze che si sommano. Gioco confermato dal docente il 5 novembre 2026 (D-042); la prova dal telefono (C-II) resta.
 
 ## Atto III — Pane e guerra (1914–marzo 1917)
 

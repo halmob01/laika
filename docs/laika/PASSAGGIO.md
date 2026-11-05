@@ -5,10 +5,10 @@ Per un nuovo agente che continua il piano. Si legge dopo [AGENTS.md](../../AGENT
 ## 1. Dove siamo
 
 - **In `main` (5 novembre 2026, sera):** S1, K1, K2, K4, K6, K7; unità U-otto-giorni, U-pane-guerra, U-mir, U-citta, U-servitu, U-soviet, U-petizione (PR #61), U-concessioni (PR #62), U-stolypin (PR #64); H-testi, i testi della home del docente (PR #63); C-I e C-III preparate (pagine per il docente, «aspetta il docente»).
-- **PR #65 (C-II, branch `c-ii`, solo documenti):** pagina `docs/laika/revisioni/atto-II-per-il-docente.md`, piano e STATO aggiornati. **Non unita**: aspetta la CI (Chromium e WebKit) sull'ultima head. Appena verde si unisce con `expectedHeadSha` (`merge_method: merge`): l'ok del docente a unire le PR degli incarichi a CI verde vale (D-038, D-039). Questo passaggio è nello stesso branch: controlla che la run sia quella dell'ultima head.
+- **PR #65 (C-II, branch `c-ii`, solo documenti):** pagina `docs/laika/revisioni/atto-II-per-il-docente.md`, piano e STATO aggiornati. Il docente ha detto «vai in main» (D-042): si unisce appena la CI (Chromium e WebKit) è verde sull'ultima head. Appena verde si unisce con `expectedHeadSha` (`merge_method: merge`): l'ok del docente a unire le PR degli incarichi a CI verde vale (D-038, D-039). Questo passaggio è nello stesso branch: controlla che la run sia quella dell'ultima head.
 - **Dopo C-II: K3** (ponte fra gli atti e famiglia), poi U-sito, V-1917, C-1917. `npm run prossimo` stampa il messaggio giusto.
 - **Il piano di adesso finisce con C-1917.** Il docente ha detto di **non aggiungere** per ora gli Atti IV e V al piano.
-- **Dal docente in attesa:** prove C-I, C-II, C-III (e poi C-1917); conferma dei giochi di II.1, II.3 e II.4 (nel canone `stato_gioco` è «da confermare»: li ha scelti l'agente).
+- **Dal docente in attesa:** prove C-I, C-II, C-III (e poi C-1917), «più avanti» e senza data. I giochi di II.1, II.3 e II.4 sono **confermati dal docente il 5 novembre 2026** (D-042: `stato_gioco` «approvato»); le unità restano «bozza» finché non fa le prove.
 
 ## 2. Come si lavora (lezioni di questi giorni)
 
