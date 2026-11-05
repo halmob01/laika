@@ -39,6 +39,8 @@ test('Il servo: il giudizio dell\'anno dice la fame quando il grano è finito e 
   for (const seme of ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']) for (const scorta of [0, 15]) for (const salta of [false, true]) for (const x of anni(seme, scorta, salta)) {
     const fame = x.crisi.some(c => GRANO.has(c)) || x.floored.includes('grano');
     // Previsione e giudizio dicono la stessa cosa: «non basta» (ne restano 0 o meno) è sempre fame, anche quando le crisi sono già scattate.
+    // Il timbro «Fame» vale solo se il grano è davvero arrivato a zero in quell'anno (nessun giudizio di fame con il grano ancora in magazzino).
+    if (x.verdetto.stamp === 'Fame') assert.ok(x.floored.includes('grano'), x.anno + ': giudizio «Fame» ma il grano non è arrivato a zero');
     if (x.previsione <= 0) assert.equal(x.verdetto.stamp, 'Fame', x.anno + ': la previsione era ' + x.previsione + ' ma il giudizio è «' + x.verdetto.text + '»');
     previsioniNegative += x.previsione <= 0 ? 1 : 0;
     if (fame) { con++; assert.equal(x.verdetto.stamp, 'Fame', x.anno + ': grano finito, ma il giudizio è «' + x.verdetto.text + '»'); assert.match(x.verdetto.text, /Il grano è finito/); }
