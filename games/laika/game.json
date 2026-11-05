@@ -45683,7 +45683,7 @@
           "parent": "world",
           "pose": {
             "translateX": 330,
-            "translateY": 606,
+            "translateY": 610,
             "scale": 0.95
           }
         },
@@ -45693,7 +45693,7 @@
           "parent": "world",
           "pose": {
             "translateX": 1290,
-            "translateY": 606,
+            "translateY": 610,
             "scale": 0.95,
             "scaleX": -1
           }
@@ -45704,7 +45704,7 @@
           "parent": "world",
           "pose": {
             "translateX": 110,
-            "translateY": 606,
+            "translateY": 610,
             "scale": 0.6
           }
         },
@@ -47044,6 +47044,16 @@
           }
         },
         {
+          "id": "campi-lontano",
+          "symbol": "luogo-pianura",
+          "parent": "world",
+          "pose": {
+            "translateX": 960,
+            "translateY": 942,
+            "scale": 3.4
+          }
+        },
+        {
           "id": "campi",
           "symbol": "luogo-pianura",
           "parent": "world",
@@ -47059,7 +47069,7 @@
           "parent": "world",
           "pose": {
             "translateX": 420,
-            "translateY": 735,
+            "translateY": 738,
             "scale": 0.55
           }
         },
@@ -47069,7 +47079,7 @@
           "parent": "world",
           "pose": {
             "translateX": 980,
-            "translateY": 736,
+            "translateY": 738,
             "scale": 0.7
           }
         },
@@ -47079,7 +47089,7 @@
           "parent": "world",
           "pose": {
             "translateX": 1520,
-            "translateY": 735,
+            "translateY": 738,
             "scale": 0.6
           }
         },
@@ -49883,7 +49893,7 @@
           "parent": "world",
           "pose": {
             "translateX": 1250,
-            "translateY": 606,
+            "translateY": 610,
             "scale": 0.95
           }
         },
@@ -59265,7 +59275,7 @@
           "parent": "world",
           "pose": {
             "translateX": 1300,
-            "translateY": 606,
+            "translateY": 610,
             "scale": 0.8
           }
         },

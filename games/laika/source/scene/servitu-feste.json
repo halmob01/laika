@@ -92,6 +92,13 @@
       "scala": 0.9
     },
     {
+      "id": "campi-lontano",
+      "simbolo": "luogo-pianura",
+      "x": 960,
+      "y": 942,
+      "scala": 3.4
+    },
+    {
       "id": "campi",
       "simbolo": "luogo-pianura",
       "x": 960,
@@ -102,21 +109,21 @@
       "id": "chiesa",
       "simbolo": "luogo-chiesa",
       "x": 420,
-      "y": 735,
+      "y": 738,
       "scala": 0.55
     },
     {
       "id": "villaggio",
       "simbolo": "luogo-isbe",
       "x": 980,
-      "y": 736,
+      "y": 738,
       "scala": 0.7
     },
     {
       "id": "tenuta",
       "simbolo": "luogo-tenuta",
       "x": 1520,
-      "y": 735,
+      "y": 738,
       "scala": 0.6
     }
   ],
