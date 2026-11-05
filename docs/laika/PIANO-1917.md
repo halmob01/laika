@@ -4,7 +4,7 @@
 
 Come si lavora in autonomia, controlli e condizioni di arresto: [METODO](METODO.md) §7. Il prossimo incarico e il messaggio da dare all'agente: `npm run prossimo`.
 
-Incarichi fatti: 9 su 21. Prossimo: U-servitu.
+Incarichi fatti: 10 su 22. Prossimo: U-servitu.
 
 | # | Incarico | Tipo | Modello | Dopo | Stato |
 |---:|---|---|---|---|---|
@@ -18,17 +18,18 @@ Incarichi fatti: 9 su 21. Prossimo: U-servitu.
 | 8 | **C-III** Il docente prova l'Atto III dal telefono | controllo | — | U-pane-guerra, U-otto-giorni | aspetta il docente |
 | 9 | **U-mir** I.2 Il mir: da questionario a gioco | unità | Opus | S1, K4 | fatto (PR #55) |
 | 10 | **U-citta** I.3 In città: un salario che mette alle strette e il confronto di fine atto | unità | Sonnet | S1, K4 | fatto (PR #56) |
-| 11 | **U-servitu** I.1 La terra e lo zar: rifiniture | unità | Sonnet | S1, K4 | da fare |
-| 12 | **C-I** Il docente prova l'Atto I dal telefono | controllo | — | U-mir, U-citta, U-servitu | da fare |
-| 13 | **U-soviet** II.2 Il soviet: notizie che contano | unità | Opus | S1 | da fare |
-| 14 | **U-petizione** II.1 La petizione: il gioco e la domenica di sangue | unità | Opus | S1, K4 | da fare |
-| 15 | **U-concessioni** II.3 Che cosa concede lo zar: il gioco e gli aneddoti | unità | Opus | S1, K4, U-soviet | da fare |
-| 16 | **U-stolypin** II.4 Stolypin: il gioco e il confronto di fine atto | unità | Sonnet | S1, K4 | da fare |
-| 17 | **C-II** Il docente prova l'Atto II dal telefono | controllo | — | U-soviet, U-petizione, U-concessioni, U-stolypin | da fare |
-| 18 | **K3** Motore e contenuti: il ponte fra gli atti e la famiglia | motore | Opus | U-citta, U-stolypin, U-pane-guerra | da fare |
-| 19 | **U-sito** Il sito sul telefono: pagine, pesi, ripresa | trasversale | Sonnet | K3 | da fare |
-| 20 | **V-1917** Verifica finale degli Atti I–III | verifica | Opus | U-sito, C-I, C-II, C-III | da fare |
-| 21 | **C-1917** Il docente prova il percorso fino al 1917 | controllo | — | V-1917 | da fare |
+| 11 | **K7** Motore: il giudizio dell'anno sa quando una risorsa è arrivata al minimo | motore | Opus | S1 | fatto (PR #58) |
+| 12 | **U-servitu** I.1 La terra e lo zar: rifiniture | unità | Sonnet | S1, K4, K7 | da fare |
+| 13 | **C-I** Il docente prova l'Atto I dal telefono | controllo | — | U-mir, U-citta, U-servitu | da fare |
+| 14 | **U-soviet** II.2 Il soviet: notizie che contano | unità | Opus | S1 | da fare |
+| 15 | **U-petizione** II.1 La petizione: il gioco e la domenica di sangue | unità | Opus | S1, K4 | da fare |
+| 16 | **U-concessioni** II.3 Che cosa concede lo zar: il gioco e gli aneddoti | unità | Opus | S1, K4, U-soviet | da fare |
+| 17 | **U-stolypin** II.4 Stolypin: il gioco e il confronto di fine atto | unità | Sonnet | S1, K4 | da fare |
+| 18 | **C-II** Il docente prova l'Atto II dal telefono | controllo | — | U-soviet, U-petizione, U-concessioni, U-stolypin | da fare |
+| 19 | **K3** Motore e contenuti: il ponte fra gli atti e la famiglia | motore | Opus | U-citta, U-stolypin, U-pane-guerra | da fare |
+| 20 | **U-sito** Il sito sul telefono: pagine, pesi, ripresa | trasversale | Sonnet | K3 | da fare |
+| 21 | **V-1917** Verifica finale degli Atti I–III | verifica | Opus | U-sito, C-I, C-II, C-III | da fare |
+| 22 | **C-1917** Il docente prova il percorso fino al 1917 | controllo | — | V-1917 | da fare |
 
 ## S1 — Le scene delle unità già fatte con i disegni che ci sono
 
@@ -146,6 +147,16 @@ Unità del canone: `citta`.
 È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche; domanda, obiettivi, verifica legata a un obiettivo, «Cosa ti devi ricordare», concetti, chiusura, fonti registrate; scene proprie); Test di bilanciamento del salario: la mossa fissa non regge tutte le settimane; almeno tre strategie con esiti diversi; Controlli comuni G1–G5 passati (METODO §7).
 
 Evidenze: docs/evidence/U-citta/, tests/laika-citta.test.js, docs/laika/giochi/salario.md.
+
+## K7 — Motore: il giudizio dell'anno sa quando una risorsa è arrivata al minimo
+
+- Inserito il 5 novembre 2026 dalla revisione indipendente di U-servitu (D-041): le crisi scattano una sola volta, quindi nelle partite lunghe la previsione dice «non basta» e il giudizio dell'anno dice «si mangia fino al raccolto».
+- Un giudizio (`verdicts[]`) può avere `floored: id`: vale quando in quell'anno una risorsa o metrica è stata portata al suo minimo da un effetto negativo (mantenimento, semina, resa dei posti, controllo), anche se poi il raccolto la rialza o la crisi è già scattata.
+- Test del motore con un gioco neutro e sezione in `docs/CREARE-UN-GIOCO.md`.
+
+È fatto quando: Test del motore: il giudizio con `floored` vale con e senza crisi, si valida l'id, il test fallisce se la funzione manca; Controlli comuni G1–G5 passati (METODO §7).
+
+Evidenze: docs/evidence/K7/, tests/turns.test.js, docs/CREARE-UN-GIOCO.md.
 
 ## U-servitu — I.1 La terra e lo zar: rifiniture
 

@@ -334,6 +334,37 @@
       ]
     },
     {
+      "id": "K7",
+      "titolo": "Motore: il giudizio dell'anno sa quando una risorsa è arrivata al minimo",
+      "tipo": "motore",
+      "modello": "Opus",
+      "unita": [],
+      "dipende": [
+        "S1"
+      ],
+      "leggere": [
+        "docs/laika/GIOCHI.md",
+        "docs/CREARE-UN-GIOCO.md",
+        "src/core/turns.js"
+      ],
+      "fare": [
+        "Inserito il 5 novembre 2026 dalla revisione indipendente di U-servitu (D-041): le crisi scattano una sola volta, quindi nelle partite lunghe la previsione dice «non basta» e il giudizio dell'anno dice «si mangia fino al raccolto».",
+        "Un giudizio (`verdicts[]`) può avere `floored: id`: vale quando in quell'anno una risorsa o metrica è stata portata al suo minimo da un effetto negativo (mantenimento, semina, resa dei posti, controllo), anche se poi il raccolto la rialza o la crisi è già scattata.",
+        "Test del motore con un gioco neutro e sezione in `docs/CREARE-UN-GIOCO.md`."
+      ],
+      "fatto_quando": [
+        "Test del motore: il giudizio con `floored` vale con e senza crisi, si valida l'id, il test fallisce se la funzione manca",
+        "Controlli comuni G1–G5 passati (METODO §7)"
+      ],
+      "stato": "fatto",
+      "pr": 58,
+      "evidenze": [
+        "docs/evidence/K7/",
+        "tests/turns.test.js",
+        "docs/CREARE-UN-GIOCO.md"
+      ]
+    },
+    {
       "id": "U-servitu",
       "titolo": "I.1 La terra e lo zar: rifiniture",
       "tipo": "unità",
@@ -343,7 +374,8 @@
       ],
       "dipende": [
         "S1",
-        "K4"
+        "K4",
+        "K7"
       ],
       "leggere": [
         "docs/laika/atti/atto-1.md",
