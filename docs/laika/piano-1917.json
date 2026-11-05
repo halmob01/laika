@@ -625,7 +625,10 @@
       "fatto_quando": [
         "Il docente ha giocato e ha scritto «va bene» oppure un elenco di cose da cambiare"
       ],
-      "stato": "da fare"
+      "stato": "aspetta il docente",
+      "evidenze": [
+        "docs/laika/revisioni/atto-II-per-il-docente.md"
+      ]
     },
     {
       "id": "K3",

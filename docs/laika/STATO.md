@@ -28,6 +28,8 @@ Aggiornato al 5 novembre 2026.
 
 **U-soviet fatto** (II.2 Il soviet, 5 novembre 2026): dopo aver indagato si sceglie a quale lettura dare peso (linea del soviet da 0 a 100) e la scelta apre o chiude azioni nei giorni dopo (trattare in nome del soviet con i moderati, fermare i treni con i radicali); nessuna meccanica nuova (bastavano `when` sui flag e sulle metriche, K5 non serve); scena con tavolo, telegrafo e bandiera; etichette su tre file senza sovrapposizioni; «Cosa ti devi ricordare» e fonti registrate (nessun aneddoto trovato sul 1905). Test di bilanciamento sul motore vero. Evidenze in `docs/evidence/U-soviet/`.
 
+**C-II pronto** (5 novembre 2026): la pagina per la prova dell'Atto II dal telefono è in `docs/laika/revisioni/atto-II-per-il-docente.md`. L'incarico aspetta il docente e non blocca il piano; il docente deve anche confermare i giochi di II.1, II.3 e II.4 (nel canone «da confermare»).
+
 **C-I pronto** (5 novembre 2026): la pagina per la prova dell'Atto I dal telefono è in `docs/laika/revisioni/atto-I-per-il-docente.md`. L'incarico aspetta il docente e non blocca il piano.
 
 **K7 fatto** (motore, 5 novembre 2026): un giudizio dell'anno può valere solo se una risorsa è arrivata al minimo durante l'anno (`verdicts[].floored`), anche quando la crisi è già scattata. Nasce dalla revisione di U-servitu. Evidenze in `docs/evidence/K7/`.
