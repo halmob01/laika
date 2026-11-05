@@ -152,8 +152,7 @@ function managePlace(host,episode,act,state,go){
     minus.disabled=g.reserve<=0;plus.disabled=spent+r.step>have;ctl.append(minus,el('b',String(g.reserve),{'aria-label':g.reserve+' '+r.label.toLowerCase()}),plus);box.append(ctl);
     const pct=Math.round(100*yieldOf(episode,{...g,rules:{...g.rules,boost:{}}},r.places[0]));
     box.append(el('p','Hai '+have+' di '+res.label.toLowerCase()+'. Per mangiare fino al raccolto ne servono '+need+'. Dopo la semina'+(spent>g.reserve?' e i lavori':'')+(left<0?' ne mancano '+(-left)+' per arrivare al raccolto':' ne restano '+left)+'. Il campo renderà il '+pct+'% del possibile.',{role:'status'}));
-    if(left<0)box.append(el('p','Non basta: il grano finirà prima del raccolto.',{class:'turn-warning'}));
-    else if(left===0)box.append(el('p','Così non resta niente: basta un imprevisto e il grano finisce.',{class:'turn-warning'}));host.append(box);}
+    if(left<=0)box.append(el('p','Non basta: il grano finirà prima del raccolto.',{class:'turn-warning'}));host.append(box);}
   // 4. Il rischio, scritto prima di scegliere.
   const risk=el('div',undefined,{class:'turn-risk'});
   risk.append(el('p',(episode.luckLabel||'Il tempo che farà')+': '+luckOdds(episode).map(l=>l.label+' '+l.p+'%').join(' · ')+'.'));

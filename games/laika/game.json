@@ -98526,8 +98526,7 @@
         "padre_via",
         "figlio_in_citta",
         "mir_diviso",
-        "affitto_alzato",
-        "crisi_anno"
+        "affitto_alzato"
       ],
       "reconciliation": "Fine dell'Atto I (1700–1904). Per un secolo e mezzo la ricchezza si è contata in anime; il 1861 ha dato la libertà della persona senza la terra. La terra non bastava per tutti e i figli sono partiti per la fabbrica, dove circolavano i primi volantini. Le tue scelte hanno cambiato soltanto la simulazione, non questi fatti. Segue l'Atto II: il 1905.",
       "period": "1700–1904",
@@ -98983,11 +98982,6 @@
                   "kind": "flag",
                   "id": "mucca_venduta",
                   "value": true
-                },
-                {
-                  "kind": "flag",
-                  "id": "crisi_anno",
-                  "value": true
                 }
               ],
               "rules": {
@@ -99026,11 +99020,6 @@
                   "kind": "resource",
                   "id": "grano",
                   "delta": 15
-                },
-                {
-                  "kind": "flag",
-                  "id": "crisi_anno",
-                  "value": true
                 }
               ]
             },
@@ -99073,11 +99062,6 @@
                 {
                   "kind": "flag",
                   "id": "figlio_via",
-                  "value": true
-                },
-                {
-                  "kind": "flag",
-                  "id": "crisi_anno",
                   "value": true
                 }
               ],
@@ -99257,14 +99241,7 @@
                     "strength": 1
                   }
                 }
-              },
-              "effects": [
-                {
-                  "kind": "flag",
-                  "id": "crisi_anno",
-                  "value": false
-                }
-              ]
+              }
             },
             {
               "label": "1761",
@@ -99510,11 +99487,6 @@
               "effects": [
                 {
                   "kind": "flag",
-                  "id": "crisi_anno",
-                  "value": false
-                },
-                {
-                  "kind": "flag",
                   "id": "figlio_via",
                   "value": false
                 },
@@ -99638,14 +99610,7 @@
                     }
                   }
                 ]
-              },
-              "effects": [
-                {
-                  "kind": "flag",
-                  "id": "crisi_anno",
-                  "value": false
-                }
-              ]
+              }
             },
             {
               "label": "1787",
@@ -99876,11 +99841,6 @@
                 ]
               },
               "effects": [
-                {
-                  "kind": "flag",
-                  "id": "crisi_anno",
-                  "value": false
-                },
                 {
                   "kind": "flag",
                   "id": "figlio_via",
@@ -100132,11 +100092,6 @@
               "effects": [
                 {
                   "kind": "flag",
-                  "id": "crisi_anno",
-                  "value": false
-                },
-                {
-                  "kind": "flag",
                   "id": "figlio_via",
                   "value": false
                 },
@@ -100286,11 +100241,6 @@
               "effects": [
                 {
                   "kind": "flag",
-                  "id": "crisi_anno",
-                  "value": false
-                },
-                {
-                  "kind": "flag",
                   "id": "figlio_via",
                   "value": false
                 },
@@ -100375,14 +100325,7 @@
                     "strength": 3
                   }
                 }
-              },
-              "effects": [
-                {
-                  "kind": "flag",
-                  "id": "crisi_anno",
-                  "value": false
-                }
-              ]
+              }
             },
             {
               "label": "1861",
@@ -100529,11 +100472,6 @@
               "effects": [
                 {
                   "kind": "flag",
-                  "id": "crisi_anno",
-                  "value": false
-                },
-                {
-                  "kind": "flag",
                   "id": "figlio_via",
                   "value": false
                 },
@@ -100561,14 +100499,10 @@
           },
           "verdicts": [
             {
-              "when": {
-                "op": "flag",
-                "id": "crisi_anno",
-                "value": true
-              },
               "tone": "bad",
               "text": "Il grano è finito: la famiglia ha tirato avanti solo con quello che ha dovuto vendere, chiedere o lasciare.",
-              "stamp": "Fame"
+              "stamp": "Fame",
+              "floored": "grano"
             },
             {
               "when": {

@@ -20,9 +20,12 @@ function anni(seme, scorta, salta) {
       const vivi = e.workers.filter(w => !(g().rules.workers[w.id]?.away));
       const piani = salta ? {padre: 'campo', madre: 'campo', nonno: 'campo', figlio: 'campo'} : {padre: 'corvee', madre: 'corvee', nonno: 'campo', figlio: 'campo'};
       for (const w of vivi) { try { T('assign', {workerId: w.id, placeId: piani[w.id]}); } catch { /* posto non disponibile */ } }
+      // La previsione che vede lo studente: grano in magazzino, meno la semina, meno quello che serve per mangiare (nessun lavoro lungo in questi piani).
+      const mantenimento = -[...e.upkeep, ...g().rules.upkeep].filter(m => m.id === 'grano').reduce((n, m) => n + m.delta, 0);
+      const previsione = s.currentAct.resources.grano - g().reserve - mantenimento;
       T('confirm');
       const r = g().result;
-      out.push({anno: e.turns[g().turn].label, crisi: r.crises.map(c => c.id), verdetto: r.verdict});
+      out.push({anno: e.turns[g().turn].label, crisi: r.crises.map(c => c.id), verdetto: r.verdict, previsione, floored: r.floored});
     } else if (g().phase === 'result') T('continue');
     else if (g().phase === 'event') T('choose', {choiceId: e.turns[g().turn].event.choices.find(c => !c.when)?.id || e.turns[g().turn].event.choices[0].id});
     else if (g().phase === 'eventResult') T('continue');
@@ -31,13 +34,17 @@ function anni(seme, scorta, salta) {
   }
   return out;
 }
-test('Il servo: il giudizio dell\'anno dice la fame quando il grano è finito prima del raccolto, e solo allora', () => {
-  let con = 0, senza = 0;
+test('Il servo: il giudizio dell\'anno dice la fame quando il grano è finito e dice lo stesso della previsione', () => {
+  let con = 0, senza = 0, previsioniNegative = 0;
   for (const seme of ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']) for (const scorta of [0, 15]) for (const salta of [false, true]) for (const x of anni(seme, scorta, salta)) {
-    const fame = x.crisi.some(c => GRANO.has(c));
+    const fame = x.crisi.some(c => GRANO.has(c)) || x.floored.includes('grano');
+    // Previsione e giudizio dicono la stessa cosa: «non basta» (ne restano 0 o meno) è sempre fame, anche quando le crisi sono già scattate.
+    if (x.previsione <= 0) assert.equal(x.verdetto.stamp, 'Fame', x.anno + ': la previsione era ' + x.previsione + ' ma il giudizio è «' + x.verdetto.text + '»');
+    previsioniNegative += x.previsione <= 0 ? 1 : 0;
     if (fame) { con++; assert.equal(x.verdetto.stamp, 'Fame', x.anno + ': grano finito, ma il giudizio è «' + x.verdetto.text + '»'); assert.match(x.verdetto.text, /Il grano è finito/); }
     else { senza++; assert.doesNotMatch(x.verdetto.text, /Il grano è finito:/, x.anno + ': nessuna crisi del grano, ma il giudizio parla di grano finito'); }
   }
+  assert.ok(previsioniNegative > 20, 'servono molti anni con la previsione «non basta»: ' + previsioniNegative);
   assert.ok(con > 0 && senza > 0, 'servono anni con e senza la fame: con ' + con + ', senza ' + senza);
 });
 test('Il servo: i lavori lunghi stanno in un pannello e le etichette restano dentro la scena', () => {
