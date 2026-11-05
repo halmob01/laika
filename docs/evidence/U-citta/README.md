@@ -10,4 +10,5 @@
 ## Revisione indipendente (G4)
 
 - Primo giro (5 novembre 2026): NON PASSA. Difetti: una mossa fissa («stanza 3, villaggio 1, pane 4») reggeva fino in fondo; il carbone non serviva mai; il dormitorio tornava a pagare l'affitto dopo l'aumento della settimana 3. Correzioni: il carbone non dà forze fuori dal freddo e nelle settimane 4-6 è un obbligo di tre monete; il dormitorio scatta solo dopo l'aumento dell'affitto (flag `affitto_alzato`); il test prova tutte le 300 e più ripartizioni fisse; testo del confronto corretto (anime, doppio calendario, quattro paragrafi, fonti, diario come simulazione).
-- Dopo le correzioni l'allievo finto va rieseguito sul gioco nuovo (vedi sotto il suo esito).
+- Secondo giro: NON PASSA (correzioni piccole): evidenza dell'allievo del gioco vecchio, «−0 Forze» sul carbone (corretto nel motore: un effetto di zero non si mostra; controllo in `tests/browser-i1.cjs`), scheda e STATO con valori vecchi. Corretti.
+- L'allievo finto è stato rieseguito sul gioco finale (HEAD di questa evidenza): partita completa, tutti i controlli «ok», nessun «−0» e nessun «freddo forte» nella trascrizione.
