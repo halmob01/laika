@@ -325,7 +325,13 @@
         "Test di bilanciamento del salario: la mossa fissa non regge tutte le settimane; almeno tre strategie con esiti diversi",
         "Controlli comuni G1–G5 passati (METODO §7)"
       ],
-      "stato": "da fare"
+      "stato": "fatto",
+      "pr": 56,
+      "evidenze": [
+        "docs/evidence/U-citta/",
+        "tests/laika-citta.test.js",
+        "docs/laika/giochi/salario.md"
+      ]
     },
     {
       "id": "U-servitu",

@@ -4,7 +4,7 @@
 
 Come si lavora in autonomia, controlli e condizioni di arresto: [METODO](METODO.md) §7. Il prossimo incarico e il messaggio da dare all'agente: `npm run prossimo`.
 
-Incarichi fatti: 8 su 21. Prossimo: U-citta.
+Incarichi fatti: 9 su 21. Prossimo: U-servitu.
 
 | # | Incarico | Tipo | Modello | Dopo | Stato |
 |---:|---|---|---|---|---|
@@ -17,7 +17,7 @@ Incarichi fatti: 8 su 21. Prossimo: U-citta.
 | 7 | **U-pane-guerra** III.1 Pane e guerra: grano, treni e città | unità | Opus | S1, K2, K4 | fatto (PR #53) |
 | 8 | **C-III** Il docente prova l'Atto III dal telefono | controllo | — | U-pane-guerra, U-otto-giorni | aspetta il docente |
 | 9 | **U-mir** I.2 Il mir: da questionario a gioco | unità | Opus | S1, K4 | fatto (PR #55) |
-| 10 | **U-citta** I.3 In città: un salario che mette alle strette e il confronto di fine atto | unità | Sonnet | S1, K4 | da fare |
+| 10 | **U-citta** I.3 In città: un salario che mette alle strette e il confronto di fine atto | unità | Sonnet | S1, K4 | fatto (PR #56) |
 | 11 | **U-servitu** I.1 La terra e lo zar: rifiniture | unità | Sonnet | S1, K4 | da fare |
 | 12 | **C-I** Il docente prova l'Atto I dal telefono | controllo | — | U-mir, U-citta, U-servitu | da fare |
 | 13 | **U-soviet** II.2 Il soviet: notizie che contano | unità | Opus | S1 | da fare |
@@ -144,6 +144,8 @@ Unità del canone: `citta`.
 - Didattica (PERCORSO §7): gli obiettivi dell'unità nel canone guidano gioco e testi; «Cosa ti devi ricordare» dice gli obiettivi in parole semplici; almeno una verifica formativa legata a un obiettivo, scritta con la skill `verifiche-didattiche`; due aneddoti concreti con le fonti registrate.
 
 È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche; domanda, obiettivi, verifica legata a un obiettivo, «Cosa ti devi ricordare», concetti, chiusura, fonti registrate; scene proprie); Test di bilanciamento del salario: la mossa fissa non regge tutte le settimane; almeno tre strategie con esiti diversi; Controlli comuni G1–G5 passati (METODO §7).
+
+Evidenze: docs/evidence/U-citta/, tests/laika-citta.test.js, docs/laika/giochi/salario.md.
 
 ## U-servitu — I.1 La terra e lo zar: rifiniture
 
