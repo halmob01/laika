@@ -1,14 +1,14 @@
-# Passaggio di consegne (5 novembre 2026)
+# Passaggio di consegne (5 novembre 2026, sera)
 
 Per un nuovo agente che continua il piano. Si legge dopo [AGENTS.md](../../AGENTS.md) e prima di `npm run prossimo`. Quello che qui è «fatto» sta in `main`; dove non è così è scritto.
 
 ## 1. Dove siamo
 
-- **In `main`:** S1, K1, K2, K4, K6, K7, U-otto-giorni, U-pane-guerra, U-mir, U-citta, U-servitu, U-soviet; C-I e C-III preparate (la pagina per il docente c'è, la prova la fa il docente: «aspetta il docente», non blocca il piano).
-- **U-petizione (II.1), PR #61:** unita il 5 novembre 2026 con l'ok del docente.
-- **U-concessioni (II.3), PR #62:** unita. **H-testi (la home), PR #63:** vedi sotto; se la PR è già unita `npm run prossimo` dice U-stolypin.
-- **Da fare, nell'ordine del piano:** U-stolypin (II.4), C-II (prova del docente: solo pagina, come C-I), K3 (ponte fra gli atti e famiglia), U-sito, V-1917, C-1917. `npm run prossimo` stampa il messaggio giusto.
-- **Dal docente in attesa:** prove C-I, C-III (e poi C-II, C-1917); conferma del gioco di II.1 (nel canone `stato_gioco` è «da confermare»: l'ha scelto l'agente); chiarimento sui disegni sospesi (corretti: vedi sotto).
+- **In `main` (5 novembre 2026, sera):** S1, K1, K2, K4, K6, K7; unità U-otto-giorni, U-pane-guerra, U-mir, U-citta, U-servitu, U-soviet, U-petizione (PR #61), U-concessioni (PR #62), U-stolypin (PR #64); H-testi, i testi della home del docente (PR #63); C-I e C-III preparate (pagine per il docente, «aspetta il docente»).
+- **PR #65 (C-II, branch `c-ii`, solo documenti):** pagina `docs/laika/revisioni/atto-II-per-il-docente.md`, piano e STATO aggiornati. **Non unita**: aspetta la CI (Chromium e WebKit) sull'ultima head. Appena verde si unisce con `expectedHeadSha` (`merge_method: merge`): l'ok del docente a unire le PR degli incarichi a CI verde vale (D-038, D-039). Questo passaggio è nello stesso branch: controlla che la run sia quella dell'ultima head.
+- **Dopo C-II: K3** (ponte fra gli atti e famiglia), poi U-sito, V-1917, C-1917. `npm run prossimo` stampa il messaggio giusto.
+- **Il piano di adesso finisce con C-1917.** Il docente ha detto di **non aggiungere** per ora gli Atti IV e V al piano.
+- **Dal docente in attesa:** prove C-I, C-II, C-III (e poi C-1917); conferma dei giochi di II.1, II.3 e II.4 (nel canone `stato_gioco` è «da confermare»: li ha scelti l'agente).
 
 ## 2. Come si lavora (lezioni di questi giorni)
 
@@ -23,7 +23,7 @@ Per un nuovo agente che continua il piano. Si legge dopo [AGENTS.md](../../AGENT
 
 ## 3. Come si verifica (comandi)
 
-- `npm test` (circa 8 minuti, tutto verde: 180 test in `main` dopo K7 e il soviet, 184 con la petizione); `npm run build:laika` dopo ogni modifica ai sorgenti in `games/laika/source/`; `npm run piano`, `npm run canone`.
+- `npm test` (circa 8 minuti, tutto verde: 192 test in `main` dopo U-stolypin); `npm run build:laika` dopo ogni modifica ai sorgenti in `games/laika/source/`; `npm run piano`, `npm run canone`.
 - `npm run test:browser` completo e WebKit **solo in CI**. In locale: `node scripts/browser-i1-solo.cjs` (Atto I, desktop e telefono, circa 6 minuti, spegni prima un altro server su 4173).
 - Allievo finto: `npm run serve` (o `python3 -m http.server 4173`: **muore a ogni riavvio della sessione, controlla `curl localhost:4173`**) poi `OUT=/tmp/allievo node scripts/allievo-finto.cjs` in background (circa 10 minuti, non in primo piano: il limite dei comandi è 2 minuti). Gioca tutto l'Atto I e passa per l'Atto II; scrive trascrizione e schermate.
 - Percorsi sul telefono (390x844) con misura delle etichette: `node scripts/percorso-soviet-telefono.cjs`, `node scripts/percorso-petizione-telefono.cjs`; si copiano per le altre unità a gestione.
@@ -46,18 +46,19 @@ Per un nuovo agente che continua il piano. Si legge dopo [AGENTS.md](../../AGENT
 
 ## 6. Che cosa resta aperto (da non perdere)
 
-- **Fatti da riscontrare su un libro** (registrati in MATRICE, non nei testi come note): Gapon alla guida del corteo e lo zar non in città; il contenuto della petizione (otto ore, assemblea eletta, fine della guerra); la cronologia di dettaglio dei giorni del soviet; multe e negozio a credito del salario.
-- **Il diario personalizzato di I.3-e7** (chi è partito e chi è rimasto) aspetta K3.
-- **`tratta_prefetto`:** lo imposta il soviet (II.2) e lo legge II.3 (U-concessioni, dal 5 novembre 2026: «Il ministro» se è vero, «Lo sciopero» se è falso). Restano senza effetti a valle i flag di II.4 (`uscita_dal_mir`, `stolypin_resta`, `stolypin_vende`).
-- **Linea del soviet** e le altre metriche di II.1-II.2 sono solo dell'unità; II.4 legge solo i flag dichiarati (`uscita_dal_mir`, `stolypin_resta`, `stolypin_vende`) che non hanno ancora effetti a valle.
-- **Tabellone di I.1 sul telefono** resta alto (circa 2000 px con il pannello chiuso): un'idea è accorciare ancora la sezione della semina; oggi non è un difetto bloccante.
-- **Fiducia nello zar** arriva a 100 in quattro piani su sei in II.1: distingue poco come indicatore (osservazione non bloccante di G4).
+- **Fatti da riscontrare su un libro** (in MATRICE, mai nei testi come note): Gapon alla guida del corteo e lo zar non in città; il contenuto della petizione; la cronologia di dettaglio del soviet; multe e negozio a credito del salario; il contenuto del Manifesto e la durata delle Dume; la data e il contenuto del decreto di Stolypin; la «cravatta di Stolypin» (Montefiore, non in archivio). Nessun secondo aneddoto trovato per II.4 e per mir e soviet.
+- **Il diario personalizzato di I.3-e7** (chi è partito e chi è rimasto) e il diario di fine Atto II aspettano K3.
+- **Flag senza effetti a valle:** `uscita_dal_mir`, `stolypin_resta`, `stolypin_vende` (II.4) nessuna unità dopo li legge ancora: è un compito di K3. `tratta_prefetto` (soviet) è letto da II.3.
+- **Osservazioni non bloccanti dell'ultima revisione (U-stolypin):** il legame riforma-repressione vive nei testi più che nella meccanica (la scelta fra le tre strade non tocca l'ombra dei tribunali); «Lavorare il podere» sta nella colonna di destra della scena; la «cravatta di Stolypin» va riscontrata su Montefiore; il modello dichiarato in atto-2 («Opus gioco») e nel piano (Sonnet) differiscono.
+- **Tabellone di I.1 sul telefono** resta alto (circa 2000 px con il pannello chiuso). **Fiducia nello zar** arriva a 100 in quattro piani su sei in II.1.
+- **Tre giochi su quattro dell'Atto II sono a punti azione** (II.2, II.3, II.4): il docente dovrebbe dire se sono troppo simili (domanda già in C-II).
 - **WebKit** gira solo in CI; nessun telefono vero è stato provato.
-- **Home** a 626 KB contro il budget di 500; «Riprendi» non compare se si è appena entrati in un'unità senza agire (vedi STATO, «Restano»).
+- **Home** a circa 659 KB contro il budget di 500 (compito di U-sito); «Riprendi» non compare se si è appena entrati in un'unità senza agire (vedi STATO, «Restano»).
+- **Aggiornare i documenti alla fine di tutto il piano** (richiesta del docente): STATO, PASSAGGIO, PIANO-1917.
 
 ## 7. Prossimi passi, in ordine
 
-1. **U-concessioni (II.3), PR #62:** unita il 5 novembre 2026 (dopo due «non passa» corretti e l'ok del docente).
-2. **H-testi, PR #63:** testi della home del docente in `index.html`; se non è ancora unita controlla la CI e unisci.
-3. U-stolypin (II.4): gioco e confronto di fine atto; gli effetti dei flag di Stolypin a valle.
-4. C-II (pagina per il docente come C-I), K3, U-sito, V-1917, C-1917.
+1. **Unire la PR #65 (C-II)** quando la CI è verde sull'ultima head; poi `git checkout main && git pull`.
+2. **K3** (incarico di motore, Opus consigliato): flag e righe del diario che passano da un atto al successivo (oggi lo stato riparte da capo); contenuti: l'episodio breve «Che cosa porti con te» all'inizio degli Atti II e III, i tre effetti differiti previsti dalle schede (chi parte per la città, il soviet e le concessioni, il raccolto e la coda), il filo della famiglia in ogni unità; usa i flag di Stolypin. Test: un flag dell'Atto I cambia un testo dell'Atto II e uno dell'Atto III. Leggi `docs/laika/PERCORSO.md` §5 (la famiglia), `docs/CREARE-UN-GIOCO.md` (`carries`, effetti differiti `delayed`). Un incarico di motore ha la sua PR, la sua voce in CREARE-UN-GIOCO e la revisione G4.
+3. **U-sito:** home entro 500 KB, «Riprendi» dopo un ingresso diretto, pagine lunghe.
+4. **V-1917 e C-1917.**
