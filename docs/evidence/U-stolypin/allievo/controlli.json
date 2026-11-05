@@ -1,0 +1,14 @@
+{
+ "passi": 448,
+ "tocchi": 622,
+ "controlli": {
+  "partita arrivata al riepilogo finale": true,
+  "nessuna pagina senza comandi": true,
+  "nessun errore nella console": true,
+  "nessuna didascalia generica «Scena della simulazione»": true,
+  "nessun numero negativo nelle previsioni": true,
+  "nessuna nota di lavoro nei testi (D-010)": true,
+  "nessun «anime e semidei» (D-037)": true,
+  "nessun pulsante «Torna a casa» nelle giornate a punti azione": true
+ }
+}

@@ -58,15 +58,18 @@ Divisione in quattro unità decisa il 4 novembre 2026 (D-024, D-038). Le schede 
 
 ## II.4 — Stolypin (novembre 1906–1911) · `stolypin`
 
-**II.4-e1 · choice [S] · Stolypin**
-- **Scena.** Novembre 1906: la famiglia può uscire dal mir e unire le strisce in un podere. Restare, uscire e consolidare, vendere e partire. Intanto il cappio dei tribunali militari si chiama «la cravatta di Stolypin».
-- **Materiali.** Montefiore, «cravatta di Stolypin».
-- **Chi la sviluppa.** Sonnet.
+**II.4-e1 · turn_game [S] · Il podere e il mir** (riscritta il 5 novembre 2026 come gestione di quattro anni, scheda [stolypin](../giochi/stolypin.md); la scheda precedente, una scelta unica, è in [docs/archivio](../../archivio/ATTO-2-II4-e1-v1-2026-11-05.md))
+- **Scena.** Novembre 1906–1911: la famiglia può uscire dal mir e unire le strisce in un podere. Quattro anni (1906, 1907, 1909, 1911) da quattro punti: restare, uscire e consolidare o vendere e partire; ogni strada apre azioni sue (assemblea, steccato e prestito, fabbrica e parenti) e le conseguenze (pane, aiuto dei vicini, debiti) si sommano. Intanto l'ombra dei tribunali militari sale se si apre la casa a riunioni del villaggio: la corda si chiama «la cravatta di Stolypin».
+- **Sotto la scena.** Che cosa cambia e che cosa resta dopo il 1905?
+- **Materiali.** Montefiore, «cravatta di Stolypin» (MATRICE: da riscontrare); appunti sulla riforma.
+- **Chi la sviluppa.** Opus (gioco), Sonnet (testi).
+
+**II.4-e1b · narrative [D] · Cosa ti devi ricordare** (riscritto il 5 novembre 2026): la riforma consente di uscire e non abolisce il mir; riforma e repressione sono due facce della stessa politica.
 
 **II.4-e2 · assessment [V] · Verifica V4.**
 
-**II.4-e3 · narrative [D] · Confronto di fine atto** (nuovo, 4 novembre 2026)
-- **Scena.** Che cosa chiedeva la petizione, che cosa ha ottenuto lo sciopero, che cosa è rimasto dopo le Dume sciolte e la «cravatta di Stolypin». Poi il diario.
+**II.4-e3 · narrative [D] · Confronto di fine atto** (costruito il 5 novembre 2026)
+- **Scena.** La petizione portata in supplica e finita sotto i fucili, lo sciopero e il Manifesto, la Duma senza pieni poteri e le Dume sciolte, la «cravatta di Stolypin»: quattro segni in fila (l'icona del corteo, la bandiera, il Palazzo di Tauride e il podere). Il diario della famiglia aspetta K3.
 - **Chi la sviluppa.** Opus (raccordo d'atto).
 
 **Confronto obbligatorio.** Nessuna scelta riguarda lo sparare. Il soviet del 1905 è un contropotere, non un governo. La Duma non nasce a suffragio universale né con pieni poteri. Stolypin consente di uscire dal mir, non lo abolisce.

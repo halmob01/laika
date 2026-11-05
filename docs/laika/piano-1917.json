@@ -593,7 +593,13 @@
         "Test di bilanciamento",
         "Controlli comuni G1–G5 passati (METODO §7)"
       ],
-      "stato": "da fare"
+      "stato": "fatto",
+      "pr": 64,
+      "evidenze": [
+        "docs/evidence/U-stolypin/",
+        "tests/laika-stolypin.test.js",
+        "docs/laika/giochi/stolypin.md"
+      ]
     },
     {
       "id": "C-II",
