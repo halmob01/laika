@@ -68,7 +68,7 @@
       "id": "stalla-cantiere",
       "simbolo": "campagna-stalla-cantiere",
       "x": 600,
-      "y": 590,
+      "y": 613,
       "scala": 0.8,
       "nascosto": true
     },
@@ -76,7 +76,7 @@
       "id": "stalla-finita",
       "simbolo": "campagna-stalla-finita",
       "x": 600,
-      "y": 590,
+      "y": 613,
       "scala": 0.8,
       "nascosto": true
     },
@@ -84,7 +84,7 @@
       "id": "bosco-cantiere",
       "simbolo": "campagna-bosco-cantiere",
       "x": 880,
-      "y": 585,
+      "y": 615,
       "scala": 0.75,
       "nascosto": true
     },
@@ -92,7 +92,7 @@
       "id": "bosco-finito",
       "simbolo": "campagna-bosco-finito",
       "x": 880,
-      "y": 585,
+      "y": 615,
       "scala": 0.75,
       "nascosto": true
     },
@@ -108,7 +108,7 @@
       "id": "granaio",
       "simbolo": "campagna-granaio",
       "x": 1040,
-      "y": 600,
+      "y": 612,
       "scala": 0.55
     },
     {

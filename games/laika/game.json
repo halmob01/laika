@@ -49935,7 +49935,7 @@
           "parent": "world",
           "pose": {
             "translateX": 600,
-            "translateY": 590,
+            "translateY": 613,
             "scale": 0.8
           },
           "opacity": 0
@@ -49946,7 +49946,7 @@
           "parent": "world",
           "pose": {
             "translateX": 600,
-            "translateY": 590,
+            "translateY": 613,
             "scale": 0.8
           },
           "opacity": 0
@@ -49957,7 +49957,7 @@
           "parent": "world",
           "pose": {
             "translateX": 880,
-            "translateY": 585,
+            "translateY": 615,
             "scale": 0.75
           },
           "opacity": 0
@@ -49968,7 +49968,7 @@
           "parent": "world",
           "pose": {
             "translateX": 880,
-            "translateY": 585,
+            "translateY": 615,
             "scale": 0.75
           },
           "opacity": 0
@@ -49990,7 +49990,7 @@
           "parent": "world",
           "pose": {
             "translateX": 1040,
-            "translateY": 600,
+            "translateY": 612,
             "scale": 0.55
           }
         },
