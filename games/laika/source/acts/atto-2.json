@@ -589,7 +589,7 @@
               },
               {
                 "id": "tavolo",
-                "label": "Trattare in nome del soviet (se la sala segue i moderati · costa due punti)",
+                "label": "Trattare in nome del soviet (se la sala segue i moderati)",
                 "short": "Il prefetto",
                 "cost": 2,
                 "when": {
@@ -628,7 +628,7 @@
               },
               {
                 "id": "treni",
-                "label": "Fermare anche i treni (se la sala segue i radicali · costa due punti)",
+                "label": "Fermare anche i treni (se la sala segue i radicali)",
                 "short": "I treni",
                 "cost": 2,
                 "when": {
@@ -947,7 +947,7 @@
               },
               {
                 "id": "tavolo",
-                "label": "Trattare in nome del soviet (se la sala segue i moderati · costa due punti)",
+                "label": "Trattare in nome del soviet (se la sala segue i moderati)",
                 "short": "Il prefetto",
                 "cost": 2,
                 "when": {
@@ -986,7 +986,7 @@
               },
               {
                 "id": "treni",
-                "label": "Fermare anche i treni (se la sala segue i radicali · costa due punti)",
+                "label": "Fermare anche i treni (se la sala segue i radicali)",
                 "short": "I treni",
                 "cost": 2,
                 "when": {
@@ -1320,7 +1320,7 @@
               },
               {
                 "id": "tavolo",
-                "label": "Trattare in nome del soviet (se la sala segue i moderati · costa due punti)",
+                "label": "Trattare in nome del soviet (se la sala segue i moderati)",
                 "short": "Il prefetto",
                 "cost": 2,
                 "when": {
@@ -1359,7 +1359,7 @@
               },
               {
                 "id": "treni",
-                "label": "Fermare anche i treni (se la sala segue i radicali · costa due punti)",
+                "label": "Fermare anche i treni (se la sala segue i radicali)",
                 "short": "I treni",
                 "cost": 2,
                 "when": {
@@ -1442,7 +1442,7 @@
         "kind": "documented",
         "dateLabel": "ottobre 1905"
       },
-      "text": "Il soviet del 1905 è un consiglio di delegati che coordina uno sciopero: un contropotere e non un governo. A Pietroburgo ne fanno parte operai, soldati e studenti.\n\nLe notizie arrivano a pezzi e ognuna si può leggere in due modi: la lettura prudente dei moderati e quella dura dei radicali. Dare peso all'una o all'altra non è un dettaglio: sposta la sala e cambia che cosa si può fare i giorni dopo.\n\nOgni punto speso è un punto che non spendi altrove. Chi decide con notizie incomplete sceglie spesso in base a chi gliele racconta.",
+      "text": "Il soviet del 1905 è un consiglio di delegati che coordina uno sciopero: un contropotere e non un governo. Ne fanno parte operai, militari e studenti.\n\nLe notizie arrivano a pezzi e ognuna si può leggere in due modi: la lettura prudente dei moderati e quella dura dei radicali. Dare peso all'una o all'altra non è un dettaglio: sposta la sala e cambia che cosa si può fare i giorni dopo.\n\nOgni punto speso è un punto che non spendi altrove. Chi decide con notizie incomplete sceglie spesso in base a chi gliele racconta.",
       "stageId": "soviet-sala",
       "motionId": "ingresso",
       "visualExplanation": "La sala del soviet con il tavolo, il telegrafo e la bandiera rossa senza scritte. Gli indicatori sono indici della simulazione: non sono dati storici né voti.",

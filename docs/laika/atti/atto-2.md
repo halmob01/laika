@@ -41,6 +41,8 @@ Divisione in quattro unità decisa il 4 novembre 2026 (D-024, D-038). Le schede 
 
 ## II.3 — Che cosa concede lo zar (ottobre 1905–giugno 1907) · `concessioni`
 
+**Dal soviet (II.2).** Il flag `tratta_prefetto` dice se il soviet ha trattato col prefetto: II.3 dovrà leggerlo (U-concessioni) per aprire o chiudere un'opzione su che cosa concede lo zar.
+
 **II.3-e1 · source_comparison [F] · Che cosa concede lo zar**
 - **Scena.** Il granduca Nikolaj minaccia di spararsi se lo zar non firma il Manifesto di ottobre. Accanto: il Manifesto del 30 ottobre (g. 17); le Leggi fondamentali del 1906, che chiamano ancora «autocratico» il potere dello zar; la cronologia delle due Dume sciolte. Dopo Tsushima, a teatro, il pubblico grida alla ballerina Baletta, amante del capo della Marina, che porta addosso le corazzate perdute (C36).
 - **Sotto la scena.** Una concessione strappata è un diritto o una tregua?

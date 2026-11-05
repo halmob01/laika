@@ -70,7 +70,7 @@ test('Il soviet: seguire una lettura o l\'altra porta a esiti diversi', () => {
   assert.ok(mod.linea <= 44 && rad.linea >= 56, 'la linea segue la lettura scelta: ' + mod.linea + ' e ' + rad.linea);
   assert.ok(Math.abs(mod.repressione - rad.repressione) >= 10, 'la repressione cambia: ' + mod.repressione + ' contro ' + rad.repressione);
   assert.ok(rad.sciopero - mod.sciopero >= 10, 'i radicali allargano lo sciopero: ' + rad.sciopero + ' contro ' + mod.sciopero);
-  assert.ok(mod.trattato && !rad.trattato, 'solo i moderati trattano col prefetto (il flag che II.3 legge)');
+  assert.ok(mod.trattato && !rad.trattato, 'solo i moderati trattano col prefetto (il flag che II.3 dovrà leggere)');
   // Chi dà peso a entrambi non sblocca niente: la linea resta nel mezzo.
   assert.ok(mista.linea > 44 && mista.linea < 56, 'dare peso a entrambi lascia la linea al centro: ' + mista.linea);
   // Strategie diverse, esiti diversi.
@@ -102,6 +102,9 @@ test('Il soviet: ogni azione serve, i rischi sono scritti prima, le etichette no
   const treni = ep.turns[0].market.offers.find(o => o.id === 'treni'), eff = (o, id) => o.effects.find(x => x.id === id)?.delta;
   assert.ok(eff(treni, 'sciopero') > 0 && eff(treni, 'repressione') > 0, 'fermare i treni allarga lo sciopero e alza la repressione');
   const tavolo = ep.turns[0].market.offers.find(o => o.id === 'tavolo');
+  assert.equal(tavolo.cost, 2, 'trattare costa due punti'); assert.equal(treni.cost, 2, 'fermare i treni costa due punti');
+  const distribuire = ep.turns[0].market.offers.find(o => o.id === 'distribuire');
+  assert.deepEqual(distribuire.when, { op: 'gte', kind: 'metric', id: 'fondi', value: 10 }, 'si distribuisce solo se in cassa ci sono almeno 10');
   assert.ok(eff(tavolo, 'repressione') < 0 && tavolo.effects.some(x => x.id === 'tratta_prefetto'), 'trattare abbassa la repressione e segna il flag');
   for (const turn of ep.turns) assert.equal(turn.market.points, 5);
   const d = ep.turns[0].market.offers.find(o => o.id === 'delegato');

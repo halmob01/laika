@@ -13,7 +13,7 @@ Scheda di gioco dell'unità `soviet` (canone: II.2). Versione 2 (costruita) · 5
 2. **Dare più peso ai moderati** o **ai radicali** (l'etichetta dice «dopo aver indagato»; una volta ciascuno al giorno): la linea del soviet si sposta di 12 punti. Dare peso a tutte e due la lascia al centro.
 3. **Mandare un delegato** dove lo sciopero esita (ripetibile, incerto: la probabilità cresce con le notizie capite).
 4. **Distribuire pane e fondi** della cassa (ripetibile; solo se in cassa ci sono almeno 10).
-5. **Trattare in nome del soviet** (due punti): si apre solo se la sala segue i moderati (linea 44 o meno); abbassa molto la repressione e mette il flag `tratta_prefetto`. **II.3 non lo legge ancora**: la scheda di II.3 in [atto-2](../atti/atto-2.md) dice che dovrà leggerlo.
+5. **Trattare in nome del soviet** (due punti): si apre solo se la sala segue i moderati (linea 44 o meno), anche nello stesso giorno in cui si dà peso (la linea passa da 50 a 38); abbassa molto la repressione e mette il flag `tratta_prefetto`. **II.3 non lo legge ancora**: lo dicono la scheda di II.2 e II.3 in [atto-2](../atti/atto-2.md) (U-concessioni dovrà leggerlo).
 6. **Fermare anche i treni** (due punti): si apre solo se la sala segue i radicali (linea 56 o più); allarga lo sciopero ma alza la repressione.
 
 **Le letture che contano.** La linea resta da un giorno all'altro. Il giorno dopo una card racconta che la sala ha seguito i moderati o i radicali e le azioni a due punti si aprono o si chiudono di conseguenza: la scelta cambia che cosa si può fare nei giorni dopo, non solo i numeri di oggi. Ogni giorno si indaga di nuovo prima di poter dare peso.
