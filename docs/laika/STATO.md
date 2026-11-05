@@ -16,6 +16,8 @@ Aggiornato al 5 novembre 2026.
 
 **K1 fatto** (motore della coda con la pazienza; revisione indipendente al primo giro: passa): modulo `src/core/queue.js` e test, pannello «La coda» nel gioco, tre pose di attesa (`guarda_orologio`, `batte_piedi`, `si_stringe`), scena di prova `esempio-coda-pazienza` nella galleria, sezione in `docs/CREARE-UN-GIOCO.md`. Evidenze in `docs/evidence/K1/`.
 
+**C-I pronto** (5 novembre 2026): la pagina per la prova dell'Atto I dal telefono è in `docs/laika/revisioni/atto-I-per-il-docente.md`. L'incarico aspetta il docente e non blocca il piano.
+
 **K7 fatto** (motore, 5 novembre 2026): un giudizio dell'anno può valere solo se una risorsa è arrivata al minimo durante l'anno (`verdicts[].floored`), anche quando la crisi è già scattata. Nasce dalla revisione di U-servitu. Evidenze in `docs/evidence/K7/`.
 
 **U-servitu fatto** (I.1 rifiniture, 5 novembre 2026): un solo giudizio dell'anno coerente con la previsione (giudizio «Fame» con `floored`, K7: vale anche quando le crisi sono già scattate); sul telefono i lavori lunghi in un pannello e le etichette dei posti dentro la scena (tabellone sul telefono da circa 2390 px a circa 2000 px con il pannello chiuso; con il pannello aperto resta circa 2430 px); disegni sospesi nel vuoto corretti nelle scene `servitu-anime`, `servitu-feste` e `servitu-anno`. La scena delle utopie con la colonia (K4) era già in `main`. Evidenze in `docs/evidence/U-servitu/`.
