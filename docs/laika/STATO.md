@@ -4,6 +4,8 @@ A che punto è ogni cosa, con le evidenze. Si aggiorna in ogni PR. La struttura 
 
 Aggiornato al 5 novembre 2026.
 
+**Per un nuovo agente: leggere prima [PASSAGGIO](PASSAGGIO.md)** (dove siamo, come si lavora, come si verifica, che cosa resta aperto). La PR #61 (U-petizione) può non essere ancora unita: lo dice il passaggio.
+
 ## Adesso
 
 **Riordino finito** ([RIORDINO](RIORDINO.md)). Il gioco segue il canone: tre atti fino al 1917, unità con i nomi stabili, identificatori degli episodi derivati dai nomi (`a1-citta-salario`, `a2-soviet-giornate`, `a3-otto-giorni-coda`). Il build legge titoli, periodi e domande dal canone e si ferma se gli atti o le unità non coincidono; `tests/canone.test.js` e `tests/units.test.js` lo controllano anche per la home.

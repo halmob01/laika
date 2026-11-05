@@ -18,6 +18,7 @@ Quando due documenti dicono cose diverse vale il primo di questa lista; l'altro 
 | [DECISIONI](laika/DECISIONI.md) | Decisioni del docente, proposte degli agenti, domande aperte | Sempre, prima di cambiare qualcosa di importante |
 | [CANONE](laika/CANONE.md) | Struttura del percorso (generato) | Prima di lavorare su un'unità |
 | [STATO](laika/STATO.md) | Che cosa c'è in `main` e che cosa manca, con le evidenze | All'inizio e alla fine di ogni PR |
+| [PASSAGGIO](laika/PASSAGGIO.md) | Passaggio di consegne a un nuovo agente: dove siamo, come si lavora, come si verifica, che cosa resta aperto | Quando si riprende il lavoro |
 | [PERCORSO](laika/PERCORSO.md) | Che cosa deve accadere allo studente, l'arco, i fili, la famiglia, le regole comuni degli atti | Per capire il progetto |
 | [atti/atto-1.md](laika/atti/atto-1.md) … [atto-9.md](laika/atti/atto-9.md) | Schede degli episodi, un file per atto | Quando si costruisce un'unità di quell'atto |
 | [GIOCHI](laika/GIOCHI.md) | Forme di gioco e regole comuni | Quando si progetta o si costruisce un gioco |
