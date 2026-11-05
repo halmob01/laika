@@ -1,0 +1,7 @@
+# Evidenze di U-servitu (I.1 La terra e lo zar: rifiniture, 5 novembre 2026)
+
+- `trascrizione-allievo-I1.md`: partita completa dell'allievo finto (`npm run allievo`, telefono 390x844, scelte casuali con seme 7); tutti i controlli finali «ok», nessun «−0», il giudizio «Fame» compare quando il grano è finito prima del raccolto. L'allievo apre ogni tanto il pannello dei lavori lunghi (righe «APRO il pannello»).
+- `011-tabellone-telefono-pannello-aperto.png`: il tabellone della settimana sul telefono con il pannello «Lavori lunghi» aperto (altezza 1970 px; prima 2400 px; con il pannello chiuso, che è lo stato di partenza sul telefono, circa 1600 px). `016-scena-anno-telefono.png`, `007-anime-telefono.png`: le scene sul telefono con tenuta, granaio e cartelli sull'orizzonte.
+- `prima/` e `dopo/`: le scene `servitu-anime`, `servitu-feste` e `servitu-anno` prima e dopo la correzione dei disegni sospesi nel vuoto segnalati dal docente (cartelli con il palo che finiva in aria, tenute e chiesa a 4 unità sopra l'orizzonte, banchina della corte senza terra sotto, granaio, stalla e bosco sopra la linea del campo).
+- Test: `tests/laika-servitu.test.js` (il giudizio dell'anno dice la fame solo quando il grano è finito prima del raccolto; il pannello e le etichette dentro la scena), `tests/laika-i1.test.js` (bilanciamento e generazioni), `tests/unita-ludiche.test.js`.
+- Limite: `npm run test:browser` non rieseguito in locale; si affida alla CI su Chromium e WebKit.

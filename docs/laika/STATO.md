@@ -16,6 +16,8 @@ Aggiornato al 5 novembre 2026.
 
 **K1 fatto** (motore della coda con la pazienza; revisione indipendente al primo giro: passa): modulo `src/core/queue.js` e test, pannello «La coda» nel gioco, tre pose di attesa (`guarda_orologio`, `batte_piedi`, `si_stringe`), scena di prova `esempio-coda-pazienza` nella galleria, sezione in `docs/CREARE-UN-GIOCO.md`. Evidenze in `docs/evidence/K1/`.
 
+**U-servitu fatto** (I.1 rifiniture, 5 novembre 2026): un solo giudizio dell'anno coerente con le crisi del grano (flag `crisi_anno`, giudizio «Fame»); sul telefono i lavori lunghi in un pannello e le etichette dei posti dentro la scena (tabellone da 2400 a circa 1600 px); disegni sospesi nel vuoto corretti nelle scene `servitu-anime`, `servitu-feste` e `servitu-anno`. La scena delle utopie con la colonia (K4) era già in `main`. Evidenze in `docs/evidence/U-servitu/`.
+
 **U-citta fatto** (I.3 In città, 5 novembre 2026): il salario ribilanciato con le pressioni della scheda v2 (affitto che sale a tre monete, freddo lungo, settimana di sette monete, multa), la regola G3 fissata in `tests/laika-citta.test.js` (nessuna mossa fissa regge, esiste una strategia senza crisi, nessuna domina); nuovo confronto di fine atto I.3-e7 «Il villaggio e la fabbrica» con la scena `citta-confronto`. Il diario personalizzato aspetta K3. Evidenze in `docs/evidence/U-citta/`.
 
 **U-mir fatto** (I.2 Il mir, 4 novembre 2026): da questionario con barre a gestione, con sei strisce da assegnare a quattro gruppi, la cassa del riscatto come obbligo comune, l'esattore e il raccolto incerti, le richieste dopo l'esito; «Cosa ti devi ricordare» e verifica V7 (obiettivo: distinguere il mir da un soviet e da una democrazia moderna); nessun aneddoto trovato per il mir. Test di bilanciamento sul motore vero. Evidenze in `docs/evidence/U-mir/`.
@@ -40,7 +42,7 @@ Nessuna è ancora stata provata e approvata dal docente dal telefono.
 
 | Unità | Che cosa c'è | Che cosa manca | Evidenze |
 |---|---|---|---|
-| I.1 `servitu` | La settimana del servo: otto anni dal 1740 al 1861, cinque generazioni, migliorie, fiera, chi bussa, verifica V1 | Previsione ed esito del grano che si contraddicono; numeri negativi; pagina lunga sul telefono | `tests/browser-i1.cjs`; [revisione del 4 novembre](revisioni/2026-11-04-allievo-atto-I.md) |
+| I.1 `servitu` | La settimana del servo: otto anni dal 1740 al 1861, cinque generazioni, migliorie, fiera, chi bussa, verifica V1 | Risolti il 5 novembre 2026 (U-servitu): previsione ed esito del grano coerenti, nessun numero negativo, tabellone più corto sul telefono, disegni non più sospesi nel vuoto | `tests/browser-i1.cjs`; [revisione del 4 novembre](revisioni/2026-11-04-allievo-atto-I.md) |
 | I.2 `mir` | Otto assemblee, quattro gruppi | È un questionario con barre: niente da gestire fra una richiesta e l'altra | revisione del 4 novembre §5 |
 | I.3 `citta` | In città, il salario (otto settimane), il razzo, la corte, i tre volantini, verifica V2, confronto di fine atto | Risolti il 5 novembre 2026 (U-citta): il salario ora mette alle strette e c'è il confronto di fine atto | revisione §5 |
 | Atto II (II.1–II.4) | Petizione e domenica di sangue (II.1), giornate del soviet a punti azione e V3 (II.2), che cosa concede lo zar (II.3), Stolypin, V4 e «Cosa ti devi ricordare» (II.4) | giochi di petizione, concessioni e Stolypin; aneddoti dei libri (diario di Nicola, il granduca, Baletta); le notizie del soviet non servono a niente; confronto di fine atto | revisione §3 e §5 |
