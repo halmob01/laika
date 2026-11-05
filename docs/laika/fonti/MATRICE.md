@@ -242,3 +242,15 @@ Da riscontrare: la cronologia dei giorni 17–19 ottobre (usata solo come cornic
 | II.1-e1 / gioco | Le righe, i promotori, le sere, i numeri | Nessuna | Simulazione, dichiarata nel testo e nell'`editorial` |
 
 Aneddoti dell'unità: due con la fonte registrata (il cannone del 6 gennaio e il diario di Nicola, Montefiore) più la voce di Serge (atlante R01).
+
+## II.3 «Che cosa concede lo zar» — riscontri del 5 novembre 2026 (U-concessioni)
+
+| Dove | Che cosa si dice | Fonte | Esito |
+|---|---|---|---|
+| II.3-e1 / carta della ballerina (C36) | Dopo Tsushima, a teatro, il pubblico riconosce la ballerina Eliza Baletta, amante del granduca Aleksej già responsabile della Marina, e le grida che «indossa le nostre corazzate» («You're wearing our battleships!») | Atlante degli aneddoti, C36 (`references/fonti/atlanti/LAIKA_ATLANTE_ANEDDOTI_E_FRASI_COMPLETO.md`): Montefiore, grido riferito da fonti narrative | Confermato sull'atlante; il testo lo attribuisce a Montefiore e dice che non è un fatto da tribunale. Montefiore non è in archivio: nessuna citazione letterale |
+| II.3-e1 / granduca Nikolaj | Il granduca Nikolaj minaccia di spararsi se lo zar non firma il Manifesto («mi sparerò») | Solo citato in `docs/laika/fonti/LIBRI.md` e nella scheda dell'atto | **Non riscontrato** nelle fonti dell'archivio: non si usa nel testo dello studente; resta da riscontrare su Montefiore |
+| II.3-e1 e e2 / Manifesto, Leggi fondamentali, Dume sciolte | Il Manifesto promette libertà civili e una Duma eletta; le Leggi fondamentali del 1906 chiamano ancora autocratico il potere dello zar e la Duma ha una funzione consultiva; lo zar scioglie la prima Duma dopo pochi mesi e poi anche la seconda | Appunti «La Rivoluzione Russa», paragrafo «RIFORMA POLITICA» (la duma, funzione consultiva, sciolta); il resto è sintesi per il gioco (MATRICE A1-04) | Gli appunti confermano la Duma consultiva e lo scioglimento; il contenuto del Manifesto, la parola «autocratico» delle Leggi fondamentali e la durata delle Dume restano **da riscontrare** su un libro. **Correzione del 5 novembre 2026:** il testo non confronta più le durate (la seconda Duma durò più della prima, circa 103 giorni contro 72: l'«ancora meno» della vecchia scheda era sbagliato). Nota: «Duma consultiva» è la formula degli appunti; per le Leggi del 1906 è impreciso (la Duma votava le leggi, lo zar teneva il veto) |
+| II.3-e3 / ricorda e V9 | Con due fatti si può sostenere che è un diritto o una tregua; qualcosa è cambiato davvero e il potere dello zar è rimasto largo | Obiettivi del canone (II.3) e sintesi sopra | Lettura per il gioco, non una citazione |
+| II.3-e1 / gioco | Ministri, deputati, azioni e numeri | Nessuna | Simulazione, dichiarata nel testo e nell'`editorial` |
+
+Aneddoti dell'unità: uno con la fonte registrata (C36, Baletta). Il secondo (granduca Nikolaj) non si trova nelle fonti dell'archivio: non compare (METODO §7).

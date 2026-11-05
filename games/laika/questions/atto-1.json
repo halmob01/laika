@@ -270,5 +270,39 @@
         "ritorno": "ignora la rottura della fiducia"
       }
     }
+  },
+  {
+    "id": "a1-v9",
+    "prompt": "Dopo il Manifesto di ottobre del 1905, che cosa lasciano allo zar le Leggi fondamentali del 1906?",
+    "options": [
+      {
+        "id": "larghi",
+        "label": "Poteri ancora molto larghi: il suo potere è ancora chiamato autocratico e la Duma è consultiva"
+      },
+      {
+        "id": "re",
+        "label": "Quasi nessun potere: la Duma governa e lo zar firma soltanto"
+      },
+      {
+        "id": "abolito",
+        "label": "Nessun potere: la monarchia è abolita e nasce una repubblica"
+      }
+    ],
+    "correctId": "larghi",
+    "rationale": "Il Manifesto promise libertà civili e una Duma eletta, ma le Leggi fondamentali del 1906 chiamano ancora autocratico il potere dello zar e la Duma ha una funzione consultiva. Lo zar conserva poteri molto larghi.",
+    "objectives": [
+      "Dire che cosa promette il Manifesto di ottobre e che cosa lasciano allo zar le Leggi fondamentali del 1906"
+    ],
+    "source": "Episodio «Diritto o tregua?»: sintesi dagli appunti «La Rivoluzione Russa»",
+    "requiredExposureFlags": [
+      "a1-manifesto-ott"
+    ],
+    "editorial": {
+      "verifica": "V9",
+      "distrattori": {
+        "re": "scambia la Duma consultiva con un governo",
+        "abolito": "anticipa il 1917"
+      }
+    }
   }
 ]

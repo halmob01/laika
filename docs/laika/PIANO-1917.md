@@ -4,7 +4,7 @@
 
 Come si lavora in autonomia, controlli e condizioni di arresto: [METODO](METODO.md) §7. Il prossimo incarico e il messaggio da dare all'agente: `npm run prossimo`.
 
-Incarichi fatti: 13 su 22. Prossimo: U-concessioni.
+Incarichi fatti: 14 su 23. Prossimo: H-testi.
 
 | # | Incarico | Tipo | Modello | Dopo | Stato |
 |---:|---|---|---|---|---|
@@ -23,13 +23,14 @@ Incarichi fatti: 13 su 22. Prossimo: U-concessioni.
 | 13 | **C-I** Il docente prova l'Atto I dal telefono | controllo | — | U-mir, U-citta, U-servitu | aspetta il docente |
 | 14 | **U-soviet** II.2 Il soviet: notizie che contano | unità | Opus | S1 | fatto (PR #60) |
 | 15 | **U-petizione** II.1 La petizione: il gioco e la domenica di sangue | unità | Opus | S1, K4 | fatto (PR #61) |
-| 16 | **U-concessioni** II.3 Che cosa concede lo zar: il gioco e gli aneddoti | unità | Opus | S1, K4, U-soviet | da fare |
-| 17 | **U-stolypin** II.4 Stolypin: il gioco e il confronto di fine atto | unità | Sonnet | S1, K4 | da fare |
-| 18 | **C-II** Il docente prova l'Atto II dal telefono | controllo | — | U-soviet, U-petizione, U-concessioni, U-stolypin | da fare |
-| 19 | **K3** Motore e contenuti: il ponte fra gli atti e la famiglia | motore | Opus | U-citta, U-stolypin, U-pane-guerra | da fare |
-| 20 | **U-sito** Il sito sul telefono: pagine, pesi, ripresa | trasversale | Sonnet | K3 | da fare |
-| 21 | **V-1917** Verifica finale degli Atti I–III | verifica | Opus | U-sito, C-I, C-II, C-III | da fare |
-| 22 | **C-1917** Il docente prova il percorso fino al 1917 | controllo | — | V-1917 | da fare |
+| 16 | **U-concessioni** II.3 Che cosa concede lo zar: il gioco e gli aneddoti | unità | Opus | S1, K4, U-soviet | fatto (PR #62) |
+| 17 | **H-testi** La home: i testi del docente | trasversale | Sonnet | U-concessioni | da fare |
+| 18 | **U-stolypin** II.4 Stolypin: il gioco e il confronto di fine atto | unità | Sonnet | S1, K4 | da fare |
+| 19 | **C-II** Il docente prova l'Atto II dal telefono | controllo | — | U-soviet, U-petizione, U-concessioni, U-stolypin | da fare |
+| 20 | **K3** Motore e contenuti: il ponte fra gli atti e la famiglia | motore | Opus | U-citta, U-stolypin, U-pane-guerra | da fare |
+| 21 | **U-sito** Il sito sul telefono: pagine, pesi, ripresa | trasversale | Sonnet | K3 | da fare |
+| 22 | **V-1917** Verifica finale degli Atti I–III | verifica | Opus | U-sito, C-I, C-II, C-III | da fare |
+| 23 | **C-1917** Il docente prova il percorso fino al 1917 | controllo | — | V-1917 | da fare |
 
 ## S1 — Le scene delle unità già fatte con i disegni che ci sono
 
@@ -218,6 +219,16 @@ Unità del canone: `concessioni`.
 - Didattica (PERCORSO §7): gli obiettivi dell'unità nel canone guidano gioco e testi; «Cosa ti devi ricordare» dice gli obiettivi in parole semplici; almeno una verifica formativa legata a un obiettivo, scritta con la skill `verifiche-didattiche`; due aneddoti concreti con le fonti registrate.
 
 È fatto quando: Il test `tests/unita-ludiche.test.js` passa per l'unità (gioco con qualcosa da distribuire, spostare o spendere, almeno tre turni e un rischio, da 2 a 5 indicatori, nessun modulo con caselle numeriche; domanda, obiettivi, verifica legata a un obiettivo, «Cosa ti devi ricordare», concetti, chiusura, fonti registrate; scene proprie); Test di bilanciamento; Controlli comuni G1–G5 passati (METODO §7).
+
+Evidenze: docs/evidence/U-concessioni/, tests/laika-concessioni.test.js, docs/laika/giochi/concessioni.md.
+
+## H-testi — La home: i testi del docente
+
+- Inserito il 5 novembre 2026 su richiesta del docente («correggi anche i testi della home con questi»): portare in `index.html` i testi di `docs/laika/TESTI-HOME.md`. Differenze trovate: il manifesto («La rivoluzione non è un pranzo di gala. Si confida nella collaborazione dei presenti», al posto di «Il piano è stato approvato. La storia non è stata informata.», con le bande e l'accento grave della grafica attuale); Atto VI con «La rivoluzione comincia a divorare i suoi figli.»; Atto VII con il testo nuovo («La promessa di trasformare un paese contadino in una potenza industriale…»); Atto IX con «Il tentativo di cambiare tutto perché nulla finisse.».
+- Aggiornare `docs/laika/BRAND-DESIGN.md` (il tono «Il piano è stato approvato…» è citato come esempio) e controllare i test della home (`tests/home.test.js`, `tests/browser-home.cjs`: peso, righe a 360 e 390 px, accenti).
+- Non riportati nel file e lasciati invariati finché il docente non conferma: l'occhiello «Edizione didattica», «Sezione storica» sul protocollo della testata, la frase «I progressi restano in questo browser» nel piede. Il file riporta ancora «cinque righe da portare allo zar» per l'Atto II: non è più vero dopo U-petizione, la frase della home va aggiornata alla verità («Si apre con «La petizione» (gennaio 1905): tre sere alle officine Putilov, sei ore fra firme, richieste, padre Gapon e polizia») e il docente lo sa.
+
+È fatto quando: `index.html` ha i testi del docente e i test della home passano (`npm test`, `tests/browser-home.cjs` in CI); Controlli comuni G1–G5 passati (METODO §7).
 
 ## U-stolypin — II.4 Stolypin: il gioco e il confronto di fine atto
 
