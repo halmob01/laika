@@ -130,7 +130,7 @@ test('I.1: i flag non compaiono nelle variazioni mostrate e Legami è un indicat
 test('I.2 e I.3: la partita completa passa da mir, città, salario, razzo, corte e volantini fino alla V2, poi negli Atti II e III', () => {
   const r = play('solidale', 'i2', {check: true});
   const ids = game.acts[0].episodes.filter(e => /^a1-(mir|citta)-/.test(e.id)).map(e => e.id);
-  assert.deepEqual(ids, ['a1-mir-assemblea', 'a1-mir-ricorda', 'a1-mir-v7', 'a1-citta-arrivo', 'a1-citta-salario', 'a1-citta-razzo', 'a1-citta-corte', 'a1-citta-volantini', 'a1-citta-ricorda', 'a1-citta-v2']);
+  assert.deepEqual(ids, ['a1-mir-assemblea', 'a1-mir-ricorda', 'a1-mir-v7', 'a1-citta-arrivo', 'a1-citta-salario', 'a1-citta-razzo', 'a1-citta-corte', 'a1-citta-volantini', 'a1-citta-ricorda', 'a1-citta-v2', 'a1-citta-confronto']);
   assert.deepEqual(r.s.historySnapshots.map(h => h.actId), ['atto-1', 'atto-2', 'atto-3']);
   const v2 = game.acts[0].episodes.find(e => e.id === 'a1-citta-v2').question;
   assert.deepEqual(v2.requiredExposureFlags, ['a1-volantini']);

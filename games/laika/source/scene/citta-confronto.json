@@ -1,0 +1,120 @@
+{
+  "viewBox": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "camera": [
+    0,
+    0,
+    1600,
+    900
+  ],
+  "sfondo": "none",
+  "ruvido": false,
+  "id": "citta-confronto",
+  "telefono": {
+    "centro": 0.5,
+    "zoom": 1.2
+  },
+  "etichetta": "A sinistra il villaggio con le isbe e la madre sulla soglia; a destra la fabbrica con le ciminiere che fumano e il figlio fuori dal turno. In mezzo, sul campo, una lettera con una moneta passa dall'una all'altra.",
+  "elementi": [
+    {
+      "id": "campi",
+      "simbolo": "luogo-pianura",
+      "x": 800,
+      "y": 900,
+      "scala": 2.9
+    },
+    {
+      "id": "villaggio",
+      "simbolo": "luogo-isbe",
+      "x": 300,
+      "y": 615,
+      "scala": 0.65
+    },
+    {
+      "id": "fabbrica",
+      "simbolo": "luogo-fabbrica",
+      "x": 1230,
+      "y": 645,
+      "scala": 0.45
+    },
+    {
+      "id": "lettera",
+      "simbolo": "citta-lettera",
+      "x": 800,
+      "y": 890,
+      "scala": 1.4
+    }
+  ],
+  "figure": [
+    {
+      "id": "madre",
+      "x": 430,
+      "y": 840,
+      "scala": 1.0,
+      "variante": "scialle",
+      "posa": "in_piedi"
+    },
+    {
+      "id": "padre",
+      "x": 520,
+      "y": 850,
+      "scala": 1.0,
+      "variante": "bastone",
+      "posa": "in_piedi"
+    },
+    {
+      "id": "figlio",
+      "x": 1080,
+      "y": 850,
+      "scala": 1.0,
+      "variante": "nessuna",
+      "abito": "cappotto",
+      "cappello": null,
+      "posa": "in_piedi",
+      "flip": true,
+      "ruolo": "protagonista"
+    },
+    {
+      "id": "operaio",
+      "x": 1190,
+      "y": 850,
+      "scala": 1.0,
+      "variante": "nessuna",
+      "abito": "cappotto",
+      "cappello": null,
+      "posa": "in_piedi",
+      "flip": true
+    }
+  ],
+  "sequenze": [
+    {
+      "id": "ingresso",
+      "didascalia": "Il villaggio e la fabbrica nella stessa inquadratura.",
+      "passi": [
+        {
+          "azione": "walk",
+          "chi": "padre",
+          "da": "sinistra",
+          "distanza": 160,
+          "a": 0,
+          "durata": 3000
+        }
+      ],
+      "battute": [
+        {
+          "a": 300,
+          "testo": "Il villaggio."
+        },
+        {
+          "a": 3000,
+          "testo": "La fabbrica."
+        }
+      ]
+    }
+  ],
+  "ingresso": "ingresso"
+}

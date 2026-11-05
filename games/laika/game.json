@@ -80271,6 +80271,727 @@
       }
     },
     {
+      "id": "citta-confronto",
+      "label": "A sinistra il villaggio con le isbe e la madre sulla soglia; a destra la fabbrica con le ciminiere che fumano e il figlio fuori dal turno. In mezzo, sul campo, una lettera con una moneta passa dall'una all'altra.",
+      "viewBox": [
+        0,
+        0,
+        1600,
+        900
+      ],
+      "duration": 700,
+      "layers": [
+        {
+          "id": "sfondo",
+          "tag": "rect",
+          "attrs": {
+            "x": 0,
+            "y": 0,
+            "width": 1600,
+            "height": 900,
+            "fill": "none"
+          }
+        },
+        {
+          "id": "world",
+          "tag": "g",
+          "pose": {
+            "scale": 1,
+            "translateX": 0,
+            "translateY": 0
+          }
+        }
+      ],
+      "components": [
+        {
+          "id": "campi",
+          "symbol": "luogo-pianura",
+          "parent": "world",
+          "pose": {
+            "translateX": 800,
+            "translateY": 900,
+            "scale": 2.9
+          }
+        },
+        {
+          "id": "villaggio",
+          "symbol": "luogo-isbe",
+          "parent": "world",
+          "pose": {
+            "translateX": 300,
+            "translateY": 615,
+            "scale": 0.65
+          }
+        },
+        {
+          "id": "fabbrica",
+          "symbol": "luogo-fabbrica",
+          "parent": "world",
+          "pose": {
+            "translateX": 1230,
+            "translateY": 645,
+            "scale": 0.45
+          }
+        },
+        {
+          "id": "lettera",
+          "symbol": "citta-lettera",
+          "parent": "world",
+          "pose": {
+            "translateX": 800,
+            "translateY": 890,
+            "scale": 1.4
+          }
+        },
+        {
+          "id": "madre",
+          "symbol": "fig-donna-chignon-scialle",
+          "rigPose": "in_piedi",
+          "pose": {
+            "translateX": 430,
+            "translateY": 840
+          },
+          "parent": "world"
+        },
+        {
+          "id": "padre",
+          "symbol": "fig-uomo-berretto-cappotto",
+          "rigPose": "in_piedi",
+          "pose": {
+            "translateX": 520,
+            "translateY": 850
+          },
+          "parent": "world"
+        },
+        {
+          "id": "padre-bastone-mano",
+          "symbol": "presa-bastone-mano",
+          "parent": "padre-wrist-near"
+        },
+        {
+          "id": "figlio",
+          "symbol": "fig-uomo-nudo-cappotto",
+          "rigPose": "in_piedi",
+          "pose": {
+            "translateX": 1080,
+            "translateY": 850,
+            "scaleX": -1
+          },
+          "recolor": {
+            "ink": "red"
+          },
+          "parent": "world"
+        },
+        {
+          "id": "operaio",
+          "symbol": "fig-uomo-nudo-cappotto",
+          "rigPose": "in_piedi",
+          "pose": {
+            "translateX": 1190,
+            "translateY": 850,
+            "scaleX": -1
+          },
+          "parent": "world"
+        }
+      ],
+      "sequences": [
+        {
+          "id": "ingresso",
+          "caption": "Il villaggio e la fabbrica nella stessa inquadratura.",
+          "tracks": [],
+          "clips": [
+            {
+              "targets": [
+                "padre"
+              ],
+              "relative": true,
+              "ease": "linear",
+              "at": 0,
+              "duration": 3000,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateX": -160,
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateX": 0,
+                    "translateY": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "padre"
+              ],
+              "part": "arm-far",
+              "relative": true,
+              "ease": "linear",
+              "at": 0,
+              "duration": 1000,
+              "iterations": 3,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "rotate": 14
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "rotate": 24.25
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "rotate": 28
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "rotate": 24.25
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "rotate": 14
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "rotate": -14
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "rotate": -24.25
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "rotate": -28
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "rotate": -24.25
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "rotate": -14
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "padre"
+              ],
+              "part": "leg-far",
+              "relative": true,
+              "ease": "linear",
+              "at": 0,
+              "duration": 1000,
+              "iterations": 3,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "rotate": -13
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "rotate": -22.52
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "rotate": -26
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "rotate": -22.52
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "rotate": -13
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "rotate": 13
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "rotate": 22.52
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "rotate": 26
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "rotate": 22.52
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "rotate": 13
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "padre"
+              ],
+              "part": "leg-near",
+              "relative": true,
+              "ease": "linear",
+              "at": 0,
+              "duration": 1000,
+              "iterations": 3,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "rotate": 13
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "rotate": 22.52
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "rotate": 26
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "rotate": 22.52
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "rotate": 13
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "rotate": -13
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "rotate": -22.52
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "rotate": -26
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "rotate": -22.52
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "rotate": -13
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "padre"
+              ],
+              "part": "shin-far",
+              "relative": true,
+              "ease": "linear",
+              "at": 0,
+              "duration": 1000,
+              "iterations": 3,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "rotate": 11
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "rotate": 19.05
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "rotate": 22
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "rotate": 19.05
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "rotate": 11
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "padre"
+              ],
+              "part": "shin-near",
+              "relative": true,
+              "ease": "linear",
+              "at": 0,
+              "duration": 1000,
+              "iterations": 3,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "rotate": 11
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "rotate": 19.05
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "rotate": 22
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "rotate": 19.05
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "rotate": 11
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "rotate": 0
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "rotate": 0
+                  }
+                }
+              ]
+            },
+            {
+              "targets": [
+                "padre"
+              ],
+              "part": "root",
+              "relative": true,
+              "ease": "linear",
+              "at": 0,
+              "duration": 1000,
+              "iterations": 3,
+              "frames": [
+                {
+                  "offset": 0,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.0833,
+                  "values": {
+                    "translateY": 1.25
+                  }
+                },
+                {
+                  "offset": 0.1667,
+                  "values": {
+                    "translateY": 2.17
+                  }
+                },
+                {
+                  "offset": 0.25,
+                  "values": {
+                    "translateY": 2.5
+                  }
+                },
+                {
+                  "offset": 0.3333,
+                  "values": {
+                    "translateY": 2.17
+                  }
+                },
+                {
+                  "offset": 0.4167,
+                  "values": {
+                    "translateY": 1.25
+                  }
+                },
+                {
+                  "offset": 0.5,
+                  "values": {
+                    "translateY": 0
+                  }
+                },
+                {
+                  "offset": 0.5833,
+                  "values": {
+                    "translateY": 1.25
+                  }
+                },
+                {
+                  "offset": 0.6667,
+                  "values": {
+                    "translateY": 2.17
+                  }
+                },
+                {
+                  "offset": 0.75,
+                  "values": {
+                    "translateY": 2.5
+                  }
+                },
+                {
+                  "offset": 0.8333,
+                  "values": {
+                    "translateY": 2.17
+                  }
+                },
+                {
+                  "offset": 0.9167,
+                  "values": {
+                    "translateY": 1.25
+                  }
+                },
+                {
+                  "offset": 1,
+                  "values": {
+                    "translateY": 0
+                  }
+                }
+              ]
+            }
+          ],
+          "shots": [],
+          "beats": [
+            {
+              "at": 300,
+              "text": "Il villaggio."
+            },
+            {
+              "at": 3000,
+              "text": "La fabbrica."
+            }
+          ]
+        }
+      ],
+      "introSequence": "ingresso",
+      "mobile": {
+        "center": 0.5,
+        "zoom": 1.2
+      }
+    },
+    {
       "id": "citta-dormitorio",
       "label": "Il dormitorio di una fabbrica: file di cuccette, una lampada a petrolio. Il figlio è seduto sul bordo di una cuccetta.",
       "viewBox": [
@@ -97843,7 +98564,8 @@
             "a1-citta-corte",
             "a1-citta-volantini",
             "a1-citta-ricorda",
-            "a1-citta-v2"
+            "a1-citta-v2",
+            "a1-citta-confronto"
           ],
           "closing": {
             "did": "Hai fatto durare un salario di fabbrica per otto settimane e hai letto che cosa promettevano i partiti.",
@@ -100854,7 +101576,7 @@
           "id": "a1-citta-salario",
           "type": "turn_game",
           "title": "Il salario",
-          "text": "Sei il figlio e lavori in fabbrica a Pietroburgo. Ogni sabato arriva il salario: otto monete (un indice della simulazione).\n\nNon bastano per tutto: pane per le forze, un angolo di stanza in affitto, carbone per l'inverno e soldi da mandare al villaggio. C'è anche un corso serale per imparare a leggere i fogli. Giochi otto settimane e il debito si porta dietro da una all'altra.",
+          "text": "Sei il figlio e lavori in fabbrica a Pietroburgo. Ogni sabato arriva il salario: otto monete (un indice della simulazione).\n\nNon bastano per tutto: pane per le forze, un angolo di stanza in affitto, carbone per l'inverno e soldi da mandare al villaggio. C'è anche un corso serale per imparare a leggere i fogli. Giochi otto settimane e il debito si porta dietro da una all'altra. Le cose non restano ferme: l'affitto sale, il freddo si mette e una settimana la fabbrica si ferma.",
           "roleId": "figlio",
           "stageId": "citta-stanza",
           "motionId": "ingresso",
@@ -100905,7 +101627,7 @@
                 {
                   "kind": "resource",
                   "id": "forze",
-                  "delta": 5
+                  "delta": 6
                 }
               ]
             },
@@ -100956,6 +101678,11 @@
               "kind": "resource",
               "id": "forze",
               "delta": -24
+            },
+            {
+              "kind": "metric",
+              "id": "legami",
+              "delta": -8
             }
           ],
           "luck": [
@@ -101201,6 +101928,18 @@
                     ]
                   }
                 ]
+              },
+              "cards": [
+                {
+                  "kind": "simulation",
+                  "title": "L'affitto sale",
+                  "text": "La padrona di casa ha trovato chi paga di più per l'angolo: o dai tre monete a settimana o cerchi un altro posto. Il salario è sempre lo stesso."
+                }
+              ],
+              "rules": {
+                "min": {
+                  "stanza": 3
+                }
               }
             },
             {
@@ -101263,6 +102002,22 @@
                     ]
                   }
                 ]
+              },
+              "cards": [
+                {
+                  "kind": "simulation",
+                  "title": "Il freddo si mette",
+                  "text": "Gela anche dentro la stanza. La stufetta mangia carbone e chi ha freddo mangia di più: si consuma più forza ogni settimana."
+                }
+              ],
+              "rules": {
+                "upkeep": [
+                  {
+                    "kind": "resource",
+                    "id": "forze",
+                    "delta": -12
+                  }
+                ]
               }
             },
             {
@@ -101315,6 +102070,17 @@
                     }
                   }
                 ]
+              },
+              "cards": [
+                {
+                  "kind": "simulation",
+                  "title": "La fabbrica si ferma",
+                  "text": "Una caldaia è saltata e per un giorno non si lavora. Il salario di questa settimana è di sette monete: la stanza non aspetta.",
+                  "stageId": "citta-fabbrica"
+                }
+              ],
+              "rules": {
+                "tokensDelta": -1
               }
             },
             {
@@ -101358,6 +102124,16 @@
                     ]
                   }
                 ]
+              },
+              "cards": [
+                {
+                  "kind": "simulation",
+                  "title": "Si riparte",
+                  "text": "La caldaia è riparata e il salario torna intero. Il freddo no: dura ancora."
+                }
+              ],
+              "rules": {
+                "tokensDelta": 1
               }
             },
             {
@@ -101396,6 +102172,16 @@
                     ]
                   }
                 ]
+              },
+              "cards": [
+                {
+                  "kind": "simulation",
+                  "title": "Il freddo passa",
+                  "text": "Dopo tre settimane la stufetta si spegne con meno pena. Resta il conto di quello che si è dato e di quello che non si è dato."
+                }
+              ],
+              "rules": {
+                "upkeep": []
               }
             },
             {
@@ -101658,6 +102444,26 @@
               "a1-volantini"
             ]
           }
+        },
+        {
+          "id": "a1-citta-confronto",
+          "type": "narrative",
+          "title": "Il villaggio e la fabbrica",
+          "text": "Quattro cose ha lasciato questo mezzo secolo.\n\nLa servitù ha lasciato un modo di contare le persone: una famiglia valeva per le «anime» che aveva. Il Manifesto del 19 febbraio 1861 la abolì ma la terra non passò gratis ai contadini: andava riscattata.\n\nIl mir ha lasciato un obbligo comune: il villaggio rispondeva insieme dei pagamenti e ridivideva le strisce. Era una comunità con regole proprie e non un soviet né una democrazia moderna.\n\nLa fabbrica ha lasciato un salario e un affitto. In città nessuno poteva venderti ma ogni sabato bisognava scegliere fra pane, stanza, carbone e soldi a casa.\n\nNel diario della famiglia ci sono due case. Al villaggio qualcuno è rimasto con il mir e il raccolto; in città qualcuno è partito con il salario. Le due case si parlano con una lettera e una moneta: chi parte non smette di appartenere al villaggio e chi resta dipende da quello che arriva dalla città.\n\nChe cosa lega ancora il villaggio alla fabbrica?",
+          "roleId": "figlio",
+          "stageId": "citta-confronto",
+          "motionId": "ingresso",
+          "visualExplanation": "A sinistra il villaggio con le isbe e la famiglia; a destra la fabbrica con il figlio. In mezzo una lettera con una moneta. Gli indicatori sotto la scena sono indici della simulazione: non sono dati storici né voti.",
+          "context": {
+            "kind": "documented",
+            "dateLabel": "1861–1904"
+          },
+          "display": "cards",
+          "shows": [
+            "forze",
+            "legami",
+            "speranza"
+          ]
         }
       ]
     },
