@@ -4,7 +4,7 @@
 
 Come si lavora in autonomia, controlli e condizioni di arresto: [METODO](METODO.md) §7. Il prossimo incarico e il messaggio da dare all'agente: `npm run prossimo`.
 
-Incarichi fatti: 11 su 22. Prossimo: C-I.
+Incarichi fatti: 11 su 22. Prossimo: U-soviet.
 
 | # | Incarico | Tipo | Modello | Dopo | Stato |
 |---:|---|---|---|---|---|
@@ -20,7 +20,7 @@ Incarichi fatti: 11 su 22. Prossimo: C-I.
 | 10 | **U-citta** I.3 In città: un salario che mette alle strette e il confronto di fine atto | unità | Sonnet | S1, K4 | fatto (PR #56) |
 | 11 | **K7** Motore: il giudizio dell'anno sa quando una risorsa è arrivata al minimo | motore | Opus | S1 | fatto (PR #58) |
 | 12 | **U-servitu** I.1 La terra e lo zar: rifiniture | unità | Sonnet | S1, K4, K7 | fatto (PR #57) |
-| 13 | **C-I** Il docente prova l'Atto I dal telefono | controllo | — | U-mir, U-citta, U-servitu | da fare |
+| 13 | **C-I** Il docente prova l'Atto I dal telefono | controllo | — | U-mir, U-citta, U-servitu | aspetta il docente |
 | 14 | **U-soviet** II.2 Il soviet: notizie che contano | unità | Opus | S1 | da fare |
 | 15 | **U-petizione** II.1 La petizione: il gioco e la domenica di sangue | unità | Opus | S1, K4 | da fare |
 | 16 | **U-concessioni** II.3 Che cosa concede lo zar: il gioco e gli aneddoti | unità | Opus | S1, K4, U-soviet | da fare |
