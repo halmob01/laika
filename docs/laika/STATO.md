@@ -18,7 +18,7 @@ Aggiornato al 5 novembre 2026.
 
 **K1 fatto** (motore della coda con la pazienza; revisione indipendente al primo giro: passa): modulo `src/core/queue.js` e test, pannello «La coda» nel gioco, tre pose di attesa (`guarda_orologio`, `batte_piedi`, `si_stringe`), scena di prova `esempio-coda-pazienza` nella galleria, sezione in `docs/CREARE-UN-GIOCO.md`. Evidenze in `docs/evidence/K1/`.
 
-**H-testi in piano** (5 novembre 2026): il docente ha consegnato i testi della home (`docs/laika/TESTI-HOME.md`); l'incarico H-testi è nel piano subito dopo U-concessioni.
+**H-testi fatto** (5 novembre 2026): i testi della home del docente (`docs/laika/TESTI-HOME.md`) sono in `index.html`: il manifesto, gli Atti VI, VII e IX, l'Atto II aggiornato alla verità; tolti «Edizione didattica», «Sezione storica» e «I progressi restano in questo browser». Evidenze in `docs/evidence/H-testi/`.
 
 **U-concessioni fatto** (II.3 Che cosa concede lo zar, 5 novembre 2026): da confronto di tre schede a gioco a punti azione in tre stagioni (carta contro poteri veri, piazza, reazione dello zar; cinque azioni, la Duma con probabilità scritta); la scelta del soviet (`tratta_prefetto`) apre «Il ministro» o «Lo sciopero»; le tre schede restano come giudizio finale («Diritto o tregua?»); «Cosa ti devi ricordare» e verifica V9; un aneddoto registrato (Baletta, C36); il granduca Nikolaj non si usa perché non riscontrato. Test di bilanciamento sul motore vero. Evidenze in `docs/evidence/U-concessioni/`.
 

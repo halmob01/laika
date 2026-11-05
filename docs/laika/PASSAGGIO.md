@@ -6,7 +6,7 @@ Per un nuovo agente che continua il piano. Si legge dopo [AGENTS.md](../../AGENT
 
 - **In `main`:** S1, K1, K2, K4, K6, K7, U-otto-giorni, U-pane-guerra, U-mir, U-citta, U-servitu, U-soviet; C-I e C-III preparate (la pagina per il docente c'è, la prova la fa il docente: «aspetta il docente», non blocca il piano).
 - **U-petizione (II.1), PR #61:** unita il 5 novembre 2026 con l'ok del docente.
-- **U-concessioni (II.3), PR #62, branch `u-concessioni`:** gioco e documenti finiti e pushati; il piano la segna «fatto (PR #62)» ma **la PR non è unita**: servono l'ok del docente (due «non passa» di fila) e la CI verde su Chromium e WebKit sull'ultimo commit. Se all'inizio la PR è già unita, `npm run prossimo` dice H-testi; se non lo è, controlla la revisione e la CI della PR #62 e unisci con `expectedHeadSha`.
+- **U-concessioni (II.3), PR #62:** unita. **H-testi (la home), PR #63:** vedi sotto; se la PR è già unita `npm run prossimo` dice U-stolypin.
 - **Da fare, nell'ordine del piano:** U-concessioni (II.3), U-stolypin (II.4), C-II (prova del docente: solo pagina, come C-I), K3 (ponte fra gli atti e famiglia), U-sito, V-1917, C-1917. `npm run prossimo` stampa il messaggio giusto.
 - **Dal docente in attesa:** prove C-I, C-III (e poi C-II, C-1917); conferma del gioco di II.1 (nel canone `stato_gioco` è «da confermare»: l'ha scelto l'agente); chiarimento sui disegni sospesi (corretti: vedi sotto).
 
@@ -57,7 +57,7 @@ Per un nuovo agente che continua il piano. Si legge dopo [AGENTS.md](../../AGENT
 
 ## 7. Prossimi passi, in ordine
 
-1. **U-concessioni (II.3), PR #62:** gioco e documenti fatti e corretti dopo due revisioni «non passa» (un'etichetta della Duma chiusa senza spiegazione; un fatto sbagliato: la seconda Duma durò più della prima, già presente nella vecchia scheda). Per METODO §7 serve l'ok del docente a unire senza un terzo giro completo; poi CI verde sull'ultima head e unione. Il granduca Nikolaj non si usa (non riscontrato).
-2. **H-testi (inserito il 5 novembre 2026 su richiesta del docente):** portare in `index.html` i testi di [TESTI-HOME](TESTI-HOME.md) (manifesto, Atti VI, VII e IX; la frase dell'Atto II va aggiornata alla verità); tre voci non riportate dal file restano invariate finché il docente non conferma.
+1. **U-concessioni (II.3), PR #62:** unita il 5 novembre 2026 (dopo due «non passa» corretti e l'ok del docente).
+2. **H-testi, PR #63:** testi della home del docente in `index.html`; se non è ancora unita controlla la CI e unisci.
 3. U-stolypin (II.4): gioco e confronto di fine atto; gli effetti dei flag di Stolypin a valle.
 4. C-II (pagina per il docente come C-I), K3, U-sito, V-1917, C-1917.
