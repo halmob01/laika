@@ -74,6 +74,9 @@ test('Stolypin: le tre strade aprono azioni diverse e portano a esiti diversi', 
   s = dopo('resta'); assert.ok(!aperta(s, off('esce')) && !aperta(s, off('vende')) && aperta(s, off('assemblea')));
   s = dopo('esce'); assert.ok(!aperta(s, off('resta')) && aperta(s, off('recinto')) && aperta(s, off('mietitura')) && !aperta(s, off('assemblea')));
   s = dopo('vende'); assert.ok(!aperta(s, off('resta')) && aperta(s, off('lavoro')) && !aperta(s, off('strisce')) && !aperta(s, off('riunione')));
+  // Nell'anno della scelta chi esce perde davvero aiuto (non solo nelle azioni dopo).
+  assert.ok(off('esce').effects.find(x => x.id === 'aiuto').delta <= -10, 'uscire costa aiuto subito');
+  assert.ok(off('vende').effects.find(x => x.id === 'aiuto').delta <= -10, 'partire costa aiuto subito');
   // Esiti: chi esce e lavora il podere ha più pane di chi resta ma meno aiuto; chi parte ha meno debiti.
   const a = di('resta', 'resta', 'resta', 'resta'), b = di('podere', 'podere', 'podere', 'podere'), c = di('parte', 'parte', 'parte', 'parte');
   assert.ok(b.pane > a.pane, 'il podere dà più pane: ' + b.pane + ' contro ' + a.pane);

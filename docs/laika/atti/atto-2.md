@@ -69,7 +69,7 @@ Divisione in quattro unità decisa il 4 novembre 2026 (D-024, D-038). Le schede 
 **II.4-e2 · assessment [V] · Verifica V4.**
 
 **II.4-e3 · narrative [D] · Confronto di fine atto** (costruito il 5 novembre 2026)
-- **Scena.** Che cosa chiedeva la petizione, che cosa ha ottenuto lo sciopero, che cosa è rimasto dopo le Dume sciolte e la «cravatta di Stolypin»: quattro segni in fila (l'icona del corteo, la bandiera, il Palazzo di Tauride e il podere). Il diario della famiglia aspetta K3.
+- **Scena.** La petizione portata in supplica e finita sotto i fucili, lo sciopero e il Manifesto, la Duma senza pieni poteri e le Dume sciolte, la «cravatta di Stolypin»: quattro segni in fila (l'icona del corteo, la bandiera, il Palazzo di Tauride e il podere). Il diario della famiglia aspetta K3.
 - **Chi la sviluppa.** Opus (raccordo d'atto).
 
 **Confronto obbligatorio.** Nessuna scelta riguarda lo sparare. Il soviet del 1905 è un contropotere, non un governo. La Duma non nasce a suffragio universale né con pieni poteri. Stolypin consente di uscire dal mir, non lo abolisce.

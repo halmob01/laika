@@ -87029,7 +87029,7 @@
           "parent": "world",
           "pose": {
             "translateX": 1000,
-            "translateY": 650,
+            "translateY": 720,
             "scale": 0.5
           }
         },
@@ -103081,7 +103081,7 @@
           ],
           "question": "Che cosa cambia e che cosa resta dopo il 1905?",
           "summary": "Novembre 1906: un decreto permette ai contadini di uscire dal mir e di unire le strisce in un podere. Intanto i tribunali militari mandano alla forca i rivoltosi.",
-          "game": "Quattro anni dopo il decreto di Stolypin: quattro punti all'anno per restare nel mir o uscire e unire le strisce o vendere e partire. Ogni strada apre azioni sue e pesa sugli anni dopo.",
+          "game": "Dal decreto di Stolypin al 1911: quattro punti all'anno per restare nel mir o uscire e unire le strisce o vendere e partire. Ogni strada apre azioni sue e pesa sugli anni dopo.",
           "concepts": [
             "Stolypin",
             "podere",
@@ -105826,7 +105826,7 @@
           "id": "a2-stolypin-gioco",
           "type": "turn_game",
           "title": "Il podere e il mir",
-          "text": "Nel novembre 1906 un decreto permette ai contadini di uscire dal mir e di unire le strisce in un podere. Intanto i tribunali militari mandano alla forca i rivoltosi: la corda si chiama «la cravatta di Stolypin».\n\nSei il capofamiglia. In quattro anni (1906, 1907, 1909 e 1911) hai quattro punti a testa: puoi restare nel mir, uscire e unire le strisce oppure vendere e partire. Ogni strada apre azioni sue e ne chiude altre; quello che scegli il primo anno pesa anche sugli anni dopo.",
+          "text": "Nel novembre 1906 un decreto permette ai contadini di uscire dal mir e di unire le strisce in un podere. Intanto i tribunali militari mandano alla forca i rivoltosi: la corda si chiama «la cravatta di Stolypin».\n\nSei il capofamiglia. In quattro anni (1906, 1907, 1909 e 1911) hai quattro punti all'anno: puoi restare nel mir, uscire e unire le strisce oppure vendere e partire. Ogni strada apre azioni sue e ne chiude altre; quello che scegli il primo anno pesa anche sugli anni dopo. Ogni anno ha il suo costo fisso: l'inverno mangia il pane e gli interessi fanno salire i debiti.",
           "roleId": "capofamiglia",
           "stageId": "stolypin-strisce",
           "motionId": "ingresso",
@@ -107979,7 +107979,7 @@
           "id": "a2-stolypin-confronto",
           "type": "narrative",
           "title": "Che cosa è cambiato dopo il 1905",
-          "text": "Nel gennaio 1905 una petizione portata allo zar in ginocchio finisce sotto i fucili. Nell'ottobre dello stesso anno uno sciopero generale ferma il paese e lo zar firma il Manifesto: promette libertà civili e una Duma eletta.\n\nPoi le Leggi fondamentali chiamano ancora autocratico il suo potere e le prime due Dume vengono sciolte. Nel novembre 1906 Stolypin apre ai contadini l'uscita dal mir e intanto i tribunali militari mandano alla forca i rivoltosi.\n\nIn un anno la Russia è passata dalla petizione in ginocchio allo sciopero generale e poi a una Duma senza pieni poteri e a un potere ancora largo: molto meno di quanto prometteva il Manifesto sulla carta. Le stesse piazze e le stesse parole torneranno nel 1917 con un esito opposto.",
+          "text": "Nel gennaio 1905 una petizione portata allo zar da un corteo in supplica finisce sotto i fucili. Nell'ottobre dello stesso anno uno sciopero generale ferma il paese e lo zar firma il Manifesto: promette libertà civili e una Duma eletta.\n\nPoi le Leggi fondamentali chiamano ancora autocratico il suo potere e le prime due Dume vengono sciolte. Nel novembre 1906 Stolypin apre ai contadini l'uscita dal mir e intanto i tribunali militari mandano alla forca i rivoltosi.\n\nIn pochi anni la Russia è passata dalla petizione in supplica allo sciopero generale e poi a una Duma senza pieni poteri e a un potere ancora largo: molto meno di quanto prometteva il Manifesto sulla carta. Le stesse piazze e le stesse parole torneranno nel 1917 con un esito opposto.",
           "roleId": "figlio",
           "stageId": "stolypin-confronto",
           "motionId": "ingresso",

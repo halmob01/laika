@@ -10,7 +10,7 @@
     { "id": "terra", "simbolo": "suolo", "x": 800, "y": 900, "scala": 3.4 },
     { "id": "petizione", "simbolo": "icona-processione", "x": 250, "y": 800, "scala": 1.3 },
     { "id": "sciopero", "simbolo": "oggetto-bandiera", "x": 620, "y": 800, "scala": 1.5 },
-    { "id": "duma", "simbolo": "luogo-palazzo-tauride", "x": 1000, "y": 650, "scala": 0.5 },
+    { "id": "duma", "simbolo": "luogo-palazzo-tauride", "x": 1000, "y": 720, "scala": 0.5 },
     { "id": "podere", "simbolo": "podere-chutor", "x": 1380, "y": 780, "scala": 1.0 }
   ],
   "figure": [
