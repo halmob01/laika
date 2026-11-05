@@ -207,3 +207,14 @@ Fonti usate: atlante degli aneddoti (`references/fonti/atlanti/`) e appunti «La
 | Scheda dell'atto / ginocchio | 2 agosto 1914 (20 luglio): lo zar annuncia la guerra dal Palazzo d'Inverno e la folla si inginocchia; Tannenberg; Nicola al comando supremo | `docs/laika/atti/atto-3.md` (III.1-e1) | Dalla scheda |
 
 Simulazione, non fatto: capacità di campi, ammassi e treni, raccolto per stagione, consumo della città, durata della fila e ogni numero degli indicatori.
+
+## I.2 «Il mir» — riscontri del 4 novembre 2026 (U-mir)
+
+| ID / episodio | Dettaglio nel testo | Fonte | Esito |
+|---|---|---|---|
+| I1-09, I1-10 / carta documentata, ricorda | Dopo il 1861 la terra si riscatta e il villaggio risponde insieme dei pagamenti | Riscontri della sezione I.1 (EBSCO Research Starters, «Emancipation of the Russian Serfs») | Confermato |
+| I2-02 / assemblea, ricorda | In molti villaggi l'assemblea rifà ogni tanto la divisione delle strisce; ragioni opposte di una famiglia numerosa e di chi ha curato il suo lotto | Conoscenza generale; gli appunti citano il mir solo per la riforma Stolypin | Da riscontrare con uno studio sul mir |
+| Soviet del 1905 / verifica V7 | Il soviet è un consiglio di delegati nato nel 1905 | Appunti (soviet), scheda II.2 | Confermato sugli appunti |
+| Aneddoti sul mir | Cercati nell'atlante e negli appunti | Nessuna voce | **Nessun aneddoto trovato**: non compare (METODO §7) |
+
+Simulazione, non fatto: le richieste, le persone, le strisce da assegnare, il raccolto e ogni numero degli indicatori.

@@ -60,6 +60,7 @@ Ruoli: gli antenati della famiglia; un osservatore della corte. Fili: la terra e
 Unità di un solo episodio giocato: il villaggio dopo il riscatto. Gioco di decisioni sui gruppi ([GIOCHI](../GIOCHI.md) §3.2; scheda [mir](../giochi/mir.md)): il mir. Ruoli: la famiglia nel mir; le altre famiglie dell'assemblea. Fili: la terra; chi rappresenta chi.
 
 **I.2-e1 · turn_game [S] · Il mir** (ex «L'assemblea del mir» A0.3; gioco di decisioni sui gruppi, vedi il canone)
+- **Aggiornamento strutturale (4 novembre 2026):** la partita è ora una gestione: sei strisce da assegnare a quattro gruppi a ogni assemblea, la cassa del riscatto come obbligo comune, l'esattore e il raccolto come rischi, le richieste dopo l'esito (scheda [mir](../giochi/mir.md)). Si aggiungono «Cosa ti devi ricordare» e la verifica V7.
 - **Scena.** Si decide la ridistribuzione delle strisce. La famiglia numerosa e l'anziano che ha migliorato il proprio lotto vedono cose diverse.
 - **Sotto la scena.** Che cos'è giusto: dare a ciascuno lo stesso o a ciascuno secondo il bisogno?
 - **Chi la sviluppa.** Sonnet.
